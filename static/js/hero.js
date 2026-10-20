@@ -313,6 +313,7 @@
     return Math.hypot(sx, sy) / n;
   }
 
+  var scratch = { rot: new Float32Array(4 * N_ECO), clu: new Float32Array(4 * N_ECO) };
   function draw() {
     var p = progress, L = lock(p);
     gl.viewport(0, 0, canvas.width, canvas.height);
@@ -330,7 +331,7 @@
     gl.uniform1f(U.uLock, L);
     gl.uniform2f(U.uCommon, Math.cos(theta), Math.sin(theta));
     gl.uniform4f(U.uBrainRot, Math.cos(rot), Math.sin(rot), Math.cos(0.30), Math.sin(0.30));
-    var gr = new Float32Array(4 * N_ECO);
+    var gr = scratch.rot;
     for (var k = 0; k < N_ECO; k++) {
       var a = rot * 1.7 + k * 1.3;
       gr[4 * k] = Math.cos(a); gr[4 * k + 1] = Math.sin(a); gr[4 * k + 2] = Math.cos(0.36); gr[4 * k + 3] = Math.sin(0.36);
@@ -338,7 +339,7 @@
     gl.uniform4fv(U.uGasRot, gr);
     gl.uniform4f(U.uGasC, gasC[0], gasC[1], gasC[2], 0);
     gl.uniform4f(U.uBrainC, brainC[0], brainC[1], brainC[2], 0);
-    var cl = new Float32Array(4 * N_ECO);
+    var cl = scratch.clu;
     clusters.forEach(function (c, k) { cl[4 * k] = c[0]; cl[4 * k + 1] = c[1]; cl[4 * k + 2] = c[2]; });
     gl.uniform4fv(U.uClu, cl);
     gl.uniform3fv(U.uCol, pal.cols);
