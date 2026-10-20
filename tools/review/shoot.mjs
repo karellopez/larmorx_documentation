@@ -4,6 +4,11 @@
 //   node tools/review/shoot.mjs --url http://localhost:8765/ --out shots \
 //        --sizes 1440x900,390x844 --themes light,dark --at hero:0,0.5,1 --at y:1600
 //
+// `--eval <js>` runs an expression after each page has loaded (before the
+// photographs) and prints its value; `--review 0` leaves `review=1` out of
+// the URL, so the hero runs as for a reader (adaptive, eased); `--nojs 1`
+// turns JavaScript off.
+//
 // Positions: `hero:f` scrolls to the fraction f of the hero's travel (the
 // page's [data-hero] section), `y:px` to a pixel offset, `bottom` to the end.
 // Needs Node 22 (its built-in WebSocket) and Google Chrome. WebGL2 runs on
@@ -16,7 +21,7 @@ import { join } from 'node:path';
 
 const args = process.argv.slice(2);
 const opt = { url: 'http://localhost:8765/', out: 'shots', sizes: '1440x900,390x844', themes: 'light,dark',
-  at: [], wait: 2500, chrome: '/usr/bin/google-chrome', name: 'home', query: '' };
+  at: [], wait: 2500, chrome: '/usr/bin/google-chrome', name: 'home', query: '', eval: '', review: '1', nojs: '0' };
 for (let i = 0; i < args.length; i += 2) {
   const k = args[i].replace(/^--/, ''), v = args[i + 1];
   if (k === 'at') opt.at.push(v); else opt[k] = v;
@@ -60,6 +65,7 @@ const { sessionId } = await send('Target.attachToTarget', { targetId, flatten: t
 const s = (m, p) => send(m, p, sessionId);
 await s('Page.enable');
 await s('Runtime.enable');
+if (opt.nojs === '1') await s('Emulation.setScriptExecutionDisabled', { value: true });
 mkdirSync(opt.out, { recursive: true });
 
 for (const size of opt.sizes.split(',')) {
@@ -70,8 +76,13 @@ for (const size of opt.sizes.split(',')) {
   for (const theme of opt.themes.split(',')) {
     await s('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-color-scheme', value: theme }] });
     const sep = opt.url.includes('?') ? '&' : '?';
-    await s('Page.navigate', { url: `${opt.url}${sep}review=1${opt.query ? '&' + opt.query : ''}` });
+    const q = [opt.review === '1' ? 'review=1' : '', opt.query].filter(Boolean).join('&');
+    await s('Page.navigate', { url: q ? `${opt.url}${sep}${q}` : opt.url });
     await sleep(opt.wait * 1);
+    if (opt.eval) {
+      const r = await s('Runtime.evaluate', { expression: opt.eval, awaitPromise: true, returnByValue: true });
+      console.log(`eval ${w}x${h} ${theme}:`, JSON.stringify(r.result.value ?? r.exceptionDetails?.text));
+    }
     for (const p of positions) {
       const expr = p.kind === 'hero'
         ? `(() => { const h = document.querySelector('[data-hero]'); const st = h.firstElementChild;

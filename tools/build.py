@@ -402,7 +402,7 @@ def preview(site: dict) -> Path:
     page = page.replace('href="static/brand/favicon.svg"',
                         f'href="{data_uri("static/brand/favicon.svg", "image/svg+xml")}"')
     page = re.sub(r'<link rel="apple-touch-icon"[^>]*>\n?', "", page)
-    page = page.replace('href="./"', 'href="#top"')
+    page = page.replace('href="./"', 'href="#top"').replace('href="./#', 'href="#')
     # Every other link into this site goes to the published site.
     page = re.sub(r'(href|src)="(?!https?:|data:|#|mailto:)([^"]+)"',
                   lambda m: f'{m.group(1)}="{site["base_url"]}{m.group(2)}"', page)

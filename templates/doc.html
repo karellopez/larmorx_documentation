@@ -12,9 +12,9 @@
   </nav>
   <main id="main" class="doc-main" tabindex="-1">
     <header class="doc-header">
-      {% if page.meta.kicker %}<p class="kicker">{{ page.meta.kicker }}</p>{% endif %}
+      {% if page.meta.get('kicker') %}<p class="kicker">{{ page.meta.kicker }}</p>{% endif %}
       <h1>{{ page.title | md_inline }}</h1>
-      {% if page.meta.lede %}<p class="lede">{{ page.meta.lede | md_inline }}</p>{% endif %}
+      {% if page.meta.get('lede') %}<p class="lede">{{ page.meta.lede | md_inline }}</p>{% endif %}
     </header>
     <div class="prose">
 {{ page.html }}

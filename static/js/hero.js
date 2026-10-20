@@ -108,22 +108,22 @@
     'precision highp float;',
     'in vec3 aBrain; in float aEco; in float aVal; in vec3 aGas; in vec4 aSpin;',
     'uniform vec2 uRes; uniform float uDpr; uniform float uSize; uniform float uP;',
-    'uniform float uTheta; uniform float uD; uniform float uLock; uniform float uRot;',
+    'uniform float uTheta; uniform vec2 uCommon; uniform float uD; uniform float uLock;',
+    'uniform vec4 uBrainRot; uniform vec4 uGasRot[5];',
     'uniform vec4 uGasC; uniform vec4 uBrainC; uniform vec4 uClu[5]; uniform vec3 uCol[5];',
     'out vec4 vCol;',
-    'vec3 view(vec3 p, float a, float e) {',
-    '  float ca = cos(a), sa = sin(a);',
-    '  vec3 q = vec3(p.x * ca + p.z * sa, p.y, -p.x * sa + p.z * ca);',
-    '  float ce = cos(e), se = sin(e);',
-    '  return vec3(q.x, q.y * ce - q.z * se, q.y * se + q.z * ce);',
+    // turn about the vertical axis, then tilt towards the viewer; r = (cos, sin) of each
+    'vec3 view(vec3 p, vec4 r) {',
+    '  vec3 q = vec3(p.x * r.x + p.z * r.y, p.y, -p.x * r.y + p.z * r.x);',
+    '  return vec3(q.x, q.y * r.z - q.z * r.w, q.y * r.w + q.z * r.z);',
     '}',
     'void main() {',
     '  int k = int(aEco + 0.5);',
     // the spin's transverse direction: its own phase, blended into the common one
     '  float th = aSpin.x + uTheta + aSpin.y * uD;',
-    '  vec2 u = mix(vec2(cos(th), sin(th)), vec2(cos(uTheta), sin(uTheta)), uLock);',
+    '  vec2 u = mix(vec2(cos(th), sin(th)), uCommon, uLock);',
     '  float m = length(u);',
-    '  u = m > 1e-3 ? u / m : vec2(cos(uTheta), sin(uTheta));',
+    '  u = m > 1e-3 ? u / m : uCommon;',
     // its journey from the ensemble into the brain, each spin setting off in turn
     '  float st = 0.06 + aSpin.z * 0.26;',
     '  float q = smoothstep(st, st + 0.40, uP);',
@@ -132,9 +132,9 @@
     '  vec3 tipG = vec3(u.x, 0.0, u.y) * 0.10;',
     '  vec3 tipB = vec3(u.x, 0.0, u.y) * 0.009;',
     '  vec4 C = uClu[k];',
-    '  vec3 g = view(aGas + tipG, uRot * 1.7 + float(k) * 1.3, 0.36);',
+    '  vec3 g = view(aGas + tipG, uGasRot[k]);',
     '  vec2 gasXY = C.xy + vec2(g.x, -g.y) * (1.0 / (1.0 - g.z * 0.22)) * C.z;',
-    '  vec3 b = view(aBrain + tipB, uRot, 0.30);',
+    '  vec3 b = view(aBrain + tipB, uBrainRot);',
     '  vec2 brainXY = uBrainC.xy + vec2(b.x, -b.y) * (1.0 / (1.0 - b.z * 0.18)) * uBrainC.z;',
     // the way in: a swirl about the axis of the cloud
     '  vec2 c = mix(uGasC.xy, uBrainC.xy, e);',
@@ -180,7 +180,7 @@
     if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
   } catch (e) { stats.mode = 'shader-error'; stats.error = String(e); return; }
   var U = {};
-  ['uRes', 'uDpr', 'uSize', 'uP', 'uTheta', 'uD', 'uLock', 'uRot', 'uGasC', 'uBrainC', 'uClu', 'uCol'].forEach(function (n) {
+  ['uRes', 'uDpr', 'uSize', 'uP', 'uTheta', 'uCommon', 'uD', 'uLock', 'uBrainRot', 'uGasRot', 'uGasC', 'uBrainC', 'uClu', 'uCol'].forEach(function (n) {
     U[n] = gl.getUniformLocation(prog, n);
   });
 
@@ -253,9 +253,10 @@
       x0 = copy.offsetLeft + copy.offsetWidth + 56; x1 = W - Math.max(36, (W - 1320) / 2 + 36);
       y0 = 34; y1 = H - 64; e0 = y0;
     }
-    var cx = (x0 + x1) / 2, s = Math.min((x1 - x0) * 0.47, (y1 - y0) * 0.6);
+    // s: the scale of the ensembles' layout, so that the rings fit; s1: the brain's
+    var cx = (x0 + x1) / 2, s = Math.min((x1 - x0) / (narrow ? 2.05 : 2.5), (y1 - y0) * 0.6, 330);
     gasC = [cx, (y0 + y1) / 2, s];
-    var s1 = Math.min((x1 - x0) * 0.47, (y1 - e0) * 0.6);
+    var s1 = Math.min((x1 - x0) * 0.47, (y1 - e0) * 0.6, 330);
     brainC = [cx, (e0 + y1) / 2, s1];
     // the five ensembles on an ellipse around the cloud's axis
     var rx = s * (narrow ? 0.78 : 1.0), ry = s * (narrow ? 0.58 : 0.70), blob = s * (narrow ? 0.26 : 0.30);
@@ -322,12 +323,19 @@
     gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     gl.uniform2f(U.uRes, W, H);
     gl.uniform1f(U.uDpr, dpr);
-    gl.uniform1f(U.uSize, narrow ? 1.9 : 2.3);
+    gl.uniform1f(U.uSize, (narrow ? 1.9 : 2.3) * Math.min(1.2, Math.sqrt(Math.max(1, brainC[2] / 260))));
     gl.uniform1f(U.uP, p);
     gl.uniform1f(U.uTheta, theta);
     gl.uniform1f(U.uD, D);
     gl.uniform1f(U.uLock, L);
-    gl.uniform1f(U.uRot, rot);
+    gl.uniform2f(U.uCommon, Math.cos(theta), Math.sin(theta));
+    gl.uniform4f(U.uBrainRot, Math.cos(rot), Math.sin(rot), Math.cos(0.30), Math.sin(0.30));
+    var gr = new Float32Array(4 * N_ECO);
+    for (var k = 0; k < N_ECO; k++) {
+      var a = rot * 1.7 + k * 1.3;
+      gr[4 * k] = Math.cos(a); gr[4 * k + 1] = Math.sin(a); gr[4 * k + 2] = Math.cos(0.36); gr[4 * k + 3] = Math.sin(0.36);
+    }
+    gl.uniform4fv(U.uGasRot, gr);
     gl.uniform4f(U.uGasC, gasC[0], gasC[1], gasC[2], 0);
     gl.uniform4f(U.uBrainC, brainC[0], brainC[1], brainC[2], 0);
     var cl = new Float32Array(4 * N_ECO);
