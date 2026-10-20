@@ -24,7 +24,7 @@ implemented:
     tool: ITK transform files (`.mat`, `.txt`, `.h5`)
     use: ["lx.transforms"]
     how: port (ITK, HDF5)
-    validation: "[144 cases](repo:docs/validation/itk-hdf5.md), 0 failures; HDF5 read and written in pure Rust"
+    validation: "[149 cases](repo:docs/validation/itk-hdf5.md), 0 failures; HDF5 read and written in pure Rust"
   - eco: ants
     tool: N4BiasFieldCorrection
     use: ["larmorx ants N4BiasFieldCorrection", "lx.ants.n4_bias_field_correction"]
@@ -46,10 +46,10 @@ implemented:
     how: port
     validation: "bit-identical in every compared case ([threshold](repo:docs/validation/ants-threshold-image.md), [multiply](repo:docs/validation/ants-multiply-images.md), [smooth](repo:docs/validation/ants-smooth-image.md), [resample](repo:docs/validation/ants-resample-image.md), [by spacing](repo:docs/validation/ants-resample-image-by-spacing.md))"
   - eco: ants
-    tool: antsRegistration (linear stages, image and point-set metrics)
+    tool: antsRegistration (linear and SyN stages, image and point-set metrics)
     use: ["larmorx ants antsRegistration", "lx.ants.registration"]
     how: port
-    validation: "[224 cases](repo:docs/validation/ants-registration.md): 145 of 169 compared identical to ANTs (outputs and messages), 24 more with correctly rounded maths; deformable stages planned"
+    validation: "[298 cases](repo:docs/validation/ants-registration.md): 193 of 225 compared identical to ANTs (outputs and messages), 32 more with correctly rounded maths; the other deformable stages planned"
   - eco: ants
     tool: antsAI, antsAffineInitializer
     use: ["larmorx ants antsAI", "larmorx ants antsAffineInitializer"]
@@ -74,7 +74,7 @@ implemented:
 planned:
   - eco: [ants]
     title: ANTs
-    text: antsRegistration's deformable stages (SyN and the others), then Atropos.
+    text: antsRegistration's remaining deformable stages (BSplineSyN, displacement-field, velocity-field and exponential transforms), then Atropos.
   - eco: [afni]
     title: AFNI
     text: 3dUnifize and 3dAutomask (fMRIPrep's BOLD reference), then 3dQwarp, 3dSkullStrip, 3dcalc and an analysis track (3dTproject, 3dDespike, 3dReHo, 3dRSFC, 3dDeconvolve/3dREMLfit, 3dFWHMx/3dClustSim, ...).
