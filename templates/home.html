@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block body_class %}page-home{% endblock %}
+{% block head %}
+<link rel="preload" href="{{ link('/static/hero/hero.bin') }}" as="fetch" type="application/octet-stream" crossorigin>
+<link rel="preload" href="{{ link('/static/fonts/JetBrainsMono-Regular.woff2') }}" as="font" type="font/woff2" crossorigin>
+{% endblock %}
+{% block main %}
+<main id="main" class="home" tabindex="-1">
+  <section class="hero" aria-labelledby="hero-title" data-hero data-src="{{ link('/static/hero/hero.bin') }}">
+    <div class="hero-stage">
+      <canvas class="hero-canvas" aria-hidden="true"></canvas>
+      <img class="hero-still hero-still--light" src="{{ link('/static/hero/hero-light.svg') }}" alt="" width="1000" height="1000">
+      <img class="hero-still hero-still--dark" src="{{ link('/static/hero/hero-dark.svg') }}" alt="" width="1000" height="1000">
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-labels" aria-hidden="true"></div>
+      <div class="hero-b0" aria-hidden="true"><svg viewBox="0 0 10 8"><path d="M1.2 7.4 5 0.8l3.8 6.6"/></svg><span class="math">B<sub>0</sub></span></div>
+      <div class="hero-copy">
+        <p class="kicker">{{ page.meta.hero_kicker }}</p>
+        <h1 class="hero-title" id="hero-title">{{ site.title }}</h1>
+        <p class="hero-acronym">{{ page.meta.hero_acronym | acronym }}</p>
+        <p class="hero-tagline">{{ page.meta.hero_tagline | md_inline }}</p>
+        <p class="hero-lede">{{ page.meta.hero_lede | md_inline }}</p>
+        <div class="btn-row hero-actions">
+          <a class="btn btn--primary" href="{{ site.repo }}"><svg aria-hidden="true"><use href="#i-branch"/></svg>GitHub repository</a>
+          <a class="btn btn--secondary" href="#what-it-is">What it is<svg aria-hidden="true"><use href="#i-arrow-down"/></svg></a>
+        </div>
+        <p class="hero-meta">{{ page.meta.hero_meta }}</p>
+      </div>
+      <div class="hero-end" aria-hidden="true">
+        <p class="kicker">In resonance</p>
+        <p class="hero-end-title">{{ page.meta.hero_end_title | md_inline }}</p>
+        <p class="hero-end-text">{{ page.meta.hero_end_text | md_inline }}</p>
+        <ul class="hero-legend">{% for e in data.ecosystems[:5] %}<li class="eco-{{ e.id }}"><span class="dot"></span>{{ e.name }}</li>{% endfor %}</ul>
+      </div>
+      <ul class="hero-legend hero-legend--still" aria-hidden="true">{% for e in data.ecosystems[:5] %}<li class="eco-{{ e.id }}"><span class="dot"></span>{{ e.name }}</li>{% endfor %}</ul>
+      <div class="hero-hud" aria-hidden="true">
+        <span title="The length of the spins' mean transverse direction, |⟨e^iφ⟩|: 0 when their phases are random, 1 when they are locked"><i>Coherence</i><b data-hud-coh>0.00</b><span class="meter"></span></span>
+        <span class="hud-spread"><i>Frequency spread</i><b data-hud-spread>±0 %</b></span>
+        <span class="hud-eq"><span class="math">ω = γB<sub>0</sub></span></span>
+        <span class="hero-hint"><i>Scroll</i> into resonance</span>
+      </div>
+    </div>
+    <p class="visually-hidden">{{ page.meta.hero_description }}</p>
+  </section>
+  <div class="home-body">
+{{ page.html }}
+  </div>
+</main>
+{% endblock %}
+{% block scripts %}
+<script src="{{ link('/static/js/hero.js') }}" defer></script>
+{% endblock %}

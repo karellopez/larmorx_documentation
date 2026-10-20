@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="{{ site.lang }}" data-theme-pref="system">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.is_home %}{{ site.title }}: {{ site.tagline }}{% else %}{{ page.title }} | {{ site.title }} documentation{% endif %}</title>
+<meta name="description" content="{{ page.description }}">
+{% if page.canonical %}<link rel="canonical" href="{{ page.canonical }}">{% endif %}
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#e8e1d2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f0e0c" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.title }} documentation">
+<meta property="og:title" content="{{ page.title if not page.is_home else site.title ~ ': ' ~ site.tagline }}">
+<meta property="og:description" content="{{ page.description }}">
+{% if page.canonical %}<meta property="og:url" content="{{ page.canonical }}">{% endif %}
+<link rel="icon" href="{{ link('/static/brand/favicon.svg') }}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ link('/static/brand/icon-180.png') }}">
+<link rel="preload" href="{{ link('/static/fonts/Inter-Regular.woff2') }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ link('/static/fonts/InstrumentSerif-Regular.woff2') }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ link('/static/css/site.css') }}">
+<script>
+/* Before the first paint: the theme (the reader's choice, else the system's)
+   and the effects (on, unless the reader turned them off or the system asks
+   for reduced motion). A URL may set either: ?theme=dark, ?fx=off. */
+(function () {
+  var d = document.documentElement, q = new URLSearchParams(location.search), pref = null, fx = null;
+  try { pref = localStorage.getItem('lx-theme'); fx = localStorage.getItem('lx-fx'); } catch (e) {}
+  var t = q.get('theme'); if (t === 'light' || t === 'dark' || t === 'system') pref = t;
+  if (pref !== 'light' && pref !== 'dark') pref = 'system';
+  var dark = pref === 'dark' || (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  d.setAttribute('data-theme', dark ? 'dark' : 'light');
+  d.setAttribute('data-theme-pref', pref);
+  var f = q.get('fx'); if (f === 'on' || f === 'off') fx = f;
+  if (fx !== 'on' && fx !== 'off') fx = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'off' : 'on';
+  d.setAttribute('data-fx', fx);
+  d.classList.add('js');
+})();
+</script>
+{% block head %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+{% include "partials/icons.html" %}
+<a class="skip-link" href="#main">Skip to the content</a>
+<header class="site-header" id="top">
+  <div class="header-inner">
+    <button class="nav-toggle icon-button" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    <a class="brand" href="{{ link('/') }}" aria-label="{{ site.title }} documentation, home"><svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg><span class="brand-name">{{ site.title }}</span><span class="brand-tag">documentation</span></a>
+    <nav class="header-nav" aria-label="Main">
+      {%- for item in nav %}
+      <a href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {%- endfor %}
+    </nav>
+    <div class="header-tools">
+      <button class="fx-switch" type="button" data-fx-toggle aria-pressed="true" title="Animations on this site"><i aria-hidden="true"></i><b>Effects</b><span class="visually-hidden">: animations</span></button>
+      <div class="theme-switch">
+        <button class="icon-button" type="button" data-theme-button aria-haspopup="menu" aria-expanded="false" aria-controls="theme-menu" aria-label="Colour theme">
+          <svg class="icon theme-icon theme-icon--system" aria-hidden="true"><use href="#i-system"/></svg>
+          <svg class="icon theme-icon theme-icon--light" aria-hidden="true"><use href="#i-sun"/></svg>
+          <svg class="icon theme-icon theme-icon--dark" aria-hidden="true"><use href="#i-moon"/></svg>
+        </button>
+        <div class="menu" id="theme-menu" role="menu" aria-label="Colour theme" hidden>
+          <button type="button" role="menuitemradio" aria-checked="false" data-set-theme="system" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-system"/></svg>System</button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-set-theme="light" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg>Light</button>
+          <button type="button" role="menuitemradio" aria-checked="false" data-set-theme="dark" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg>Dark</button>
+        </div>
+      </div>
+      <a class="icon-button" href="{{ site.repo }}" aria-label="Source code on GitHub" title="Source code on GitHub"><svg class="icon" aria-hidden="true"><use href="#i-branch"/></svg></a>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Main">
+    {%- for item in nav %}
+    <a href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %}>{{ item.title }}</a>
+    {%- endfor %}
+    <a href="{{ site.repo }}">GitHub</a>
+  </nav>
+</header>
+{% block main %}{% endblock %}
+<footer class="site-footer">
+  <hr class="sep" aria-hidden="true">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg class="brand-mark" aria-hidden="true"><use href="#i-mark"/></svg>
+      <div>
+        <p class="footer-title">{{ site.title }}</p>
+        <p class="footer-note">Library of Algorithmic Reimplementations for MRI through Open Rust eXecution. Open source under Apache-2.0; an independent project, not affiliated with or endorsed by the developers of ANTs, AFNI, FSL, FreeSurfer or fMRIPrep.</p>
+      </div>
+    </div>
+    <nav class="footer-links" aria-label="More">
+      <div><p>Documentation</p>{% for item in docs_nav %}<a href="{{ item.href }}">{{ item.title }}</a>{% endfor %}</div>
+      <div><p>Project</p><a href="{{ site.repo }}">Repository</a><a href="{{ repo('docs/validation/') }}">Validation records</a><a href="{{ repo('docs/licensing.md') }}">Licensing</a><a href="{{ repo('docs/next-steps.md') }}">Next steps</a></div>
+      <div><p>This site</p><a href="{{ site.docs_repo }}">Its sources</a><a href="{{ site.docs_repo }}/issues">Report a problem</a><a href="{{ link('/static/hero/LICENSE-MNI.txt') }}">Template notice</a></div>
+    </nav>
+    <p class="credits">The brain on the home page is a cloud of points sampled from the MNI ICBM 152 nonlinear asymmetric template, version 2009c (Fonov et al., 2009, 2011), from <a href="https://www.templateflow.org/">TemplateFlow</a>. Copyright (C) 1993–2004 Louis Collins, McConnell Brain Imaging Centre, Montreal Neurological Institute, McGill University; used under the permission in its <a href="{{ link('/static/hero/LICENSE-MNI.txt') }}">notice</a>. Type: <a href="{{ link('/static/fonts/InstrumentSerif-OFL.txt') }}">Instrument Serif</a>, <a href="{{ link('/static/fonts/Inter-OFL.txt') }}">Inter</a> and <a href="{{ link('/static/fonts/JetBrainsMono-OFL.txt') }}">JetBrains Mono</a>, under the SIL Open Font License 1.1.</p>
+  </div>
+</footer>
+<script src="{{ link('/static/js/site.js') }}" defer></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

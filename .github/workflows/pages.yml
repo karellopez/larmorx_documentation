@@ -1,0 +1,61 @@
+# Builds the site with tools/build.py and deploys _site to GitHub Pages on
+# every push to main. The build checks every internal link and anchor and
+# stops on a problem, so a broken site is never published. (Links into the
+# main repository are checked locally, where it is checked out next to this
+# one; here they are only counted.)
+#
+# Pages must be set once in the repository's settings:
+#   Settings -> Pages -> Build and deployment -> Source: GitHub Actions
+
+name: Deploy the documentation to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the build's requirements
+        run: pip install -r requirements.txt
+
+      - name: Build and check the site
+        run: python tools/build.py
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload the site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

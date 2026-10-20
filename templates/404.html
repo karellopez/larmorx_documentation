@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block body_class %}page-404{% endblock %}
+{% block main %}
+<div class="doc-layout">
+  <main id="main" class="doc-main" tabindex="-1" style="grid-column: 1 / -1; max-width: var(--content-w); margin: 0 auto; padding-top: 96px;">
+    <header class="doc-header">
+      <p class="kicker">Error 404</p>
+      <h1>{{ page.title | md_inline }}</h1>
+      {% if page.meta.lede %}<p class="lede">{{ page.meta.lede | md_inline }}</p>{% endif %}
+    </header>
+    <div class="prose">
+{{ page.html }}
+    </div>
+  </main>
+</div>
+{% endblock %}

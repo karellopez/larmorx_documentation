@@ -1,0 +1,105 @@
+# LARMORX documentation
+
+The documentation site of [LARMORX](https://github.com/karellopez/larmorx), the
+Library of Algorithmic Reimplementations for MRI through Open Rust eXecution, to
+be published at <https://karellopez.github.io/larmorx_documentation/>.
+
+The pages are Markdown, built into a static site by a small Python program.
+GitHub Actions builds and deploys it on every push to `main`
+(`.github/workflows/pages.yml`); the built site, `_site/`, is not committed.
+
+## Build and preview
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+.venv/bin/python tools/build.py --serve      # build, serve on http://localhost:8765/larmorx_documentation/, rebuild on change
+.venv/bin/python tools/build.py              # build into _site/ and check it
+.venv/bin/python tools/build.py --preview    # also write _preview/index.html: the home page as one file
+```
+
+Every build checks what it wrote: internal links and their anchors, one `h1`
+per page, heading levels that do not skip, leftovers of the template language,
+and, when the main repository is checked out next to this one (`../larmorx`,
+or `--main-repo`), that every file a page links to there exists. Problems stop
+the build.
+
+`--preview` writes the home page as one self-contained file (CSS and
+JavaScript inline, the hero's data as a data URI, fonts from Google Fonts),
+for a quick look on any device without a server.
+
+## Layout
+
+```
+content/          the pages: Markdown with YAML front matter, rendered as Jinja first, then Markdown
+data/             the site's data: the ecosystems and their colours, the status (from the main README)
+templates/        the layouts: base, home, doc, 404
+static/css/       site.css, the design system
+static/js/        site.js (theme, effects, menu, copy buttons), hero.js (the home page hero, WebGL2)
+static/hero/      the hero's points (hero.bin) and its stills (hero-light.svg, hero-dark.svg)
+static/fonts/     Instrument Serif, Inter, JetBrains Mono (SIL Open Font License, texts beside them)
+static/brand/     the mark and the icons
+site.yml          the site's name, address, repositories and navigation
+tools/build.py    the builder
+tools/hero/       make_hero.py, which precomputes static/hero/ from the MNI template
+tools/review/     shoot.mjs, which photographs pages in headless Chrome, for review
+```
+
+A page is `content/<name>.md`, published at `/<name>/`. Its front matter
+gives `title`, `lede`, `kicker` and `description`; `template: home` selects
+the home layout. In a page, `{{ link('/validation/') }}` links within the site,
+`{{ repo('docs/validation/golden.md') }}` links to a file in the main
+repository, and Markdown links may be written `[text](repo:docs/...)` or
+`[text](/validation/)`. A heading may set its id: `## Title {#id}`.
+
+## The design
+
+Printed matter: warm paper in both themes (light grey by day, grey-black by
+night) under one fixed grain layer; one pastel palette, the same in both
+themes, with one pastel per software ecosystem (ANTs, AFNI, FSL, FreeSurfer,
+Connectome Workbench) and LARMORX's apricot as the accent, deeper variants of
+the same hues for marks on light paper; text always ink. Instrument Serif for
+titles and numerals, Inter for reading, JetBrains Mono for kickers and labels.
+Hairline separators with a short pastel mark. The theme follows the system
+unless the reader chooses; the effects switch stops every animation and is
+off by default when the system asks for reduced motion.
+
+## The hero
+
+The home page hero is spins coming into resonance. Each point is a spin of
+one ecosystem, in its pastel. At the top of the page the spins sit in five
+ensembles, rings precessing about a vertical field B₀, each at its own
+frequency and with random phases: dephased, with a coherence near 0. As the
+reader scrolls, the frequencies converge on one Larmor frequency and the
+phases lock (coherence 1), and the spins gather into a brain sampled from the
+MNI ICBM 152 2009c template, turning slowly about B₀, each ecosystem keeping
+its colour. A readout shows the coherence, |⟨e^{iφ}⟩|, and the frequency
+spread.
+
+`static/hero/` is precomputed and committed. To make it again (numpy, scipy
+and nibabel; TemplateFlow's `tpl-MNI152NLin2009cAsym`):
+
+```bash
+python tools/hero/make_hero.py --templateflow <TemplateFlow home>
+```
+
+Without WebGL2, with the effects off or without JavaScript, the hero shows
+the still drawings. A slow machine steps down: first the resolution, then the
+number of spins.
+
+## Reviewing
+
+```bash
+node tools/review/shoot.mjs --url http://localhost:8765/larmorx_documentation/ --out shots \
+     --sizes 1440x900,390x844 --themes light,dark --at hero:0,0.5,1 --at y:2400
+```
+
+Needs Node 22 and Google Chrome; WebGL2 runs on SwiftShader there.
+
+## Credits
+
+The hero's points are sampled from the MNI ICBM 152 nonlinear asymmetric
+template, version 2009c (Fonov et al., NeuroImage 2011; 2009), as distributed
+by TemplateFlow; Copyright (C) 1993–2004 Louis Collins, McConnell Brain
+Imaging Centre, Montreal Neurological Institute, McGill University, under the
+notice in `static/hero/LICENSE-MNI.txt`. The fonts are under the SIL Open
+Font License 1.1 (`static/fonts/*-OFL.txt`).

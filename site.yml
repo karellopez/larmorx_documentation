@@ -1,0 +1,33 @@
+# The site in one file: its name, where it lives, the repositories it links
+# to and the navigation. tools/build.py reads it.
+
+title: LARMORX
+tagline: Bringing Neuroimaging Tools into Resonance.
+description: >-
+  Documentation for LARMORX, the Library of Algorithmic Reimplementations for
+  MRI through Open Rust eXecution: established neuroimaging tools from ANTs,
+  AFNI, FSL and others, reimplemented in Rust and accessible through Python.
+base_url: https://karellopez.github.io/larmorx_documentation/
+lang: en-GB
+
+# The project and this site's own sources. `repo_blob` is the prefix of a
+# file in the main repository; `{{ repo('docs/validation/golden.md') }}` in a
+# page links there, and the build checks the file exists when the main
+# repository is checked out next to this one (../larmorx).
+repo: https://github.com/karellopez/larmorx
+repo_blob: https://github.com/karellopez/larmorx/blob/main/
+repo_tree: https://github.com/karellopez/larmorx/tree/main/
+docs_repo: https://github.com/karellopez/larmorx_documentation
+
+# The header's links. A `url` is a path on this site, with an optional anchor.
+nav:
+  - { title: What it is, url: "/#what-it-is" }
+  - { title: Features, url: "/#features" }
+  - { title: Philosophy, url: "/#philosophy" }
+  - { title: Status, url: "/#status" }
+  - { title: Validation, url: "/validation/" }
+
+# The documentation pages, in the order of the sidebar on a documentation page.
+docs:
+  - { title: Overview, url: "/" }
+  - { title: Validation, url: "/validation/" }

@@ -1,0 +1,92 @@
+# What LARMORX can do today and what is planned, as the main repository's
+# README states it (Supported tools, Roadmap). Keep the two apart and claim
+# nothing the README does not. Links written `repo:<path>` go to that file in
+# the main repository; the build checks the file exists there when the
+# repository is checked out next to this one.
+#
+# `eco` is the software ecosystem a row belongs to (data/ecosystems.yml);
+# `larmorx` marks LARMORX's own implementations and ports of other projects.
+
+as_of: the main repository's README, October 2026
+
+implemented:
+  - eco: larmorx
+    tool: NIfTI-1/2 I/O
+    use: ["lx.load", "lx.save", "lx.Image"]
+    how: own implementation
+    validation: "[252 files](repo:docs/validation/nifti-io.md), data bit-identical to nibabel; [4–8× faster](repo:docs/benchmarks/nifti-io.md) on compressed writes with threads"
+  - eco: ants
+    tool: antsApplyTransforms
+    use: ["larmorx ants antsApplyTransforms", "lx.ants.apply_transforms"]
+    how: port (ANTs/ITK)
+    validation: "[220 cases](repo:docs/validation/ants-apply-transforms.md): 160 of 174 compared bit-identical to ANTs, the rest differ only through glibc's maths"
+  - eco: ants
+    tool: ITK transform files (`.mat`, `.txt`, `.h5`)
+    use: ["lx.transforms"]
+    how: port (ITK, HDF5)
+    validation: "[144 cases](repo:docs/validation/itk-hdf5.md), 0 failures; HDF5 read and written in pure Rust"
+  - eco: ants
+    tool: N4BiasFieldCorrection
+    use: ["larmorx ants N4BiasFieldCorrection", "lx.ants.n4_bias_field_correction"]
+    how: port
+    validation: "[29 of 45](repo:docs/validation/ants-n4.md) bit-identical to ANTs, 45 of 45 with correctly rounded maths"
+  - eco: ants
+    tool: DenoiseImage
+    use: ["larmorx ants DenoiseImage", "lx.ants.denoise_image"]
+    how: port
+    validation: "[7 of 40](repo:docs/validation/ants-denoise.md) bit-identical to ANTs, 40 of 40 with correctly rounded maths"
+  - eco: ants
+    tool: ImageMath (every operation fMRIPrep, sMRIPrep and sdcflows call)
+    use: ["larmorx ants ImageMath", "lx.ants.image_math"]
+    how: port
+    validation: "[327 cases](repo:docs/validation/ants-image-math.md): values bit-identical in 296 of 301, headers in 301 of 301"
+  - eco: ants
+    tool: ThresholdImage, MultiplyImages, SmoothImage, ResampleImage, ResampleImageBySpacing
+    use: ["larmorx ants ..."]
+    how: port
+    validation: "bit-identical in every compared case ([threshold](repo:docs/validation/ants-threshold-image.md), [multiply](repo:docs/validation/ants-multiply-images.md), [smooth](repo:docs/validation/ants-smooth-image.md), [resample](repo:docs/validation/ants-resample-image.md), [by spacing](repo:docs/validation/ants-resample-image-by-spacing.md))"
+  - eco: ants
+    tool: antsRegistration (linear stages, image and point-set metrics)
+    use: ["larmorx ants antsRegistration", "lx.ants.registration"]
+    how: port
+    validation: "[224 cases](repo:docs/validation/ants-registration.md): 145 of 169 compared identical to ANTs (outputs and messages), 24 more with correctly rounded maths; deformable stages planned"
+  - eco: ants
+    tool: antsAI, antsAffineInitializer
+    use: ["larmorx ants antsAI", "larmorx ants antsAffineInitializer"]
+    how: port
+    validation: "[antsAI](repo:docs/validation/ants-ai.md): 51 of 52 compared identical; [antsAffineInitializer](repo:docs/validation/ants-affine-initializer.md): 26 of 26"
+  - eco: larmorx
+    tool: fMRIPrep's one-shot BOLD resampler
+    use: ["lx.transforms.resample_series"]
+    how: port (fMRIPrep, nitransforms, SciPy)
+    validation: "[139 cases](repo:docs/validation/resample-series.md): 136 of 136 compared bit-identical"
+  - eco: afni
+    tool: 3dTshift (slice timing)
+    use: ["larmorx afni 3dTshift", "lx.afni.tshift"]
+    how: clean-room original; exact replica in `larmorx-gpl`
+    validation: "original: [279 of 279](repo:docs/validation/afni-tshift.md) compared agree, 176 bit-identical, [2–6× faster](repo:docs/benchmarks/afni-tshift.md); replica: [279 of 279](repo:docs/validation/afni-tshift-replica.md) bit-identical"
+  - eco: fsl
+    tool: Head-motion correction (mcflirt-style options)
+    use: ["larmorx mri hmc", "lx.mri.hmc"]
+    how: clean-room original, `experimental`
+    validation: "[compared with FSL's mcflirt](repo:docs/validation/mri-hmc.md): 121 of 122 compared cases within thresholds; [5–16× faster](repo:docs/benchmarks/mri-hmc.md) with threads"
+
+planned:
+  - eco: [ants]
+    title: ANTs
+    text: antsRegistration's deformable stages (SyN and the others), then Atropos.
+  - eco: [afni]
+    title: AFNI
+    text: 3dUnifize and 3dAutomask (fMRIPrep's BOLD reference), then 3dQwarp, 3dSkullStrip, 3dcalc and an analysis track (3dTproject, 3dDespike, 3dReHo, 3dRSFC, 3dDeconvolve/3dREMLfit, 3dFWHMx/3dClustSim, ...).
+  - eco: [fsl]
+    title: FSL-compatible tools
+    text: the mcflirt replica, BET, FAST, FLIRT with BBR, topup.
+  - eco: [freesurfer, workbench]
+    title: Field maps, FreeSurfer, surfaces
+    text: sdcflows' field-map estimation, FreeSurfer (`larmorx-freesurfer`), Connectome Workbench- and MSM-compatible surface tools, the confounds.
+  - eco: [larmorx]
+    title: larmorprepx
+    text: an independent, fMRIPrep-compatible preprocessing pipeline (BIDS in, fMRIPrep-compatible derivatives and reports out), written in plain Python on the library, then compared with fMRIPrep end to end.
+  - eco: [larmorx]
+    title: Releases on PyPI
+    text: for all six platforms.
