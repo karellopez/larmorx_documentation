@@ -1,0 +1,3124 @@
+{
+ "schema": 1,
+ "tool": "ants-n4",
+ "title": "N4BiasFieldCorrection",
+ "provenance": {
+  "exporter": "b6ef5ceb2feaf37c99f1d4ae83dc724a136c73f4",
+  "records": [
+   {
+    "path": "docs/validation/ants-n4.json",
+    "sha256": "6757171b0f985a3523cb0885f614918fcaf6296cc456d383cd03a50bae1a7a60",
+    "generated": "2026-10-12",
+    "larmorx_commit": "50509e30b3e8"
+   },
+   {
+    "path": "docs/validation/ants-n4.md",
+    "sha256": "43c37fa400f6f87506c8834afe5ebbba03ad7f0f7c7669f829500a2bbf3088b3",
+    "generated": "2026-10-12",
+    "larmorx_commit": "50509e30b3e8"
+   }
+  ],
+  "benchmarks": [
+   {
+    "path": "docs/benchmarks/ants-n4.json",
+    "sha256": "de6c2b392f5b2ec9ed12a8a85225289a898376a5c91d49d4a0f16e852c2188e8",
+    "larmorx_commit": "1f345c61c340-dirty",
+    "cpu": "Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz"
+   }
+  ],
+  "cache": [
+   {
+    "entry": "ants-n4/fmriprep-ds000005-final-n4",
+    "description": "fMRIPrep's final N4 (inu_n4_final) of ds000005 sub-01: fMRIPrep, ANTs 2.6.5 and larmorx",
+    "computed": "2026-10-21T09:26:11+00:00",
+    "larmorx_commit": "c61f3c1a18472f4b236f45e156f67152547df7f1",
+    "commands": [
+     {
+      "label": "ants-1",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
+       "--bspline-fitting",
+       "[",
+       "200",
+       "]",
+       "-d",
+       "3",
+       "--input-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "--convergence",
+       "[",
+       "50x50x50x50x50,",
+       "1e-07",
+       "]",
+       "--output",
+       "[",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-1.nii.gz,",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-1-bias.nii.gz",
+       "]",
+       "-r",
+       "--shrink-factor",
+       "4",
+       "--weight-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 17.38
+     },
+     {
+      "label": "ants-1-cr",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
+       "--bspline-fitting",
+       "[",
+       "200",
+       "]",
+       "-d",
+       "3",
+       "--input-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "--convergence",
+       "[",
+       "50x50x50x50x50,",
+       "1e-07",
+       "]",
+       "--output",
+       "[",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-1-cr.nii.gz,",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-1-cr-bias.nii.gz",
+       "]",
+       "-r",
+       "--shrink-factor",
+       "4",
+       "--weight-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "/home/karelo/VScode_projects/super_fmriprep/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 17.33
+     },
+     {
+      "label": "ants-2",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
+       "--bspline-fitting",
+       "[",
+       "200",
+       "]",
+       "-d",
+       "3",
+       "--input-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "--convergence",
+       "[",
+       "50x50x50x50x50,",
+       "1e-07",
+       "]",
+       "--output",
+       "[",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-2.nii.gz,",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-2-bias.nii.gz",
+       "]",
+       "-r",
+       "--shrink-factor",
+       "4",
+       "--weight-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "2"
+      },
+      "exit": 0,
+      "seconds": 9.81
+     },
+     {
+      "label": "ants-3",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
+       "--bspline-fitting",
+       "[",
+       "200",
+       "]",
+       "-d",
+       "3",
+       "--input-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "--convergence",
+       "[",
+       "50x50x50x50x50,",
+       "1e-07",
+       "]",
+       "--output",
+       "[",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-3.nii.gz,",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-3-bias.nii.gz",
+       "]",
+       "-r",
+       "--shrink-factor",
+       "4",
+       "--weight-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "3"
+      },
+      "exit": 0,
+      "seconds": 8.2
+     },
+     {
+      "label": "ants-4",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
+       "--bspline-fitting",
+       "[",
+       "200",
+       "]",
+       "-d",
+       "3",
+       "--input-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "--convergence",
+       "[",
+       "50x50x50x50x50,",
+       "1e-07",
+       "]",
+       "--output",
+       "[",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-4.nii.gz,",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-4-bias.nii.gz",
+       "]",
+       "-r",
+       "--shrink-factor",
+       "4",
+       "--weight-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "4"
+      },
+      "exit": 0,
+      "seconds": 7.58
+     },
+     {
+      "label": "ants-8",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
+       "--bspline-fitting",
+       "[",
+       "200",
+       "]",
+       "-d",
+       "3",
+       "--input-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "--convergence",
+       "[",
+       "50x50x50x50x50,",
+       "1e-07",
+       "]",
+       "--output",
+       "[",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-8.nii.gz,",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-8-bias.nii.gz",
+       "]",
+       "-r",
+       "--shrink-factor",
+       "4",
+       "--weight-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8"
+      },
+      "exit": 0,
+      "seconds": 6.5
+     },
+     {
+      "label": "ants-12",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
+       "--bspline-fitting",
+       "[",
+       "200",
+       "]",
+       "-d",
+       "3",
+       "--input-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "--convergence",
+       "[",
+       "50x50x50x50x50,",
+       "1e-07",
+       "]",
+       "--output",
+       "[",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-12.nii.gz,",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-12-bias.nii.gz",
+       "]",
+       "-r",
+       "--shrink-factor",
+       "4",
+       "--weight-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "12"
+      },
+      "exit": 0,
+      "seconds": 6.77
+     },
+     {
+      "label": "fmriprep-image-1",
+      "argv": [
+       "apptainer",
+       "exec",
+       "--cleanenv",
+       "--home",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/.home:/home/fmriprep",
+       "--env",
+       "NSLOTS=1",
+       "--env",
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=1",
+       "-B",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0:/in1:ro",
+       "-B",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior:/in2:ro",
+       "-B",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4:/out",
+       "~/VScode_projects/super_fmriprep/oracles/images/fmriprep-25.2.6.sif",
+       "N4BiasFieldCorrection",
+       "--bspline-fitting",
+       "[",
+       "200",
+       "]",
+       "-d",
+       "3",
+       "--input-image",
+       "/in1/sub-01_T1w_noise_corrected.nii.gz",
+       "--convergence",
+       "[",
+       "50x50x50x50x50,",
+       "1e-07",
+       "]",
+       "--output",
+       "[",
+       "/out/fmriprep-image-1.nii.gz,",
+       "/out/fmriprep-image-1-bias.nii.gz",
+       "]",
+       "-r",
+       "--shrink-factor",
+       "4",
+       "--weight-image",
+       "/in2/prodmap.nii.gz"
+      ],
+      "env": {},
+      "exit": 0,
+      "seconds": 19.87
+     },
+     {
+      "label": "fmriprep-image-1-cr",
+      "argv": [
+       "apptainer",
+       "exec",
+       "--cleanenv",
+       "--home",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/.home:/home/fmriprep",
+       "-B",
+       "~/VScode_projects/super_fmriprep/oracles/core-math-preload:/crmath:ro",
+       "--env",
+       "NSLOTS=1",
+       "--env",
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=1",
+       "--env",
+       "LD_PRELOAD=/crmath/libcrmath.so",
+       "-B",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0:/in1:ro",
+       "-B",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior:/in2:ro",
+       "-B",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4:/out",
+       "~/VScode_projects/super_fmriprep/oracles/images/fmriprep-25.2.6.sif",
+       "N4BiasFieldCorrection",
+       "--bspline-fitting",
+       "[",
+       "200",
+       "]",
+       "-d",
+       "3",
+       "--input-image",
+       "/in1/sub-01_T1w_noise_corrected.nii.gz",
+       "--convergence",
+       "[",
+       "50x50x50x50x50,",
+       "1e-07",
+       "]",
+       "--output",
+       "[",
+       "/out/fmriprep-image-1-cr.nii.gz,",
+       "/out/fmriprep-image-1-cr-bias.nii.gz",
+       "]",
+       "-r",
+       "--shrink-factor",
+       "4",
+       "--weight-image",
+       "/in2/prodmap.nii.gz"
+      ],
+      "env": {},
+      "exit": 0,
+      "seconds": 21.09
+     },
+     {
+      "label": "larmorx-1",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "N4BiasFieldCorrection",
+       "--bspline-fitting",
+       "[",
+       "200",
+       "]",
+       "-d",
+       "3",
+       "--input-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "--convergence",
+       "[",
+       "50x50x50x50x50,",
+       "1e-07",
+       "]",
+       "--output",
+       "[",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-1.nii.gz,",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-1-bias.nii.gz",
+       "]",
+       "-r",
+       "--shrink-factor",
+       "4",
+       "--weight-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 4.05
+     },
+     {
+      "label": "larmorx-1-reproduce",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "N4BiasFieldCorrection",
+       "--bspline-fitting",
+       "[",
+       "200",
+       "]",
+       "-d",
+       "3",
+       "--input-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "--convergence",
+       "[",
+       "50x50x50x50x50,",
+       "1e-07",
+       "]",
+       "--output",
+       "[",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-1-reproduce.nii.gz,",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-1-reproduce-bias.nii.gz",
+       "]",
+       "-r",
+       "--shrink-factor",
+       "4",
+       "--weight-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 3.87
+     },
+     {
+      "label": "larmorx-12",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "N4BiasFieldCorrection",
+       "--bspline-fitting",
+       "[",
+       "200",
+       "]",
+       "-d",
+       "3",
+       "--input-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "--convergence",
+       "[",
+       "50x50x50x50x50,",
+       "1e-07",
+       "]",
+       "--output",
+       "[",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-12.nii.gz,",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-12-bias.nii.gz",
+       "]",
+       "-r",
+       "--shrink-factor",
+       "4",
+       "--weight-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "12",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 1.45
+     },
+     {
+      "label": "larmorx-12-reproduce",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "N4BiasFieldCorrection",
+       "--bspline-fitting",
+       "[",
+       "200",
+       "]",
+       "-d",
+       "3",
+       "--input-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "--convergence",
+       "[",
+       "50x50x50x50x50,",
+       "1e-07",
+       "]",
+       "--output",
+       "[",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-12-reproduce.nii.gz,",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-12-reproduce-bias.nii.gz",
+       "]",
+       "-r",
+       "--shrink-factor",
+       "4",
+       "--weight-image",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "12",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 1.51
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0",
+     "ants_in_fmriprep_image": "ANTs Version: 2.6.2.dev1-gff61a3d Compiled: Jul 31 2025 06:55:26",
+     "fmriprep_image": "7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10"
+    },
+    "threads": {
+     "band": [
+      2,
+      3,
+      4,
+      8,
+      12
+     ],
+     "larmorx": [
+      1,
+      12
+     ],
+     "fmriprep_run": 8
+    },
+    "settings": "fMRIPrep 25.2.6's final N4 of its brain extraction (inu_n4_final), ds000005 sub-01, its arguments from command.txt and its inputs from the run's working directory; fMRIPrep ran it with NSLOTS=8"
+   }
+  ],
+  "command": "python -m larmorx_validation evidence ants-n4 --site <site>"
+ },
+ "implementations": [
+  {
+   "id": "port",
+   "label": "larmorx (port)",
+   "short": "port",
+   "record": "docs/validation/ants-n4.md",
+   "status": "validated",
+   "summary": {
+    "cases": 51,
+    "verdicts": {
+     "identical-cr": 16,
+     "bit-identical": 30,
+     "both-reject": 5
+    }
+   },
+   "agreement": [
+    {
+     "category": "fmriprep",
+     "counts": {
+      "bit-identical": 5,
+      "identical-cr": 6
+     }
+    },
+    {
+     "category": "options",
+     "counts": {
+      "bit-identical": 16,
+      "identical-cr": 6
+     }
+    },
+    {
+     "category": "inputs",
+     "counts": {
+      "bit-identical": 8,
+      "identical-cr": 4
+     }
+    },
+    {
+     "category": "errors",
+     "counts": {
+      "bit-identical": 1,
+      "both-reject": 5
+     }
+    }
+   ]
+  }
+ ],
+ "cases": [
+  {
+   "id": "fmriprep/boldref-coregistration",
+   "category": "fmriprep",
+   "description": "fMRIPrep's BOLD reference (niworkflows func/util.py:487): -d 3, b-spline distance 200, rescale (no effect without a mask), weight = premask (a blurred brain mask), ANTs' default shrink 4 (nipype drops shrink_factor=2); ds000005's boldref",
+   "command": "N4BiasFieldCorrection -d 3 --bspline-fitting [ 200 ] -i openneuro-derivatives/ds000005-fmriprep/sub-01/func/sub-01_task-mixedgamblestask_run-1_boldref.nii.gz -o out.nii.gz -r --weight-image '<generated: n4-boldref-premask>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "12/12",
+     "reason": "corrected: as built, 69747 of 139264 differ; max |diff| 0.00061, max rel 5.6e-06, 1 - NCC 5.4e-14 (÷ ANTs' thread band: 0.43 max |Δ|, 0.45 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/boldref-template",
+   "category": "fmriprep",
+   "description": "the same command on MNI152NLin2009cAsym's fMRIPrep boldref (res-02), weight = the brain probability map resampled onto it, as fMRIPrep's premask",
+   "command": "N4BiasFieldCorrection -d 3 --bspline-fitting [ 200 ] -i templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_desc-fMRIPrep_boldref.nii.gz -o out.nii.gz -r --weight-image '<generated: n4-mni-premask>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "12/12",
+     "reason": "corrected: as built, 467120 of 1082035 differ; max |diff| 0.00439, max rel 1.7e-06, 1 - NCC 8.8e-15 (÷ ANTs' thread band: 0.25 max |Δ|, 0.16 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/smriprep-pre-template",
+   "category": "fmriprep",
+   "description": "sMRIPrep's N4 before the anatomical template (anatomical.py:1502): -d 3, ANTs' defaults (4 levels of 50 iterations, threshold 0, 4 control points, shrink 4); ds000005's raw T1w",
+   "command": "N4BiasFieldCorrection -d 3 --input-image openneuro/ds000005/sub-01/anat/sub-01_T1w.nii.gz --output out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "12/12",
+     "reason": "corrected: as built, 5413547 of 5898240 differ; max |diff| 0.241, max rel 0.00034, 1 - NCC 4.8e-10 (÷ ANTs' thread band: 1.3 max |Δ|, 0.24 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/brain-extraction-pass1",
+   "category": "fmriprep",
+   "description": "sMRIPrep's brain extraction, first N4 (niworkflows anat/ants.py:243): -b [200] -c [50x50x50x50,1e-7] -s 4, on the truncated T1w",
+   "command": "N4BiasFieldCorrection -d 3 --bspline-fitting [ 200 ] --convergence [ 50x50x50x50, 1e-07 ] --input-image '<generated: n4-t1-truncated>' --output out.nii.gz --shrink-factor 4",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "fmriprep/brain-extraction-final",
+   "category": "fmriprep",
+   "description": "sMRIPrep's final N4 (anat/ants.py:704): -b [200] -c [50x50x50x50x50,1e-7] -s 4 -r, weight = the WM probability map, bias field saved; ds000005's raw T1w",
+   "command": "N4BiasFieldCorrection -d 3 --bspline-fitting [ 200 ] --convergence [ 50x50x50x50x50, 1e-07 ] --input-image openneuro/ds000005/sub-01/anat/sub-01_T1w.nii.gz --output [ out.nii.gz, bias.nii.gz ] -r --shrink-factor 4 --weight-image openneuro-derivatives/ds000005-fmriprep/sub-01/anat/sub-01_label-WM_probseg.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "14/14",
+     "reason": ""
+    }
+   },
+   "example": "final-n4"
+  },
+  {
+   "id": "fmriprep/n4-only",
+   "category": "fmriprep",
+   "description": "sMRIPrep's N4 for skull-stripped T1w images (anat/ants.py:927): the final N4's options without a weight image, on a brain-masked T1w",
+   "command": "N4BiasFieldCorrection -d 3 --bspline-fitting [ 200 ] --convergence [ 50x50x50x50x50, 1e-07 ] --input-image '<generated: n4-t1-brain>' --output [ out.nii.gz, bias.nii.gz ] -r --shrink-factor 4",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "20/20",
+     "reason": "corrected: as built, 694333 of 5898240 differ; max |diff| 0.0501, max rel 8.3e-05, 1 - NCC 1.3e-10 (÷ ANTs' thread band: 0.25 max |Δ|, 0.01 1 − NCC); bias field: as built, 5898130 of 5898240 differ; max |diff| 7.86e-05, max rel 8.3e-05, 1 - NCC 2.1e-08 (÷ ANTs' thread band: 0.15 max |Δ|, 0.0053 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/sdcflows-magnitude",
+   "category": "fmriprep",
+   "description": "sdcflows' brain extraction of a fieldmap magnitude (workflows/ancillary.py:87): -c [50x50x50x50x50,1e-7] -s 4; ds003012's magnitude1",
+   "command": "N4BiasFieldCorrection -d 3 --convergence [ 50x50x50x50x50, 1e-07 ] --input-image openneuro/ds003012/sub-01/fmap/sub-01_magnitude1.nii.gz --output out.nii.gz --shrink-factor 4",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "fmriprep/sdcflows-magnitude-ds001600",
+   "category": "fmriprep",
+   "description": "the same command on ds001600's magnitude1 (acq-v4)",
+   "command": "N4BiasFieldCorrection -d 3 --convergence [ 50x50x50x50x50, 1e-07 ] --input-image openneuro/ds001600/sub-1/fmap/sub-1_acq-v4_magnitude1.nii.gz --output out.nii.gz --shrink-factor 4",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "fmriprep/t1w-ds000210-final",
+   "category": "fmriprep",
+   "description": "the final N4's options (without weights) on ds000210's T1w",
+   "command": "N4BiasFieldCorrection -d 3 --bspline-fitting [ 200 ] --convergence [ 50x50x50x50x50, 1e-07 ] --input-image openneuro/ds000210/sub-02/anat/sub-02_T1w.nii.gz --output [ out.nii.gz, bias.nii.gz ] --shrink-factor 4",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "20/20",
+     "reason": "corrected: as built, 6707886 of 11534336 differ; max |diff| 0.452, max rel 0.00017, 1 - NCC 6.9e-11 (÷ ANTs' thread band: 0.21 max |Δ|, 0.064 1 − NCC); bias field: as built, 11508335 of 11534336 differ; max |diff| 0.000274, max rel 0.00017, 1 - NCC 4.8e-09 (÷ ANTs' thread band: 0.21 max |Δ|, 0.17 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/boldref-mask",
+   "category": "fmriprep",
+   "description": "ds000005's boldref with its brain mask: outside-mask voxels restored, the rest rescaled to the input's range in the mask (ANTs' default with -x); bias field saved",
+   "command": "N4BiasFieldCorrection -d 3 -b [200] -i openneuro-derivatives/ds000005-fmriprep/sub-01/func/sub-01_task-mixedgamblestask_run-1_boldref.nii.gz -x openneuro-derivatives/ds000005-fmriprep/sub-01/func/sub-01_task-mixedgamblestask_run-1_desc-brain_mask.nii.gz -o [out.nii.gz,bias.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "14/14",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "fmriprep/t1w-preproc-mask",
+   "category": "fmriprep",
+   "description": "fMRIPrep's preprocessed T1w with -x the brain mask, -r 0, shrink 2",
+   "command": "N4BiasFieldCorrection -d 3 -i openneuro-derivatives/ds000005-fmriprep/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz -x openneuro-derivatives/ds000005-fmriprep/sub-01/anat/sub-01_desc-brain_mask.nii.gz -r 0 -s 2 -c [20x20x20] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "12/12",
+     "reason": "corrected: as built, 517729 of 5898240 differ; max |diff| 0.000244, max rel 3.4e-07, 1 - NCC 4.7e-14 (÷ ANTs' thread band: 0.023 max |Δ|, 0.012 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "options/defaults",
+   "category": "options",
+   "description": "no option but input and output",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/mask",
+   "category": "options",
+   "description": "a binary mask: restoration outside, rescaling inside; bias field",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -x '<generated: brain-uint8>' -o [out.nii.gz,bias.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "14/14",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/mask-no-rescale",
+   "category": "options",
+   "description": "a mask with -r 0",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -x '<generated: brain-uint8>' -r 0 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/fractional-mask",
+   "category": "options",
+   "description": "a float mask (0, 0.3, 0.6, 0.999, 1, 1.7, 2): N4 uses every non-zero voxel; only voxels within 4 ulps of 1 are rescaled",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -x '<generated: fractional-float32>' -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/weight",
+   "category": "options",
+   "description": "a probability map as weight image (exact 0, 0.5 and 1)",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -w '<generated: gm-probseg>' -o [out.nii.gz,bias.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "14/14",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/mask-and-weight",
+   "category": "options",
+   "description": "mask and weight image together",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -x '<generated: brain-uint8>' -w '<generated: gm-probseg>' -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "12/12",
+     "reason": "corrected: as built, 10838 of 35840 differ; max |diff| 0.0612, max rel 0.00056, 1 - NCC 1.6e-08 (÷ ANTs' thread band: 0.87 max |Δ|, 0.79 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "options/shrink-1",
+   "category": "options",
+   "description": "-s 1: no subsampling",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -s 1 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "12/12",
+     "reason": "corrected: as built, 33414 of 35840 differ; max |diff| 0.000122, max rel 8e-07, 1 - NCC 4.8e-15 (÷ ANTs' thread band: 0.36 max |Δ|, 0.28 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "options/shrink-3",
+   "category": "options",
+   "description": "-s 3",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -s 3 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "12/12",
+     "reason": "corrected: as built, 35840 of 35840 differ; max |diff| 0.133, max rel 0.0063, 1 - NCC 3.5e-09 (÷ ANTs' thread band: 1.7 max |Δ|, 4.2 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "options/shrink-0",
+   "category": "options",
+   "description": "-s 0: ITK makes it 1",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -s 0 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "12/12",
+     "reason": "corrected: as built, 33414 of 35840 differ; max |diff| 0.000122, max rel 8e-07, 1 - NCC 4.8e-15 (÷ ANTs' thread band: 0.36 max |Δ|, 0.28 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "options/distance-30",
+   "category": "options",
+   "description": "-b [30]: padding to whole spans of 30 mm, 2 or 3 spans per axis",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -b [30] -s 2 -o [out.nii.gz,bias.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "20/20",
+     "reason": "corrected: as built, 35824 of 35840 differ; max |diff| 0.0275, max rel 0.0039, 1 - NCC 3.8e-10 (÷ ANTs' thread band: 0.4 max |Δ|, 0.058 1 − NCC); bias field: as built, 35827 of 35840 differ; max |diff| 0.00427, max rel 0.0039, 1 - NCC 2e-07 (÷ ANTs' thread band: 0.4 max |Δ|, 0.092 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "options/distance-order-2",
+   "category": "options",
+   "description": "-b [25,2]: quadratic splines",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -b [25,2] -s 2 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "12/12",
+     "reason": "corrected: as built, 35838 of 35840 differ; max |diff| 1.49, max rel 0.072, 1 - NCC 5.4e-08 (÷ ANTs' thread band: 0.22 max |Δ|, 0.0028 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "options/mesh",
+   "category": "options",
+   "description": "-b [2x3x1]: a mesh of 2 x 3 x 1 elements",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -b [2x3x1] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/order-5",
+   "category": "options",
+   "description": "-b [1x1x1,5]: quintic splines (Cox-de Boor kernels)",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -b [1x1x1,5] -c [10x10] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/convergence-stop",
+   "category": "options",
+   "description": "-c [30x30,0.001]: levels end as soon as the convergence value is not above 0.001",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -c [30x30,0.001] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/one-level",
+   "category": "options",
+   "description": "-c [15]: one fitting level, no refinement",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -c [15] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/no-brackets",
+   "category": "options",
+   "description": "-c 50x50 and -b 200 without brackets set nothing: ITK's one level of 50 iterations with threshold 0.001, 4 control points",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -c 50x50 -b 200 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/histogram-100",
+   "category": "options",
+   "description": "-t [0.3,0.02,100]: 100 bins (FFT of 256)",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -t [0.3,0.02,100] -c [20x20] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/histogram-256",
+   "category": "options",
+   "description": "-t [0.15,0.01,256]: 256 bins; log(256)/log(2) rounds above 8, so the FFT has 1024 points",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -t [0.15,0.01,256] -c [20x20] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/histogram-600",
+   "category": "options",
+   "description": "-t [0.15,0.01,600]: an FFT of 2048 points, where glibc's sincos is not correctly rounded for 4 twiddle factors",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -t [0.15,0.01,600] -c [20x20] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/output-one-parameter",
+   "category": "options",
+   "description": "-o [out]: one bracketed name",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -c [10] -o [out.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/missing-mask",
+   "category": "options",
+   "description": "a mask that does not exist: ones are used, but the mask counts as given (restoration and rescaling run)",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -x none.nii.gz -c [10x10] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/verbose",
+   "category": "options",
+   "description": "-v 1 (stdout is not compared: it holds timings and ITK's object dump)",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -v 1 -c [10x10] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "inputs/int16-scaled",
+   "category": "inputs",
+   "description": "scaled int16 input",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-int16-scaled>' -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "12/12",
+     "reason": "corrected: as built, 35836 of 35840 differ; max |diff| 0.11, max rel 0.00096, 1 - NCC 5.5e-09 (÷ ANTs' thread band: 0.072 max |Δ|, 0.0031 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "inputs/outliers",
+   "category": "inputs",
+   "description": "hot, negative and zero voxels (NaN and -inf read as 0): non-positive values keep their value in the log image",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-outliers>' -c [20x20] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "inputs/constant",
+   "category": "inputs",
+   "description": "a constant image (the histogram has no width)",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: constant>' -c [5] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "inputs/ramp",
+   "category": "inputs",
+   "description": "values increasing in memory order: ITK's histogram minimum is never set",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: n4-ramp>' -c [10x10] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "inputs/las-sform-only",
+   "category": "inputs",
+   "description": "an sform-only LAS image",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: las-sform-only>' -c [20x20] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "12/12",
+     "reason": "corrected: as built, 35840 of 35840 differ; max |diff| 0.0402, max rel 0.00024, 1 - NCC 5.7e-11 (÷ ANTs' thread band: 0.46 max |Δ|, 0.31 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "inputs/negative-pixdim",
+   "category": "inputs",
+   "description": "a qform-only image with a negative pixdim",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: negative-pixdim-qform>' -c [20x20] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "inputs/dim2",
+   "category": "inputs",
+   "description": "-d 2 on a 2D image",
+   "command": "N4BiasFieldCorrection -d 2 -i '<generated: slice-2d>' -o [out.nii.gz,bias.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "14/14",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "inputs/dim2-distance",
+   "category": "inputs",
+   "description": "-d 2 with -b [20] and -s 2",
+   "command": "N4BiasFieldCorrection -d 2 -i '<generated: slice-2d>' -b [20] -s 2 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "12/12",
+     "reason": "corrected: as built, 1280 of 1280 differ; max |diff| 0.2, max rel 0.0014, 1 - NCC 1.6e-08 (÷ ANTs' thread band: 0.33 max |Δ|, 0.56 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "inputs/dim4",
+   "category": "inputs",
+   "description": "-d 4: the series shrunk along space only, a spline along time too",
+   "command": "N4BiasFieldCorrection -d 4 -i '<generated: n4-series-4d>' -s 2 -c [10x10] -o [out.nii.gz,bias.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "14/14",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "inputs/dim3-of-4d",
+   "category": "inputs",
+   "description": "-d 3 on a 4D file: its first volume, with an identity direction",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: n4-series-4d>' -s 2 -c [10x10] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "inputs/dimension-from-file",
+   "category": "inputs",
+   "description": "no -d: the dimension is the file's",
+   "command": "N4BiasFieldCorrection -i '<generated: head-float32>' -c [10] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "inputs/bold-first-volume",
+   "category": "inputs",
+   "description": "-d 3 on fMRIPrep's preprocessed BOLD series: its first volume",
+   "command": "N4BiasFieldCorrection -d 3 -i openneuro-derivatives/ds000005-fmriprep/sub-01/func/sub-01_task-mixedgamblestask_run-1_space-T1w_desc-preproc_bold.nii.gz -b [200] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "12/12",
+     "reason": "corrected: as built, 53416 of 94276 differ; max |diff| 0.00165, max rel 2.4e-06, 1 - NCC 2.4e-13 (÷ ANTs' thread band: 0.39 max |Δ|, 0.74 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "errors/help",
+   "category": "errors",
+   "description": "--help: the usage, exit 0",
+   "command": "N4BiasFieldCorrection --help",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "exit status compared (both 0); the usage text is not compared"
+    }
+   }
+  },
+  {
+   "id": "errors/shrink-not-integer",
+   "category": "errors",
+   "description": "-s 2.5: the parser's Convert<int> throws (ANTs aborts)",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -s 2.5 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs exit -6: \"s/antsCommandLineParser.h:133:\\nITK ERROR: CommandLineParser(0x5924ed7c9da0): ERROR: Parse error occured during command line argument processing\\nERROR: Unable to convert '2.5' to type 'i' as signed int\"; larmorx exit 1: \"la…"
+    }
+   }
+  },
+  {
+   "id": "errors/dimension-5",
+   "category": "errors",
+   "description": "-d 5: 'Unsupported dimension'",
+   "command": "N4BiasFieldCorrection -d 5 -i '<generated: head-float32>' -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs exit 1: 'Unsupported dimension'; larmorx exit 1: 'Unsupported dimension'"
+    }
+   }
+  },
+  {
+   "id": "errors/missing-input",
+   "category": "errors",
+   "description": "an input that does not exist (ANTs crashes)",
+   "command": "N4BiasFieldCorrection -d 3 -i none.nii.gz -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs exit -11: 'file <tmp>/none.nii.gz does not exist .'; larmorx exit 1: 'file <tmp>/none.nii.gz does not exist . \\nlarmorx: N4BiasFieldCorrection: cannot read the input image (ANTs crashes here)'"
+    }
+   }
+  },
+  {
+   "id": "errors/mesh-wrong-length",
+   "category": "errors",
+   "description": "-b [2x2] in 3D: 'Incorrect mesh resolution', exit 1",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -b [2x2] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs exit 1: ''; larmorx exit 1: ''"
+    }
+   }
+  },
+  {
+   "id": "errors/mask-other-grid",
+   "category": "errors",
+   "description": "a mask on another grid: ITK throws (ANTs aborts)",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-float32>' -x '<generated: n4-mask-other-grid>' -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs exit -6: 't occupy the same physical space! \\nInputImage Origin: [2.1000000e+01, 3.0000000e+01, -2.0000000e+01], InputImagePrimary Origin: [2.4000000e+01, 3.0000000e+01, -2.0000000e+01]\\n\\tTolerance: 1.5000000e-06'; larmorx exit 1: \"l…"
+    }
+   }
+  }
+ ],
+ "cases_total": 51,
+ "band": {
+  "title": "The 16 cases that differ from ANTs as built: larmorx's difference divided by ANTs' own difference between thread counts (log scale)",
+  "axis": [
+   0.001,
+   10.0
+  ],
+  "ticks": [
+   [
+    0.001,
+    "0.001×"
+   ],
+   [
+    0.01,
+    "0.01×"
+   ],
+   [
+    0.1,
+    "0.1×"
+   ],
+   [
+    1.0,
+    "1×"
+   ],
+   [
+    10.0,
+    "10×"
+   ]
+  ],
+  "rows": [
+   {
+    "case": "fmriprep/boldref-coregistration",
+    "output": "corrected",
+    "ratio_max": 0.43,
+    "ratio_ncc": 0.45
+   },
+   {
+    "case": "fmriprep/boldref-template",
+    "output": "corrected",
+    "ratio_max": 0.25,
+    "ratio_ncc": 0.16
+   },
+   {
+    "case": "fmriprep/smriprep-pre-template",
+    "output": "corrected",
+    "ratio_max": 1.3,
+    "ratio_ncc": 0.24
+   },
+   {
+    "case": "fmriprep/n4-only",
+    "output": "corrected",
+    "ratio_max": 0.25,
+    "ratio_ncc": 0.01
+   },
+   {
+    "case": "fmriprep/n4-only",
+    "output": "bias field",
+    "ratio_max": 0.15,
+    "ratio_ncc": 0.0053
+   },
+   {
+    "case": "fmriprep/t1w-ds000210-final",
+    "output": "corrected",
+    "ratio_max": 0.21,
+    "ratio_ncc": 0.064
+   },
+   {
+    "case": "fmriprep/t1w-ds000210-final",
+    "output": "bias field",
+    "ratio_max": 0.21,
+    "ratio_ncc": 0.17
+   },
+   {
+    "case": "fmriprep/t1w-preproc-mask",
+    "output": "corrected",
+    "ratio_max": 0.023,
+    "ratio_ncc": 0.012
+   },
+   {
+    "case": "options/mask-and-weight",
+    "output": "corrected",
+    "ratio_max": 0.87,
+    "ratio_ncc": 0.79
+   },
+   {
+    "case": "options/shrink-1",
+    "output": "corrected",
+    "ratio_max": 0.36,
+    "ratio_ncc": 0.28
+   },
+   {
+    "case": "options/shrink-3",
+    "output": "corrected",
+    "ratio_max": 1.7,
+    "ratio_ncc": 4.2
+   },
+   {
+    "case": "options/shrink-0",
+    "output": "corrected",
+    "ratio_max": 0.36,
+    "ratio_ncc": 0.28
+   },
+   {
+    "case": "options/distance-30",
+    "output": "corrected",
+    "ratio_max": 0.4,
+    "ratio_ncc": 0.058
+   },
+   {
+    "case": "options/distance-30",
+    "output": "bias field",
+    "ratio_max": 0.4,
+    "ratio_ncc": 0.092
+   },
+   {
+    "case": "options/distance-order-2",
+    "output": "corrected",
+    "ratio_max": 0.22,
+    "ratio_ncc": 0.0028
+   },
+   {
+    "case": "inputs/int16-scaled",
+    "output": "corrected",
+    "ratio_max": 0.072,
+    "ratio_ncc": 0.0031
+   },
+   {
+    "case": "inputs/las-sform-only",
+    "output": "corrected",
+    "ratio_max": 0.46,
+    "ratio_ncc": 0.31
+   },
+   {
+    "case": "inputs/dim2-distance",
+    "output": "corrected",
+    "ratio_max": 0.33,
+    "ratio_ncc": 0.56
+   },
+   {
+    "case": "inputs/bold-first-volume",
+    "output": "corrected",
+    "ratio_max": 0.39,
+    "ratio_ncc": 0.74
+   }
+  ],
+  "note": "From the record's table: ANTs at 2, 3, 4, 8 and 12 threads against 1 thread give ANTs' thread band for each case and output; a ratio below 1 lies inside it. Every one of these differences vanishes with correctly rounded maths."
+ },
+ "speed": {
+  "title": "Seconds for the whole command (read, N4, write), median of repeated runs, log scale; the factor is larmorx's speed-up at one thread",
+  "axis": [
+   0.01,
+   100.0
+  ],
+  "ticks": [
+   [
+    0.01,
+    "0.01 s"
+   ],
+   [
+    0.1,
+    "0.1 s"
+   ],
+   [
+    1.0,
+    "1 s"
+   ],
+   [
+    10.0,
+    "10 s"
+   ],
+   [
+    100.0,
+    "100 s"
+   ]
+  ],
+  "series": [
+   {
+    "id": "ANTs 2.6.5|1",
+    "label": "ANTs, 1 thread",
+    "mark": "original"
+   },
+   {
+    "id": "ANTs 2.6.5|12",
+    "label": "ANTs, 12 threads",
+    "mark": "original-open"
+   },
+   {
+    "id": "larmorx|1",
+    "label": "larmorx, 1 thread",
+    "mark": "larmorx"
+   },
+   {
+    "id": "larmorx|12",
+    "label": "larmorx, 12 threads",
+    "mark": "larmorx-open"
+   }
+  ],
+  "rows": [
+   {
+    "label": "BOLD reference, ds000005",
+    "input": "fMRIPrep's BOLD reference: -b [200] -r -w premask, boldref ds000005 (64×64×34)",
+    "seconds": {
+     "ANTs 2.6.5|1": 1.0049491934478283,
+     "ANTs 2.6.5|12": 0.5564070697873831,
+     "larmorx|1": 0.13546534441411495,
+     "larmorx|12": 0.09931965917348862
+    },
+    "speedup": 7.418496574118012
+   },
+   {
+    "label": "BOLD reference, MNI template",
+    "input": "fMRIPrep's BOLD reference, MNI152NLin2009cAsym boldref res-02 (97×115×97)",
+    "seconds": {
+     "ANTs 2.6.5|1": 3.8872900493443012,
+     "ANTs 2.6.5|12": 1.2435397189110518,
+     "larmorx|1": 0.5344166830182076,
+     "larmorx|12": 0.2775106467306614
+    },
+    "speedup": 7.273893523290068
+   },
+   {
+    "label": "T1w, before the template",
+    "input": "sMRIPrep before the template: ANTs' defaults, raw T1w ds000005 (160×192×192)",
+    "seconds": {
+     "ANTs 2.6.5|1": 55.180508656427264,
+     "ANTs 2.6.5|12": 10.732513319700956,
+     "larmorx|1": 8.685536524280906,
+     "larmorx|12": 2.3969045970588923
+    },
+    "speedup": 6.353149111994067
+   },
+   {
+    "label": "T1w, brain extraction, first N4",
+    "input": "sMRIPrep brain extraction, first N4: -b [200] -c [50x50x50x50,1e-7] -s 4, truncated T1w",
+    "seconds": {
+     "ANTs 2.6.5|1": 57.921860441565514,
+     "ANTs 2.6.5|12": 11.333859827369452,
+     "larmorx|1": 8.589160021394491,
+     "larmorx|12": 2.6896943915635347
+    },
+    "speedup": 6.7436001072619
+   },
+   {
+    "label": "T1w, brain extraction, final N4",
+    "input": "sMRIPrep brain extraction, final N4: -b [200] -c [50x50x50x50x50,1e-7] -s 4 -r -w WM, raw T1w",
+    "seconds": {
+     "ANTs 2.6.5|1": 12.377437168732285,
+     "ANTs 2.6.5|12": 4.332588907331228,
+     "larmorx|1": 1.7873479425907135,
+     "larmorx|12": 0.6904286667704582
+    },
+    "speedup": 6.925029466166234
+   },
+   {
+    "label": "field-map magnitude, ds003012",
+    "input": "sdcflows' magnitude: -c [50x50x50x50x50,1e-7] -s 4, ds003012 magnitude1",
+    "seconds": {
+     "ANTs 2.6.5|1": 1.9559287521988153,
+     "ANTs 2.6.5|12": 0.9074930679053068,
+     "larmorx|1": 0.2712112069129944,
+     "larmorx|12": 0.1601101402193308
+    },
+    "speedup": 7.2118286499358595
+   }
+  ],
+  "note": "From the benchmark report `docs/benchmarks/ants-n4.json` (Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz, 12 logical CPUs), measured on 2026-10-11 against the ANTs build of that day; a re-run against the current oracle build is planned."
+ },
+ "examples": [
+  {
+   "id": "final-n4",
+   "title": "fMRIPrep's final N4 of a real T1w, by fMRIPrep, ANTs and larmorx",
+   "summary": "sMRIPrep's last N4 of its brain extraction, weighted by the white-matter posterior, as fMRIPrep 25.2.6 ran it on OpenNeuro ds000005 sub-01: the same arguments and the same input files, read from the oracle run's working directory, given to fMRIPrep's own ANTs, to the repository's ANTs 2.6.5 and to larmorx.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01's T1w (PDDL-1.0); shown inside fMRIPrep's brain mask, dilated by 2 voxels"
+    },
+    {
+     "label": "Node",
+     "text": "fMRIPrep 25.2.6, `anat_fit_wf/brain_extraction_wf/atropos_wf/inu_n4_final` (sMRIPrep's final N4), run with `NSLOTS=8`"
+    },
+    {
+     "label": "Command",
+     "text": "`N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image …/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-01_T1w_noise_corrected_corrected.nii.gz, sub-01_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image …/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz`"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs 2.6.2.dev1-gff61a3d (conda-forge) in fMRIPrep's image; CORE-MATH's correctly rounded functions preloaded where stated; larmorx at commit `c61f3c1a1847`"
+    },
+    {
+     "label": "Grid",
+     "text": "160 × 192 × 192 voxels of 1 × 1.33 × 1.33 mm; shown: 151 × 125 × 111 around the brain"
+    }
+   ],
+   "grid": {
+    "shape": [
+     151,
+     125,
+     111
+    ],
+    "spacing": [
+     1.0,
+     1.333333,
+     1.333333
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      4
+     ],
+     [
+      0,
+      1,
+      0,
+      18
+     ],
+     [
+      0,
+      0,
+      1,
+      32
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      1.0,
+      0.0,
+      0.0,
+      -77.0
+     ],
+     [
+      0.0,
+      1.333333,
+      0.0,
+      -109.000006
+     ],
+     [
+      0.0,
+      0.0,
+      1.333333,
+      -86.333344
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     160,
+     192,
+     192
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "b856c0b70af862db49292f74.bin",
+    "dtype": "u1",
+    "bytes": 25628
+   },
+   "outputs": [
+    {
+     "id": "corrected",
+     "label": "Corrected image",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 7.338318796157838,
+       "hi": 1076.472921752929
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -0.0006056897109374404,
+       "hi": 2393.388916015625
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "bias",
+     "label": "Bias field",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.18575943440198897,
+       "hi": 0.4252035231888294
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.16000235080718994,
+       "hi": 0.44036999344825745
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "t1w",
+     "role": "input",
+     "label": "ds000005 sub-01 T1w",
+     "sub": "as fMRIPrep passed it, after its DenoiseImage",
+     "arrays": {
+      "all": {
+       "blob": "95a77258f984915a90cf37cc.bin",
+       "dtype": "f4",
+       "bytes": 2690084
+      }
+     },
+     "window": [
+      1.9661033225059534,
+      399.45895446777337
+     ]
+    },
+    {
+     "id": "weight",
+     "role": "input",
+     "label": "Weight image (-w)",
+     "sub": "fMRIPrep's white-matter posterior × prior",
+     "arrays": {
+      "all": {
+       "blob": "4f9a1ac7d4f9cc94135ad90e.bin",
+       "dtype": "f4",
+       "bytes": 1148650
+      }
+     },
+     "window": [
+      0.0,
+      0.9999725222587585
+     ]
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "larmorx (port), 1 thread",
+     "sub": "default mode",
+     "arrays": {
+      "bias": {
+       "blob": "462d9a75c33f76d84f74a467.bin",
+       "dtype": "f4",
+       "bytes": 2136897
+      },
+      "corrected": {
+       "blob": "be469c79515d77d417215ea1.bin",
+       "dtype": "f4",
+       "xor": {
+        "div": [
+         "t1w:all",
+         "larmorx:bias"
+        ]
+       },
+       "zero": true,
+       "bytes": 8156
+      }
+     },
+     "own": {
+      "corrected": [
+       7.338318796157838,
+       1076.472921752929
+      ],
+      "bias": [
+       0.18575943440198897,
+       0.4252035231888294
+      ]
+     }
+    },
+    {
+     "id": "larmorx-12",
+     "role": "larmorx",
+     "label": "larmorx (port), 12 threads",
+     "sub": "default mode",
+     "arrays": {
+      "bias": {
+       "same": "larmorx:bias",
+       "dtype": "f4"
+      },
+      "corrected": {
+       "same": "larmorx:corrected",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "corrected": [
+       7.338318796157838,
+       1076.472921752929
+      ],
+      "bias": [
+       0.18575943440198897,
+       0.4252035231888294
+      ]
+     }
+    },
+    {
+     "id": "larmorx-reproduce",
+     "role": "larmorx",
+     "label": "larmorx (port), 1 thread",
+     "sub": "reproduce mode",
+     "arrays": {
+      "bias": {
+       "same": "larmorx:bias",
+       "dtype": "f4"
+      },
+      "corrected": {
+       "same": "larmorx:corrected",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "corrected": [
+       7.338318796157838,
+       1076.472921752929
+      ],
+      "bias": [
+       0.18575943440198897,
+       0.4252035231888294
+      ]
+     }
+    },
+    {
+     "id": "larmorx-12-reproduce",
+     "role": "larmorx",
+     "label": "larmorx (port), 12 threads",
+     "sub": "reproduce mode",
+     "arrays": {
+      "bias": {
+       "same": "larmorx:bias",
+       "dtype": "f4"
+      },
+      "corrected": {
+       "same": "larmorx:corrected",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "corrected": [
+       7.338318796157838,
+       1076.472921752929
+      ],
+      "bias": [
+       0.18575943440198897,
+       0.4252035231888294
+      ]
+     }
+    },
+    {
+     "id": "ants-1-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, 1 thread, correctly rounded maths",
+     "sub": "the same binary, CORE-MATH preloaded",
+     "arrays": {
+      "bias": {
+       "same": "larmorx:bias",
+       "dtype": "f4"
+      },
+      "corrected": {
+       "same": "larmorx:corrected",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "corrected": [
+       7.338318796157838,
+       1076.472921752929
+      ],
+      "bias": [
+       0.18575943440198897,
+       0.4252035231888294
+      ]
+     }
+    },
+    {
+     "id": "image-1-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.2 (fMRIPrep's image), 1 thread, correctly rounded maths",
+     "sub": "CORE-MATH preloaded",
+     "arrays": {
+      "bias": {
+       "same": "larmorx:bias",
+       "dtype": "f4"
+      },
+      "corrected": {
+       "same": "larmorx:corrected",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "corrected": [
+       7.338318796157838,
+       1076.472921752929
+      ],
+      "bias": [
+       0.18575943440198897,
+       0.4252035231888294
+      ]
+     }
+    },
+    {
+     "id": "ants-1",
+     "role": "original",
+     "label": "ANTs 2.6.5, 1 thread, as built",
+     "sub": "the repository's oracle build (GCC 14.3), glibc's maths",
+     "arrays": {
+      "bias": {
+       "blob": "6d05e3e4c31f3b7c26f0a88a.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:bias",
+       "zero": false,
+       "bytes": 1049751
+      },
+      "corrected": {
+       "blob": "be469c79515d77d417215ea1.bin",
+       "dtype": "f4",
+       "xor": {
+        "div": [
+         "t1w:all",
+         "ants-1:bias"
+        ]
+       },
+       "zero": true,
+       "bytes": 8156
+      }
+     },
+     "own": {
+      "corrected": [
+       7.338368377685549,
+       1076.4779760742183
+      ],
+      "bias": [
+       0.18575865879654885,
+       0.4252006059885025
+      ]
+     }
+    },
+    {
+     "id": "image-1",
+     "role": "original",
+     "label": "ANTs 2.6.2 (fMRIPrep's image), 1 thread",
+     "sub": "conda-forge's build, glibc's maths",
+     "arrays": {
+      "bias": {
+       "same": "ants-1:bias",
+       "dtype": "f4"
+      },
+      "corrected": {
+       "same": "ants-1:corrected",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "corrected": [
+       7.338368377685549,
+       1076.4779760742183
+      ],
+      "bias": [
+       0.18575865879654885,
+       0.4252006059885025
+      ]
+     }
+    },
+    {
+     "id": "ants-8",
+     "role": "original",
+     "label": "ANTs 2.6.5, 8 threads",
+     "sub": "the repository's oracle build, glibc's maths",
+     "arrays": {
+      "bias": {
+       "blob": "550be6a1e9a080346bcdaad7.bin",
+       "dtype": "f4",
+       "xor": "ants-1:bias",
+       "zero": false,
+       "bytes": 935573
+      },
+      "corrected": {
+       "blob": "be469c79515d77d417215ea1.bin",
+       "dtype": "f4",
+       "xor": {
+        "div": [
+         "t1w:all",
+         "ants-8:bias"
+        ]
+       },
+       "zero": true,
+       "bytes": 8156
+      }
+     },
+     "own": {
+      "corrected": [
+       7.338375039100648,
+       1076.4802709960936
+      ],
+      "bias": [
+       0.18575891189277172,
+       0.4251994051039219
+      ]
+     }
+    },
+    {
+     "id": "fmriprep",
+     "role": "fmriprep",
+     "label": "fMRIPrep 25.2.6, as it ran",
+     "sub": "ANTs 2.6.2 in its image, 8 threads (NSLOTS=8), glibc's maths",
+     "arrays": {
+      "bias": {
+       "same": "ants-8:bias",
+       "dtype": "f4"
+      },
+      "corrected": {
+       "same": "ants-8:corrected",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "corrected": [
+       7.338375039100648,
+       1076.4802709960936
+      ],
+      "bias": [
+       0.18575891189277172,
+       0.4251994051039219
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants1",
+     "a": "larmorx",
+     "b": "ants-1",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "corrected": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 5327635,
+       "share": 0.9032584296332465,
+       "max_abs": 0.03125,
+       "at": [
+        93,
+        99,
+        79
+       ],
+       "a_at": 2163.671142578125,
+       "b_at": 2163.702392578125,
+       "rms": 0.0018102298980782771,
+       "range": 2696.808046246064,
+       "max_rel_range": 1.1587773198578134e-05,
+       "one_minus_ncc": 3.2661487759745366e-12,
+       "at_display": [
+        89,
+        81,
+        47
+       ]
+      },
+      "bias": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 5842682,
+       "share": 0.990580579969618,
+       "max_abs": 5.781650543212891e-06,
+       "at": [
+        27,
+        78,
+        49
+       ],
+       "a_at": 0.28831347823143005,
+       "b_at": 0.28831925988197327,
+       "rms": 1.0565068502353824e-06,
+       "range": 0.792129248380661,
+       "max_rel_range": 7.298872696636615e-06,
+       "one_minus_ncc": 4.3775944124999845e-12,
+       "at_display": [
+        23,
+        60,
+        17
+       ]
+      }
+     },
+     "display": {
+      "corrected": {
+       "max_abs": 0.03125,
+       "at": [
+        89,
+        81,
+        47
+       ],
+       "a": 2163.671142578125,
+       "b": 2163.702392578125,
+       "differ": 841272
+      },
+      "bias": {
+       "max_abs": 4.976987838745117e-06,
+       "at": [
+        90,
+        79,
+        46
+       ],
+       "a": 0.3367563486099243,
+       "b": 0.33675137162208557,
+       "differ": 845025
+      }
+     },
+     "verdict": "identical-cr",
+     "reason": "Only where glibc's expf, logf, exp or sincos is not correctly rounded: with CORE-MATH preloaded, the same ANTs binary gives larmorx's output bit for bit (next row).",
+     "links": [
+      {
+       "label": "platform maths",
+       "href": "docs/findings/platform-math.md"
+      }
+     ]
+    },
+    {
+     "id": "lx-cr",
+     "a": "larmorx",
+     "b": "ants-1-cr",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, 1 thread, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "corrected": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 4.600738048553467,
+       "b_at": 4.600738048553467,
+       "rms": 0.0,
+       "range": 2696.793886090396,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "bias": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.8022233843803406,
+       "b_at": 0.8022233843803406,
+       "rms": 0.0,
+       "range": 0.7921279668807983,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "corrected": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "bias": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "With correctly rounded maths, ANTs computes exactly what larmorx computes.",
+     "links": []
+    },
+    {
+     "id": "lx-fmriprep",
+     "a": "larmorx",
+     "b": "fmriprep",
+     "kind": "fmriprep",
+     "label": "larmorx − fMRIPrep's own output",
+     "role_label": "larmorx against fMRIPrep",
+     "metrics": {
+      "corrected": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 5240769,
+       "share": 0.888530985514323,
+       "max_abs": 0.0966796875,
+       "at": [
+        94,
+        99,
+        79
+       ],
+       "a_at": 2151.61376953125,
+       "b_at": 2151.71044921875,
+       "rms": 0.0024952572691866745,
+       "range": 2696.794618512504,
+       "max_rel_range": 3.5849851833851004e-05,
+       "one_minus_ncc": 1.254642277277163e-11,
+       "at_display": [
+        90,
+        81,
+        47
+       ]
+      },
+      "bias": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 5748094,
+       "share": 0.9745439317491319,
+       "max_abs": 1.564621925354004e-05,
+       "at": [
+        94,
+        97,
+        78
+       ],
+       "a_at": 0.3367563486099243,
+       "b_at": 0.3367407023906708,
+       "rms": 1.2121855758781615e-06,
+       "range": 0.79212886095047,
+       "max_rel_range": 1.9752113607836795e-05,
+       "one_minus_ncc": 9.505167171664262e-12,
+       "at_display": [
+        90,
+        79,
+        46
+       ]
+      }
+     },
+     "display": {
+      "corrected": {
+       "max_abs": 0.0966796875,
+       "at": [
+        90,
+        81,
+        47
+       ],
+       "a": 2151.61376953125,
+       "b": 2151.71044921875,
+       "differ": 840110
+      },
+      "bias": {
+       "max_abs": 1.564621925354004e-05,
+       "at": [
+        90,
+        79,
+        46
+       ],
+       "a": 0.3367563486099243,
+       "b": 0.3367407023906708,
+       "differ": 843922
+      }
+     },
+     "verdict": "within-variability",
+     "reason": "fMRIPrep's output is ANTs at 8 threads (bit-identical to ANTs 2.6.5 at 8 threads), larmorx's is ANTs at 1 thread with correctly rounded maths: this is how two runs of ANTs itself differ (its thread count, glibc's maths).",
+     "links": [
+      {
+       "label": "ANTS-37",
+       "href": "docs/findings/upstream-defects.md#ants-37-n4-depends-on-the-thread-count--b"
+      }
+     ]
+    },
+    {
+     "id": "lx12-lx1",
+     "a": "larmorx-12",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, 12 threads − 1 thread",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "corrected": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 4.600738048553467,
+       "b_at": 4.600738048553467,
+       "rms": 0.0,
+       "range": 2696.793886090396,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "bias": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.8022233843803406,
+       "b_at": 0.8022233843803406,
+       "rms": 0.0,
+       "range": 0.7921279668807983,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "corrected": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "bias": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "larmorx gives ANTs' single-thread result on any number of threads.",
+     "links": []
+    },
+    {
+     "id": "lx-repro",
+     "a": "larmorx",
+     "b": "larmorx-reproduce",
+     "kind": "check",
+     "label": "larmorx, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "corrected": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 4.600738048553467,
+       "b_at": 4.600738048553467,
+       "rms": 0.0,
+       "range": 2696.793886090396,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "bias": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.8022233843803406,
+       "b_at": 0.8022233843803406,
+       "rms": 0.0,
+       "range": 0.7921279668807983,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "corrected": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "bias": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "No correction of the register applies to this command: both modes give the same bytes (ANTS-36's notice, that -r without a mask rescales nothing, is printed in both).",
+     "links": [
+      {
+       "label": "ANTS-36",
+       "href": "docs/findings/upstream-defects.md#ants-36-n4s-mask-and-rescaling--e"
+      }
+     ]
+    },
+    {
+     "id": "ants2-ants1",
+     "a": "ants-2",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 2 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "corrected": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 5247886,
+       "share": 0.8897376166449653,
+       "max_abs": 0.019775390625,
+       "at": [
+        94,
+        99,
+        79
+       ],
+       "a_at": 2151.66455078125,
+       "b_at": 2151.644775390625,
+       "rms": 0.0005158773140938564,
+       "range": 2696.808046246064,
+       "max_rel_range": 7.332887727225225e-06,
+       "one_minus_ncc": 1.542061387508503e-12
+      },
+      "bias": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 5775806,
+       "share": 0.9792422824435764,
+       "max_abs": 4.857778549194336e-06,
+       "at": [
+        51,
+        28,
+        116
+       ],
+       "a_at": 0.37724828720092773,
+       "b_at": 0.37724342942237854,
+       "rms": 9.547119585217254e-07,
+       "range": 0.792129248380661,
+       "max_rel_range": 6.132557987380249e-06,
+       "one_minus_ncc": 3.1740996123312404e-12
+      }
+     },
+     "verdict": null,
+     "reason": "ANTs' result moves with its thread count: ITK's B-spline fit sums per-thread lattices.",
+     "links": [
+      {
+       "label": "ANTS-37",
+       "href": "docs/findings/upstream-defects.md#ants-37-n4-depends-on-the-thread-count--b"
+      }
+     ]
+    },
+    {
+     "id": "ants3-ants1",
+     "a": "ants-3",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 3 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "corrected": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 5205861,
+       "share": 0.8826126098632813,
+       "max_abs": 0.0255126953125,
+       "at": [
+        54,
+        31,
+        115
+       ],
+       "a_at": 1396.489501953125,
+       "b_at": 1396.5150146484375,
+       "rms": 0.0016577792547947774,
+       "range": 2696.808046246064,
+       "max_rel_range": 9.46033046290168e-06,
+       "one_minus_ncc": 2.605730736014911e-12
+      },
+      "bias": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 5725543,
+       "share": 0.9707205878363715,
+       "max_abs": 6.467103958129883e-06,
+       "at": [
+        50,
+        29,
+        116
+       ],
+       "a_at": 0.370930939912796,
+       "b_at": 0.3709244728088379,
+       "rms": 9.420369521347808e-07,
+       "range": 0.792129248380661,
+       "max_rel_range": 8.164202964794565e-06,
+       "one_minus_ncc": 2.878674884314231e-12
+      }
+     },
+     "verdict": null,
+     "reason": "ANTs' result moves with its thread count: ITK's B-spline fit sums per-thread lattices.",
+     "links": [
+      {
+       "label": "ANTS-37",
+       "href": "docs/findings/upstream-defects.md#ants-37-n4-depends-on-the-thread-count--b"
+      }
+     ]
+    },
+    {
+     "id": "ants4-ants1",
+     "a": "ants-4",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 4 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "corrected": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 5255704,
+       "share": 0.8910630967881944,
+       "max_abs": 0.041259765625,
+       "at": [
+        93,
+        99,
+        79
+       ],
+       "a_at": 2163.74365234375,
+       "b_at": 2163.702392578125,
+       "rms": 0.0006867689185569543,
+       "range": 2696.808046246064,
+       "max_rel_range": 1.5299481801247692e-05,
+       "one_minus_ncc": 2.7877162087524485e-12
+      },
+      "bias": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 5771717,
+       "share": 0.9785490247938368,
+       "max_abs": 6.705522537231445e-06,
+       "at": [
+        93,
+        97,
+        78
+       ],
+       "a_at": 0.3366292417049408,
+       "b_at": 0.336635947227478,
+       "rms": 8.850067946123382e-07,
+       "range": 0.792129248380661,
+       "max_rel_range": 8.465187405892982e-06,
+       "one_minus_ncc": 2.7671685731311278e-12
+      }
+     },
+     "verdict": null,
+     "reason": "ANTs' result moves with its thread count: ITK's B-spline fit sums per-thread lattices.",
+     "links": [
+      {
+       "label": "ANTS-37",
+       "href": "docs/findings/upstream-defects.md#ants-37-n4-depends-on-the-thread-count--b"
+      }
+     ]
+    },
+    {
+     "id": "ants8-ants1",
+     "a": "ants-8",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 8 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "corrected": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 5317238,
+       "share": 0.9014957004123264,
+       "max_abs": 0.065673828125,
+       "at": [
+        94,
+        99,
+        79
+       ],
+       "a_at": 2151.71044921875,
+       "b_at": 2151.644775390625,
+       "rms": 0.000990816641531869,
+       "range": 2696.808046246064,
+       "max_rel_range": 2.435242961263686e-05,
+       "one_minus_ncc": 5.260288908857e-12,
+       "at_display": [
+        90,
+        81,
+        47
+       ]
+      },
+      "bias": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 5829414,
+       "share": 0.9883310953776042,
+       "max_abs": 1.0669231414794922e-05,
+       "at": [
+        93,
+        97,
+        78
+       ],
+       "a_at": 0.33662527799606323,
+       "b_at": 0.336635947227478,
+       "rms": 9.679992832836617e-07,
+       "range": 0.792129248380661,
+       "max_rel_range": 1.3469053739154166e-05,
+       "one_minus_ncc": 3.9127059958369194e-12,
+       "at_display": [
+        89,
+        79,
+        46
+       ]
+      }
+     },
+     "display": {
+      "corrected": {
+       "max_abs": 0.065673828125,
+       "at": [
+        90,
+        81,
+        47
+       ],
+       "a": 2151.71044921875,
+       "b": 2151.644775390625,
+       "differ": 831383
+      },
+      "bias": {
+       "max_abs": 1.0669231414794922e-05,
+       "at": [
+        89,
+        79,
+        46
+       ],
+       "a": 0.33662527799606323,
+       "b": 0.336635947227478,
+       "differ": 835506
+      }
+     },
+     "verdict": null,
+     "reason": "ANTs' result moves with its thread count: ITK's B-spline fit sums per-thread lattices.",
+     "links": [
+      {
+       "label": "ANTS-37",
+       "href": "docs/findings/upstream-defects.md#ants-37-n4-depends-on-the-thread-count--b"
+      }
+     ]
+    },
+    {
+     "id": "ants12-ants1",
+     "a": "ants-12",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 12 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "corrected": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 5331127,
+       "share": 0.9038504706488715,
+       "max_abs": 0.0174560546875,
+       "at": [
+        54,
+        31,
+        115
+       ],
+       "a_at": 1396.49755859375,
+       "b_at": 1396.5150146484375,
+       "rms": 0.0011623641722136077,
+       "range": 2696.808046246064,
+       "max_rel_range": 6.4728576851432545e-06,
+       "one_minus_ncc": 1.5397383416638238e-12
+      },
+      "bias": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 5844167,
+       "share": 0.9908323499891493,
+       "max_abs": 4.678964614868164e-06,
+       "at": [
+        9,
+        88,
+        65
+       ],
+       "a_at": 0.2928573191165924,
+       "b_at": 0.2928619980812073,
+       "rms": 1.065210829224222e-06,
+       "range": 0.792129248380661,
+       "max_rel_range": 5.906819656556436e-06,
+       "one_minus_ncc": 2.3610582296952704e-12
+      }
+     },
+     "verdict": null,
+     "reason": "ANTs' result moves with its thread count: ITK's B-spline fit sums per-thread lattices.",
+     "links": [
+      {
+       "label": "ANTS-37",
+       "href": "docs/findings/upstream-defects.md#ants-37-n4-depends-on-the-thread-count--b"
+      }
+     ]
+    },
+    {
+     "id": "fmriprep-ants8",
+     "a": "fmriprep",
+     "b": "ants-8",
+     "kind": "variability",
+     "label": "fMRIPrep's own output − ANTs 2.6.5, 8 threads",
+     "role_label": "the original against itself",
+     "metrics": {
+      "corrected": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 4.6007399559021,
+       "b_at": 4.6007399559021,
+       "rms": 0.0,
+       "range": 2696.794618512504,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "bias": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.8022230863571167,
+       "b_at": 0.8022230863571167,
+       "rms": 0.0,
+       "range": 0.79212886095047,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "corrected": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "bias": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": null,
+     "reason": "ANTs' version and build play no part at equal threads and maths.",
+     "links": []
+    },
+    {
+     "id": "image1-ants1",
+     "a": "image-1",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.2 − ANTs 2.6.5, 1 thread each, as built",
+     "role_label": "the original against itself",
+     "metrics": {
+      "corrected": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 4.600736141204834,
+       "b_at": 4.600736141204834,
+       "rms": 0.0,
+       "range": 2696.808046246064,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "bias": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.8022237420082092,
+       "b_at": 0.8022237420082092,
+       "rms": 0.0,
+       "range": 0.792129248380661,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "corrected": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "bias": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": null,
+     "reason": "ANTs' version and build play no part at equal threads and maths.",
+     "links": []
+    },
+    {
+     "id": "image1cr-ants1cr",
+     "a": "image-1-cr",
+     "b": "ants-1-cr",
+     "kind": "variability",
+     "label": "ANTs 2.6.2 − ANTs 2.6.5, 1 thread each, correctly rounded",
+     "role_label": "the original against itself",
+     "metrics": {
+      "corrected": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 4.600738048553467,
+       "b_at": 4.600738048553467,
+       "rms": 0.0,
+       "range": 2696.793886090396,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "bias": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.8022233843803406,
+       "b_at": 0.8022233843803406,
+       "rms": 0.0,
+       "range": 0.7921279668807983,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "corrected": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "bias": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": null,
+     "reason": "ANTs' version and build play no part at equal threads and maths.",
+     "links": []
+    }
+   ],
+   "default": {
+    "output": "corrected",
+    "plane": "axial",
+    "voxel": [
+     77,
+     64,
+     66
+    ],
+    "panels": [
+     "t1w",
+     "fmriprep",
+     "ants-1",
+     "larmorx"
+    ],
+    "diffs": [
+     "lx-ants1",
+     "ants8-ants1",
+     "lx-cr",
+     "lx-fmriprep"
+    ],
+    "compare": {
+     "a": "ants-1",
+     "b": "larmorx"
+    },
+    "scale": "log"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 66,
+    "aspect": 0.906,
+    "panels": {
+     "t1w": "aab8d86ef145786c192defd1.webp",
+     "fmriprep": "44aa883d201de4dfd12f12df.webp",
+     "ants-1": "5303b73ba1b76862ba03c6ec.webp",
+     "larmorx": "667632180874f21ff78d4e78.webp"
+    },
+    "diffs": {
+     "lx-ants1": "85d8e241c56f6b7223083ca7.webp",
+     "ants8-ants1": "7289aee052253e0b3511e153.webp",
+     "lx-fmriprep": "611a161cde4559604bbe9fb6.webp"
+    },
+    "ranges": {
+     "lx-ants1": 0.0966796875,
+     "ants8-ants1": 0.0966796875,
+     "lx-fmriprep": 0.0966796875
+    },
+    "caption": "Axial slice 67 of 111 of the shown grid (the one with the most brain), the crosshair where larmorx and ANTs as built differ most in it; the corrected image, in the brain's 0.5–99.5 % window; the differences on one symmetric log scale over six decades below ±0.0967, any non-zero difference tinted."
+   },
+   "chain": {
+    "title": "What separates fMRIPrep's output from larmorx's (the corrected image)",
+    "steps": [
+     {
+      "nodes": [
+       {
+        "label": "fMRIPrep 25.2.6, as it ran",
+        "sub": "ANTs 2.6.2 in its image, 8 threads (NSLOTS=8), glibc's maths",
+        "role": "fmriprep"
+       },
+       {
+        "label": "ANTs 2.6.5, 8 threads",
+        "sub": "the repository's oracle build, glibc's maths",
+        "role": "original"
+       }
+      ]
+     },
+     {
+      "nodes": [
+       {
+        "label": "ANTs 2.6.5, 1 thread, as built",
+        "sub": "the repository's oracle build (GCC 14.3), glibc's maths",
+        "role": "original"
+       },
+       {
+        "label": "ANTs 2.6.2 (fMRIPrep's image), 1 thread",
+        "sub": "conda-forge's build, glibc's maths",
+        "role": "original"
+       }
+      ]
+     },
+     {
+      "nodes": [
+       {
+        "label": "ANTs 2.6.5, 1 thread, correctly rounded maths",
+        "sub": "the same binary, CORE-MATH preloaded",
+        "role": "reference"
+       },
+       {
+        "label": "ANTs 2.6.2 (fMRIPrep's image), 1 thread, correctly rounded maths",
+        "sub": "CORE-MATH preloaded",
+        "role": "reference"
+       },
+       {
+        "label": "larmorx (port)",
+        "sub": "1 and 12 threads, default and reproduce",
+        "role": "larmorx"
+       }
+      ]
+     }
+    ],
+    "links": [
+     {
+      "cause": "1 thread instead of 8",
+      "max_abs": 0.065673828125
+     },
+     {
+      "cause": "correctly rounded maths instead of glibc's",
+      "max_abs": 0.03125
+     }
+    ],
+    "note": "Each box holds runs that give the same bytes, both outputs. fMRIPrep's ANTs 2.6.2 and the repository's ANTs 2.6.5 agree bit for bit at equal thread counts and maths, so the version plays no part; ANTs' thread count and glibc's maths are the only two causes, and larmorx computes ANTs' result at one thread with correctly rounded maths, on any number of threads."
+   },
+   "metrics_note": "Δ is A − B. Every number is computed in float64 over all 5,898,240 voxels of the 160 × 192 × 192 outputs, not only the brain shown; the range is B's maximum minus its minimum; NCC is Pearson's correlation. The record's thresholds: values bit-identical to ANTs at one thread with correctly rounded math (CORE-MATH preloaded); with ANTs as built (glibc's math), bit-identity reported and NCC > 0.995 where they differ. The rows *the original against itself* are ANTs' own variability on this input, the yardstick for the rest.",
+   "provenance": [
+    "Inputs: fMRIPrep 25.2.6's oracle run `ds000005-sub-01-noreconall` (image sha256 `7f84379b40f39987…`): input (ec055df157667867…); weight image (18144dfca7a49ddd…); fMRIPrep's corrected image (fe9f33bd9791dfaf…); fMRIPrep's bias field (932355402736757a…)",
+    "Runs: figures cache entry `ants-n4/fmriprep-ds000005-final-n4`, computed 2026-10-21T09:26:11+00:00 with larmorx `c61f3c1a1847`; every command, its environment, threads, exit status and time are in its `RUN_INFO.json`",
+    "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0"
+   ]
+  }
+ ]
+}

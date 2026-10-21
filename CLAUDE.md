@@ -44,19 +44,27 @@ git, commits, usage limits and long runs.
 - The code is our own: `bids_manager_documentation` has no licence file, so its design language
   is followed, its code is not copied.
 
-## Figures (CLAUDE.md rule 7 of the main repository)
-- Every tool gets figures showing how the replica and the clean-room original compare with the
-  original program: agreement overviews, difference distributions, image comparisons
-  (registration overlays, difference maps, N4 bias fields, time series), the original's own
-  variability (threads, versions), speed. Adapted to each program; elegant and consistent: one
-  style sheet, a colour-blind-safe palette that matches the site's, the site's fonts.
-- SVG in a light and a dark version, each at the text column's width (720 px) and a phone's (360 px); text drawn as the fonts' outlines; brain images embedded in the SVG as lossless WebP. The page shows the version of the current theme and the narrow one below 560 px: `{{ figure('<tool>/<name>', caption) }}` in a page (`tools/build.py`).
-- Each figure records its provenance next to it: the validation record and larmorx commit it was
-  drawn from, the data, the command.
-- Keep the repository lean: no raw image data; figure files sized for the web.
-- Data shown must be shareable: OpenNeuro datasets whose licence is a public-domain dedication
-  (CC0-1.0, PDDL-1.0) or CC-BY (credited), templates with their notices (the MNI ICBM152 notice
-  is in `static/hero/LICENSE-MNI.txt` and the footer). Brain slices only, masked, never a face.
+## Validation evidence (CLAUDE.md rule 7 of the main repository)
+- Since 2026-10-21 (the user found the static figures unclear and short of evidence) every tool's
+  page shows **interactive evidence**: worked examples on real data with the raw input, the
+  original program's outputs (each panel naming its version, build, threads and maths), larmorx's
+  outputs (port, replica, clean-room original; default and `reproduce` modes), difference panels
+  beside the original's own variability on the same scale, a metrics table with a **verdict and
+  its reason** for every comparison, and the record's cases in a case explorer. How it works and
+  how to add a tool: README.md, "The validation evidence"; the export: the main repository's
+  `docs/figures.md` (`python -m larmorx_validation evidence <tool>|summary|all --site <this repo>`).
+- One verdict taxonomy for the whole site (`data/verdicts.yml`, defined on the Validation page);
+  colour plus pattern plus name, never colour alone.
+- The data under `static/evidence/` is content-addressed and byte-deterministic (a re-export of
+  unchanged results changes nothing in git); brain-masked or cropped, never a face; only data
+  whose licence allows it (OpenNeuro CC0-1.0 or PDDL-1.0, or CC-BY credited; templates with their
+  notices, the MNI notice in `static/hero/LICENSE-MNI.txt` and the footer).
+- Every number shown comes from the records or from metrics computed offline; check them with
+  `tools/review/shoot.mjs --eval` before publishing. Review every component state (desktop and
+  phone, light and dark) for meaning as well as looks; a pilot goes to the user before a design is
+  rolled out.
+- The pages not yet redone (part 2b) still show the static figures of part 1
+  (`static/figures/<tool>/`, SVG with provenance JSON).
 
 ## Build, preview, deploy
 ```bash

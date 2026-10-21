@@ -15,6 +15,8 @@ Each page says what the tool is, how LARMORX implements it (a port of the source
 
 ## How to read the figures {#reading}
 
+[N4BiasFieldCorrection](/tools/ants-n4/) and [3dTshift](/tools/afni-tshift/) show their validation as evidence to inspect: worked examples on real data in an image viewer, the metrics of every comparison, a verdict for every comparison and case, and every parity case in a searchable table ([how to read them](/validation/#reading)). The other pages follow; until then they show the figures below.
+
 - **Agreement.** One bar per category of a record's cases, as shares of the category. *Identical* means the same bits as the unmodified original program; *identical with correctly rounded maths* means the same bits once the original's math library (glibc's `exp`, `log`, `sin`, `cos`, which are not always correctly rounded) is replaced by CORE-MATH's, which LARMORX uses on every platform; *within the thresholds* means the record's stated tolerance, not bit-identity; *rejected by both* means both programs refuse the input, compared by exit status and messages; *expected divergence* means a documented, deliberate difference.
 - **Differences against the original's own variability.** Where an original's result depends on its thread count, the record measures that band, and the figures place LARMORX's differences next to it.
 - **Images.** Brain slices only, masked to the brain, from OpenNeuro datasets in the public domain (PDDL-1.0, CC0-1.0) and the MNI ICBM 152 template ([notice](/static/hero/LICENSE-MNI.txt)); difference maps on a symmetric scale whose range is stated.

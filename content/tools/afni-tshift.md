@@ -2,23 +2,24 @@
 title: 3dTshift
 kicker: Tools · AFNI
 lede: >-
-  Slice-timing correction in two implementations: a clean-room original in LARMORX
-  (Apache-2.0), written from a behavioural specification, and an exact replica of AFNI's
-  source in the separate larmorx-gpl package.
-description: LARMORX's two implementations of AFNI's 3dTshift, the clean-room original and the GPL replica, their validation against AFNI 25.2.09 in figures, a real BOLD run, and speed.
+  Slice-timing correction in two implementations: an exact replica of AFNI's source in the
+  separate larmorx-gpl package, bit-identical to AFNI 25.2.09 in every compared case, and a
+  clean-room original in LARMORX (Apache-2.0), written from a behavioural specification, which
+  differs from AFNI by the last bits of its Fourier shift.
+description: LARMORX's two implementations of AFNI's 3dTshift, validated against AFNI 25.2.09 and fMRIPrep 25.2.6 — a real BOLD run and a deliberate correction to inspect, every parity case with its verdict, and speed.
+evidence: true
+wide: true
 ---
 
 <dl class="facts">
-<dt>Implementations</dt><dd>clean-room original (<code>larmorx</code>, Apache-2.0, from <a href="{{ repo('specs/3dTshift.md') }}">specs/3dTshift.md</a>); exact replica (<code>larmorx-gpl</code>, GPL-3.0-or-later, run as a separate program)</dd>
+<dt>Implementations</dt><dd>exact replica (<code>larmorx-gpl</code>, GPL-3.0-or-later, run as a separate program); clean-room original (<code>larmorx</code>, Apache-2.0, from <a href="{{ repo('specs/3dTshift.md') }}">specs/3dTshift.md</a>)</dd>
 <dt>Status</dt><dd><span class="status-tag eco-afni">validated</span> (each)</dd>
-<dt>Records</dt><dd><a href="{{ repo('docs/validation/afni-tshift.md') }}">original</a> · <a href="{{ repo('docs/validation/afni-tshift-replica.md') }}">replica</a> · benchmark <a href="{{ repo('docs/benchmarks/afni-tshift.md') }}">afni-tshift</a> · API <a href="{{ repo('docs/api/afni-tshift.md') }}">afni-tshift</a></dd>
+<dt>Records</dt><dd><a href="{{ repo('docs/validation/afni-tshift-replica.md') }}">replica</a> · <a href="{{ repo('docs/validation/afni-tshift.md') }}">original</a> · benchmark <a href="{{ repo('docs/benchmarks/afni-tshift.md') }}">afni-tshift</a> · API <a href="{{ repo('docs/api/afni-tshift.md') }}">afni-tshift</a></dd>
 </dl>
 
 ## What it is
 
 3dTshift shifts each slice's time series to a common time, so that the slices of a volume acquired at different moments can be treated as simultaneous. fMRIPrep calls it with the slice times of the BIDS sidecar and `-tzero` at the middle of the acquisition, with AFNI's default Fourier interpolation.
-
-## How to call it
 
 ```bash
 larmorx afni 3dTshift -ignore 0 -tpattern @slice_timing.1D -TR 2s -tzero 0.975 -prefix bold_stc.nii.gz bold.nii.gz
@@ -34,28 +35,40 @@ stc = lx.afni.tshift("sub-01_task-rest_bold.nii.gz", slice_times=times, tzero=t0
                      tr=meta["RepetitionTime"], n_threads=8)       # implementation="auto"
 ```
 
-`implementation="auto" | "replica" | "original"` chooses (on the command line `LARMORX_IMPLEMENTATION`); `auto` takes the replica when `larmorx-gpl` is installed.
+`implementation="auto" | "replica" | "original"` chooses (on the command line `LARMORX_IMPLEMENTATION`); `auto` takes the replica when `larmorx-gpl` is installed. How to read what follows: [the validation guide](/validation/#reading).
 
-## Agreement with AFNI
+## The verdicts at a glance {#verdicts}
 
-Both records run the same 314 cases against AFNI 25.2.09: 279 pass, 32 are rejected by both programs and 3 are expected divergences. The **replica** is bit-identical in 279 of 279. The **clean-room original** is bit-identical in 176 of 279 and within the record's thresholds in the rest: its Lagrange and weighted-sinc methods and copies in 129 of 132, its Fourier interpolation in 47 of 147, because AFNI computes the FFT in float32 with its own kernels and the original in double precision, so float outputs differ in the last bits and integer outputs occasionally round the other way, by one. AFNI's global options and environment variables give the same messages, byte for byte, in all 63 cases that test them.
+{{ ev.agreement('afni-tshift', 'replica') }}
 
-{{ figure('afni-tshift/agreement', "The clean-room original: the record's 314 cases by category, bit-identical to AFNI's output or within the record's thresholds (last float bits, integers by one), expected divergences and the inputs both refuse.") }}
+{{ ev.agreement('afni-tshift', 'original') }}
 
-{{ figure('afni-tshift/agreement-replica', "The replica (`larmorx-gpl`): the same 314 cases, every compared case bit-identical to AFNI.") }}
+Both records run the same 314 cases against AFNI 25.2.09. The replica gives AFNI's bytes in every case that produces an output, and AFNI's exit status and messages in the others. The clean-room original is bit-identical wherever it does not interpolate by Fourier, and within the record's thresholds where it does: AFNI computes the Fourier shift in float32 with its own FFT, the original in double precision, so float outputs differ in the last bits and integer outputs occasionally round the other way, by one. Those differences are marked *open*: explained, small, and still closable.
 
-## A real BOLD run
+## A real BOLD run, as fMRIPrep corrects it {#example}
 
-{{ figure('afni-tshift/time-series', "fMRIPrep's 3dTshift command on OpenNeuro ds005040 sub-002's BOLD run (CC0-1.0; ascending slices over 1.95 s, TR 2 s, shifted to 0.975 s), by AFNI 25.2.09, the clean-room original and the replica. Top: one voxel of a late slice, at its acquisition times and shifted; the three outputs coincide. Bottom: per volume, the brain voxels (inside fMRIPrep's mask) whose stored int16 value differs from AFNI's: the original's differ by one unit (the Fourier rounding above), the replica's never.") }}
+{{ ev.example('afni-tshift', 'fmriprep-stc') }}
 
-## Speed
+## A deliberate correction: AFNI-01 {#correction}
 
-{{ figure('afni-tshift/speed', "Median seconds of the whole command (reading, slice timing, writing) for AFNI's 3dTshift (single-threaded), the clean-room original and the replica at 1 and 12 threads, on three real BOLD runs, from the benchmark report of 2026-10-10 (Intel i7-8750H, 12 logical CPUs); the factor is the original's speed-up over AFNI at one thread.") }}
+The same run stored with a negative scale factor is the same data: every value is unchanged. AFNI applies that factor on output only, so its result comes out sign-flipped and scaled ([AFNI-01](repo:docs/findings/upstream-defects.md)). Both LARMORX implementations correct it by default and warn; `reproduce` gives AFNI's result.
 
-## Corrections by default
+{{ ev.example('afni-tshift', 'afni-01') }}
+
+## Every case {#cases}
+
+Each case of the two records, with what it tests, its command line, the verdict of each implementation and the reason. Search, filter (or select a segment of a chart above), sort; `#case=<name>` links to one.
+
+{{ ev.cases('afni-tshift') }}
+
+## Speed {#speed}
+
+{{ ev.speed('afni-tshift') }}
+
+## Corrections by default {#corrections}
 
 Both implementations correct AFNI's deterministic defects by default and warn: the records' fix passes meet AFNI-01, AFNI-02, AFNI-03, AFNI-05, AFNI-07, AFNI-08, AFNI-16, AFNI-19, AFNI-22 and AFNI-23, with `upstream_defects="reproduce"` giving AFNI's behaviour ([register](repo:docs/findings/upstream-defects.md)).
 
-## Known limits
+## Known limits {#limits}
 
-LARMORX writes NIfTI only (a `-prefix` in AFNI's own format is refused), `-voxshift` is not supported, and a dataset of one row is written as NIfTI where AFNI writes a 1D text file (AFNI-20). Writing in place an existing output in a directory that cannot be written, as AFNI does, is planned.
+LARMORX writes NIfTI only (a `-prefix` in AFNI's own format is refused), `-voxshift` is not supported, and a dataset of one row is written as NIfTI where AFNI writes a 1D text file (AFNI-20): the three expected divergences. Writing in place an existing output in a directory that cannot be written, as AFNI does, is planned.

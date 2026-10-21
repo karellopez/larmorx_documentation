@@ -40,6 +40,12 @@ static/fonts/     Instrument Serif, Inter, JetBrains Mono, and the Greek letters
                   and Noto Serif Display (SIL Open Font License, texts beside them)
 static/figures/   the tools' figures, drawn by the main repository (larmorx_validation.figures):
                   <tool>/<figure>-{light,dark}[-narrow].svg and <figure>.json, their provenance
+static/evidence/  the interactive evidence, exported by the main repository
+                  (larmorx_validation.evidence): <tool>.json, summary.json, blobs/
+static/js/        also evidence.js (the viewer, charts, case explorer, number check)
+static/css/       also evidence.css (the verdicts, the viewer, the evidence tables and charts)
+data/verdicts.yml the verdict taxonomy: one legend for the whole site
+tools/evidence.py the evidence's HTML, used by the builder
 static/brand/     the mark and the icons
 site.yml          the site's name, address, repositories and navigation
 tools/build.py    the builder
@@ -62,6 +68,41 @@ with its phone-width version, lazily loaded, the caption and a link to the
 provenance. The figures are drawn in the main repository and copied here:
 `python -m larmorx_validation figures <tool>|all --out static/figures`
 (its `docs/figures.md`).
+
+### The validation evidence
+
+The pages redone as interactive evidence (N4BiasFieldCorrection and 3dTshift so
+far, the Validation guide) set `evidence: true` (loads `static/css/evidence.css`
+and `static/js/evidence.js`) and `wide: true` (a wider column, the table of
+contents in the sidebar). Their data are exported by the main repository:
+`python -m larmorx_validation evidence <tool>|summary|all --site <this checkout>`
+writes `static/evidence/<tool>.json` (the worked examples, metrics, verdicts,
+cases, chart data and provenance), `static/evidence/summary.json` (the Validation
+page's summary of every tool) and the images in `static/evidence/blobs/`, named
+by their SHA-256 so an unchanged export changes nothing. A page places them with
+
+- `{{ ev.example('<tool>', '<example>') }}`: the image viewer (still panels
+  without JavaScript), the chain of causes, the metrics table, the provenance;
+- `{{ ev.agreement('<tool>', '<implementation>') }}`, `{{ ev.band('<tool>') }}`,
+  `{{ ev.speed('<tool>') }}`: the charts, in HTML;
+- `{{ ev.cases('<tool>') }}`: every parity case (search, filters, sorting,
+  `#case=<id>` links with JavaScript);
+- `{{ verdict('<id>') }}`, `{{ ev.legend() }}`, `{{ ev.taxonomy() }}`,
+  `{{ ev.matrix(site.tools) }}`: the verdicts of `data/verdicts.yml`.
+
+`tools/evidence.py` renders them; the build refuses an unknown verdict or a
+missing blob. Every number a page shows carries its JSON pointer (`data-ev`);
+the review check compares them with the JSON, and the viewers' decoded images
+with the values the JSON records at each largest difference:
+
+```bash
+node tools/review/shoot.mjs --url http://localhost:8765/larmorx_documentation/tools/ants-n4/ \
+     --out shots --name check --sizes 1440x900 --themes light \
+     --eval "LX_EVIDENCE.check().then(r => [r.checked, r.agree, r.disagree])"
+node tools/review/shoot.mjs --url http://localhost:8765/larmorx_documentation/tools/ants-n4/ \
+     --out shots --name check --sizes 1440x900 --themes light \
+     --eval "(async () => { for (const e of document.querySelectorAll('.ev-example')) { e.scrollIntoView(); await new Promise(r => setTimeout(r, 2500)); } return (await LX_EVIDENCE.checkViewers()).filter(x => !x.ok); })()"
+```
 
 ## The design
 

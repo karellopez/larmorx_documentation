@@ -1,7 +1,10 @@
 {% extends "base.html" %}
-{% block body_class %}page-doc{% endblock %}
+{% block head %}{% if page.meta.get('evidence') %}
+<link rel="stylesheet" href="{{ link('/static/css/evidence.css') }}">{% endif %}{% endblock %}
+{% block body_class %}page-doc{% if page.meta.get('wide') %} page-wide{% endif %}{% endblock %}
 {% block main %}
-<div class="doc-layout">
+{%- set wide = page.meta.get('wide') %}
+<div class="doc-layout{% if wide %} doc-layout--wide{% endif %}">
   <nav class="sidebar" aria-label="Documentation">
     <p class="side-title">Documentation</p>
     <ul class="side-list">
@@ -9,6 +12,14 @@
       <li><a href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
       {%- endfor %}
     </ul>
+    {%- if wide and page.toc %}
+    <p class="side-group">On this page</p>
+    <ol class="side-toc toc-list">
+      {%- for h in page.toc %}
+      <li class="toc-{{ h.level }}"><a href="#{{ h.id }}">{{ h.text }}</a></li>
+      {%- endfor %}
+    </ol>
+    {%- endif %}
     {%- if tools_nav %}
     <p class="side-group">Tools</p>
     <ul class="side-list side-list--tools">
@@ -28,7 +39,7 @@
 {{ page.html }}
     </div>
   </main>
-  {% if page.toc %}
+  {% if page.toc and not wide %}
   <nav class="toc" aria-label="On this page">
     <p class="side-title">On this page</p>
     <ol>
@@ -40,3 +51,5 @@
   {% endif %}
 </div>
 {% endblock %}
+{% block scripts %}{% if page.meta.get('evidence') %}
+<script src="{{ link('/static/js/evidence.js') }}" defer></script>{% endif %}{% endblock %}
