@@ -1,0 +1,62 @@
+{
+ "figure": "ants-n4/band",
+ "title": "Differences from ANTs as built, against its own thread band",
+ "alt": "For each case that differs from ANTs as built, the largest difference and one minus the correlation, divided by ANTs' own difference between one thread and 2 to 12 threads, on a log scale; values below 1 lie inside ANTs' own variability.",
+ "files": {
+  "light": {
+   "file": "band-light.svg",
+   "width": 720,
+   "height": 154,
+   "bytes": 58879
+  },
+  "light-narrow": {
+   "file": "band-light-narrow.svg",
+   "width": 360,
+   "height": 182,
+   "bytes": 58905
+  },
+  "dark": {
+   "file": "band-dark.svg",
+   "width": 720,
+   "height": 154,
+   "bytes": 58879
+  },
+  "dark-narrow": {
+   "file": "band-dark-narrow.svg",
+   "width": 360,
+   "height": 182,
+   "bytes": 58905
+  }
+ },
+ "drawn_from": {
+  "larmorx_commit": "663683d0a3431f4d4c48fabac7db4b8b6a047cc0",
+  "records": [
+   {
+    "path": "docs/validation/ants-n4.json",
+    "sha256": "6757171b0f985a3523cb0885f614918fcaf6296cc456d383cd03a50bae1a7a60",
+    "generated": "2026-10-12",
+    "larmorx_commit": "50509e30b3e8"
+   },
+   {
+    "path": "docs/validation/ants-n4.md",
+    "sha256": "43c37fa400f6f87506c8834afe5ebbba03ad7f0f7c7669f829500a2bbf3088b3",
+    "generated": "2026-10-12",
+    "larmorx_commit": "50509e30b3e8"
+   }
+  ],
+  "cache": []
+ },
+ "data": [],
+ "notes": "",
+ "command": "python -m larmorx_validation figures all --out <dir> --no-compute",
+ "versions": {
+  "python": "3.12.10",
+  "matplotlib": "3.11.2",
+  "numpy": "2.3.5",
+  "nibabel": "5.4.2",
+  "scipy": "1.15.3",
+  "fonttools": "4.66.1",
+  "larmorx": "0.0.1"
+ },
+ "drawn": "2026-10-21"
+}

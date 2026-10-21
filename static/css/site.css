@@ -24,14 +24,29 @@
   src: url("../fonts/InstrumentSerif-Italic.woff2") format("woff2"); }
 @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400; font-display: swap;
   src: url("../fonts/JetBrainsMono-Regular.woff2") format("woff2"); }
+/* Greek letters and subscript digits, which the files above lack (tools/fonts/make_greek.py):
+   Inter's and JetBrains Mono's own, and Noto Serif Display's beside Instrument Serif, which has
+   no Greek. Each is fetched only by a page that shows one of these characters. */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/Inter-Greek.woff2") format("woff2");
+  unicode-range: U+0391-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F5, U+2080-208E; }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/JetBrainsMono-Greek.woff2") format("woff2");
+  unicode-range: U+0391-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F5, U+2080-208E; }
+@font-face { font-family: "Noto Serif Display"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/NotoSerifDisplay-Greek.woff2") format("woff2");
+  unicode-range: U+0391-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F5, U+2080-208E; }
+@font-face { font-family: "Noto Serif Display"; font-style: italic; font-weight: 400; font-display: swap;
+  src: url("../fonts/NotoSerifDisplay-Italic-Greek.woff2") format("woff2");
+  unicode-range: U+0391-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F5, U+2080-208E; }
 
 /* --------------------------------------------------------------- tokens */
 :root {
   --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --serif: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --serif: "Instrument Serif", "Noto Serif Display", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
-  /* Greek letters and the equation: a serif that has them */
-  --math: "Iowan Old Style", "Palatino Linotype", Palatino, "Cambria Math", Georgia, "DejaVu Serif", serif;
+  /* The equation and its symbols: Instrument Serif's italic, its Greek from Noto Serif Display */
+  --math: "Instrument Serif", "Noto Serif Display", "Iowan Old Style", "Palatino Linotype", Palatino, "Cambria Math", Georgia, serif;
 
   --header-h: 60px;
   --page-w: 1320px;
@@ -381,6 +396,8 @@ code, kbd, pre { font-family: var(--mono); font-variant-ligatures: none; }
 .tools td:first-child { width: 30%; }
 .tool-name { display: flex; gap: 10px; align-items: baseline; font-weight: 500; color: var(--ink); }
 .tool-name .dot { transform: translateY(-1px); }
+.table-wrap .tool-name a { text-decoration: underline; text-decoration-color: var(--kd, var(--accent)); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.table-wrap .tool-name a:hover { text-decoration-color: currentColor; }
 .tool-use { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 6px 0 0 18px; }
 .tool-use code { font-size: 0.74rem; color: var(--ink-2); background: none; border: 0; padding: 0; overflow-wrap: anywhere; }
 .tool-use code + code::before { content: "·"; margin-right: 6px; color: var(--ink-3); }
@@ -441,6 +458,52 @@ code, kbd, pre { font-family: var(--mono); font-variant-ligatures: none; }
 .callout .kicker { margin-bottom: 8px; font-size: 10.5px; }
 .callout .kicker::before { display: none; }
 .callout p { font-size: 0.97rem; }
+
+/* -------------------------------------------------------------- figures */
+/* A figure drawn by larmorx_validation: an SVG per theme (its background is the card's
+   colour, --bg-elev), each with a narrow version for phones; only the current theme's is
+   shown, and so loaded. Numbered on the page; the caption ends with a link to the
+   provenance written beside the files. */
+.prose { counter-reset: fig; }
+.fig { margin: 30px 0 0; counter-increment: fig; }
+.prose > .fig + * { margin-top: 30px; }
+.fig-media { display: var(--still-light); padding: 14px 10px; background: var(--bg-elev);
+  border: 1px solid var(--line-soft); border-radius: var(--r); }
+.fig-media.fig-dark { display: var(--still-dark); }
+.fig-media img { display: block; width: 100%; height: auto; margin: 0 auto; }
+.fig-media:hover { border-color: var(--line); }
+.fig figcaption { margin-top: 10px; font-size: 0.875rem; line-height: 1.6; color: var(--ink-2); text-wrap: pretty; }
+.fig-num::before { content: "Figure " counter(fig) "."; font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); margin-right: 4px; }
+.fig figcaption a { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.fig-prov { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; color: var(--ink-3); white-space: nowrap; }
+.fig-prov::before { content: "· "; color: var(--ink-3); }
+
+/* A tool page's facts at a glance, and the tools index. */
+.facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 22px; margin: 0;
+  padding: 16px 20px; background: var(--bg-elev); border: 1px solid var(--line-soft); border-radius: var(--r); font-size: 0.94rem; }
+.facts dt { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); padding-top: 4px; }
+.facts dd { margin: 0; color: var(--ink-2); }
+.facts dd code { font-size: 0.82em; }
+.status-tag { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 1px 7px; border-radius: 3px; color: var(--on-pastel); background: var(--kc, var(--accent)); vertical-align: 1px; }
+.status-tag--experimental { background: transparent; color: var(--ink); border: 1px dashed var(--ink-3); }
+.prose .tool-index, .tool-index { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.tool-index li { position: relative; margin: 0; padding: 16px 18px 18px; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--bg-elev); }
+.tool-index li + li { margin-top: 0; }
+.tool-index li::before { content: ""; position: absolute; left: -1px; right: -1px; top: -1px; height: 3px; background: var(--kc); border-radius: var(--r-lg) var(--r-lg) 0 0; }
+.tool-index a { font-family: var(--serif); font-size: 1.4rem; line-height: 1.15; text-decoration: none; }
+.tool-index a:hover { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
+.tool-index p { margin: 6px 0 0; font-size: 0.9rem; line-height: 1.5; color: var(--ink-2); }
+.side-list--tools a { display: flex; align-items: baseline; gap: 9px; font-size: 0.86rem; padding: 4px 12px; }
+.side-list--tools .dot { width: 6px; height: 6px; transform: translateY(-1px); }
+.side-group { margin: 18px 0 8px 12px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+@media (max-width: 640px) {
+  .fig-media { padding: 10px 6px; }
+  .tool-index { grid-template-columns: minmax(0, 1fr); }
+  .facts { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .facts dd + dt { margin-top: 8px; }
+}
 
 /* --------------------------------------------------------------- footer */
 .site-footer { position: relative; margin-top: 64px; }

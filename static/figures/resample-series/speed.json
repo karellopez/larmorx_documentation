@@ -1,0 +1,56 @@
+{
+ "figure": "resample-series/speed",
+ "title": "Speed against fMRIPrep's resampler",
+ "alt": "Median seconds per BOLD run for fMRIPrep's resampler and larmorx at 1 and 12 threads, on a log scale, with larmorx's speed-up at one thread.",
+ "files": {
+  "light": {
+   "file": "speed-light.svg",
+   "width": 720,
+   "height": 248,
+   "bytes": 69080
+  },
+  "light-narrow": {
+   "file": "speed-light-narrow.svg",
+   "width": 360,
+   "height": 350,
+   "bytes": 68988
+  },
+  "dark": {
+   "file": "speed-dark.svg",
+   "width": 720,
+   "height": 248,
+   "bytes": 69080
+  },
+  "dark-narrow": {
+   "file": "speed-dark-narrow.svg",
+   "width": 360,
+   "height": 350,
+   "bytes": 68988
+  }
+ },
+ "drawn_from": {
+  "larmorx_commit": "663683d0a3431f4d4c48fabac7db4b8b6a047cc0",
+  "records": [
+   {
+    "path": "docs/benchmarks/resample-series.json",
+    "sha256": "57624d6a8e2566d6904cd7008959a66716265bc0ab741148b4a11f5b5625b34d",
+    "larmorx_commit": "46225a79652d",
+    "cpu": "Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz"
+   }
+  ],
+  "cache": []
+ },
+ "data": [],
+ "notes": "",
+ "command": "python -m larmorx_validation figures all --out <dir> --no-compute",
+ "versions": {
+  "python": "3.12.10",
+  "matplotlib": "3.11.2",
+  "numpy": "2.3.5",
+  "nibabel": "5.4.2",
+  "scipy": "1.15.3",
+  "fonttools": "4.66.1",
+  "larmorx": "0.0.1"
+ },
+ "drawn": "2026-10-21"
+}

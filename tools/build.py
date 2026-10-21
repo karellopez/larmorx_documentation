@@ -21,6 +21,7 @@ from __future__ import annotations
 import argparse
 import base64
 import html
+import json
 import re
 import shutil
 import sys
@@ -46,7 +47,8 @@ OUT = ROOT / "_site"
 PREVIEW = ROOT / "_preview"
 DEFAULT_MAIN_REPO = ROOT.parent / "larmorx"
 GOOGLE_FONTS = ("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1"
-                "&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap")
+                "&family=Inter:wght@400;500;600&family=JetBrains+Mono"
+                "&family=Noto+Serif+Display:ital@0;1&display=swap")
 
 
 # ----------------------------------------------------------------- pages
@@ -169,6 +171,38 @@ def make_markdown(site: dict, repo_paths: set) -> MarkdownIt:
     return md
 
 
+def render_figure(key: str, caption: str, link, md_inline) -> Markup:
+    """A figure drawn by larmorx_validation (``static/figures/<tool>/<name>``): its light and
+    dark versions, each with a narrow version for phones, lazily loaded; the caption, and a link
+    to the provenance written beside the files. ``key`` is ``<tool>/<name>``."""
+    meta_path = STATIC / "figures" / f"{key}.json"
+    if not meta_path.is_file():
+        raise SystemExit(f"figure {key!r}: {meta_path.relative_to(ROOT)} does not exist")
+    meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    folder = "/static/figures/" + key.rsplit("/", 1)[0] + "/"
+    files = meta["files"]
+    alt = html.escape(meta.get("alt", ""), quote=True)
+    pictures = []
+    for theme in ("light", "dark"):
+        wide, narrow = files[theme], files.get(f"{theme}-narrow")
+        src = link(folder + wide["file"])
+        source = ""
+        if narrow:
+            source = (f'<source media="(max-width: 560px)" srcset="{link(folder + narrow["file"])}" '
+                      f'width="{narrow["width"]}" height="{narrow["height"]}">')
+        pictures.append(
+            f'<a class="fig-media fig-{theme}" href="{src}" title="Open the figure on its own">'
+            f'<picture>{source}<img src="{src}" width="{wide["width"]}" height="{wide["height"]}" '
+            f'alt="{alt}" loading="lazy" decoding="async"></picture></a>')
+    ident = "fig-" + re.sub(r"[^\w-]+", "-", key)
+    prov = link(folder + Path(key).name + ".json")
+    cap = md_inline(caption) if caption else Markup("")
+    return Markup(
+        f'<figure class="fig" id="{ident}">{"".join(pictures)}'
+        f'<figcaption><span class="fig-num"></span> {cap} '
+        f'<a class="fig-prov" href="{prov}">Provenance</a></figcaption></figure>\n')
+
+
 def repo_url(site: dict, path: str, repo_paths: set) -> str:
     path = path.lstrip("/")
     repo_paths.add(path)
@@ -211,8 +245,12 @@ class Site:
             out = html.escape(str(text))
             return Markup(re.sub(r"\*([^*]+)\*", r"<b>\1</b>", out))
 
+        def figure(key: str, caption: str = "") -> Markup:
+            return render_figure(key, caption, lambda t: self.link(page, t), md_inline)
+
         return {
             "site": self.site, "data": self.data, "page": page,
+            "figure": figure,
             "link": lambda t: self.link(page, t),
             "repo": lambda p: repo_url(self.site, p, self.repo_paths),
             "eco": {e["id"]: e for e in self.data.get("ecosystems", [])},
@@ -221,6 +259,9 @@ class Site:
                     for i in self.site.get("nav", [])],
             "docs_nav": [{"title": i["title"], "href": self.link(page, i["url"]),
                           "current": i["url"] == page.path} for i in self.site.get("docs", [])],
+            "tools_nav": [{"title": i["title"], "href": self.link(page, i["url"]), "eco": i.get("eco", "larmorx"),
+                           "url": i["url"], "current": i["url"] == page.path}
+                          for i in self.site.get("tools", [])],
             "md_inline": md_inline, "acronym": acronym,
         }
 

@@ -45,7 +45,7 @@ hero_description: >-
 <div><span class="roman">iii.</span><h3>An exact replica, kept apart</h3><p>An exact replica, where one exists, is a separate package under the upstream's licence, such as <code>larmorx-gpl</code>, that runs as a separate program. Tools with both take <code>implementation="auto" | "replica" | "original"</code>.</p><p class="where">larmorx-gpl · GPL-3.0-or-later</p></div>
 </div>
 <ul class="ecos" aria-label="The ecosystems and their colours">
-<li class="eco-ants"><h3>ANTs and ITK</h3><p>Ported from the source: transforms, N4, denoising, ImageMath, linear registration.</p><span class="state">In LARMORX</span></li>
+<li class="eco-ants"><h3>ANTs and ITK</h3><p>Ported from the source: transforms, N4, denoising, ImageMath, registration (linear and deformable stages).</p><span class="state">In LARMORX</span></li>
 <li class="eco-afni"><h3>AFNI</h3><p>3dTshift as a clean-room original, with an exact replica in <code>larmorx-gpl</code>.</p><span class="state">In LARMORX</span></li>
 <li class="eco-fsl"><h3>FSL</h3><p>Head-motion correction with mcflirt-style options, a clean-room original, experimental.</p><span class="state">In LARMORX</span></li>
 <li class="eco-freesurfer"><h3>FreeSurfer</h3><p>Planned, as its own package, <code>larmorx-freesurfer</code>.</p><span class="state state--planned">Planned</span></li>
@@ -135,7 +135,7 @@ lx.save(t1w_n4, "t1w_n4.nii.gz")
 <div>
 <p class="kicker">Current status</p>
 <h2 id="status">What is implemented, and what is <em>planned</em></h2>
-<p class="section-lede">Implemented and validated against the original programs (ANTs 2.6.5, AFNI 25.2.09, FSL 6.0.7, nibabel). Each line links to its validation record in the main repository; everything else is planned.</p>
+<p class="section-lede">Implemented and validated against the original programs (ANTs 2.6.5, AFNI 25.2.09, FSL 6.0.7, nibabel). Each tool's name leads to its page, with figures comparing it with the original; each line links to its validation record in the main repository. Everything else is planned.</p>
 </div>
 <p class="margin-note"><b>In the repository</b>API pages are in <a href="{{ repo('docs/api/') }}">docs/api</a>, benchmark reports in <a href="{{ repo('docs/benchmarks/') }}">docs/benchmarks</a>, and the defects found in the originals in the <a href="{{ repo('docs/findings/upstream-defects.md') }}">register</a>.</p>
 </div>
@@ -145,7 +145,7 @@ lx.save(t1w_n4, "t1w_n4.nii.gz")
 <thead><tr><th scope="col">Tool</th><th scope="col">How</th><th scope="col">Validation</th></tr></thead>
 <tbody>
 {%- for row in data.status.implemented %}
-<tr class="eco-{{ row.eco }}"><td><span class="tool-name"><span class="dot" title="{{ eco[row.eco].long }}"></span><span>{{ row.tool | md_inline }}</span></span><span class="tool-use">{% for u in row.use %}<code>{{ u }}</code>{% endfor %}</span></td><td class="how">{{ row.how | md_inline }}</td><td class="val">{{ row.validation | md_inline }}</td></tr>
+<tr class="eco-{{ row.eco }}"><td><span class="tool-name"><span class="dot" title="{{ eco[row.eco].long }}"></span>{% if row.page %}<a href="{{ link(row.page) }}">{{ row.tool | md_inline }}</a>{% else %}<span>{{ row.tool | md_inline }}</span>{% endif %}</span><span class="tool-use">{% for u in row.use %}<code>{{ u }}</code>{% endfor %}</span></td><td class="how">{{ row.how | md_inline }}</td><td class="val">{{ row.validation | md_inline }}</td></tr>
 {%- endfor %}
 </tbody>
 </table>

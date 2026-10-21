@@ -1,0 +1,56 @@
+{
+ "figure": "ants-denoise/speed",
+ "title": "Speed against ANTs",
+ "alt": "Median seconds per input for ANTs and larmorx at 1 and 12 threads, on a log scale, with larmorx's speed-up at one thread.",
+ "files": {
+  "light": {
+   "file": "speed-light.svg",
+   "width": 720,
+   "height": 278,
+   "bytes": 71489
+  },
+  "light-narrow": {
+   "file": "speed-light-narrow.svg",
+   "width": 360,
+   "height": 396,
+   "bytes": 71520
+  },
+  "dark": {
+   "file": "speed-dark.svg",
+   "width": 720,
+   "height": 278,
+   "bytes": 71489
+  },
+  "dark-narrow": {
+   "file": "speed-dark-narrow.svg",
+   "width": 360,
+   "height": 396,
+   "bytes": 71520
+  }
+ },
+ "drawn_from": {
+  "larmorx_commit": "663683d0a3431f4d4c48fabac7db4b8b6a047cc0",
+  "records": [
+   {
+    "path": "docs/benchmarks/ants-denoise.json",
+    "sha256": "c78b0da6963a73804bf8c3fd62955277996cd7776397117b01e90a6aaef8acd1",
+    "larmorx_commit": "77bb3c657378-dirty",
+    "cpu": "Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz"
+   }
+  ],
+  "cache": []
+ },
+ "data": [],
+ "notes": "",
+ "command": "python -m larmorx_validation figures all --out <dir> --no-compute",
+ "versions": {
+  "python": "3.12.10",
+  "matplotlib": "3.11.2",
+  "numpy": "2.3.5",
+  "nibabel": "5.4.2",
+  "scipy": "1.15.3",
+  "fonttools": "4.66.1",
+  "larmorx": "0.0.1"
+ },
+ "drawn": "2026-10-21"
+}

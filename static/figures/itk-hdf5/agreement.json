@@ -1,0 +1,62 @@
+{
+ "figure": "itk-hdf5/agreement",
+ "title": "Agreement with ITK, h5py and nitransforms, by category",
+ "alt": "Stacked bars, one per category of the ITK transform files record (149 cases): read bit for bit, written byte for byte or with the same content, rejected by both, and expected divergences.",
+ "files": {
+  "light": {
+   "file": "agreement-light.svg",
+   "width": 720,
+   "height": 296,
+   "bytes": 54303
+  },
+  "light-narrow": {
+   "file": "agreement-light-narrow.svg",
+   "width": 360,
+   "height": 378,
+   "bytes": 53949
+  },
+  "dark": {
+   "file": "agreement-dark.svg",
+   "width": 720,
+   "height": 296,
+   "bytes": 54303
+  },
+  "dark-narrow": {
+   "file": "agreement-dark-narrow.svg",
+   "width": 360,
+   "height": 378,
+   "bytes": 53949
+  }
+ },
+ "drawn_from": {
+  "larmorx_commit": "663683d0a3431f4d4c48fabac7db4b8b6a047cc0",
+  "records": [
+   {
+    "path": "docs/validation/itk-hdf5.json",
+    "sha256": "dbbf4eaff4fdc57b3d1e494b9af844ea865034f1d7bea81d5af1ba007df31375",
+    "generated": "2026-10-20",
+    "larmorx_commit": "7f2a61ee7630"
+   },
+   {
+    "path": "docs/validation/itk-hdf5.md",
+    "sha256": "927f0054218001c96c33dbf4e04233f9900327cc1d2a44817ceba0bae657dbaa",
+    "generated": "2026-10-20",
+    "larmorx_commit": "7f2a61ee7630"
+   }
+  ],
+  "cache": []
+ },
+ "data": [],
+ "notes": "",
+ "command": "python -m larmorx_validation figures all --out <dir> --no-compute",
+ "versions": {
+  "python": "3.12.10",
+  "matplotlib": "3.11.2",
+  "numpy": "2.3.5",
+  "nibabel": "5.4.2",
+  "scipy": "1.15.3",
+  "fonttools": "4.66.1",
+  "larmorx": "0.0.1"
+ },
+ "drawn": "2026-10-21"
+}

@@ -1,0 +1,62 @@
+{
+ "figure": "itk-hdf5/checks",
+ "title": "ITK transform files: what was compared, file by file",
+ "alt": "Stacked bars, one per check of the record: HDF5 datasets and storage features as h5py reads them, transforms as ITK reads them in double and float, nitransforms' chain, files ITK refuses, files written (byte-identical or with the same content), and the files larmorx refuses where ITK reads them.",
+ "files": {
+  "light": {
+   "file": "checks-light.svg",
+   "width": 720,
+   "height": 322,
+   "bytes": 69729
+  },
+  "light-narrow": {
+   "file": "checks-light-narrow.svg",
+   "width": 360,
+   "height": 432,
+   "bytes": 69527
+  },
+  "dark": {
+   "file": "checks-dark.svg",
+   "width": 720,
+   "height": 322,
+   "bytes": 69729
+  },
+  "dark-narrow": {
+   "file": "checks-dark-narrow.svg",
+   "width": 360,
+   "height": 432,
+   "bytes": 69527
+  }
+ },
+ "drawn_from": {
+  "larmorx_commit": "663683d0a3431f4d4c48fabac7db4b8b6a047cc0",
+  "records": [
+   {
+    "path": "docs/validation/itk-hdf5.json",
+    "sha256": "dbbf4eaff4fdc57b3d1e494b9af844ea865034f1d7bea81d5af1ba007df31375",
+    "generated": "2026-10-20",
+    "larmorx_commit": "7f2a61ee7630"
+   },
+   {
+    "path": "docs/validation/itk-hdf5.md",
+    "sha256": "927f0054218001c96c33dbf4e04233f9900327cc1d2a44817ceba0bae657dbaa",
+    "generated": "2026-10-20",
+    "larmorx_commit": "7f2a61ee7630"
+   }
+  ],
+  "cache": []
+ },
+ "data": [],
+ "notes": "",
+ "command": "python -m larmorx_validation figures all --out <dir> --no-compute",
+ "versions": {
+  "python": "3.12.10",
+  "matplotlib": "3.11.2",
+  "numpy": "2.3.5",
+  "nibabel": "5.4.2",
+  "scipy": "1.15.3",
+  "fonttools": "4.66.1",
+  "larmorx": "0.0.1"
+ },
+ "drawn": "2026-10-21"
+}

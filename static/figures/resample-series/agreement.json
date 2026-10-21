@@ -1,0 +1,62 @@
+{
+ "figure": "resample-series/agreement",
+ "title": "Agreement with fMRIPrep's resampler, nitransforms and SciPy, by category",
+ "alt": "Stacked bars, one per category of the resampler record (139 cases): every compared case bit-identical to the reference, one expected divergence and two rejected by both.",
+ "files": {
+  "light": {
+   "file": "agreement-light.svg",
+   "width": 720,
+   "height": 380,
+   "bytes": 55742
+  },
+  "light-narrow": {
+   "file": "agreement-light-narrow.svg",
+   "width": 360,
+   "height": 494,
+   "bytes": 55534
+  },
+  "dark": {
+   "file": "agreement-dark.svg",
+   "width": 720,
+   "height": 380,
+   "bytes": 55742
+  },
+  "dark-narrow": {
+   "file": "agreement-dark-narrow.svg",
+   "width": 360,
+   "height": 494,
+   "bytes": 55534
+  }
+ },
+ "drawn_from": {
+  "larmorx_commit": "663683d0a3431f4d4c48fabac7db4b8b6a047cc0",
+  "records": [
+   {
+    "path": "docs/validation/resample-series.json",
+    "sha256": "f95f89bde1ebd36a64bb71695840ca6b3d25d2f8ceea6bc82ca74374c622c950",
+    "generated": "2026-10-11",
+    "larmorx_commit": "4a087a77882b-dirty"
+   },
+   {
+    "path": "docs/validation/resample-series.md",
+    "sha256": "46f558fe5aac8c0f79ebb2e3bb493569b9aa7fded88b2f89c9c92ad54b38b74a",
+    "generated": "2026-10-11",
+    "larmorx_commit": "4a087a77882b-dirty"
+   }
+  ],
+  "cache": []
+ },
+ "data": [],
+ "notes": "",
+ "command": "python -m larmorx_validation figures all --out <dir> --no-compute",
+ "versions": {
+  "python": "3.12.10",
+  "matplotlib": "3.11.2",
+  "numpy": "2.3.5",
+  "nibabel": "5.4.2",
+  "scipy": "1.15.3",
+  "fonttools": "4.66.1",
+  "larmorx": "0.0.1"
+ },
+ "drawn": "2026-10-21"
+}

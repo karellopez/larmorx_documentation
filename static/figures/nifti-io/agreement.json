@@ -1,0 +1,62 @@
+{
+ "figure": "nifti-io/agreement",
+ "title": "Agreement with nibabel, by source of the files",
+ "alt": "Stacked bars, one per source of the NIfTI files in the record (252 cases: real datasets, derivatives, templates, test suites and synthetic files): read identically to nibabel, rejected by both, and expected divergences.",
+ "files": {
+  "light": {
+   "file": "agreement-light.svg",
+   "width": 720,
+   "height": 406,
+   "bytes": 67879
+  },
+  "light-narrow": {
+   "file": "agreement-light-narrow.svg",
+   "width": 360,
+   "height": 528,
+   "bytes": 67610
+  },
+  "dark": {
+   "file": "agreement-dark.svg",
+   "width": 720,
+   "height": 406,
+   "bytes": 67879
+  },
+  "dark-narrow": {
+   "file": "agreement-dark-narrow.svg",
+   "width": 360,
+   "height": 528,
+   "bytes": 67610
+  }
+ },
+ "drawn_from": {
+  "larmorx_commit": "663683d0a3431f4d4c48fabac7db4b8b6a047cc0",
+  "records": [
+   {
+    "path": "docs/validation/nifti-io.json",
+    "sha256": "fca4fe0dfe744865450fecc21ff24c168e319bdde6cd8ce8ae5d27aeef3a3427",
+    "generated": "2026-10-09",
+    "larmorx_commit": "4fe591cf4057"
+   },
+   {
+    "path": "docs/validation/nifti-io.md",
+    "sha256": "a51f63b4b182db67be7d63bb90bc487043c53c46e04fbc5319e747e1d27da48c",
+    "generated": "2026-10-09",
+    "larmorx_commit": "4fe591cf4057"
+   }
+  ],
+  "cache": []
+ },
+ "data": [],
+ "notes": "",
+ "command": "python -m larmorx_validation figures all --out <dir> --no-compute",
+ "versions": {
+  "python": "3.12.10",
+  "matplotlib": "3.11.2",
+  "numpy": "2.3.5",
+  "nibabel": "5.4.2",
+  "scipy": "1.15.3",
+  "fonttools": "4.66.1",
+  "larmorx": "0.0.1"
+ },
+ "drawn": "2026-10-21"
+}

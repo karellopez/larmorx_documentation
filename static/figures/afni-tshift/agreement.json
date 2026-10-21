@@ -1,0 +1,62 @@
+{
+ "figure": "afni-tshift/agreement",
+ "title": "Agreement of the original with 3dTshift, by category",
+ "alt": "Stacked bars, one per category of the 3dTshift record of the original (314 cases): 176 of 279 compared cases bit-identical to AFNI's output, the rest within the record's thresholds, rejected by both, and expected divergences.",
+ "files": {
+  "light": {
+   "file": "agreement-light.svg",
+   "width": 720,
+   "height": 452,
+   "bytes": 63669
+  },
+  "light-narrow": {
+   "file": "agreement-light-narrow.svg",
+   "width": 360,
+   "height": 582,
+   "bytes": 63400
+  },
+  "dark": {
+   "file": "agreement-dark.svg",
+   "width": 720,
+   "height": 452,
+   "bytes": 63669
+  },
+  "dark-narrow": {
+   "file": "agreement-dark-narrow.svg",
+   "width": 360,
+   "height": 582,
+   "bytes": 63400
+  }
+ },
+ "drawn_from": {
+  "larmorx_commit": "663683d0a3431f4d4c48fabac7db4b8b6a047cc0",
+  "records": [
+   {
+    "path": "docs/validation/afni-tshift.json",
+    "sha256": "682725074e84e9b737b27831f406017b90f3b19d0ec3a662d5cf9d84b42b7bc5",
+    "generated": "2026-10-12",
+    "larmorx_commit": "64ecce8ac8ae"
+   },
+   {
+    "path": "docs/validation/afni-tshift.md",
+    "sha256": "8142ded3fcea01a80599bdc91325dbeb2ee122fdd17d71b0cb41b7435ff450d6",
+    "generated": "2026-10-12",
+    "larmorx_commit": "64ecce8ac8ae"
+   }
+  ],
+  "cache": []
+ },
+ "data": [],
+ "notes": "",
+ "command": "python -m larmorx_validation figures all --out <dir> --no-compute",
+ "versions": {
+  "python": "3.12.10",
+  "matplotlib": "3.11.2",
+  "numpy": "2.3.5",
+  "nibabel": "5.4.2",
+  "scipy": "1.15.3",
+  "fonttools": "4.66.1",
+  "larmorx": "0.0.1"
+ },
+ "drawn": "2026-10-21"
+}

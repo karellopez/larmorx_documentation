@@ -1,0 +1,235 @@
+{
+ "figure": "ants-apply-transforms/t1w-to-mni",
+ "title": "fMRIPrep's T1w-to-MNI transform applied by ANTs and larmorx",
+ "alt": "Axial slices on the MNI152NLin2009cAsym 2 mm grid: ds000005 sub-01's T1w warped by larmorx with Lanczos interpolation, and the differences from ANTs as built and from ANTs with correctly rounded maths, in double precision and with --float 1, on one symmetric scale.",
+ "files": {
+  "light": {
+   "file": "t1w-to-mni-light.svg",
+   "width": 720,
+   "height": 309,
+   "bytes": 82430
+  },
+  "light-narrow": {
+   "file": "t1w-to-mni-light-narrow.svg",
+   "width": 360,
+   "height": 572,
+   "bytes": 82524
+  },
+  "dark": {
+   "file": "t1w-to-mni-dark.svg",
+   "width": 720,
+   "height": 309,
+   "bytes": 82502
+  },
+  "dark-narrow": {
+   "file": "t1w-to-mni-dark-narrow.svg",
+   "width": 360,
+   "height": 572,
+   "bytes": 82596
+  }
+ },
+ "drawn_from": {
+  "larmorx_commit": "663683d0a3431f4d4c48fabac7db4b8b6a047cc0",
+  "records": [],
+  "cache": [
+   {
+    "entry": "ants-apply-transforms/ds000005-sub-01-t1w-to-mni",
+    "description": "fMRIPrep's T1w-to-MNI composite applied to ds000005 sub-01's T1w",
+    "computed": "2026-10-21T06:57:26+00:00",
+    "larmorx_commit": "21b9e2b4155ac4aa39e544596efc300e610f98eb-dirty",
+    "commands": [
+     {
+      "label": "ants-double",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-t",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+       "-n",
+       "LanczosWindowedSinc",
+       "-o",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-apply-transforms/ds000005-sub-01-t1w-to-mni/ants-double.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "4"
+      },
+      "exit": 0,
+      "seconds": 2.02
+     },
+     {
+      "label": "ants-double-crmath",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-t",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+       "-n",
+       "LanczosWindowedSinc",
+       "-o",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-apply-transforms/ds000005-sub-01-t1w-to-mni/ants-double-crmath.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "4",
+       "LD_PRELOAD": "/home/karelo/VScode_projects/super_fmriprep/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 1.84
+     },
+     {
+      "label": "larmorx-double",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-t",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+       "-n",
+       "LanczosWindowedSinc",
+       "-o",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-apply-transforms/ds000005-sub-01-t1w-to-mni/larmorx-double.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "4",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 1.16
+     },
+     {
+      "label": "ants-float",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-t",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+       "-n",
+       "LanczosWindowedSinc",
+       "--float",
+       "1",
+       "-o",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-apply-transforms/ds000005-sub-01-t1w-to-mni/ants-float.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "4"
+      },
+      "exit": 0,
+      "seconds": 1.6
+     },
+     {
+      "label": "ants-float-crmath",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-t",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+       "-n",
+       "LanczosWindowedSinc",
+       "--float",
+       "1",
+       "-o",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-apply-transforms/ds000005-sub-01-t1w-to-mni/ants-float-crmath.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "4",
+       "LD_PRELOAD": "/home/karelo/VScode_projects/super_fmriprep/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 1.65
+     },
+     {
+      "label": "larmorx-float",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-t",
+       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+       "-n",
+       "LanczosWindowedSinc",
+       "--float",
+       "1",
+       "-o",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-apply-transforms/ds000005-sub-01-t1w-to-mni/larmorx-float.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "4",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 1.26
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "threads": {
+     "all": 4
+    },
+    "settings": "fMRIPrep's T1w-to-MNI152NLin2009cAsym composite (affine and SyN warp, .h5) applied to its preprocessed T1w on the template's 2 mm grid, LanczosWindowedSinc, in double and with --float 1; larmorx with upstream_defects=reproduce"
+   }
+  ]
+ },
+ "data": [
+  {
+   "dataset": "OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001",
+   "subject": "sub-01",
+   "licence": "PDDL-1.0",
+   "files": [
+    "fMRIPrep 25.2.6's desc-preproc_T1w and T1w-to-MNI .h5 (ds000005-sub-01-noreconall)"
+   ]
+  },
+  {
+   "dataset": "MNI152NLin2009cAsym (TemplateFlow)",
+   "licence": "MNI ICBM 152 notice",
+   "notice": "MNI ICBM 152 nonlinear asymmetric 2009c (Fonov et al., 2009, 2011), from TemplateFlow; Copyright (C) 1993-2004 Louis Collins, McConnell Brain Imaging Centre, Montreal Neurological Institute, McGill University (the site's static/hero/LICENSE-MNI.txt)"
+  }
+ ],
+ "notes": "",
+ "command": "python -m larmorx_validation figures all --out <dir> --no-compute",
+ "versions": {
+  "python": "3.12.10",
+  "matplotlib": "3.11.2",
+  "numpy": "2.3.5",
+  "nibabel": "5.4.2",
+  "scipy": "1.15.3",
+  "fonttools": "4.66.1",
+  "larmorx": "0.0.1"
+ },
+ "drawn": "2026-10-21"
+}

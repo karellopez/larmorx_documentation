@@ -36,11 +36,15 @@ templates/        the layouts: base, home, doc, 404
 static/css/       site.css, the design system
 static/js/        site.js (theme, effects, menu, copy buttons), hero.js (the home page hero, WebGL2)
 static/hero/      the hero's points (hero.bin) and its stills (hero-light.svg, hero-dark.svg)
-static/fonts/     Instrument Serif, Inter, JetBrains Mono (SIL Open Font License, texts beside them)
+static/fonts/     Instrument Serif, Inter, JetBrains Mono, and the Greek letters of Inter, JetBrains Mono
+                  and Noto Serif Display (SIL Open Font License, texts beside them)
+static/figures/   the tools' figures, drawn by the main repository (larmorx_validation.figures):
+                  <tool>/<figure>-{light,dark}[-narrow].svg and <figure>.json, their provenance
 static/brand/     the mark and the icons
 site.yml          the site's name, address, repositories and navigation
 tools/build.py    the builder
 tools/hero/       make_hero.py, which precomputes static/hero/ from the MNI template
+tools/fonts/      make_greek.py, which cuts the Greek subsets in static/fonts/ (fontTools, brotli)
 tools/review/     shoot.mjs, which photographs pages in headless Chrome, for review
 ```
 
@@ -50,6 +54,14 @@ the home layout. In a page, `{{ link('/validation/') }}` links within the site,
 `{{ repo('docs/validation/golden.md') }}` links to a file in the main
 repository, and Markdown links may be written `[text](repo:docs/...)` or
 `[text](/validation/)`. A heading may set its id: `## Title {#id}`.
+
+A tool's page is `content/tools/<tool>.md` (listed under `tools` in `site.yml`,
+linked from the status table by `page:` in `data/status.yml`). It places a figure
+with `{{ figure('<tool>/<name>', 'caption') }}`: the light and dark versions, each
+with its phone-width version, lazily loaded, the caption and a link to the
+provenance. The figures are drawn in the main repository and copied here:
+`python -m larmorx_validation figures <tool>|all --out static/figures`
+(its `docs/figures.md`).
 
 ## The design
 
