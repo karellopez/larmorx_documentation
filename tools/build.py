@@ -38,6 +38,9 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markdown_it import MarkdownIt
 from markupsafe import Markup
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from evidence import Evidence  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content"
 TEMPLATES = ROOT / "templates"
@@ -205,8 +208,9 @@ def render_figure(key: str, caption: str, link, md_inline) -> Markup:
 
 def repo_url(site: dict, path: str, repo_paths: set) -> str:
     path = path.lstrip("/")
-    repo_paths.add(path)
-    base = site["repo_tree"] if path.endswith("/") or path == "" else site["repo_blob"]
+    file = path.partition("#")[0]  # an anchor is GitHub's heading slug; the file is checked
+    repo_paths.add(file)
+    base = site["repo_tree"] if file.endswith("/") or file == "" else site["repo_blob"]
     return base + path
 
 
@@ -217,6 +221,7 @@ class Site:
         self.data = {p.stem: yaml.safe_load(p.read_text(encoding="utf-8")) for p in sorted(DATA.glob("*.yml"))}
         self.main_repo = main_repo
         self.repo_paths: set[str] = set()
+        self.evidence_problems: list[str] = []
         self.md = make_markdown(self.site, self.repo_paths)
         self.base_path = urlsplit(self.site["base_url"]).path  # "/larmorx_documentation/"
 
@@ -248,9 +253,13 @@ class Site:
         def figure(key: str, caption: str = "") -> Markup:
             return render_figure(key, caption, lambda t: self.link(page, t), md_inline)
 
+        ev = Evidence(ROOT, self.data.get("verdicts", []), lambda t: self.link(page, t),
+                      lambda p: repo_url(self.site, p, self.repo_paths), md_inline,
+                      self.evidence_problems)
+
         return {
             "site": self.site, "data": self.data, "page": page,
-            "figure": figure,
+            "figure": figure, "ev": ev, "verdict": ev.verdict,
             "link": lambda t: self.link(page, t),
             "repo": lambda p: repo_url(self.site, p, self.repo_paths),
             "eco": {e["id"]: e for e in self.data.get("ecosystems", [])},
@@ -299,6 +308,7 @@ class Site:
             page.out.write_text(out, encoding="utf-8")
         self.sitemap(pages)
         problems, notes = check(OUT, self.base_path, self.repo_paths, self.main_repo)
+        problems = sorted(set(self.evidence_problems)) + problems
         for n in notes:
             print(f"note: {n}")
         for p in problems:

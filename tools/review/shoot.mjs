@@ -7,7 +7,8 @@
 // `--eval <js>` runs an expression after each page has loaded (before the
 // photographs) and prints its value; `--review 0` leaves `review=1` out of
 // the URL, so the hero runs as for a reader (adaptive, eased); `--nojs 1`
-// turns JavaScript off.
+// turns JavaScript off; `--full 1` photographs the whole page; `--select
+// <css>` photographs one element (after the scroll position is set).
 //
 // Positions: `hero:f` scrolls to the fraction f of the hero's travel (the
 // page's [data-hero] section), `y:px` to a pixel offset, `bottom` to the end.
@@ -21,7 +22,8 @@ import { join } from 'node:path';
 
 const args = process.argv.slice(2);
 const opt = { url: 'http://localhost:8765/', out: 'shots', sizes: '1440x900,390x844', themes: 'light,dark',
-  at: [], wait: 2500, chrome: '/usr/bin/google-chrome', name: 'home', query: '', eval: '', review: '1', nojs: '0' };
+  at: [], wait: 2500, chrome: '/usr/bin/google-chrome', name: 'home', query: '', eval: '', review: '1', nojs: '0',
+  full: '0', select: '' };
 for (let i = 0; i < args.length; i += 2) {
   const k = args[i].replace(/^--/, ''), v = args[i + 1];
   if (k === 'at') opt.at.push(v); else opt[k] = v;
@@ -92,7 +94,21 @@ for (const size of opt.sizes.split(',')) {
       await s('Runtime.evaluate', { expression: expr });
       await sleep(1600);
       const stat = await s('Runtime.evaluate', { expression: 'JSON.stringify(window.__hero || null)', returnByValue: true });
-      const { data } = await s('Page.captureScreenshot', { format: 'png' });
+      let shot = { format: 'png' };
+      if (opt.full === '1') {  // the whole page, beyond the window
+        const m = await s('Page.getLayoutMetrics');
+        const size = m.cssContentSize || m.contentSize;
+        shot = { format: 'png', captureBeyondViewport: true,
+          clip: { x: 0, y: 0, width: w, height: Math.ceil(size.height), scale: 1 } };
+      } else if (opt.select) {  // one element, scrolled into view
+        const r = await s('Runtime.evaluate', { returnByValue: true, expression:
+          `(() => { const e = document.querySelector(${JSON.stringify(opt.select)}); if (!e) return null;
+             const b = e.getBoundingClientRect(); return { x: b.left + scrollX, y: b.top + scrollY, w: b.width, h: b.height }; })()` });
+        const b = r.result.value;
+        if (b) shot = { format: 'png', captureBeyondViewport: true,
+          clip: { x: Math.max(0, b.x - 8), y: Math.max(0, b.y - 8), width: Math.min(w, b.w + 16), height: b.h + 16, scale: 1 } };
+      }
+      const { data } = await s('Page.captureScreenshot', shot);
       const file = join(opt.out, `${opt.name}-${w}-${theme}-${p.kind}${p.kind === 'bottom' ? '' : p.v}.png`);
       writeFileSync(file, Buffer.from(data, 'base64'));
       console.log(file, stat.result.value);

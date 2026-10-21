@@ -104,7 +104,7 @@
   });
 
   /* ---------------------------------------------- the table of contents */
-  var toc = document.querySelector('.toc');
+  var toc = document.querySelector('.toc') || document.querySelector('.side-toc');
   if (toc && 'IntersectionObserver' in window) {
     var links = Array.prototype.slice.call(toc.querySelectorAll('a'));
     var heads = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); }).filter(Boolean);

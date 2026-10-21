@@ -1,0 +1,307 @@
+{
+ "schema": 1,
+ "tools": [
+  {
+   "page": "/tools/ants-registration/",
+   "title": "antsRegistration",
+   "eco": "ants",
+   "implementations": [
+    {
+     "label": "port",
+     "record": "docs/validation/ants-registration.md",
+     "status": "validated",
+     "cases": 403,
+     "verdicts": {
+      "bit-identical": 273,
+      "identical-cr": 36,
+      "divergence": 17,
+      "both-reject": 77
+     },
+     "source": "part 1"
+    }
+   ]
+  },
+  {
+   "page": "/tools/ants-n4/",
+   "title": "N4BiasFieldCorrection",
+   "eco": "ants",
+   "implementations": [
+    {
+     "label": "port",
+     "record": "docs/validation/ants-n4.md",
+     "status": "validated",
+     "cases": 51,
+     "verdicts": {
+      "bit-identical": 30,
+      "identical-cr": 16,
+      "both-reject": 5
+     },
+     "source": "evidence"
+    }
+   ]
+  },
+  {
+   "page": "/tools/ants-denoise/",
+   "title": "DenoiseImage",
+   "eco": "ants",
+   "implementations": [
+    {
+     "label": "port",
+     "record": "docs/validation/ants-denoise.md",
+     "status": "validated",
+     "cases": 51,
+     "verdicts": {
+      "bit-identical": 9,
+      "identical-cr": 33,
+      "both-reject": 9
+     },
+     "source": "part 1"
+    }
+   ]
+  },
+  {
+   "page": "/tools/ants-apply-transforms/",
+   "title": "antsApplyTransforms",
+   "eco": "ants",
+   "implementations": [
+    {
+     "label": "port",
+     "record": "docs/validation/ants-apply-transforms.md",
+     "status": "validated",
+     "cases": 220,
+     "verdicts": {
+      "bit-identical": 160,
+      "identical-cr": 14,
+      "divergence": 4,
+      "both-reject": 14,
+      "unclassified": 28
+     },
+     "source": "part 1"
+    }
+   ]
+  },
+  {
+   "page": "/tools/ants-programs/",
+   "title": "ImageMath and the filters",
+   "eco": "ants",
+   "implementations": [
+    {
+     "label": "ImageMath (port)",
+     "record": "docs/validation/ants-image-math.md",
+     "status": "validated",
+     "cases": 327,
+     "verdicts": {
+      "bit-identical": 298,
+      "both-reject": 24,
+      "unclassified": 5
+     },
+     "source": "part 1"
+    },
+    {
+     "label": "ThresholdImage (port)",
+     "record": "docs/validation/ants-threshold-image.md",
+     "status": "validated",
+     "cases": 41,
+     "verdicts": {
+      "bit-identical": 35,
+      "divergence": 1,
+      "both-reject": 5
+     },
+     "source": "part 1"
+    },
+    {
+     "label": "MultiplyImages (port)",
+     "record": "docs/validation/ants-multiply-images.md",
+     "status": "validated",
+     "cases": 15,
+     "verdicts": {
+      "bit-identical": 12,
+      "both-reject": 3
+     },
+     "source": "part 1"
+    },
+    {
+     "label": "SmoothImage (port)",
+     "record": "docs/validation/ants-smooth-image.md",
+     "status": "validated",
+     "cases": 38,
+     "verdicts": {
+      "bit-identical": 31,
+      "both-reject": 7
+     },
+     "source": "part 1"
+    },
+    {
+     "label": "ResampleImage (port)",
+     "record": "docs/validation/ants-resample-image.md",
+     "status": "validated",
+     "cases": 57,
+     "verdicts": {
+      "bit-identical": 48,
+      "divergence": 1,
+      "both-reject": 8
+     },
+     "source": "part 1"
+    },
+    {
+     "label": "ResampleImageBySpacing (port)",
+     "record": "docs/validation/ants-resample-image-by-spacing.md",
+     "status": "validated",
+     "cases": 35,
+     "verdicts": {
+      "bit-identical": 30,
+      "both-reject": 5
+     },
+     "source": "part 1"
+    }
+   ]
+  },
+  {
+   "page": "/tools/ants-ai/",
+   "title": "antsAI, antsAffineInitializer",
+   "eco": "ants",
+   "implementations": [
+    {
+     "label": "antsAI (port)",
+     "record": "docs/validation/ants-ai.md",
+     "status": "validated",
+     "cases": 102,
+     "verdicts": {
+      "bit-identical": 51,
+      "identical-cr": 1,
+      "divergence": 4,
+      "both-reject": 46
+     },
+     "source": "part 1"
+    },
+    {
+     "label": "antsAffineInitializer (port)",
+     "record": "docs/validation/ants-affine-initializer.md",
+     "status": "validated",
+     "cases": 41,
+     "verdicts": {
+      "bit-identical": 26,
+      "divergence": 2,
+      "both-reject": 13
+     },
+     "source": "part 1"
+    }
+   ]
+  },
+  {
+   "page": "/tools/itk-hdf5/",
+   "title": "ITK transform files",
+   "eco": "ants",
+   "implementations": [
+    {
+     "label": "port",
+     "record": "docs/validation/itk-hdf5.md",
+     "status": "validated",
+     "cases": 149,
+     "verdicts": {
+      "bit-identical": 127,
+      "divergence": 5,
+      "both-reject": 16,
+      "unclassified": 1
+     },
+     "source": "part 1"
+    }
+   ]
+  },
+  {
+   "page": "/tools/afni-tshift/",
+   "title": "3dTshift",
+   "eco": "afni",
+   "implementations": [
+    {
+     "label": "clean-room original",
+     "record": "docs/validation/afni-tshift.md",
+     "status": "validated",
+     "cases": 314,
+     "verdicts": {
+      "bit-identical": 176,
+      "divergence": 3,
+      "both-reject": 32,
+      "open": 103
+     },
+     "source": "evidence"
+    },
+    {
+     "label": "larmorx-gpl replica",
+     "record": "docs/validation/afni-tshift-replica.md",
+     "status": "validated",
+     "cases": 314,
+     "verdicts": {
+      "bit-identical": 279,
+      "divergence": 3,
+      "both-reject": 32
+     },
+     "source": "evidence"
+    }
+   ]
+  },
+  {
+   "page": "/tools/mri-hmc/",
+   "title": "Head-motion correction",
+   "eco": "fsl",
+   "implementations": [
+    {
+     "label": "clean-room original",
+     "record": "docs/validation/mri-hmc.md",
+     "status": "experimental",
+     "cases": 134,
+     "verdicts": {
+      "divergence": 1,
+      "both-reject": 11,
+      "open": 1,
+      "unclassified": 121
+     },
+     "source": "part 1"
+    }
+   ]
+  },
+  {
+   "page": "/tools/resample-series/",
+   "title": "One-shot BOLD resampler",
+   "eco": "larmorx",
+   "implementations": [
+    {
+     "label": "port",
+     "record": "docs/validation/resample-series.md",
+     "status": "validated",
+     "cases": 139,
+     "verdicts": {
+      "bit-identical": 136,
+      "divergence": 1,
+      "both-reject": 2
+     },
+     "source": "part 1"
+    }
+   ]
+  },
+  {
+   "page": "/tools/nifti-io/",
+   "title": "NIfTI I/O",
+   "eco": "larmorx",
+   "implementations": [
+    {
+     "label": "own implementation",
+     "record": "docs/validation/nifti-io.md",
+     "status": "validated",
+     "cases": 252,
+     "verdicts": {
+      "bit-identical": 230,
+      "divergence": 5,
+      "both-reject": 17
+     },
+     "source": "part 1"
+    }
+   ]
+  }
+ ],
+ "note": "N4BiasFieldCorrection and 3dTshift count their evidence pages' verdicts, case by case. The other tools count what their records establish today: identical to the unmodified original, identical with correctly rounded maths, expected divergences, rejected by both, failures; a case its record passes *within its thresholds* is counted as not yet classified until that tool's page is redone with this taxonomy.",
+ "pilot": [
+  "afni-tshift",
+  "ants-n4"
+ ]
+}

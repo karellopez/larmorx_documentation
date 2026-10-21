@@ -1,21 +1,21 @@
 ---
 title: N4BiasFieldCorrection
 kicker: Tools · ANTs
-lede: Intensity non-uniformity correction, ported from ANTs 2.6.5 and ITK 5.4.5. Bit-identical to ANTs in every compared case once ANTs uses correctly rounded maths.
-description: LARMORX's port of ANTs' N4BiasFieldCorrection, its validation against ANTs 2.6.5 in figures, a bias field on a real T1w, and its speed.
+lede: Intensity non-uniformity correction, ported from ANTs 2.6.5 and ITK 5.4.5. Every case of its record is bit-identical to ANTs, as built or once ANTs uses correctly rounded maths; on fMRIPrep's own N4 of a real T1w, larmorx is ANTs at one thread with correctly rounded maths, at any thread count.
+description: LARMORX's port of ANTs' N4BiasFieldCorrection, validated against ANTs 2.6.5 and fMRIPrep 25.2.6 — a worked example on a real T1w to inspect, every parity case with its verdict, ANTs' own variability, and speed.
+evidence: true
+wide: true
 ---
 
 <dl class="facts">
 <dt>Implementation</dt><dd>port of ANTs' and ITK's source (Apache-2.0), in <code>larmorx</code></dd>
 <dt>Status</dt><dd><span class="status-tag eco-ants">validated</span></dd>
-<dt>Record</dt><dd><a href="{{ repo('docs/validation/ants-n4.md') }}">ants-n4</a> · benchmark <a href="{{ repo('docs/benchmarks/ants-n4.md') }}">ants-n4</a> · API <a href="{{ repo('docs/api/ants-n4.md') }}">ants-n4</a></dd>
+<dt>Record</dt><dd><a href="{{ repo('docs/validation/ants-n4.md') }}">ants-n4</a> · benchmark <a href="{{ repo('docs/benchmarks/ants-n4.md') }}">ants-n4</a> · API <a href="{{ repo('docs/api/ants-n4.md') }}">ants-n4</a> · findings <a href="{{ repo('docs/findings/ants-n4.md') }}">ants-n4</a></dd>
 </dl>
 
 ## What it is
 
-N4 estimates a smooth multiplicative bias field by fitting B-splines to the residual of a sharpened intensity histogram, level by level, and divides it out. fMRIPrep, sMRIPrep and sdcflows call it on BOLD references, T1w images (before the template, in the brain extraction) and field-map magnitudes.
-
-## How to call it
+N4 estimates a smooth multiplicative bias field by fitting B-splines to the residual of a sharpened intensity histogram, level by level, and divides it out. fMRIPrep, sMRIPrep and sdcflows call it on BOLD references, T1w images (before the template and in the brain extraction) and field-map magnitudes.
 
 ```bash
 larmorx ants N4BiasFieldCorrection -d 3 -b [200] -c [50x50x50x50x50,1e-7] -s 4 -i t1w.nii.gz -o [t1w_n4.nii.gz,bias.nii.gz]
@@ -31,34 +31,40 @@ res = lx.ants.n4_bias_field_correction(
 corrected, bias = res.corrected, res.bias_field
 ```
 
-LARMORX computes ANTs' single-thread result on any number of threads. The [API page](repo:docs/api/ants-n4.md) maps every option.
+The [API page](repo:docs/api/ants-n4.md) maps every option. How to read what follows: [the validation guide](/validation/#reading).
 
-## Agreement with ANTs
+## The verdicts at a glance {#verdicts}
 
-The [record](repo:docs/validation/ants-n4.md) runs 51 cases (the standard tier): fMRIPrep's, sMRIPrep's and sdcflows' own command lines on real images, every option, inputs of every kind and the error cases. 46 pass and 5 are rejected by both programs. Against the unmodified ANTs binary (one thread), 29 of the 45 compared cases are bit-identical; the others differ where glibc's `expf`, `logf`, `exp` or `sincos` is not correctly rounded for a value the run meets. With those functions replaced by CORE-MATH's in the same ANTs binary, 45 of 45 are bit-identical.
+{{ ev.agreement('ants-n4', 'port') }}
 
-{{ figure('ants-n4/agreement', "The record's 51 cases by category (the standard tier): identical to ANTs as built, identical once ANTs uses correctly rounded maths, `--help` (no image to compare) and the inputs both programs refuse. Drawn from `docs/validation/ants-n4.json` and `.md`.") }}
+Every case that produces an image is bit-identical to ANTs: as built (glibc's maths, one thread), or, where glibc's `expf`, `logf`, `exp` or `sincos` is not correctly rounded for a value the run meets, once the same ANTs binary uses CORE-MATH's correctly rounded functions. The invalid inputs are refused by both programs. Nothing is open.
 
-## Against ANTs' own variability
+## A worked example: fMRIPrep's own N4 {#example}
 
-ANTs' N4 changes with its thread count. For each case that differs from ANTs as built, the record divides LARMORX's difference by ANTs' own difference between one thread and 2, 3, 4, 8 and 12 threads. Most ratios lie below 1, inside ANTs' variability; three values exceed it, in two cases (`fmriprep/smriprep-pre-template` and `options/shrink-3`, by up to 4.2 for one minus the correlation). All of these differences vanish with correctly rounded maths.
+The image viewer below holds the same N4 run by fMRIPrep 25.2.6, by its own ANTs at one thread, by the repository's ANTs 2.6.5 (as built, with correctly rounded maths, at 1 to 12 threads) and by larmorx (1 and 12 threads, default and reproduce modes). Choose the panels, the plane, the slice and the window; select a point to read every panel's exact value there; set two images side by side, swipe or blink between them.
 
-{{ figure('ants-n4/band', "Each differing case's largest difference and one minus its correlation with ANTs as built, divided by ANTs' thread band, on a log scale; the 29 bit-identical cases are counted at the left. From the record's table of these differences.") }}
+{{ ev.example('ants-n4', 'final-n4') }}
 
-## On a real T1w
+## Against ANTs' own variability {#variability}
 
-{{ figure('ants-n4/bias-field', "OpenNeuro ds000005 sub-01's T1w (PDDL-1.0) with sMRIPrep's final N4 options without a weight image (`-b [200] -c [50x50x50x50x50,1e-07] -s 4`), axial slices inside fMRIPrep's brain mask: the input, LARMORX's bias field and corrected image; then the corrected image's differences on one symmetric scale: LARMORX against ANTs as built at one thread, ANTs at four threads against one, and LARMORX against ANTs with CORE-MATH. On this image LARMORX's output is bit-identical to ANTs' (every voxel), while ANTs' own result moves with its threads.") }}
+ANTs' N4 changes with its thread count ([ANTS-37](repo:docs/findings/upstream-defects.md)): ITK's B-spline fit sums per-thread lattices. The record measures that band for every case that differs from ANTs as built, and divides larmorx's difference by it.
 
-## Speed
+{{ ev.band('ants-n4') }}
 
-{{ figure('ants-n4/speed', "Median seconds of the whole command (reading, N4, writing) for ANTs 2.6.5 and LARMORX at 1 and 12 threads on the pipelines' calls, from the benchmark report of 2026-10-11 (Intel i7-8750H, 12 logical CPUs); the factor is LARMORX's speed-up at one thread.") }}
+## Every case {#cases}
 
-A re-run against the current oracle build is among the planned follow-ups ([next steps](repo:docs/next-steps.md)).
+Each case of the record, with what it tests, the command line, its verdict and the reason. Search, filter by category or verdict (or select a segment of the chart above), sort by a column; `#case=<name>` links to one.
 
-## Corrections by default
+{{ ev.cases('ants-n4') }}
 
-Where ANTs has a deterministic defect that changes a result, LARMORX corrects it by default and warns; `upstream_defects="reproduce"` (or `LARMORX_UPSTREAM_DEFECTS=reproduce`) gives ANTs' behaviour, and the record compares in that mode. Its fix pass meets ANTS-35, ANTS-36, ANTS-38 and ITK-02 ([register](repo:docs/findings/upstream-defects.md), [findings](repo:docs/findings/ants-n4.md)).
+## Speed {#speed}
 
-## Known limits
+{{ ev.speed('ants-n4') }}
 
-The comparison with ANTs is made on Linux x86-64; the other five platforms are held to LARMORX's own Linux output by the golden tests. ANTs' oracle is built by GCC 14.3, which honours the source's float roundings; an older GCC 11 build of ANTs gives other bits ([findings](repo:docs/findings/ants-n4.md)).
+## Corrections by default {#corrections}
+
+Where ANTs has a deterministic defect that changes a result, LARMORX corrects it by default and warns; `upstream_defects="reproduce"` (or `LARMORX_UPSTREAM_DEFECTS=reproduce`) gives ANTs' behaviour, and the record compares in that mode. Its fix pass meets ANTS-35, ANTS-36, ANTS-38 and ITK-02 ([register](repo:docs/findings/upstream-defects.md), [findings](repo:docs/findings/ants-n4.md)); none of them applies to fMRIPrep's command above, so both modes give the same bytes there.
+
+## Known limits {#limits}
+
+The comparison with ANTs is made on Linux x86-64; the other five platforms are held to LARMORX's own Linux output by the [golden tests](repo:docs/validation/golden.md). ANTs' oracle is built by GCC 14.3, which honours the source's float roundings; an older GCC 11 build of ANTs gives other bits ([findings](repo:docs/findings/ants-n4.md)).

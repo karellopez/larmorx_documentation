@@ -1,41 +1,54 @@
 ---
 title: Validation
 kicker: Documentation
-lede: How every LARMORX tool is compared with the original program, and where to find the records. Each tool's figures are on its page under Tools.
-description: How LARMORX tools are validated against the original programs, how golden tests keep six platforms identical, and where the validation records are.
+lede: How every LARMORX tool is compared with the original program, how to read the evidence on its page, what each verdict means, and where every tool stands.
+description: How LARMORX tools are validated against the original programs (ANTs, AFNI, FSL, fMRIPrep, nibabel), how to read the worked examples and metrics, the verdict taxonomy, and a summary of every tool.
+evidence: true
+wide: true
 ---
 
-## A record for every tool
+## The method {#method}
 
-Every tool has a validation record comparing it case by case with the original program: ANTs 2.6.5, AFNI 25.2.09, FSL 6.0.7 or nibabel. A record states what was compared, how many cases agree, how many are bit-identical, and why the others differ. The records live in the main repository, in [docs/validation](repo:docs/validation/); benchmark reports are in [docs/benchmarks](repo:docs/benchmarks/).
+**The original program is the oracle.** Each LARMORX tool is run beside the program it reimplements, on the same files with the same arguments, and their outputs, exit statuses and messages are compared. The originals are exact builds of the pinned releases: ANTs 2.6.5 on ITK 5.4.5, built by the repository's script with GCC 14.3 (older GCCs drop float roundings the source asks for, so the build matters), AFNI 25.2.09, FSL 6.0.7, nibabel, and fMRIPrep 25.2.6 itself, run on real datasets with its own image. Where the original's result depends on how it runs, its own variability is measured too: ANTs at 1 to 12 threads, another build or version of the same program, and the original with CORE-MATH's correctly rounded maths library preloaded in place of glibc's.
 
-The [status table](/#status) on the home page links each tool to its record and to its page under [Tools](/tools/), where figures show how the port, the clean-room original and the exact replica agree with the original program, how their remaining differences compare with the original's own variability, what they do on real data, and their speed. The figures are drawn by the main repository's code from the committed records, so every one can be drawn again from a commit ([docs/figures.md](repo:docs/figures.md)).
+**Three ways of reimplementing.** A *port* translates source whose licence allows it (ANTs, ITK) and aims at the original's bits. Where the licence restricts the source (AFNI's MCW code, FSL, Workbench), there are two: an exact *replica* in a separate package under the original's licence (`larmorx-gpl` for AFNI), which aims at the original's bits, and a *clean-room original* in LARMORX itself (Apache-2.0), written without the source, from a behavioural specification, which aims at the original's behaviour within stated thresholds and at speed ([licensing](repo:docs/licensing.md)).
 
-## Two kinds of checks {#checks}
+**Default and reproduce modes.** When an original has a deterministic defect that changes its results, LARMORX corrects it by default and warns; `upstream_defects="reproduce"` (on the command line `LARMORX_UPSTREAM_DEFECTS=reproduce`) gives the original's result, defect included. The parity records compare in reproduce mode, so they compare with the original as it is; every defect is in the [register](repo:docs/findings/upstream-defects.md).
 
-### Parity with the original programs
-
-Parity compares LARMORX with the original programs, which serve as oracles, on the same inputs and with the same arguments. It needs the test data, the validation package and the original programs, so it runs on a Linux x86-64 workstation where the originals are built, never in continuous integration. The tiers run from a quick smoke test under pytest to the standard tier quoted on the home page.
+**Parity tiers.** Each tool's suite of cases runs in tiers: *smoke* under pytest, *standard* for the records quoted on this site (fMRIPrep's, sMRIPrep's and sdcflows' own command lines on real data, every option, generated edge cases, the invalid inputs), *full* where a tool has more. Parity needs the originals, so it runs on a Linux x86-64 workstation, never in continuous integration.
 
 ```bash
-pytest tests/parity                                             # the smoke tier
-python -m larmorx_validation parity nifti-io --tier standard --out docs/validation
-python -m larmorx_validation bench nifti-io --out docs/benchmarks
+pytest tests/parity                                                    # the smoke tier
+python -m larmorx_validation parity ants-n4 --tier standard --out docs/validation
 ```
 
-### Golden tests on six platforms
+**Golden tests on six platforms.** Every function's output on small generated inputs is checked, bit for bit, against LARMORX's own Linux x86-64 output on Linux (x86-64, aarch64), macOS (Intel, Apple silicon) and Windows (x64, arm64), in continuous integration ([golden tests](repo:docs/validation/golden.md)). So a comparison made on Linux holds on every platform.
 
-Golden tests check that every tool reproduces its own Linux x86-64 output, bit for bit, on Linux (x86-64, aarch64), macOS (Intel, Apple silicon) and Windows (x64, arm64). Their inputs are generated by the tests from seeded random numbers and plain arithmetic, so they are identical everywhere, and the checksums are recorded on Linux x86-64 ([golden tests](repo:docs/validation/golden.md)).
+## How to read the evidence {#reading}
 
-## Differences from the originals {#defects}
+Each tool's page under [Tools](/tools/) leads with its record's cases by verdict, then shows **worked examples** on real data:
 
-When an original program has a deterministic defect that changes its results, LARMORX records it in a [register](repo:docs/findings/upstream-defects.md) and corrects it by default, with a warning when the correction changes a result. The original's behaviour stays available:
+- **What was run, on what.** The dataset and subject, the exact command (fMRIPrep's own, read from its working directory, where the pipeline calls the tool), and every program with its version, build, thread count and mode.
+- **The image viewer.** Each panel is labelled with exactly what it is: an input, the original program's output (as built, with correctly rounded maths, at another thread count), fMRIPrep's own output, LARMORX's output (replica or clean-room original, default or reproduce mode). Choose the plane, slice and volume, zoom and pan, set the intensity window; select a point to read every panel's exact value there. Compare two images side by side, by swiping or blinking between them, or in a checkerboard.
+- **Differences.** A difference panel shows A − B on a symmetric scale whose range is printed, blue below zero and apricot above, linear or logarithmic; differences shown together share one scale, so LARMORX's difference sits next to the original's own variability on the same footing. A difference that is zero everywhere says *bit-identical*; *Go to the largest difference* finds where they differ most.
+- **The chain of causes.** Where LARMORX and fMRIPrep's output differ, the runs between them are lined up, each step changing one thing (threads, maths library, version), so the cause of every difference is shown, not asserted.
+- **Metrics.** One row per comparison, computed offline in float64 over every voxel of the outputs: the largest |Δ|, how many values differ, the RMS of Δ, the largest |Δ| relative to the image's range, 1 − the normalised cross-correlation. Each comparison of LARMORX with an original gets a verdict and its reason, with links to the finding or register entry; the rows *the original against itself* are the yardstick. Provenance (inputs with their checksums, the commands, the commit) is under each example.
+- **Every case.** The case explorer lists every case of the records: what it tests, its command line, its verdict (one per implementation) and reason. Search, filter, sort, and link to one case with `#case=<name>`.
 
-- in Python, `upstream_defects="reproduce"`;
-- on the command line, `LARMORX_UPSTREAM_DEFECTS=reproduce`.
+Everything is computed by the main repository's code from its committed records and from cached runs of the original programs ([docs/figures.md](repo:docs/figures.md)); the site only displays it, and a check compares every number a page shows with the data it comes from.
 
-The parity tests run in that mode, so a record compares LARMORX with the original as it is ([upstream defects](repo:docs/api/upstream-defects.md)).
+## The verdicts {#verdicts}
 
-## Ports, originals and replicas
+One taxonomy for the whole site. Every comparison of LARMORX with an original, and every case of a record, gets exactly one of these verdicts. Each is drawn with its colour, its pattern and its name, never colour alone.
 
-How a tool is reimplemented decides what its record can claim. A port of permissively licensed source (ANTs, ITK) aims at bit-identical results. A clean-room original, written without the original's source, aims at the same behaviour; an exact replica in a separate package aims at the original's bits. Where both exist, `implementation="auto" | "replica" | "original"` chooses, and the records report each ([licensing](repo:docs/licensing.md)).
+{{ ev.taxonomy() }}
+
+## Where every tool stands {#summary}
+
+Every tool ported so far, each implementation, and how many cases of its record have each verdict. N4BiasFieldCorrection and 3dTshift are the first pages redone with this taxonomy; the others follow.
+
+{{ ev.matrix(site.tools) }}
+
+## The records {#records}
+
+Every record lives in the main repository, in [docs/validation](repo:docs/validation/): what was compared, the thresholds, the environment and every case. Benchmark reports are in [docs/benchmarks](repo:docs/benchmarks/). The stage-by-stage comparisons with fMRIPrep 25.2.6 on four oracle runs are in the `fmriprep-stages` records.

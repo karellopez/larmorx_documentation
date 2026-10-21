@@ -1,0 +1,95 @@
+# The verdict taxonomy: one legend for the whole site (decided 2026-10-21, docs/decision-log.md
+# of the main repository). Every comparison of LARMORX with an original program, and every
+# parity case, gets exactly one verdict. The ids are larmorx_validation.evidence.core.VERDICTS;
+# the build refuses evidence that uses an id not listed here.
+#
+# `label` names the verdict wherever it is used, `short` where space is scarce (chart
+# segments), `means` is the plain-language definition on the Validation page, `matters` says
+# whether the difference is important and whether anything is left to improve. Colours: a fill
+# per theme (validated with a colour-vision-deficiency check: neighbours in this order ΔE ≥ 11
+# under protanopia and deuteranopia, normal vision ΔE ≥ 18, 3:1 against the card, in both
+# themes) and a pattern, so a verdict never rests on colour alone.
+
+- id: bit-identical
+  label: Bit-identical
+  short: identical
+  means: >-
+    The same bytes: every output value is equal to the original's, and so are the exit status,
+    the messages and the files wherever the record compares them.
+  matters: Nothing differs.
+  light: "#c76717"
+  dark: "#d97530"
+  pattern: solid
+
+- id: identical-cr
+  label: Identical with correctly rounded maths
+  short: identical, correctly rounded maths
+  means: >-
+    The outputs differ only because the original's C library (glibc's exp, log, pow, sin, ...)
+    does not round every result correctly. With those functions replaced by correctly rounded
+    ones (CORE-MATH, preloaded into the same unmodified program), the original gives
+    LARMORX's output bit for bit. LARMORX computes the correctly rounded result on every
+    platform.
+  matters: Not important; nothing to improve in LARMORX.
+  light: "#c76717"
+  dark: "#d97530"
+  pattern: hatch
+
+- id: within-variability
+  label: Within the original's own variability
+  short: within the original's variability
+  means: >-
+    The difference is no larger than the original program differs from itself: between its
+    thread counts, its builds or its versions, measured on the same input.
+  matters: Not important.
+  light: "#467dea"
+  dark: "#5890fa"
+  pattern: solid
+
+- id: d13
+  label: Deliberate correction (D13)
+  short: deliberate correction
+  means: >-
+    The original has a deterministic defect that changes its result, recorded in the register
+    of upstream defects. LARMORX's default corrects it and warns; its reproduce mode
+    (upstream_defects="reproduce", LARMORX_UPSTREAM_DEFECTS=reproduce) gives the original's
+    result, and the parity records compare in that mode.
+  matters: Expected; an improvement.
+  light: "#2e8b6a"
+  dark: "#3fa37f"
+  pattern: solid
+
+- id: divergence
+  label: Expected divergence
+  short: expected divergence
+  means: >-
+    The original fails, crashes, or computes from memory it never wrote, or does something
+    LARMORX does not offer (named in the record); LARMORX refuses the input or defines the
+    result.
+  matters: Expected.
+  light: "#8a5cf0"
+  dark: "#9670f5"
+  pattern: solid
+
+- id: both-reject
+  label: Rejected by both
+  short: rejected by both
+  means: >-
+    The input or the arguments are invalid: both programs refuse them, with the same exit status
+    and the same message where the record compares messages.
+  matters: Expected; nothing to compare.
+  light: "#8a847a"
+  dark: "#7d776d"
+  pattern: hatch-back
+
+- id: open
+  label: Open difference
+  short: open difference
+  means: >-
+    A difference that none of the verdicts above accounts for, or one above the record's
+    thresholds. Its cause may be known, but it is not closed: LARMORX could still match the
+    original. What is known is stated with it.
+  matters: Can still be improved.
+  light: "#d8489f"
+  dark: "#e754ab"
+  pattern: solid
