@@ -275,10 +275,42 @@
     var top0 = narrow ? y0 + 30 : Math.max(48, gasC[1] - s * 0.95);
     var top1 = narrow ? Math.max(e0 + 28, brainTop - 64) : Math.max(48, Math.min(top0, brainTop - 96));
     b0geo = { top0: top0, top1: top1, from: gasC[1] + s * 0.28, to: brainTop };
+    // In portrait the copy sits above the rings and the end title above the
+    // brain; between the two, neither is shown, so the cloud rises into the
+    // free space while the copy fades and settles under the title as it comes.
+    lift = null;
+    if (narrow) {
+      var free = (40 + y1) / 2;
+      lift = {
+        gas: Math.min(0, free - gasC[1]),
+        brain: Math.min(0, free - brainC[1]),
+        gasY: gasC[1], brainY: brainC[1], geo: b0geo,
+        cluY: clusters.map(function (c) { return c[1]; })
+      };
+    }
     if (b0) b0.style.left = gasC[0] + 'px';
+    shiftNarrow();
     placeB0();
   }
-  var b0geo = null;
+  var b0geo = null, lift = null;
+  // The vertical offsets of the rings and of the brain at this point of the
+  // scroll (portrait only): up as the copy fades (it is gone at 0.31), back
+  // down just before the end title appears (at 0.8).
+  function shiftNarrow() {
+    if (!lift) return;
+    var up = smooth(0.12, 0.34, progress), down = smooth(0.62, 0.8, progress);
+    var dg = lift.gas * up, db = lift.brain * (1 - down);
+    gasC[1] = lift.gasY + dg;
+    brainC[1] = lift.brainY + db;
+    // the rings are drawn about their own centres: move those (and their labels)
+    clusters.forEach(function (c, k) {
+      c[1] = lift.cluY[k] + dg;
+      var el = labels[k];
+      if (el) el.style.top = (c[1] + c[2] * 0.62 + 8) + 'px';
+    });
+    var g = lift.geo;
+    b0geo = { top0: g.top0 + dg, top1: g.top1 + db, from: g.from + dg, to: g.to + db };
+  }
   function placeB0() {
     if (!b0 || !b0geo) return;
     var k = smooth(0.12, 0.62, progress);
@@ -386,6 +418,7 @@
     D += OMEGA0 * (1 - F) * dt;
     rot += 0.10 * dt;
     hero.style.setProperty('--hp', progress.toFixed(4));
+    shiftNarrow();
     placeB0();
     var r = progress > 0.8;
     if (r !== resonant) { resonant = r; hero.classList.toggle('is-resonant', r); }
