@@ -10,13 +10,14 @@ git, commits, usage limits and long runs.
 - **Here:** the site: its builder (`tools/build.py`), design (`static/css/site.css`), templates,
   pages (`content/`; one per tool in `content/tools/`), data tables (`data/`), the home page hero
   (`static/js/hero.js`, `tools/hero/make_hero.py`), the Greek font subsets
-  (`tools/fonts/make_greek.py`), and the rendered figures (`static/figures/<tool>/`, each with its
-  provenance JSON).
+  (`tools/fonts/make_greek.py`), and the validation evidence (`static/evidence/`, exported by the
+  main repository).
 - **In the main repository:** the numbers (validation records, `docs/validation/`), the benchmark
-  reports, and the **code that draws the figures** (`larmorx_validation`), so that every figure can
-  be regenerated from a commit of larmorx. A page here quotes numbers only from those records and
-  links to them; it never computes or invents its own. The figures are drawn with
-  `python -m larmorx_validation figures <tool>|all --out <this repo>/static/figures` (the main
+  reports, and the **code that computes the evidence** (`larmorx_validation.evidence`), so that
+  every number and image can be regenerated from a commit of larmorx. A page here quotes numbers
+  only from those records and the exported evidence and links to them; it never computes or
+  invents its own. The evidence is exported with
+  `python -m larmorx_validation evidence <tool>|summary|all --site <this repo>` (the main
   repository's `docs/figures.md`).
 
 ## Content rules
@@ -63,8 +64,8 @@ git, commits, usage limits and long runs.
   `tools/review/shoot.mjs --eval` before publishing. Review every component state (desktop and
   phone, light and dark) for meaning as well as looks; a pilot goes to the user before a design is
   rolled out.
-- The pages not yet redone (part 2b) still show the static figures of part 1
-  (`static/figures/<tool>/`, SVG with provenance JSON).
+- Every tool's page is evidence since part 2b (2026-10-21); the static figures of part 1
+  (`static/figures/`) were removed (`larmorx_validation.figures` can still draw them).
 
 ## Build, preview, deploy
 ```bash

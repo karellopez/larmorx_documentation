@@ -3,7 +3,7 @@
  "tool": "ants-n4",
  "title": "N4BiasFieldCorrection",
  "provenance": {
-  "exporter": "b6ef5ceb2feaf37c99f1d4ae83dc724a136c73f4",
+  "exporter": "146ec72dd34cb66c17f1ba7b866b1bc89c83ffd3",
   "records": [
    {
     "path": "docs/validation/ants-n4.json",
@@ -36,7 +36,7 @@
      {
       "label": "ants-1",
       "argv": [
-       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
+       "<workspace>/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
        "--bspline-fitting",
        "[",
        "200",
@@ -44,7 +44,7 @@
        "-d",
        "3",
        "--input-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
        "--convergence",
        "[",
        "50x50x50x50x50,",
@@ -52,14 +52,14 @@
        "]",
        "--output",
        "[",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-1.nii.gz,",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-1-bias.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-1.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-1-bias.nii.gz",
        "]",
        "-r",
        "--shrink-factor",
        "4",
        "--weight-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
       ],
       "env": {
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
@@ -70,7 +70,7 @@
      {
       "label": "ants-1-cr",
       "argv": [
-       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
+       "<workspace>/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
        "--bspline-fitting",
        "[",
        "200",
@@ -78,7 +78,7 @@
        "-d",
        "3",
        "--input-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
        "--convergence",
        "[",
        "50x50x50x50x50,",
@@ -86,18 +86,18 @@
        "]",
        "--output",
        "[",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-1-cr.nii.gz,",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-1-cr-bias.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-1-cr.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-1-cr-bias.nii.gz",
        "]",
        "-r",
        "--shrink-factor",
        "4",
        "--weight-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
       ],
       "env": {
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
-       "LD_PRELOAD": "/home/karelo/VScode_projects/super_fmriprep/oracles/core-math-preload/libcrmath.so"
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
       },
       "exit": 0,
       "seconds": 17.33
@@ -105,7 +105,7 @@
      {
       "label": "ants-2",
       "argv": [
-       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
+       "<workspace>/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
        "--bspline-fitting",
        "[",
        "200",
@@ -113,7 +113,7 @@
        "-d",
        "3",
        "--input-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
        "--convergence",
        "[",
        "50x50x50x50x50,",
@@ -121,14 +121,14 @@
        "]",
        "--output",
        "[",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-2.nii.gz,",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-2-bias.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-2.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-2-bias.nii.gz",
        "]",
        "-r",
        "--shrink-factor",
        "4",
        "--weight-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
       ],
       "env": {
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "2"
@@ -139,7 +139,7 @@
      {
       "label": "ants-3",
       "argv": [
-       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
+       "<workspace>/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
        "--bspline-fitting",
        "[",
        "200",
@@ -147,7 +147,7 @@
        "-d",
        "3",
        "--input-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
        "--convergence",
        "[",
        "50x50x50x50x50,",
@@ -155,14 +155,14 @@
        "]",
        "--output",
        "[",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-3.nii.gz,",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-3-bias.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-3.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-3-bias.nii.gz",
        "]",
        "-r",
        "--shrink-factor",
        "4",
        "--weight-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
       ],
       "env": {
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "3"
@@ -173,7 +173,7 @@
      {
       "label": "ants-4",
       "argv": [
-       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
+       "<workspace>/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
        "--bspline-fitting",
        "[",
        "200",
@@ -181,7 +181,7 @@
        "-d",
        "3",
        "--input-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
        "--convergence",
        "[",
        "50x50x50x50x50,",
@@ -189,14 +189,14 @@
        "]",
        "--output",
        "[",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-4.nii.gz,",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-4-bias.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-4.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-4-bias.nii.gz",
        "]",
        "-r",
        "--shrink-factor",
        "4",
        "--weight-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
       ],
       "env": {
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "4"
@@ -207,7 +207,7 @@
      {
       "label": "ants-8",
       "argv": [
-       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
+       "<workspace>/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
        "--bspline-fitting",
        "[",
        "200",
@@ -215,7 +215,7 @@
        "-d",
        "3",
        "--input-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
        "--convergence",
        "[",
        "50x50x50x50x50,",
@@ -223,14 +223,14 @@
        "]",
        "--output",
        "[",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-8.nii.gz,",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-8-bias.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-8.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-8-bias.nii.gz",
        "]",
        "-r",
        "--shrink-factor",
        "4",
        "--weight-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
       ],
       "env": {
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8"
@@ -241,7 +241,7 @@
      {
       "label": "ants-12",
       "argv": [
-       "~/VScode_projects/super_fmriprep/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
+       "<workspace>/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
        "--bspline-fitting",
        "[",
        "200",
@@ -249,7 +249,7 @@
        "-d",
        "3",
        "--input-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
        "--convergence",
        "[",
        "50x50x50x50x50,",
@@ -257,14 +257,14 @@
        "]",
        "--output",
        "[",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-12.nii.gz,",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-12-bias.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-12.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/ants-12-bias.nii.gz",
        "]",
        "-r",
        "--shrink-factor",
        "4",
        "--weight-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
       ],
       "env": {
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "12"
@@ -279,18 +279,18 @@
        "exec",
        "--cleanenv",
        "--home",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/.home:/home/fmriprep",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/.home:/home/fmriprep",
        "--env",
        "NSLOTS=1",
        "--env",
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=1",
        "-B",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0:/in1:ro",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0:/in1:ro",
        "-B",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior:/in2:ro",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior:/in2:ro",
        "-B",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4:/out",
-       "~/VScode_projects/super_fmriprep/oracles/images/fmriprep-25.2.6.sif",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4:/out",
+       "<workspace>/oracles/images/fmriprep-25.2.6.sif",
        "N4BiasFieldCorrection",
        "--bspline-fitting",
        "[",
@@ -327,9 +327,9 @@
        "exec",
        "--cleanenv",
        "--home",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/.home:/home/fmriprep",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/.home:/home/fmriprep",
        "-B",
-       "~/VScode_projects/super_fmriprep/oracles/core-math-preload:/crmath:ro",
+       "<workspace>/oracles/core-math-preload:/crmath:ro",
        "--env",
        "NSLOTS=1",
        "--env",
@@ -337,12 +337,12 @@
        "--env",
        "LD_PRELOAD=/crmath/libcrmath.so",
        "-B",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0:/in1:ro",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0:/in1:ro",
        "-B",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior:/in2:ro",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior:/in2:ro",
        "-B",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4:/out",
-       "~/VScode_projects/super_fmriprep/oracles/images/fmriprep-25.2.6.sif",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4:/out",
+       "<workspace>/oracles/images/fmriprep-25.2.6.sif",
        "N4BiasFieldCorrection",
        "--bspline-fitting",
        "[",
@@ -375,7 +375,7 @@
      {
       "label": "larmorx-1",
       "argv": [
-       "~/VScode_projects/super_fmriprep/.venv/bin/python",
+       "<workspace>/.venv/bin/python",
        "-m",
        "larmorx",
        "ants",
@@ -387,7 +387,7 @@
        "-d",
        "3",
        "--input-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
        "--convergence",
        "[",
        "50x50x50x50x50,",
@@ -395,14 +395,14 @@
        "]",
        "--output",
        "[",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-1.nii.gz,",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-1-bias.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-1.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-1-bias.nii.gz",
        "]",
        "-r",
        "--shrink-factor",
        "4",
        "--weight-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
       ],
       "env": {
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
@@ -414,7 +414,7 @@
      {
       "label": "larmorx-1-reproduce",
       "argv": [
-       "~/VScode_projects/super_fmriprep/.venv/bin/python",
+       "<workspace>/.venv/bin/python",
        "-m",
        "larmorx",
        "ants",
@@ -426,7 +426,7 @@
        "-d",
        "3",
        "--input-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
        "--convergence",
        "[",
        "50x50x50x50x50,",
@@ -434,14 +434,14 @@
        "]",
        "--output",
        "[",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-1-reproduce.nii.gz,",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-1-reproduce-bias.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-1-reproduce.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-1-reproduce-bias.nii.gz",
        "]",
        "-r",
        "--shrink-factor",
        "4",
        "--weight-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
       ],
       "env": {
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
@@ -453,7 +453,7 @@
      {
       "label": "larmorx-12",
       "argv": [
-       "~/VScode_projects/super_fmriprep/.venv/bin/python",
+       "<workspace>/.venv/bin/python",
        "-m",
        "larmorx",
        "ants",
@@ -465,7 +465,7 @@
        "-d",
        "3",
        "--input-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
        "--convergence",
        "[",
        "50x50x50x50x50,",
@@ -473,14 +473,14 @@
        "]",
        "--output",
        "[",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-12.nii.gz,",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-12-bias.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-12.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-12-bias.nii.gz",
        "]",
        "-r",
        "--shrink-factor",
        "4",
        "--weight-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
       ],
       "env": {
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "12",
@@ -492,7 +492,7 @@
      {
       "label": "larmorx-12-reproduce",
       "argv": [
-       "~/VScode_projects/super_fmriprep/.venv/bin/python",
+       "<workspace>/.venv/bin/python",
        "-m",
        "larmorx",
        "ants",
@@ -504,7 +504,7 @@
        "-d",
        "3",
        "--input-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
        "--convergence",
        "[",
        "50x50x50x50x50,",
@@ -512,14 +512,14 @@
        "]",
        "--output",
        "[",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-12-reproduce.nii.gz,",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-12-reproduce-bias.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-12-reproduce.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds000005-final-n4/larmorx-12-reproduce-bias.nii.gz",
        "]",
        "-r",
        "--shrink-factor",
        "4",
        "--weight-image",
-       "~/VScode_projects/super_fmriprep/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
       ],
       "env": {
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "12",

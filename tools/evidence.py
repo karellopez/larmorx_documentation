@@ -72,6 +72,54 @@ def fmt_seconds(x) -> str:
     return fmt_sig(x, 3) + " s"
 
 
+def _shortest(x: float, max_digits: int, same) -> str:
+    expo = x != 0 and (abs(x) < 1e-3 or abs(x) >= 1e7)
+    t = ""
+    for p in range(1, max_digits + 1):
+        t = f"{x:.{p - 1}e}" if expo else f"{x:.{p}g}"
+        if same(float(t)):
+            break
+    if "e" in t:
+        m, e = t.split("e")
+        if "." in m:
+            m = m.rstrip("0").rstrip(".")
+        t = f"{m}e{int(e)}"
+    return t.replace("-", "−")
+
+
+def fmt_f32(x) -> str:
+    """The fewest digits that give back the float32 value ``x``."""
+    import struct
+
+    if x == 0:
+        return "0"
+
+    def same(y: float) -> bool:
+        return struct.unpack("<f", struct.pack("<f", y))[0] == x
+
+    return _shortest(float(x), 9, same)
+
+
+def fmt_f64(x) -> str:
+    """The fewest digits that give back the float64 value ``x``."""
+    if x == 0:
+        return "0"
+    return _shortest(float(x), 17, lambda y: y == x)
+
+
+FORMATS = {
+    "sig": lambda v: fmt_sig(v, 3),
+    "sig2": lambda v: fmt_sig(v, 2),
+    "sig4": lambda v: fmt_sig(v, 4),
+    "sig6": lambda v: fmt_sig(v, 6),
+    "count": fmt_count,
+    "f32": fmt_f32,
+    "f64": fmt_f64,
+    "share": fmt_share,
+    "seconds": fmt_seconds,
+}
+
+
 class Evidence:
     """The evidence helpers of one page (links are relative to it)."""
 
@@ -220,8 +268,16 @@ class Evidence:
             f'<p class="ev-sum">{self.text(ex["summary"])}</p>'
             f'<dl class="ev-facts">{facts}</dl></div>'
             f'<div class="ev-viewer"><div class="ev-panels">{"".join(cells)}</div>{note}</div>'
+            + "".join(
+                self.lines_html(tool, spec, ptr("examples", k, "lines", lid))
+                for lid, spec in ex.get("lines", {}).items()
+            )
             + self.chain(tool, k)
             + self.metrics(tool, k)
+            + "".join(
+                self.table_html(tool, t, ptr("examples", k, "tables", i))
+                for i, t in enumerate(ex.get("tables", []))
+            )
             + self.provenance(tool, ex)
             + "</section>"
         )
@@ -282,7 +338,7 @@ class Evidence:
             "<th scope=col class=n>1 − NCC</th></tr>"
         )
         body = []
-        for kinds, title in self.GROUPS:
+        for kinds, title in ex.get("groups") or self.GROUPS:
             group = [(j, d) for j, d in enumerate(ex["diffs"]) if d["kind"] in kinds.split()]
             if not group:
                 continue
@@ -313,7 +369,7 @@ class Evidence:
                 if same:
                     o = outs[0]
                     p = ptr("examples", k, "diffs", j, "metrics", o["id"], "voxels")
-                    what = "both outputs" if len(outs) > 1 else o["label"]
+                    what = "both outputs" if len(outs) == 2 else "every output" if len(outs) > 2 else o["label"]
                     cells = [head_cell]
                     if multi:
                         cells.append(f"<td class=out>{esc(what)}</td>")
@@ -378,6 +434,7 @@ class Evidence:
         doc = self.doc(tool)
         k, im = next((i, x) for i, x in enumerate(doc["implementations"]) if x["id"] == impl)
         rows = im["agreement"]
+        target = f"cases-{impl}" if len(doc["implementations"]) > 1 and doc.get("cases_per_impl") else "cases"
         top = max(sum(r["counts"].values()) for r in rows) or 1
         out = []
         for ri, r in enumerate(rows):
@@ -392,13 +449,13 @@ class Evidence:
                 label = self.verdicts[v]["label"]
                 parts.append(f"{n} {label.lower()}")
                 segs.append(
-                    f'<a class="seg v-{esc(v)}" style="flex-grow:{n}" href="#cases" '
+                    f'<a class="seg v-{esc(v)}" style="flex-grow:{n}" href="#{esc(target)}" '
                     f'data-filter-category="{esc(r["category"])}" data-filter-verdict="{esc(v)}" '
                     f'data-filter-impl="{esc(impl)}" title="{esc(r["category"])}: {n} {esc(label.lower())}">'
                     f'<span class="seg-n">{self.num(tool, pp, fmt_count(n))}</span></a>'
                 )
             out.append(
-                f'<div class="ev-agree-row"><span class="ev-agree-cat">{esc(r["category"])}</span>'
+                f'<div class="ev-agree-row"><span class="ev-agree-cat">{esc(r["category"]).replace("/", "/<wbr>")}</span>'
                 f'<div class="ev-agree-track"><div class="ev-bar" style="width:{100 * total / top:.3f}%" '
                 f'role="group" aria-label="{esc(r["category"])}: {total} cases: {esc(", ".join(parts))}">{"".join(segs)}</div></div>'
                 f'<span class="ev-agree-n">{total}</span></div>'
@@ -507,11 +564,179 @@ class Evidence:
             f'<p class="ev-chart-note">{self.text(s["note"])}</p></figure>'
         )
 
+    # ----------------------------------------------------------------- tables
+
+    def table_html(self, tool: str, t: dict, base: str) -> str:
+        """A table of the JSON (``tables``): text and numbers, each number with its pointer;
+        a cell may carry a verdict."""
+        cols = t["columns"]
+        head = "".join(
+            f'<th scope=col{" class=n" if c.get("num") else ""}>{esc(c["label"])}</th>' for c in cols
+        )
+        body = []
+        for i, r in enumerate(t["rows"]):
+            cells = [
+                f'<th scope=row>{self.text(r["head"])}'
+                + (f'<small>{self.text(r["sub"])}</small>' if r.get("sub") else "")
+                + "</th>"
+            ]
+            for j, c in enumerate(r["cells"]):
+                num = cols[j + 1].get("num") if j + 1 < len(cols) else False
+                if "verdict" in c:
+                    inner = str(self.verdict(c["verdict"]))
+                    if c.get("text"):
+                        inner += f'<span class="why">{self.text(c["text"])}</span>'
+                elif "v" in c:
+                    fmt = FORMATS.get(c.get("fmt", "sig"), FORMATS["sig"])
+                    inner = self.num(tool, f"{base}/rows/{i}/cells/{j}/v", fmt(c["v"]))
+                    if c.get("unit"):
+                        inner += f" <small>{esc(c['unit'])}</small>"
+                else:
+                    inner = str(self.text(c.get("text", "")))
+                cls = ' class="n"' if num else ""
+                cells.append(f"<td{cls}>{inner}</td>")
+            rc = f' class="{esc(r["class"])}"' if r.get("class") else ""
+            body.append(f'<tr{rc}>{"".join(cells)}</tr>')
+        note = f'<p class="ev-metrics-note">{self.text(t["note"])}</p>' if t.get("note") else ""
+        return (
+            f'<div class="ev-table" id="table-{esc(t["id"])}"><p class="ev-metrics-title">{self.text(t["title"])}</p>'
+            f'<div class="table-wrap"><table class="ev-ttable"><thead><tr>{head}</tr></thead>'
+            f'<tbody>{"".join(body)}</tbody></table></div>{note}</div>'
+        )
+
+    def table(self, tool: str, tid: str) -> Markup:
+        doc = self.doc(tool)
+        k, t = next(((i, x) for i, x in enumerate(doc.get("tables", [])) if x["id"] == tid), (None, None))
+        if t is None:
+            raise SystemExit(f"evidence {tool}: no table {tid!r}")
+        return Markup(f'<figure class="ev-chart ev-tablefig">{self.table_html(tool, t, ptr("tables", k))}</figure>')
+
+    # ------------------------------------------------------------------ dots
+
+    def dots(self, tool: str, did: str) -> Markup:
+        """Dots on a log axis, one row per item and a dot per series (speed, thread bands);
+        a zero sits at the axis' left edge."""
+        s = self.doc(tool)["dots"][did]
+        if not s:
+            return Markup("")
+        lo, hi = s["axis"]
+        span = math.log10(hi) - math.log10(lo)
+        unit = s.get("unit", "")
+
+        def x(v):
+            if v <= 0:
+                return 0.0
+            return 100 * (math.log10(min(max(v, lo), hi)) - math.log10(lo)) / span
+
+        fmt = FORMATS.get(s.get("fmt", "sig"), FORMATS["sig"])
+        rows = []
+        for i, r in enumerate(s["rows"]):
+            pts = []
+            for ser in s["series"]:
+                v = r["values"].get(ser["id"])
+                if v is None:
+                    continue
+                pp = ptr("dots", did, "rows", i, "values", ser["id"])
+                shown = fmt(v) + (f" {unit}" if unit else "")
+                pts.append(
+                    f'<span class="dot s-{esc(ser["mark"])}{" is-zero" if v <= 0 else ""}" style="left:{x(v):.3f}%" '
+                    f'title="{esc(ser["label"])}: {esc(shown)}"><b class="visually-hidden">{esc(ser["label"])} '
+                    f'{self.num(tool, pp, fmt(v))}{(" " + esc(unit)) if unit else ""}</b></span>'
+                )
+            extra = ""
+            if r.get("ratio") is not None:
+                extra = (
+                    '<span class="ev-speed-x">'
+                    + self.num(tool, ptr("dots", did, "rows", i, "ratio"), fmt_sig(r["ratio"], 2))
+                    + "×</span>"
+                )
+            label = f'<code>{esc(r["label"])}</code>' if r.get("code") else esc(r["label"])
+            rows.append(
+                f'<li><span class="ev-band-case">{label}</span>'
+                f'<span class="ev-band-track">{"".join(pts)}</span>{extra}</li>'
+            )
+        key = "".join(
+            f'<li><span class="dot s-{esc(ser["mark"])}"></span>{esc(ser["label"])}</li>' for ser in s["series"]
+        )
+        ticks = "".join(f'<span style="left:{x(t):.3f}%">{esc(lbl)}</span>' for t, lbl in s["ticks"])
+        cls = "ev-speed" if any(r.get("ratio") is not None for r in s["rows"]) else "ev-dots"
+        return Markup(
+            f'<figure class="ev-chart {cls}"><figcaption class="ev-chart-title">{esc(s["title"])}</figcaption>'
+            f'<ul class="ev-band-key">{key}</ul><ol class="ev-band-rows">{"".join(rows)}</ol>'
+            f'<div class="ev-band-axis"><span class="ev-band-pad"></span><span class="ev-band-ticks">{ticks}</span></div>'
+            f'<p class="ev-chart-note">{self.text(s["note"])}</p></figure>'
+        )
+
+    # ----------------------------------------------------------------- lines
+
+    def lines(self, tool: str, lid: str) -> Markup:
+        """Line charts sharing one x axis (the JSON's ``lines``)."""
+        doc = self.doc(tool)
+        return Markup(self.lines_html(tool, doc["lines"][lid], ptr("lines", lid)))
+
+    def lines_html(self, tool: str, spec: dict, base: str) -> str:
+        """Panels of lines over one x axis, drawn as SVG (the script redraws them to the
+        column's width and reads the values under the pointer); a table of statistics below."""
+        src = self.link(f"/static/evidence/{tool}.json")
+        key = "".join(
+            f'<li><i class="ln-key ln-{esc(sr["mark"])}"></i>{esc(sr["label"])}</li>' for sr in spec["key"]
+        )
+        svgs = "".join(self._lines_svg(p, spec) for p in spec["panels"])
+        stats = ""
+        if spec.get("stats"):
+            stats = self.table_html(tool, spec["stats"], base + "/stats")
+        return (
+            f'<figure class="ev-chart ev-lines" data-ev-src="{src}" data-ev-lines="{esc(base)}" data-ev-tool="{esc(tool)}">'
+            f'<figcaption class="ev-chart-title">{esc(spec["title"])}</figcaption>'
+            f'<ul class="ev-series-key ev-lines-key">{key}</ul><div class="ev-lines-panels">{svgs}</div>'
+            f'<p class="ev-chart-note">{self.text(spec["note"])}</p>{stats}</figure>'
+        )
+
+    @staticmethod
+    def _lines_svg(p: dict, spec: dict) -> str:
+        W, H, ml, mr, mt, mb = 760, 120, 60, 10, 18, 8
+        xs = spec["x"]
+        x0, x1 = xs[0], xs[-1]
+        ys = [v for sr in p["series"] for v in sr["y"] if v is not None]
+        for b in p.get("bands", []):
+            ys += b["lo"] + b["hi"]
+        lo, hi = min(ys), max(ys)
+        if lo == hi:
+            lo, hi = lo - 1, hi + 1
+        pad = (hi - lo) * 0.06
+        y0, y1 = lo - pad, hi + pad
+
+        def X(v):
+            return ml + (W - ml - mr) * (v - x0) / ((x1 - x0) or 1)
+
+        def Y(v):
+            return mt + (H - mt - mb) * (1 - (v - y0) / (y1 - y0))
+
+        out = [f'<svg class="ev-lines-svg" viewBox="0 0 {W} {H}" role="img" aria-label="{esc(p["label"])}">']
+        for b in p.get("bands", []):
+            pts = [f"{X(x):.1f},{Y(v):.1f}" for x, v in zip(xs, b["hi"])]
+            pts += [f"{X(x):.1f},{Y(v):.1f}" for x, v in reversed(list(zip(xs, b["lo"])))]
+            out.append(f'<polygon class="ln-band ln-{esc(b["mark"])}" points="{" ".join(pts)}"/>')
+        if y0 < 0 < y1:
+            out.append(f'<line class="ln-zero" x1="{ml}" x2="{W - mr}" y1="{Y(0):.1f}" y2="{Y(0):.1f}"/>')
+        for sr in p["series"]:
+            pts = " ".join(f"{X(x):.1f},{Y(v):.1f}" for x, v in zip(xs, sr["y"]) if v is not None)
+            out.append(f'<polyline class="ln ln-{esc(sr["mark"])}" points="{pts}"/>')
+        out.append(f'<text class="ln-label" x="{ml}" y="12">{esc(p["label"])}</text>')
+        for v in (hi, lo):
+            out.append(f'<text class="ln-tick" x="{ml - 6}" y="{Y(v) + 4:.1f}" text-anchor="end">{esc(fmt_sig(v, 3))}</text>')
+        out.append("</svg>")
+        return "".join(out)
+
     # --------------------------------------------------------- case explorer
 
-    def cases(self, tool: str) -> Markup:
+    def cases(self, tool: str, impl: str | None = None) -> Markup:
+        """Every case of the tool's records; with ``impl``, only that implementation's (one
+        explorer per program on a page of several)."""
         doc = self.doc(tool)
         impls = doc["implementations"]
+        if impl is not None:
+            impls = [i for i in impls if i["id"] == impl]
         multi = len(impls) > 1
         head = (
             "<tr><th scope=col data-sort=id>Case</th><th scope=col data-sort=category>Category</th>"
@@ -523,7 +748,8 @@ class Evidence:
             + "<th scope=col>Checks</th></tr>"
         )
         rows = []
-        for c in doc["cases"]:
+        listed = [c for c in doc["cases"] if impl is None or impl in c["results"]]
+        for c in listed:
             cells = [
                 f'<th scope="row" class="cid"><code>{esc(c["id"])}</code>'
                 + (
@@ -557,9 +783,15 @@ class Evidence:
             rows.append(
                 f'<tr id="case={esc(c["id"])}" {" ".join(data)} data-id="{esc(c["id"])}">{"".join(cells)}</tr>'
             )
-        n = self.num(tool, ptr("cases_total"), fmt_count(doc["cases_total"]))
+        if impl is None:
+            n = self.num(tool, ptr("cases_total"), fmt_count(doc["cases_total"]))
+            box_id = "cases"
+        else:
+            k = next(i for i, x in enumerate(doc["implementations"]) if x["id"] == impl)
+            n = self.num(tool, ptr("implementations", k, "summary", "cases"), fmt_count(len(listed)))
+            box_id = f"cases-{impl}"
         return Markup(
-            f'<div class="ev-cases" id="cases" data-ev-tool="{esc(tool)}" '
+            f'<div class="ev-cases" id="{esc(box_id)}" data-ev-tool="{esc(tool)}" '
             f'data-impls="{esc(",".join(i["id"] for i in impls))}">'
             f'<p class="ev-cases-count">{n} cases</p>'
             f'<div class="table-wrap ev-cases-wrap"><table class="ev-ctable"><thead>{head}</thead>'
@@ -573,7 +805,10 @@ class Evidence:
         path = self.root / "static" / "evidence" / "summary.json"
         summary = json.loads(path.read_text(encoding="utf-8"))
         pages = {t["url"]: t for t in tools}
-        cols = [*self.order, "unclassified"]
+        unclassified = any(
+            im["verdicts"].get("unclassified") for t in summary["tools"] for im in t["implementations"]
+        )
+        cols = [*self.order, *(["unclassified"] if unclassified else [])]
         head = (
             "<tr><th scope=col>Tool</th><th scope=col>Implementation</th><th scope=col>Cases</th>"
             + "".join(
@@ -581,8 +816,13 @@ class Evidence:
                 f'<i aria-hidden="true"></i><span>{esc(self.verdicts[v]["short"])}</span></a></th>'
                 for v in self.order
             )
-            + '<th scope=col class="vh"><span class="verdict v-unclassified is-key"><i aria-hidden="true"></i>'
-            "<span>within thresholds, not yet classified</span></span></th></tr>"
+            + (
+                '<th scope=col class="vh"><span class="verdict v-unclassified is-key"><i aria-hidden="true"></i>'
+                "<span>within thresholds, not yet classified</span></span></th>"
+                if unclassified
+                else ""
+            )
+            + "</tr>"
         )
         rows = []
         for ti, t in enumerate(summary["tools"]):

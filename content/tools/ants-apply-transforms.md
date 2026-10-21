@@ -1,8 +1,10 @@
 ---
 title: antsApplyTransforms
 kicker: Tools · ANTs
-lede: Resampling an image through a chain of ITK transforms, ported from ANTs 2.6.5 and ITK 5.4.5, in double precision and with --float 1, and the transform outputs. Bit-identical to ANTs in every compared case once ANTs uses correctly rounded maths.
-description: LARMORX's port of antsApplyTransforms, its validation against ANTs 2.6.5 in figures, fMRIPrep's T1w-to-MNI transform applied by both, and speed.
+lede: Resampling an image through a chain of ITK transforms, ported from ANTs 2.6.5 and ITK 5.4.5, in double precision and with --float 1, and the transform outputs. Every compared case is identical to ANTs, as built or once ANTs uses correctly rounded maths; fMRIPrep's own T1w-to-MNI resampling is bit-identical.
+description: LARMORX's port of antsApplyTransforms, validated against ANTs 2.6.5 and fMRIPrep 25.2.6 — fMRIPrep's T1w-to-MNI resampling through its .h5 composite to inspect, in single and double precision, every parity case with its verdict, and speed.
+evidence: true
+wide: true
 ---
 
 <dl class="facts">
@@ -15,10 +17,8 @@ description: LARMORX's port of antsApplyTransforms, its validation against ANTs 
 
 antsApplyTransforms maps every voxel of a reference grid through a list of transforms (matrices, displacement fields, composite `.h5` files) into an input image and interpolates it there: linear, nearest neighbour, B-spline, Gaussian, windowed sinc, label-preserving. fMRIPrep uses it for every resampling of its anatomical outputs and masks, many of them with `--float 1`.
 
-## How to call it
-
 ```bash
-larmorx ants antsApplyTransforms -d 3 -i sub-01_desc-preproc_T1w.nii.gz -r tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz \
+larmorx ants antsApplyTransforms -d 3 --float 1 -i sub-01_desc-preproc_T1w.nii.gz -r tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz \
   -t sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5 -n LanczosWindowedSinc -o t1w_mni.nii.gz
 ```
 
@@ -33,26 +33,34 @@ mni = lx.ants.apply_transforms(
 )
 ```
 
-## Agreement with ANTs
+How to read what follows: [the validation guide](/validation/#reading).
 
-The [record](repo:docs/validation/ants-apply-transforms.md) runs 220 cases: 202 pass, 14 are rejected by both programs and 4 are expected divergences. Against the unmodified binary, 160 of the 174 passing cases with an image output are bit-identical; the other 14 differ only through glibc's `exp`, `log`, `sin`, `cos` and their float versions (Gaussian and windowed-sinc weights, Euler and versor matrices), and with CORE-MATH preloaded into ANTs all 174 are. All 89 `--float 1` cases are bit-identical to the unmodified binary. The 28 cases that write transforms write ANTs' files: text and MATLAB files byte for byte, NIfTI displacement fields bit for bit, HDF5 files dataset for dataset (byte for byte given ITK's compressed chunks).
+## The verdicts at a glance {#verdicts}
 
-{{ figure('ants-apply-transforms/agreement', "The record's 220 cases by category: image outputs identical to ANTs as built or identical with CORE-MATH, transform files with ANTs' content, expected divergences (crashes of ANTs that LARMORX refuses with a message) and the inputs both programs refuse.") }}
+{{ ev.agreement('ants-apply-transforms', 'port') }}
 
-## fMRIPrep's T1w-to-MNI transform
+Image outputs are bit-identical to the unmodified ANTs binary, or, where glibc's `exp`, `sin` or `cos` is not correctly rounded (Gaussian and windowed-sinc weights, Euler and versor matrices), to the same binary with CORE-MATH preloaded. Every `--float 1` case is bit-identical to ANTs as built. The cases that write transforms (`-o Linear[...]`, `CompositeTransform[...]`, `DisplacementField[...]`) write ANTs' content: text and MATLAB files byte for byte, NIfTI fields bit for bit, HDF5 files dataset for dataset and attribute for attribute (their compressed bytes are ITK's given ITK's chunks). The expected divergences are crashes of ANTs that LARMORX refuses with a message.
 
-{{ figure('ants-apply-transforms/t1w-to-mni', "fMRIPrep 25.2.6's T1w-to-MNI152NLin2009cAsym composite (affine and SyN warp, `.h5`) applied to OpenNeuro ds000005 sub-01's preprocessed T1w (PDDL-1.0) with Lanczos interpolation, on the template's 2 mm grid; axial slices inside the template's brain mask. In double precision LARMORX differs from ANTs as built in scattered voxels, by at most 7 × 10⁻¹³ (glibc's `sin` and `cos` in the Lanczos weights); with `--float 1`, and with CORE-MATH preloaded into ANTs, the outputs are bit-identical. The template: MNI ICBM 152 nonlinear asymmetric 2009c, © McConnell Brain Imaging Centre, Montreal Neurological Institute ([notice](/static/hero/LICENSE-MNI.txt)).") }}
+## A worked example: fMRIPrep's T1w in MNI space {#example}
 
-## Speed
+The node that writes fMRIPrep's `space-MNI152NLin2009cAsym_res-2_desc-preproc_T1w`: its masked T1w, the 2 mm template and its own composite transform (the affine and the SyN displacement field of its template registration), with Lanczos interpolation. fMRIPrep runs it with `--float 1`; double precision is shown beside it, where glibc's maths reaches the last bits.
 
-{{ figure('ants-apply-transforms/speed', "Median seconds of the whole command (reading, resampling, writing) for antsApplyTransforms (ANTs 2.6.5 through ANTsPy) and LARMORX's command line at 1 and 12 threads on fMRIPrep's resampling jobs, from the benchmark report of 2026-10-10 (Intel i7-8750H, 12 logical CPUs); the factor is LARMORX's speed-up at one thread.") }}
+{{ ev.example('ants-apply-transforms', 'fmriprep-anat2std') }}
 
-The report predates `--float 1`; a re-run is among the planned follow-ups ([next steps](repo:docs/next-steps.md)).
+## Every case {#cases}
 
-## Corrections by default
+Each case of the record, with what it tests, the command line, its verdict and the reason. Search, filter by category or verdict (or select a segment of the chart above), sort by a column; `#case=<name>` links to one.
 
-The record's fix pass meets ANTS-06 (undefined float-to-integer conversions of `-u char`/`uchar` outputs, clamped by default; [register](repo:docs/findings/upstream-defects.md)).
+{{ ev.cases('ants-apply-transforms') }}
 
-## Known limits
+## Speed {#speed}
 
-`BSplineTransform` files (the output of antsRegistration's `BSpline` stage) are refused with a message; MINC transform files too.
+{{ ev.speed('ants-apply-transforms') }}
+
+## Corrections by default {#corrections}
+
+The record's fix pass meets ANTS-06 (undefined float-to-integer conversions of `-u char`/`uchar` outputs, clamped by default; [register](repo:docs/findings/upstream-defects.md)); it does not apply to fMRIPrep's commands.
+
+## Known limits {#limits}
+
+`BSplineTransform` files (the output of antsRegistration's `BSpline` stage) are refused with a message; MINC transform files too. The comparison is made on Linux x86-64; the other five platforms are held to LARMORX's own Linux output by the [golden tests](repo:docs/validation/golden.md).

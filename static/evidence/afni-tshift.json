@@ -3,7 +3,7 @@
  "tool": "afni-tshift",
  "title": "3dTshift",
  "provenance": {
-  "exporter": "b6ef5ceb2feaf37c99f1d4ae83dc724a136c73f4",
+  "exporter": "146ec72dd34cb66c17f1ba7b866b1bc89c83ffd3",
   "records": [
    {
     "path": "docs/validation/afni-tshift-replica.json",
@@ -48,13 +48,13 @@
      {
       "label": "afni",
       "argv": [
-       "~/VScode_projects/super_fmriprep/oracles/afni-25.2.09/bin/3dTshift",
+       "<workspace>/oracles/afni-25.2.09/bin/3dTshift",
        "-ignore",
        "0",
        "-prefix",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/afni.nii.gz",
+       "<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/afni.nii.gz",
        "-tpattern",
-       "@~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
+       "@<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
        "-TR",
        "2s",
        "-tzero",
@@ -72,7 +72,7 @@
      {
       "label": "original",
       "argv": [
-       "~/VScode_projects/super_fmriprep/.venv/bin/python",
+       "<workspace>/.venv/bin/python",
        "-m",
        "larmorx",
        "afni",
@@ -80,9 +80,9 @@
        "-ignore",
        "0",
        "-prefix",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/original.nii.gz",
+       "<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/original.nii.gz",
        "-tpattern",
-       "@~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
+       "@<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
        "-TR",
        "2s",
        "-tzero",
@@ -102,7 +102,7 @@
      {
       "label": "original-1",
       "argv": [
-       "~/VScode_projects/super_fmriprep/.venv/bin/python",
+       "<workspace>/.venv/bin/python",
        "-m",
        "larmorx",
        "afni",
@@ -110,9 +110,9 @@
        "-ignore",
        "0",
        "-prefix",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/original-1.nii.gz",
+       "<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/original-1.nii.gz",
        "-tpattern",
-       "@~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
+       "@<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
        "-TR",
        "2s",
        "-tzero",
@@ -133,7 +133,7 @@
      {
       "label": "original-reproduce",
       "argv": [
-       "~/VScode_projects/super_fmriprep/.venv/bin/python",
+       "<workspace>/.venv/bin/python",
        "-m",
        "larmorx",
        "afni",
@@ -141,9 +141,9 @@
        "-ignore",
        "0",
        "-prefix",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/original-reproduce.nii.gz",
+       "<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/original-reproduce.nii.gz",
        "-tpattern",
-       "@~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
+       "@<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
        "-TR",
        "2s",
        "-tzero",
@@ -169,9 +169,9 @@
        "-ignore",
        "0",
        "-prefix",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/replica.nii.gz",
+       "<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/replica.nii.gz",
        "-tpattern",
-       "@~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
+       "@<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
        "-TR",
        "2s",
        "-tzero",
@@ -196,9 +196,9 @@
        "-ignore",
        "0",
        "-prefix",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/replica-1.nii.gz",
+       "<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/replica-1.nii.gz",
        "-tpattern",
-       "@~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
+       "@<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
        "-TR",
        "2s",
        "-tzero",
@@ -224,9 +224,9 @@
        "-ignore",
        "0",
        "-prefix",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/replica-reproduce.nii.gz",
+       "<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/replica-reproduce.nii.gz",
        "-tpattern",
-       "@~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
+       "@<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
        "-TR",
        "2s",
        "-tzero",
@@ -245,18 +245,18 @@
      {
       "label": "neg-afni",
       "argv": [
-       "~/VScode_projects/super_fmriprep/oracles/afni-25.2.09/bin/3dTshift",
+       "<workspace>/oracles/afni-25.2.09/bin/3dTshift",
        "-ignore",
        "0",
        "-prefix",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/neg-afni.nii.gz",
+       "<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/neg-afni.nii.gz",
        "-tpattern",
-       "@~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
+       "@<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
        "-TR",
        "2s",
        "-tzero",
        "0.975",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/negative-slope.nii.gz"
+       "<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/negative-slope.nii.gz"
       ],
       "env": {
        "HOME": "/tmp/lx-tshift-gen-lsofhwdp/home",
@@ -269,7 +269,7 @@
      {
       "label": "neg-original",
       "argv": [
-       "~/VScode_projects/super_fmriprep/.venv/bin/python",
+       "<workspace>/.venv/bin/python",
        "-m",
        "larmorx",
        "afni",
@@ -277,14 +277,14 @@
        "-ignore",
        "0",
        "-prefix",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/neg-original.nii.gz",
+       "<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/neg-original.nii.gz",
        "-tpattern",
-       "@~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
+       "@<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
        "-TR",
        "2s",
        "-tzero",
        "0.975",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/negative-slope.nii.gz"
+       "<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/negative-slope.nii.gz"
       ],
       "env": {
        "HOME": "/tmp/lx-tshift-gen-lsofhwdp/home",
@@ -299,7 +299,7 @@
      {
       "label": "neg-original-reproduce",
       "argv": [
-       "~/VScode_projects/super_fmriprep/.venv/bin/python",
+       "<workspace>/.venv/bin/python",
        "-m",
        "larmorx",
        "afni",
@@ -307,14 +307,14 @@
        "-ignore",
        "0",
        "-prefix",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/neg-original-reproduce.nii.gz",
+       "<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/neg-original-reproduce.nii.gz",
        "-tpattern",
-       "@~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
+       "@<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
        "-TR",
        "2s",
        "-tzero",
        "0.975",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/negative-slope.nii.gz"
+       "<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/negative-slope.nii.gz"
       ],
       "env": {
        "HOME": "/tmp/lx-tshift-gen-lsofhwdp/home",
@@ -335,14 +335,14 @@
        "-ignore",
        "0",
        "-prefix",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/neg-replica.nii.gz",
+       "<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/neg-replica.nii.gz",
        "-tpattern",
-       "@~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
+       "@<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
        "-TR",
        "2s",
        "-tzero",
        "0.975",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/negative-slope.nii.gz"
+       "<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/negative-slope.nii.gz"
       ],
       "env": {
        "HOME": "/tmp/lx-tshift-gen-lsofhwdp/home",
@@ -362,14 +362,14 @@
        "-ignore",
        "0",
        "-prefix",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/neg-replica-reproduce.nii.gz",
+       "<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/neg-replica-reproduce.nii.gz",
        "-tpattern",
-       "@~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
+       "@<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/slice_timing.1D",
        "-TR",
        "2s",
        "-tzero",
        "0.975",
-       "~/VScode_projects/super_fmriprep/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/negative-slope.nii.gz"
+       "<workspace>/oracles/figures-cache/afni-tshift/fmriprep-ds005040-clip-1/negative-slope.nii.gz"
       ],
       "env": {
        "HOME": "/tmp/lx-tshift-gen-lsofhwdp/home",

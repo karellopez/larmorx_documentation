@@ -17,7 +17,7 @@
       "divergence": 17,
       "both-reject": 77
      },
-     "source": "part 1"
+     "source": "evidence"
     }
    ]
   },
@@ -55,7 +55,7 @@
       "identical-cr": 33,
       "both-reject": 9
      },
-     "source": "part 1"
+     "source": "evidence"
     }
    ]
   },
@@ -70,13 +70,12 @@
      "status": "validated",
      "cases": 220,
      "verdicts": {
-      "bit-identical": 160,
+      "bit-identical": 188,
       "identical-cr": 14,
       "divergence": 4,
-      "both-reject": 14,
-      "unclassified": 28
+      "both-reject": 14
      },
-     "source": "part 1"
+     "source": "evidence"
     }
    ]
   },
@@ -91,11 +90,12 @@
      "status": "validated",
      "cases": 327,
      "verdicts": {
-      "bit-identical": 298,
-      "both-reject": 24,
-      "unclassified": 5
+      "bit-identical": 297,
+      "identical-cr": 3,
+      "divergence": 3,
+      "both-reject": 24
      },
-     "source": "part 1"
+     "source": "evidence"
     },
     {
      "label": "ThresholdImage (port)",
@@ -107,7 +107,7 @@
       "divergence": 1,
       "both-reject": 5
      },
-     "source": "part 1"
+     "source": "evidence"
     },
     {
      "label": "MultiplyImages (port)",
@@ -118,7 +118,7 @@
       "bit-identical": 12,
       "both-reject": 3
      },
-     "source": "part 1"
+     "source": "evidence"
     },
     {
      "label": "SmoothImage (port)",
@@ -129,7 +129,7 @@
       "bit-identical": 31,
       "both-reject": 7
      },
-     "source": "part 1"
+     "source": "evidence"
     },
     {
      "label": "ResampleImage (port)",
@@ -141,7 +141,7 @@
       "divergence": 1,
       "both-reject": 8
      },
-     "source": "part 1"
+     "source": "evidence"
     },
     {
      "label": "ResampleImageBySpacing (port)",
@@ -149,10 +149,11 @@
      "status": "validated",
      "cases": 35,
      "verdicts": {
-      "bit-identical": 30,
+      "bit-identical": 29,
+      "divergence": 1,
       "both-reject": 5
      },
-     "source": "part 1"
+     "source": "evidence"
     }
    ]
   },
@@ -172,7 +173,7 @@
       "divergence": 4,
       "both-reject": 46
      },
-     "source": "part 1"
+     "source": "evidence"
     },
     {
      "label": "antsAffineInitializer (port)",
@@ -184,7 +185,7 @@
       "divergence": 2,
       "both-reject": 13
      },
-     "source": "part 1"
+     "source": "evidence"
     }
    ]
   },
@@ -199,12 +200,11 @@
      "status": "validated",
      "cases": 149,
      "verdicts": {
-      "bit-identical": 127,
+      "bit-identical": 128,
       "divergence": 5,
-      "both-reject": 16,
-      "unclassified": 1
+      "both-reject": 16
      },
-     "source": "part 1"
+     "source": "evidence"
     }
    ]
   },
@@ -251,12 +251,12 @@
      "status": "experimental",
      "cases": 134,
      "verdicts": {
+      "within-variability": 30,
       "divergence": 1,
       "both-reject": 11,
-      "open": 1,
-      "unclassified": 121
+      "open": 92
      },
-     "source": "part 1"
+     "source": "evidence"
     }
    ]
   },
@@ -275,7 +275,7 @@
       "divergence": 1,
       "both-reject": 2
      },
-     "source": "part 1"
+     "source": "evidence"
     }
    ]
   },
@@ -288,20 +288,30 @@
      "label": "own implementation",
      "record": "docs/validation/nifti-io.md",
      "status": "validated",
-     "cases": 252,
+     "cases": 254,
      "verdicts": {
-      "bit-identical": 230,
+      "bit-identical": 166,
+      "within-variability": 66,
       "divergence": 5,
       "both-reject": 17
      },
-     "source": "part 1"
+     "source": "evidence"
     }
    ]
   }
  ],
- "note": "N4BiasFieldCorrection and 3dTshift count their evidence pages' verdicts, case by case. The other tools count what their records establish today: identical to the unmodified original, identical with correctly rounded maths, expected divergences, rejected by both, failures; a case its record passes *within its thresholds* is counted as not yet classified until that tool's page is redone with this taxonomy.",
+ "note": "Every tool counts its evidence page's verdicts, case by case: each case's verdict is decided from what its record reports and measures (identical to the unmodified original, identical once it uses correctly rounded maths, within the original's own variability, an expected divergence, rejected by both, an open difference).",
  "pilot": [
   "afni-tshift",
-  "ants-n4"
+  "ants-ai",
+  "ants-apply-transforms",
+  "ants-denoise",
+  "ants-n4",
+  "ants-programs",
+  "ants-registration",
+  "itk-hdf5",
+  "mri-hmc",
+  "nifti-io",
+  "resample-series"
  ]
 }

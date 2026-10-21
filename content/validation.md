@@ -45,7 +45,7 @@ One taxonomy for the whole site. Every comparison of LARMORX with an original, a
 
 ## Where every tool stands {#summary}
 
-Every tool ported so far, each implementation, and how many cases of its record have each verdict. N4BiasFieldCorrection and 3dTshift are the first pages redone with this taxonomy; the others follow.
+Every tool ported so far, each implementation, and how many cases of its record have each verdict, each case's verdict decided from what its record reports and measures.
 
 {{ ev.matrix(site.tools) }}
 

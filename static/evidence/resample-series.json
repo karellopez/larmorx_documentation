@@ -1,0 +1,3023 @@
+{
+ "schema": 1,
+ "tool": "resample-series",
+ "title": "One-shot BOLD resampler",
+ "provenance": {
+  "exporter": "146ec72dd34cb66c17f1ba7b866b1bc89c83ffd3",
+  "records": [
+   {
+    "path": "docs/validation/resample-series.json",
+    "sha256": "73e962d0881d576c00d28a049729e206cfee94ae67436f520c17aededc2da641",
+    "generated": "2026-10-21",
+    "larmorx_commit": "1dfe56c0dc60"
+   },
+   {
+    "path": "docs/validation/resample-series.md",
+    "sha256": "2881c658df66d82fe92b9f9ffa6481e57b73637a320910d40589b1c18c5af872",
+    "generated": "2026-10-21",
+    "larmorx_commit": "1dfe56c0dc60"
+   }
+  ],
+  "benchmarks": [
+   {
+    "path": "docs/benchmarks/resample-series.json",
+    "sha256": "57624d6a8e2566d6904cd7008959a66716265bc0ab741148b4a11f5b5625b34d",
+    "larmorx_commit": "46225a79652d",
+    "cpu": "Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz"
+   }
+  ],
+  "cache": [
+   {
+    "entry": "resample-series/fmriprep-ds005040-native",
+    "description": "fMRIPrep's native resampling (head motion, field map, Jacobian) of ds005040 sub-002 task-clip run 1: fMRIPrep 25.2.6 and larmorx",
+    "computed": "2026-10-21T14:51:43+00:00",
+    "larmorx_commit": "1dfe56c0dc60ada5ef8938a87387bee37fd1b799",
+    "commands": [],
+    "settings": "fMRIPrep 25.2.6's ResampleSeries node bold_native_wf/boldref_bold of ds005040-sub-002-noreconall (task clip, run 1), its inputs read from the oracle run's working directory (the slice-time corrected BOLD, the BOLD reference, the head-motion transforms, the field map's coefficients, pe_dir, ro_time, jacobian, order, mode); larmorx's lx.transforms.resample_series in this process, reproduce and default modes, 1 and 8 threads (fMRIPrep ran 8)"
+   },
+   {
+    "entry": "resample-series/ds005040-sub-002-jacobian-mni",
+    "description": "PIPE-03: the Jacobian factors of ds005040 sub-002's BOLD on the MNI grid",
+    "computed": "2026-10-21T07:06:56+00:00",
+    "larmorx_commit": "498069fae31d2133dc7eca353c7f5c4600c3b7c6",
+    "commands": [],
+    "settings": "the Jacobian factors on the MNI152NLin2009cAsym res-2 grid of fMRIPrep 25.2.6's run ds005040-sub-002-noreconall (task clip, run 1), computed in this process as larmorx_validation.parity.resample_jacobian_oracle computes them: a volume of ones resampled with fMRIPrep's transforms (no head motion), its field map on that grid, its phase encoding and readout; upstream_defects='reproduce' gives fMRIPrep's factor, 'fix' larmorx's; the reference is the factor on the BOLD's own grid (where both agree) carried to the MNI grid by cubic B-splines"
+   }
+  ],
+  "command": "python -m larmorx_validation evidence resample-series --site <site>"
+ },
+ "implementations": [
+  {
+   "id": "port",
+   "label": "larmorx (port)",
+   "short": "port",
+   "record": "docs/validation/resample-series.md",
+   "status": "validated",
+   "summary": {
+    "cases": 139,
+    "verdicts": {
+     "bit-identical": 136,
+     "divergence": 1,
+     "both-reject": 2
+    }
+   },
+   "agreement": [
+    {
+     "category": "ndimage",
+     "counts": {
+      "bit-identical": 48,
+      "divergence": 1
+     }
+    },
+    {
+     "category": "nitransforms",
+     "counts": {
+      "bit-identical": 10
+     }
+    },
+    {
+     "category": "native",
+     "counts": {
+      "bit-identical": 9
+     }
+    },
+    {
+     "category": "phase-encoding",
+     "counts": {
+      "bit-identical": 6
+     }
+    },
+    {
+     "category": "anatomical",
+     "counts": {
+      "bit-identical": 3
+     }
+    },
+    {
+     "category": "standard",
+     "counts": {
+      "bit-identical": 3
+     }
+    },
+    {
+     "category": "3d",
+     "counts": {
+      "bit-identical": 3
+     }
+    },
+    {
+     "category": "interpolation",
+     "counts": {
+      "bit-identical": 48
+     }
+    },
+    {
+     "category": "threads",
+     "counts": {
+      "bit-identical": 3
+     }
+    },
+    {
+     "category": "errors",
+     "counts": {
+      "both-reject": 2
+     }
+    },
+    {
+     "category": "fmriprep-real",
+     "counts": {
+      "bit-identical": 3
+     }
+    }
+   ]
+  }
+ ],
+ "cases": [
+  {
+   "id": "ndimage/grid-constant-order0",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-constant, order 0",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "181/181",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/grid-constant-order1",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-constant, order 1",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "181/181",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/grid-constant-order2",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-constant, order 2",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/grid-constant-order3",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-constant, order 3",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/grid-constant-order4",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-constant, order 4",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/grid-constant-order5",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-constant, order 5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/constant-order0",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode constant, order 0",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "181/181",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/constant-order1",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode constant, order 1",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "181/181",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/constant-order2",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode constant, order 2",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/constant-order3",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode constant, order 3",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/constant-order4",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode constant, order 4",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/constant-order5",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode constant, order 5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/nearest-order0",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode nearest, order 0",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "181/181",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/nearest-order1",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode nearest, order 1",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "181/181",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/nearest-order2",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode nearest, order 2",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/nearest-order3",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode nearest, order 3",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/nearest-order4",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode nearest, order 4",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/nearest-order5",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode nearest, order 5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/mirror-order0",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode mirror, order 0",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "181/181",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/mirror-order1",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode mirror, order 1",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "181/181",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/mirror-order2",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode mirror, order 2",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/mirror-order3",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode mirror, order 3",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/mirror-order4",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode mirror, order 4",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/mirror-order5",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode mirror, order 5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/reflect-order0",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode reflect, order 0",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "181/181",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/reflect-order1",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode reflect, order 1",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "181/181",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/reflect-order2",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode reflect, order 2",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/reflect-order3",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode reflect, order 3",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/reflect-order4",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode reflect, order 4",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/reflect-order5",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode reflect, order 5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/grid-mirror-order0",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-mirror, order 0",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "181/181",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/grid-mirror-order1",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-mirror, order 1",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "181/181",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/grid-mirror-order2",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-mirror, order 2",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/grid-mirror-order3",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-mirror, order 3",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/grid-mirror-order4",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-mirror, order 4",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/grid-mirror-order5",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-mirror, order 5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/wrap-order0",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode wrap, order 0",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "181/181",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/wrap-order1",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode wrap, order 1",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "181/181",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/wrap-order2",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode wrap, order 2",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/wrap-order3",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode wrap, order 3",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/wrap-order4",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode wrap, order 4",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/wrap-order5",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode wrap, order 5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/grid-wrap-order0",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-wrap, order 0",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "181/181",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/grid-wrap-order1",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-wrap, order 1",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "181/181",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/grid-wrap-order2",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-wrap, order 2",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/grid-wrap-order3",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-wrap, order 3",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/grid-wrap-order4",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-wrap, order 4",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/grid-wrap-order5",
+   "category": "ndimage",
+   "description": "scipy.ndimage map_coordinates, spline_filter and spline_filter1d: mode grid-wrap, order 5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "185/185",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "ndimage/overflowing-coordinates",
+   "category": "ndimage",
+   "description": "coordinates of 1e19-1e20, where SciPy's index arithmetic overflows (undefined behaviour)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "14/14",
+     "reason": "For coordinates beyond the range of int64 (or whose index arithmetic overflows), SciPy's C code casts and multiplies with undefined behaviour and then reads outside its buffer or wherever the wrapped offset points; larmorx returns NaN there instead (14 of 48 …"
+    }
+   }
+  },
+  {
+   "id": "nitransforms/hmc-series",
+   "category": "nitransforms",
+   "description": "an ITK text list of 8 MatrixOffsetTransformBase transforms (float32 parsing, LPS to RAS)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "2/2",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "nitransforms/centred-affine",
+   "category": "nitransforms",
+   "description": "a centred ITK affine mapping an oblique grid (float32 inputs, fused products)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "nitransforms/inverse-affine",
+   "category": "nitransforms",
+   "description": "the same affine inverted (np.linalg.inv of the RAS matrix)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "nitransforms/composite-on-grid",
+   "category": "nitransforms",
+   "description": "an ITK .h5 composite, target on the field's nodes (displacements looked up)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "nitransforms/composite-off-grid",
+   "category": "nitransforms",
+   "description": "an ITK .h5 composite, target off the nodes (cubic interpolation of the field, NaN outside)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "nitransforms/chain-affine-composite",
+   "category": "nitransforms",
+   "description": "a chain: composite then affine, as fMRIPrep chains boldref→anat and anat→std",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "nitransforms/fmriprep-mni-warp",
+   "category": "nitransforms",
+   "description": "fMRIPrep 21.0.1's boldref→T1w affine and T1w→MNI .h5 warp, on the MNI res-2 grid",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "nitransforms/ndcoords-boldref-las",
+   "category": "nitransforms",
+   "description": "ImageGrid.ndcoords of boldref-las.nii.gz",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "2/2",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "nitransforms/ndcoords-anat-1",
+   "category": "nitransforms",
+   "description": "ImageGrid.ndcoords of anat-1.6mm.nii.gz",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "2/2",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "nitransforms/ndcoords-std-2",
+   "category": "nitransforms",
+   "description": "ImageGrid.ndcoords of std-2.7mm.nii.gz",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "2/2",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "native/las-hmc",
+   "category": "native",
+   "description": "las series onto its boldref grid: head motion only",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "native/las-hmc-sdc-jacobian",
+   "category": "native",
+   "description": "las series onto its boldref: head motion + field map, PE j-, Jacobian",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "native/las-hmc-sdc",
+   "category": "native",
+   "description": "las series onto its boldref: head motion + field map, PE j-",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "native/ras-hmc",
+   "category": "native",
+   "description": "ras series onto its boldref grid: head motion only",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "native/ras-hmc-sdc-jacobian",
+   "category": "native",
+   "description": "ras series onto its boldref: head motion + field map, PE i, Jacobian",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "native/ras-hmc-sdc",
+   "category": "native",
+   "description": "ras series onto its boldref: head motion + field map, PE i",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "native/als-hmc",
+   "category": "native",
+   "description": "als series onto its boldref grid: head motion only",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "native/als-hmc-sdc-jacobian",
+   "category": "native",
+   "description": "als series onto its boldref: head motion + field map, PE k-, Jacobian",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "native/als-hmc-sdc",
+   "category": "native",
+   "description": "als series onto its boldref: head motion + field map, PE k-",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "pe/las-i",
+   "category": "phase-encoding",
+   "description": "LAS series, PE i: the readout sign after reorientation to RAS",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "pe/las-i-",
+   "category": "phase-encoding",
+   "description": "LAS series, PE i-: the readout sign after reorientation to RAS",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "pe/las-j",
+   "category": "phase-encoding",
+   "description": "LAS series, PE j: the readout sign after reorientation to RAS",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "pe/las-j-",
+   "category": "phase-encoding",
+   "description": "LAS series, PE j-: the readout sign after reorientation to RAS",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "pe/las-k",
+   "category": "phase-encoding",
+   "description": "LAS series, PE k: the readout sign after reorientation to RAS",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "pe/las-k-",
+   "category": "phase-encoding",
+   "description": "LAS series, PE k-: the readout sign after reorientation to RAS",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "anat/las-hmc-coreg-sdc",
+   "category": "anatomical",
+   "description": "LAS series onto an oblique 1.6 mm grid: head motion + boldref→anatomical affine + field map",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "anat/ras-hmc-coreg",
+   "category": "anatomical",
+   "description": "oblique RAS series onto the anatomical grid: head motion + affine, no field map",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "anat/inverse-affine",
+   "category": "anatomical",
+   "description": "the affine inverted (inverse=[False, True]): nitransforms' inverse of a centred ITK affine",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "std/on-grid-warp",
+   "category": "standard",
+   "description": "LAS series to a 4 mm grid on the warp's nodes (displacements looked up): motion + affine + .h5 composite + field map",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "std/off-grid-warp",
+   "category": "standard",
+   "description": "LAS series to a 2.7 mm grid off the warp's nodes (displacements interpolated, NaN outside): motion + affine + .h5 + field map",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "std/als-off-grid",
+   "category": "standard",
+   "description": "axis-permuted series to the 2.7 mm grid through the warp, no field map",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "3d/sbref-anat",
+   "category": "3d",
+   "description": "a single volume onto the anatomical grid through the affine",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "3d/sbref-native-sdc",
+   "category": "3d",
+   "description": "a single volume onto its own grid with a field map, PE j-",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "3d/sbref-identity",
+   "category": "3d",
+   "description": "a single volume onto its own grid, no transforms",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order0-grid-constant",
+   "category": "interpolation",
+   "description": "order 0, mode grid-constant: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order0-constant",
+   "category": "interpolation",
+   "description": "order 0, mode constant: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order0-nearest",
+   "category": "interpolation",
+   "description": "order 0, mode nearest: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order0-mirror",
+   "category": "interpolation",
+   "description": "order 0, mode mirror: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order0-reflect",
+   "category": "interpolation",
+   "description": "order 0, mode reflect: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order0-grid-mirror",
+   "category": "interpolation",
+   "description": "order 0, mode grid-mirror: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order0-wrap",
+   "category": "interpolation",
+   "description": "order 0, mode wrap: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order0-grid-wrap",
+   "category": "interpolation",
+   "description": "order 0, mode grid-wrap: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order1-grid-constant",
+   "category": "interpolation",
+   "description": "order 1, mode grid-constant: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order1-constant",
+   "category": "interpolation",
+   "description": "order 1, mode constant: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order1-nearest",
+   "category": "interpolation",
+   "description": "order 1, mode nearest: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order1-mirror",
+   "category": "interpolation",
+   "description": "order 1, mode mirror: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order1-reflect",
+   "category": "interpolation",
+   "description": "order 1, mode reflect: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order1-grid-mirror",
+   "category": "interpolation",
+   "description": "order 1, mode grid-mirror: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order1-wrap",
+   "category": "interpolation",
+   "description": "order 1, mode wrap: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order1-grid-wrap",
+   "category": "interpolation",
+   "description": "order 1, mode grid-wrap: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order2-grid-constant",
+   "category": "interpolation",
+   "description": "order 2, mode grid-constant: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order2-constant",
+   "category": "interpolation",
+   "description": "order 2, mode constant: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order2-nearest",
+   "category": "interpolation",
+   "description": "order 2, mode nearest: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order2-mirror",
+   "category": "interpolation",
+   "description": "order 2, mode mirror: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order2-reflect",
+   "category": "interpolation",
+   "description": "order 2, mode reflect: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order2-grid-mirror",
+   "category": "interpolation",
+   "description": "order 2, mode grid-mirror: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order2-wrap",
+   "category": "interpolation",
+   "description": "order 2, mode wrap: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order2-grid-wrap",
+   "category": "interpolation",
+   "description": "order 2, mode grid-wrap: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order3-grid-constant",
+   "category": "interpolation",
+   "description": "order 3, mode grid-constant: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order3-constant",
+   "category": "interpolation",
+   "description": "order 3, mode constant: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order3-nearest",
+   "category": "interpolation",
+   "description": "order 3, mode nearest: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order3-mirror",
+   "category": "interpolation",
+   "description": "order 3, mode mirror: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order3-reflect",
+   "category": "interpolation",
+   "description": "order 3, mode reflect: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order3-grid-mirror",
+   "category": "interpolation",
+   "description": "order 3, mode grid-mirror: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order3-wrap",
+   "category": "interpolation",
+   "description": "order 3, mode wrap: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order3-grid-wrap",
+   "category": "interpolation",
+   "description": "order 3, mode grid-wrap: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order4-grid-constant",
+   "category": "interpolation",
+   "description": "order 4, mode grid-constant: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order4-constant",
+   "category": "interpolation",
+   "description": "order 4, mode constant: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order4-nearest",
+   "category": "interpolation",
+   "description": "order 4, mode nearest: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order4-mirror",
+   "category": "interpolation",
+   "description": "order 4, mode mirror: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order4-reflect",
+   "category": "interpolation",
+   "description": "order 4, mode reflect: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order4-grid-mirror",
+   "category": "interpolation",
+   "description": "order 4, mode grid-mirror: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order4-wrap",
+   "category": "interpolation",
+   "description": "order 4, mode wrap: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order4-grid-wrap",
+   "category": "interpolation",
+   "description": "order 4, mode grid-wrap: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order5-grid-constant",
+   "category": "interpolation",
+   "description": "order 5, mode grid-constant: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order5-constant",
+   "category": "interpolation",
+   "description": "order 5, mode constant: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order5-nearest",
+   "category": "interpolation",
+   "description": "order 5, mode nearest: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order5-mirror",
+   "category": "interpolation",
+   "description": "order 5, mode mirror: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order5-reflect",
+   "category": "interpolation",
+   "description": "order 5, mode reflect: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order5-grid-mirror",
+   "category": "interpolation",
+   "description": "order 5, mode grid-mirror: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order5-wrap",
+   "category": "interpolation",
+   "description": "order 5, mode wrap: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/order5-grid-wrap",
+   "category": "interpolation",
+   "description": "order 5, mode grid-wrap: oblique RAS series onto the anatomical grid with motion",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "threads/1",
+   "category": "threads",
+   "description": "larmorx with n_threads=1 (fMRIPrep with 4): the result does not change",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "threads/3",
+   "category": "threads",
+   "description": "larmorx with n_threads=3 (fMRIPrep with 4): the result does not change",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "threads/12",
+   "category": "threads",
+   "description": "larmorx with n_threads=12 (fMRIPrep with 4): the result does not change",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "errors/hmc-not-last",
+   "category": "errors",
+   "description": "head-motion transforms that are not first in the list: ValueError",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "0/0",
+     "reason": "fMRIPrep: ValueError: HMC transforms must come last. Found sequence: ['LinearTransformsMapping', 'Affine']; larmorx: ValueError: HMC transforms must come last. Found sequence: ['AffineSeries', 'Affine']"
+    }
+   }
+  },
+  {
+   "id": "errors/mismatched-inverse",
+   "category": "errors",
+   "description": "two transforms, three inverse flags",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "0/0",
+     "reason": "fMRIPrep: ValueError: Mismatched number of transforms and inverses; larmorx: ValueError: Mismatched number of transforms and inverses"
+    }
+   }
+  },
+  {
+   "id": "real/native-hmc-sdc",
+   "category": "fmriprep-real",
+   "description": "ds000005 run 1 (64×64×34×240, LAS) onto its boldref: seeded motion + field map, PE j, Jacobian",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "real/T1w",
+   "category": "fmriprep-real",
+   "description": "ds000005 run 1 onto the T1w boldref grid: motion + fMRIPrep's boldref→T1w affine + field map",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "real/MNI152NLin2009cAsym-res2",
+   "category": "fmriprep-real",
+   "description": "ds000005 run 1 onto MNI152NLin2009cAsym res-2 (97×115×97): motion + affine + fMRIPrep's T1w→MNI .h5 warp",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": ""
+    }
+   }
+  }
+ ],
+ "cases_total": 139,
+ "speed": {
+  "title": "Seconds per resampling (without the file I/O), median of repeated runs, log scale; the factor is larmorx's speed-up over fMRIPrep at one thread",
+  "axis": [
+   0.1,
+   1000.0
+  ],
+  "ticks": [
+   [
+    0.1,
+    "0.1 s"
+   ],
+   [
+    1.0,
+    "1 s"
+   ],
+   [
+    10.0,
+    "10 s"
+   ],
+   [
+    100.0,
+    "100 s"
+   ],
+   [
+    1000.0,
+    "1000 s"
+   ]
+  ],
+  "series": [
+   {
+    "id": "fMRIPrep|1 threads",
+    "label": "fMRIPrep, 1 thread",
+    "mark": "original"
+   },
+   {
+    "id": "fMRIPrep|12 threads",
+    "label": "fMRIPrep, 12 threads",
+    "mark": "original-open"
+   },
+   {
+    "id": "larmorx|1 threads",
+    "label": "larmorx, 1 thread",
+    "mark": "larmorx"
+   },
+   {
+    "id": "larmorx|12 threads",
+    "label": "larmorx, 12 threads",
+    "mark": "larmorx-open"
+   }
+  ],
+  "rows": [
+   {
+    "label": "ds000005 → native (240 vol.)",
+    "input": "ds000005 run 1 → boldref (native): 64×64×34, 240 volumes; motion + field map",
+    "seconds": {
+     "fMRIPrep|1 threads": 21.152676593512297,
+     "fMRIPrep|12 threads": 5.246752804145217,
+     "larmorx|1 threads": 4.568166606128216,
+     "larmorx|12 threads": 0.9321546778082848
+    },
+    "speedup": 4.63045208665023
+   },
+   {
+    "label": "ds000005 → T1w grid",
+    "input": "ds000005 run 1 → T1w grid: motion + boldref→T1w affine + field map",
+    "seconds": {
+     "fMRIPrep|1 threads": 14.394414097070694,
+     "fMRIPrep|12 threads": 3.495013417676091,
+     "larmorx|1 threads": 3.515618532896042,
+     "larmorx|12 threads": 0.7319345064461231
+    },
+    "speedup": 4.094418652757836
+   },
+   {
+    "label": "ds000005 → MNI (.h5 warp)",
+    "input": "ds000005 run 1 → MNI152NLin2009cAsym res-2 (97×115×97): motion + affine + .h5 warp",
+    "seconds": {
+     "fMRIPrep|1 threads": 155.00657058134675,
+     "fMRIPrep|12 threads": 42.52508991584182,
+     "larmorx|1 threads": 29.9022377692163,
+     "larmorx|12 threads": 6.878745444118977
+    },
+    "speedup": 5.183778276986435
+   },
+   {
+    "label": "ds006010 → native (113 vol.)",
+    "input": "ds006010 sub-206 → native: 96×96×69, 113 volumes (uint16); motion + field map",
+    "seconds": {
+     "fMRIPrep|1 threads": 46.20241063274443,
+     "fMRIPrep|12 threads": 12.956209313124418,
+     "larmorx|1 threads": 9.14733874425292,
+     "larmorx|12 threads": 1.8787255436182022
+    },
+    "speedup": 5.050912830988405
+   },
+   {
+    "label": "ds005454 → native (280 vol.)",
+    "input": "ds005454 sub-16 rest → native: 160×160×96, 280 volumes (multiband 4); motion + field map",
+    "seconds": {
+     "fMRIPrep|1 threads": 409.2526057641953,
+     "fMRIPrep|12 threads": 108.71076854504645,
+     "larmorx|1 threads": 86.4370233323425,
+     "larmorx|12 threads": 16.682630494236946
+    },
+    "speedup": 4.734691107890843
+   }
+  ],
+  "note": "From the benchmark report `docs/benchmarks/resample-series.json` (Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz, 12 logical CPUs)."
+ },
+ "examples": [
+  {
+   "id": "fmriprep-native",
+   "title": "fMRIPrep's one-shot resampling of a real BOLD run with its field map",
+   "summary": "The ResampleSeries node fMRIPrep 25.2.6 ran on OpenNeuro ds005040 sub-002 (task clip, run 1): the slice-time corrected series moved by its head-motion transforms and unwarped by its PEPOLAR field map (with the Jacobian) onto the BOLD reference in one cubic B-spline interpolation, by fMRIPrep and by larmorx. 6 of the 63 volumes are shown; the metrics cover every volume.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds005040, sub-002, task clip run 1 (CC0-1.0); shown inside fMRIPrep's BOLD brain mask, dilated by one voxel"
+    },
+    {
+     "label": "Node",
+     "text": "fMRIPrep 25.2.6, `bold_native_wf/boldref_bold` (`ResampleSeries`)"
+    },
+    {
+     "label": "Inputs",
+     "text": "PE j, readout 0.0137951 s, Jacobian True, order 3, mode `grid-constant`; the field map as B-spline coefficients (`desc-coeff_fieldmaprec`), the head motion as one ITK transform per volume"
+    },
+    {
+     "label": "Programs",
+     "text": "fMRIPrep 25.2.6's own output (its working directory); larmorx's `lx.transforms.resample_series` at commit `1dfe56c0dc60`"
+    },
+    {
+     "label": "Volumes",
+     "text": "shown: file volumes 0, 12, 25, 37, 50, 62"
+    }
+   ],
+   "grid": {
+    "shape": [
+     53,
+     62,
+     40
+    ],
+    "spacing": [
+     3.0,
+     3.0,
+     3.3
+    ],
+    "to_file": [
+     [
+      -1,
+      0,
+      0,
+      57
+     ],
+     [
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      3.0,
+      0.0,
+      0.0,
+      -78.94632
+     ],
+     [
+      0.0,
+      3.0,
+      0.0,
+      -85.079597
+     ],
+     [
+      0.0,
+      0.0,
+      3.299999,
+      -17.595531
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     64,
+     64,
+     40,
+     63
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)",
+    "volumes": 6,
+    "t_index": [
+     0,
+     12,
+     25,
+     37,
+     50,
+     62
+    ]
+   },
+   "mask": {
+    "blob": "a7dcf9710fc78044ce7fed29.bin",
+    "dtype": "u1",
+    "bytes": 2541
+   },
+   "outputs": [
+    {
+     "id": "series",
+     "label": "Resampled series",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 524.8434448242188,
+       "hi": 109604.880859375
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -3757.292236328125,
+       "hi": 199663.59375
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "bold",
+     "role": "input",
+     "label": "ds005040 sub-002 BOLD, task clip run 1",
+     "sub": "after fMRIPrep's slice-timing correction (the node's input), int16 × scale factor",
+     "arrays": {
+      "all": {
+       "blob": "16028c695e82d14a04ec2c4c.bin",
+       "dtype": "i2",
+       "bytes": 622971,
+       "scale": 2.9784646034240723,
+       "inter": 97598.328125
+      }
+     },
+     "window": [
+      714.8315048217773,
+      110730.37856149673
+     ]
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "larmorx (port), 8 threads",
+     "sub": "reproduce mode",
+     "arrays": {
+      "series": {
+       "blob": "a3ad308fd6d2a5b971a71efb.bin",
+       "dtype": "f4",
+       "bytes": 1165773
+      }
+     },
+     "own": {
+      "series": [
+       524.8434448242188,
+       109604.880859375
+      ]
+     }
+    },
+    {
+     "id": "larmorx-1",
+     "role": "larmorx",
+     "label": "larmorx (port), 1 thread",
+     "sub": "reproduce mode",
+     "arrays": {
+      "series": {
+       "same": "larmorx:series",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "series": [
+       524.8434448242188,
+       109604.880859375
+      ]
+     }
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "larmorx (port), 8 threads",
+     "sub": "default mode (PIPE-03 and the rest corrected)",
+     "arrays": {
+      "series": {
+       "same": "larmorx:series",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "series": [
+       524.8434448242188,
+       109604.880859375
+      ]
+     }
+    },
+    {
+     "id": "fmriprep",
+     "role": "fmriprep",
+     "label": "fMRIPrep 25.2.6, as it ran",
+     "sub": "ResampleSeries in its image, 8 threads",
+     "arrays": {
+      "series": {
+       "same": "larmorx:series",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "series": [
+       524.8434448242188,
+       109604.880859375
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-fmriprep",
+     "a": "larmorx",
+     "b": "fmriprep",
+     "kind": "fmriprep",
+     "label": "larmorx − fMRIPrep's own output",
+     "role_label": "larmorx against fMRIPrep",
+     "metrics": {
+      "series": {
+       "identical": true,
+       "voxels": 10321920,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a_at": 1.2183274030685425,
+       "b_at": 1.2183274030685425,
+       "rms": 0.0,
+       "range": 215037.4169921875,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "Every value of the 63 volumes is fMRIPrep's: head motion, the field map's displacement and its Jacobian, the cubic B-spline interpolation.",
+     "links": []
+    },
+    {
+     "id": "fix-lx",
+     "a": "larmorx-fix",
+     "b": "larmorx",
+     "kind": "main",
+     "label": "larmorx: default − reproduce mode",
+     "role_label": "larmorx's corrections",
+     "metrics": {
+      "series": {
+       "identical": true,
+       "voxels": 10321920,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a_at": 1.2183274030685425,
+       "b_at": 1.2183274030685425,
+       "rms": 0.0,
+       "range": 215037.4169921875,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "On the BOLD's own grid PIPE-03's Jacobian and the corrected one agree (the target's axes are the source's): the default mode gives the same bytes.",
+     "links": [
+      {
+       "label": "PIPE-03",
+       "href": "docs/findings/upstream-defects.md#pipe-03-the-jacobian-is-taken-along-the-wrong-axis--c"
+      }
+     ]
+    },
+    {
+     "id": "lx1-lx8",
+     "a": "larmorx-1",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx: 1 thread − 8 threads",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "series": {
+       "identical": true,
+       "voxels": 10321920,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a_at": 1.2183274030685425,
+       "b_at": 1.2183274030685425,
+       "rms": 0.0,
+       "range": 215037.4169921875,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "The same bytes on any number of threads.",
+     "links": []
+    }
+   ],
+   "default": {
+    "output": "series",
+    "plane": "axial",
+    "voxel": [
+     25,
+     30,
+     18
+    ],
+    "t": 0,
+    "panels": [
+     "bold",
+     "fmriprep",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "lx-fmriprep",
+     "fix-lx"
+    ],
+    "compare": {
+     "a": "bold",
+     "b": "larmorx"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 18,
+    "aspect": 0.85484,
+    "panels": {
+     "bold": "c6aba7c52d8d954d7f757e63.webp",
+     "fmriprep": "e9fd1adae7ca12fb63c8d09e.webp",
+     "larmorx": "e9fd1adae7ca12fb63c8d09e.webp",
+     "larmorx-fix": "e9fd1adae7ca12fb63c8d09e.webp"
+    },
+    "diffs": {},
+    "ranges": {},
+    "caption": "Axial slice 19 of 40, volume 1 of 6; file volume 0; compare the input (before) with the resampled series (after) with Swipe or Blink."
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B over all 10,321,920 values of the 64 × 64 × 40 × 63 series (every volume), not only the volumes and brain shown.",
+   "provenance": [
+    "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
+    "Inputs: BOLD after slice timing (sha256 fdf9b7f121be0832…); BOLD reference (sha256 db30ecbef0f5769a…); field-map coefficients (sha256 2bdeca6a3ea75270…); head motion (sha256 4d9e4f9f9ccd7561…); fMRIPrep's output (sha256 096e37ffd04f2d89…)",
+    "Runs: figures cache entry `resample-series/fmriprep-ds005040-native`, computed 2026-10-21T14:51:43+00:00 with larmorx `1dfe56c0dc60`; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ]
+  },
+  {
+   "id": "pipe-03",
+   "title": "PIPE-03: the Jacobian on another grid, fMRIPrep's and the corrected one",
+   "summary": "fMRIPrep multiplies the unwarped BOLD by a Jacobian, the factor that undoes the intensity pile-up of the distortion. On the BOLD's own grid (above) its factor is right; on another grid (here the MNI152NLin2009cAsym 2 mm grid of the same run) it takes the derivative in the wrong voxels. The factors of ds005040's real field map, against the reference.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds005040, sub-002, task clip run 1 (CC0-1.0): fMRIPrep's field map, transforms and MNI grid; inside the run's MNI brain mask, dilated; the template, MNI ICBM 152 nonlinear asymmetric 2009c, © McConnell Brain Imaging Centre, Montreal Neurological Institute ([notice](/static/hero/LICENSE-MNI.txt))"
+    },
+    {
+     "label": "How",
+     "text": "a volume of ones resampled as fMRIPrep resamples the BOLD (no head motion), so the output is the factor itself; the reference is the factor on the BOLD's own grid, where both methods agree, carried to this grid by cubic B-splines"
+    },
+    {
+     "label": "Defect",
+     "text": "[PIPE-03](repo:docs/findings/upstream-defects.md#pipe-03-the-jacobian-is-taken-along-the-wrong-axis--c): The Jacobian is taken along the wrong axis"
+    }
+   ],
+   "grid": {
+    "shape": [
+     81,
+     101,
+     80
+    ],
+    "spacing": [
+     2.0,
+     2.0,
+     2.0
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      8
+     ],
+     [
+      0,
+      1,
+      0,
+      9
+     ],
+     [
+      0,
+      0,
+      1,
+      5
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      2.0,
+      0.0,
+      0.0,
+      -80.5
+     ],
+     [
+      0.0,
+      2.0,
+      0.0,
+      -114.5
+     ],
+     [
+      0.0,
+      0.0,
+      2.0,
+      -68.5
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     97,
+     115,
+     97
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "e8d176d51b6c9aad45c41d2a.bin",
+    "dtype": "u1",
+    "bytes": 9315
+   },
+   "outputs": [
+    {
+     "id": "jacobian",
+     "label": "Jacobian factor",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.791611490547657,
+       "hi": 1.2400486385822296
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.3534185588359833,
+       "hi": 1.7122435569763184
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "reference",
+     "role": "reference",
+     "label": "The factor on the BOLD's own grid, carried here",
+     "sub": "where both methods agree; cubic B-splines, as fMRIPrep resamples",
+     "arrays": {
+      "jacobian": {
+       "blob": "8c120db1f794ef3d15c29878.bin",
+       "dtype": "f4",
+       "bytes": 757773
+      }
+     },
+     "own": {
+      "jacobian": [
+       0.791611490547657,
+       1.2400486385822296
+      ]
+     }
+    },
+    {
+     "id": "fix",
+     "role": "larmorx",
+     "label": "larmorx's Jacobian (default mode)",
+     "sub": "the derivative along the BOLD's phase-encoding axis, in its voxels",
+     "arrays": {
+      "jacobian": {
+       "blob": "c685512c2a0c50b74b41d032.bin",
+       "dtype": "f4",
+       "xor": "reference:jacobian",
+       "zero": false,
+       "bytes": 736079
+      }
+     },
+     "own": {
+      "jacobian": [
+       0.7607016342878342,
+       1.2723096925020216
+      ]
+     }
+    },
+    {
+     "id": "reproduce",
+     "role": "fmriprep",
+     "label": "fMRIPrep's Jacobian (larmorx, reproduce mode)",
+     "sub": "1 + np.gradient(vsm, axis=pe) on the target grid, bit-identical to fMRIPrep's in the record",
+     "arrays": {
+      "jacobian": {
+       "blob": "2319247ad8a4fc05015e74dc.bin",
+       "dtype": "f4",
+       "bytes": 745630
+      }
+     },
+     "own": {
+      "jacobian": [
+       0.8387069010734558,
+       1.161414930820464
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "fix-ref",
+     "a": "fix",
+     "b": "reference",
+     "kind": "reference",
+     "label": "larmorx's factor − the reference",
+     "role_label": "against the reference",
+     "metrics": {
+      "jacobian": {
+       "identical": false,
+       "voxels": 254305,
+       "differ": 254304,
+       "share": 0.9999960677139655,
+       "max_abs": 0.7643593549728394,
+       "a_at": 1.774189829826355,
+       "b_at": 1.0098304748535156,
+       "rms": 0.017190784321596243,
+       "range": 1.356846421957016,
+       "max_rel_range": 0.5633352033094382,
+       "one_minus_ncc": 0.04514816432958598,
+       "at_display": [
+        61,
+        97,
+        8
+       ]
+      }
+     },
+     "display": {
+      "jacobian": {
+       "max_abs": 0.7643593549728394,
+       "at": [
+        15,
+        27,
+        9
+       ],
+       "a": 1.774189829826355,
+       "b": 1.0098304748535156,
+       "differ": 272727
+      }
+     },
+     "links": [
+      {
+       "label": "PIPE-03",
+       "href": "docs/findings/upstream-defects.md#pipe-03-the-jacobian-is-taken-along-the-wrong-axis--c"
+      },
+      {
+       "label": "the Jacobian record",
+       "href": "docs/validation/resample-series-jacobian.md"
+      }
+     ],
+     "verdict": null,
+     "reason": "larmorx's factor stays at the reference: a median 0.00508 (99th percentile 0.063), the size of the interpolation carrying the reference here."
+    },
+    {
+     "id": "repro-ref",
+     "a": "reproduce",
+     "b": "reference",
+     "kind": "reference",
+     "label": "fMRIPrep's factor − the reference",
+     "role_label": "against the reference",
+     "metrics": {
+      "jacobian": {
+       "identical": false,
+       "voxels": 254305,
+       "differ": 254304,
+       "share": 0.9999960677139655,
+       "max_abs": 0.468777596950531,
+       "a_at": 1.460693359375,
+       "b_at": 0.991915762424469,
+       "rms": 0.027959414460629144,
+       "range": 1.356846421957016,
+       "max_rel_range": 0.3454905355275216,
+       "one_minus_ncc": 0.15380448597322324,
+       "at_display": [
+        55,
+        99,
+        7
+       ]
+      }
+     },
+     "display": {
+      "jacobian": {
+       "max_abs": 0.4951295852661133,
+       "at": [
+        14,
+        23,
+        10
+       ],
+       "a": 1.4944278001785278,
+       "b": 0.9992982149124146,
+       "differ": 272727
+      }
+     },
+     "links": [
+      {
+       "label": "PIPE-03",
+       "href": "docs/findings/upstream-defects.md#pipe-03-the-jacobian-is-taken-along-the-wrong-axis--c"
+      },
+      {
+       "label": "the Jacobian record",
+       "href": "docs/validation/resample-series-jacobian.md"
+      }
+     ],
+     "verdict": null,
+     "reason": "fMRIPrep's factor departs from the reference by a median 0.0124 (99th percentile 0.101) in the brain: it is compressed towards 1 on a grid finer than the BOLD's or turned against its axes."
+    },
+    {
+     "id": "fix-repro",
+     "a": "fix",
+     "b": "reproduce",
+     "kind": "main",
+     "label": "larmorx's factor − fMRIPrep's (PIPE-03)",
+     "role_label": "larmorx's correction",
+     "metrics": {
+      "jacobian": {
+       "identical": false,
+       "voxels": 254305,
+       "differ": 254241,
+       "share": 0.9997483336937929,
+       "max_abs": 0.41695699095726013,
+       "a_at": 0.33696237206459045,
+       "b_at": 0.7539193630218506,
+       "rms": 0.029541249455132285,
+       "range": 1.0092744827270508,
+       "max_rel_range": 0.4131254659591175,
+       "one_minus_ncc": 0.11267250954651858,
+       "at_display": [
+        61,
+        98,
+        7
+       ]
+      }
+     },
+     "display": {
+      "jacobian": {
+       "max_abs": 0.41695699095726013,
+       "at": [
+        69,
+        48,
+        20
+       ],
+       "a": 0.33696237206459045,
+       "b": 0.7539193630218506,
+       "differ": 271648
+      }
+     },
+     "links": [
+      {
+       "label": "PIPE-03",
+       "href": "docs/findings/upstream-defects.md#pipe-03-the-jacobian-is-taken-along-the-wrong-axis--c"
+      },
+      {
+       "label": "the Jacobian record",
+       "href": "docs/validation/resample-series-jacobian.md"
+      }
+     ],
+     "verdict": "d13",
+     "reason": "PIPE-03, corrected by default with a warning: fMRIPrep differentiates the voxel-shift map along the target's axis in target voxels; larmorx along the BOLD's phase-encoding axis in BOLD voxels, as the factor is defined. upstream_defects='reproduce' gives fMRIPrep's factor."
+    }
+   ],
+   "default": {
+    "output": "jacobian",
+    "plane": "axial",
+    "voxel": [
+     38,
+     42,
+     37
+    ],
+    "panels": [
+     "reference",
+     "reproduce",
+     "fix"
+    ],
+    "diffs": [
+     "repro-ref",
+     "fix-ref",
+     "fix-repro"
+    ],
+    "compare": {
+     "a": "reproduce",
+     "b": "fix"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 37,
+    "aspect": 0.80198,
+    "panels": {
+     "reference": "ae090dacbf07539562abb10c.webp",
+     "reproduce": "18d391b322cc305315610143.webp",
+     "fix": "1b6feb40318656dc4feb1212.webp"
+    },
+    "diffs": {
+     "repro-ref": "96f4fd3717fd30f3f8f39ea8.webp",
+     "fix-ref": "aab86915a9d2fa95cea6f302.webp",
+     "fix-repro": "1bceb289678c16f5d66a6478.webp"
+    },
+    "ranges": {
+     "repro-ref": 0.7643593549728394,
+     "fix-ref": 0.7643593549728394,
+     "fix-repro": 0.7643593549728394
+    },
+    "caption": "Axial slice 38 of 80; the crosshair where the two factors differ most in it; the differences on one symmetric scale."
+   },
+   "chain": null,
+   "groups": [
+    [
+     "main",
+     "The correction: larmorx's factor against fMRIPrep's"
+    ],
+    [
+     "reference",
+     "Each factor against the reference"
+    ]
+   ],
+   "metrics_note": "Δ is A − B over the 254,305 voxels of the run's brain mask on the 97 × 115 × 97 grid (1,082,035 voxels; outside the BOLD's field of view the factors have no meaning); the medians and percentiles in the reasons too.",
+   "provenance": [
+    "Data: OpenNeuro ds005040, sub-002, CC0-1.0; MNI ICBM 152 nonlinear asymmetric 2009c (Fonov et al., 2009, 2011), from TemplateFlow, the MNI ICBM 152 notice (static/hero/LICENSE-MNI.txt)",
+    "Runs: figures cache entry `resample-series/ds005040-sub-002-jacobian-mni`, computed 2026-10-21T07:06:56+00:00 with larmorx `498069fae31d`; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ]
+  }
+ ]
+}

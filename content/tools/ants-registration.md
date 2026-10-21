@@ -1,8 +1,10 @@
 ---
 title: antsRegistration
 kicker: Tools · ANTs
-lede: Image registration, ported from ANTs 2.6.5 and ITK 5.4.5, with its linear, SyN, B-spline SyN, B-spline and displacement-field stages and every image and point-set metric. Identical to ANTs in every compared case, once ANTs uses correctly rounded maths.
-description: LARMORX's port of antsRegistration, its validation against ANTs 2.6.5 in figures, ANTs' own thread variability, and sMRIPrep's template registration by ANTs and LARMORX.
+lede: Image registration, ported from ANTs 2.6.5 and ITK 5.4.5, with its linear, SyN, B-spline SyN, B-spline and displacement-field stages and every image and point-set metric. Every compared case is identical to ANTs, as built or once ANTs uses correctly rounded maths; on sMRIPrep's own template registration larmorx is ANTs at one thread with correctly rounded maths, on any number of threads.
+description: LARMORX's port of antsRegistration, validated against ANTs 2.6.5 — sMRIPrep's T1w-to-MNI registration on real data to inspect (SyN and B-spline SyN), the displacement fields against ANTs' own thread band, the linear stages' parameters, and every parity case with its verdict.
+evidence: true
+wide: true
 ---
 
 <dl class="facts">
@@ -14,8 +16,6 @@ description: LARMORX's port of antsRegistration, its validation against ANTs 2.6
 ## What it is
 
 antsRegistration aligns a moving image to a fixed one through a sequence of stages, each a transform (rigid, affine, SyN and others) optimised against one or more metrics over a multi-resolution schedule. sMRIPrep uses it for the brain extraction and the registration to the MNI template; fMRIPrep for the BOLD reference and the field-map registration.
-
-## How to call it
 
 ```bash
 larmorx ants antsRegistration -d 3 -o [t1_to_mni_,t1_to_mni_Warped.nii.gz] \
@@ -33,37 +33,47 @@ rigid = lx.ants.RegistrationStage(
     iterations=[1000, 500, 250], shrink_factors=[4, 2, 1], smoothing_sigmas=[2, 1, 0],
 )
 res = lx.ants.registration([rigid], warped=True, random_seed=42)
-res.files["0GenericAffine.mat"]
 ```
 
-LARMORX gives ANTs' one-thread result at any thread count. The [API page](repo:docs/api/ants-registration.md) maps every option and stage.
+The [API page](repo:docs/api/ants-registration.md) maps every option and stage. How to read what follows: [the validation guide](/validation/#reading).
 
-## Agreement with ANTs
+## The verdicts at a glance {#verdicts}
 
-The [standard-tier record](repo:docs/validation/ants-registration.md) runs 403 cases with ANTs at one thread and `ANTS_RANDOM_SEED=42`: 309 pass, 77 are rejected by both programs (exit status and messages compared) and 17 are expected divergences, with no failure. Of the 309 compared cases, 273 are identical to the unmodified ANTs (exit status, standard output with every diagnostic line, standard error, every file) and 36 once ANTs uses CORE-MATH's correctly rounded `exp`, `log`, `sin` and `cos`. The [full tier](repo:docs/validation/ants-registration-full.md) adds sMRIPrep's whole brain extractions and template registrations on the five oracle runs: 441 cases, 346 compared, 278 and 68 identical, no failure.
+{{ ev.agreement('ants-registration', 'port') }}
 
-{{ figure('ants-registration/agreement', "The standard tier's 403 cases by category. The first bar splits the compared cases between identical to ANTs as built and identical with CORE-MATH, as the record states them; the categories' bars show their compared cases together.") }}
+Every case that runs is identical to ANTs: exit status, standard output with every iteration's DIAGNOSTIC line, standard error and every file, against the unmodified binary at one thread, or, where glibc's `exp`, `log`, `sin` or `cos` is not correctly rounded for a value the run meets, against the same binary with CORE-MATH's correctly rounded functions preloaded. The rest are inputs both programs refuse and documented divergences (crashes LARMORX refuses with a message, a clock-seeded sampling, the planned velocity-field stages). Nothing is open.
 
-## ANTs' own variability
+## A worked example: sMRIPrep's template registration {#example}
 
-ANTs' result changes with its thread count. The record measures it on 30 cases: from nothing to about 10⁻¹² for most metrics, and up to 1.87 in a transform parameter for sMRIPrep's deformable registrations on real images.
+fMRIPrep's own registration of a T1w to MNI152NLin2009cAsym, run on every third voxel of its images as the record's standard tier runs it (a full-size run takes ANTs about an hour at one thread; the full tier runs it whole). Choose the output: the warped T1w, or one component of the displacement field SyN found. *Checkerboard* and *Swipe* (under *Compare*) set the template against the warped T1w; the difference panels set LARMORX against ANTs as built next to ANTs against itself at 8 threads, on one scale.
 
-{{ figure('ants-registration/thread-band', "For each of the 30 cases measured, the largest change in a transform parameter between ANTs at one thread and ANTs at 2, 4 and 8 threads (log scale), from the record's thread-band sentence; the cases the threads leave unchanged are listed above.") }}
+{{ ev.example('ants-registration', 'template-syn') }}
 
-## sMRIPrep's template registration
+{{ ev.example('ants-registration', 'template-bsplinesyn') }}
 
-{{ figure('ants-registration/template-registration', "fMRIPrep 25.2.6's registration of OpenNeuro ds000005 sub-01's T1w (PDDL-1.0) to MNI152NLin2009cAsym (Rigid, Affine, SyN), on every third voxel of its images as in the record's `real-syn-small` case; axial slices in template space. Top: the template with the contour of LARMORX's warped T1w, a checkerboard of the two, the warped T1w. Bottom: the magnitude of the difference between displacement fields, in mm on one scale: LARMORX against ANTs as built (both at their one-thread result), ANTs at four threads against one, and LARMORX against ANTs with CORE-MATH. glibc's maths moves ANTs' SyN field by about as much as its own threads do; with correctly rounded maths the two are bit-identical. The template: MNI ICBM 152 nonlinear asymmetric 2009c, © McConnell Brain Imaging Centre, Montreal Neurological Institute ([notice](/static/hero/LICENSE-MNI.txt)).") }}
+## Against ANTs' own variability {#variability}
 
-## Speed
+ANTs' result moves with its thread count: its metrics add per-thread partial sums in an order that depends on the threads. The record measures this band on 30 cases and reports, for each, LARMORX's distance from ANTs at one thread.
+
+{{ ev.dots('ants-registration', 'band') }}
+
+## Every case {#cases}
+
+Each case of the standard-tier record, with what it tests, the command line, its verdict and the reason. Search, filter by category or verdict (or select a segment of the chart above), sort by a column; `#case=<name>` links to one.
+
+{{ ev.cases('ants-registration') }}
+
+## Speed {#speed}
 
 No benchmark report yet: the benchmark of antsRegistration is pending ([next steps](repo:docs/next-steps.md)).
 
-## Corrections by default
+## Corrections by default {#corrections}
 
-The record's fix pass meets ANTS-49, ANTS-61, ANTS-62, ANTS-63, ANTS-65, ANTS-73, ANTS-76, ITK-18, ITK-22, ITK-23, ITK-26, ITK-30, ITK-31, ITK-32 and ITK-33: each corrected by default, with `upstream_defects="reproduce"` (or `LARMORX_UPSTREAM_DEFECTS=reproduce`) giving ANTs' behaviour, the mode the comparison runs in ([register](repo:docs/findings/upstream-defects.md)). ANTS-78, ITK-35 and five point-set defects are to be corrected with the next part.
+The record's fix pass meets ANTS-49, ANTS-61, ANTS-62, ANTS-63, ANTS-65, ANTS-73, ANTS-76, ITK-18, ITK-22, ITK-23, ITK-26, ITK-30, ITK-31, ITK-32 and ITK-33: each corrected by default, with `upstream_defects="reproduce"` (or `LARMORX_UPSTREAM_DEFECTS=reproduce`) giving ANTs' behaviour, the mode the comparison runs in ([register](repo:docs/findings/upstream-defects.md)). None of them applies to sMRIPrep's command above: both modes give the same bytes. ANTS-78, ITK-35 and five point-set defects are to be corrected with the next part.
 
-## Known limits
+## Known limits {#limits}
 
 - The time-varying velocity-field and exponential stages are not ported yet; LARMORX refuses them with a message.
 - `antsApplyTransforms` does not read `BSplineTransform` files yet (`warped=True` gives the warped image).
 - The expected divergences: without a seed ANTs seeds its sampling from the clock (LARMORX uses a fixed seed); crashes and reads of unwritten memory are not reproduced (ANTS-51, ANTS-66, ANTS-77); messages ANTs prints only with `--verbose` (ANTS-45); MINC transform files are refused; a linear stage after a displacement field draws its voxels from a clock-seeded generator in ANTs (ANTS-72).
+- The comparison with ANTs is made on Linux x86-64; the other five platforms are held to LARMORX's own Linux output by the [golden tests](repo:docs/validation/golden.md).
