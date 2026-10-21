@@ -29,14 +29,14 @@
   }
  },
  "drawn_from": {
-  "larmorx_commit": "663683d0a3431f4d4c48fabac7db4b8b6a047cc0",
+  "larmorx_commit": "1568b5ce937759462f30c4a79b303fd446c667f6",
   "records": [],
   "cache": [
    {
     "entry": "afni-tshift/ds005040-sub-002-clip-1",
     "description": "fMRIPrep's slice-timing correction of ds005040 sub-002's BOLD",
-    "computed": "2026-10-21T06:59:55+00:00",
-    "larmorx_commit": "21b9e2b4155ac4aa39e544596efc300e610f98eb-dirty",
+    "computed": "2026-10-21T08:01:53+00:00",
+    "larmorx_commit": "1568b5ce937759462f30c4a79b303fd446c667f6",
     "commands": [
      {
       "label": "afni",
@@ -56,7 +56,7 @@
       ],
       "env": {},
       "exit": 0,
-      "seconds": 2.54
+      "seconds": 2.61
      },
      {
       "label": "larmorx-original",
@@ -83,7 +83,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.39
+      "seconds": 0.49
      },
      {
       "label": "larmorx-replica",
@@ -107,7 +107,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "reproduce"
       },
       "exit": 0,
-      "seconds": 0.33
+      "seconds": 0.32
      }
     ],
     "versions": {
@@ -130,7 +130,7 @@
   }
  ],
  "notes": "",
- "command": "python -m larmorx_validation figures all --out <dir> --no-compute",
+ "command": "python -m larmorx_validation figures all --out <dir>",
  "versions": {
   "python": "3.12.10",
   "matplotlib": "3.11.2",

@@ -29,14 +29,14 @@
   }
  },
  "drawn_from": {
-  "larmorx_commit": "663683d0a3431f4d4c48fabac7db4b8b6a047cc0",
+  "larmorx_commit": "1568b5ce937759462f30c4a79b303fd446c667f6",
   "records": [],
   "cache": [
    {
     "entry": "ants-n4/ds000005-sub-01-t1w",
     "description": "N4 on ds000005 sub-01's T1w",
-    "computed": "2026-10-21T06:46:29+00:00",
-    "larmorx_commit": "21b9e2b4155ac4aa39e544596efc300e610f98eb-dirty",
+    "computed": "2026-10-21T07:47:33+00:00",
+    "larmorx_commit": "1568b5ce937759462f30c4a79b303fd446c667f6",
     "commands": [
      {
       "label": "ants-1",
@@ -59,7 +59,7 @@
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 65.84
+      "seconds": 68.75
      },
      {
       "label": "ants-4",
@@ -82,7 +82,7 @@
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 20.4
+      "seconds": 22.72
      },
      {
       "label": "ants-1-crmath",
@@ -106,7 +106,7 @@
        "LD_PRELOAD": "/home/karelo/VScode_projects/super_fmriprep/oracles/core-math-preload/libcrmath.so"
       },
       "exit": 0,
-      "seconds": 69.38
+      "seconds": 71.82
      },
      {
       "label": "larmorx",
@@ -134,7 +134,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "reproduce"
       },
       "exit": 0,
-      "seconds": 4.96
+      "seconds": 5.41
      }
     ],
     "versions": {
@@ -146,7 +146,7 @@
      "ants-1-crmath": 1,
      "larmorx": 4
     },
-    "settings": "sMRIPrep's final N4 options without a weight image (-b [200] -c [50x50x50x50x50,1e-07] -s 4); larmorx with upstream_defects=reproduce, as the record"
+    "settings": "sMRIPrep's final N4 options without a weight image (-b [200] -c [50x50x50x50x50,1e-07] -s 4); larmorx with upstream_defects=reproduce, as in the record"
    }
   ]
  },
@@ -162,7 +162,7 @@
   }
  ],
  "notes": "",
- "command": "python -m larmorx_validation figures all --out <dir> --no-compute",
+ "command": "python -m larmorx_validation figures all --out <dir>",
  "versions": {
   "python": "3.12.10",
   "matplotlib": "3.11.2",

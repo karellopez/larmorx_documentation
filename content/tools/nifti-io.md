@@ -26,7 +26,7 @@ lx.save(img, "copy.nii.gz", n_threads=4)
 
 ## Agreement with nibabel
 
-The [record](repo:docs/validation/nifti-io.md) reads 252 files: real datasets from 43 OpenNeuro collections, fMRIPrep derivatives, templates, ITK's and nibabel's test files, and synthetic files for every data type, layout, orientation, scaling and malformation. 230 are read as nibabel reads them (data, header and affine), 17 are refused by both and 5 are expected divergences: RGB24 and RGBA32 data are not supported yet; a file compressed or not regardless of its name is read by its content, where nibabel fails; a single file with `vox_offset` 0 is refused, where nibabel reads its header as data.
+The [record](repo:docs/validation/nifti-io.md) reads 252 files: real images from 41 OpenNeuro datasets, fMRIPrep derivatives, templates, ITK's and nibabel's test files, and synthetic files for every data type, layout, orientation, scaling and malformation. 230 are read as nibabel reads them (data, header and affine), 17 are refused by both and 5 are expected divergences: RGB24 and RGBA32 data are not supported yet; a file compressed or not regardless of its name is read by its content, where nibabel fails; a single file with `vox_offset` 0 is refused, where nibabel reads its header as data.
 
 {{ figure('nifti-io/agreement', "The record's 252 files, by source: read as nibabel reads them, refused by both, and the expected divergences.") }}
 

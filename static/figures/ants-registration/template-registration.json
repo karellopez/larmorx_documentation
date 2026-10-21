@@ -6,37 +6,37 @@
   "light": {
    "file": "template-registration-light.svg",
    "width": 720,
-   "height": 738,
-   "bytes": 104821
+   "height": 752,
+   "bytes": 105467
   },
   "light-narrow": {
    "file": "template-registration-light-narrow.svg",
    "width": 360,
-   "height": 861,
-   "bytes": 104465
+   "height": 875,
+   "bytes": 105103
   },
   "dark": {
    "file": "template-registration-dark.svg",
    "width": 720,
-   "height": 738,
-   "bytes": 104853
+   "height": 752,
+   "bytes": 105519
   },
   "dark-narrow": {
    "file": "template-registration-dark-narrow.svg",
    "width": 360,
-   "height": 861,
-   "bytes": 104497
+   "height": 875,
+   "bytes": 105155
   }
  },
  "drawn_from": {
-  "larmorx_commit": "663683d0a3431f4d4c48fabac7db4b8b6a047cc0",
+  "larmorx_commit": "1568b5ce937759462f30c4a79b303fd446c667f6",
   "records": [],
   "cache": [
    {
     "entry": "ants-registration/ds000005-sub-01-template-small",
     "description": "sMRIPrep's T1w-to-MNI registration of ds000005 sub-01 on every third voxel",
-    "computed": "2026-10-21T07:00:38+00:00",
-    "larmorx_commit": "21b9e2b4155ac4aa39e544596efc300e610f98eb-dirty",
+    "computed": "2026-10-21T07:44:39+00:00",
+    "larmorx_commit": "1568b5ce937759462f30c4a79b303fd446c667f6",
     "commands": [
      {
       "label": "ants-1",
@@ -104,7 +104,7 @@
        "ANTS_RANDOM_SEED": "42"
       },
       "exit": 0,
-      "seconds": 256.06
+      "seconds": 244.43
      },
      {
       "label": "ants-4",
@@ -172,7 +172,7 @@
        "ANTS_RANDOM_SEED": "42"
       },
       "exit": 0,
-      "seconds": 103.22
+      "seconds": 78.91
      },
      {
       "label": "ants-1-crmath",
@@ -241,7 +241,7 @@
        "LD_PRELOAD": "/home/karelo/VScode_projects/super_fmriprep/oracles/core-math-preload/libcrmath.so"
       },
       "exit": 0,
-      "seconds": 308.35
+      "seconds": 257.7
      },
      {
       "label": "larmorx",
@@ -314,7 +314,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "reproduce"
       },
       "exit": 0,
-      "seconds": 17.1
+      "seconds": 17.34
      }
     ],
     "versions": {
@@ -347,7 +347,7 @@
   }
  ],
  "notes": "",
- "command": "python -m larmorx_validation figures all --out <dir> --no-compute",
+ "command": "python -m larmorx_validation figures all --out <dir>",
  "versions": {
   "python": "3.12.10",
   "matplotlib": "3.11.2",

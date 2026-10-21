@@ -29,14 +29,14 @@
   }
  },
  "drawn_from": {
-  "larmorx_commit": "663683d0a3431f4d4c48fabac7db4b8b6a047cc0",
+  "larmorx_commit": "1568b5ce937759462f30c4a79b303fd446c667f6",
   "records": [],
   "cache": [
    {
     "entry": "ants-denoise/ds000005-sub-01-threads",
     "description": "DenoiseImage on ds000005 sub-01's T1w at several thread counts",
-    "computed": "2026-10-21T07:01:49+00:00",
-    "larmorx_commit": "21b9e2b4155ac4aa39e544596efc300e610f98eb-dirty",
+    "computed": "2026-10-21T08:01:19+00:00",
+    "larmorx_commit": "1568b5ce937759462f30c4a79b303fd446c667f6",
     "commands": [
      {
       "label": "ants-1",
@@ -55,7 +55,7 @@
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 235.09
+      "seconds": 238.74
      },
      {
       "label": "ants-2",
@@ -74,7 +74,7 @@
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "2"
       },
       "exit": 0,
-      "seconds": 133.64
+      "seconds": 124.56
      },
      {
       "label": "ants-4",
@@ -93,7 +93,7 @@
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 104.67
+      "seconds": 73.51
      },
      {
       "label": "ants-8",
@@ -112,7 +112,7 @@
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8"
       },
       "exit": 0,
-      "seconds": 61.92
+      "seconds": 59.56
      },
      {
       "label": "ants-12",
@@ -131,7 +131,7 @@
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "12"
       },
       "exit": 0,
-      "seconds": 56.13
+      "seconds": 57.52
      },
      {
       "label": "ants-1-crmath",
@@ -151,7 +151,7 @@
        "LD_PRELOAD": "/home/karelo/VScode_projects/super_fmriprep/oracles/core-math-preload/libcrmath.so"
       },
       "exit": 0,
-      "seconds": 252.56
+      "seconds": 242.91
      },
      {
       "label": "larmorx-1",
@@ -175,7 +175,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "reproduce"
       },
       "exit": 0,
-      "seconds": 14.24
+      "seconds": 14.62
      },
      {
       "label": "larmorx-12",
@@ -199,7 +199,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "reproduce"
       },
       "exit": 0,
-      "seconds": 3.55
+      "seconds": 3.59
      }
     ],
     "versions": {
@@ -231,7 +231,7 @@
   }
  ],
  "notes": "",
- "command": "python -m larmorx_validation figures all --out <dir> --no-compute",
+ "command": "python -m larmorx_validation figures all --out <dir>",
  "versions": {
   "python": "3.12.10",
   "matplotlib": "3.11.2",

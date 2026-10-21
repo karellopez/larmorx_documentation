@@ -29,14 +29,14 @@
   }
  },
  "drawn_from": {
-  "larmorx_commit": "663683d0a3431f4d4c48fabac7db4b8b6a047cc0",
+  "larmorx_commit": "1568b5ce937759462f30c4a79b303fd446c667f6",
   "records": [],
   "cache": [
    {
     "entry": "ants-apply-transforms/ds000005-sub-01-t1w-to-mni",
     "description": "fMRIPrep's T1w-to-MNI composite applied to ds000005 sub-01's T1w",
-    "computed": "2026-10-21T06:57:26+00:00",
-    "larmorx_commit": "21b9e2b4155ac4aa39e544596efc300e610f98eb-dirty",
+    "computed": "2026-10-21T08:01:43+00:00",
+    "larmorx_commit": "1568b5ce937759462f30c4a79b303fd446c667f6",
     "commands": [
      {
       "label": "ants-double",
@@ -59,7 +59,7 @@
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 2.02
+      "seconds": 1.7
      },
      {
       "label": "ants-double-crmath",
@@ -136,7 +136,7 @@
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 1.6
+      "seconds": 1.57
      },
      {
       "label": "ants-float-crmath",
@@ -162,7 +162,7 @@
        "LD_PRELOAD": "/home/karelo/VScode_projects/super_fmriprep/oracles/core-math-preload/libcrmath.so"
       },
       "exit": 0,
-      "seconds": 1.65
+      "seconds": 1.6
      },
      {
       "label": "larmorx-float",
@@ -192,7 +192,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "reproduce"
       },
       "exit": 0,
-      "seconds": 1.26
+      "seconds": 1.11
      }
     ],
     "versions": {
@@ -221,7 +221,7 @@
   }
  ],
  "notes": "",
- "command": "python -m larmorx_validation figures all --out <dir> --no-compute",
+ "command": "python -m larmorx_validation figures all --out <dir>",
  "versions": {
   "python": "3.12.10",
   "matplotlib": "3.11.2",
