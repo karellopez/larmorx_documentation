@@ -38,8 +38,6 @@ static/js/        site.js (theme, effects, menu, copy buttons), hero.js (the hom
 static/hero/      the hero's points (hero.bin) and its stills (hero-light.svg, hero-dark.svg)
 static/fonts/     Instrument Serif, Inter, JetBrains Mono, and the Greek letters of Inter, JetBrains Mono
                   and Noto Serif Display (SIL Open Font License, texts beside them)
-static/figures/   the tools' figures, drawn by the main repository (larmorx_validation.figures):
-                  <tool>/<figure>-{light,dark}[-narrow].svg and <figure>.json, their provenance
 static/evidence/  the interactive evidence, exported by the main repository
                   (larmorx_validation.evidence): <tool>.json, summary.json, blobs/
 static/js/        also evidence.js (the viewer, charts, case explorer, number check)
@@ -62,17 +60,16 @@ repository, and Markdown links may be written `[text](repo:docs/...)` or
 `[text](/validation/)`. A heading may set its id: `## Title {#id}`.
 
 A tool's page is `content/tools/<tool>.md` (listed under `tools` in `site.yml`,
-linked from the status table by `page:` in `data/status.yml`). It places a figure
-with `{{ figure('<tool>/<name>', 'caption') }}`: the light and dark versions, each
-with its phone-width version, lazily loaded, the caption and a link to the
-provenance. The figures are drawn in the main repository and copied here:
-`python -m larmorx_validation figures <tool>|all --out static/figures`
-(its `docs/figures.md`).
+linked from the status table by `page:` in `data/status.yml`); since 2026-10-21 every
+tool's page is interactive evidence (below). The builder still renders a static
+figure placed with `{{ figure('<tool>/<name>', 'caption') }}` (from
+`static/figures/<tool>/`, drawn by the main repository's `larmorx_validation.figures`),
+which no page uses any more.
 
 ### The validation evidence
 
-The pages redone as interactive evidence (N4BiasFieldCorrection and 3dTshift so
-far, the Validation guide) set `evidence: true` (loads `static/css/evidence.css`
+Every tool's page and the Validation guide are interactive evidence: they set
+`evidence: true` (loads `static/css/evidence.css`
 and `static/js/evidence.js`) and `wide: true` (a wider column, the table of
 contents in the sidebar). Their data are exported by the main repository:
 `python -m larmorx_validation evidence <tool>|summary|all --site <this checkout>`
@@ -84,9 +81,16 @@ by their SHA-256 so an unchanged export changes nothing. A page places them with
 - `{{ ev.example('<tool>', '<example>') }}`: the image viewer (still panels
   without JavaScript), the chain of causes, the metrics table, the provenance;
 - `{{ ev.agreement('<tool>', '<implementation>') }}`, `{{ ev.band('<tool>') }}`,
-  `{{ ev.speed('<tool>') }}`: the charts, in HTML;
+  `{{ ev.speed('<tool>') }}`, `{{ ev.dots('<tool>', '<id>') }}` (dots on a log
+  axis, such as a thread band): the charts, in HTML;
+- `{{ ev.table('<tool>', '<id>') }}`: a table of the JSON's `tables` (numbers with
+  their pointers, verdicts); an example's own `tables` and `lines` (panels of lines
+  over one axis, such as a run's motion parameters, redrawn by the script with the
+  values under the pointer) are drawn inside it;
 - `{{ ev.cases('<tool>') }}`: every parity case (search, filters, sorting,
-  `#case=<id>` links with JavaScript);
+  `#case=<id>` links with JavaScript); `{{ ev.cases('<tool>', '<implementation>') }}`
+  lists one implementation's (one explorer per program on a page of several, the
+  agreement chart's segments filtering their own);
 - `{{ verdict('<id>') }}`, `{{ ev.legend() }}`, `{{ ev.taxonomy() }}`,
   `{{ ev.matrix(site.tools) }}`: the verdicts of `data/verdicts.yml`.
 

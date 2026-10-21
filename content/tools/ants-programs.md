@@ -1,8 +1,10 @@
 ---
 title: ImageMath and the ANTs filters
 kicker: Tools · ANTs
-lede: ImageMath (every operation fMRIPrep, sMRIPrep and sdcflows call), ThresholdImage, MultiplyImages, SmoothImage, ResampleImage and ResampleImageBySpacing, ported from ANTs 2.6.5 and ITK 5.4.5.
-description: An overview of LARMORX's ports of ImageMath, ThresholdImage, MultiplyImages, SmoothImage, ResampleImage and ResampleImageBySpacing, their validation against ANTs 2.6.5 in figures, and speed.
+lede: ImageMath (every operation fMRIPrep, sMRIPrep and sdcflows call), ThresholdImage, MultiplyImages, SmoothImage, ResampleImage and ResampleImageBySpacing, ported from ANTs 2.6.5 and ITK 5.4.5. sMRIPrep's own calls in fMRIPrep's brain extraction are bit-identical; every compared case is identical to ANTs, as built or with correctly rounded maths, but where ANTs reads memory it never wrote.
+description: LARMORX's ports of ImageMath, ThresholdImage, MultiplyImages, SmoothImage, ResampleImage and ResampleImageBySpacing, validated against ANTs 2.6.5 and fMRIPrep 25.2.6 — sMRIPrep's brain-extraction calls on their own inputs to inspect, every parity case of each program with its verdict, and speed.
+evidence: true
+wide: true
 ---
 
 <dl class="facts">
@@ -16,8 +18,6 @@ description: An overview of LARMORX's ports of ImageMath, ThresholdImage, Multip
 
 The small ANTs programs the pipelines call between their larger steps: ImageMath's arithmetic, intensity truncation and rescaling, Gaussian and Laplacian filters, gradients, binary and grayscale morphology, hole filling, padding, connected components and distance maps; Otsu and range thresholds; voxel-wise products; recursive Gaussian and median smoothing; resampling to a size or a spacing.
 
-## How to call them
-
 ```bash
 larmorx ants ImageMath 3 t1w_trunc.nii.gz TruncateImageIntensity t1w.nii.gz 0.01 0.999 256
 larmorx ants ThresholdImage 3 t1w.nii.gz wm.nii.gz Otsu 3 brain_mask.nii.gz
@@ -25,24 +25,70 @@ larmorx ants SmoothImage 3 t1w.nii.gz 1 t1w_smooth.nii.gz
 larmorx ants ResampleImageBySpacing 3 t1w.nii.gz t1w_2mm.nii.gz 2 2 2
 ```
 
-In Python: `lx.ants.image_math` and its typed wrappers, `lx.ants.threshold_image`, `lx.ants.otsu_threshold`, `lx.ants.multiply_images`, `lx.ants.smooth_image`, `lx.ants.resample_image`, `lx.ants.resample_image_by_spacing` ([API pages](repo:docs/api/)).
+In Python: `lx.ants.image_math` and its typed wrappers, `lx.ants.threshold_image`, `lx.ants.otsu_threshold`, `lx.ants.multiply_images`, `lx.ants.smooth_image`, `lx.ants.resample_image`, `lx.ants.resample_image_by_spacing` ([API pages](repo:docs/api/)). How to read what follows: [the validation guide](/validation/#reading).
 
-## Agreement with ANTs
+## The verdicts at a glance {#verdicts}
 
-Over the six records, 513 cases: 448 bit-identical to ANTs 2.6.5 (values and header bytes), 5 ImageMath cases within their declared tolerance (`^` with non-integer powers and signed zeros in grayscale morphology, each with its cause in the record), 6 that pass without values to compare (where ANTs' output depends on memory it never wrote, and usage texts), 2 expected divergences, and 52 inputs both programs refuse.
+One record per program; select a segment to list its cases in that program's explorer below.
 
-{{ figure('ants-programs/overview', "The six records' cases, one bar per program: bit-identical to ANTs, within the declared tolerance, passing without values to compare, expected divergences (ThresholdImage's Kmeans, not ported; ResampleImage's B-spline, Gaussian and sinc interpolation of 2D and 4D images) and rejected by both.") }}
+{{ ev.agreement('ants-programs', 'image-math') }}
 
-{{ figure('ants-programs/image-math', "ImageMath's 327 cases by category of operation.") }}
+{{ ev.agreement('ants-programs', 'threshold-image') }}
 
-## Speed
+{{ ev.agreement('ants-programs', 'multiply-images') }}
 
-{{ figure('ants-programs/speed', "Median seconds of the whole command for ANTs 2.6.5 and LARMORX at 1 and 12 threads, for a selection of the three benchmark reports' inputs (the pipelines' own calls first; 2026-10-10 and 2026-10-11, Intel i7-8750H, 12 logical CPUs); the factor is LARMORX's speed-up at one thread.") }}
+{{ ev.agreement('ants-programs', 'smooth-image') }}
 
-## Corrections by default
+{{ ev.agreement('ants-programs', 'resample-image') }}
 
-The records' fix passes meet ANTS-05, ANTS-06, ANTS-08, ANTS-09, ANTS-10, ANTS-12, ANTS-14, ANTS-15, ANTS-16, ANTS-19, ANTS-20 (ImageMath), ANTS-24 (ThresholdImage), ANTS-27 (MultiplyImages), ANTS-28, ANTS-29, ANTS-30, ANTS-31 (the resamplers) and ITK-02, each corrected by default with `upstream_defects="reproduce"` giving ANTs' behaviour ([register](repo:docs/findings/upstream-defects.md)). ANTS-30, ResampleImage's corrected command line, awaits the user's review.
+{{ ev.agreement('ants-programs', 'resample-image-by-spacing') }}
 
-## Known limits
+ImageMath's five cases that pass within a tolerance were run again to classify them: the three `^` cases differ from ANTs as built where glibc's `powf` is not correctly rounded and are bit-identical with CORE-MATH preloaded; in the two signed-zero cases only the sign of a zero differs (ITK keeps the sign of whichever zero its histogram met first; LARMORX defines it), an expected divergence. Where ANTs computes from memory it never wrote, the values are not compared (expected divergences).
+
+## Worked examples: sMRIPrep's brain extraction {#example}
+
+fMRIPrep 25.2.6 calls ImageMath, ThresholdImage and MultiplyImages in sMRIPrep's brain extraction; the nine calls below are its own, on its own input files from the oracle run of OpenNeuro ds000005 sub-01, by fMRIPrep, by ANTs 2.6.5 at one and eight threads and with correctly rounded maths, and by LARMORX in both modes. Choose the call under *Output*. None of the five oracle runs calls SmoothImage, ResampleImage or ResampleImageBySpacing; their records run generated phantoms and real images.
+
+{{ ev.example('ants-programs', 'brain-extraction-t1w') }}
+
+{{ ev.example('ants-programs', 'brain-extraction-pad') }}
+
+## Every case {#cases}
+
+Each program's record, with what each case tests, its command line, its verdict and the reason. Search, filter by category or verdict, sort by a column; `#case=<program>/<name>` links to one.
+
+### ImageMath {#list-ImageMath}
+
+{{ ev.cases('ants-programs', 'image-math') }}
+
+### ThresholdImage {#list-ThresholdImage}
+
+{{ ev.cases('ants-programs', 'threshold-image') }}
+
+### MultiplyImages {#list-MultiplyImages}
+
+{{ ev.cases('ants-programs', 'multiply-images') }}
+
+### SmoothImage {#list-SmoothImage}
+
+{{ ev.cases('ants-programs', 'smooth-image') }}
+
+### ResampleImage {#list-ResampleImage}
+
+{{ ev.cases('ants-programs', 'resample-image') }}
+
+### ResampleImageBySpacing {#list-ResampleImageBySpacing}
+
+{{ ev.cases('ants-programs', 'resample-image-by-spacing') }}
+
+## Speed {#speed}
+
+{{ ev.speed('ants-programs') }}
+
+## Corrections by default {#corrections}
+
+The records' fix passes meet ANTS-05, ANTS-06, ANTS-08, ANTS-09, ANTS-10, ANTS-12, ANTS-14, ANTS-15, ANTS-16, ANTS-19, ANTS-20 (ImageMath), ANTS-24 (ThresholdImage), ANTS-27 (MultiplyImages), ANTS-28, ANTS-29, ANTS-30, ANTS-31 (the resamplers) and ITK-02, each corrected by default with `upstream_defects="reproduce"` giving ANTs' behaviour ([register](repo:docs/findings/upstream-defects.md)). None applies to sMRIPrep's calls above. ANTS-30, ResampleImage's corrected command line, awaits the user's review.
+
+## Known limits {#limits}
 
 ThresholdImage's `Kmeans` is not ported (fMRIPrep does not use it). ResampleImage interpolates with B-splines, Gaussians and windowed sinc in 3D only.

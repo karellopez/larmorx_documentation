@@ -1,0 +1,4045 @@
+{
+ "schema": 1,
+ "tool": "ants-ai",
+ "title": "antsAI, antsAffineInitializer",
+ "provenance": {
+  "exporter": "146ec72dd34cb66c17f1ba7b866b1bc89c83ffd3",
+  "records": [
+   {
+    "path": "docs/validation/ants-ai.json",
+    "sha256": "6cb98035e21cb1b80e7deb8b5f5adaad853e12801f0cb223191a228cd32f4ccb",
+    "generated": "2026-10-21",
+    "larmorx_commit": "1dfe56c0dc60"
+   },
+   {
+    "path": "docs/validation/ants-ai.md",
+    "sha256": "380cb87a2a8edcdcf84ea0124d6eab9c836015c91be1c41fa09934328427f3e2",
+    "generated": "2026-10-21",
+    "larmorx_commit": "1dfe56c0dc60"
+   },
+   {
+    "path": "docs/validation/ants-affine-initializer.json",
+    "sha256": "3fcc9e6256529812bf6d64d5ff878b92248f0624fb7ab6c0e71bf4f860d8f294",
+    "generated": "2026-10-17",
+    "larmorx_commit": "61309dd10e0e"
+   },
+   {
+    "path": "docs/validation/ants-affine-initializer.md",
+    "sha256": "c76d4a6c0dbf25338fc98c8f71ea26506230788af90076ba747e46908193b1c6",
+    "generated": "2026-10-17",
+    "larmorx_commit": "61309dd10e0e"
+   }
+  ],
+  "benchmarks": [],
+  "cache": [
+   {
+    "entry": "ants-ai/fmriprep-ds000005-init-aff",
+    "description": "fMRIPrep's init_aff (antsAI) of ds000005 sub-01's brain extraction and niworkflows' antsAffineInitializer on the same images: fMRIPrep, ANTs 2.6.5, larmorx",
+    "computed": "2026-10-21T15:17:05+00:00",
+    "larmorx_commit": "1dfe56c0dc60ada5ef8938a87387bee37fd1b799",
+    "commands": [
+     {
+      "label": "ai-ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAI",
+       "-c",
+       "[10,1e-06,10]",
+       "-d",
+       "3",
+       "-x",
+       "<testdata-cache>/templateflow/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_desc-BrainCerebellumExtraction_mask.nii.gz",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz,<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz,32,Regular,0.25]",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/ai-ants-1.mat",
+       "-p",
+       "0",
+       "-s",
+       "[15,0.1]",
+       "-g",
+       "[40.0,0x40x40]",
+       "-t",
+       "Affine[0.1]",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ANTS_RANDOM_SEED": "50495",
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 142.11
+     },
+     {
+      "label": "ai-ants-8",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAI",
+       "-c",
+       "[10,1e-06,10]",
+       "-d",
+       "3",
+       "-x",
+       "<testdata-cache>/templateflow/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_desc-BrainCerebellumExtraction_mask.nii.gz",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz,<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz,32,Regular,0.25]",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/ai-ants-8.mat",
+       "-p",
+       "0",
+       "-s",
+       "[15,0.1]",
+       "-g",
+       "[40.0,0x40x40]",
+       "-t",
+       "Affine[0.1]",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ANTS_RANDOM_SEED": "50495",
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8"
+      },
+      "exit": 0,
+      "seconds": 76.15
+     },
+     {
+      "label": "ai-ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAI",
+       "-c",
+       "[10,1e-06,10]",
+       "-d",
+       "3",
+       "-x",
+       "<testdata-cache>/templateflow/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_desc-BrainCerebellumExtraction_mask.nii.gz",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz,<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz,32,Regular,0.25]",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/ai-ants-1-cr.mat",
+       "-p",
+       "0",
+       "-s",
+       "[15,0.1]",
+       "-g",
+       "[40.0,0x40x40]",
+       "-t",
+       "Affine[0.1]",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ANTS_RANDOM_SEED": "50495",
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 146.29
+     },
+     {
+      "label": "ai-larmorx",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsAI",
+       "-c",
+       "[10,1e-06,10]",
+       "-d",
+       "3",
+       "-x",
+       "<testdata-cache>/templateflow/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_desc-BrainCerebellumExtraction_mask.nii.gz",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz,<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz,32,Regular,0.25]",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/ai-larmorx.mat",
+       "-p",
+       "0",
+       "-s",
+       "[15,0.1]",
+       "-g",
+       "[40.0,0x40x40]",
+       "-t",
+       "Affine[0.1]",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ANTS_RANDOM_SEED": "50495",
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 126.7
+     },
+     {
+      "label": "ai-larmorx-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsAI",
+       "-c",
+       "[10,1e-06,10]",
+       "-d",
+       "3",
+       "-x",
+       "<testdata-cache>/templateflow/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_desc-BrainCerebellumExtraction_mask.nii.gz",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz,<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz,32,Regular,0.25]",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/ai-larmorx-1.mat",
+       "-p",
+       "0",
+       "-s",
+       "[15,0.1]",
+       "-g",
+       "[40.0,0x40x40]",
+       "-t",
+       "Affine[0.1]",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ANTS_RANDOM_SEED": "50495",
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 132.71
+     },
+     {
+      "label": "ai-larmorx-fix",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsAI",
+       "-c",
+       "[10,1e-06,10]",
+       "-d",
+       "3",
+       "-x",
+       "<testdata-cache>/templateflow/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_desc-BrainCerebellumExtraction_mask.nii.gz",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz,<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz,32,Regular,0.25]",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/ai-larmorx-fix.mat",
+       "-p",
+       "0",
+       "-s",
+       "[15,0.1]",
+       "-g",
+       "[40.0,0x40x40]",
+       "-t",
+       "Affine[0.1]",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ANTS_RANDOM_SEED": "50495",
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 117.42
+     },
+     {
+      "label": "init-ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAffineInitializer",
+       "3",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/init-ants-1.mat",
+       "15",
+       "0.1",
+       "0",
+       "10"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 11.9
+     },
+     {
+      "label": "init-ants-8",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAffineInitializer",
+       "3",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/init-ants-8.mat",
+       "15",
+       "0.1",
+       "0",
+       "10"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8"
+      },
+      "exit": 0,
+      "seconds": 3.36
+     },
+     {
+      "label": "init-ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAffineInitializer",
+       "3",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/init-ants-1-cr.mat",
+       "15",
+       "0.1",
+       "0",
+       "10"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 10.58
+     },
+     {
+      "label": "init-larmorx",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsAffineInitializer",
+       "3",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/init-larmorx.mat",
+       "15",
+       "0.1",
+       "0",
+       "10"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 24.69
+     },
+     {
+      "label": "init-larmorx-fix",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsAffineInitializer",
+       "3",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/init-larmorx-fix.mat",
+       "15",
+       "0.1",
+       "0",
+       "10"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 7.13
+     },
+     {
+      "label": "place-identity",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/place-identity.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.07
+     },
+     {
+      "label": "place-fmriprep",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/init_aff/initialization.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/place-fmriprep.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.07
+     },
+     {
+      "label": "place-ai-ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/ai-ants-1.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/place-ai-ants-1.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.07
+     },
+     {
+      "label": "place-ai-ants-8",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/ai-ants-8.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/place-ai-ants-8.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.07
+     },
+     {
+      "label": "place-ai-ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/ai-ants-1-cr.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/place-ai-ants-1-cr.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.07
+     },
+     {
+      "label": "place-ai-larmorx",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/ai-larmorx.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/place-ai-larmorx.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.08
+     },
+     {
+      "label": "place-init-ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/init-ants-1.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/place-init-ants-1.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.06
+     },
+     {
+      "label": "place-init-larmorx",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/init-larmorx.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/place-init-larmorx.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.06
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "seed": "ANTS_RANDOM_SEED=50495 (fMRIPrep's, from the node's report)",
+    "threads": {
+     "ants": [
+      1,
+      8
+     ],
+     "larmorx": [
+      8,
+      1
+     ],
+     "fmriprep_run": 8
+    },
+    "settings": "fMRIPrep 25.2.6's init_aff (antsAI) of the brain extraction of ds000005-sub-01-noreconall: its arguments, inputs and seed; niworkflows' antsAffineInitializer arguments (15 0.1 0 10) on the same images; each transform applied to the moving image by antsApplyTransforms (ANTs as built, linear, one thread)"
+   },
+   {
+    "entry": "ants-ai/fmriprep-ds000005-init-aff-placed",
+    "description": "the T1w × its brain mask placed on the template by each transform of the init_aff entry",
+    "computed": "2026-10-21T15:21:42+00:00",
+    "larmorx_commit": "1dfe56c0dc60ada5ef8938a87387bee37fd1b799",
+    "commands": [
+     {
+      "label": "mask-on-moving",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-brain_mask.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "-n",
+       "NearestNeighbor",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff-placed/mask-on-moving.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.08
+     },
+     {
+      "label": "place-identity",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff-placed/moving-masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff-placed/place-identity.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.05
+     },
+     {
+      "label": "place-fmriprep",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff-placed/moving-masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/init_aff/initialization.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff-placed/place-fmriprep.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.05
+     },
+     {
+      "label": "place-ai-ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff-placed/moving-masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/ai-ants-1.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff-placed/place-ai-ants-1.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.04
+     },
+     {
+      "label": "place-ai-ants-8",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff-placed/moving-masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/ai-ants-8.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff-placed/place-ai-ants-8.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.04
+     },
+     {
+      "label": "place-ai-ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff-placed/moving-masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/ai-ants-1-cr.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff-placed/place-ai-ants-1-cr.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.05
+     },
+     {
+      "label": "place-ai-larmorx",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff-placed/moving-masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/ai-larmorx.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff-placed/place-ai-larmorx.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.05
+     },
+     {
+      "label": "place-init-ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff-placed/moving-masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/init-ants-1.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff-placed/place-init-ants-1.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.04
+     },
+     {
+      "label": "place-init-larmorx",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff-placed/moving-masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff/init-larmorx.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/fmriprep-ds000005-init-aff-placed/place-init-larmorx.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.04
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "settings": "the moving image of fMRIPrep's init_aff times fMRIPrep's T1w brain mask (antsApplyTransforms, nearest neighbour, onto the moving grid), placed on the fixed grid by each transform of ants-ai/fmriprep-ds000005-init-aff (antsApplyTransforms, linear, one thread)"
+   }
+  ],
+  "command": "python -m larmorx_validation evidence ants-ai --site <site>"
+ },
+ "implementations": [
+  {
+   "id": "ai",
+   "label": "antsAI (port)",
+   "short": "antsAI",
+   "record": "docs/validation/ants-ai.md",
+   "status": "validated",
+   "summary": {
+    "cases": 102,
+    "verdicts": {
+     "bit-identical": 51,
+     "identical-cr": 1,
+     "both-reject": 46,
+     "divergence": 4
+    }
+   },
+   "agreement": [
+    {
+     "category": "initial",
+     "counts": {
+      "bit-identical": 8,
+      "identical-cr": 1
+     }
+    },
+    {
+     "category": "search",
+     "counts": {
+      "bit-identical": 38
+     }
+    },
+    {
+     "category": "messages",
+     "counts": {
+      "bit-identical": 3,
+      "divergence": 2,
+      "both-reject": 46
+     }
+    },
+    {
+     "category": "random",
+     "counts": {
+      "divergence": 2
+     }
+    },
+    {
+     "category": "real",
+     "counts": {
+      "bit-identical": 2
+     }
+    }
+   ],
+   "name": "ants-ai"
+  },
+  {
+   "id": "init",
+   "label": "antsAffineInitializer (port)",
+   "short": "antsAffineInitializer",
+   "record": "docs/validation/ants-affine-initializer.md",
+   "status": "validated",
+   "summary": {
+    "cases": 41,
+    "verdicts": {
+     "bit-identical": 26,
+     "both-reject": 13,
+     "divergence": 2
+    }
+   },
+   "agreement": [
+    {
+     "category": "messages",
+     "counts": {
+      "bit-identical": 4,
+      "divergence": 2,
+      "both-reject": 13
+     }
+    },
+    {
+     "category": "search",
+     "counts": {
+      "bit-identical": 21
+     }
+    },
+    {
+     "category": "real",
+     "counts": {
+      "bit-identical": 1
+     }
+    }
+   ],
+   "name": "ants-affine-initializer"
+  }
+ ],
+ "cases_per_impl": true,
+ "cases": [
+  {
+   "id": "antsAI/initial/rigid",
+   "category": "initial",
+   "description": "Rigid, no search: the centres of mass",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/initial/rigid-principal-axes",
+   "category": "initial",
+   "description": "Rigid from the principal axes (Wahba)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/initial/affine-principal-axes",
+   "category": "initial",
+   "description": "Affine from the principal axes",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/initial/similarity-principal-axes",
+   "category": "initial",
+   "description": "Similarity from the principal axes (Similarity3D's matrix: cbrt)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "11/11",
+     "reason": "differs from ANTs as built in t.mat; identical to ANTs with CORE-MATH preloaded"
+    }
+   }
+  },
+  {
+   "id": "antsAI/initial/geometric-centers",
+   "category": "initial",
+   "description": "AlignGeometricCenters",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/initial/centers-of-mass",
+   "category": "initial",
+   "description": "AlignCentersOfMass",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/initial/2d-rigid-principal-axes",
+   "category": "initial",
+   "description": "2D Rigid from the principal axes",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/initial/2d-centers-of-mass-txt",
+   "category": "initial",
+   "description": "2D AlignCentersOfMass, a text file",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/initial/h5",
+   "category": "initial",
+   "description": "Affine from the principal axes into an HDF5 file",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/rigid-grid",
+   "category": "search",
+   "description": "Rigid search with a translation grid",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/similarity",
+   "category": "search",
+   "description": "Similarity search",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/affine-mi",
+   "category": "search",
+   "description": "Affine search, joint-histogram MI",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/rigid-gc",
+   "category": "search",
+   "description": "Rigid search from the principal axes, GC",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/affine-oblique",
+   "category": "search",
+   "description": "Affine search on oblique grids (1.5 x 1.2 x 2 mm)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/masks",
+   "category": "search",
+   "description": "Affine search with fixed and moving masks",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/fixed-mask",
+   "category": "search",
+   "description": "Rigid search with a fixed mask",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/missing-mask",
+   "category": "search",
+   "description": "A mask that cannot be read is no mask",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/dense",
+   "category": "search",
+   "description": "Rigid search over every voxel (no sampling)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/gc-dense",
+   "category": "search",
+   "description": "GC over every voxel",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/2d-affine-grid",
+   "category": "search",
+   "description": "2D Affine search with a translation grid",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/2d-rigid-grid",
+   "category": "search",
+   "description": "2D Rigid with a translation grid (ANTS-52: the grid is ignored)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/2d-rigid",
+   "category": "search",
+   "description": "2D Rigid from the principal axes",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/2d-similarity-gc",
+   "category": "search",
+   "description": "2D Similarity, GC over every pixel",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/2d-mi-dense",
+   "category": "search",
+   "description": "2D Affine, MI over every pixel",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/similarity-grid",
+   "category": "search",
+   "description": "3D Similarity with a translation grid (ANTS-52: the grid is ignored)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/grid-two-extents",
+   "category": "search",
+   "description": "A grid of two extents in 3D (ANTS-55: the third is read past the end)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/grid-one-extent",
+   "category": "search",
+   "description": "A grid of one extent in 3D (ANTS-55)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/arc-zero",
+   "category": "search",
+   "description": "An arc fraction of 0: one angle per axis",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/arc-wide",
+   "category": "search",
+   "description": "An arc fraction of 3 (beyond a full turn)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/seed",
+   "category": "search",
+   "description": "--random-seed 7",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/env-seed",
+   "category": "search",
+   "description": "ANTS_RANDOM_SEED=99",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/env-seed-prefix",
+   "category": "search",
+   "description": "ANTS_RANDOM_SEED=12abc (std::stoi reads 12)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/percentage-above-one",
+   "category": "search",
+   "description": "Regular sampling of 5 (every voxel)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/quiet",
+   "category": "search",
+   "description": "Without -v: nothing printed",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/txt",
+   "category": "search",
+   "description": "A text transform file",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/h5",
+   "category": "search",
+   "description": "An HDF5 transform file (no compression after a search)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/plain-values",
+   "category": "search",
+   "description": "-s 90 and -c 2 without brackets",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/two-outputs",
+   "category": "search",
+   "description": "Two -o: the last is written",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/verbose-last",
+   "category": "search",
+   "description": "-v 1 -v 0: the last one counts",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/unknown-metric-initial",
+   "category": "search",
+   "description": "An unknown metric with 0 iterations: the metric is not used",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/empty-start-list-no-output",
+   "category": "search",
+   "description": "A negative arc fraction without -o: no start point, nothing written",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/align-with-iterations",
+   "category": "search",
+   "description": "AlignGeometricCenters with iterations (ANTS-53: an empty .mat)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/align-with-iterations-quiet",
+   "category": "search",
+   "description": "AlignGeometricCenters with iterations, without -v (ANTS-53)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/align-with-iterations-2d-gc",
+   "category": "search",
+   "description": "2D AlignCentersOfMass with iterations, GC (ANTS-53)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/align-with-iterations-no-start",
+   "category": "search",
+   "description": "AlignGeometricCenters with iterations and a negative arc (ANTS-53)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/gc-empty-mask-dense",
+   "category": "search",
+   "description": "GC over every voxel with an empty fixed mask: no valid point, the maximum value",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/search/mi-empty-mask-dense",
+   "category": "search",
+   "description": "MI over every voxel with an empty fixed mask (ITK-19: every start point keeps the first value)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/no-arguments",
+   "category": "messages",
+   "description": "No arguments: the short menu, exit 1",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "Print the help menu."
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/h",
+   "category": "messages",
+   "description": "-h: the short menu",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/help",
+   "category": "messages",
+   "description": "--help: the long menu",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/help-0",
+   "category": "messages",
+   "description": "--help 0: nothing to do (ANTS-45)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "Image dimensionality not specified. See command line option --dimensionality"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/h-0",
+   "category": "messages",
+   "description": "-h 0 (ANTS-45)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "Image dimensionality not specified. See command line option --dimensionality"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/no-dimension",
+   "category": "messages",
+   "description": "No -d",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "Image dimensionality not specified. See command line option --dimensionality"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/dimension-4",
+   "category": "messages",
+   "description": "-d 4",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "Unrecognized dimensionality. Please see help menu."
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/dimension-1",
+   "category": "messages",
+   "description": "-d 1",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "Unrecognized dimensionality. Please see help menu."
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/no-metric",
+   "category": "messages",
+   "description": "No -m",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "Input metric not specified."
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/no-metric-quiet",
+   "category": "messages",
+   "description": "No -m, without -v",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/2",
+     "reason": "Input metric not specified."
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/one-image",
+   "category": "messages",
+   "description": "-m with one image",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "Fixed and/or moving images not specified."
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/unknown-sampling",
+   "category": "messages",
+   "description": "An unknown sampling",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "Unrecognized sampling strategy."
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/unknown-transform",
+   "category": "messages",
+   "description": "An unknown transform",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "Unrecognized transform option."
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/unknown-transform-quiet",
+   "category": "messages",
+   "description": "An unknown transform, without -v (ANTS-45)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "Unrecognized transform option."
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/no-transform",
+   "category": "messages",
+   "description": "No -t",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "Unrecognized transform option."
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/unknown-metric",
+   "category": "messages",
+   "description": "An unknown metric with iterations",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "ERROR: Unrecognized metric."
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/unknown-metric-align",
+   "category": "messages",
+   "description": "An unknown metric, AlignCentersOfMass with iterations",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "ERROR: Unrecognized metric."
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/two-blobs",
+   "category": "messages",
+   "description": "-b 2: too few blobs",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "Please specify a greater number of blobs (>=3)."
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/two-blobs-bracket",
+   "category": "messages",
+   "description": "-b [2,5]",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "Please specify a greater number of blobs (>=3)."
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/unknown-flag",
+   "category": "messages",
+   "description": "An unknown flag",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "ERROR: Invalid flag provided bogus"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/missing-fixed",
+   "category": "messages",
+   "description": "A fixed image that does not exist",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/missing-moving-geometry",
+   "category": "messages",
+   "description": "AlignGeometricCenters with a missing moving image",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/missing-fixed-mass",
+   "category": "messages",
+   "description": "AlignCentersOfMass with a missing fixed image",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/bad-iterations",
+   "category": "messages",
+   "description": "-c 1o: the parser's conversion fails",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/bad-bins",
+   "category": "messages",
+   "description": "32 bins written 3x2",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/unbalanced-bracket",
+   "category": "messages",
+   "description": "An unbalanced bracket",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/bad-seed",
+   "category": "messages",
+   "description": "--random-seed 1x",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/bad-env-seed",
+   "category": "messages",
+   "description": "ANTS_RANDOM_SEED=abc (std::stoi throws)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/env-seed-range",
+   "category": "messages",
+   "description": "ANTS_RANDOM_SEED out of int's range",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/zero-moving-mass",
+   "category": "messages",
+   "description": "AlignCentersOfMass, a moving image of zeros",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/zero-moving-geometry",
+   "category": "messages",
+   "description": "AlignGeometricCenters, a moving image of zeros: no moments needed",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/zero-principal-axes",
+   "category": "messages",
+   "description": "Principal axes of an image of zeros",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/zero-fixed-search",
+   "category": "messages",
+   "description": "A search from a fixed image of zeros",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/unknown-extension",
+   "category": "messages",
+   "description": "An output name no writer takes",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/no-directory",
+   "category": "messages",
+   "description": "An output in a directory that does not exist",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/align-iterations-unknown-extension",
+   "category": "messages",
+   "description": "ANTS-53 with an output name no writer takes",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: upstream defect ANTS-53 (antsAI) reproduced: AlignGeometricCenters and AlignCentersOfMass with iterations write no transform, as in ANTs [LARMORX_UPSTREAM_DEFECTS=fix corrects it]"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/align-iterations-txt",
+   "category": "messages",
+   "description": "ANTS-53 into a text file: ITK's writer reads an empty list",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: upstream defect ANTS-53 (antsAI) reproduced: AlignGeometricCenters and AlignCentersOfMass with iterations write no transform, as in ANTs [LARMORX_UPSTREAM_DEFECTS=fix corrects it]"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/align-iterations-h5",
+   "category": "messages",
+   "description": "ANTS-53 into an HDF5 file",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: upstream defect ANTS-53 (antsAI) reproduced: AlignGeometricCenters and AlignCentersOfMass with iterations write no transform, as in ANTs [LARMORX_UPSTREAM_DEFECTS=fix corrects it]"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/empty-start-list",
+   "category": "messages",
+   "description": "A negative arc fraction: no start point, the best of an empty list",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: no start point (a negative arc fraction or translation grid): ANTs reads the best parameters from an empty list and crashes"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/empty-grid",
+   "category": "messages",
+   "description": "A negative grid extent: no start point",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: no start point (a negative arc fraction or translation grid): ANTs reads the best parameters from an empty list and crashes"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/empty-sample-mattes",
+   "category": "messages",
+   "description": "Regular sampling inside an empty mask: no sample point",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/empty-sample-mi",
+   "category": "messages",
+   "description": "The same with MI",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/empty-sample-gc",
+   "category": "messages",
+   "description": "The same with GC",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/empty-sample-align",
+   "category": "messages",
+   "description": "No sample point, AlignGeometricCenters with iterations",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: upstream defect ANTS-53 (antsAI) reproduced: AlignGeometricCenters and AlignCentersOfMass with iterations write no transform, as in ANTs [LARMORX_UPSTREAM_DEFECTS=fix corrects it]"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/random-zero",
+   "category": "messages",
+   "description": "Random sampling of 0: no sample point",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/mattes-empty-mask-dense",
+   "category": "messages",
+   "description": "Mattes over every voxel with an empty fixed mask (ITK-20: the second start point crashes)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: start point 0 threw (Negative spacing is not supported and may result in undefined behavior. Refusing to change spacing from [1, 1] to [-2.43059e+37, 33.1286]); ITK's Mattes metric is"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/mattes-empty-moving-mask",
+   "category": "messages",
+   "description": "Mattes with an empty moving mask (ITK-20)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: start point 0 threw (Negative spacing is not supported and may result in undefined behavior. Refusing to change spacing from [1, 1] to [16.229, -2.43059e+37]); ITK's Mattes metric is"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/mattes-one-start-point",
+   "category": "messages",
+   "description": "Mattes with an empty mask and one start point: the best value of an empty list",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: every start point threw: ANTs' observer reads the best metric value from an empty list and crashes"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/percentage-zero",
+   "category": "messages",
+   "description": "Regular sampling of 0 (ANTS-06), one sample point: one intensity (ITK-20)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: upstream defect ANTS-06 (ANTs) reproduced: the Regular sampling step: unsigned long of inf is undefined; 9223372036854775808, as x86-64 converts it [LARMORX_UPSTREAM_DEFECTS=fix corrects it]"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/search-factor-negative",
+   "category": "messages",
+   "description": "A negative search factor: ANTs' loop never ends",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "2/2",
+     "reason": "ANTs never finishes (class (a)); larmorx refuses"
+    }
+   }
+  },
+  {
+   "id": "antsAI/messages/translation-step-zero",
+   "category": "messages",
+   "description": "A translation step of 0: ANTs' loop never ends",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "2/2",
+     "reason": "ANTs never finishes (class (a)); larmorx refuses"
+    }
+   }
+  },
+  {
+   "id": "antsAI/random/random-sampling",
+   "category": "random",
+   "description": "Random sampling: ANTs draws the voxels from the clock (ANTS-58)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "3/3",
+     "reason": "ANTs seeds from the clock (ANTS-58): two runs differ; larmorx is repeatable"
+    }
+   }
+  },
+  {
+   "id": "antsAI/random/seed-zero",
+   "category": "random",
+   "description": "--random-seed 0: ANTs seeds Regular sampling from the clock (ANTS-58)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "3/3",
+     "reason": "ANTs seeds from the clock (ANTS-58): two runs differ; larmorx is repeatable"
+    }
+   }
+  },
+  {
+   "id": "antsAI/real/ds000005-sub-01/brain-extraction",
+   "category": "real",
+   "description": "fMRIPrep's init_aff, brain extraction, with fMRIPrep's seed",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+    }
+   },
+   "example": "init-aff"
+  },
+  {
+   "id": "antsAI/real/ds000005-sub-01/bold-mixedgamblestask-run-01",
+   "category": "real",
+   "description": "fMRIPrep's init_aff, BOLD reference (mixedgamblestask_run_01), with fMRIPrep's seed",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/no-arguments",
+   "category": "messages",
+   "description": "No arguments: the usage, exit 0",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/dimension-only",
+   "category": "messages",
+   "description": "One argument: the usage, exit 0",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/two-arguments",
+   "category": "messages",
+   "description": "Two arguments: std::string of a null pointer (ANTS-57)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/three-arguments",
+   "category": "messages",
+   "description": "Three arguments (ANTS-57)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/dimension-text",
+   "category": "messages",
+   "description": "A dimension std::stoi cannot read",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/dimension-range",
+   "category": "messages",
+   "description": "A dimension beyond int's range",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/dimension-5",
+   "category": "messages",
+   "description": "Dimension 5 runs as 2D (ANTS-56)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/dimension-1",
+   "category": "messages",
+   "description": "Dimension 1 runs as 2D (ANTS-56)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/principal-axes-text",
+   "category": "messages",
+   "description": "A principal-axes flag std::stoi cannot read",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/missing-fixed",
+   "category": "messages",
+   "description": "A fixed image that does not exist",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/missing-moving",
+   "category": "messages",
+   "description": "A moving image that does not exist",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/zero-fixed",
+   "category": "messages",
+   "description": "A fixed image of zeros",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/zero-moving",
+   "category": "messages",
+   "description": "A moving image of zeros",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/unknown-extension",
+   "category": "messages",
+   "description": "An output name no writer takes",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/no-directory",
+   "category": "messages",
+   "description": "An output in a directory that does not exist",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/search-factor-zero",
+   "category": "messages",
+   "description": "A search factor of 0: ANTs' loop never ends",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "2/2",
+     "reason": "ANTs never finishes (class (a)); larmorx refuses"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/search-factor-text",
+   "category": "messages",
+   "description": "A search factor atof reads as 0: ANTs' loop never ends",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "2/2",
+     "reason": "ANTs never finishes (class (a)); larmorx refuses"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/search-factor-nan",
+   "category": "messages",
+   "description": "A search factor that is not a number: no start point",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "larmorx: antsAffineInitializer: no start point (a search factor or radian fraction that is not a number): ANTs reads the best parameters from an empty list and crashes"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/messages/radian-fraction-nan",
+   "category": "messages",
+   "description": "A radian fraction that is not a number: no start point",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "larmorx: antsAffineInitializer: no start point (a search factor or radian fraction that is not a number): ANTs reads the best parameters from an empty list and crashes"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/defaults",
+   "category": "search",
+   "description": "3D, every default (10 degrees, pi/4)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/niworkflows",
+   "category": "search",
+   "description": "niworkflows' arguments (15 0.1 0 10)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/principal-axes",
+   "category": "search",
+   "description": "From the principal axes",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/principal-axes-mask",
+   "category": "search",
+   "description": "From the principal axes, a fixed mask",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/missing-mask",
+   "category": "search",
+   "description": "A mask that cannot be read is no mask",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/fraction-above-one",
+   "category": "search",
+   "description": "A radian fraction of 5 (clamped to 1)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/fraction-below-minimum",
+   "category": "search",
+   "description": "A radian fraction of 0.001 (clamped to 0.01)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/local-search-text",
+   "category": "search",
+   "description": "A local-search argument that is not read (ANTS-54; corrected: an error)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/local-search-zero",
+   "category": "search",
+   "description": "A local search of 0 iterations (ANTS-54; corrected: start points only evaluated)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/local-search-negative",
+   "category": "search",
+   "description": "A negative local search (ANTS-54; corrected: an error)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/local-search-20",
+   "category": "search",
+   "description": "A local search of 20 iterations, ANTs' own (only ITK-21 can differ)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/principal-axes-2",
+   "category": "search",
+   "description": "A principal-axes flag of 2 (true)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/dimension-text-prefix",
+   "category": "search",
+   "description": "A dimension of 3x (std::stoi reads 3)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/2d",
+   "category": "search",
+   "description": "2D from the principal axes",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/2d-defaults",
+   "category": "search",
+   "description": "2D, every default",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/4d",
+   "category": "search",
+   "description": "4D: the initial alignment only",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/4d-principal-axes",
+   "category": "search",
+   "description": "4D from the principal axes",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/oblique",
+   "category": "search",
+   "description": "Oblique grids, from the principal axes",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/txt",
+   "category": "search",
+   "description": "A text transform file",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/h5",
+   "category": "search",
+   "description": "An HDF5 transform file",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/search/extra-arguments",
+   "category": "search",
+   "description": "Arguments after the mask are ignored",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/real/mni-2mm",
+   "category": "real",
+   "description": "niworkflows' arguments on the 2 mm MNI template and fMRIPrep's preprocessed T1w (ds000005)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  }
+ ],
+ "cases_total": 143,
+ "examples": [
+  {
+   "id": "init-aff",
+   "title": "The initial transform of sMRIPrep's brain extraction, by fMRIPrep, ANTs and larmorx",
+   "summary": "fMRIPrep 25.2.6's `init_aff` node (antsAI's multi-start search: rotations around the principal axes, an Affine local search with Mattes MI) on OpenNeuro ds000005 sub-01, with its arguments, inputs and seed; and niworkflows' antsAffineInitializer call on the same images. Each transform is shown as the T1w it places on the template (resampled by ANTs as built, linear), as its parameters and as distances in mm.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01's T1w (PDDL-1.0); the OASIS30ANTs template (Avants et al., CC BY 4.0, TemplateFlow); shown inside the template's brain mask, dilated by 2 voxels"
+    },
+    {
+     "label": "Node",
+     "text": "fMRIPrep 25.2.6, `anat_fit_wf/brain_extraction_wf/init_aff`, `NSLOTS=8`"
+    },
+    {
+     "label": "Command",
+     "text": "`antsAI -c [10,1e-06,10] -d 3 -x /templateflow/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_desc-BrainCerebellumExtraction_mask.nii.gz -m Mattes[…/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz,…/res_target/sub-01_T1w_noise_corrected_maths_corrected_regrid.nii.gz,32,Regular,0.25] -o initialization.mat -p 0 -s [15,0.1] -g [40.0,0x40x40] -t Affine[0.1] -v 1`"
+    },
+    {
+     "label": "Also",
+     "text": "`antsAffineInitializer 3 <fixed> <moving> out.mat 15 0.1 0 10` (niworkflows' arguments; fMRIPrep 25.2.6 does not call it here)"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0, ANTS_RANDOM_SEED=50495 (fMRIPrep's, from the node's report); larmorx at commit `1dfe56c0dc60`"
+    },
+    {
+     "label": "Grid",
+     "text": "54 × 73 × 64 voxels of 4 × 4 × 4 mm; shown: 54 × 71 × 61 around the brain"
+    }
+   ],
+   "grid": {
+    "shape": [
+     54,
+     71,
+     61
+    ],
+    "spacing": [
+     4.0,
+     4.0,
+     4.0
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      3
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      4.0,
+      0.0,
+      0.0,
+      -215.0
+     ],
+     [
+      0.0,
+      4.0,
+      0.0,
+      -293.5
+     ],
+     [
+      0.0,
+      0.0,
+      4.0,
+      -243.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     54,
+     73,
+     64
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "95acac3a4e1703b34622d5c9.bin",
+    "dtype": "u1",
+    "bytes": 2798
+   },
+   "outputs": [
+    {
+     "id": "placed",
+     "label": "T1w placed on the template",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 306.8763328552246
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 328.0460205078125
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "fixed",
+     "role": "input",
+     "label": "OASIS30ANTs template (fixed)",
+     "sub": "as fMRIPrep resampled it for this call",
+     "arrays": {
+      "all": {
+       "blob": "e474123e773f8c2c58b7c096.bin",
+       "dtype": "f4",
+       "bytes": 345828
+      }
+     },
+     "window": [
+      0.0,
+      14.205178761482223
+     ]
+    },
+    {
+     "id": "moving",
+     "role": "input",
+     "label": "ds000005 sub-01 T1w (moving), unaligned",
+     "sub": "N4-corrected, resampled by fMRIPrep; × its brain mask for display; no transform",
+     "arrays": {
+      "all": {
+       "blob": "59e16966bb64b20fdebf6e6f.bin",
+       "dtype": "f4",
+       "bytes": 946
+      }
+     },
+     "window": [
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "antsAI: larmorx (port)",
+     "sub": "the T1w placed by its transform; reproduce mode, 8 threads",
+     "arrays": {
+      "placed": {
+       "blob": "27fb94e09683185147b190dd.bin",
+       "dtype": "f4",
+       "bytes": 89980
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       306.8763328552246
+      ]
+     }
+    },
+    {
+     "id": "ants-1",
+     "role": "original",
+     "label": "antsAI: ANTs 2.6.5, 1 thread",
+     "sub": "the T1w placed by its transform",
+     "arrays": {
+      "placed": {
+       "same": "larmorx:placed",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       306.8763328552246
+      ]
+     }
+    },
+    {
+     "id": "ants-8",
+     "role": "original",
+     "label": "antsAI: ANTs 2.6.5, 8 threads",
+     "sub": "the T1w placed by its transform",
+     "arrays": {
+      "placed": {
+       "same": "larmorx:placed",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       306.8763328552246
+      ]
+     }
+    },
+    {
+     "id": "fmriprep",
+     "role": "fmriprep",
+     "label": "antsAI: fMRIPrep 25.2.6, as it ran",
+     "sub": "the T1w placed by fMRIPrep's transform (ANTs 2.6.2, 8 threads)",
+     "arrays": {
+      "placed": {
+       "same": "larmorx:placed",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       306.8763328552246
+      ]
+     }
+    },
+    {
+     "id": "init-larmorx",
+     "role": "larmorx",
+     "label": "antsAffineInitializer: larmorx",
+     "sub": "niworkflows' arguments; the T1w placed by its transform",
+     "arrays": {
+      "placed": {
+       "blob": "d3ef42ab6a122287b65b3010.bin",
+       "dtype": "f4",
+       "bytes": 91021
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       306.8998001098633
+      ]
+     }
+    },
+    {
+     "id": "init-ants-1",
+     "role": "original",
+     "label": "antsAffineInitializer: ANTs 2.6.5",
+     "sub": "niworkflows' arguments, 1 thread; the T1w placed",
+     "arrays": {
+      "placed": {
+       "same": "init-larmorx:placed",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       306.8998001098633
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants1",
+     "a": "larmorx",
+     "b": "ants-1",
+     "kind": "main",
+     "label": "antsAI: larmorx − ANTs, 1 thread (placed T1w)",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 252288,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 328.0460205078125,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same transform, byte for byte (the .mat file), so the same placed image."
+    },
+    {
+     "id": "lx-fmriprep",
+     "a": "larmorx",
+     "b": "fmriprep",
+     "kind": "fmriprep",
+     "label": "antsAI: larmorx − fMRIPrep (placed T1w)",
+     "role_label": "larmorx against fMRIPrep",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 252288,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 328.0460205078125,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The placed images are the same bytes. The transforms themselves differ: fMRIPrep's is ANTs at 8 threads, larmorx's ANTs' one-thread result; they send the brain at most 2.5e-13 mm apart, ANTs' own 8 and 1 threads 3.2e-13 mm (the table below), far below what the interpolation sees."
+    },
+    {
+     "id": "init-lx-ants",
+     "a": "init-larmorx",
+     "b": "init-ants-1",
+     "kind": "main",
+     "label": "antsAffineInitializer: larmorx − ANTs (placed T1w)",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 252288,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 342.9956970214844,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same transform, byte for byte (the .mat file), so the same placed image."
+    },
+    {
+     "id": "ants8-ants1",
+     "a": "ants-8",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "antsAI: ANTs 8 threads − 1 thread (placed T1w)",
+     "role_label": "the original against itself",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 252288,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 328.0460205078125,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "The same placed image."
+    },
+    {
+     "id": "fmriprep-ants8",
+     "a": "fmriprep",
+     "b": "ants-8",
+     "kind": "variability",
+     "label": "antsAI: fMRIPrep − ANTs 2.6.5, 8 threads (placed T1w)",
+     "role_label": "the original against itself",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 252288,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 328.0460205078125,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "The same placed image."
+    }
+   ],
+   "default": {
+    "output": "placed",
+    "plane": "axial",
+    "voxel": [
+     42,
+     56,
+     44
+    ],
+    "panels": [
+     "fixed",
+     "moving",
+     "fmriprep",
+     "larmorx"
+    ],
+    "diffs": [
+     "lx-fmriprep",
+     "lx-ants1",
+     "ants8-ants1"
+    ],
+    "compare": {
+     "a": "fixed",
+     "b": "larmorx"
+    },
+    "scale": "log"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 44,
+    "aspect": 0.76056,
+    "panels": {
+     "fixed": "14a3749d8b2b79bd4a5771a2.webp",
+     "moving": "e2a1fa59a7c00fdc630ef1ba.webp",
+     "fmriprep": "5d4902854ddd00806b4c3f2e.webp",
+     "larmorx": "5d4902854ddd00806b4c3f2e.webp"
+    },
+    "diffs": {},
+    "ranges": {},
+    "caption": "Axial slice 45 of 61; the template and the T1w before and after each transform; Checkerboard (under Compare) overlays the template and a placed T1w."
+   },
+   "chain": null,
+   "tables": [
+    {
+     "id": "ai-distance",
+     "title": "Where two transforms send the template's brain apart (mm), and their largest parameter difference",
+     "columns": [
+      {
+       "label": "Comparison"
+      },
+      {
+       "label": "the .mat files"
+      },
+      {
+       "label": "largest distance (mm)",
+       "num": true
+      },
+      {
+       "label": "mean distance (mm)",
+       "num": true
+      },
+      {
+       "label": "largest |Δ parameter|",
+       "num": true
+      }
+     ],
+     "rows": [
+      {
+       "head": "antsAI: larmorx − ANTs, 1 thread",
+       "cells": [
+        {
+         "text": "identical file"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "antsAI: larmorx − ANTs with CORE-MATH",
+       "cells": [
+        {
+         "text": "identical file"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "antsAI: larmorx − fMRIPrep's own",
+       "cells": [
+        {
+         "text": "differ"
+        },
+        {
+         "v": 2.503087863744971e-13,
+         "fmt": "sig"
+        },
+        {
+         "v": 1.7180860616871462e-13,
+         "fmt": "sig"
+        },
+        {
+         "v": 1.5631940186722204e-13,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "antsAI: larmorx 1 thread − 8 threads",
+       "cells": [
+        {
+         "text": "identical file"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "antsAI: larmorx default − reproduce",
+       "sub": "no correction applies",
+       "cells": [
+        {
+         "text": "identical file"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "antsAI: ANTs 8 threads − 1 thread",
+       "class": "is-sep is-yardstick",
+       "cells": [
+        {
+         "text": "differ"
+        },
+        {
+         "v": 3.243687902600336e-13,
+         "fmt": "sig"
+        },
+        {
+         "v": 2.407491684110834e-13,
+         "fmt": "sig"
+        },
+        {
+         "v": 2.1316282072803006e-13,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "antsAI: fMRIPrep − ANTs 2.6.5, 8 threads",
+       "class": "is-yardstick",
+       "cells": [
+        {
+         "text": "differ"
+        },
+        {
+         "v": 1.763520692462472e-13,
+         "fmt": "sig"
+        },
+        {
+         "v": 1.233268741624232e-13,
+         "fmt": "sig"
+        },
+        {
+         "v": 8.526512829121202e-14,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "antsAffineInitializer: larmorx − ANTs",
+       "class": "is-sep",
+       "cells": [
+        {
+         "text": "identical file"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "antsAffineInitializer: larmorx − ANTs with CORE-MATH",
+       "cells": [
+        {
+         "text": "identical file"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "antsAffineInitializer: larmorx default − reproduce",
+       "sub": "ANTS-54, ITK-21 corrected (D13)",
+       "cells": [
+        {
+         "text": "differ"
+        },
+        {
+         "v": 0.059256655188961484,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.054475696444547445,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.032031693853184606,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "antsAffineInitializer: ANTs 8 threads − 1 thread",
+       "class": "is-yardstick",
+       "cells": [
+        {
+         "text": "identical file"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      }
+     ],
+     "note": "Over the 91,797 voxels of the template's brain (OASIS30ANTs' BrainCerebellumExtraction mask, the call's -x) on this grid: each transform maps them into the T1w's space; the distance is between the two images of each point. The shaded rows are ANTs against itself."
+    },
+    {
+     "id": "ai-params",
+     "title": "The transforms' parameters (antsAI's Affine, as written: ITK's AffineTransform, LPS)",
+     "columns": [
+      {
+       "label": "Parameter"
+      },
+      {
+       "label": "fMRIPrep (ANTs 2.6.2, 8 threads)",
+       "num": true
+      },
+      {
+       "label": "ANTs 2.6.5, 1 thread",
+       "num": true
+      },
+      {
+       "label": "larmorx",
+       "num": true
+      },
+      {
+       "label": "larmorx − fMRIPrep",
+       "num": true
+      },
+      {
+       "label": "larmorx − ANTs, 1 thread",
+       "num": true
+      }
+     ],
+     "rows": [
+      {
+       "head": "matrix 1,1",
+       "cells": [
+        {
+         "v": 1.0417554476499045,
+         "fmt": "f64"
+        },
+        {
+         "v": 1.041755447649904,
+         "fmt": "f64"
+        },
+        {
+         "v": 1.041755447649904,
+         "fmt": "f64"
+        },
+        {
+         "v": -4.440892098500626e-16,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "matrix 1,2",
+       "cells": [
+        {
+         "v": -0.02848817664144569,
+         "fmt": "f64"
+        },
+        {
+         "v": -0.028488176641446185,
+         "fmt": "f64"
+        },
+        {
+         "v": -0.028488176641446185,
+         "fmt": "f64"
+        },
+        {
+         "v": -4.961309141293668e-16,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "matrix 1,3",
+       "cells": [
+        {
+         "v": 0.004067768170945161,
+         "fmt": "f64"
+        },
+        {
+         "v": 0.004067768170945299,
+         "fmt": "f64"
+        },
+        {
+         "v": 0.004067768170945299,
+         "fmt": "f64"
+        },
+        {
+         "v": 1.3791051634015616e-16,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "matrix 2,1",
+       "cells": [
+        {
+         "v": 0.050306042176157084,
+         "fmt": "f64"
+        },
+        {
+         "v": 0.05030604217615654,
+         "fmt": "f64"
+        },
+        {
+         "v": 0.05030604217615654,
+         "fmt": "f64"
+        },
+        {
+         "v": -5.412337245047638e-16,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "matrix 2,2",
+       "cells": [
+        {
+         "v": 0.9617858126814098,
+         "fmt": "f64"
+        },
+        {
+         "v": 0.9617858126814104,
+         "fmt": "f64"
+        },
+        {
+         "v": 0.9617858126814104,
+         "fmt": "f64"
+        },
+        {
+         "v": 5.551115123125783e-16,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "matrix 2,3",
+       "cells": [
+        {
+         "v": 0.16480621174183968,
+         "fmt": "f64"
+        },
+        {
+         "v": 0.1648062117418394,
+         "fmt": "f64"
+        },
+        {
+         "v": 0.1648062117418394,
+         "fmt": "f64"
+        },
+        {
+         "v": -2.7755575615628914e-16,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "matrix 3,1",
+       "cells": [
+        {
+         "v": -0.024619177697066955,
+         "fmt": "f64"
+        },
+        {
+         "v": -0.024619177697066837,
+         "fmt": "f64"
+        },
+        {
+         "v": -0.024619177697066837,
+         "fmt": "f64"
+        },
+        {
+         "v": 1.1796119636642288e-16,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "matrix 3,2",
+       "cells": [
+        {
+         "v": -0.16642817039749175,
+         "fmt": "f64"
+        },
+        {
+         "v": -0.16642817039749144,
+         "fmt": "f64"
+        },
+        {
+         "v": -0.16642817039749144,
+         "fmt": "f64"
+        },
+        {
+         "v": 3.0531133177191805e-16,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "matrix 3,3",
+       "cells": [
+        {
+         "v": 0.9800420839279155,
+         "fmt": "f64"
+        },
+        {
+         "v": 0.9800420839279156,
+         "fmt": "f64"
+        },
+        {
+         "v": 0.9800420839279156,
+         "fmt": "f64"
+        },
+        {
+         "v": 1.1102230246251565e-16,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "translation x",
+       "cells": [
+        {
+         "v": -107.72536159701401,
+         "fmt": "f64"
+        },
+        {
+         "v": -107.72536159701396,
+         "fmt": "f64"
+        },
+        {
+         "v": -107.72536159701396,
+         "fmt": "f64"
+        },
+        {
+         "v": 5.684341886080802e-14,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "translation y",
+       "cells": [
+        {
+         "v": -127.035576807221,
+         "fmt": "f64"
+        },
+        {
+         "v": -127.03557680722099,
+         "fmt": "f64"
+        },
+        {
+         "v": -127.03557680722099,
+         "fmt": "f64"
+        },
+        {
+         "v": 1.4210854715202004e-14,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "translation z",
+       "cells": [
+        {
+         "v": 111.60969639694264,
+         "fmt": "f64"
+        },
+        {
+         "v": 111.60969639694248,
+         "fmt": "f64"
+        },
+        {
+         "v": 111.60969639694248,
+         "fmt": "f64"
+        },
+        {
+         "v": -1.5631940186722204e-13,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      }
+     ],
+     "note": "As the .mat files store them (double precision), printed with the digits that identify each value."
+    }
+   ],
+   "metrics_note": "Δ is A − B between the placed images, over every voxel of the 54 × 73 × 64 grid.",
+   "provenance": [
+    "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0; OASIS30ANTs (Avants et al.), from TemplateFlow, CC BY 4.0",
+    "Inputs: fixed (sha256 8265828adf534c2e…); moving (sha256 4fc9d00a945155a9…); fMRIPrep's transform (sha256 f223fa5f0aade78e…)",
+    "Runs: figures cache entry `ants-ai/fmriprep-ds000005-init-aff and ants-ai/fmriprep-ds000005-init-aff-placed`, computed 2026-10-21T15:17:05+00:00 with larmorx `1dfe56c0dc60`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ]
+  }
+ ]
+}

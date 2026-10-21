@@ -1,0 +1,4972 @@
+{
+ "schema": 1,
+ "tool": "ants-apply-transforms",
+ "title": "antsApplyTransforms",
+ "provenance": {
+  "exporter": "146ec72dd34cb66c17f1ba7b866b1bc89c83ffd3",
+  "records": [
+   {
+    "path": "docs/validation/ants-apply-transforms.json",
+    "sha256": "f689d14c8725e96ea68303fd33fcaa4db3fe2356b83d5a3eea5beca5a0691c3e",
+    "generated": "2026-10-21",
+    "larmorx_commit": "1dfe56c0dc60"
+   },
+   {
+    "path": "docs/validation/ants-apply-transforms.md",
+    "sha256": "a63aeb367a9f384659cb769fcce6751c5b4edbeae67f72088ec4eec1ce69e7a2",
+    "generated": "2026-10-21",
+    "larmorx_commit": "1dfe56c0dc60"
+   }
+  ],
+  "benchmarks": [
+   {
+    "path": "docs/benchmarks/ants-apply-transforms.json",
+    "sha256": "273826bd0f0c2d09400005300a6758865fde90d440abf2e81f49ffe0339713af",
+    "larmorx_commit": "c1b28cee0967",
+    "cpu": "Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz"
+   }
+  ],
+  "cache": [
+   {
+    "entry": "ants-apply-transforms/fmriprep-ds000005-anat2std-t1w",
+    "description": "fMRIPrep's T1w-to-MNI resampling (anat2std_t1w, .h5 composite, Lanczos) of ds000005 sub-01: fMRIPrep, ANTs 2.6.5 and larmorx, single and double precision",
+    "computed": "2026-10-21T14:43:48+00:00",
+    "larmorx_commit": "1dfe56c0dc60ada5ef8938a87387bee37fd1b799",
+    "commands": [
+     {
+      "label": "ants-float-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/fmriprep-ds000005-anat2std-t1w/ants-float-1.nii.gz",
+       "--reference-image",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "--transform",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 3.96
+     },
+     {
+      "label": "ants-float-8",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/fmriprep-ds000005-anat2std-t1w/ants-float-8.nii.gz",
+       "--reference-image",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "--transform",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8"
+      },
+      "exit": 0,
+      "seconds": 1.61
+     },
+     {
+      "label": "ants-float-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/fmriprep-ds000005-anat2std-t1w/ants-float-1-cr.nii.gz",
+       "--reference-image",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "--transform",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 4.26
+     },
+     {
+      "label": "larmorx-float-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/fmriprep-ds000005-anat2std-t1w/larmorx-float-1.nii.gz",
+       "--reference-image",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "--transform",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 2.57
+     },
+     {
+      "label": "larmorx-float-1-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/fmriprep-ds000005-anat2std-t1w/larmorx-float-1-reproduce.nii.gz",
+       "--reference-image",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "--transform",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 2.53
+     },
+     {
+      "label": "larmorx-float-12",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/fmriprep-ds000005-anat2std-t1w/larmorx-float-12.nii.gz",
+       "--reference-image",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "--transform",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "12",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 1.33
+     },
+     {
+      "label": "larmorx-float-12-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/fmriprep-ds000005-anat2std-t1w/larmorx-float-12-reproduce.nii.gz",
+       "--reference-image",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "--transform",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "12",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 1.24
+     },
+     {
+      "label": "ants-double-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--dimensionality",
+       "3",
+       "--float",
+       "0",
+       "--input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/fmriprep-ds000005-anat2std-t1w/ants-double-1.nii.gz",
+       "--reference-image",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "--transform",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 3.94
+     },
+     {
+      "label": "ants-double-8",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--dimensionality",
+       "3",
+       "--float",
+       "0",
+       "--input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/fmriprep-ds000005-anat2std-t1w/ants-double-8.nii.gz",
+       "--reference-image",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "--transform",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8"
+      },
+      "exit": 0,
+      "seconds": 1.64
+     },
+     {
+      "label": "ants-double-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--dimensionality",
+       "3",
+       "--float",
+       "0",
+       "--input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/fmriprep-ds000005-anat2std-t1w/ants-double-1-cr.nii.gz",
+       "--reference-image",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "--transform",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 3.92
+     },
+     {
+      "label": "larmorx-double-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--dimensionality",
+       "3",
+       "--float",
+       "0",
+       "--input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/fmriprep-ds000005-anat2std-t1w/larmorx-double-1.nii.gz",
+       "--reference-image",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "--transform",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 2.2
+     },
+     {
+      "label": "larmorx-double-1-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--dimensionality",
+       "3",
+       "--float",
+       "0",
+       "--input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/fmriprep-ds000005-anat2std-t1w/larmorx-double-1-reproduce.nii.gz",
+       "--reference-image",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "--transform",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 2.23
+     },
+     {
+      "label": "larmorx-double-12",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--dimensionality",
+       "3",
+       "--float",
+       "0",
+       "--input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/fmriprep-ds000005-anat2std-t1w/larmorx-double-12.nii.gz",
+       "--reference-image",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "--transform",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "12",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 1.23
+     },
+     {
+      "label": "larmorx-double-12-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--dimensionality",
+       "3",
+       "--float",
+       "0",
+       "--input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/fmriprep-ds000005-anat2std-t1w/larmorx-double-12-reproduce.nii.gz",
+       "--reference-image",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "--transform",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "12",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 1.17
+     },
+     {
+      "label": "unregistered",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/fmriprep-ds000005-anat2std-t1w/unregistered.nii.gz",
+       "--reference-image",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "--transform",
+       "identity"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 2.75
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "threads": {
+     "ants": [
+      1,
+      8
+     ],
+     "larmorx": [
+      1,
+      12
+     ],
+     "fmriprep_run": 1
+    },
+    "settings": "fMRIPrep 25.2.6's anat2std_t1w node of ds000005 sub-01 (its command.txt and inputs), with --float 1 as fMRIPrep ran it and with --float 0; ANTs as built at 1 and 8 threads and with CORE-MATH; larmorx in both modes at 1 and 12 threads"
+   }
+  ],
+  "command": "python -m larmorx_validation evidence ants-apply-transforms --site <site>"
+ },
+ "implementations": [
+  {
+   "id": "port",
+   "label": "larmorx (port)",
+   "short": "port",
+   "record": "docs/validation/ants-apply-transforms.md",
+   "status": "validated",
+   "summary": {
+    "cases": 220,
+    "verdicts": {
+     "bit-identical": 188,
+     "identical-cr": 14,
+     "both-reject": 14,
+     "divergence": 4
+    }
+   },
+   "agreement": [
+    {
+     "category": "interpolation",
+     "counts": {
+      "bit-identical": 12,
+      "identical-cr": 8
+     }
+    },
+    {
+     "category": "transform",
+     "counts": {
+      "bit-identical": 33
+     }
+    },
+    {
+     "category": "geometry",
+     "counts": {
+      "bit-identical": 12,
+      "identical-cr": 1
+     }
+    },
+    {
+     "category": "output",
+     "counts": {
+      "bit-identical": 9
+     }
+    },
+    {
+     "category": "time-series",
+     "counts": {
+      "bit-identical": 4,
+      "identical-cr": 1
+     }
+    },
+    {
+     "category": "errors",
+     "counts": {
+      "both-reject": 4
+     }
+    },
+    {
+     "category": "fmriprep",
+     "counts": {
+      "bit-identical": 3,
+      "identical-cr": 4
+     }
+    },
+    {
+     "category": "float",
+     "counts": {
+      "bit-identical": 87,
+      "both-reject": 4
+     }
+    },
+    {
+     "category": "transform-output",
+     "counts": {
+      "bit-identical": 28,
+      "divergence": 4,
+      "both-reject": 6
+     }
+    }
+   ]
+  }
+ ],
+ "cases": [
+  {
+   "id": "interpolation/Linear",
+   "category": "interpolation",
+   "description": "-n Linear: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/NearestNeighbor",
+   "category": "interpolation",
+   "description": "-n NearestNeighbor: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n NearestNeighbor -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/BSpline",
+   "category": "interpolation",
+   "description": "-n BSpline: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BSpline -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/BSpline[0]",
+   "category": "interpolation",
+   "description": "-n BSpline[0]: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BSpline[0] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/BSpline[1]",
+   "category": "interpolation",
+   "description": "-n BSpline[1]: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BSpline[1] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/BSpline[2]",
+   "category": "interpolation",
+   "description": "-n BSpline[2]: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BSpline[2] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/BSpline[4]",
+   "category": "interpolation",
+   "description": "-n BSpline[4]: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BSpline[4] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/BSpline[5]",
+   "category": "interpolation",
+   "description": "-n BSpline[5]: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BSpline[5] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/Gaussian",
+   "category": "interpolation",
+   "description": "-n Gaussian: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Gaussian -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "16 voxels differ from ANTs as built (glibc's sin, cos or exp); bit-identical with CORE-MATH preloaded"
+    }
+   }
+  },
+  {
+   "id": "interpolation/Gaussian[1.5,2]",
+   "category": "interpolation",
+   "description": "-n Gaussian[1.5,2]: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Gaussian[1.5,2] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "56 voxels differ from ANTs as built (glibc's sin, cos or exp); bit-identical with CORE-MATH preloaded"
+    }
+   }
+  },
+  {
+   "id": "interpolation/Gaussian[1x2x3]",
+   "category": "interpolation",
+   "description": "-n Gaussian[1x2x3]: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Gaussian[1x2x3] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "44 voxels differ from ANTs as built (glibc's sin, cos or exp); bit-identical with CORE-MATH preloaded"
+    }
+   }
+  },
+  {
+   "id": "interpolation/CosineWindowedSinc",
+   "category": "interpolation",
+   "description": "-n CosineWindowedSinc: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n CosineWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "53 voxels differ from ANTs as built (glibc's sin, cos or exp); bit-identical with CORE-MATH preloaded"
+    }
+   }
+  },
+  {
+   "id": "interpolation/HammingWindowedSinc",
+   "category": "interpolation",
+   "description": "-n HammingWindowedSinc: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n HammingWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "37 voxels differ from ANTs as built (glibc's sin, cos or exp); bit-identical with CORE-MATH preloaded"
+    }
+   }
+  },
+  {
+   "id": "interpolation/LanczosWindowedSinc",
+   "category": "interpolation",
+   "description": "-n LanczosWindowedSinc: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n LanczosWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "65 voxels differ from ANTs as built (glibc's sin, cos or exp); bit-identical with CORE-MATH preloaded"
+    }
+   }
+  },
+  {
+   "id": "interpolation/WelchWindowedSinc",
+   "category": "interpolation",
+   "description": "-n WelchWindowedSinc: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n WelchWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "31 voxels differ from ANTs as built (glibc's sin, cos or exp); bit-identical with CORE-MATH preloaded"
+    }
+   }
+  },
+  {
+   "id": "interpolation/BlackmanWindowedSinc",
+   "category": "interpolation",
+   "description": "-n BlackmanWindowedSinc: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BlackmanWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "44 voxels differ from ANTs as built (glibc's sin, cos or exp); bit-identical with CORE-MATH preloaded"
+    }
+   }
+  },
+  {
+   "id": "interpolation/labels-NearestNeighbor",
+   "category": "interpolation",
+   "description": "-n NearestNeighbor -u uchar: label image through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i labels-uint8.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n NearestNeighbor -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/labels-MultiLabel",
+   "category": "interpolation",
+   "description": "-n MultiLabel -u uchar: label image through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i labels-uint8.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n MultiLabel -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/labels-MultiLabel[0.8]",
+   "category": "interpolation",
+   "description": "-n MultiLabel[0.8] -u uchar: label image through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i labels-uint8.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n MultiLabel[0.8] -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/labels-GenericLabel",
+   "category": "interpolation",
+   "description": "-n GenericLabel -u uchar: label image through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i labels-uint8.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n GenericLabel -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/affine-centered.mat",
+   "category": "transform",
+   "description": "-t affine-centered.mat (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/affine-centered.txt",
+   "category": "transform",
+   "description": "-t affine-centered.txt (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/affine-float.mat",
+   "category": "transform",
+   "description": "-t affine-float.mat (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-float.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/euler-centered.mat",
+   "category": "transform",
+   "description": "-t euler-centered.mat (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t euler-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/euler-zyx.txt",
+   "category": "transform",
+   "description": "-t euler-zyx.txt (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t euler-zyx.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/similarity.mat",
+   "category": "transform",
+   "description": "-t similarity.mat (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t similarity.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/versor-rigid.txt",
+   "category": "transform",
+   "description": "-t versor-rigid.txt (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t versor-rigid.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/translation.txt",
+   "category": "transform",
+   "description": "-t translation.txt (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t translation.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/warp-lps-vector.nii.gz",
+   "category": "transform",
+   "description": "-t warp-lps-vector.nii.gz (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t warp-lps-vector.nii.gz -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/warp-ras-dispvect.nii.gz",
+   "category": "transform",
+   "description": "-t warp-ras-dispvect.nii.gz (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t warp-ras-dispvect.nii.gz -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/composite-affine-warp.h5",
+   "category": "transform",
+   "description": "-t composite-affine-warp.h5 (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t composite-affine-warp.h5 -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/inverse-affine-centered.mat",
+   "category": "transform",
+   "description": "-t [affine-centered.mat,1]: the inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [affine-centered.mat,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/inverse-affine-centered.txt",
+   "category": "transform",
+   "description": "-t [affine-centered.txt,1]: the inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [affine-centered.txt,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/inverse-affine-float.mat",
+   "category": "transform",
+   "description": "-t [affine-float.mat,1]: the inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [affine-float.mat,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/inverse-euler-centered.mat",
+   "category": "transform",
+   "description": "-t [euler-centered.mat,1]: the inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [euler-centered.mat,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/inverse-euler-zyx.txt",
+   "category": "transform",
+   "description": "-t [euler-zyx.txt,1]: the inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [euler-zyx.txt,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/inverse-similarity.mat",
+   "category": "transform",
+   "description": "-t [similarity.mat,1]: the inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [similarity.mat,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/inverse-versor-rigid.txt",
+   "category": "transform",
+   "description": "-t [versor-rigid.txt,1]: the inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [versor-rigid.txt,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/inverse-translation.txt",
+   "category": "transform",
+   "description": "-t [translation.txt,1]: the inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [translation.txt,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/chain-warp-then-affine",
+   "category": "transform",
+   "description": "-t warp -t affine: the usual registration output order",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t warp-lps-vector.nii.gz -t affine-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/chain-three-linear",
+   "category": "transform",
+   "description": "-t affine -t [euler,1] -t translation: order and inversion within a chain",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -t [euler-centered.mat,1] -t translation.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/chain-composite-then-inverse-affine",
+   "category": "transform",
+   "description": "-t composite.h5 -t [affine,1]: a composite file inside a chain",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t composite-affine-warp.h5 -t [affine-centered.mat,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/chain-identity-keyword",
+   "category": "transform",
+   "description": "-t identity: ANTs' keyword",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t identity -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/chain-none",
+   "category": "transform",
+   "description": "no -t at all: identity",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/chain-larmorx-written-h5",
+   "category": "transform",
+   "description": "the composite rewritten by lx.transforms.write: ANTs must read larmorx's .h5",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t composite-affine-warp.h5 -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/chain-h5-itk-linear",
+   "category": "transform",
+   "description": "-t linear.h5: an affine ITK wrote (-o Linear[...])",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t linear -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/chain-h5-itk-linear-inverse",
+   "category": "transform",
+   "description": "-t [linear.h5,1]: the inverse of an affine ITK wrote",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [linear,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/chain-h5-itk-linear-float",
+   "category": "transform",
+   "description": "-t linear-float.h5: float parameters (ITK's --float 1 -o Linear[...])",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t linear-float -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/chain-h5-itk-types",
+   "category": "transform",
+   "description": "-t composite.h5: six transform types in one composite ITK wrote",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t composite-types -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/chain-h5-itk-types-inverse",
+   "category": "transform",
+   "description": "-t [composite.h5,1]: the inverse of a composite of six linear transforms",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [composite-types,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/chain-h5-itk-dense",
+   "category": "transform",
+   "description": "-t composite.h5: nine affines ITK wrote (a dense group: fractal heap, v2 B-tree)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t composite-9-affines -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/chain-h5-itk-warp-float",
+   "category": "transform",
+   "description": "-t composite.h5: a field and an affine in float (ITK's --float 1 output)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t composite-float -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform/chain-h5-larmorx-dense",
+   "category": "transform",
+   "description": "the nine-affine composite rewritten by lx.transforms.write (dense)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t ants-h5:composite-9-affines -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "geometry/oblique-to-axial",
+   "category": "geometry",
+   "description": "oblique anisotropic input onto an axis-aligned grid",
+   "command": "antsApplyTransforms -d 3 -i oblique-anisotropic.nii.gz -r axial-1mm.nii.gz -t affine-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "geometry/oblique-to-axial-lanczos",
+   "category": "geometry",
+   "description": "oblique anisotropic input, Lanczos",
+   "command": "antsApplyTransforms -d 3 -i oblique-anisotropic.nii.gz -r axial-1mm.nii.gz -t affine-centered.mat -n LanczosWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "226 voxels differ from ANTs as built (glibc's sin, cos or exp); bit-identical with CORE-MATH preloaded"
+    }
+   }
+  },
+  {
+   "id": "geometry/scaled-int16-las",
+   "category": "geometry",
+   "description": "int16 LAS image with scl_slope/scl_inter (ITK rescales through float32)",
+   "command": "antsApplyTransforms -d 3 -i las-int16-scaled.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "geometry/scaled-int16-las-bspline",
+   "category": "geometry",
+   "description": "scaled int16 LAS image, B-spline",
+   "command": "antsApplyTransforms -d 3 -i las-int16-scaled.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BSpline -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "geometry/qform-only-int8",
+   "category": "geometry",
+   "description": "int8 image with only a qform",
+   "command": "antsApplyTransforms -d 3 -i qform-only-int8.nii -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "geometry/single-slice",
+   "category": "geometry",
+   "description": "single-slice input onto a single-slice grid",
+   "command": "antsApplyTransforms -d 3 -i single-slice.nii.gz -r single-slice-0.8mm.nii.gz -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "geometry/single-slice-nearest",
+   "category": "geometry",
+   "description": "single-slice input, nearest neighbour",
+   "command": "antsApplyTransforms -d 3 -i single-slice.nii.gz -r single-slice-0.8mm.nii.gz -n NearestNeighbor -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "geometry/ties-nearest",
+   "category": "geometry",
+   "description": "nearest neighbour where every output voxel is a tie between input voxels",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r half-voxel-2mm.nii.gz -n NearestNeighbor -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "geometry/ties-linear",
+   "category": "geometry",
+   "description": "linear interpolation on the half-voxel grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r half-voxel-2mm.nii.gz -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "geometry/ties-genericlabel",
+   "category": "geometry",
+   "description": "GenericLabel ties on the half-voxel grid",
+   "command": "antsApplyTransforms -d 3 -i labels-uint8.nii.gz -r half-voxel-2mm.nii.gz -n GenericLabel -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "geometry/ties-multilabel",
+   "category": "geometry",
+   "description": "MultiLabel on the half-voxel grid",
+   "command": "antsApplyTransforms -d 3 -i labels-uint8.nii.gz -r half-voxel-2mm.nii.gz -n MultiLabel -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "geometry/outside-default",
+   "category": "geometry",
+   "description": "wide field of view: voxels outside the input get -f 7.5",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r wide-fov.nii.gz -t affine-centered.mat -n Linear -f 7.5 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "geometry/outside-negative-default",
+   "category": "geometry",
+   "description": "negative default value -f -3 (parsed as a value, not a flag)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r wide-fov.nii.gz -t affine-centered.mat -n BSpline -f -3 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "output/-u-char",
+   "category": "output",
+   "description": "-u char: output pixel type (integers truncate toward zero)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -u char -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "output/-u-uchar",
+   "category": "output",
+   "description": "-u uchar: output pixel type (integers truncate toward zero)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "output/-u-short",
+   "category": "output",
+   "description": "-u short: output pixel type (integers truncate toward zero)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -u short -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "output/-u-int",
+   "category": "output",
+   "description": "-u int: output pixel type (integers truncate toward zero)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -u int -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "output/-u-float",
+   "category": "output",
+   "description": "-u float: output pixel type (integers truncate toward zero)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -u float -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "output/-u-double",
+   "category": "output",
+   "description": "-u double: output pixel type (integers truncate toward zero)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -u double -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "output/-u-default",
+   "category": "output",
+   "description": "-u default: output pixel type (integers truncate toward zero)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -u default -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "output/float-Linear",
+   "category": "output",
+   "description": "--float 1 with Linear: ANTs' single-precision pipeline",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear --float 1 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "output/float-LanczosWindowedSinc",
+   "category": "output",
+   "description": "--float 1 with LanczosWindowedSinc: ANTs' single-precision pipeline",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n LanczosWindowedSinc --float 1 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "time-series/Linear",
+   "category": "time-series",
+   "description": "-e 3 with Linear: each volume of a 4D series",
+   "command": "antsApplyTransforms -d 3 -i series-float32.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -e 3 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "time-series/LanczosWindowedSinc",
+   "category": "time-series",
+   "description": "-e 3 with LanczosWindowedSinc: each volume of a 4D series",
+   "command": "antsApplyTransforms -d 3 -i series-float32.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n LanczosWindowedSinc -e 3 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "528 voxels differ from ANTs as built (glibc's sin, cos or exp); bit-identical with CORE-MATH preloaded"
+    }
+   }
+  },
+  {
+   "id": "time-series/BSpline",
+   "category": "time-series",
+   "description": "-e 3 with BSpline: each volume of a 4D series",
+   "command": "antsApplyTransforms -d 3 -i series-float32.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BSpline -e 3 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "time-series/time-index",
+   "category": "time-series",
+   "description": "-e 3 --time-index 2: one volume of the series, written as 3D",
+   "command": "antsApplyTransforms -d 3 -i series-float32.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -e 3 --time-index 2 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "time-series/named-type",
+   "category": "time-series",
+   "description": "-e time-series (the name instead of the number)",
+   "command": "antsApplyTransforms -d 3 -i series-float32.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -e time-series -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "errors/4d-as-scalar",
+   "category": "errors",
+   "description": "a 4D image with -e 0",
+   "command": "antsApplyTransforms -d 3 -i series-float32.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs exit 1; larmorx: Input image dimension does not match. Expected: 3, but got: 4 See -e option for available input types."
+    }
+   }
+  },
+  {
+   "id": "errors/invert-field",
+   "category": "errors",
+   "description": "inverting a displacement field",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [warp-lps-vector.nii.gz,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs exit 1; larmorx: Inverse does not exist: a displacement field cannot be inverted; use its inverse field instead"
+    }
+   }
+  },
+  {
+   "id": "errors/missing-transform",
+   "category": "errors",
+   "description": "a transform file that does not exist",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t missing.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs exit 1; larmorx: Transform file does not exist: /tmp/lx-aat-mjsa0kes/missing.mat"
+    }
+   }
+  },
+  {
+   "id": "errors/unknown-interpolator",
+   "category": "errors",
+   "description": "-n Cubic",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Cubic -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs exit 1; larmorx: Error: Unrecognized interpolation option. cubic"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/boldref-to-T1w-lanczos",
+   "category": "fmriprep",
+   "description": "boldref → T1w through fMRIPrep's ITK text affine, Lanczos",
+   "command": "antsApplyTransforms -d 3 -i sub-01_task-mixedgamblestask_run-1_boldref.nii.gz -r sub-01_desc-preproc_T1w.nii.gz -t sub-01_task-mixedgamblestask_run-1_from-scanner_to-T1w_mode-image_xfm.txt -n LanczosWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "25,341 voxels differ from ANTs as built (glibc's sin, cos or exp); bit-identical with CORE-MATH preloaded"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/T1w-to-MNI-linear",
+   "category": "fmriprep",
+   "description": "T1w → MNI152NLin2009cAsym 2 mm through fMRIPrep's .h5 composite (affine + warp)",
+   "command": "antsApplyTransforms -d 3 -i sub-01_desc-preproc_T1w.nii.gz -r sub-01_space-MNI152NLin2009cAsym_res-2_desc-preproc_T1w.nii.gz -t sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5 -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "fmriprep/T1w-to-MNI-lanczos",
+   "category": "fmriprep",
+   "description": "T1w → MNI through the .h5 composite, Lanczos",
+   "command": "antsApplyTransforms -d 3 -i sub-01_desc-preproc_T1w.nii.gz -r sub-01_space-MNI152NLin2009cAsym_res-2_desc-preproc_T1w.nii.gz -t sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5 -n LanczosWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "9,074 voxels differ from ANTs as built (glibc's sin, cos or exp); bit-identical with CORE-MATH preloaded"
+    }
+   },
+   "example": "fmriprep-anat2std"
+  },
+  {
+   "id": "fmriprep/GM-probseg-to-MNI",
+   "category": "fmriprep",
+   "description": "GM probability map → MNI through the .h5 composite, Gaussian",
+   "command": "antsApplyTransforms -d 3 -i sub-01_label-GM_probseg.nii.gz -r sub-01_space-MNI152NLin2009cAsym_res-2_desc-preproc_T1w.nii.gz -t sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5 -n Gaussian -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "749 voxels differ from ANTs as built (glibc's sin, cos or exp); bit-identical with CORE-MATH preloaded"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/aseg-to-boldref",
+   "category": "fmriprep",
+   "description": "aseg segmentation → boldref grid, GenericLabel -u short",
+   "command": "antsApplyTransforms -d 3 -i sub-01_desc-aseg_dseg.nii.gz -r sub-01_task-mixedgamblestask_run-1_boldref.nii.gz -t sub-01_task-mixedgamblestask_run-1_from-T1w_to-scanner_mode-image_xfm.txt -n GenericLabel -u short -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "fmriprep/mask-to-MNI-multilabel",
+   "category": "fmriprep",
+   "description": "brain mask → MNI through the .h5 composite, MultiLabel -u uchar",
+   "command": "antsApplyTransforms -d 3 -i sub-01_desc-brain_mask.nii.gz -r sub-01_space-MNI152NLin2009cAsym_res-2_desc-preproc_T1w.nii.gz -t sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5 -n MultiLabel -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "fmriprep/bold-series-to-T1w",
+   "category": "fmriprep",
+   "description": "the 4D preprocessed BOLD series → T1w, -e 3 Lanczos (fMRIPrep's classic BOLD resampling)",
+   "command": "antsApplyTransforms -d 3 -i sub-01_task-mixedgamblestask_run-1_desc-preproc_bold.nii.gz -r sub-01_task-mixedgamblestask_run-1_space-T1w_boldref.nii.gz -t sub-01_task-mixedgamblestask_run-1_from-scanner_to-T1w_mode-image_xfm.txt -n LanczosWindowedSinc -e 3 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "180,059 voxels differ from ANTs as built (glibc's sin, cos or exp); bit-identical with CORE-MATH preloaded"
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/Linear",
+   "category": "float",
+   "description": "-n Linear: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/NearestNeighbor",
+   "category": "float",
+   "description": "-n NearestNeighbor: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n NearestNeighbor -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/BSpline",
+   "category": "float",
+   "description": "-n BSpline: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BSpline -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/BSpline[0]",
+   "category": "float",
+   "description": "-n BSpline[0]: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BSpline[0] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/BSpline[1]",
+   "category": "float",
+   "description": "-n BSpline[1]: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BSpline[1] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/BSpline[2]",
+   "category": "float",
+   "description": "-n BSpline[2]: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BSpline[2] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/BSpline[4]",
+   "category": "float",
+   "description": "-n BSpline[4]: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BSpline[4] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/BSpline[5]",
+   "category": "float",
+   "description": "-n BSpline[5]: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BSpline[5] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/Gaussian",
+   "category": "float",
+   "description": "-n Gaussian: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Gaussian -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/Gaussian[1.5,2]",
+   "category": "float",
+   "description": "-n Gaussian[1.5,2]: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Gaussian[1.5,2] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/Gaussian[1x2x3]",
+   "category": "float",
+   "description": "-n Gaussian[1x2x3]: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Gaussian[1x2x3] -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/CosineWindowedSinc",
+   "category": "float",
+   "description": "-n CosineWindowedSinc: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n CosineWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/HammingWindowedSinc",
+   "category": "float",
+   "description": "-n HammingWindowedSinc: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n HammingWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/LanczosWindowedSinc",
+   "category": "float",
+   "description": "-n LanczosWindowedSinc: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n LanczosWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/WelchWindowedSinc",
+   "category": "float",
+   "description": "-n WelchWindowedSinc: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n WelchWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/BlackmanWindowedSinc",
+   "category": "float",
+   "description": "-n BlackmanWindowedSinc: phantom through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BlackmanWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/labels-NearestNeighbor",
+   "category": "float",
+   "description": "-n NearestNeighbor -u uchar: label image through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i labels-uint8.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n NearestNeighbor -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/labels-MultiLabel",
+   "category": "float",
+   "description": "-n MultiLabel -u uchar: label image through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i labels-uint8.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n MultiLabel -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/labels-MultiLabel[0.8]",
+   "category": "float",
+   "description": "-n MultiLabel[0.8] -u uchar: label image through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i labels-uint8.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n MultiLabel[0.8] -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/interpolation/labels-GenericLabel",
+   "category": "float",
+   "description": "-n GenericLabel -u uchar: label image through a centred affine onto an oblique grid",
+   "command": "antsApplyTransforms -d 3 -i labels-uint8.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n GenericLabel -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/affine-centered.mat",
+   "category": "float",
+   "description": "-t affine-centered.mat (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/affine-centered.txt",
+   "category": "float",
+   "description": "-t affine-centered.txt (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/affine-float.mat",
+   "category": "float",
+   "description": "-t affine-float.mat (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-float.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/euler-centered.mat",
+   "category": "float",
+   "description": "-t euler-centered.mat (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t euler-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/euler-zyx.txt",
+   "category": "float",
+   "description": "-t euler-zyx.txt (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t euler-zyx.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/similarity.mat",
+   "category": "float",
+   "description": "-t similarity.mat (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t similarity.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/versor-rigid.txt",
+   "category": "float",
+   "description": "-t versor-rigid.txt (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t versor-rigid.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/translation.txt",
+   "category": "float",
+   "description": "-t translation.txt (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t translation.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/warp-lps-vector.nii.gz",
+   "category": "float",
+   "description": "-t warp-lps-vector.nii.gz (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t warp-lps-vector.nii.gz -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/warp-ras-dispvect.nii.gz",
+   "category": "float",
+   "description": "-t warp-ras-dispvect.nii.gz (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t warp-ras-dispvect.nii.gz -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/composite-affine-warp.h5",
+   "category": "float",
+   "description": "-t composite-affine-warp.h5 (linear interpolation onto an oblique grid)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t composite-affine-warp.h5 -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/inverse-affine-centered.mat",
+   "category": "float",
+   "description": "-t [affine-centered.mat,1]: the inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [affine-centered.mat,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/inverse-affine-centered.txt",
+   "category": "float",
+   "description": "-t [affine-centered.txt,1]: the inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [affine-centered.txt,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/inverse-affine-float.mat",
+   "category": "float",
+   "description": "-t [affine-float.mat,1]: the inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [affine-float.mat,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/inverse-euler-centered.mat",
+   "category": "float",
+   "description": "-t [euler-centered.mat,1]: the inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [euler-centered.mat,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/inverse-euler-zyx.txt",
+   "category": "float",
+   "description": "-t [euler-zyx.txt,1]: the inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [euler-zyx.txt,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/inverse-similarity.mat",
+   "category": "float",
+   "description": "-t [similarity.mat,1]: the inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [similarity.mat,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/inverse-versor-rigid.txt",
+   "category": "float",
+   "description": "-t [versor-rigid.txt,1]: the inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [versor-rigid.txt,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/inverse-translation.txt",
+   "category": "float",
+   "description": "-t [translation.txt,1]: the inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [translation.txt,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/chain-warp-then-affine",
+   "category": "float",
+   "description": "-t warp -t affine: the usual registration output order",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t warp-lps-vector.nii.gz -t affine-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/chain-three-linear",
+   "category": "float",
+   "description": "-t affine -t [euler,1] -t translation: order and inversion within a chain",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -t [euler-centered.mat,1] -t translation.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/chain-composite-then-inverse-affine",
+   "category": "float",
+   "description": "-t composite.h5 -t [affine,1]: a composite file inside a chain",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t composite-affine-warp.h5 -t [affine-centered.mat,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/chain-identity-keyword",
+   "category": "float",
+   "description": "-t identity: ANTs' keyword",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t identity -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/chain-none",
+   "category": "float",
+   "description": "no -t at all: identity",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/chain-larmorx-written-h5",
+   "category": "float",
+   "description": "the composite rewritten by lx.transforms.write: ANTs must read larmorx's .h5",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t composite-affine-warp.h5 -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/chain-h5-itk-linear",
+   "category": "float",
+   "description": "-t linear.h5: an affine ITK wrote (-o Linear[...])",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t linear -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/chain-h5-itk-linear-inverse",
+   "category": "float",
+   "description": "-t [linear.h5,1]: the inverse of an affine ITK wrote",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [linear,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/chain-h5-itk-linear-float",
+   "category": "float",
+   "description": "-t linear-float.h5: float parameters (ITK's --float 1 -o Linear[...])",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t linear-float -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/chain-h5-itk-types",
+   "category": "float",
+   "description": "-t composite.h5: six transform types in one composite ITK wrote",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t composite-types -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/chain-h5-itk-types-inverse",
+   "category": "float",
+   "description": "-t [composite.h5,1]: the inverse of a composite of six linear transforms",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [composite-types,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/chain-h5-itk-dense",
+   "category": "float",
+   "description": "-t composite.h5: nine affines ITK wrote (a dense group: fractal heap, v2 B-tree)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t composite-9-affines -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/chain-h5-itk-warp-float",
+   "category": "float",
+   "description": "-t composite.h5: a field and an affine in float (ITK's --float 1 output)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t composite-float -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/transform/chain-h5-larmorx-dense",
+   "category": "float",
+   "description": "the nine-affine composite rewritten by lx.transforms.write (dense)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t ants-h5:composite-9-affines -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/geometry/oblique-to-axial",
+   "category": "float",
+   "description": "oblique anisotropic input onto an axis-aligned grid",
+   "command": "antsApplyTransforms -d 3 -i oblique-anisotropic.nii.gz -r axial-1mm.nii.gz -t affine-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/geometry/oblique-to-axial-lanczos",
+   "category": "float",
+   "description": "oblique anisotropic input, Lanczos",
+   "command": "antsApplyTransforms -d 3 -i oblique-anisotropic.nii.gz -r axial-1mm.nii.gz -t affine-centered.mat -n LanczosWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/geometry/scaled-int16-las",
+   "category": "float",
+   "description": "int16 LAS image with scl_slope/scl_inter (ITK rescales through float32)",
+   "command": "antsApplyTransforms -d 3 -i las-int16-scaled.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/geometry/scaled-int16-las-bspline",
+   "category": "float",
+   "description": "scaled int16 LAS image, B-spline",
+   "command": "antsApplyTransforms -d 3 -i las-int16-scaled.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BSpline -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/geometry/qform-only-int8",
+   "category": "float",
+   "description": "int8 image with only a qform",
+   "command": "antsApplyTransforms -d 3 -i qform-only-int8.nii -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/geometry/single-slice",
+   "category": "float",
+   "description": "single-slice input onto a single-slice grid",
+   "command": "antsApplyTransforms -d 3 -i single-slice.nii.gz -r single-slice-0.8mm.nii.gz -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/geometry/single-slice-nearest",
+   "category": "float",
+   "description": "single-slice input, nearest neighbour",
+   "command": "antsApplyTransforms -d 3 -i single-slice.nii.gz -r single-slice-0.8mm.nii.gz -n NearestNeighbor -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/geometry/ties-nearest",
+   "category": "float",
+   "description": "nearest neighbour where every output voxel is a tie between input voxels",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r half-voxel-2mm.nii.gz -n NearestNeighbor -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/geometry/ties-linear",
+   "category": "float",
+   "description": "linear interpolation on the half-voxel grid",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r half-voxel-2mm.nii.gz -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/geometry/ties-genericlabel",
+   "category": "float",
+   "description": "GenericLabel ties on the half-voxel grid",
+   "command": "antsApplyTransforms -d 3 -i labels-uint8.nii.gz -r half-voxel-2mm.nii.gz -n GenericLabel -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/geometry/ties-multilabel",
+   "category": "float",
+   "description": "MultiLabel on the half-voxel grid",
+   "command": "antsApplyTransforms -d 3 -i labels-uint8.nii.gz -r half-voxel-2mm.nii.gz -n MultiLabel -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/geometry/outside-default",
+   "category": "float",
+   "description": "wide field of view: voxels outside the input get -f 7.5",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r wide-fov.nii.gz -t affine-centered.mat -n Linear -f 7.5 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/geometry/outside-negative-default",
+   "category": "float",
+   "description": "negative default value -f -3 (parsed as a value, not a flag)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r wide-fov.nii.gz -t affine-centered.mat -n BSpline -f -3 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/output/-u-char",
+   "category": "float",
+   "description": "-u char: output pixel type (integers truncate toward zero)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -u char -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/output/-u-uchar",
+   "category": "float",
+   "description": "-u uchar: output pixel type (integers truncate toward zero)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/output/-u-short",
+   "category": "float",
+   "description": "-u short: output pixel type (integers truncate toward zero)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -u short -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/output/-u-int",
+   "category": "float",
+   "description": "-u int: output pixel type (integers truncate toward zero)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -u int -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/output/-u-float",
+   "category": "float",
+   "description": "-u float: output pixel type (integers truncate toward zero)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -u float -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/output/-u-double",
+   "category": "float",
+   "description": "-u double: output pixel type (integers truncate toward zero)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -u double -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/output/-u-default",
+   "category": "float",
+   "description": "-u default: output pixel type (integers truncate toward zero)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -u default -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/time-series/Linear",
+   "category": "float",
+   "description": "-e 3 with Linear: each volume of a 4D series",
+   "command": "antsApplyTransforms -d 3 -i series-float32.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -e 3 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/time-series/LanczosWindowedSinc",
+   "category": "float",
+   "description": "-e 3 with LanczosWindowedSinc: each volume of a 4D series",
+   "command": "antsApplyTransforms -d 3 -i series-float32.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n LanczosWindowedSinc -e 3 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/time-series/BSpline",
+   "category": "float",
+   "description": "-e 3 with BSpline: each volume of a 4D series",
+   "command": "antsApplyTransforms -d 3 -i series-float32.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n BSpline -e 3 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/time-series/time-index",
+   "category": "float",
+   "description": "-e 3 --time-index 2: one volume of the series, written as 3D",
+   "command": "antsApplyTransforms -d 3 -i series-float32.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -e 3 --time-index 2 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/time-series/named-type",
+   "category": "float",
+   "description": "-e time-series (the name instead of the number)",
+   "command": "antsApplyTransforms -d 3 -i series-float32.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -e time-series -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/errors/4d-as-scalar",
+   "category": "float",
+   "description": "a 4D image with -e 0",
+   "command": "antsApplyTransforms -d 3 -i series-float32.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs exit 1; larmorx: Input image dimension does not match. Expected: 3, but got: 4 See -e option for available input types."
+    }
+   }
+  },
+  {
+   "id": "float/errors/invert-field",
+   "category": "float",
+   "description": "inverting a displacement field",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [warp-lps-vector.nii.gz,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs exit 1; larmorx: Inverse does not exist: a displacement field cannot be inverted; use its inverse field instead"
+    }
+   }
+  },
+  {
+   "id": "float/errors/missing-transform",
+   "category": "float",
+   "description": "a transform file that does not exist",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t missing.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs exit 1; larmorx: Transform file does not exist: /tmp/lx-aat-vso8qcwr/missing.mat"
+    }
+   }
+  },
+  {
+   "id": "float/errors/unknown-interpolator",
+   "category": "float",
+   "description": "-n Cubic",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-centered.mat -n Cubic -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs exit 1; larmorx: Error: Unrecognized interpolation option. cubic"
+    }
+   }
+  },
+  {
+   "id": "float/fmriprep/boldref-to-T1w-lanczos",
+   "category": "float",
+   "description": "boldref → T1w through fMRIPrep's ITK text affine, Lanczos",
+   "command": "antsApplyTransforms -d 3 -i sub-01_task-mixedgamblestask_run-1_boldref.nii.gz -r sub-01_desc-preproc_T1w.nii.gz -t sub-01_task-mixedgamblestask_run-1_from-scanner_to-T1w_mode-image_xfm.txt -n LanczosWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/fmriprep/T1w-to-MNI-linear",
+   "category": "float",
+   "description": "T1w → MNI152NLin2009cAsym 2 mm through fMRIPrep's .h5 composite (affine + warp)",
+   "command": "antsApplyTransforms -d 3 -i sub-01_desc-preproc_T1w.nii.gz -r sub-01_space-MNI152NLin2009cAsym_res-2_desc-preproc_T1w.nii.gz -t sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5 -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/fmriprep/T1w-to-MNI-lanczos",
+   "category": "float",
+   "description": "T1w → MNI through the .h5 composite, Lanczos",
+   "command": "antsApplyTransforms -d 3 -i sub-01_desc-preproc_T1w.nii.gz -r sub-01_space-MNI152NLin2009cAsym_res-2_desc-preproc_T1w.nii.gz -t sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5 -n LanczosWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   },
+   "example": "fmriprep-anat2std"
+  },
+  {
+   "id": "float/fmriprep/GM-probseg-to-MNI",
+   "category": "float",
+   "description": "GM probability map → MNI through the .h5 composite, Gaussian",
+   "command": "antsApplyTransforms -d 3 -i sub-01_label-GM_probseg.nii.gz -r sub-01_space-MNI152NLin2009cAsym_res-2_desc-preproc_T1w.nii.gz -t sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5 -n Gaussian -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/fmriprep/aseg-to-boldref",
+   "category": "float",
+   "description": "aseg segmentation → boldref grid, GenericLabel -u short",
+   "command": "antsApplyTransforms -d 3 -i sub-01_desc-aseg_dseg.nii.gz -r sub-01_task-mixedgamblestask_run-1_boldref.nii.gz -t sub-01_task-mixedgamblestask_run-1_from-T1w_to-scanner_mode-image_xfm.txt -n GenericLabel -u short -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/fmriprep/mask-to-MNI-multilabel",
+   "category": "float",
+   "description": "brain mask → MNI through the .h5 composite, MultiLabel -u uchar",
+   "command": "antsApplyTransforms -d 3 -i sub-01_desc-brain_mask.nii.gz -r sub-01_space-MNI152NLin2009cAsym_res-2_desc-preproc_T1w.nii.gz -t sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5 -n MultiLabel -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/fmriprep/bold-series-to-T1w",
+   "category": "float",
+   "description": "the 4D preprocessed BOLD series → T1w, -e 3 Lanczos (fMRIPrep's classic BOLD resampling)",
+   "command": "antsApplyTransforms -d 3 -i sub-01_task-mixedgamblestask_run-1_desc-preproc_bold.nii.gz -r sub-01_task-mixedgamblestask_run-1_space-T1w_boldref.nii.gz -t sub-01_task-mixedgamblestask_run-1_from-scanner_to-T1w_mode-image_xfm.txt -n LanczosWindowedSinc -e 3 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/parse/text-transform",
+   "category": "float",
+   "description": "--float 1: a text affine whose numbers round differently read as float (strtof) and as double then cast",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t strtof-affine.txt -n Linear --float 1 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/parse/default-value",
+   "category": "float",
+   "description": "--float 1 -f 0.1000000052154064178466796874999999999999: the default value read as float (strtof), not as double then cast",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r wide-fov.nii.gz -t affine-centered.mat -n Linear -f 0.1000000052154064178466796874999999999999 --float 1 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "transform-output/linear/text",
+   "category": "transform-output",
+   "description": "-o Linear[x.txt]: an Euler transform after a centred affine, collapsed",
+   "command": "antsApplyTransforms -d 3 -o Linear[lin.txt] -t euler-zyx.txt -t affine-centered.mat",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/linear/matlab-inverse",
+   "category": "transform-output",
+   "description": "-o Linear[x.mat,1]: collapsed, then inverted (centre 0)",
+   "command": "antsApplyTransforms -d 3 -o Linear[lininv.mat,1] -t euler-zyx.txt -t affine-centered.mat",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/linear/hdf5",
+   "category": "transform-output",
+   "description": "-o Linear[x.h5]: Euler, an inverted versor, a translation",
+   "command": "antsApplyTransforms -d 3 -o Linear[lin.h5] -t euler-zyx.txt -t [versor-rigid.txt,1] -t translation.txt",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/linear/every-class",
+   "category": "transform-output",
+   "description": "-o Linear[x.txt]: an inverted similarity, a versor, an inverted translation, an Euler with a centre and the identity keyword",
+   "command": "antsApplyTransforms -d 3 -o Linear[linall.txt] -t [similarity.mat,1] -t versor-rigid.txt -t [translation.txt,1] -t euler-centered.mat -t identity",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/linear/no-transforms",
+   "category": "transform-output",
+   "description": "-o Linear[x.txt] without -t: the identity ANTs adds",
+   "command": "antsApplyTransforms -d 3 -o Linear[linid.txt]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/linear/with-image",
+   "category": "transform-output",
+   "description": "-o Linear[x.txt] with -i and -r: the image is read (ANTs resamples it and discards the result)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -o Linear[linir.txt] -t euler-zyx.txt",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/linear/float-text",
+   "category": "transform-output",
+   "description": "--float 1 -o Linear[x.txt]: an inverted Euler and a float affine, in single precision",
+   "command": "antsApplyTransforms -d 3 --float 1 -o Linear[linf32.txt] -t [euler-zyx.txt,1] -t affine-float.mat",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/linear/float-matlab-inverse",
+   "category": "transform-output",
+   "description": "--float 1 -o Linear[x.mat,1]: float parameters and fixed parameters in the MATLAB file",
+   "command": "antsApplyTransforms -d 3 --float 1 -o Linear[linf32.mat,1] -t euler-zyx.txt -t similarity.mat",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/linear/float-hdf5",
+   "category": "transform-output",
+   "description": "--float 1 -o Linear[x.h5]: float parameters in HDF5",
+   "command": "antsApplyTransforms -d 3 --float 1 -o Linear[linf32.h5] -t euler-zyx.txt -t [affine-centered.txt,1]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/linear/fmriprep",
+   "category": "transform-output",
+   "description": "-o Linear[x.txt]: fMRIPrep's BOLD-to-T1w affine (ds000005) after its inverse: the identity, up to rounding",
+   "command": "antsApplyTransforms -d 3 -o Linear[boldref.txt] -t [sub-01_task-mixedgamblestask_run-1_from-scanner_to-T1w_mode-image_xfm.txt,1] -t sub-01_task-mixedgamblestask_run-1_from-scanner_to-T1w_mode-image_xfm.txt",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/composite/text-inverses",
+   "category": "transform-output",
+   "description": "-o CompositeTransform[x.txt]: inverted Euler, translation and similarity (as MatrixOffsetTransformBase, TranslationTransform), a versor, the identity keyword",
+   "command": "antsApplyTransforms -d 3 -o CompositeTransform[comp.txt] -t [euler-zyx.txt,1] -t versor-rigid.txt -t [translation.txt,1] -t [similarity.mat,1] -t identity",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/composite/matlab",
+   "category": "transform-output",
+   "description": "-o CompositeTransform[x.mat]: one CompositeTransform variable, its components' parameters from the last to the first",
+   "command": "antsApplyTransforms -d 3 -o CompositeTransform[comp.mat] -t euler-zyx.txt -t affine-centered.mat",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/composite/matlab-one",
+   "category": "transform-output",
+   "description": "-o CompositeTransform[x.mat] of one transform: its own parameters",
+   "command": "antsApplyTransforms -d 3 -o CompositeTransform[comp1.mat] -t euler-zyx.txt",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/composite/hdf5-nested",
+   "category": "transform-output",
+   "description": "-o CompositeTransform[x.h5]: an .h5 composite (affine and field) and an inverted Euler",
+   "command": "antsApplyTransforms -d 3 -o CompositeTransform[comp.h5] -t composite-affine-warp.h5 -t [euler-centered.mat,1]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/composite/hdf5-field",
+   "category": "transform-output",
+   "description": "-o CompositeTransform[x.h5]: an inverted affine, a NIfTI displacement field, an inverted versor",
+   "command": "antsApplyTransforms -d 3 -o CompositeTransform[compi.h5] -t [affine-centered.txt,1] -t warp-lps-vector.nii.gz -t [versor-rigid.txt,1]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/composite/float-text",
+   "category": "transform-output",
+   "description": "--float 1 -o CompositeTransform[x.txt]: float classes, an inverted versor",
+   "command": "antsApplyTransforms -d 3 --float 1 -o CompositeTransform[compf.txt] -t [euler-zyx.txt,1] -t affine-float.mat -t [versor-rigid.txt,1]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/composite/float-hdf5",
+   "category": "transform-output",
+   "description": "--float 1 -o CompositeTransform[x.h5]: the field read in float",
+   "command": "antsApplyTransforms -d 3 --float 1 -o CompositeTransform[compf.h5] -t composite-affine-warp.h5 -t [similarity.mat,1]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/composite/float-matlab",
+   "category": "transform-output",
+   "description": "--float 1 -o CompositeTransform[x.mat]",
+   "command": "antsApplyTransforms -d 3 --float 1 -o CompositeTransform[compf.mat] -t euler-zyx.txt -t affine-centered.mat",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/composite/no-transforms",
+   "category": "transform-output",
+   "description": "-o CompositeTransform[x.txt] without -t",
+   "command": "antsApplyTransforms -d 3 -o CompositeTransform[compe.txt]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/composite/fmriprep",
+   "category": "transform-output",
+   "description": "-o CompositeTransform[x.h5]: fMRIPrep's T1w-to-MNI composite (ds000005) after its BOLD-to-T1w affine",
+   "command": "antsApplyTransforms -d 3 -o CompositeTransform[fmriprep.h5] -t sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5 -t sub-01_task-mixedgamblestask_run-1_from-scanner_to-T1w_mode-image_xfm.txt",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/field/nifti",
+   "category": "transform-output",
+   "description": "-o DisplacementField[x.nii.gz]: a NIfTI field after a centred affine (pointwise)",
+   "command": "antsApplyTransforms -d 3 -r oblique-1.5mm.nii.gz -o DisplacementField[df.nii.gz] -t warp-lps-vector.nii.gz -t affine-centered.mat",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "NIfTI field: header bytes and every vector bit for bit"
+    }
+   }
+  },
+  {
+   "id": "transform-output/field/legacy-form",
+   "category": "transform-output",
+   "description": "-o [x.nii.gz,1]: a linear chain (scan lines interpolated)",
+   "command": "antsApplyTransforms -d 3 -r oblique-1.5mm.nii.gz -o [dfold.nii.gz,1] -t affine-centered.mat -t [euler-zyx.txt,1]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "NIfTI field: header bytes and every vector bit for bit"
+    }
+   }
+  },
+  {
+   "id": "transform-output/field/hdf5-linear",
+   "category": "transform-output",
+   "description": "-o DisplacementField[x.h5]: a DisplacementFieldTransform file",
+   "command": "antsApplyTransforms -d 3 -r oblique-1.5mm.nii.gz -o DisplacementField[df.h5] -t affine-centered.mat",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/field/hdf5-field",
+   "category": "transform-output",
+   "description": "-o DisplacementField[x.h5]: a RAS displacement field (NIFTI_INTENT_DISPVECT) on a grid of exact ties",
+   "command": "antsApplyTransforms -d 3 -r half-voxel-2mm.nii.gz -o DisplacementField[dfw.h5] -t warp-ras-dispvect.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/field/float-linear",
+   "category": "transform-output",
+   "description": "--float 1 -o DisplacementField[x.nii.gz]: float transforms on double points",
+   "command": "antsApplyTransforms -d 3 --float 1 -r oblique-1.5mm.nii.gz -o DisplacementField[dff.nii.gz] -t affine-centered.mat -t versor-rigid.txt",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "NIfTI field: header bytes and every vector bit for bit"
+    }
+   }
+  },
+  {
+   "id": "transform-output/field/float-composite",
+   "category": "transform-output",
+   "description": "--float 1 -o DisplacementField[x.nii]: an .h5 composite with a field, uncompressed NIfTI",
+   "command": "antsApplyTransforms -d 3 --float 1 -r half-voxel-2mm.nii.gz -o DisplacementField[dffw.nii] -t composite-affine-warp.h5",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "NIfTI field: header bytes and every vector bit for bit"
+    }
+   }
+  },
+  {
+   "id": "transform-output/field/no-transforms",
+   "category": "transform-output",
+   "description": "-o DisplacementField[x.nii.gz] without -t: zero vectors",
+   "command": "antsApplyTransforms -d 3 -r half-voxel-2mm.nii.gz -o DisplacementField[dfid.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "NIfTI field: header bytes and every vector bit for bit"
+    }
+   }
+  },
+  {
+   "id": "transform-output/field/fmriprep",
+   "category": "transform-output",
+   "description": "-o DisplacementField[x.nii.gz]: fMRIPrep's T1w-to-MNI composite (ds000005) on its 2 mm MNI grid",
+   "command": "antsApplyTransforms -d 3 -r sub-01_space-MNI152NLin2009cAsym_res-2_desc-preproc_T1w.nii.gz -o DisplacementField[fmriprep.nii.gz] -t sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "NIfTI field: header bytes and every vector bit for bit"
+    }
+   }
+  },
+  {
+   "id": "transform-output/errors/linear-no-parameter",
+   "category": "transform-output",
+   "description": "-o Linear without a file name",
+   "command": "antsApplyTransforms -d 3 -o Linear -t euler-zyx.txt",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs: An output parameter is required with -o Linear or -o CompositeTransform, see usage; larmorx: An output parameter is required with -o Linear or -o CompositeTransform, see usage"
+    }
+   }
+  },
+  {
+   "id": "transform-output/errors/composite-no-parameter",
+   "category": "transform-output",
+   "description": "-o CompositeTransform without a file name",
+   "command": "antsApplyTransforms -d 3 -o CompositeTransform -t euler-zyx.txt",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs: An output parameter is required with -o Linear or -o CompositeTransform, see usage; larmorx: An output parameter is required with -o Linear or -o CompositeTransform, see usage"
+    }
+   }
+  },
+  {
+   "id": "transform-output/errors/linear-with-field",
+   "category": "transform-output",
+   "description": "-o Linear[...] of a chain with a displacement field: not linear",
+   "command": "antsApplyTransforms -d 3 -o Linear[x.txt] -t warp-lps-vector.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs: The transform or set of transforms is not linear.; larmorx: The transform or set of transforms is not linear."
+    }
+   }
+  },
+  {
+   "id": "transform-output/errors/field-no-reference",
+   "category": "transform-output",
+   "description": "-o DisplacementField[...] without -r",
+   "command": "antsApplyTransforms -d 3 -o DisplacementField[x.nii.gz] -t affine-centered.mat",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs: A reference image is required.; larmorx: A reference image is required."
+    }
+   }
+  },
+  {
+   "id": "transform-output/errors/image-no-input",
+   "category": "transform-output",
+   "description": "-o [x.nii.gz,0] without -i: an image output needs an input",
+   "command": "antsApplyTransforms -d 3 -r oblique-1.5mm.nii.gz -o [x.nii.gz,0] -t affine-centered.mat",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs: An input image is required.; larmorx: An input image is required."
+    }
+   }
+  },
+  {
+   "id": "transform-output/errors/inverted-field",
+   "category": "transform-output",
+   "description": "-o CompositeTransform[...] -t [field,1]: a displacement field has no inverse",
+   "command": "antsApplyTransforms -d 3 -o CompositeTransform[x.txt] -t [warp-lps-vector.nii.gz,1]",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs: Inverse does not exist for <larmorx-testdata>/data/synthetic/resampling/transforms/warp-lps-vector.nii.gz; larmorx: Inverse does not exist: a displacement field cannot be inverted; use its inverse field instead"
+    }
+   }
+  },
+  {
+   "id": "transform-output/errors/unknown-extension",
+   "category": "transform-output",
+   "description": "-o CompositeTransform[x.foo]: no transform writer for the extension",
+   "command": "antsApplyTransforms -d 3 -o CompositeTransform[x.foo] -t euler-zyx.txt",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "1/1",
+     "reason": "ITK's transform writer finds no IO for the extension and throws; antsApplyTransforms does not catch it and aborts. larmorx refuses with a message"
+    }
+   }
+  },
+  {
+   "id": "transform-output/errors/linear-input-no-reference",
+   "category": "transform-output",
+   "description": "-o Linear[...] with -i and without -r",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -o Linear[x.txt] -t euler-zyx.txt",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "1/1",
+     "reason": "an input image is resampled onto the reference even for a transform output; without one ANTs dereferences a null image and crashes. larmorx refuses"
+    }
+   }
+  },
+  {
+   "id": "transform-output/errors/gaussian-no-input",
+   "category": "transform-output",
+   "description": "-o Linear[...] -n Gaussian without -i",
+   "command": "antsApplyTransforms -d 3 -n Gaussian -o Linear[x.txt] -t euler-zyx.txt",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "1/1",
+     "reason": "ANTs reads the Gaussian interpolator's default sigmas from the first input image even when there is none (an empty vector) and crashes. larmorx refuses"
+    }
+   }
+  },
+  {
+   "id": "transform-output/errors/identity-transform-file",
+   "category": "transform-output",
+   "description": "-o Linear[...] of an IdentityTransform read from a file",
+   "command": "antsApplyTransforms -d 3 -o Linear[x.txt] -t identity-transform.txt",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "1/1",
+     "reason": "ANTs's CollapseLinearTransforms takes an IdentityTransform for a matrix-offset transform and dereferences a null pointer. larmorx refuses"
+    }
+   }
+  }
+ ],
+ "cases_total": 220,
+ "speed": {
+  "title": "Seconds for the whole command (read, resample, write), median of repeated runs, log scale; the factor is larmorx's speed-up at one thread",
+  "axis": [
+   0.001,
+   100.0
+  ],
+  "ticks": [
+   [
+    0.001,
+    "0.001 s"
+   ],
+   [
+    0.01,
+    "0.01 s"
+   ],
+   [
+    0.1,
+    "0.1 s"
+   ],
+   [
+    1.0,
+    "1 s"
+   ],
+   [
+    10.0,
+    "10 s"
+   ],
+   [
+    100.0,
+    "100 s"
+   ]
+  ],
+  "series": [
+   {
+    "id": "ANTs 2.6.5|1 thread",
+    "label": "ANTs (through ANTsPy), 1 thread",
+    "mark": "original"
+   },
+   {
+    "id": "ANTs 2.6.5|12 threads",
+    "label": "ANTs (through ANTsPy), 12 threads",
+    "mark": "original-open"
+   },
+   {
+    "id": "larmorx (CLI)|1 thread",
+    "label": "larmorx, 1 thread",
+    "mark": "larmorx"
+   },
+   {
+    "id": "larmorx (CLI)|12 threads",
+    "label": "larmorx, 12 threads",
+    "mark": "larmorx-open"
+   }
+  ],
+  "rows": [
+   {
+    "label": "BOLD reference → T1w, linear",
+    "input": "boldref → T1w 1 mm, Linear",
+    "seconds": {
+     "ANTs 2.6.5|1 thread": 0.2580111473798752,
+     "larmorx (CLI)|1 thread": 0.13716441579163074,
+     "ANTs 2.6.5|12 threads": 0.1796928197145462,
+     "larmorx (CLI)|12 threads": 0.06083348020911217
+    },
+    "speedup": 1.8810355870419422
+   },
+   {
+    "label": "BOLD reference → T1w, Lanczos",
+    "input": "boldref → T1w 1 mm, Lanczos",
+    "seconds": {
+     "ANTs 2.6.5|1 thread": 11.55361095815897,
+     "larmorx (CLI)|1 thread": 2.6383171044290066,
+     "ANTs 2.6.5|12 threads": 1.8718935158103704,
+     "larmorx (CLI)|12 threads": 0.5362267177551985
+    },
+    "speedup": 4.379159328029085
+   },
+   {
+    "label": "T1w → MNI (.h5), linear",
+    "input": "T1w → MNI 2 mm (.h5 affine + warp), Linear",
+    "seconds": {
+     "ANTs 2.6.5|1 thread": 0.8320832438766956,
+     "larmorx (CLI)|1 thread": 0.6827221903949976,
+     "ANTs 2.6.5|12 threads": 0.7296213917434216,
+     "larmorx (CLI)|12 threads": 0.6164446864277124
+    },
+    "speedup": 1.2187728121086607
+   },
+   {
+    "label": "T1w → MNI (.h5), Lanczos",
+    "input": "T1w → MNI 2 mm (.h5 affine + warp), Lanczos",
+    "seconds": {
+     "ANTs 2.6.5|1 thread": 4.20647487975657,
+     "larmorx (CLI)|1 thread": 1.6009096521884203,
+     "ANTs 2.6.5|12 threads": 1.2453925181180239,
+     "larmorx (CLI)|12 threads": 0.7910602483898401
+    },
+    "speedup": 2.6275529502907173
+   },
+   {
+    "label": "labels → BOLD reference",
+    "input": "aseg → boldref, GenericLabel",
+    "seconds": {
+     "ANTs 2.6.5|1 thread": 0.289663203060627,
+     "larmorx (CLI)|1 thread": 0.0198846235871315,
+     "ANTs 2.6.5|12 threads": 0.19571739993989468,
+     "larmorx (CLI)|12 threads": 0.009695274755358696
+    },
+    "speedup": 14.567195692257657
+   },
+   {
+    "label": "240-volume BOLD → T1w, Lanczos",
+    "input": "BOLD 240 volumes → T1w grid, Lanczos (-e 3)",
+    "seconds": {
+     "ANTs 2.6.5|1 thread": 80.16235415451229,
+     "larmorx (CLI)|1 thread": 19.71161897480488,
+     "ANTs 2.6.5|12 threads": 13.187181163579226,
+     "larmorx (CLI)|12 threads": 4.213443446904421
+    },
+    "speedup": 4.066756477840542
+   }
+  ],
+  "note": "From the benchmark report `docs/benchmarks/ants-apply-transforms.json` (Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz, 12 logical CPUs), 2026-10-10: ANTs 2.6.5 through ANTsPy, both in double precision (the report predates `--float 1`)."
+ },
+ "examples": [
+  {
+   "id": "fmriprep-anat2std",
+   "title": "fMRIPrep's T1w resampled into MNI space, by fMRIPrep, ANTs and larmorx",
+   "summary": "The node fMRIPrep 25.2.6 ran to write ds000005 sub-01's T1w in MNI152NLin2009cAsym at 2 mm: the masked T1w, the template and the composite transform of its outputs (the affine and the SyN displacement field of its template registration), Lanczos interpolation, `--float 1`; given to ANTs 2.6.5 and to larmorx, as fMRIPrep ran it and in double precision.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01's T1w as fMRIPrep preprocessed and masked it (PDDL-1.0); the template, MNI ICBM 152 nonlinear asymmetric 2009c, © McConnell Brain Imaging Centre, Montreal Neurological Institute ([notice](/static/hero/LICENSE-MNI.txt))"
+    },
+    {
+     "label": "Node",
+     "text": "fMRIPrep 25.2.6, `ds_std_volumes_wf/anat2std_t1w`, one thread"
+    },
+    {
+     "label": "Command",
+     "text": "`antsApplyTransforms --default-value 0 --dimensionality 3 --float 1 --input …/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz --interpolation LanczosWindowedSinc --output sub-01_desc-preproc_T1w_masked_trans.nii.gz --reference-image /templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz --transform /out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5`"
+    },
+    {
+     "label": "Transform",
+     "text": "`sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5`: AffineTransform_float_3_3, a displacement field"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; CORE-MATH preloaded where stated; larmorx at commit `1dfe56c0dc60`"
+    },
+    {
+     "label": "Grid",
+     "text": "input 160 × 192 × 192; output 97 × 115 × 97 voxels of 2 × 2 × 2 mm; shown: 81 × 99 × 85 around the brain"
+    }
+   ],
+   "grid": {
+    "shape": [
+     81,
+     99,
+     85
+    ],
+    "spacing": [
+     2.0,
+     2.0,
+     2.0
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      8
+     ],
+     [
+      0,
+      1,
+      0,
+      8
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      2.0,
+      0.0,
+      0.0,
+      -80.5
+     ],
+     [
+      0.0,
+      2.0,
+      0.0,
+      -116.5
+     ],
+     [
+      0.0,
+      0.0,
+      2.0,
+      -78.5
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     97,
+     115,
+     97
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "b93db322c6dd6d6c16e27ede.bin",
+    "dtype": "u1",
+    "bytes": 9876
+   },
+   "outputs": [
+    {
+     "id": "warped",
+     "label": "T1w in MNI space",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -56.91171646118164,
+       "hi": 1014.5887145996094
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -264.6939392089844,
+       "hi": 2191.1162109375
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "template",
+     "role": "input",
+     "label": "MNI152NLin2009cAsym, 2 mm (reference, -r)",
+     "sub": "the grid the T1w is resampled onto",
+     "arrays": {
+      "all": {
+       "blob": "71452bd29280c8587d2ec770.bin",
+       "dtype": "i2",
+       "bytes": 448089
+      }
+     },
+     "window": [
+      1055.0,
+      9253.75
+     ]
+    },
+    {
+     "id": "input",
+     "role": "input",
+     "label": "ds000005 sub-01 T1w × brain mask (input, -i)",
+     "sub": "on this grid without the transform (ANTs, Lanczos)",
+     "arrays": {
+      "all": {
+       "blob": "6410b9f90bbdd8baf173adff.bin",
+       "dtype": "f4",
+       "bytes": 648910
+      }
+     },
+     "window": [
+      -46.149903297424316,
+      1005.5762481689453
+     ]
+    },
+    {
+     "id": "larmorx-float",
+     "role": "larmorx",
+     "label": "larmorx (port), --float 1",
+     "sub": "1 thread, reproduce mode",
+     "arrays": {
+      "warped": {
+       "blob": "9c3d8bdae52f3743f4a4c47c.bin",
+       "dtype": "f4",
+       "bytes": 923129
+      }
+     },
+     "own": {
+      "warped": [
+       -56.91171646118164,
+       1014.5887145996094
+      ]
+     }
+    },
+    {
+     "id": "larmorx-float-12",
+     "role": "larmorx",
+     "label": "larmorx (port), --float 1",
+     "sub": "12 threads, reproduce mode",
+     "arrays": {
+      "warped": {
+       "same": "larmorx-float:warped",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "warped": [
+       -56.91171646118164,
+       1014.5887145996094
+      ]
+     }
+    },
+    {
+     "id": "larmorx-float-fix",
+     "role": "larmorx",
+     "label": "larmorx (port), --float 1",
+     "sub": "1 thread, default mode",
+     "arrays": {
+      "warped": {
+       "same": "larmorx-float:warped",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "warped": [
+       -56.91171646118164,
+       1014.5887145996094
+      ]
+     }
+    },
+    {
+     "id": "ants-float-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, --float 1, correctly rounded maths",
+     "sub": "1 thread, CORE-MATH preloaded",
+     "arrays": {
+      "warped": {
+       "same": "larmorx-float:warped",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "warped": [
+       -56.91171646118164,
+       1014.5887145996094
+      ]
+     }
+    },
+    {
+     "id": "ants-float",
+     "role": "original",
+     "label": "ANTs 2.6.5, --float 1, as built",
+     "sub": "1 thread, glibc's maths (GCC 14.3 build)",
+     "arrays": {
+      "warped": {
+       "same": "larmorx-float:warped",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "warped": [
+       -56.91171646118164,
+       1014.5887145996094
+      ]
+     }
+    },
+    {
+     "id": "ants-float-8",
+     "role": "original",
+     "label": "ANTs 2.6.5, --float 1",
+     "sub": "8 threads, as built",
+     "arrays": {
+      "warped": {
+       "same": "larmorx-float:warped",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "warped": [
+       -56.91171646118164,
+       1014.5887145996094
+      ]
+     }
+    },
+    {
+     "id": "fmriprep",
+     "role": "fmriprep",
+     "label": "fMRIPrep 25.2.6, as it ran",
+     "sub": "ANTs 2.6.2 in its image, --float 1, 1 thread",
+     "arrays": {
+      "warped": {
+       "same": "larmorx-float:warped",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "warped": [
+       -56.91171646118164,
+       1014.5887145996094
+      ]
+     }
+    },
+    {
+     "id": "larmorx-double",
+     "role": "larmorx",
+     "label": "larmorx (port), double",
+     "sub": "1 thread, reproduce mode",
+     "arrays": {
+      "warped": {
+       "blob": "a50dca33a9389bd5a15c4b62.bin",
+       "dtype": "f8",
+       "bytes": 1980906
+      }
+     },
+     "own": {
+      "warped": [
+       -56.911825062259936,
+       1014.5886922987185
+      ]
+     }
+    },
+    {
+     "id": "larmorx-double-12",
+     "role": "larmorx",
+     "label": "larmorx (port), double",
+     "sub": "12 threads, reproduce mode",
+     "arrays": {
+      "warped": {
+       "same": "larmorx-double:warped",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "warped": [
+       -56.911825062259936,
+       1014.5886922987185
+      ]
+     }
+    },
+    {
+     "id": "larmorx-double-fix",
+     "role": "larmorx",
+     "label": "larmorx (port), double",
+     "sub": "1 thread, default mode",
+     "arrays": {
+      "warped": {
+       "same": "larmorx-double:warped",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "warped": [
+       -56.911825062259936,
+       1014.5886922987185
+      ]
+     }
+    },
+    {
+     "id": "ants-double-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, double, correctly rounded maths",
+     "sub": "1 thread, CORE-MATH preloaded",
+     "arrays": {
+      "warped": {
+       "same": "larmorx-double:warped",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "warped": [
+       -56.911825062259936,
+       1014.5886922987185
+      ]
+     }
+    },
+    {
+     "id": "ants-double",
+     "role": "original",
+     "label": "ANTs 2.6.5, double, as built",
+     "sub": "1 thread, glibc's maths",
+     "arrays": {
+      "warped": {
+       "blob": "ec1549cbd74b8fd4b2e38b56.bin",
+       "dtype": "f8",
+       "xor": "ants-double-cr:warped",
+       "zero": false,
+       "bytes": 11820
+      }
+     },
+     "own": {
+      "warped": [
+       -56.911825062259936,
+       1014.5886922987185
+      ]
+     }
+    },
+    {
+     "id": "ants-double-8",
+     "role": "original",
+     "label": "ANTs 2.6.5, double",
+     "sub": "8 threads, as built",
+     "arrays": {
+      "warped": {
+       "same": "ants-double:warped",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "warped": [
+       -56.911825062259936,
+       1014.5886922987185
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants-float",
+     "a": "larmorx-float",
+     "b": "ants-float",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, --float 1, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2455.8101501464844,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "The same bytes.",
+     "links": []
+    },
+    {
+     "id": "lx-cr-float",
+     "a": "larmorx-float",
+     "b": "ants-float-cr",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, --float 1, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2455.8101501464844,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "With correctly rounded maths, ANTs computes exactly what larmorx computes, in single precision as ITK's float instantiation defines it.",
+     "links": [
+      {
+       "label": "ANTs' float",
+       "href": "docs/findings/ants-float.md"
+      }
+     ]
+    },
+    {
+     "id": "lx-ants-double",
+     "a": "larmorx-double",
+     "b": "ants-double",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, double, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "warped": {
+       "identical": false,
+       "voxels": 1082035,
+       "differ": 2871,
+       "share": 0.002653333764619444,
+       "max_abs": 6.821210263296962e-13,
+       "at": [
+        42,
+        35,
+        64
+       ],
+       "a_at": 925.1002621672766,
+       "b_at": 925.1002621672759,
+       "rms": 9.049548011184636e-15,
+       "range": 2455.8102558236233,
+       "max_rel_range": 2.777580331021658e-16,
+       "one_minus_ncc": 4.633932548891191e-34,
+       "at_display": [
+        34,
+        27,
+        64
+       ]
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 6.821210263296962e-13,
+       "at": [
+        34,
+        27,
+        64
+       ],
+       "a": 925.1002621672766,
+       "b": 925.1002621672759,
+       "differ": 2719
+      }
+     },
+     "verdict": "identical-cr",
+     "reason": "Only where glibc's sin, cos or exp is not correctly rounded (the Lanczos weights, the composite's matrices): with CORE-MATH preloaded, the same ANTs binary gives larmorx's output bit for bit.",
+     "links": [
+      {
+       "label": "platform maths",
+       "href": "docs/findings/platform-math.md"
+      }
+     ]
+    },
+    {
+     "id": "lx-cr-double",
+     "a": "larmorx-double",
+     "b": "ants-double-cr",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, double, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2455.8102558236233,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "With correctly rounded maths, ANTs computes exactly what larmorx computes.",
+     "links": []
+    },
+    {
+     "id": "lx-fmriprep",
+     "a": "larmorx-float",
+     "b": "fmriprep",
+     "kind": "fmriprep",
+     "label": "larmorx (--float 1) − fMRIPrep's own output",
+     "role_label": "larmorx against fMRIPrep",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2455.8101501464844,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "The same bytes.",
+     "links": []
+    },
+    {
+     "id": "lx12-float",
+     "a": "larmorx-float-12",
+     "b": "larmorx-float",
+     "kind": "check",
+     "label": "larmorx --float 1, 12 threads − 1 thread",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2455.8101501464844,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "The same bytes on any number of threads.",
+     "links": []
+    },
+    {
+     "id": "lx-fix-float",
+     "a": "larmorx-float-fix",
+     "b": "larmorx-float",
+     "kind": "check",
+     "label": "larmorx --float 1, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2455.8101501464844,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "No correction of the register applies to this command.",
+     "links": []
+    },
+    {
+     "id": "lx12-double",
+     "a": "larmorx-double-12",
+     "b": "larmorx-double",
+     "kind": "check",
+     "label": "larmorx double, 12 threads − 1 thread",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2455.8102558236233,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "The same bytes on any number of threads.",
+     "links": []
+    },
+    {
+     "id": "lx-fix-double",
+     "a": "larmorx-double-fix",
+     "b": "larmorx-double",
+     "kind": "check",
+     "label": "larmorx double, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2455.8102558236233,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "No correction of the register applies to this command.",
+     "links": []
+    },
+    {
+     "id": "ants8-float",
+     "a": "ants-float-8",
+     "b": "ants-float",
+     "kind": "variability",
+     "label": "ANTs 2.6.5 --float 1, 8 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2455.8101501464844,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": null,
+     "reason": "ANTs resamples each voxel on its own: its thread count changes nothing.",
+     "links": []
+    },
+    {
+     "id": "ants8-double",
+     "a": "ants-double-8",
+     "b": "ants-double",
+     "kind": "variability",
+     "label": "ANTs 2.6.5 double, 8 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2455.8102558236233,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": null,
+     "reason": "ANTs resamples each voxel on its own: its thread count changes nothing.",
+     "links": []
+    },
+    {
+     "id": "fmriprep-ants",
+     "a": "fmriprep",
+     "b": "ants-float",
+     "kind": "variability",
+     "label": "fMRIPrep's own output (ANTs 2.6.2) − ANTs 2.6.5, --float 1, 1 thread each",
+     "role_label": "the original against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2455.8101501464844,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": null,
+     "reason": "ANTs' version and build play no part.",
+     "links": []
+    },
+    {
+     "id": "cr-ants-float",
+     "a": "ants-float-cr",
+     "b": "ants-float",
+     "kind": "variability",
+     "label": "ANTs --float 1: correctly rounded − glibc's maths",
+     "role_label": "the original against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2455.8101501464844,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": null,
+     "reason": "glibc's sin, cos (the windowed sinc's weights) and exp are not always correctly rounded.",
+     "links": [
+      {
+       "label": "platform maths",
+       "href": "docs/findings/platform-math.md"
+      }
+     ]
+    },
+    {
+     "id": "float-double",
+     "a": "ants-float",
+     "b": "ants-double",
+     "kind": "variability",
+     "label": "ANTs 2.6.5: --float 1 − double, as built",
+     "role_label": "the original against itself",
+     "metrics": {
+      "warped": {
+       "identical": false,
+       "voxels": 1082035,
+       "differ": 290401,
+       "share": 0.26838410957131703,
+       "max_abs": 0.012628686412313073,
+       "at": [
+        76,
+        40,
+        66
+       ],
+       "a_at": 488.0290222167969,
+       "b_at": 488.0416509032092,
+       "rms": 0.00028866407754704317,
+       "range": 2455.8102558236233,
+       "max_rel_range": 5.142370581100817e-06,
+       "one_minus_ncc": 4.459174298976208e-13,
+       "at_display": [
+        68,
+        32,
+        66
+       ]
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.012628686412313073,
+       "at": [
+        68,
+        32,
+        66
+       ],
+       "a": 488.0290222167969,
+       "b": 488.0416509032092,
+       "differ": 272086
+      }
+     },
+     "verdict": null,
+     "reason": "Single precision, as fMRIPrep asks for, against double: the size of the precision fMRIPrep chose.",
+     "links": []
+    }
+   ],
+   "default": {
+    "output": "warped",
+    "plane": "axial",
+    "voxel": [
+     11,
+     27,
+     41
+    ],
+    "panels": [
+     "template",
+     "input",
+     "fmriprep",
+     "larmorx-float"
+    ],
+    "diffs": [
+     "lx-fmriprep",
+     "lx-ants-double",
+     "float-double"
+    ],
+    "compare": {
+     "a": "template",
+     "b": "larmorx-float"
+    },
+    "scale": "log"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 41,
+    "aspect": 0.81818,
+    "panels": {
+     "template": "b1c6103023a363094763bf45.webp",
+     "input": "e9c62918dfd2bee400193aa9.webp",
+     "fmriprep": "0f443f9c12f8499bc8450cc4.webp",
+     "larmorx-float": "0f443f9c12f8499bc8450cc4.webp"
+    },
+    "diffs": {
+     "lx-ants-double": "d14649ab7bf03ffe6b553c4b.webp",
+     "float-double": "17a0c8b0f6c446e8e9e87b90.webp"
+    },
+    "ranges": {
+     "lx-ants-double": 0.012628686412313073,
+     "float-double": 0.012628686412313073
+    },
+    "caption": "Axial slice 42 of 85; the crosshair where larmorx and ANTs as built differ most in double precision; the differences on one symmetric log scale over six decades below the largest."
+   },
+   "chain": {
+    "title": "Who gives which bytes: --float 1 (as fMRIPrep ran it), then double precision",
+    "steps": [
+     {
+      "nodes": [
+       {
+        "label": "fMRIPrep 25.2.6, as it ran",
+        "sub": "ANTs 2.6.2 in its image, --float 1, 1 thread",
+        "role": "fmriprep"
+       },
+       {
+        "label": "ANTs 2.6.5, --float 1, as built",
+        "sub": "1 and 8 threads, glibc's or CORE-MATH's maths",
+        "role": "original"
+       },
+       {
+        "label": "larmorx (port), --float 1",
+        "sub": "1 and 12 threads, both modes",
+        "role": "larmorx"
+       }
+      ]
+     },
+     {
+      "nodes": [
+       {
+        "label": "ANTs 2.6.5, double, as built",
+        "sub": "1 thread, glibc's maths",
+        "role": "original"
+       },
+       {
+        "label": "ANTs 2.6.5, double",
+        "sub": "8 threads, as built",
+        "role": "original"
+       }
+      ]
+     },
+     {
+      "nodes": [
+       {
+        "label": "ANTs 2.6.5, double, correctly rounded maths",
+        "sub": "1 thread, CORE-MATH preloaded",
+        "role": "reference"
+       },
+       {
+        "label": "larmorx (port), double",
+        "sub": "1 and 12 threads, both modes",
+        "role": "larmorx"
+       }
+      ]
+     }
+    ],
+    "links": [
+     {
+      "cause": "double precision instead of --float 1",
+      "max_abs": 0.012628686412313073
+     },
+     {
+      "cause": "correctly rounded maths instead of glibc's",
+      "max_abs": 6.821210263296962e-13
+     }
+    ],
+    "note": "Each box holds runs that give the same bytes. With --float 1, as fMRIPrep ran it, every run gives fMRIPrep's bytes: fMRIPrep's ANTs 2.6.2, the repository's ANTs 2.6.5 at one and eight threads, with glibc's or correctly rounded maths, and larmorx. In double precision glibc's maths moves a few voxels in their last bits, and larmorx computes ANTs' result with correctly rounded maths."
+   },
+   "metrics_note": "Δ is A − B. Every number is computed in float64 over all 1,082,035 voxels of the 97 × 115 × 97 outputs, not only the brain shown; the range is B's maximum minus its minimum. The rows *the original against itself* are ANTs' own variability on this input (its threads, its version, glibc's maths) and the size of single against double precision.",
+   "provenance": [
+    "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0; MNI ICBM 152 nonlinear asymmetric 2009c (Fonov et al., 2009, 2011), from TemplateFlow, the MNI ICBM 152 notice (static/hero/LICENSE-MNI.txt)",
+    "Inputs: input (sha256 e7d2c881d419c906…); reference (sha256 7c4e551ae8150ac1…); transform (sha256 5c560d36ed0d33d0…); fMRIPrep's output (sha256 feb109660136c85e…)",
+    "Runs: figures cache entry `ants-apply-transforms/fmriprep-ds000005-anat2std-t1w`, computed 2026-10-21T14:43:48+00:00 with larmorx `1dfe56c0dc60`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ]
+  }
+ ]
+}

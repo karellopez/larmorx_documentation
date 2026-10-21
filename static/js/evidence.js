@@ -102,6 +102,7 @@
   /* --------------------------------------------------------------- blobs */
   var DT = {
     f4: { arr: Float32Array, bits: Uint32Array, size: 4 },
+    f8: { arr: Float64Array, bits: Uint32Array, size: 8, k: 2 },
     i2: { arr: Int16Array, bits: Uint16Array, size: 2 },
     u2: { arr: Uint16Array, bits: Uint16Array, size: 2 },
     u1: { arr: Uint8Array, bits: Uint8Array, size: 1 },
@@ -158,7 +159,7 @@
       var t = DT[s.dtype];
       var raw = new t.arr(unshuffle(r[0], t.size));
       if (!r[1]) return raw;
-      var ref = r[1], x = new t.bits(raw.buffer), rb = new t.bits(ref.buffer, ref.byteOffset, ref.length);
+      var ref = r[1], x = new t.bits(raw.buffer), rb = new t.bits(ref.buffer, ref.byteOffset, ref.length * (t.k || 1));
       var out = new t.bits(x.length);
       for (var i = 0; i < x.length; i++) out[i] = x[i] ^ rb[i];
       return new t.arr(out.buffer);
@@ -391,7 +392,11 @@
     var s = this.s, P = PLANES[s.plane], n = this.shape[P.slice];
     this.sliceInput.max = n - 1; this.sliceInput.value = s.voxel[P.slice];
     this.sliceText.textContent = (s.voxel[P.slice] + 1) + ' of ' + n;
-    if (this.volInput) { this.volInput.value = s.t; this.volText.textContent = (s.t + 1) + ' of ' + this.nt; }
+    if (this.volInput) {
+      this.volInput.value = s.t;
+      var ti = this.ex.grid.t_index;
+      this.volText.textContent = ti ? 'file volume ' + ti[s.t] + ' (' + (s.t + 1) + ' of ' + this.nt + ' shown)' : (s.t + 1) + ' of ' + this.nt;
+    }
     var segs = this.viewer.querySelectorAll('.ev-seg[aria-label="Plane"] button');
     Array.prototype.forEach.call(segs, function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-id') === s.plane)); });
   };
@@ -758,7 +763,8 @@
     var mm = [0, 1, 2].map(function (r) { return F[r][0] * v[0] + F[r][1] * v[1] + F[r][2] * v[2] + F[r][3]; });
     var at = this.index(v[0], v[1], v[2], s.t);
     var inMask = this.store.mask[this.index(v[0], v[1], v[2], 0)];
-    var where = 'Voxel ' + fi.join(', ') + (this.nt > 1 ? ', volume ' + s.t : '') + ' of the file · ' + mm.map(function (x) { return sig(x, 4); }).join(', ') + ' mm';
+    var tf = ex.grid.t_index ? ex.grid.t_index[s.t] : s.t;
+    var where = 'Voxel ' + fi.join(', ') + (this.nt > 1 ? ', volume ' + tf : '') + ' of the file · ' + mm.map(function (x) { return sig(x, 4); }).join(', ') + ' mm';
     var rows = [];
     var panels = s.mode === 'grid' ? s.panels : [s.a, s.b];
     var labels = panels.map(function (id) { return ex.panelById[id].label; });
@@ -768,7 +774,7 @@
       if (!a) return;
       var spec = self.store.spec(key), raw = a[at];
       var val = spec.scale === undefined ? raw : raw * spec.scale + (spec.inter || 0);
-      var txt = spec.dtype === 'f4' ? f32(raw) : (spec.scale !== undefined ? count(raw) + ' × ' + f32(Math.fround(spec.scale)) + ' = ' + f64(val) : count(raw));
+      var txt = spec.dtype === 'f4' ? f32(raw) : spec.dtype === 'f8' ? f64(raw) : (spec.scale !== undefined ? count(raw) + ' × ' + f32(Math.fround(spec.scale)) + ' = ' + f64(val) : count(raw));
       rows.push(el('tr', {}, [el('th', { scope: 'row', text: name }), el('td', { class: 'n', 'data-raw': String(raw), text: inMask ? txt : '(outside the shown brain)' })]));
     });
     if (s.mode === 'grid') s.diffs.forEach(function (id) {
@@ -889,6 +895,83 @@
     for (; t <= hi + 1e-9; t += step) out.push(+t.toPrecision(12));
     return out;
   }
+
+  /* ========================================================= line charts
+   * Panels of lines over one x axis (e.g. a run's motion parameters over its volumes), redrawn
+   * to the column's width; the pointer reads every series' value at one x. */
+  function Lines(fig, spec) {
+    this.fig = fig; this.spec = spec; this.at = null;
+    var self = this;
+    this.box = fig.querySelector('.ev-lines-panels');
+    this.read = el('p', { class: 'ev-lines-read', 'aria-live': 'polite' });
+    this.box.after(this.read);
+    this.draw();
+    window.addEventListener('resize', function () { self.draw(); });
+    new MutationObserver(function () { self.draw(); }).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+  }
+  Lines.prototype.draw = function () {
+    var self = this, spec = this.spec, P = pal();
+    var W = Math.max(280, this.box.clientWidth || 600), narrow = W < 520;
+    var H = narrow ? 96 : 104, ml = narrow ? 50 : 62, mr = 8, mt = 18, mb = 6;
+    var xs = spec.x, x0 = xs[0], x1 = xs[xs.length - 1];
+    var NS = 'http://www.w3.org/2000/svg';
+    function S(tag, a) { var e = doc.createElementNS(NS, tag); Object.keys(a || {}).forEach(function (k) { e.setAttribute(k, a[k]); }); return e; }
+    function X(v) { return ml + (W - ml - mr) * (v - x0) / ((x1 - x0) || 1); }
+    var colour = { original: P.original, larmorx: P.larmorx, replica: P.replica, input: P.input, band: P.replica };
+    this.box.innerHTML = '';
+    this.cursors = [];
+    spec.panels.forEach(function (p, pi) {
+      var ys = [];
+      p.series.forEach(function (sr) { sr.y.forEach(function (v) { if (v !== null) ys.push(v); }); });
+      (p.bands || []).forEach(function (b) { ys = ys.concat(b.lo, b.hi); });
+      var lo = Math.min.apply(null, ys), hi = Math.max.apply(null, ys);
+      if (lo === hi) { lo -= 1; hi += 1; }
+      var pad = (hi - lo) * 0.06, y0 = lo - pad, y1 = hi + pad;
+      function Y(v) { return mt + (H - mt - mb) * (1 - (v - y0) / (y1 - y0)); }
+      var svg = S('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, role: 'img', 'aria-label': p.label, class: 'ev-lines-svg' });
+      (p.bands || []).forEach(function (b) {
+        var pts = xs.map(function (x, i) { return X(x).toFixed(1) + ',' + Y(b.hi[i]).toFixed(1); });
+        for (var i = xs.length - 1; i >= 0; i--) pts.push(X(xs[i]).toFixed(1) + ',' + Y(b.lo[i]).toFixed(1));
+        svg.appendChild(S('polygon', { points: pts.join(' '), class: 'ln-band ln-' + b.mark }));
+      });
+      if (y0 < 0 && y1 > 0) svg.appendChild(S('line', { x1: ml, x2: W - mr, y1: Y(0), y2: Y(0), class: 'ln-zero' }));
+      p.series.forEach(function (sr) {
+        var pts = [];
+        sr.y.forEach(function (v, i) { if (v !== null) pts.push(X(xs[i]).toFixed(1) + ',' + Y(v).toFixed(1)); });
+        svg.appendChild(S('polyline', { points: pts.join(' '), class: 'ln ln-' + sr.mark, stroke: colour[sr.mark] || P.ink }));
+      });
+      var lab = S('text', { x: ml, y: 12, class: 'ln-label' }); lab.textContent = p.label; svg.appendChild(lab);
+      [hi, lo].forEach(function (v) { var t = S('text', { x: ml - 6, y: Y(v) + 4, 'text-anchor': 'end', class: 'ln-tick' }); t.textContent = sig(v, 3); svg.appendChild(t); });
+      var cur = S('line', { x1: ml, x2: ml, y1: mt, y2: H - mb, class: 'ln-cursor', visibility: 'hidden' });
+      svg.appendChild(cur); self.cursors.push(cur);
+      svg.addEventListener('pointermove', function (e) {
+        var r = svg.getBoundingClientRect(), fx = (e.clientX - r.left) * W / r.width;
+        var v = x0 + (fx - ml) / (W - ml - mr) * (x1 - x0), best = 0;
+        xs.forEach(function (x, i) { if (Math.abs(x - v) < Math.abs(xs[best] - v)) best = i; });
+        self.pick(best);
+      });
+      self.box.appendChild(svg);
+    });
+    var ax = S('svg', { viewBox: '0 0 ' + W + ' 26', width: W, height: 26, class: 'ev-lines-svg' });
+    niceTicks(x0, x1, narrow ? 4 : 8).forEach(function (t) {
+      if (t < x0 || t > x1) return;
+      var tx = S('text', { x: X(t), y: 12, 'text-anchor': 'middle', class: 'ln-tick' }); tx.textContent = sig(t, 4); ax.appendChild(tx);
+    });
+    var xl = S('text', { x: (ml + W - mr) / 2, y: 24, 'text-anchor': 'middle', class: 'ln-axis' }); xl.textContent = spec.x_label; ax.appendChild(xl);
+    this.box.appendChild(ax);
+    this.X = X;
+    if (this.at !== null) this.pick(this.at);
+  };
+  Lines.prototype.pick = function (i) {
+    var spec = this.spec, X = this.X, x = X(spec.x[i]);
+    this.at = i;
+    this.cursors.forEach(function (c) { c.setAttribute('x1', x); c.setAttribute('x2', x); c.setAttribute('visibility', 'visible'); });
+    var parts = [spec.x_label + ' ' + spec.x[i]];
+    spec.panels.forEach(function (p) {
+      parts.push(p.label + ': ' + p.series.map(function (sr) { return sr.label + ' ' + (sr.y[i] === null ? '–' : sig(sr.y[i], 4)); }).join(', '));
+    });
+    this.read.textContent = parts.join(' · ');
+  };
 
   /* ======================================================= case explorer */
   function Explorer(box) {
@@ -1073,11 +1156,17 @@
     doc.querySelectorAll('.ev-cases').forEach(function (b) { explorers.push(new Explorer(b)); });
     doc.querySelectorAll('.ev-agree .seg').forEach(function (a) {
       a.addEventListener('click', function (e) {
-        var ex = explorers[0]; if (!ex) return;
+        var id = (a.getAttribute('href') || '').slice(1);
+        var ex = explorers.filter(function (x) { return x.box.id === id; })[0] || explorers[0]; if (!ex) return;
         e.preventDefault();
         ex.set({ category: a.getAttribute('data-filter-category'), verdict: a.getAttribute('data-filter-verdict'), impl: a.getAttribute('data-filter-impl') });
         ex.box.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' });
       });
+    });
+    doc.querySelectorAll('.ev-lines[data-ev-lines]').forEach(function (fig) {
+      loadDoc(fig.getAttribute('data-ev-src')).then(function (d) {
+        new Lines(fig, resolve(d, fig.getAttribute('data-ev-lines')));
+      }).catch(function (e) { console.error(e); });
     });
     doc.querySelectorAll('.ev-chart').forEach(tooltips);
     doc.querySelectorAll('.ev-agree .seg').forEach(function (a) {

@@ -1,0 +1,2831 @@
+{
+ "schema": 1,
+ "tool": "itk-hdf5",
+ "title": "ITK transform files",
+ "provenance": {
+  "exporter": "146ec72dd34cb66c17f1ba7b866b1bc89c83ffd3",
+  "records": [
+   {
+    "path": "docs/validation/itk-hdf5.json",
+    "sha256": "a2df9780f4ba4eb3ea80ff12d7fa24fee276d4686b7acb0161ba53d49ef75acc",
+    "generated": "2026-10-21",
+    "larmorx_commit": "1dfe56c0dc60"
+   },
+   {
+    "path": "docs/validation/itk-hdf5.md",
+    "sha256": "2f86ab86306d1e6342af62a6e7222d8229ddb1d19cf7143b8320a8d0f9fe0d17",
+    "generated": "2026-10-21",
+    "larmorx_commit": "1dfe56c0dc60"
+   }
+  ],
+  "benchmarks": [],
+  "cache": [
+   {
+    "entry": "itk-hdf5/fmriprep-ds000005-t1w-to-mni-h5",
+    "description": "fMRIPrep's T1w-to-MNI .h5 composite of ds000005 sub-01: read and written by ITK (ANTs 2.6.5), h5py and larmorx",
+    "computed": "2026-10-21T15:06:20+00:00",
+    "larmorx_commit": "1dfe56c0dc60ada5ef8938a87387bee37fd1b799",
+    "commands": [
+     {
+      "label": "itk-view",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-o",
+       "CompositeTransform[<workspace>/oracles/figures-cache/itk-hdf5/fmriprep-ds000005-t1w-to-mni-h5/itk-view.h5]",
+       "-t",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 8.14
+     },
+     {
+      "label": "itk-view-float",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-o",
+       "CompositeTransform[<workspace>/oracles/figures-cache/itk-hdf5/fmriprep-ds000005-t1w-to-mni-h5/itk-view-float.h5]",
+       "-t",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 5.81
+     },
+     {
+      "label": "itk-view-of-larmorx",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-o",
+       "CompositeTransform[<workspace>/oracles/figures-cache/itk-hdf5/fmriprep-ds000005-t1w-to-mni-h5/itk-view-of-larmorx.h5]",
+       "-t",
+       "<workspace>/oracles/figures-cache/itk-hdf5/fmriprep-ds000005-t1w-to-mni-h5/larmorx-written.h5"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 8.74
+     },
+     {
+      "label": "apply-original",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-t",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/itk-hdf5/fmriprep-ds000005-t1w-to-mni-h5/apply-original.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 1.83
+     },
+     {
+      "label": "apply-larmorx-written",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/itk-hdf5/fmriprep-ds000005-t1w-to-mni-h5/larmorx-written.h5",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/itk-hdf5/fmriprep-ds000005-t1w-to-mni-h5/apply-larmorx-written.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 1.48
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "settings": "fMRIPrep 25.2.6's T1w-to-MNI composite of ds000005 sub-01, read by h5py, by larmorx and by ITK (antsApplyTransforms -o CompositeTransform[...], double and --float 1); written by larmorx (lx.transforms.write) and read back by ITK; the T1w resampled through both files"
+   }
+  ],
+  "command": "python -m larmorx_validation evidence itk-hdf5 --site <site>"
+ },
+ "implementations": [
+  {
+   "id": "port",
+   "label": "larmorx (port)",
+   "short": "port",
+   "record": "docs/validation/itk-hdf5.md",
+   "status": "validated",
+   "summary": {
+    "cases": 149,
+    "verdicts": {
+     "both-reject": 16,
+     "divergence": 5,
+     "bit-identical": 128
+    }
+   },
+   "agreement": [
+    {
+     "category": "errors",
+     "counts": {
+      "divergence": 4,
+      "both-reject": 16
+     }
+    },
+    {
+     "category": "hdf5",
+     "counts": {
+      "bit-identical": 54
+     }
+    },
+    {
+     "category": "read/catalog",
+     "counts": {
+      "bit-identical": 4
+     }
+    },
+    {
+     "category": "read/fmriprep-25.2.6",
+     "counts": {
+      "bit-identical": 10
+     }
+    },
+    {
+     "category": "read/h5py",
+     "counts": {
+      "bit-identical": 26
+     }
+    },
+    {
+     "category": "read/itk",
+     "counts": {
+      "bit-identical": 17
+     }
+    },
+    {
+     "category": "write",
+     "counts": {
+      "bit-identical": 17,
+      "divergence": 1
+     }
+    }
+   ]
+  }
+ ],
+ "cases": [
+  {
+   "id": "errors/h5py/2d-fixed",
+   "category": "errors",
+   "description": "written by h5py, refused by ITK: 2d-fixed",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "Description: ITK ERROR: HDF5TransformIOTemplate(0x0): Wrong # of dims for TransformType in HDF5 File"
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/2d-parameters",
+   "category": "errors",
+   "description": "written by h5py, refused by ITK: 2d-parameters",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "Description: ITK ERROR: HDF5TransformIOTemplate(0x0): Wrong # of dims for TransformType in HDF5 File"
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/external-link",
+   "category": "errors",
+   "description": "written by h5py, read by ITK, refused by larmorx: a transform behind an external link to another HDF5 file",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "5/5",
+     "reason": "a transform behind an external link to another HDF5 file: ITK's HDF5 follows it; larmorx refuses the file"
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/external-storage",
+   "category": "errors",
+   "description": "written by h5py, read by ITK, refused by larmorx: parameters in an external raw file (H5Pset_external)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "5/5",
+     "reason": "parameters in an external raw file (H5Pset_external): ITK's HDF5 follows it; larmorx refuses the file"
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/fixed-string",
+   "category": "errors",
+   "description": "written by h5py, refused by ITK: fixed-string",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "Description: ITK ERROR: HDF5TransformIOTemplate(0x0): H5Dread failed for variable length string"
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/gap-in-names",
+   "category": "errors",
+   "description": "written by h5py, refused by ITK: gap-in-names",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "Description: ITK ERROR: HDF5TransformIOTemplate(0x0): H5Gopen2 failed"
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/int-fixed",
+   "category": "errors",
+   "description": "written by h5py, refused by ITK: int-fixed",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "Description: ITK ERROR: HDF5TransformIOTemplate(0x0): Wrong data type for /TransformGroup/1/TransformFixedParametersin HDF5 File"
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/int-parameters",
+   "category": "errors",
+   "description": "written by h5py, refused by ITK: int-parameters",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "Description: ITK ERROR: HDF5TransformIOTemplate(0x0): Wrong data type for /TransformGroup/1/TransformParametersin HDF5 File"
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/lzf",
+   "category": "errors",
+   "description": "written by h5py, refused by ITK: lzf",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "Description: ITK ERROR: HDF5TransformIOTemplate(0x0): H5Dread failed"
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/missing-parameters",
+   "category": "errors",
+   "description": "written by h5py, refused by ITK: missing-parameters",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "Description: ITK ERROR: HDF5TransformIOTemplate(0x0): H5Dopen2 failed"
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/mixed-dimension",
+   "category": "errors",
+   "description": "written by h5py, refused by ITK: mixed-dimension",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "3/3",
+     "reason": "ITK-17: ITK casts the 2-D component to a 3-D transform (undefined behaviour) and antsApplyTransforms exits 0; larmorx refuses the file"
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/no-precision-in-name",
+   "category": "errors",
+   "description": "written by h5py, refused by ITK: no-precision-in-name",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "basic_string::replace: __pos (which is 18446744073709551615) > this->size() (which is 15)"
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/no-transform-group",
+   "category": "errors",
+   "description": "written by h5py, refused by ITK: no-transform-group",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "failed to read file: /tmp/lx-h5-sdd15ydg/no-transform-group.h5"
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/not-hdf5",
+   "category": "errors",
+   "description": "written by h5py, refused by ITK: not-hdf5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "set the suffix to an unsupported type."
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/scalar-parameters",
+   "category": "errors",
+   "description": "written by h5py, refused by ITK: scalar-parameters",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "Description: ITK ERROR: HDF5TransformIOTemplate(0x0): Wrong # of dims for TransformType in HDF5 File"
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/superblock3-chunked",
+   "category": "errors",
+   "description": "written by h5py, refused by ITK: superblock3-chunked",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "Description: ITK ERROR: HDF5TransformIOTemplate(0x0): H5Dopen2 failed"
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/truncated",
+   "category": "errors",
+   "description": "written by h5py, refused by ITK: truncated",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "set the suffix to an unsupported type."
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/two-strings",
+   "category": "errors",
+   "description": "written by h5py, refused by ITK: two-strings",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "Description: ITK ERROR: HDF5TransformIOTemplate(0x0): H5Dread failed for variable length string"
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/unknown-type",
+   "category": "errors",
+   "description": "written by h5py, refused by ITK: unknown-type",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "\"VersorTransform_float_3_3\""
+    }
+   }
+  },
+  {
+   "id": "errors/h5py/virtual",
+   "category": "errors",
+   "description": "written by h5py, read by ITK, refused by larmorx: parameters in a virtual dataset (mapping another dataset of the same file)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "5/5",
+     "reason": "parameters in a virtual dataset (mapping another dataset of the same file): ITK's HDF5 follows it; larmorx refuses the file"
+    }
+   }
+  },
+  {
+   "id": "hdf5/fixture/sb0",
+   "category": "hdf5",
+   "description": "a golden-test fixture (tests/golden/hdf5/sb0.h5.gz)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "2/2",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/fixture/sb1",
+   "category": "hdf5",
+   "description": "a golden-test fixture (tests/golden/hdf5/sb1.h5.gz)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "2/2",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/fixture/sb3-datasets",
+   "category": "hdf5",
+   "description": "a golden-test fixture (tests/golden/hdf5/sb3-datasets.h5.gz)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "2/2",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/fixture/sb3-groups",
+   "category": "hdf5",
+   "description": "a golden-test fixture (tests/golden/hdf5/sb3-groups.h5.gz)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "2/2",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/fixture/sohm",
+   "category": "hdf5",
+   "description": "a golden-test fixture (tests/golden/hdf5/sohm.h5.gz)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/group/deflate-direct",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: group:deflate-direct",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/group/deflate-fletcher32-direct",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: group:deflate-fletcher32-direct",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/group/deflate-fletcher32-huge",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: group:deflate-fletcher32-huge",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/group/deflate-fletcher32-indirect",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: group:deflate-fletcher32-indirect",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/group/deflate-huge",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: group:deflate-huge",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/group/deflate-indirect",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: group:deflate-indirect",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/group/order-indirect",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: group:order-indirect",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/group/plain-direct",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: group:plain-direct",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/group/plain-huge",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: group:plain-huge",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/group/plain-indirect",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: group:plain-indirect",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/index/bt2",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: index:bt2",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/index/bt2-filtered",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: index:bt2-filtered",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/index/earray-2d-swizzled",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: index:earray-2d-swizzled",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/index/earray-3d-swizzled",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: index:earray-3d-swizzled",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/index/earray-dblocks",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: index:earray-dblocks",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/index/earray-filtered",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: index:earray-filtered",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/index/earray-paged",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: index:earray-paged",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/index/earray-sblocks",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: index:earray-sblocks",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/index/earray-small",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: index:earray-small",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/index/farray",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: index:farray",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/index/farray-paged",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: index:farray-paged",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/index/farray-paged-filtered",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: index:farray-paged-filtered",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/index/implicit",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: index:implicit",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/index/single",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: index:single",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/index/single-filtered",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: index:single-filtered",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/nbit/float",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: nbit:float",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/nbit/int",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: nbit:int",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/nbit/int-be",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: nbit:int-be",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/scaleoffset/>f8,3,",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: scaleoffset:>f8,3,",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/scaleoffset/f4,0,",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: scaleoffset:f4,0,",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/scaleoffset/f4,2,",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: scaleoffset:f4,2,",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/scaleoffset/f4,2,-7.5",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: scaleoffset:f4,2,-7.5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/scaleoffset/f4,6,",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: scaleoffset:f4,6,",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/scaleoffset/f8,0,",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: scaleoffset:f8,0,",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/scaleoffset/f8,2,",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: scaleoffset:f8,2,",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/scaleoffset/f8,6,",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: scaleoffset:f8,6,",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/scaleoffset/i1,0,",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: scaleoffset:i1,0,",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/scaleoffset/i2,0,",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: scaleoffset:i2,0,",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/scaleoffset/i4,0,",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: scaleoffset:i4,0,",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/scaleoffset/i4,0,12345",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: scaleoffset:i4,0,12345",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/scaleoffset/i8,0,",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: scaleoffset:i8,0,",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/scaleoffset/u1,0,",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: scaleoffset:u1,0,",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/scaleoffset/u2,0,",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: scaleoffset:u2,0,",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/scaleoffset/u4,0,",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: scaleoffset:u4,0,",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/scaleoffset/u8,0,",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: scaleoffset:u8,0,",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/sohm/btree",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: sohm:btree",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/sohm/one-list",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: sohm:one-list",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/sohm/superblock2",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: sohm:superblock2",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "hdf5/sohm/two-lists",
+   "category": "hdf5",
+   "description": "an HDF5 storage feature written by h5py: sohm:two-lists",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/catalog/openneuro-derivatives/ds000005-fmriprep/sub-01/anat/sub-01_from-MNI152NLin2009cAsym_to-T1w_mode-image_xfm.h5",
+   "category": "read/catalog",
+   "description": "Inverse composite transform MNI152NLin2009cAsym -> T1w (HDF5), used to bring template masks/priors into T1w space.",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/catalog/openneuro-derivatives/ds000005-fmriprep/sub-01/anat/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+   "category": "read/catalog",
+   "description": "ANTs composite transform (HDF5: affine + SyN displacement field) T1w -> MNI152NLin2009cAsym, as written by antsRegistration: input for reading ITK/ANTs .h5 transforms and for applying normalisation to BOLD.",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/catalog/synthetic/resampling/transforms/composite-affine-warp.h5",
+   "category": "read/catalog",
+   "description": "ITK HDF5 composite, as antsApplyTransforms -o CompositeTransform[...] writes it from -t warp-lps-vector.nii.gz -t affine-centered.mat (queue: affine, then field).",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/catalog/synthetic/series-resampling/transforms/anat2std-composite.h5",
+   "category": "read/catalog",
+   "description": "Anatomical-to-standard ITK composite in ITK's HDF5 layout: an AffineTransform_double_3_3 (with a centre) then a DisplacementFieldTransform_float_3_3 on a 2 mm grid of 34 × 40 × 30 (smooth displacements up to about 3 mm, LPS), the queue fMRIPrep's *_xfm.h5 files have.",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/fmriprep-25.2.6/ds000005-sub-01-noreconall/sub-01_from-MNI152NLin2009cAsym_to-T1w_mode-image_xfm.h5",
+   "category": "read/fmriprep-25.2.6",
+   "description": "found: sub-01_from-MNI152NLin2009cAsym_to-T1w_mode-image_xfm.h5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/fmriprep-25.2.6/ds000005-sub-01-noreconall/sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+   "category": "read/fmriprep-25.2.6",
+   "description": "found: sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/fmriprep-25.2.6/ds001600-sub-1-noreconall/sub-1_from-MNI152NLin2009cAsym_to-T1w_mode-image_xfm.h5",
+   "category": "read/fmriprep-25.2.6",
+   "description": "found: sub-1_from-MNI152NLin2009cAsym_to-T1w_mode-image_xfm.h5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/fmriprep-25.2.6/ds001600-sub-1-noreconall/sub-1_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+   "category": "read/fmriprep-25.2.6",
+   "description": "found: sub-1_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/fmriprep-25.2.6/ds005040-sub-002-noreconall/sub-002_from-MNI152NLin2009cAsym_to-T1w_mode-image_xfm.h5",
+   "category": "read/fmriprep-25.2.6",
+   "description": "found: sub-002_from-MNI152NLin2009cAsym_to-T1w_mode-image_xfm.h5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/fmriprep-25.2.6/ds005040-sub-002-noreconall/sub-002_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+   "category": "read/fmriprep-25.2.6",
+   "description": "found: sub-002_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/fmriprep-25.2.6/ds005454-sub-16-noreconall/sub-16_from-MNI152NLin2009cAsym_to-T1w_mode-image_xfm.h5",
+   "category": "read/fmriprep-25.2.6",
+   "description": "found: sub-16_from-MNI152NLin2009cAsym_to-T1w_mode-image_xfm.h5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/fmriprep-25.2.6/ds005454-sub-16-noreconall/sub-16_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+   "category": "read/fmriprep-25.2.6",
+   "description": "found: sub-16_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/fmriprep-25.2.6/ds005752-sub-ON01016-noreconall/sub-ON01016_ses-01_acq-FSPGR_rec-SCIC_from-MNI152NLin2009cAsym_to-T1w_mode-image_xfm.h5",
+   "category": "read/fmriprep-25.2.6",
+   "description": "found: sub-ON01016_ses-01_acq-FSPGR_rec-SCIC_from-MNI152NLin2009cAsym_to-T1w_mode-image_xfm.h5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/fmriprep-25.2.6/ds005752-sub-ON01016-noreconall/sub-ON01016_ses-01_acq-FSPGR_rec-SCIC_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+   "category": "read/fmriprep-25.2.6",
+   "description": "found: sub-ON01016_ses-01_acq-FSPGR_rec-SCIC_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/big-endian-f4",
+   "category": "read/h5py",
+   "description": "written by h5py: big-endian-f4",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/big-endian-f8",
+   "category": "read/h5py",
+   "description": "written by h5py: big-endian-f8",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/compact",
+   "category": "read/h5py",
+   "description": "written by h5py: compact",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/composite",
+   "category": "read/h5py",
+   "description": "written by h5py: composite",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/composite-second",
+   "category": "read/h5py",
+   "description": "written by h5py: composite-second",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/dense-11",
+   "category": "read/h5py",
+   "description": "written by h5py: dense-11",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/dense-11-superblock3",
+   "category": "read/h5py",
+   "description": "written by h5py: dense-11-superblock3",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/earray",
+   "category": "read/h5py",
+   "description": "written by h5py: earray",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/empty-composite",
+   "category": "read/h5py",
+   "description": "written by h5py: empty-composite",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/farray",
+   "category": "read/h5py",
+   "description": "written by h5py: farray",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/farray-paged",
+   "category": "read/h5py",
+   "description": "written by h5py: farray-paged",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/float32",
+   "category": "read/h5py",
+   "description": "written by h5py: float32",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/half",
+   "category": "read/h5py",
+   "description": "written by h5py: half",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/implicit",
+   "category": "read/h5py",
+   "description": "written by h5py: implicit",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/long-double",
+   "category": "read/h5py",
+   "description": "written by h5py: long-double",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/misspelt-itk4",
+   "category": "read/h5py",
+   "description": "written by h5py: misspelt-itk4",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/nbit",
+   "category": "read/h5py",
+   "description": "written by h5py: nbit",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/no-version-strings",
+   "category": "read/h5py",
+   "description": "written by h5py: no-version-strings",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/scalar-type",
+   "category": "read/h5py",
+   "description": "written by h5py: scalar-type",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/scaleoffset",
+   "category": "read/h5py",
+   "description": "written by h5py: scaleoffset",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/shuffle-fletcher32",
+   "category": "read/h5py",
+   "description": "written by h5py: shuffle-fletcher32",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/single",
+   "category": "read/h5py",
+   "description": "written by h5py: single",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/single-chunk",
+   "category": "read/h5py",
+   "description": "written by h5py: single-chunk",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/superblock3",
+   "category": "read/h5py",
+   "description": "written by h5py: superblock3",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/two-linear",
+   "category": "read/h5py",
+   "description": "written by h5py: two-linear",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/h5py/utf8-strings",
+   "category": "read/h5py",
+   "description": "written by h5py: utf8-strings",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/itk/assemble",
+   "category": "read/itk",
+   "description": "written by ITK: CompositeTransformUtil --assemble (itk::ants::WriteTransform)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/itk/assemble-field-first",
+   "category": "read/itk",
+   "description": "written by ITK: CompositeTransformUtil --assemble: a field, then two linear transforms (objects allocated after the compressed chunk)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/itk/composite-11-affines",
+   "category": "read/itk",
+   "description": "written by ITK: -o CompositeTransform[...] of 11 affines: 12 links (dense: a fractal heap and a v2 B-tree)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/itk/composite-37-affines",
+   "category": "read/itk",
+   "description": "written by ITK: -o CompositeTransform[...] of 37 affines: 38 links (dense: a fractal heap and a v2 B-tree)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/itk/composite-38-affines",
+   "category": "read/itk",
+   "description": "written by ITK: -o CompositeTransform[...] of 38 affines: 39 links (dense: a fractal heap and a v2 B-tree)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/itk/composite-8-affines",
+   "category": "read/itk",
+   "description": "written by ITK: -o CompositeTransform[...] of 8 affines: 9 links (dense: a fractal heap and a v2 B-tree)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/itk/composite-9-affines",
+   "category": "read/itk",
+   "description": "written by ITK: -o CompositeTransform[...] of 9 affines: 10 links (dense: a fractal heap and a v2 B-tree)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/itk/composite-affine",
+   "category": "read/itk",
+   "description": "written by ITK: -o CompositeTransform[...]: one affine",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/itk/composite-float",
+   "category": "read/itk",
+   "description": "written by ITK: --float 1 -o CompositeTransform[...]: float parameters",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/itk/composite-identity",
+   "category": "read/itk",
+   "description": "written by ITK: -o CompositeTransform[...] -t identity",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/itk/composite-types",
+   "category": "read/itk",
+   "description": "written by ITK: -o CompositeTransform[...]: six transform types (seven links, compact)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/itk/composite-warp-affine",
+   "category": "read/itk",
+   "description": "written by ITK: -o CompositeTransform[...]: a displacement field and an affine (chunk of 190 KB)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/itk/displacement-field",
+   "category": "read/itk",
+   "description": "written by ITK: -o DisplacementField[...]: a collapsed field on the reference grid",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/itk/fmriprep-rewritten",
+   "category": "read/itk",
+   "description": "written by ITK: fMRIPrep's T1w→MNI composite rewritten by ITK 5.4.5: a field of several 1 Mi-value chunks",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/itk/linear",
+   "category": "read/itk",
+   "description": "written by ITK: -o Linear[...]: two transforms collapsed into one affine",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/itk/linear-float",
+   "category": "read/itk",
+   "description": "written by ITK: --float 1 -o Linear[...]: float parameters",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "read/itk/linear-inverse",
+   "category": "read/itk",
+   "description": "written by ITK: -o Linear[...,1]: the inverse",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every dataset as h5py reads it, bit for bit"
+    }
+   }
+  },
+  {
+   "id": "write/assemble",
+   "category": "write",
+   "description": "CompositeTransformUtil --assemble (itk::ants::WriteTransform)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: 78899 bytes differ; ITK, h5py and nitransforms read larmorx's file as ITK's"
+    }
+   }
+  },
+  {
+   "id": "write/assemble-field-first",
+   "category": "write",
+   "description": "CompositeTransformUtil --assemble: a field, then two linear transforms (objects allocated after the compressed chunk)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: 79355 bytes differ; ITK, h5py and nitransforms read larmorx's file as ITK's"
+    }
+   }
+  },
+  {
+   "id": "write/composite-11-affines",
+   "category": "write",
+   "description": "-o CompositeTransform[...] of 11 affines: 12 links (dense: a fractal heap and a v2 B-tree)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+    }
+   }
+  },
+  {
+   "id": "write/composite-37-affines",
+   "category": "write",
+   "description": "-o CompositeTransform[...] of 37 affines: 38 links (dense: a fractal heap and a v2 B-tree)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+    }
+   }
+  },
+  {
+   "id": "write/composite-38-affines",
+   "category": "write",
+   "description": "-o CompositeTransform[...] of 38 affines: 39 links (dense: a fractal heap and a v2 B-tree)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "6/6",
+     "reason": "39 links do not fit the first block of TransformGroup's fractal heap: HDF5 adds an indirect block, which larmorx's writer does not cover; larmorx keeps the links as link messages (a group info storing 39 compact links), a layout HDF5 itself writes for such a …"
+    }
+   }
+  },
+  {
+   "id": "write/composite-8-affines",
+   "category": "write",
+   "description": "-o CompositeTransform[...] of 8 affines: 9 links (dense: a fractal heap and a v2 B-tree)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+    }
+   }
+  },
+  {
+   "id": "write/composite-9-affines",
+   "category": "write",
+   "description": "-o CompositeTransform[...] of 9 affines: 10 links (dense: a fractal heap and a v2 B-tree)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+    }
+   }
+  },
+  {
+   "id": "write/composite-affine",
+   "category": "write",
+   "description": "-o CompositeTransform[...]: one affine",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+    }
+   }
+  },
+  {
+   "id": "write/composite-float",
+   "category": "write",
+   "description": "--float 1 -o CompositeTransform[...]: float parameters",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+    }
+   }
+  },
+  {
+   "id": "write/composite-identity",
+   "category": "write",
+   "description": "-o CompositeTransform[...] -t identity",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+    }
+   }
+  },
+  {
+   "id": "write/composite-types",
+   "category": "write",
+   "description": "-o CompositeTransform[...]: six transform types (seven links, compact)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+    }
+   }
+  },
+  {
+   "id": "write/composite-warp-affine",
+   "category": "write",
+   "description": "-o CompositeTransform[...]: a displacement field and an affine (chunk of 190 KB)",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: 78899 bytes differ; ITK, h5py and nitransforms read larmorx's file as ITK's"
+    }
+   }
+  },
+  {
+   "id": "write/displacement-field",
+   "category": "write",
+   "description": "-o DisplacementField[...]: a collapsed field on the reference grid",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+    }
+   }
+  },
+  {
+   "id": "write/fmriprep-rewritten",
+   "category": "write",
+   "description": "fMRIPrep's T1w→MNI composite rewritten by ITK 5.4.5: a field of several 1 Mi-value chunks",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: 104442002 bytes differ; ITK, h5py and nitransforms read larmorx's file as ITK's"
+    }
+   }
+  },
+  {
+   "id": "write/itk15-identity-compressed",
+   "category": "write",
+   "description": "CompositeTransformUtil --assemble with an IdentityTransform: ITK fails (ITK-15) and leaves a partial file",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "ITK fails (ITK-15) and leaves a partial file; larmorx in reproduce mode fails alike and leaves the same file, byte for byte; by default it stores the empty parameters, a file ANTs reads"
+    }
+   }
+  },
+  {
+   "id": "write/linear",
+   "category": "write",
+   "description": "-o Linear[...]: two transforms collapsed into one affine",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+    }
+   }
+  },
+  {
+   "id": "write/linear-float",
+   "category": "write",
+   "description": "--float 1 -o Linear[...]: float parameters",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+    }
+   }
+  },
+  {
+   "id": "write/linear-inverse",
+   "category": "write",
+   "description": "-o Linear[...,1]: the inverse",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+    }
+   }
+  }
+ ],
+ "cases_total": 149,
+ "file": {
+  "name": "sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5",
+  "size": 89895674,
+  "sha256": "5c560d36ed0d33d086be797faf66cdd2ac3d1dd6d037865a06e8c00a24d0e88c",
+  "data": {
+   "dataset": "OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001",
+   "subject": "sub-01",
+   "licence": "PDDL-1.0"
+  },
+  "computed": "2026-10-21T15:06:20+00:00",
+  "larmorx_commit": "1dfe56c0dc60ada5ef8938a87387bee37fd1b799"
+ },
+ "tables": [
+  {
+   "id": "objects",
+   "title": "Every group and dataset of the file, as larmorx reads it, against h5py on the HDF5 C library",
+   "columns": [
+    {
+     "label": "Object"
+    },
+    {
+     "label": "Type"
+    },
+    {
+     "label": "Shape"
+    },
+    {
+     "label": "Values (larmorx's reading)"
+    },
+    {
+     "label": "SHA-256 of the values"
+    },
+    {
+     "label": "h5py ↔ larmorx"
+    }
+   ],
+   "rows": [
+    {
+     "head": "`HDFVersion`",
+     "cells": [
+      {
+       "text": "string"
+      },
+      {
+       "text": "1"
+      },
+      {
+       "text": "“HDF5 library version: 1.14.6”"
+      },
+      {
+       "text": "`2eaa8f202160`"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": ""
+      }
+     ]
+    },
+    {
+     "head": "`ITKVersion`",
+     "cells": [
+      {
+       "text": "string"
+      },
+      {
+       "text": "1"
+      },
+      {
+       "text": "“5.4.4”"
+      },
+      {
+       "text": "`8afaee56f3f3`"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": ""
+      }
+     ]
+    },
+    {
+     "head": "`OSName`",
+     "cells": [
+      {
+       "text": "string"
+      },
+      {
+       "text": "1"
+      },
+      {
+       "text": "“Linux”"
+      },
+      {
+       "text": "`4828e60247c1`"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": ""
+      }
+     ]
+    },
+    {
+     "head": "`OSVersion`",
+     "cells": [
+      {
+       "text": "string"
+      },
+      {
+       "text": "1"
+      },
+      {
+       "text": "“6.8.0-124-generic”"
+      },
+      {
+       "text": "`8b5d04e6519a`"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": ""
+      }
+     ]
+    },
+    {
+     "head": "`TransformGroup`",
+     "cells": [
+      {
+       "text": "group"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": ""
+      },
+      {
+       "text": ""
+      },
+      {
+       "verdict": "bit-identical",
+       "text": ""
+      }
+     ]
+    },
+    {
+     "head": "`TransformGroup/0`",
+     "cells": [
+      {
+       "text": "group"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": ""
+      },
+      {
+       "text": ""
+      },
+      {
+       "verdict": "bit-identical",
+       "text": ""
+      }
+     ]
+    },
+    {
+     "head": "`TransformGroup/0/TransformType`",
+     "cells": [
+      {
+       "text": "string"
+      },
+      {
+       "text": "1"
+      },
+      {
+       "text": "“CompositeTransform_float_3_3”"
+      },
+      {
+       "text": "`c654182c8d6e`"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": ""
+      }
+     ]
+    },
+    {
+     "head": "`TransformGroup/1`",
+     "cells": [
+      {
+       "text": "group"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": ""
+      },
+      {
+       "text": ""
+      },
+      {
+       "verdict": "bit-identical",
+       "text": ""
+      }
+     ]
+    },
+    {
+     "head": "`TransformGroup/1/TransformFixedParameters`",
+     "cells": [
+      {
+       "text": "float, 8 bytes"
+      },
+      {
+       "text": "3"
+      },
+      {
+       "text": "0.235927805, 21.999485, 9.74520111"
+      },
+      {
+       "text": "`9c41ef3da47c`"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": ""
+      }
+     ]
+    },
+    {
+     "head": "`TransformGroup/1/TransformParameters`",
+     "cells": [
+      {
+       "text": "float, 4 bytes"
+      },
+      {
+       "text": "12"
+      },
+      {
+       "text": "0.950066507, 0.00142755918, 0.00215913029, … (12 values)"
+      },
+      {
+       "text": "`35283160b8ca`"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": ""
+      }
+     ]
+    },
+    {
+     "head": "`TransformGroup/1/TransformType`",
+     "cells": [
+      {
+       "text": "string"
+      },
+      {
+       "text": "1"
+      },
+      {
+       "text": "“AffineTransform_float_3_3”"
+      },
+      {
+       "text": "`3b0834b44765`"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": ""
+      }
+     ]
+    },
+    {
+     "head": "`TransformGroup/2`",
+     "cells": [
+      {
+       "text": "group"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": ""
+      },
+      {
+       "text": ""
+      },
+      {
+       "verdict": "bit-identical",
+       "text": ""
+      }
+     ]
+    },
+    {
+     "head": "`TransformGroup/2/TransformFixedParameters`",
+     "cells": [
+      {
+       "text": "float, 8 bytes"
+      },
+      {
+       "text": "18"
+      },
+      {
+       "text": "193, 229, 193, … (18 values)"
+      },
+      {
+       "text": "`b7024eeef84f`"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": ""
+      }
+     ]
+    },
+    {
+     "head": "`TransformGroup/2/TransformParameters`",
+     "cells": [
+      {
+       "text": "float, 4 bytes"
+      },
+      {
+       "text": "25590063"
+      },
+      {
+       "text": "0, 0, 0, … (25,590,063 values)"
+      },
+      {
+       "text": "`6e541248c3a7`"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": ""
+      }
+     ]
+    },
+    {
+     "head": "`TransformGroup/2/TransformType`",
+     "cells": [
+      {
+       "text": "string"
+      },
+      {
+       "text": "1"
+      },
+      {
+       "text": "“DisplacementFieldTransform_float_3_3”"
+      },
+      {
+       "text": "`86573557f210`"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": ""
+      }
+     ]
+    }
+   ],
+   "note": "Floating-point values compared as numbers (each value bit for bit, read through HDF5's conversion to double), strings byte for byte. The file has no attributes; neither reader finds any. The SHA-256 (first 12 hex digits) is of the values as float64 or of the strings' bytes, for a reader to check."
+  },
+  {
+   "id": "transforms",
+   "title": "The transforms as ITK reads them, against larmorx's reading",
+   "columns": [
+    {
+     "label": "As ITK reads the file"
+    },
+    {
+     "label": "parameters",
+     "num": true
+    },
+    {
+     "label": "fixed parameters",
+     "num": true
+    },
+    {
+     "label": "parameters that differ",
+     "num": true
+    },
+    {
+     "label": "ITK ↔ larmorx"
+    }
+   ],
+   "rows": [
+    {
+     "head": "double: transform 1",
+     "sub": "AffineTransform_double_3_3",
+     "cells": [
+      {
+       "v": 12,
+       "fmt": "count"
+      },
+      {
+       "v": 3,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": "every parameter and fixed parameter, bit for bit"
+      }
+     ]
+    },
+    {
+     "head": "double: transform 2",
+     "sub": "DisplacementFieldTransform_double_3_3",
+     "cells": [
+      {
+       "v": 25590063,
+       "fmt": "count"
+      },
+      {
+       "v": 18,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": "every parameter and fixed parameter, bit for bit"
+      }
+     ]
+    },
+    {
+     "head": "float: transform 1",
+     "sub": "AffineTransform_float_3_3",
+     "cells": [
+      {
+       "v": 12,
+       "fmt": "count"
+      },
+      {
+       "v": 3,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": "every parameter and fixed parameter, bit for bit"
+      }
+     ]
+    },
+    {
+     "head": "float: transform 2",
+     "sub": "DisplacementFieldTransform_float_3_3",
+     "cells": [
+      {
+       "v": 25590063,
+       "fmt": "count"
+      },
+      {
+       "v": 18,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": "every parameter and fixed parameter, bit for bit"
+      }
+     ]
+    }
+   ],
+   "note": "ITK 5.4.5 (ANTs 2.6.5's antsApplyTransforms) reads the composite and writes back what it read (`-o CompositeTransform[...]`), in double and with `--float 1`, where ITK converts the stored floats to its precision and renames the transforms; larmorx reads the file in the same precision. The composite's own entry (`CompositeTransform`) is a container without parameters."
+  },
+  {
+   "id": "written",
+   "title": "The file larmorx writes, read back by ITK, and its bytes against ITK's own file",
+   "columns": [
+    {
+     "label": "What"
+    },
+    {
+     "label": "What was compared"
+    },
+    {
+     "label": "Result"
+    }
+   ],
+   "rows": [
+    {
+     "head": "ITK reads larmorx's file",
+     "cells": [
+      {
+       "text": "2 transforms, as ITK reads fMRIPrep's file"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": "every parameter, bit for bit"
+      }
+     ]
+    },
+    {
+     "head": "antsApplyTransforms through larmorx's file",
+     "cells": [
+      {
+       "text": "fMRIPrep's T1w on the 2 mm MNI grid, linear: 1,082,035 voxels"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": "the same output image as through fMRIPrep's file"
+      }
+     ]
+    },
+    {
+     "head": "larmorx writes ITK's own file again",
+     "cells": [
+      {
+       "text": "ITK's file: 105,141,337 bytes; given ITK's compressed chunks and object times, larmorx's file is"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": "the same bytes"
+      }
+     ]
+    },
+    {
+     "head": "… with larmorx's own deflate",
+     "cells": [
+      {
+       "text": "104,598,162 bytes differ: zlib-rs (larmorx) and zlib-ng 2.1.6 (ITK's HDF5) choose other matches, so the compressed chunks, their sizes and the addresses after them differ; the content does not"
+      },
+      {
+       "verdict": "bit-identical",
+       "text": "the same datasets (the comparison by content, decided 2026-10-16)"
+      }
+     ]
+    }
+   ],
+   "note": "larmorx writes the transforms it read from fMRIPrep's file (`lx.transforms.write`). ITK's own file is the one antsApplyTransforms wrote above; `itk_h5_replay` rewrites it with larmorx's writer, ITK's strings and times and, first, ITK's compressed chunks."
+  }
+ ],
+ "examples": []
+}
