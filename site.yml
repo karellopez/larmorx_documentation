@@ -26,8 +26,36 @@ nav:
   - { title: Philosophy, url: "/#philosophy" }
   - { title: Status, url: "/#status" }
   - { title: Validation, url: "/validation/" }
+  - { title: Tools, url: "/tools/" }
 
 # The documentation pages, in the order of the sidebar on a documentation page.
 docs:
   - { title: Overview, url: "/" }
   - { title: Validation, url: "/validation/" }
+  - { title: Tools, url: "/tools/" }
+
+# The tool pages (content/tools/<page>.md), listed under "Tools" in the sidebar
+# in the order of the status table; `eco` colours the dot beside each.
+tools:
+  - { title: antsRegistration, url: "/tools/ants-registration/", eco: ants,
+      summary: "Linear, SyN, B-spline SyN, B-spline and displacement-field stages; image and point-set metrics. Port." }
+  - { title: N4BiasFieldCorrection, url: "/tools/ants-n4/", eco: ants,
+      summary: "Bias-field correction, as fMRIPrep, sMRIPrep and sdcflows call it. Port." }
+  - { title: DenoiseImage, url: "/tools/ants-denoise/", eco: ants,
+      summary: "Non-local means denoising; ANTs' single-thread result at any thread count. Port." }
+  - { title: antsApplyTransforms, url: "/tools/ants-apply-transforms/", eco: ants,
+      summary: "Resampling through ITK transforms, in double and with --float 1; transform outputs. Port." }
+  - { title: "ImageMath and the filters", url: "/tools/ants-programs/", eco: ants,
+      summary: "ImageMath, ThresholdImage, MultiplyImages, SmoothImage, ResampleImage, ResampleImageBySpacing. Ports." }
+  - { title: "antsAI, antsAffineInitializer", url: "/tools/ants-ai/", eco: ants,
+      summary: "Initial alignments and the multi-start search (antsAI's blobs not yet). Ports." }
+  - { title: ITK transform files, url: "/tools/itk-hdf5/", eco: ants,
+      summary: "Text, MATLAB and HDF5 transform files, read and written in pure Rust. Port." }
+  - { title: 3dTshift, url: "/tools/afni-tshift/", eco: afni,
+      summary: "Slice-timing correction: a clean-room original, and an exact replica in larmorx-gpl." }
+  - { title: Head-motion correction, url: "/tools/mri-hmc/", eco: fsl,
+      summary: "mcflirt-style options; a clean-room original, experimental." }
+  - { title: One-shot BOLD resampler, url: "/tools/resample-series/", eco: larmorx,
+      summary: "fMRIPrep's ResampleSeries, with nitransforms' chains and SciPy's interpolation. Port." }
+  - { title: NIfTI I/O, url: "/tools/nifti-io/", eco: larmorx,
+      summary: "NIfTI-1 and NIfTI-2 reading and writing, against nibabel. LARMORX's own." }

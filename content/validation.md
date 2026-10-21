@@ -1,7 +1,7 @@
 ---
 title: Validation
 kicker: Documentation
-lede: How every LARMORX tool is compared with the original program, and where to find the records. A first page; figures for every tool will follow here.
+lede: How every LARMORX tool is compared with the original program, and where to find the records. Each tool's figures are on its page under Tools.
 description: How LARMORX tools are validated against the original programs, how golden tests keep six platforms identical, and where the validation records are.
 ---
 
@@ -9,12 +9,7 @@ description: How LARMORX tools are validated against the original programs, how 
 
 Every tool has a validation record comparing it case by case with the original program: ANTs 2.6.5, AFNI 25.2.09, FSL 6.0.7 or nibabel. A record states what was compared, how many cases agree, how many are bit-identical, and why the others differ. The records live in the main repository, in [docs/validation](repo:docs/validation/); benchmark reports are in [docs/benchmarks](repo:docs/benchmarks/).
 
-The [status table](/#status) on the home page links each tool to its record.
-
-<div class="callout">
-<p class="kicker">Coming to this page</p>
-<p>Figures for every tool: how the port, the clean-room original and the exact replica agree with the original program, the distribution of their differences, image comparisons such as registration overlays and difference maps, the original's own variability, and speed. They will be generated from the validation records in the main repository, so that every figure can be reproduced from a commit.</p>
-</div>
+The [status table](/#status) on the home page links each tool to its record and to its page under [Tools](/tools/), where figures show how the port, the clean-room original and the exact replica agree with the original program, how their remaining differences compare with the original's own variability, what they do on real data, and their speed. The figures are drawn by the main repository's code from the committed records, so every one can be drawn again from a commit ([docs/figures.md](repo:docs/figures.md)).
 
 ## Two kinds of checks {#checks}
 

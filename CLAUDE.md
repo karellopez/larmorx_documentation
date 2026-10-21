@@ -8,12 +8,16 @@ git, commits, usage limits and long runs.
 
 ## What lives where
 - **Here:** the site: its builder (`tools/build.py`), design (`static/css/site.css`), templates,
-  pages (`content/`), data tables (`data/`), the home page hero (`static/js/hero.js`,
-  `tools/hero/make_hero.py`), and the rendered figures.
+  pages (`content/`; one per tool in `content/tools/`), data tables (`data/`), the home page hero
+  (`static/js/hero.js`, `tools/hero/make_hero.py`), the Greek font subsets
+  (`tools/fonts/make_greek.py`), and the rendered figures (`static/figures/<tool>/`, each with its
+  provenance JSON).
 - **In the main repository:** the numbers (validation records, `docs/validation/`), the benchmark
   reports, and the **code that draws the figures** (`larmorx_validation`), so that every figure can
   be regenerated from a commit of larmorx. A page here quotes numbers only from those records and
-  links to them; it never computes or invents its own.
+  links to them; it never computes or invents its own. The figures are drawn with
+  `python -m larmorx_validation figures <tool>|all --out <this repo>/static/figures` (the main
+  repository's `docs/figures.md`).
 
 ## Content rules
 - **Accurate and sober.** Keep implemented and planned apart, exactly as the main repository's
@@ -46,12 +50,13 @@ git, commits, usage limits and long runs.
   (registration overlays, difference maps, N4 bias fields, time series), the original's own
   variability (threads, versions), speed. Adapted to each program; elegant and consistent: one
   style sheet, a colour-blind-safe palette that matches the site's, the site's fonts.
-- Plots as SVG, brain images as PNG (or AVIF/WebP), each in a light and a dark version.
+- SVG in a light and a dark version, each at the text column's width (720 px) and a phone's (360 px); text drawn as the fonts' outlines; brain images embedded in the SVG as lossless WebP. The page shows the version of the current theme and the narrow one below 560 px: `{{ figure('<tool>/<name>', caption) }}` in a page (`tools/build.py`).
 - Each figure records its provenance next to it: the validation record and larmorx commit it was
   drawn from, the data, the command.
 - Keep the repository lean: no raw image data; figure files sized for the web.
-- Data shown must be shareable: OpenNeuro datasets under CC0, templates with their notices (the MNI
-  ICBM152 notice is in `static/hero/LICENSE-MNI.txt` and the footer).
+- Data shown must be shareable: OpenNeuro datasets whose licence is a public-domain dedication
+  (CC0-1.0, PDDL-1.0) or CC-BY (credited), templates with their notices (the MNI ICBM152 notice
+  is in `static/hero/LICENSE-MNI.txt` and the footer). Brain slices only, masked, never a face.
 
 ## Build, preview, deploy
 ```bash

@@ -1,0 +1,121 @@
+{
+ "figure": "mri-hmc/motion",
+ "title": "Motion estimates on a real run: mcflirt and larmorx",
+ "alt": "Six small line charts of the rotations and translations estimated for each of the 240 volumes of OpenNeuro ds000005 sub-01's first BOLD run by mcflirt and by larmorx, and the framewise displacement of both.",
+ "files": {
+  "light": {
+   "file": "motion-light.svg",
+   "width": 720,
+   "height": 504,
+   "bytes": 129016
+  },
+  "light-narrow": {
+   "file": "motion-light-narrow.svg",
+   "width": 360,
+   "height": 1092,
+   "bytes": 129615
+  },
+  "dark": {
+   "file": "motion-dark.svg",
+   "width": 720,
+   "height": 504,
+   "bytes": 129016
+  },
+  "dark-narrow": {
+   "file": "motion-dark-narrow.svg",
+   "width": 360,
+   "height": 1092,
+   "bytes": 129615
+  }
+ },
+ "drawn_from": {
+  "larmorx_commit": "1568b5ce937759462f30c4a79b303fd446c667f6",
+  "records": [],
+  "cache": [
+   {
+    "entry": "mri-hmc/ds000005-sub-01-run-1",
+    "description": "fMRIPrep's head-motion correction of ds000005 sub-01's first BOLD run",
+    "computed": "2026-10-21T08:02:20+00:00",
+    "larmorx_commit": "1568b5ce937759462f30c4a79b303fd446c667f6",
+    "commands": [
+     {
+      "label": "reproduce",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "mri",
+       "hmc",
+       "-in",
+       "<testdata-cache>/openneuro/ds000005/sub-01/func/sub-01_task-mixedgamblestask_run-01_bold.nii.gz",
+       "-out",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/mri-hmc/ds000005-sub-01-run-1/reproduce/out_mcf.nii.gz",
+       "-reffile",
+       "<testdata-cache>/openneuro-derivatives/ds000005-fmriprep/sub-01/func/sub-01_task-mixedgamblestask_run-1_boldref.nii.gz",
+       "-mats",
+       "-plots",
+       "-rmsrel",
+       "-rmsabs"
+      ],
+      "env": {
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "FSLOUTPUTTYPE": "NIFTI_GZ"
+      },
+      "exit": 0,
+      "seconds": 7.35
+     },
+     {
+      "label": "fix",
+      "argv": [
+       "~/VScode_projects/super_fmriprep/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "mri",
+       "hmc",
+       "-in",
+       "<testdata-cache>/openneuro/ds000005/sub-01/func/sub-01_task-mixedgamblestask_run-01_bold.nii.gz",
+       "-out",
+       "~/VScode_projects/super_fmriprep/oracles/figures-cache/mri-hmc/ds000005-sub-01-run-1/fix/out_mcf.nii.gz",
+       "-reffile",
+       "<testdata-cache>/openneuro-derivatives/ds000005-fmriprep/sub-01/func/sub-01_task-mixedgamblestask_run-1_boldref.nii.gz",
+       "-mats",
+       "-plots",
+       "-rmsrel",
+       "-rmsabs"
+      ],
+      "env": {
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "FSLOUTPUTTYPE": "NIFTI_GZ"
+      },
+      "exit": 0,
+      "seconds": 7.66
+     }
+    ],
+    "settings": "fMRIPrep's mcflirt command as the recorded run real/ds000005/fmriprep-reports ran it (-mats -plots -rmsrel -rmsabs); larmorx in reproduce mode (as the record compares) and in its default mode (D13 corrections)"
+   }
+  ]
+ },
+ "data": [
+  {
+   "dataset": "OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001",
+   "subject": "sub-01",
+   "licence": "PDDL-1.0",
+   "files": [
+    "openneuro/ds000005/sub-01/func/sub-01_task-mixedgamblestask_run-01_bold.nii.gz",
+    "fMRIPrep 21.0.1's published boldref (openneuro-derivatives ds000005-fmriprep)"
+   ]
+  }
+ ],
+ "notes": "",
+ "command": "python -m larmorx_validation figures all --out <dir>",
+ "versions": {
+  "python": "3.12.10",
+  "matplotlib": "3.11.2",
+  "numpy": "2.3.5",
+  "nibabel": "5.4.2",
+  "scipy": "1.15.3",
+  "fonttools": "4.66.1",
+  "larmorx": "0.0.1"
+ },
+ "drawn": "2026-10-21"
+}

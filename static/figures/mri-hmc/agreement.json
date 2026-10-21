@@ -1,0 +1,62 @@
+{
+ "figure": "mri-hmc/agreement",
+ "title": "Agreement with mcflirt, by category",
+ "alt": "Stacked bars, one per category of the head-motion record (134 cases): within the record's thresholds (or mcflirt's own band where wider), one failure, rejected by both, and an expected divergence.",
+ "files": {
+  "light": {
+   "file": "agreement-light.svg",
+   "width": 720,
+   "height": 302,
+   "bytes": 55165
+  },
+  "light-narrow": {
+   "file": "agreement-light-narrow.svg",
+   "width": 360,
+   "height": 392,
+   "bytes": 54992
+  },
+  "dark": {
+   "file": "agreement-dark.svg",
+   "width": 720,
+   "height": 302,
+   "bytes": 55165
+  },
+  "dark-narrow": {
+   "file": "agreement-dark-narrow.svg",
+   "width": 360,
+   "height": 392,
+   "bytes": 54992
+  }
+ },
+ "drawn_from": {
+  "larmorx_commit": "1568b5ce937759462f30c4a79b303fd446c667f6",
+  "records": [
+   {
+    "path": "docs/validation/mri-hmc.json",
+    "sha256": "cdb2458e055e94e8613733320c64125a14cd3964ad7136cee53a2aeab6642dc4",
+    "generated": "2026-10-11",
+    "larmorx_commit": "2ef5e9cc3613-dirty"
+   },
+   {
+    "path": "docs/validation/mri-hmc.md",
+    "sha256": "d99a680c41d1fb51c57d667b8f26d83242d1df8537fc212c2407d33211af218a",
+    "generated": "2026-10-11",
+    "larmorx_commit": "2ef5e9cc3613-dirty"
+   }
+  ],
+  "cache": []
+ },
+ "data": [],
+ "notes": "",
+ "command": "python -m larmorx_validation figures all --out <dir>",
+ "versions": {
+  "python": "3.12.10",
+  "matplotlib": "3.11.2",
+  "numpy": "2.3.5",
+  "nibabel": "5.4.2",
+  "scipy": "1.15.3",
+  "fonttools": "4.66.1",
+  "larmorx": "0.0.1"
+ },
+ "drawn": "2026-10-21"
+}

@@ -1,0 +1,72 @@
+{
+ "figure": "resample-series/jacobian",
+ "title": "PIPE-03: the Jacobian on fMRIPrep's own field map, on the MNI grid",
+ "alt": "Axial slices on the MNI152NLin2009cAsym 2 mm grid of OpenNeuro ds005040 sub-002's distortion-correction Jacobian: fMRIPrep's factor, larmorx's corrected factor and the reference (the factor on the BOLD's own grid carried to this grid), then each factor's error against the reference on a symmetric scale.",
+ "files": {
+  "light": {
+   "file": "jacobian-light.svg",
+   "width": 720,
+   "height": 695,
+   "bytes": 122981
+  },
+  "light-narrow": {
+   "file": "jacobian-light-narrow.svg",
+   "width": 360,
+   "height": 863,
+   "bytes": 122435
+  },
+  "dark": {
+   "file": "jacobian-dark.svg",
+   "width": 720,
+   "height": 695,
+   "bytes": 122925
+  },
+  "dark-narrow": {
+   "file": "jacobian-dark-narrow.svg",
+   "width": 360,
+   "height": 863,
+   "bytes": 122379
+  }
+ },
+ "drawn_from": {
+  "larmorx_commit": "1568b5ce937759462f30c4a79b303fd446c667f6",
+  "records": [],
+  "cache": [
+   {
+    "entry": "resample-series/ds005040-sub-002-jacobian-mni",
+    "description": "PIPE-03: the Jacobian factors of ds005040 sub-002's BOLD on the MNI grid",
+    "computed": "2026-10-21T07:06:56+00:00",
+    "larmorx_commit": "498069fae31d2133dc7eca353c7f5c4600c3b7c6",
+    "commands": [],
+    "settings": "the Jacobian factors on the MNI152NLin2009cAsym res-2 grid of fMRIPrep 25.2.6's run ds005040-sub-002-noreconall (task clip, run 1), computed in this process as larmorx_validation.parity.resample_jacobian_oracle computes them: a volume of ones resampled with fMRIPrep's transforms (no head motion), its field map on that grid, its phase encoding and readout; upstream_defects='reproduce' gives fMRIPrep's factor, 'fix' larmorx's; the reference is the factor on the BOLD's own grid (where both agree) carried to the MNI grid by cubic B-splines"
+   }
+  ]
+ },
+ "data": [
+  {
+   "dataset": "OpenNeuro ds005040",
+   "subject": "sub-002",
+   "licence": "CC0-1.0",
+   "files": [
+    "fMRIPrep 25.2.6's field map, transforms and masks (ds005040-sub-002-noreconall)"
+   ]
+  },
+  {
+   "dataset": "MNI152NLin2009cAsym (TemplateFlow)",
+   "licence": "MNI ICBM 152 notice",
+   "notice": "MNI ICBM 152 nonlinear asymmetric 2009c (Fonov et al., 2009, 2011), from TemplateFlow; Copyright (C) 1993-2004 Louis Collins, McConnell Brain Imaging Centre, Montreal Neurological Institute, McGill University (the site's static/hero/LICENSE-MNI.txt)"
+  }
+ ],
+ "notes": "",
+ "command": "python -m larmorx_validation figures all --out <dir>",
+ "versions": {
+  "python": "3.12.10",
+  "matplotlib": "3.11.2",
+  "numpy": "2.3.5",
+  "nibabel": "5.4.2",
+  "scipy": "1.15.3",
+  "fonttools": "4.66.1",
+  "larmorx": "0.0.1"
+ },
+ "drawn": "2026-10-21"
+}

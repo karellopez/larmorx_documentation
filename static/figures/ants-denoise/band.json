@@ -1,0 +1,62 @@
+{
+ "figure": "ants-denoise/band",
+ "title": "Differences from ANTs as built, against its own thread band",
+ "alt": "For each case that differs from ANTs as built, the largest difference and one minus the correlation, divided by ANTs' own difference between one thread and 2, 4 and 12 threads, on a log scale; every value is far below 1.",
+ "files": {
+  "light": {
+   "file": "band-light.svg",
+   "width": 720,
+   "height": 154,
+   "bytes": 54302
+  },
+  "light-narrow": {
+   "file": "band-light-narrow.svg",
+   "width": 360,
+   "height": 182,
+   "bytes": 54257
+  },
+  "dark": {
+   "file": "band-dark.svg",
+   "width": 720,
+   "height": 154,
+   "bytes": 54302
+  },
+  "dark-narrow": {
+   "file": "band-dark-narrow.svg",
+   "width": 360,
+   "height": 182,
+   "bytes": 54257
+  }
+ },
+ "drawn_from": {
+  "larmorx_commit": "1568b5ce937759462f30c4a79b303fd446c667f6",
+  "records": [
+   {
+    "path": "docs/validation/ants-denoise.json",
+    "sha256": "9f0145553dc45d45b218ebb0aee537913fa572d6c253eeb89f8040ddcf3efe64",
+    "generated": "2026-10-12",
+    "larmorx_commit": "50509e30b3e8"
+   },
+   {
+    "path": "docs/validation/ants-denoise.md",
+    "sha256": "3f3bcb51b7a0ab1094c05704ae8ac2fea39734ea890bb4b4e2b2434caa195f99",
+    "generated": "2026-10-12",
+    "larmorx_commit": "50509e30b3e8"
+   }
+  ],
+  "cache": []
+ },
+ "data": [],
+ "notes": "Cases where ANTs' threads change nothing (a band of 0, ratio infinite) are not drawn: options/patch-0",
+ "command": "python -m larmorx_validation figures all --out <dir>",
+ "versions": {
+  "python": "3.12.10",
+  "matplotlib": "3.11.2",
+  "numpy": "2.3.5",
+  "nibabel": "5.4.2",
+  "scipy": "1.15.3",
+  "fonttools": "4.66.1",
+  "larmorx": "0.0.1"
+ },
+ "drawn": "2026-10-21"
+}

@@ -9,6 +9,14 @@
       <li><a href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
       {%- endfor %}
     </ul>
+    {%- if tools_nav %}
+    <p class="side-group">Tools</p>
+    <ul class="side-list side-list--tools">
+      {%- for item in tools_nav %}
+      <li class="eco-{{ item.eco }}"><a href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %}><span class="dot" aria-hidden="true"></span>{{ item.title }}</a></li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
   </nav>
   <main id="main" class="doc-main" tabindex="-1">
     <header class="doc-header">

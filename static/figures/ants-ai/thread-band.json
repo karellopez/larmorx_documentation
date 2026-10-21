@@ -1,0 +1,74 @@
+{
+ "figure": "ants-ai/thread-band",
+ "title": "ANTs' own variability: antsAI and antsAffineInitializer at 2, 4 and 8 threads",
+ "alt": "For each case measured, the largest change in a transform parameter between ANTs at one thread and ANTs at 2, 4 and 8 threads, on a log scale; cases the threads do not change are counted above. larmorx gives the one-thread result at any thread count.",
+ "files": {
+  "light": {
+   "file": "thread-band-light.svg",
+   "width": 720,
+   "height": 221,
+   "bytes": 73305
+  },
+  "light-narrow": {
+   "file": "thread-band-light-narrow.svg",
+   "width": 360,
+   "height": 338,
+   "bytes": 66366
+  },
+  "dark": {
+   "file": "thread-band-dark.svg",
+   "width": 720,
+   "height": 221,
+   "bytes": 73305
+  },
+  "dark-narrow": {
+   "file": "thread-band-dark-narrow.svg",
+   "width": 360,
+   "height": 338,
+   "bytes": 66366
+  }
+ },
+ "drawn_from": {
+  "larmorx_commit": "1568b5ce937759462f30c4a79b303fd446c667f6",
+  "records": [
+   {
+    "path": "docs/validation/ants-ai.json",
+    "sha256": "4c4bf3cd1e105e0035609a1aa5f3fa6096580b55ded551737e958303d53cf94c",
+    "generated": "2026-10-17",
+    "larmorx_commit": "084b61d240f5"
+   },
+   {
+    "path": "docs/validation/ants-ai.md",
+    "sha256": "35d1f43319a74e8b1640caffe821830e64a8d69d507c6389fae886ef2c79912e",
+    "generated": "2026-10-17",
+    "larmorx_commit": "084b61d240f5"
+   },
+   {
+    "path": "docs/validation/ants-affine-initializer.json",
+    "sha256": "3fcc9e6256529812bf6d64d5ff878b92248f0624fb7ab6c0e71bf4f860d8f294",
+    "generated": "2026-10-17",
+    "larmorx_commit": "61309dd10e0e"
+   },
+   {
+    "path": "docs/validation/ants-affine-initializer.md",
+    "sha256": "c76d4a6c0dbf25338fc98c8f71ea26506230788af90076ba747e46908193b1c6",
+    "generated": "2026-10-17",
+    "larmorx_commit": "61309dd10e0e"
+   }
+  ],
+  "cache": []
+ },
+ "data": [],
+ "notes": "",
+ "command": "python -m larmorx_validation figures all --out <dir>",
+ "versions": {
+  "python": "3.12.10",
+  "matplotlib": "3.11.2",
+  "numpy": "2.3.5",
+  "nibabel": "5.4.2",
+  "scipy": "1.15.3",
+  "fonttools": "4.66.1",
+  "larmorx": "0.0.1"
+ },
+ "drawn": "2026-10-21"
+}
