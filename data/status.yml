@@ -65,6 +65,12 @@ implemented:
     use: ["larmorx ants antsAI", "larmorx ants antsAffineInitializer"]
     how: port
     validation: "[antsAI](repo:docs/validation/ants-ai.md): 51 of 52 compared identical; [antsAffineInitializer](repo:docs/validation/ants-affine-initializer.md): 26 of 26"
+  - eco: ants
+    tool: Atropos
+    page: /tools/ants-atropos/
+    use: ["larmorx ants Atropos", "lx.ants.atropos"]
+    how: port
+    validation: "[93 cases](repo:docs/validation/ants-atropos.md): 25 of 56 compared bit-identical to ANTs, 56 of 56 with correctly rounded maths, sMRIPrep's call on the five oracle runs included"
   - eco: larmorx
     tool: fMRIPrep's one-shot BOLD resampler
     page: /tools/resample-series/
@@ -87,7 +93,7 @@ implemented:
 planned:
   - eco: [ants]
     title: ANTs
-    text: antsRegistration's velocity-field and exponential transforms, then Atropos.
+    text: antsRegistration's velocity-field and exponential transforms; antsAI's blob alignment (-b).
   - eco: [afni]
     title: AFNI
     text: 3dUnifize and 3dAutomask (fMRIPrep's BOLD reference), then 3dQwarp, 3dSkullStrip, 3dcalc and an analysis track (3dTproject, 3dDespike, 3dReHo, 3dRSFC, 3dDeconvolve/3dREMLfit, 3dFWHMx/3dClustSim, ...).

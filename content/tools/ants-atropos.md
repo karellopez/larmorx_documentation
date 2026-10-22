@@ -1,0 +1,65 @@
+---
+title: Atropos
+kicker: Tools · ANTs
+lede: ANTs' finite-mixture segmentation with a Markov random field, ported from ANTs 2.6.5 and ITK. sMRIPrep's call is reproduced bit for bit with correctly rounded maths on all five oracle runs; ITK-50 and eighteen other defects of ANTs and ITK are corrected by default.
+description: LARMORX's port of ANTs' Atropos, validated against ANTs 2.6.5 and fMRIPrep 25.2.6 — sMRIPrep's segmentation of a real T1w to inspect, ANTs at 1 to 8 threads and with the clock's seed, a segmentation with tissue priors, ITK-50 corrected, and every parity case with its verdict.
+evidence: true
+wide: true
+---
+
+<dl class="facts">
+<dt>Implementation</dt><dd>port of ANTs' and ITK's source, in <code>larmorx</code></dd>
+<dt>Status</dt><dd><span class="status-tag eco-ants">validated</span></dd>
+<dt>Record</dt><dd><a href="{{ repo('docs/validation/ants-atropos.md') }}">ants-atropos</a> · full tier <a href="{{ repo('docs/validation/ants-atropos-full.md') }}">ants-atropos-full</a> · API <a href="{{ repo('docs/api/ants-atropos.md') }}">ants-atropos</a> · findings <a href="{{ repo('docs/findings/ants-atropos.md') }}">ants-atropos</a></dd>
+</dl>
+
+## What it is
+
+Atropos labels the voxels of a mask with a few classes (tissues), alternating between the classes' intensity models and the labelling: K-means, Otsu, random or prior-based initializations; Gaussian, Parzen-window and tensor likelihoods; an MRF prior updated by iterated conditional modes. sMRIPrep calls it once per subject, in its brain extraction, to split the brain into CSF, grey and white matter.
+
+```bash
+larmorx ants Atropos -d 3 -a t1w_n4.nii.gz -x brain_mask.nii.gz -i KMeans[3] -k Gaussian \
+    -m [0.1,1x1x1] -c [3,0] -r 0 -o [labels.nii.gz,POSTERIOR_%02d.nii.gz]
+```
+
+```python
+import larmorx as lx
+
+seg = lx.ants.atropos("t1w_n4.nii.gz", "brain_mask.nii.gz", classes=3, mrf_smoothing=0.1,
+                      iterations=3, convergence_threshold=0, use_random_seed=False)
+csf, gm, wm = seg.posteriors
+```
+
+How to read what follows: [the validation guide](/validation/#reading).
+
+## The verdicts at a glance {#verdicts}
+
+{{ ev.agreement('ants-atropos', 'port') }}
+
+Every case that writes images is bit-identical to ANTs at one thread with correctly rounded maths, but one: Grubbs-Rosner from its second iteration, where ANTs weighs part of its samples with memory it never wrote (ANTS-107), so that its own result changes with the length of its output paths. Against ANTs as built the classified images are identical in every case, and the posteriors differ in their last bits where glibc's `expf` and `logf` are not correctly rounded. Where ANTs aborts or crashes, LARMORX prints ANTs' message and stops; where ANTs seeds from the clock, its runs differ from each other, and LARMORX uses a fixed seed.
+
+## A worked example: sMRIPrep's segmentation {#example}
+
+fMRIPrep's brain extraction segments the N4-corrected T1w into three classes, with its own arguments, by ANTs at 1, 2, 4 and 8 threads, three times with the clock's seed, by fMRIPrep's own ANTs, and by LARMORX. Atropos does not depend on ANTs' thread count, and fMRIPrep's output is the repository's ANTs result; LARMORX differs from it only in the last bits of a few posteriors (glibc's maths). Its default mode corrects ITK-50, where ITK's k-means leaves out the k-d tree's split points: a change smaller than ANTs' own spread when it seeds from the clock, shown on the slice below.
+
+{{ ev.example('ants-atropos', 'fmriprep-atropos') }}
+
+## A segmentation with tissue priors {#priors}
+
+The same T1w segmented as antsCorticalThickness segments one: OASIS30ANTs' CSF, cortical grey matter and white matter priors, brought into the T1w's space with the transform fMRIPrep computed, weigh 0.25 against the likelihoods.
+
+{{ ev.example('ants-atropos', 'oasis-priors') }}
+
+## Every case {#cases}
+
+Each case of the record, with what it tests, the command line, its verdict and the reason. Search, filter by category or verdict (or select a segment of the chart above), sort by a column; `#case=<name>` links to one.
+
+{{ ev.cases('ants-atropos') }}
+
+## Corrections by default {#corrections}
+
+The record's fix pass meets ITK-50, ITK-51 and ANTS-90 to ANTS-105, each corrected by default with `upstream_defects="reproduce"` (or `LARMORX_UPSTREAM_DEFECTS=reproduce`) giving ANTs' behaviour ([register](repo:docs/findings/upstream-defects.md)). ITK-50 changes sMRIPrep's own call, as the worked example measures. ANTS-107, where ANTs weighs part of its samples with memory it never wrote, is not met by default and is filled deterministically when reproduced; ANTS-106 (partial-volume classes with an MRF never win a voxel) behaves as in ANTs in both modes, its correction undecided.
+
+## Known limits {#limits}
+
+The comparison with ANTs is made on Linux x86-64, against ANTs at one thread. ANTs' clock-seeded runs have no single result to compare with: they are compared as one more draw. There is no benchmark report yet. The other five platforms are held to LARMORX's own Linux output by the [golden tests](repo:docs/validation/golden.md).
