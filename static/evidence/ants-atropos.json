@@ -1,0 +1,5542 @@
+{
+ "schema": 1,
+ "tool": "ants-atropos",
+ "title": "Atropos",
+ "provenance": {
+  "exporter": "a17359dbce318f8b2f01f6e8c647ea6f6812382f",
+  "records": [
+   {
+    "path": "docs/validation/ants-atropos.json",
+    "sha256": "f37da07fea21af494f0a196f32f2e9b4351a47cc3d6cba2523e9c3d325f94fff",
+    "generated": "2026-10-22",
+    "larmorx_commit": "8b747322f536"
+   },
+   {
+    "path": "docs/validation/ants-atropos.md",
+    "sha256": "14e75b412393ddf7a57a9d356fe69d0b31c4473714fcba35fd026548b38f47a7",
+    "generated": "2026-10-22",
+    "larmorx_commit": "8b747322f536"
+   }
+  ],
+  "benchmarks": [],
+  "cache": [
+   {
+    "entry": "ants-atropos/fmriprep-ds000005-atropos",
+    "description": "fMRIPrep's Atropos of ds000005 sub-01's T1w: fMRIPrep, ANTs 2.6.5 at 1-8 threads, CORE-MATH, the clock's seed, fMRIPrep's ANTs at 1 thread, and larmorx",
+    "computed": "2026-10-22T17:36:55+00:00",
+    "larmorx_commit": "d065bb4d47273bc7b72ea8e9159d7c5fd8b20d42",
+    "commands": [
+     {
+      "label": "ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/Atropos",
+       "--image-dimensionality",
+       "3",
+       "--initialization",
+       "KMeans[3]",
+       "--intensity-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "--likelihood-model",
+       "Gaussian",
+       "--mask-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "--mrf",
+       "[0.1,1x1x1]",
+       "--convergence",
+       "[3,0]",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/ants-1.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/ants-1-post%02d.nii.gz]",
+       "--use-random-seed",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 9.98
+     },
+     {
+      "label": "ants-2",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/Atropos",
+       "--image-dimensionality",
+       "3",
+       "--initialization",
+       "KMeans[3]",
+       "--intensity-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "--likelihood-model",
+       "Gaussian",
+       "--mask-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "--mrf",
+       "[0.1,1x1x1]",
+       "--convergence",
+       "[3,0]",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/ants-2.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/ants-2-post%02d.nii.gz]",
+       "--use-random-seed",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "2"
+      },
+      "exit": 0,
+      "seconds": 9.18
+     },
+     {
+      "label": "ants-4",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/Atropos",
+       "--image-dimensionality",
+       "3",
+       "--initialization",
+       "KMeans[3]",
+       "--intensity-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "--likelihood-model",
+       "Gaussian",
+       "--mask-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "--mrf",
+       "[0.1,1x1x1]",
+       "--convergence",
+       "[3,0]",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/ants-4.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/ants-4-post%02d.nii.gz]",
+       "--use-random-seed",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "4"
+      },
+      "exit": 0,
+      "seconds": 8.33
+     },
+     {
+      "label": "ants-8",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/Atropos",
+       "--image-dimensionality",
+       "3",
+       "--initialization",
+       "KMeans[3]",
+       "--intensity-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "--likelihood-model",
+       "Gaussian",
+       "--mask-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "--mrf",
+       "[0.1,1x1x1]",
+       "--convergence",
+       "[3,0]",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/ants-8.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/ants-8-post%02d.nii.gz]",
+       "--use-random-seed",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8"
+      },
+      "exit": 0,
+      "seconds": 7.88
+     },
+     {
+      "label": "ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/Atropos",
+       "--image-dimensionality",
+       "3",
+       "--initialization",
+       "KMeans[3]",
+       "--intensity-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "--likelihood-model",
+       "Gaussian",
+       "--mask-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "--mrf",
+       "[0.1,1x1x1]",
+       "--convergence",
+       "[3,0]",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/ants-1-cr.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/ants-1-cr-post%02d.nii.gz]",
+       "--use-random-seed",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 10.67
+     },
+     {
+      "label": "ants-seed-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/Atropos",
+       "--image-dimensionality",
+       "3",
+       "--initialization",
+       "KMeans[3]",
+       "--intensity-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "--likelihood-model",
+       "Gaussian",
+       "--mask-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "--mrf",
+       "[0.1,1x1x1]",
+       "--convergence",
+       "[3,0]",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/ants-seed-1.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/ants-seed-1-post%02d.nii.gz]",
+       "--use-random-seed",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 11.35
+     },
+     {
+      "label": "ants-seed-2",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/Atropos",
+       "--image-dimensionality",
+       "3",
+       "--initialization",
+       "KMeans[3]",
+       "--intensity-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "--likelihood-model",
+       "Gaussian",
+       "--mask-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "--mrf",
+       "[0.1,1x1x1]",
+       "--convergence",
+       "[3,0]",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/ants-seed-2.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/ants-seed-2-post%02d.nii.gz]",
+       "--use-random-seed",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 11.21
+     },
+     {
+      "label": "ants-seed-3",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/Atropos",
+       "--image-dimensionality",
+       "3",
+       "--initialization",
+       "KMeans[3]",
+       "--intensity-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "--likelihood-model",
+       "Gaussian",
+       "--mask-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "--mrf",
+       "[0.1,1x1x1]",
+       "--convergence",
+       "[3,0]",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/ants-seed-3.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/ants-seed-3-post%02d.nii.gz]",
+       "--use-random-seed",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 11.14
+     },
+     {
+      "label": "fmriprep-image-1",
+      "argv": [
+       "apptainer",
+       "exec",
+       "--cleanenv",
+       "--home",
+       "<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/.home:/home/fmriprep",
+       "--env",
+       "NSLOTS=1",
+       "--env",
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=1",
+       "-B",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work:/work:ro",
+       "-B",
+       "<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos:/out",
+       "<workspace>/oracles/images/fmriprep-25.2.6.sif",
+       "Atropos",
+       "--image-dimensionality",
+       "3",
+       "--initialization",
+       "KMeans[3]",
+       "--intensity-image",
+       "/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "--likelihood-model",
+       "Gaussian",
+       "--mask-image",
+       "/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "--mrf",
+       "[0.1,1x1x1]",
+       "--convergence",
+       "[3,0]",
+       "--output",
+       "[/out/fmriprep-image-1.nii.gz,/out/fmriprep-image-1-post%02d.nii.gz]",
+       "--use-random-seed",
+       "0"
+      ],
+      "env": {},
+      "exit": 0,
+      "seconds": 18.91
+     },
+     {
+      "label": "larmorx-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "Atropos",
+       "--image-dimensionality",
+       "3",
+       "--initialization",
+       "KMeans[3]",
+       "--intensity-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "--likelihood-model",
+       "Gaussian",
+       "--mask-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "--mrf",
+       "[0.1,1x1x1]",
+       "--convergence",
+       "[3,0]",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/larmorx-1.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/larmorx-1-post%02d.nii.gz]",
+       "--use-random-seed",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 4.88
+     },
+     {
+      "label": "larmorx-1-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "Atropos",
+       "--image-dimensionality",
+       "3",
+       "--initialization",
+       "KMeans[3]",
+       "--intensity-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "--likelihood-model",
+       "Gaussian",
+       "--mask-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "--mrf",
+       "[0.1,1x1x1]",
+       "--convergence",
+       "[3,0]",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/larmorx-1-reproduce.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/larmorx-1-reproduce-post%02d.nii.gz]",
+       "--use-random-seed",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 5.16
+     },
+     {
+      "label": "larmorx-6",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "Atropos",
+       "--image-dimensionality",
+       "3",
+       "--initialization",
+       "KMeans[3]",
+       "--intensity-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "--likelihood-model",
+       "Gaussian",
+       "--mask-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "--mrf",
+       "[0.1,1x1x1]",
+       "--convergence",
+       "[3,0]",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/larmorx-6.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/larmorx-6-post%02d.nii.gz]",
+       "--use-random-seed",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 3.0
+     },
+     {
+      "label": "larmorx-6-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "Atropos",
+       "--image-dimensionality",
+       "3",
+       "--initialization",
+       "KMeans[3]",
+       "--intensity-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "--likelihood-model",
+       "Gaussian",
+       "--mask-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "--mrf",
+       "[0.1,1x1x1]",
+       "--convergence",
+       "[3,0]",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/larmorx-6-reproduce.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/larmorx-6-reproduce-post%02d.nii.gz]",
+       "--use-random-seed",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 2.53
+     },
+     {
+      "label": "larmorx-seed",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "Atropos",
+       "--image-dimensionality",
+       "3",
+       "--initialization",
+       "KMeans[3]",
+       "--intensity-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "--likelihood-model",
+       "Gaussian",
+       "--mask-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "--mrf",
+       "[0.1,1x1x1]",
+       "--convergence",
+       "[3,0]",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/larmorx-seed.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/fmriprep-ds000005-atropos/larmorx-seed-post%02d.nii.gz]",
+       "--use-random-seed",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 2.59
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0",
+     "ants_in_fmriprep_image": "ANTs Version: 2.6.2.dev1-gff61a3d Compiled: Jul 31 2025 06:55:26"
+    },
+    "threads": {
+     "ants": [
+      1,
+      2,
+      4,
+      8
+     ],
+     "larmorx": [
+      1,
+      6
+     ],
+     "fmriprep_run": 8
+    },
+    "settings": "fMRIPrep 25.2.6's Atropos call in ds000005 sub-01's brain extraction (atropos_wf/01_atropos), its arguments from command.txt; ANTs 2.6.5 at 1, 2, 4 and 8 threads, with CORE-MATH at 1, three times with --use-random-seed 1 (the clock's seed); fMRIPrep's own ANTs at 1 thread; larmorx in both modes at 1 and 6 threads, and with --use-random-seed 1 (seed 121212)"
+   },
+   {
+    "entry": "ants-atropos/ds000005-oasis-priors",
+    "description": "An antsCorticalThickness-style Atropos of ds000005 sub-01's T1w with the OASIS30ANTs tissue priors: ANTs 2.6.5, CORE-MATH, larmorx",
+    "computed": "2026-10-22T17:08:39+00:00",
+    "larmorx_commit": "dc5e4b8280797dde78740d53a46296d38cb6eaa1",
+    "commands": [
+     {
+      "label": "prior01",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--float",
+       "0",
+       "--input",
+       "/tmp/lx-atropos-priors-emwi2nd1/tpl-OASIS30ANTs_res-01_label-CSF_probseg.nii.gz",
+       "--interpolation",
+       "Gaussian",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/prior01.nii.gz",
+       "--reference-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "--transform",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/norm/anat_to_template0GenericAffine.mat,",
+       "1",
+       "]",
+       "--transform",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/norm/anat_to_template1InverseWarp.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6"
+      },
+      "exit": 0,
+      "seconds": 4.81
+     },
+     {
+      "label": "prior02",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--float",
+       "0",
+       "--input",
+       "/tmp/lx-atropos-priors-emwi2nd1/tpl-OASIS30ANTs_res-01_label-CGM_probseg.nii.gz",
+       "--interpolation",
+       "Gaussian",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/prior02.nii.gz",
+       "--reference-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "--transform",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/norm/anat_to_template0GenericAffine.mat,",
+       "1",
+       "]",
+       "--transform",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/norm/anat_to_template1InverseWarp.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6"
+      },
+      "exit": 0,
+      "seconds": 4.67
+     },
+     {
+      "label": "prior03",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "--default-value",
+       "0",
+       "--float",
+       "0",
+       "--input",
+       "<workspace>/oracles/templateflow/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_label-WM_probseg.nii.gz",
+       "--interpolation",
+       "Gaussian",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/prior03.nii.gz",
+       "--reference-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz",
+       "--transform",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/norm/anat_to_template0GenericAffine.mat,",
+       "1",
+       "]",
+       "--transform",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/norm/anat_to_template1InverseWarp.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6"
+      },
+      "exit": 0,
+      "seconds": 4.68
+     },
+     {
+      "label": "ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/Atropos",
+       "-d",
+       "3",
+       "-a",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "-x",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "-i",
+       "PriorProbabilityImages[3,<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/prior%02d.nii.gz,0.25]",
+       "-k",
+       "Gaussian",
+       "-m",
+       "[0.1,1x1x1]",
+       "-c",
+       "[5,0]",
+       "-g",
+       "1",
+       "-p",
+       "Socrates[1]",
+       "-r",
+       "0",
+       "-e",
+       "0",
+       "-o",
+       "[<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/ants-1.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/ants-1-post%02d.nii.gz]"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 26.21
+     },
+     {
+      "label": "ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/Atropos",
+       "-d",
+       "3",
+       "-a",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "-x",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "-i",
+       "PriorProbabilityImages[3,<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/prior%02d.nii.gz,0.25]",
+       "-k",
+       "Gaussian",
+       "-m",
+       "[0.1,1x1x1]",
+       "-c",
+       "[5,0]",
+       "-g",
+       "1",
+       "-p",
+       "Socrates[1]",
+       "-r",
+       "0",
+       "-e",
+       "0",
+       "-o",
+       "[<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/ants-1-cr.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/ants-1-cr-post%02d.nii.gz]"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 30.98
+     },
+     {
+      "label": "larmorx-1-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "Atropos",
+       "-d",
+       "3",
+       "-a",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "-x",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "-i",
+       "PriorProbabilityImages[3,<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/prior%02d.nii.gz,0.25]",
+       "-k",
+       "Gaussian",
+       "-m",
+       "[0.1,1x1x1]",
+       "-c",
+       "[5,0]",
+       "-g",
+       "1",
+       "-p",
+       "Socrates[1]",
+       "-r",
+       "0",
+       "-e",
+       "0",
+       "-o",
+       "[<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/larmorx-1-reproduce.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/larmorx-1-reproduce-post%02d.nii.gz]"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 19.8
+     },
+     {
+      "label": "larmorx-6-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "Atropos",
+       "-d",
+       "3",
+       "-a",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "-x",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "-i",
+       "PriorProbabilityImages[3,<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/prior%02d.nii.gz,0.25]",
+       "-k",
+       "Gaussian",
+       "-m",
+       "[0.1,1x1x1]",
+       "-c",
+       "[5,0]",
+       "-g",
+       "1",
+       "-p",
+       "Socrates[1]",
+       "-r",
+       "0",
+       "-e",
+       "0",
+       "-o",
+       "[<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/larmorx-6-reproduce.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/larmorx-6-reproduce-post%02d.nii.gz]"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 9.66
+     },
+     {
+      "label": "larmorx-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "Atropos",
+       "-d",
+       "3",
+       "-a",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz",
+       "-x",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz",
+       "-i",
+       "PriorProbabilityImages[3,<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/prior%02d.nii.gz,0.25]",
+       "-k",
+       "Gaussian",
+       "-m",
+       "[0.1,1x1x1]",
+       "-c",
+       "[5,0]",
+       "-g",
+       "1",
+       "-p",
+       "Socrates[1]",
+       "-r",
+       "0",
+       "-e",
+       "0",
+       "-o",
+       "[<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/larmorx-1.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/larmorx-1-post%02d.nii.gz]"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 18.08
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "threads": {
+     "ants": [
+      1
+     ],
+     "larmorx": [
+      1,
+      6
+     ]
+    },
+    "settings": "antsCorticalThickness-style Atropos (PriorProbabilityImages weight 0.25, MRF 0.1, five iterations, Socrates, the fixed seed) on the inputs of fMRIPrep's Atropos call in ds000005 sub-01, with OASIS30ANTs' CSF, cortical grey matter and white matter priors brought into the T1w's space by fMRIPrep's map_brainmask command (ANTs antsApplyTransforms, Gaussian interpolation); ANTs 2.6.5 at 1 thread, with CORE-MATH; larmorx in both modes"
+   }
+  ],
+  "command": "python -m larmorx_validation evidence ants-atropos --site <site>"
+ },
+ "implementations": [
+  {
+   "id": "port",
+   "label": "larmorx (port)",
+   "short": "port",
+   "record": "docs/validation/ants-atropos.md",
+   "status": "validated",
+   "summary": {
+    "cases": 93,
+    "verdicts": {
+     "identical-cr": 31,
+     "bit-identical": 28,
+     "divergence": 9,
+     "both-reject": 25
+    }
+   },
+   "agreement": [
+    {
+     "category": "initialization",
+     "counts": {
+      "bit-identical": 3,
+      "identical-cr": 3
+     }
+    },
+    {
+     "category": "posteriors",
+     "counts": {
+      "bit-identical": 1,
+      "identical-cr": 14,
+      "divergence": 1
+     }
+    },
+    {
+     "category": "likelihood",
+     "counts": {
+      "bit-identical": 3,
+      "identical-cr": 2
+     }
+    },
+    {
+     "category": "mrf",
+     "counts": {
+      "bit-identical": 3,
+      "identical-cr": 2
+     }
+    },
+    {
+     "category": "outliers",
+     "counts": {
+      "bit-identical": 3,
+      "divergence": 1,
+      "both-reject": 1
+     }
+    },
+    {
+     "category": "partial volume",
+     "counts": {
+      "bit-identical": 2,
+      "both-reject": 1
+     }
+    },
+    {
+     "category": "dimensions",
+     "counts": {
+      "bit-identical": 2
+     }
+    },
+    {
+     "category": "inputs",
+     "counts": {
+      "bit-identical": 2,
+      "both-reject": 1
+     }
+    },
+    {
+     "category": "messages",
+     "counts": {
+      "bit-identical": 5,
+      "divergence": 4,
+      "both-reject": 22
+     }
+    },
+    {
+     "category": "verbose",
+     "counts": {
+      "bit-identical": 3,
+      "identical-cr": 2
+     }
+    },
+    {
+     "category": "random seeds",
+     "counts": {
+      "divergence": 2
+     }
+    },
+    {
+     "category": "real (sMRIPrep)",
+     "counts": {
+      "bit-identical": 1,
+      "identical-cr": 4
+     }
+    },
+    {
+     "category": "real (priors)",
+     "counts": {
+      "identical-cr": 2
+     }
+    },
+    {
+     "category": "real (other)",
+     "counts": {
+      "identical-cr": 2,
+      "divergence": 1
+     }
+    }
+   ]
+  }
+ ],
+ "cases": [
+  {
+   "id": "kmeans-3",
+   "category": "initialization",
+   "description": "K-means, 3 classes, MRF 0.1 (sMRIPrep's options on the phantom)",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -m [0.1,1x1x1] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "29/29",
+     "reason": "post02: as built, 1 of 63360 differ; max |diff| 1.82e-12, 1 - NCC 0; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "kmeans-4",
+   "category": "initialization",
+   "description": "K-means, 4 classes, MRF 0.3",
+   "command": "Atropos -i KMeans[4] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -m [0.3,1x1x1] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "33/33",
+     "reason": "post01: as built, 42 of 63360 differ; max |diff| 5.82e-11, 1 - NCC 0; post02: as built, 36 of 63360 differ; max |diff| 2.33e-10, 1 - NCC 1.1e-16; post03: as built, 242 of 63360 differ; max |diff| 5.96e-08, 1 - NCC 1.2e-15; post04: as built, 16 of 63360 differ; max |diff| 3.73e-09, 1 - NCC 2.4e-15; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "kmeans-centres",
+   "category": "initialization",
+   "description": "K-means from given centres (50, 100, 150)",
+   "command": "Atropos -i KMeans[3,50x100x150] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "24/24",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "otsu",
+   "category": "initialization",
+   "description": "Otsu thresholds, 3 classes",
+   "command": "Atropos -i Otsu[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "24/24",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "random",
+   "category": "initialization",
+   "description": "random initial labels (fixed seed)",
+   "command": "Atropos -i Random[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 24 of 63360 differ; max |diff| 5.96e-08, 1 - NCC 0; post02: as built, 32 of 63360 differ; max |diff| 5.96e-08, 1 - NCC 0; post03: as built, 25 of 63360 differ; max |diff| 5.96e-08, 1 - NCC 0; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "kmeans-multivariate",
+   "category": "initialization",
+   "description": "K-means on two images (ANTS-90: only the first decides the initial labels)",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -a '<generated: atropos-t2>' -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "24/24",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "priors-socrates",
+   "category": "posteriors",
+   "description": "prior probability images (weight 0.5), Socrates",
+   "command": "Atropos -i 'PriorProbabilityImages[3,<generated: atropos-prior%02d>,0.5]' -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 38 of 63360 differ; max |diff| 3.73e-09, 1 - NCC 0; post02: as built, 72 of 63360 differ; max |diff| 5.96e-08, 1 - NCC 2.2e-16; post03: as built, 28 of 63360 differ; max |diff| 1.16e-10, 1 - NCC 1.1e-16; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "priors-plato",
+   "category": "posteriors",
+   "description": "prior probability images, Plato",
+   "command": "Atropos -i 'PriorProbabilityImages[3,<generated: atropos-prior%02d>,0.5]' -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -p Plato -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 41 of 63360 differ; max |diff| 3.73e-09, 1 - NCC 2.2e-16; post02: as built, 94 of 63360 differ; max |diff| 5.96e-08, 1 - NCC 0; post03: as built, 28 of 63360 differ; max |diff| 1.16e-10, 1 - NCC 1.1e-16; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "priors-aristotle",
+   "category": "posteriors",
+   "description": "prior probability images, Aristotle",
+   "command": "Atropos -i 'PriorProbabilityImages[3,<generated: atropos-prior%02d>,0.5]' -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -p Aristotle -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 55 of 63360 differ; max |diff| 2.27e-13, 1 - NCC 1.1e-16; post02: as built, 48 of 63360 differ; max |diff| 3.55e-15, 1 - NCC 0; post03: as built, 44 of 63360 differ; max |diff| 8.88e-16, 1 - NCC 0; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "priors-sigmoid",
+   "category": "posteriors",
+   "description": "prior probability images, Sigmoid",
+   "command": "Atropos -i 'PriorProbabilityImages[3,<generated: atropos-prior%02d>,0.5]' -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -p Sigmoid -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 8 of 63360 differ; max |diff| 1.16e-10, 1 - NCC 0; post02: as built, 17 of 63360 differ; max |diff| 7.28e-12, 1 - NCC 0; post03: as built, 25 of 63360 differ; max |diff| 1.14e-13, 1 - NCC 0; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "priors-euclidean",
+   "category": "posteriors",
+   "description": "prior probability images (weight 0.25), Euclidean distance priors",
+   "command": "Atropos -i 'PriorProbabilityImages[3,<generated: atropos-prior%02d>,0.25]' -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -e 1 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 33 of 63360 differ; max |diff| 1.86e-09, 1 - NCC 1.7e-15; post02: as built, 33 of 63360 differ; max |diff| 5.82e-11, 1 - NCC 0; post03: as built, 28 of 63360 differ; max |diff| 2.33e-10, 1 - NCC 1.1e-16; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "priors-threshold",
+   "category": "posteriors",
+   "description": "prior probability images with a probability threshold of 0.1",
+   "command": "Atropos -i 'PriorProbabilityImages[3,<generated: atropos-prior%02d>,0.5,0.1]' -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 30 of 63360 differ; max |diff| 1.49e-08, 1 - NCC 0; post02: as built, 40 of 63360 differ; max |diff| 5.82e-11, 1 - NCC 0; post03: as built, 39 of 63360 differ; max |diff| 1.16e-10, 1 - NCC 1.1e-15; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "priors-vector",
+   "category": "posteriors",
+   "description": "the priors as one vector image (ANTS-100: every class reads the last component's normalized copy)",
+   "command": "Atropos -i 'PriorProbabilityImages[3,<generated: atropos-priors-vector>,0.5]' -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 23 of 63360 differ; max |diff| 1.86e-09, 1 - NCC 3.3e-16; post02: as built, 35 of 63360 differ; max |diff| 5.96e-08, 1 - NCC 3.3e-16; post03: as built, 38 of 63360 differ; max |diff| 9.31e-10, 1 - NCC 0; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "priors-minimize-memory",
+   "category": "posteriors",
+   "description": "prior probability images with --minimize-memory-usage and a mask (ANTS-105: ANTs crashes)",
+   "command": "Atropos -i 'PriorProbabilityImages[3,<generated: atropos-prior%02d>,0.5]' -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -u 1 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "4/4",
+     "reason": "ANTs aborts; larmorx exits 1 with its text"
+    }
+   }
+  },
+  {
+   "id": "priors-all-outputs",
+   "category": "posteriors",
+   "description": "prior probability images: posteriors, likelihoods and distance priors written",
+   "command": "Atropos -i 'PriorProbabilityImages[3,<generated: atropos-prior%02d>,0.5]' -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz,lik%02d.nii.gz,dist%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "60/60",
+     "reason": "post01: as built, 38 of 63360 differ; max |diff| 3.73e-09, 1 - NCC 0; post02: as built, 72 of 63360 differ; max |diff| 5.96e-08, 1 - NCC 2.2e-16; post03: as built, 28 of 63360 differ; max |diff| 1.16e-10, 1 - NCC 1.1e-16; lik01: as built, 5 of 63360 differ; max |diff| 4.66e-10, 1 - NCC 0; lik02: as built, 140 of 63360 differ; max |diff| 4.66e-10, 1 - NCC 2.4e-15; lik03: as built, 4 of 63360 diffe…"
+    }
+   }
+  },
+  {
+   "id": "priors-adaptive-smoothing",
+   "category": "posteriors",
+   "description": "prior probability images with adaptive smoothing (0.5) of the intensities: B-spline fits per class, 3 levels",
+   "command": "Atropos -i 'PriorProbabilityImages[3,<generated: atropos-prior%02d>,0.5]' -d 3 -a '[<generated: atropos-t1>,0.5]' -x '<generated: atropos-mask>' -c [2,0] -r 0 -b [3,1,3] -o [seg.nii.gz,post%02d.nii.gz,lik%02d.nii.gz,dist%02d.nii.gz,bsp%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "75/75",
+     "reason": "post01: as built, 28 of 63360 differ; max |diff| 5.96e-08, 1 - NCC 0; post02: as built, 49 of 63360 differ; max |diff| 5.96e-08, 1 - NCC 0; post03: as built, 44 of 63360 differ; max |diff| 3.73e-09, 1 - NCC 0; lik01: as built, 2 of 63360 differ; max |diff| 4.66e-10, 1 - NCC 3.4e-15; lik02: as built, 46 of 63360 differ; max |diff| 1.86e-09, 1 - NCC 0; lik03: as built, 16 of 63360 differ; max |diff…"
+    }
+   }
+  },
+  {
+   "id": "label-fast-marching",
+   "category": "posteriors",
+   "description": "a prior label image (holes filled by fast marching)",
+   "command": "Atropos -i 'PriorLabelImage[3,<generated: atropos-prior-label>,0.5]' -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 8 of 63360 differ; max |diff| 4.66e-10, 1 - NCC 0; post02: as built, 28 of 63360 differ; max |diff| 3.73e-09, 1 - NCC 1.1e-15; post03: as built, 34 of 63360 differ; max |diff| 1.16e-10, 1 - NCC 7.8e-16; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "label-euclidean",
+   "category": "posteriors",
+   "description": "a prior label image, Euclidean distances",
+   "command": "Atropos -i 'PriorLabelImage[3,<generated: atropos-prior-label>,0.5]' -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -e 1 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 8 of 63360 differ; max |diff| 4.66e-10, 1 - NCC 0; post02: as built, 28 of 63360 differ; max |diff| 3.73e-09, 1 - NCC 1.1e-15; post03: as built, 34 of 63360 differ; max |diff| 1.16e-10, 1 - NCC 7.8e-16; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "label-propagation",
+   "category": "posteriors",
+   "description": "a prior label image with label propagation for every class ([0.5,0.8])",
+   "command": "Atropos -i 'PriorLabelImage[3,<generated: atropos-prior-label>,0.5]' -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -l [0.5,0.8] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 32 of 63360 differ; max |diff| 3.73e-09, 1 - NCC 2.2e-16; post02: as built, 62 of 63360 differ; max |diff| 2.98e-08, 1 - NCC 2.3e-15; post03: as built, 57 of 63360 differ; max |diff| 1.49e-08, 1 - NCC 0; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "label-propagation-per-label",
+   "category": "posteriors",
+   "description": "label propagation for labels 1 and 3",
+   "command": "Atropos -i 'PriorLabelImage[3,<generated: atropos-prior-label>,0.5]' -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -l 1[0.3,0.9] -l 3[1,0.5] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 31 of 63360 differ; max |diff| 5.96e-08, 1 - NCC 1e-15; post02: as built, 36 of 63360 differ; max |diff| 5.96e-08, 1 - NCC 1.2e-15; post03: as built, 77 of 63360 differ; max |diff| 7.45e-09, 1 - NCC 4.4e-16; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "histogram-parzen",
+   "category": "likelihood",
+   "description": "histogram Parzen windows (sigma 1, 32 bins)",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -k HistogramParzenWindows[1,32] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "24/24",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "manifold-parzen",
+   "category": "likelihood",
+   "description": "manifold Parzen windows (k = 10; ANTS-95: the weights ignored)",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -k ManifoldParzenWindows[1,10] -c [2,0] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "24/24",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "manifold-parzen-covariance",
+   "category": "likelihood",
+   "description": "manifold Parzen windows with local covariances (5 neighbours; ANTS-104)",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -k ManifoldParzenWindows[1,10,5,2] -c [1,0] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "26/26",
+     "reason": "post01: as built, 1 of 63360 differ; max |diff| 1.86e-09, 1 - NCC 0; post02: as built, 1 of 63360 differ; max |diff| 1.12e-08, 1 - NCC 1.3e-15; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "log-euclidean",
+   "category": "likelihood",
+   "description": "log-Euclidean Gaussians of six tensor components",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-tensor0>' -a '<generated: atropos-tensor1>' -a '<generated: atropos-tensor2>' -a '<generated: atropos-tensor3>' -a '<generated: atropos-tensor4>' -a '<generated: atropos-tensor5>' -x '<generated: atropos-mask>' -c [2,0] -r 0 -k LogEuclideanGaussian -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 187 of 63360 differ; max |diff| 3.54e-08, 1 - NCC 0; post02: as built, 145 of 63360 differ; max |diff| 1.19e-07, 1 - NCC 0; post03: as built, 232 of 63360 differ; max |diff| 5e-16, 1 - NCC 0; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "joint-shape-orientation",
+   "category": "likelihood",
+   "description": "joint shape and orientation histograms of six tensor components (ANTS-103: an unset coordinate)",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-tensor0>' -a '<generated: atropos-tensor1>' -a '<generated: atropos-tensor2>' -a '<generated: atropos-tensor3>' -a '<generated: atropos-tensor4>' -a '<generated: atropos-tensor5>' -x '<generated: atropos-mask>' -c [2,0] -r 0 -k JointShapeAndOrientationProbability -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "24/24",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "mrf-synchronous",
+   "category": "mrf",
+   "description": "synchronous updating (no ICM)",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -g 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "24/24",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "mrf-radius",
+   "category": "mrf",
+   "description": "an anisotropic MRF radius (2x1x2), smoothing 0.2",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -m [0.2,2x1x2] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 5 of 63360 differ; max |diff| 2.91e-11, 1 - NCC 3.3e-16; post02: as built, 23 of 63360 differ; max |diff| 3.64e-12, 1 - NCC 0; post03: as built, 7 of 63360 differ; max |diff| 1.78e-15, 1 - NCC 0; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "mrf-coefficient-image",
+   "category": "mrf",
+   "description": "an MRF coefficient image",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -m '[<generated: atropos-mrf-coefficients>,1x1x1]' -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 38 of 63360 differ; max |diff| 5.96e-08, 1 - NCC 8.9e-16; post02: as built, 83 of 63360 differ; max |diff| 2.33e-10, 1 - NCC 0; post03: as built, 95 of 63360 differ; max |diff| 3.73e-09, 1 - NCC 3.3e-16; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "mrf-none",
+   "category": "mrf",
+   "description": "no MRF (smoothing 0)",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -m [0,1x1x1] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "24/24",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "mrf-icm-codes",
+   "category": "mrf",
+   "description": "two ICM iterations and the ICM code image",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -g 1[1,2,icm.nii.gz] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "29/29",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "no-proportions",
+   "category": "posteriors",
+   "description": "no mixture proportions (Socrates[0])",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -p Socrates[0] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "24/24",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "annealing",
+   "category": "posteriors",
+   "description": "annealing from 2 at a rate of 0.5 down to 0.1",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -p Socrates[1,2,0.5,0.1] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 23 of 63360 differ; max |diff| 4.55e-13, 1 - NCC 0; post02: as built, 13 of 63360 differ; max |diff| 3.16e-30, 1 - NCC 0; post03: as built, 12 of 63360 differ; max |diff| 3.94e-31, 1 - NCC 0; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "box-plot",
+   "category": "outliers",
+   "description": "box-plot winsorizing (ANTS-94: the filter re-runs on its own output)",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -w BoxPlot[0.25,0.75,1.5] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "24/24",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "box-plot-wide",
+   "category": "outliers",
+   "description": "box-plot winsorizing with a whisker of 100 (nothing beyond)",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [1,0] -r 0 -w BoxPlot[0.25,0.75,100] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "24/24",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "grubbs-rosner",
+   "category": "outliers",
+   "description": "Grubbs-Rosner winsorizing, three iterations (ANTS-94; ANTS-107: from the second iteration on, ANTs weighs the grown sample with uninitialized memory)",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,-1] -r 0 -w GrubbsRosner[0.05,0.1] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "divergence",
+     "checks": "20/20",
+     "reason": "ANTs weighs part of its samples with memory it never wrote (ANTS-107): its values depend on the heap and change with the output paths' length; larmorx weighs them 0. Everything else (exit status, headers, types, shapes) is compared."
+    }
+   }
+  },
+  {
+   "id": "grubbs-rosner-outliers",
+   "category": "outliers",
+   "description": "Grubbs-Rosner on an image with six far outliers (ITK-51: ITK's Student quantiles are NaN, no outlier is found)",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1-outliers>' -x '<generated: atropos-mask>' -c [2,0] -r 0 -w GrubbsRosner[0.05,0.1] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "20/20",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "grubbs-rosner-multivariate",
+   "category": "outliers",
+   "description": "Grubbs-Rosner on two images: the class covariance becomes singular in both",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -a '<generated: atropos-t2>' -x '<generated: atropos-mask>' -c [1,0] -r 0 -w GrubbsRosner[0.2,0.3] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: '\\nSLATEC/DGAMMA: X SO BIG GAMMA OVERFLOWS\\nSLATEC/DGAMMA: X SO BIG GAMMA OVERFLOWS\\nSLATEC/DGAMMA: X SO BIG GAMMA OVERFLOWS\\nSLATEC/DGAMMA: X SO BIG GAMMA OVERFLOWS'; larmorx exit 1: \"x: upstream defect ANTS-94 (Atropos) reproduced: the outlier …"
+    }
+   }
+  },
+  {
+   "id": "partial-volume-mrf-only",
+   "category": "partial volume",
+   "description": "a partial-volume label set used by the MRF only",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -s 1x2 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "24/24",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "partial-volume-likelihoods",
+   "category": "partial volume",
+   "description": "partial-volume classes 1x2 and 2x3 with their likelihoods, no MRF",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -s 1x2 -s 2x3 --use-partial-volume-likelihoods 1 -p Socrates[0] -m [0,1x1x1] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "24/24",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "partial-volume-with-mrf",
+   "category": "partial volume",
+   "description": "partial-volume classes with the MRF (ANTS-106: they can never win a voxel; both stop)",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 0 -s 1x2 -s 2x3 --use-partial-volume-likelihoods 1 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: ''; larmorx exit 1: 'rrects it]\\nlarmorx: upstream defect ANTS-96 (Atropos) reproduced: the partial-volume classes keep their initial means [LARMORX_UPSTREAM_DEFECTS=fix corrects it]'"
+    }
+   }
+  },
+  {
+   "id": "2d",
+   "category": "dimensions",
+   "description": "a 2D slice",
+   "command": "Atropos -i KMeans[3] -d 2 -a '<generated: atropos-t1-2d>' -x '<generated: atropos-mask-2d>' -c [3,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "24/24",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "4d",
+   "category": "dimensions",
+   "description": "a 4D series (two volumes)",
+   "command": "Atropos -i KMeans[3] -d 4 -a '<generated: atropos-t1-4d>' -x '<generated: atropos-mask-4d>' -c [2,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "24/24",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "mask-255",
+   "category": "inputs",
+   "description": "a mask of 255s (one LabelMap label, ITK's error)",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask255>' -c [3,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'nListSampleFunction.hxx, line 105\\nGaussianListSampleFunction (0x5aa455020f10): The input list sample has <= 1 element. Function evaluations will be equal to 0.'; larmorx exit 1: \"x: upstream defect ANTS-98 (Atropos) reproduced: the first image'…"
+    }
+   }
+  },
+  {
+   "id": "mask-float",
+   "category": "inputs",
+   "description": "a float32 mask with 0.6 at its rim (read as 0)",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask-float>' -c [2,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "24/24",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "no-dimension",
+   "category": "inputs",
+   "description": "no -d: Atropos assumes 3D (ANTS-99)",
+   "command": "Atropos -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [2,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "24/24",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "no-arguments",
+   "category": "messages",
+   "description": "no arguments: the short help",
+   "command": "Atropos",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: ' ). \\n\\n -v, --verbose (0)/1\\n Verbose output. \\n\\n -h \\n Print the help menu (short version). \\n\\n --help \\n Print the help menu.'; larmorx exit 1: ' ). \\n\\n -v, --verbose (0)/1\\n Verbose output. \\n\\n -h \\n Print the help menu (short version). …"
+    }
+   }
+  },
+  {
+   "id": "help",
+   "category": "messages",
+   "description": "--help",
+   "command": "Atropos --help",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "short-help",
+   "category": "messages",
+   "description": "-h",
+   "command": "Atropos -h",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "no-initialization",
+   "category": "messages",
+   "description": "no -i",
+   "command": "Atropos -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>'",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'No initialization option specified.'; larmorx exit 1: 'No initialization option specified.'"
+    }
+   }
+  },
+  {
+   "id": "initialization-without-classes",
+   "category": "messages",
+   "description": "-i KMeans (no classes)",
+   "command": "Atropos -d 3 -i KMeans -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -v 1",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'usage option (see -m). With that option one can specify a prior probability threshold in which only those pixels exceeding that threshold are stored in memory.'; larmorx exit 1: 'usage option (see -m). With that option one can specify a prior pr…"
+    }
+   }
+  },
+  {
+   "id": "unknown-initialization",
+   "category": "messages",
+   "description": "-i Foo[3]",
+   "command": "Atropos -d 3 -i Foo[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -v 1",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'Unrecognized initialization strategy request.'; larmorx exit 1: 'Unrecognized initialization strategy request.'"
+    }
+   }
+  },
+  {
+   "id": "bad-number",
+   "category": "messages",
+   "description": "-i KMeans[3x] (the parser cannot convert)",
+   "command": "Atropos -d 3 -i KMeans[3x] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>'",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "4/4",
+     "reason": "ANTs aborts; larmorx exits 1 with its text"
+    }
+   }
+  },
+  {
+   "id": "wrong-centres",
+   "category": "messages",
+   "description": "two centres for three classes",
+   "command": "Atropos -d 3 -i KMeans[3,10x20] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -v 1",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'The cluster center vector size does not equal the specified number of classes.'; larmorx exit 1: 'The cluster center vector size does not equal the specified number of classes.'"
+    }
+   }
+  },
+  {
+   "id": "priors-without-weight",
+   "category": "messages",
+   "description": "PriorProbabilityImages without a weight",
+   "command": "Atropos -d 3 -i 'PriorProbabilityImages[3,<generated: atropos-prior%02d>]' -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -v 1",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'usage option (see -m). With that option one can specify a prior probability threshold in which only those pixels exceeding that threshold are stored in memory.'; larmorx exit 1: 'usage option (see -m). With that option one can specify a prior pr…"
+    }
+   }
+  },
+  {
+   "id": "priors-missing",
+   "category": "messages",
+   "description": "prior images that do not exist",
+   "command": "Atropos -d 3 -i PriorProbabilityImages[3,nope%02d.nii.gz,0.5] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>'",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'file <tmp>/nope01.nii.gz does not exist .'; larmorx exit 1: 'file <tmp>/nope01.nii.gz does not exist .'"
+    }
+   }
+  },
+  {
+   "id": "prior-label-missing",
+   "category": "messages",
+   "description": "a prior label image that does not exist",
+   "command": "Atropos -d 3 -i PriorLabelImage[3,nope.nii.gz,0.5] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>'",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'file <tmp>/nope.nii.gz does not exist .'; larmorx exit 1: 'file <tmp>/nope.nii.gz does not exist .'"
+    }
+   }
+  },
+  {
+   "id": "no-mask",
+   "category": "messages",
+   "description": "no -x",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -v 1",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'An image mask is required. Specify a mask image with the -x option.'; larmorx exit 1: 'An image mask is required. Specify a mask image with the -x option.'"
+    }
+   }
+  },
+  {
+   "id": "mask-missing",
+   "category": "messages",
+   "description": "a mask that does not exist",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x nope.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'file <tmp>/nope.nii.gz does not exist .'; larmorx exit 1: 'file <tmp>/nope.nii.gz does not exist .'"
+    }
+   }
+  },
+  {
+   "id": "no-image",
+   "category": "messages",
+   "description": "no -a",
+   "command": "Atropos -d 3 -i KMeans[3] -x '<generated: atropos-mask>' -v 1",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'No input images were specified. Specify an input image with the -a option.'; larmorx exit 1: 'No input images were specified. Specify an input image with the -a option.'"
+    }
+   }
+  },
+  {
+   "id": "image-missing",
+   "category": "messages",
+   "description": "an image that does not exist",
+   "command": "Atropos -d 3 -i KMeans[3] -a nope.nii.gz -x '<generated: atropos-mask>'",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'file <tmp>/nope.nii.gz does not exist .'; larmorx exit 1: 'file <tmp>/nope.nii.gz does not exist .'"
+    }
+   }
+  },
+  {
+   "id": "dimension-5",
+   "category": "messages",
+   "description": "-d 5",
+   "command": "Atropos -d 5 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>'",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'Unsupported dimension'; larmorx exit 1: 'Unsupported dimension'"
+    }
+   }
+  },
+  {
+   "id": "negative-temperature",
+   "category": "messages",
+   "description": "a negative annealing temperature",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -p Socrates[1,-1] -v 1",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'Annealing temperature must be positive.'; larmorx exit 1: 'Annealing temperature must be positive.'"
+    }
+   }
+  },
+  {
+   "id": "rate-above-one",
+   "category": "messages",
+   "description": "an annealing rate of 2",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -p Socrates[1,1,2] -v 1",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'Annealing rate must be in the range [0, 1].'; larmorx exit 1: 'Annealing rate must be in the range [0, 1].'"
+    }
+   }
+  },
+  {
+   "id": "wrong-levels",
+   "category": "messages",
+   "description": "-b with two levels in 3D",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -b [2x2] -v 1",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'Incorrect number of levels'; larmorx exit 1: 'Incorrect number of levels'"
+    }
+   }
+  },
+  {
+   "id": "wrong-mesh",
+   "category": "messages",
+   "description": "-b with a 2D mesh in 3D",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -b [2,1x1] -v 1",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'Incorrect mesh resolution'; larmorx exit 1: 'Incorrect mesh resolution'"
+    }
+   }
+  },
+  {
+   "id": "wrong-radius",
+   "category": "messages",
+   "description": "-m with a 2D radius in 3D",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -m [0.1,1x1] -v 1",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'MRF radius size needs to be equal to the image dimension.'; larmorx exit 1: 'MRF radius size needs to be equal to the image dimension.'"
+    }
+   }
+  },
+  {
+   "id": "unknown-likelihood",
+   "category": "messages",
+   "description": "-k Foo",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -k Foo -v 1",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'Unrecognized likelihood model request.'; larmorx exit 1: 'Unrecognized likelihood model request.'"
+    }
+   }
+  },
+  {
+   "id": "tensor-image-count",
+   "category": "messages",
+   "description": "a tensor model with one image",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -k LogEuclideanGaussian -v 1",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'Expect images in upper triangular order \\n xx xy xz yy yz zz \\nIncorrect number of intensity images specified.'; larmorx exit 1: 'Expect images in upper triangular order \\n xx xy xz yy yz zz \\nIncorrect number of intensity images specified.'"
+    }
+   }
+  },
+  {
+   "id": "partial-volume-labels",
+   "category": "messages",
+   "description": "-s 1x2x3 (three labels)",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -s 1x2x3 -v 1",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'Error: Currently Atropos only supports partial volume label sets of size equal to 2.'; larmorx exit 1: 'Error: Currently Atropos only supports partial volume label sets of size equal to 2.'"
+    }
+   }
+  },
+  {
+   "id": "partial-volume-label-range",
+   "category": "messages",
+   "description": "-s 1x4 with three classes",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [1,0] -r 0 -s 1x4 -o seg.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "unknown-outliers",
+   "category": "messages",
+   "description": "-w Foo",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -w Foo -v 1",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "ANTs exit 1: 'Unrecognized outlier handling strategy request.'; larmorx exit 1: 'Unrecognized outlier handling strategy request.'"
+    }
+   }
+  },
+  {
+   "id": "icm-brackets",
+   "category": "messages",
+   "description": "--icm [1,2], the documented form (ANTS-102: ANTs aborts)",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -g [1,2]",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "4/4",
+     "reason": "ANTs aborts; larmorx exits 1 with its text"
+    }
+   }
+  },
+  {
+   "id": "label-propagation-without-parameters",
+   "category": "messages",
+   "description": "-l 2 (the parser cannot convert the missing parameters: ANTs aborts)",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -l 2",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "4/4",
+     "reason": "ANTs aborts; larmorx exits 1 with its text"
+    }
+   }
+  },
+  {
+   "id": "unknown-formulation",
+   "category": "messages",
+   "description": "-p Zeno (Socrates kept, ANTS-101)",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [1,0] -r 0 -p Zeno -o seg.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "output-extension",
+   "category": "messages",
+   "description": "a classified image with an unknown extension",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [1,0] -r 0 -o seg.foo",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "3/4",
+     "reason": "ANTs aborts; larmorx exits 1 with its text"
+    }
+   }
+  },
+  {
+   "id": "posterior-without-percent",
+   "category": "messages",
+   "description": "a posterior name without %d (every class writes the same file)",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [1,0] -r 0 -o [seg.nii.gz,p.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "14/14",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "verbose",
+   "category": "verbose",
+   "description": "-v 1: progress, the filter's settings and its models",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [2,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz] -v 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "26/26",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "verbose-grubbs",
+   "category": "verbose",
+   "description": "-v 1 with Grubbs-Rosner (its outlier listing; one iteration, before ANTS-107)",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [1,0] -r 0 -w GrubbsRosner[0.05,0.1] -o [seg.nii.gz,post%02d.nii.gz] -v 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "26/26",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "verbose-box-plot",
+   "category": "verbose",
+   "description": "-v 1 with box-plot winsorizing",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [2,0] -r 0 -w BoxPlot[0.25,0.75,1.5] -o [seg.nii.gz,post%02d.nii.gz] -v 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "26/26",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "verbose-priors",
+   "category": "verbose",
+   "description": "-v 1 with prior probability images and label propagation",
+   "command": "Atropos -d 3 -i 'PriorProbabilityImages[3,<generated: atropos-prior%02d>,0.5]' -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [2,0] -r 0 -l [0.5,0.8] -o [seg.nii.gz,post%02d.nii.gz] -v 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "29/29",
+     "reason": "post01: as built, 34 of 63360 differ; max |diff| 2.98e-08, 1 - NCC 2.2e-15; post02: as built, 111 of 63360 differ; max |diff| 5.96e-08, 1 - NCC 1.8e-15; post03: as built, 60 of 63360 differ; max |diff| 1.16e-10, 1 - NCC 7.8e-16; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "verbose-parzen",
+   "category": "verbose",
+   "description": "-v 1 with histogram Parzen windows",
+   "command": "Atropos -d 3 -i KMeans[3] -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [1,0] -r 0 -k HistogramParzenWindows[1,32] -o [seg.nii.gz,post%02d.nii.gz] -v 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 1 of 63360 differ; max |diff| 1.73e-18, 1 - NCC 0; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "clock-seed",
+   "category": "random seeds",
+   "description": "--use-random-seed 1: ANTs seeds from the clock (two runs); larmorx uses the seed 121212",
+   "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 1 -m [0.1,1x1x1] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "7/7",
+     "reason": "ANTs draws its seed from the clock; larmorx uses 121212"
+    }
+   }
+  },
+  {
+   "id": "clock-seed-random-labels",
+   "category": "random seeds",
+   "description": "Random[3] with the clock's seed",
+   "command": "Atropos -i Random[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "7/7",
+     "reason": "ANTs draws its seed from the clock; larmorx uses 121212"
+    }
+   }
+  },
+  {
+   "id": "real/ds000005-sub-01/smriprep",
+   "category": "real (sMRIPrep)",
+   "description": "sMRIPrep's Atropos call in ds000005-sub-01 (fMRIPrep 25.2.6's command line, its N4-corrected T1w and mask)",
+   "command": "Atropos <fMRIPrep's command line: ds000005-sub-01-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "35/35",
+     "reason": "post01: as built, 89 of 5898240 differ; max |diff| 5.96e-08, 1 - NCC 0; post02: as built, 53 of 5898240 differ; max |diff| 1.19e-07, 1 - NCC 0; post03: as built, 23 of 5898240 differ; max |diff| 5.96e-08, 1 - NCC 0; bit-identical with correctly rounded maths"
+    }
+   },
+   "example": "fmriprep-atropos"
+  },
+  {
+   "id": "real/ds001600-sub-1/smriprep",
+   "category": "real (sMRIPrep)",
+   "description": "sMRIPrep's Atropos call in ds001600-sub-1 (fMRIPrep 25.2.6's command line, its N4-corrected T1w and mask)",
+   "command": "Atropos <fMRIPrep's command line: ds001600-sub-1-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "28/28",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "real/ds005040-sub-002/smriprep",
+   "category": "real (sMRIPrep)",
+   "description": "sMRIPrep's Atropos call in ds005040-sub-002 (fMRIPrep 25.2.6's command line, its N4-corrected T1w and mask)",
+   "command": "Atropos <fMRIPrep's command line: ds005040-sub-002-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "31/31",
+     "reason": "post01: as built, 80 of 15842304 differ; max |diff| 5.96e-08, 1 - NCC 4.8e-15; post02: as built, 60 of 15842304 differ; max |diff| 8.94e-08, 1 - NCC 0; post03: as built, 67 of 15842304 differ; max |diff| 5.96e-08, 1 - NCC 0; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "real/ds005454-sub-16/smriprep",
+   "category": "real (sMRIPrep)",
+   "description": "sMRIPrep's Atropos call in ds005454-sub-16 (fMRIPrep 25.2.6's command line, its N4-corrected T1w and mask)",
+   "command": "Atropos <fMRIPrep's command line: ds005454-sub-16-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "31/31",
+     "reason": "post01: as built, 4175 of 17547264 differ; max |diff| 1.19e-07, 1 - NCC 3.6e-14; post02: as built, 3655 of 17547264 differ; max |diff| 1.19e-07, 1 - NCC 0; post03: as built, 3805 of 17547264 differ; max |diff| 1.19e-07, 1 - NCC 3.3e-16; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "real/ds005752-sub-ON01016/smriprep",
+   "category": "real (sMRIPrep)",
+   "description": "sMRIPrep's Atropos call in ds005752-sub-ON01016 (fMRIPrep 25.2.6's command line, its N4-corrected T1w and mask)",
+   "command": "Atropos <fMRIPrep's command line: ds005752-sub-ON01016-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "31/31",
+     "reason": "post01: as built, 11 of 12845056 differ; max |diff| 5.96e-08, 1 - NCC 2e-15; post02: as built, 23 of 12845056 differ; max |diff| 5.96e-08, 1 - NCC 7.9e-15; post03: as built, 21 of 12845056 differ; max |diff| 2.98e-08, 1 - NCC 8.9e-15; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "real/ds000005-sub-01/priors-3",
+   "category": "real (priors)",
+   "description": "antsCorticalThickness-style segmentation in ds000005-sub-01: the OASIS30ANTs priors (CSF, CGM, WM) in T1w space, weight 0.25, MRF 0.1, five iterations, Socrates",
+   "command": "Atropos -d 3 -a '<ds000005-sub-01-noreconall: N4-corrected T1w>' -x '<ds000005-sub-01-noreconall: brain mask>' -i 'PriorProbabilityImages[3,<OASIS30ANTs priors%02d>,0.25]' -k Gaussian -m [0.1,1x1x1] -c [5,0] -g 1 -p Socrates[1] -r 0 -e 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 1101 of 5898240 differ; max |diff| 1.19e-07, 1 - NCC 0; post02: as built, 1079 of 5898240 differ; max |diff| 1.19e-07, 1 - NCC 0; post03: as built, 934 of 5898240 differ; max |diff| 1.19e-07, 1 - NCC 0; bit-identical with correctly rounded maths"
+    }
+   },
+   "example": "oasis-priors"
+  },
+  {
+   "id": "real/ds005040-sub-002/priors-3",
+   "category": "real (priors)",
+   "description": "antsCorticalThickness-style segmentation in ds005040-sub-002: the OASIS30ANTs priors (CSF, CGM, WM) in T1w space, weight 0.25, MRF 0.1, five iterations, Socrates",
+   "command": "Atropos -d 3 -a '<ds005040-sub-002-noreconall: N4-corrected T1w>' -x '<ds005040-sub-002-noreconall: brain mask>' -i 'PriorProbabilityImages[3,<OASIS30ANTs priors%02d>,0.25]' -k Gaussian -m [0.1,1x1x1] -c [5,0] -g 1 -p Socrates[1] -r 0 -e 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 3731 of 15842304 differ; max |diff| 1.19e-07, 1 - NCC 0; post02: as built, 3056 of 15842304 differ; max |diff| 1.19e-07, 1 - NCC 7.5e-15; post03: as built, 2971 of 15842304 differ; max |diff| 1.19e-07, 1 - NCC 0; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "real/ds000005/otsu",
+   "category": "real (other)",
+   "description": "Otsu[3] on ds000005's N4-corrected T1w",
+   "command": "Atropos -d 3 -a '<ds000005-sub-01-noreconall: N4-corrected T1w>' -x '<ds000005-sub-01-noreconall: brain mask>' -i Otsu[3] -m [0.1,1x1x1] -c [3,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 23 of 5898240 differ; max |diff| 5.96e-08, 1 - NCC 8.9e-16; post02: as built, 76 of 5898240 differ; max |diff| 1.19e-07, 1 - NCC 0; post03: as built, 37 of 5898240 differ; max |diff| 1.49e-08, 1 - NCC 1.1e-16; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "real/ds000005/random",
+   "category": "real (other)",
+   "description": "Random[3] on ds000005's T1w (fixed seed)",
+   "command": "Atropos -d 3 -a '<ds000005-sub-01-noreconall: N4-corrected T1w>' -x '<ds000005-sub-01-noreconall: brain mask>' -i Random[3] -m [0.1,1x1x1] -c [5,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "27/27",
+     "reason": "post01: as built, 39 of 5898240 differ; max |diff| 5.96e-08, 1 - NCC 2.1e-14; post02: as built, 30 of 5898240 differ; max |diff| 5.96e-08, 1 - NCC 0; post03: as built, 23 of 5898240 differ; max |diff| 5.96e-08, 1 - NCC 0; bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "real/ds000005/smriprep-clock-seed",
+   "category": "real (other)",
+   "description": "sMRIPrep's call with --use-random-seed 1: ANTs seeds from the clock (two ANTs runs, ANTs' seed band)",
+   "command": "Atropos -d 3 -a '<ds000005-sub-01-noreconall: N4-corrected T1w>' -x '<ds000005-sub-01-noreconall: brain mask>' -i KMeans[3] -k Gaussian -m [0.1,1x1x1] -c [3,0] -r 1 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "7/7",
+     "reason": "ANTs draws its seed from the clock; larmorx uses 121212"
+    }
+   }
+  }
+ ],
+ "cases_total": 93,
+ "examples": [
+  {
+   "id": "fmriprep-atropos",
+   "title": "sMRIPrep's segmentation of a real T1w, by fMRIPrep, ANTs and larmorx",
+   "summary": "fMRIPrep 25.2.6's brain extraction on OpenNeuro ds000005 sub-01 segments the N4-corrected T1w into three classes with Atropos; its inputs and arguments given to the repository's ANTs 2.6.5 at 1 to 8 threads, with correctly rounded maths, with the clock's seed, to fMRIPrep's own ANTs at one thread, and to larmorx in both modes.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01's T1w (PDDL-1.0); shown inside fMRIPrep's brain mask, dilated by 2 voxels"
+    },
+    {
+     "label": "Node",
+     "text": "fMRIPrep 25.2.6, `anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos`, run with 8 threads"
+    },
+    {
+     "label": "Command",
+     "text": "`Atropos --image-dimensionality 3 --initialization KMeans[3] --intensity-image /work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz --likelihood-model Gaussian --mask-image /work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz --mrf [0.1,1x1x1] --convergence [3,0] --output [sub-01_T1w_noise_corrected_maths_corrected_labeled.nii.gz,POSTERIOR_%02d.nii.gz] --use-random-seed 0`"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs 2.6.2.dev1-gff61a3d (conda-forge) in fMRIPrep's image; CORE-MATH preloaded where stated; larmorx at commit `d065bb4d4727`"
+    },
+    {
+     "label": "ITK-50",
+     "text": "larmorx's default mode changes 1 of 5,898,240 labels and the posteriors by up to 0.0383; ANTs' own runs with the clock's seed differ in up to 307 labels"
+    },
+    {
+     "label": "Grid",
+     "text": "160 × 192 × 192 voxels of 1 × 1.33 × 1.33 mm; shown: 151 × 125 × 111 around the brain"
+    }
+   ],
+   "grid": {
+    "shape": [
+     151,
+     125,
+     111
+    ],
+    "spacing": [
+     1.0,
+     1.333333,
+     1.333333
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      4
+     ],
+     [
+      0,
+      1,
+      0,
+      18
+     ],
+     [
+      0,
+      0,
+      1,
+      32
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      1.0,
+      0.0,
+      0.0,
+      -77.0
+     ],
+     [
+      0.0,
+      1.333333,
+      0.0,
+      -109.000006
+     ],
+     [
+      0.0,
+      0.0,
+      1.333333,
+      -86.333344
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     160,
+     192,
+     192
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "b856c0b70af862db49292f74.bin",
+    "dtype": "u1",
+    "bytes": 25628
+   },
+   "outputs": [
+    {
+     "id": "labels",
+     "label": "Classes (1 CSF, 2 GM, 3 WM)",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 3.0
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 3.0
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "post1",
+     "label": "Posterior: CSF",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 0.9999998807907104
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 1.0
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "post2",
+     "label": "Posterior: grey matter",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 0.9995754957199097
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 0.9996199607849121
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "post3",
+     "label": "Posterior: white matter",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 0.99998539686203
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 0.9999989867210388
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "t1w",
+     "role": "input",
+     "label": "ds000005 sub-01 T1w, N4-corrected",
+     "sub": "Atropos' input in fMRIPrep's brain extraction (float32)",
+     "arrays": {
+      "all": {
+       "blob": "db293bc71c353015bf2354ba.bin",
+       "dtype": "f4",
+       "bytes": 2682830
+      }
+     },
+     "window": [
+      1.9839863985776915,
+      331.61787200927677
+     ]
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "larmorx (port), 1 thread",
+     "sub": "reproduce mode",
+     "arrays": {
+      "labels": {
+       "blob": "7c70edb596cd696741c87527.bin",
+       "dtype": "u4",
+       "bytes": 107552
+      },
+      "post1": {
+       "blob": "1a49366e97d80a0ffc4edd3b.bin",
+       "dtype": "f4",
+       "bytes": 2659044
+      },
+      "post2": {
+       "blob": "e0441cf49f5068e80f19ee6c.bin",
+       "dtype": "f4",
+       "bytes": 2677463
+      },
+      "post3": {
+       "blob": "95a273d67b0971fc5da48418.bin",
+       "dtype": "f4",
+       "bytes": 2537811
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       3.0
+      ],
+      "post1": [
+       0.0,
+       0.9999998807907104
+      ],
+      "post2": [
+       0.0,
+       0.9965208593010902
+      ],
+      "post3": [
+       0.0,
+       0.99998539686203
+      ]
+     }
+    },
+    {
+     "id": "larmorx-6",
+     "role": "larmorx",
+     "label": "larmorx (port), 6 threads",
+     "sub": "reproduce",
+     "arrays": {
+      "labels": {
+       "same": "larmorx:labels",
+       "dtype": "u4"
+      },
+      "post1": {
+       "same": "larmorx:post1",
+       "dtype": "f4"
+      },
+      "post2": {
+       "same": "larmorx:post2",
+       "dtype": "f4"
+      },
+      "post3": {
+       "same": "larmorx:post3",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       3.0
+      ],
+      "post1": [
+       0.0,
+       0.9999998807907104
+      ],
+      "post2": [
+       0.0,
+       0.9965208593010902
+      ],
+      "post3": [
+       0.0,
+       0.99998539686203
+      ]
+     }
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "larmorx (port), 1 thread",
+     "sub": "default mode: ITK-50 corrected",
+     "arrays": {
+      "labels": {
+       "blob": "472a09188e6b212262922956.bin",
+       "dtype": "u4",
+       "xor": "larmorx-6:labels",
+       "zero": false,
+       "bytes": 8162
+      },
+      "post1": {
+       "blob": "931390c4ebf4e58eeb9971dd.bin",
+       "dtype": "f4",
+       "xor": "larmorx-6:post1",
+       "zero": false,
+       "bytes": 1352750
+      },
+      "post2": {
+       "blob": "4d1c0448da2b616a55079272.bin",
+       "dtype": "f4",
+       "xor": "larmorx-6:post2",
+       "zero": false,
+       "bytes": 1325854
+      },
+      "post3": {
+       "blob": "f56d1db733ce73dc23e87f10.bin",
+       "dtype": "f4",
+       "xor": "larmorx-6:post3",
+       "zero": false,
+       "bytes": 1177627
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       3.0
+      ],
+      "post1": [
+       0.0,
+       0.9999998807907104
+      ],
+      "post2": [
+       0.0,
+       0.996520459651947
+      ],
+      "post3": [
+       0.0,
+       0.99998539686203
+      ]
+     }
+    },
+    {
+     "id": "larmorx-6-fix",
+     "role": "larmorx",
+     "label": "larmorx (port), 6 threads",
+     "sub": "default mode",
+     "arrays": {
+      "labels": {
+       "same": "larmorx-fix:labels",
+       "dtype": "u4"
+      },
+      "post1": {
+       "same": "larmorx-fix:post1",
+       "dtype": "f4"
+      },
+      "post2": {
+       "same": "larmorx-fix:post2",
+       "dtype": "f4"
+      },
+      "post3": {
+       "same": "larmorx-fix:post3",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       3.0
+      ],
+      "post1": [
+       0.0,
+       0.9999998807907104
+      ],
+      "post2": [
+       0.0,
+       0.996520459651947
+      ],
+      "post3": [
+       0.0,
+       0.99998539686203
+      ]
+     }
+    },
+    {
+     "id": "ants-1-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, 1 thread, correctly rounded maths",
+     "sub": "the same binary, CORE-MATH preloaded",
+     "arrays": {
+      "labels": {
+       "same": "larmorx:labels",
+       "dtype": "u4"
+      },
+      "post1": {
+       "same": "larmorx:post1",
+       "dtype": "f4"
+      },
+      "post2": {
+       "same": "larmorx:post2",
+       "dtype": "f4"
+      },
+      "post3": {
+       "same": "larmorx:post3",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       3.0
+      ],
+      "post1": [
+       0.0,
+       0.9999998807907104
+      ],
+      "post2": [
+       0.0,
+       0.9965208593010902
+      ],
+      "post3": [
+       0.0,
+       0.99998539686203
+      ]
+     }
+    },
+    {
+     "id": "ants-1",
+     "role": "original",
+     "label": "ANTs 2.6.5, 1 thread, as built",
+     "sub": "the repository's oracle build (GCC 14.3), glibc's maths",
+     "arrays": {
+      "labels": {
+       "same": "larmorx:labels",
+       "dtype": "u4"
+      },
+      "post1": {
+       "blob": "8636acb028802296bf0c16cc.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:post1",
+       "zero": false,
+       "bytes": 8436
+      },
+      "post2": {
+       "blob": "fc20c97bbbfa5417eabcc91f.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:post2",
+       "zero": false,
+       "bytes": 8325
+      },
+      "post3": {
+       "blob": "e69140847fbec85b4731c446.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:post3",
+       "zero": false,
+       "bytes": 8240
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       3.0
+      ],
+      "post1": [
+       0.0,
+       0.9999998807907104
+      ],
+      "post2": [
+       0.0,
+       0.9965208593010902
+      ],
+      "post3": [
+       0.0,
+       0.99998539686203
+      ]
+     }
+    },
+    {
+     "id": "image-1",
+     "role": "original",
+     "label": "ANTs 2.6.2.dev1-gff61a3d (fMRIPrep's image), 1 thread",
+     "sub": "conda-forge's build, glibc's maths",
+     "arrays": {
+      "labels": {
+       "same": "larmorx:labels",
+       "dtype": "u4"
+      },
+      "post1": {
+       "same": "ants-1:post1",
+       "dtype": "f4"
+      },
+      "post2": {
+       "same": "ants-1:post2",
+       "dtype": "f4"
+      },
+      "post3": {
+       "same": "ants-1:post3",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       3.0
+      ],
+      "post1": [
+       0.0,
+       0.9999998807907104
+      ],
+      "post2": [
+       0.0,
+       0.9965208593010902
+      ],
+      "post3": [
+       0.0,
+       0.99998539686203
+      ]
+     }
+    },
+    {
+     "id": "ants-8",
+     "role": "original",
+     "label": "ANTs 2.6.5, 8 threads",
+     "sub": "as built (fMRIPrep ran 8)",
+     "arrays": {
+      "labels": {
+       "same": "larmorx:labels",
+       "dtype": "u4"
+      },
+      "post1": {
+       "same": "ants-1:post1",
+       "dtype": "f4"
+      },
+      "post2": {
+       "same": "ants-1:post2",
+       "dtype": "f4"
+      },
+      "post3": {
+       "same": "ants-1:post3",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       3.0
+      ],
+      "post1": [
+       0.0,
+       0.9999998807907104
+      ],
+      "post2": [
+       0.0,
+       0.9965208593010902
+      ],
+      "post3": [
+       0.0,
+       0.99998539686203
+      ]
+     }
+    },
+    {
+     "id": "ants-seed-1",
+     "role": "original",
+     "label": "ANTs 2.6.5, --use-random-seed 1",
+     "sub": "the clock's seed (one of three runs)",
+     "arrays": {
+      "labels": {
+       "blob": "498ebdb1f7a8059398fcaa70.bin",
+       "dtype": "u4",
+       "xor": "ants-1-cr:labels",
+       "zero": false,
+       "bytes": 8746
+      },
+      "post1": {
+       "blob": "0de5e6c27fe19913844c8797.bin",
+       "dtype": "f4",
+       "xor": "ants-1:post1",
+       "zero": false,
+       "bytes": 1419316
+      },
+      "post2": {
+       "blob": "5a08d94e3a379927ba923b8b.bin",
+       "dtype": "f4",
+       "xor": "larmorx-6-fix:post2",
+       "zero": false,
+       "bytes": 1354570
+      },
+      "post3": {
+       "blob": "0225cd54219431986c3d2b75.bin",
+       "dtype": "f4",
+       "xor": "larmorx-6-fix:post3",
+       "zero": false,
+       "bytes": 1172315
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       3.0
+      ],
+      "post1": [
+       0.0,
+       0.9999998807907104
+      ],
+      "post2": [
+       0.0,
+       0.9965212169289589
+      ],
+      "post3": [
+       0.0,
+       0.99998539686203
+      ]
+     }
+    },
+    {
+     "id": "fmriprep",
+     "role": "fmriprep",
+     "label": "fMRIPrep 25.2.6, as it ran",
+     "sub": "ANTs in its image, 8 threads",
+     "arrays": {
+      "labels": {
+       "same": "larmorx:labels",
+       "dtype": "u4"
+      },
+      "post1": {
+       "same": "ants-1:post1",
+       "dtype": "f4"
+      },
+      "post2": {
+       "same": "ants-1:post2",
+       "dtype": "f4"
+      },
+      "post3": {
+       "same": "ants-1:post3",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       3.0
+      ],
+      "post1": [
+       0.0,
+       0.9999998807907104
+      ],
+      "post2": [
+       0.0,
+       0.9965208593010902
+      ],
+      "post3": [
+       0.0,
+       0.99998539686203
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants1",
+     "a": "larmorx",
+     "b": "ants-1",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post1": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 89,
+       "share": 1.5089246961805556e-05,
+       "max_abs": 5.960464477539063e-08,
+       "at": [
+        19,
+        82,
+        98
+       ],
+       "a_at": 0.9188741445541382,
+       "b_at": 0.918874204158783,
+       "rms": 5.586190156761647e-11,
+       "range": 1.0,
+       "max_rel_range": 5.960464477539063e-08,
+       "one_minus_ncc": 5.623790466816724e-20,
+       "at_display": [
+        15,
+        64,
+        66
+       ]
+      },
+      "post2": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 53,
+       "share": 8.985731336805556e-06,
+       "max_abs": 1.1920928955078125e-07,
+       "at": [
+        46,
+        88,
+        88
+       ],
+       "a_at": 0.7529544830322266,
+       "b_at": 0.7529546022415161,
+       "rms": 7.727443430505105e-11,
+       "range": 0.9967342615127563,
+       "max_rel_range": 1.1959987145405817e-07,
+       "one_minus_ncc": 6.63202962118827e-20,
+       "at_display": [
+        42,
+        70,
+        56
+       ]
+      },
+      "post3": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 23,
+       "share": 3.899468315972222e-06,
+       "max_abs": 5.960464477539063e-08,
+       "at": [
+        43,
+        95,
+        119
+       ],
+       "a_at": 0.65306556224823,
+       "b_at": 0.6530656218528748,
+       "rms": 4.070670608219798e-11,
+       "range": 0.9999989867210388,
+       "max_rel_range": 5.960470517158436e-08,
+       "one_minus_ncc": 1.9085528322446785e-20,
+       "at_display": [
+        39,
+        77,
+        87
+       ]
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post1": {
+       "max_abs": 5.960464477539063e-08,
+       "at": [
+        15,
+        64,
+        66
+       ],
+       "a": 0.9188741445541382,
+       "b": 0.918874204158783,
+       "differ": 89
+      },
+      "post2": {
+       "max_abs": 1.1920928955078125e-07,
+       "at": [
+        42,
+        70,
+        56
+       ],
+       "a": 0.7529544830322266,
+       "b": 0.7529546022415161,
+       "differ": 52
+      },
+      "post3": {
+       "max_abs": 5.960464477539063e-08,
+       "at": [
+        39,
+        77,
+        87
+       ],
+       "a": 0.65306556224823,
+       "b": 0.6530656218528748,
+       "differ": 23
+      }
+     },
+     "verdict": "identical-cr",
+     "reason": "The classified images are identical; a few posteriors differ in their last bits where glibc's expf and logf are not correctly rounded for a value the run meets: with CORE-MATH preloaded, the same ANTs binary gives larmorx's output bit for bit.",
+     "links": [
+      {
+       "label": "platform maths",
+       "href": "docs/findings/platform-math.md"
+      }
+     ]
+    },
+    {
+     "id": "lx-cr",
+     "a": "larmorx",
+     "b": "ants-1-cr",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, 1 thread, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post1": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post2": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9967342615127563,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post3": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9999989867210388,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post1": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post3": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "With correctly rounded maths, ANTs computes exactly what larmorx computes.",
+     "links": []
+    },
+    {
+     "id": "lx-fmriprep",
+     "a": "larmorx",
+     "b": "fmriprep",
+     "kind": "fmriprep",
+     "label": "larmorx − fMRIPrep's own output",
+     "role_label": "larmorx against fMRIPrep",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post1": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 89,
+       "share": 1.5089246961805556e-05,
+       "max_abs": 5.960464477539063e-08,
+       "at": [
+        19,
+        82,
+        98
+       ],
+       "a_at": 0.9188741445541382,
+       "b_at": 0.918874204158783,
+       "rms": 5.586190156761647e-11,
+       "range": 1.0,
+       "max_rel_range": 5.960464477539063e-08,
+       "one_minus_ncc": 5.623790466816724e-20,
+       "at_display": [
+        15,
+        64,
+        66
+       ]
+      },
+      "post2": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 53,
+       "share": 8.985731336805556e-06,
+       "max_abs": 1.1920928955078125e-07,
+       "at": [
+        46,
+        88,
+        88
+       ],
+       "a_at": 0.7529544830322266,
+       "b_at": 0.7529546022415161,
+       "rms": 7.727443430505105e-11,
+       "range": 0.9967342615127563,
+       "max_rel_range": 1.1959987145405817e-07,
+       "one_minus_ncc": 6.63202962118827e-20,
+       "at_display": [
+        42,
+        70,
+        56
+       ]
+      },
+      "post3": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 23,
+       "share": 3.899468315972222e-06,
+       "max_abs": 5.960464477539063e-08,
+       "at": [
+        43,
+        95,
+        119
+       ],
+       "a_at": 0.65306556224823,
+       "b_at": 0.6530656218528748,
+       "rms": 4.070670608219798e-11,
+       "range": 0.9999989867210388,
+       "max_rel_range": 5.960470517158436e-08,
+       "one_minus_ncc": 1.9085528322446785e-20,
+       "at_display": [
+        39,
+        77,
+        87
+       ]
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post1": {
+       "max_abs": 5.960464477539063e-08,
+       "at": [
+        15,
+        64,
+        66
+       ],
+       "a": 0.9188741445541382,
+       "b": 0.918874204158783,
+       "differ": 89
+      },
+      "post2": {
+       "max_abs": 1.1920928955078125e-07,
+       "at": [
+        42,
+        70,
+        56
+       ],
+       "a": 0.7529544830322266,
+       "b": 0.7529546022415161,
+       "differ": 52
+      },
+      "post3": {
+       "max_abs": 5.960464477539063e-08,
+       "at": [
+        39,
+        77,
+        87
+       ],
+       "a": 0.65306556224823,
+       "b": 0.6530656218528748,
+       "differ": 23
+      }
+     },
+     "verdict": "identical-cr",
+     "reason": "The classified images are identical; a few posteriors differ in their last bits where glibc's expf and logf are not correctly rounded for a value the run meets: with CORE-MATH preloaded, the same ANTs binary gives larmorx's output bit for bit. fMRIPrep's own output is ANTs 2.6.5's at 8 threads, which is its result at one thread.",
+     "links": [
+      {
+       "label": "platform maths",
+       "href": "docs/findings/platform-math.md"
+      }
+     ]
+    },
+    {
+     "id": "fix-lx",
+     "a": "larmorx-fix",
+     "b": "larmorx",
+     "kind": "main",
+     "label": "larmorx default mode − reproduce mode (ITK-50)",
+     "role_label": "larmorx's correction",
+     "metrics": {
+      "labels": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 1,
+       "share": 1.6954210069444445e-07,
+       "max_abs": 1.0,
+       "at": [
+        49,
+        31,
+        68
+       ],
+       "a_at": 1.0,
+       "b_at": 2.0,
+       "rms": 0.0004117549036677577,
+       "range": 3.0,
+       "max_rel_range": 0.3333333333333333,
+       "one_minus_ncc": 1.392358170888854e-07,
+       "at_display": [
+        45,
+        13,
+        36
+       ]
+      },
+      "post1": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 738291,
+       "share": 0.1251714070638021,
+       "max_abs": 0.03827778995037079,
+       "at": [
+        48,
+        31,
+        68
+       ],
+       "a_at": 0.2775072753429413,
+       "b_at": 0.2392294853925705,
+       "rms": 2.4043236676664385e-05,
+       "range": 1.0,
+       "max_rel_range": 0.03827778995037079,
+       "one_minus_ncc": 1.041100516318687e-08,
+       "at_display": [
+        44,
+        13,
+        36
+       ]
+      },
+      "post2": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 795884,
+       "share": 0.13493584526909722,
+       "max_abs": 0.03827786445617676,
+       "at": [
+        48,
+        31,
+        68
+       ],
+       "a_at": 0.7224923372268677,
+       "b_at": 0.7607702016830444,
+       "rms": 2.4080452889872577e-05,
+       "range": 0.9967342615127563,
+       "max_rel_range": 0.03840327952415517,
+       "one_minus_ncc": 6.429726293980569e-09,
+       "at_display": [
+        44,
+        13,
+        36
+       ]
+      },
+      "post3": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 674550,
+       "share": 0.1143646240234375,
+       "max_abs": 0.0011253543198108673,
+       "at": [
+        48,
+        32,
+        69
+       ],
+       "a_at": 0.025249050930142403,
+       "b_at": 0.024123696610331535,
+       "rms": 1.2761094622892092e-06,
+       "range": 0.9999989867210388,
+       "max_rel_range": 0.001125355460109879,
+       "one_minus_ncc": 1.7339339446340967e-11,
+       "at_display": [
+        44,
+        14,
+        37
+       ]
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 1.0,
+       "at": [
+        45,
+        13,
+        36
+       ],
+       "a": 1.0,
+       "b": 2.0,
+       "differ": 1
+      },
+      "post1": {
+       "max_abs": 0.03827778995037079,
+       "at": [
+        44,
+        13,
+        36
+       ],
+       "a": 0.2775072753429413,
+       "b": 0.2392294853925705,
+       "differ": 734858
+      },
+      "post2": {
+       "max_abs": 0.03827786445617676,
+       "at": [
+        44,
+        13,
+        36
+       ],
+       "a": 0.7224923372268677,
+       "b": 0.7607702016830444,
+       "differ": 787794
+      },
+      "post3": {
+       "max_abs": 0.0011253543198108673,
+       "at": [
+        44,
+        14,
+        37
+       ],
+       "a": 0.025249050930142403,
+       "b": 0.024123696610331535,
+       "differ": 666555
+      }
+     },
+     "verdict": "d13",
+     "reason": "ITK-50, corrected by default with a warning: ITK's k-means leaves out the point each divided k-d tree node is split at, so the starting centres miss those points; larmorx counts every point. Reproduce mode gives ANTs' result.",
+     "links": [
+      {
+       "label": "ITK-50",
+       "href": "docs/findings/upstream-defects.md#itk-50-k-means-leaves-out-the-k-d-trees-split-points--c"
+      }
+     ]
+    },
+    {
+     "id": "lxseed-seed1",
+     "a": "larmorx-seed",
+     "b": "ants-seed-1",
+     "kind": "main",
+     "label": "larmorx, seed 121212 − ANTs, the clock's seed (run 1)",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "labels": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 304,
+       "share": 5.154079861111111e-05,
+       "max_abs": 1.0,
+       "at": [
+        13,
+        77,
+        88
+       ],
+       "a_at": 1.0,
+       "b_at": 2.0,
+       "rms": 0.007179192058380324,
+       "range": 3.0,
+       "max_rel_range": 0.3333333333333333,
+       "one_minus_ncc": 4.232827478504104e-05
+      },
+      "post1": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 750097,
+       "share": 0.1271730211046007,
+       "max_abs": 0.11889714002609253,
+       "at": [
+        142,
+        68,
+        81
+       ],
+       "a_at": 0.6488800644874573,
+       "b_at": 0.5299829244613647,
+       "rms": 0.0006086374951434176,
+       "range": 1.0,
+       "max_rel_range": 0.11889714002609253,
+       "one_minus_ncc": 6.675814590016799e-06
+      },
+      "post2": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 795053,
+       "share": 0.13479495578342013,
+       "max_abs": 0.11889714002609253,
+       "at": [
+        142,
+        68,
+        81
+       ],
+       "a_at": 0.3511199355125427,
+       "b_at": 0.47001707553863525,
+       "rms": 0.0007313118405336886,
+       "range": 0.9967343211174011,
+       "max_rel_range": 0.11928669205731919,
+       "one_minus_ncc": 5.939705280320081e-06
+      },
+      "post3": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 726373,
+       "share": 0.1231508043077257,
+       "max_abs": 0.07933187484741211,
+       "at": [
+        110,
+        55,
+        119
+       ],
+       "a_at": 0.5736939907073975,
+       "b_at": 0.49436211585998535,
+       "rms": 0.0004052040000794717,
+       "range": 0.9999989867210388,
+       "max_rel_range": 0.07933195523281329,
+       "one_minus_ncc": 1.8909964046234578e-06
+      }
+     },
+     "verdict": "within-variability",
+     "reason": "With --use-random-seed 1 ANTs draws its seed from the clock and larmorx uses 121212: another draw. larmorx's labels differ from ANTs' run 1 in 304 voxels, ANTs' own runs from each other in up to 307; the posteriors by up to 0.119, ANTs' own by up to 0.182.",
+     "links": []
+    },
+    {
+     "id": "lx6-lx1",
+     "a": "larmorx-6",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, 6 threads − 1 thread",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post1": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post2": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9967342615127563,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post3": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9999989867210388,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post1": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post3": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "larmorx's result does not depend on its thread count.",
+     "links": []
+    },
+    {
+     "id": "fix6-fix1",
+     "a": "larmorx-6-fix",
+     "b": "larmorx-fix",
+     "kind": "check",
+     "label": "larmorx default mode, 6 threads − 1 thread",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post1": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post2": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9967339038848877,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post3": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9999989867210388,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post1": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post3": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "The same bytes on any number of threads.",
+     "links": []
+    },
+    {
+     "id": "ants2-ants1",
+     "a": "ants-2",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 2 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      },
+      "post1": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      },
+      "post2": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9967342615127563,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      },
+      "post3": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9999989867210388,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "verdict": null,
+     "reason": "The same bytes: Atropos' result does not depend on ANTs' thread count.",
+     "links": []
+    },
+    {
+     "id": "ants4-ants1",
+     "a": "ants-4",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 4 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      },
+      "post1": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      },
+      "post2": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9967342615127563,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      },
+      "post3": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9999989867210388,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "verdict": null,
+     "reason": "The same bytes: Atropos' result does not depend on ANTs' thread count.",
+     "links": []
+    },
+    {
+     "id": "ants8-ants1",
+     "a": "ants-8",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 8 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post1": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post2": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9967342615127563,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post3": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9999989867210388,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post1": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post3": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": null,
+     "reason": "The same bytes: Atropos' result does not depend on ANTs' thread count.",
+     "links": []
+    },
+    {
+     "id": "seed2-seed1",
+     "a": "ants-seed-2",
+     "b": "ants-seed-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, the clock's seed: run 2 − run 1",
+     "role_label": "the original against itself",
+     "metrics": {
+      "labels": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 253,
+       "share": 4.289415147569444e-05,
+       "max_abs": 1.0,
+       "at": [
+        13,
+        77,
+        88
+       ],
+       "a_at": 1.0,
+       "b_at": 2.0,
+       "rms": 0.006549362677062131,
+       "range": 3.0,
+       "max_rel_range": 0.3333333333333333,
+       "one_minus_ncc": 3.522737673140697e-05
+      },
+      "post1": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 752010,
+       "share": 0.12749735514322916,
+       "max_abs": 0.17415964603424072,
+       "at": [
+        33,
+        57,
+        64
+       ],
+       "a_at": 0.7508619427680969,
+       "b_at": 0.5767022967338562,
+       "rms": 0.0005953314033096923,
+       "range": 1.0,
+       "max_rel_range": 0.17415964603424072,
+       "one_minus_ncc": 6.386485548862529e-06
+      },
+      "post2": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 795323,
+       "share": 0.13484073215060763,
+       "max_abs": 0.17415960133075714,
+       "at": [
+        33,
+        57,
+        64
+       ],
+       "a_at": 0.24913804233074188,
+       "b_at": 0.423297643661499,
+       "rms": 0.0006934857193795763,
+       "range": 0.9967343211174011,
+       "max_rel_range": 0.17473021410109907,
+       "one_minus_ncc": 5.3411687015114856e-06
+      },
+      "post3": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 758018,
+       "share": 0.12851596408420138,
+       "max_abs": 0.09625542163848877,
+       "at": [
+        63,
+        68,
+        83
+       ],
+       "a_at": 0.2421073615550995,
+       "b_at": 0.33836278319358826,
+       "rms": 0.00035547416780738837,
+       "range": 0.9999989867210388,
+       "max_rel_range": 0.09625551917218124,
+       "one_minus_ncc": 1.4550399430952687e-06
+      }
+     },
+     "verdict": null,
+     "reason": "Atropos seeds its generator from the clock unless --use-random-seed 0 (sMRIPrep passes 0): the ICM visiting order and the random tie-breaks change from run to run.",
+     "links": []
+    },
+    {
+     "id": "seed3-seed1",
+     "a": "ants-seed-3",
+     "b": "ants-seed-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, the clock's seed: run 3 − run 1",
+     "role_label": "the original against itself",
+     "metrics": {
+      "labels": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 307,
+       "share": 5.204942491319444e-05,
+       "max_abs": 1.0,
+       "at": [
+        13,
+        64,
+        89
+       ],
+       "a_at": 1.0,
+       "b_at": 2.0,
+       "rms": 0.007214528738122432,
+       "range": 3.0,
+       "max_rel_range": 0.3333333333333333,
+       "one_minus_ncc": 4.2746127970320796e-05
+      },
+      "post1": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 755341,
+       "share": 0.12806209988064235,
+       "max_abs": 0.1823294758796692,
+       "at": [
+        24,
+        97,
+        77
+       ],
+       "a_at": 0.5162243247032166,
+       "b_at": 0.6985538005828857,
+       "rms": 0.0006676444973072546,
+       "range": 1.0,
+       "max_rel_range": 0.1823294758796692,
+       "one_minus_ncc": 8.03147123274515e-06
+      },
+      "post2": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 795559,
+       "share": 0.13488074408637152,
+       "max_abs": 0.1823294460773468,
+       "at": [
+        24,
+        97,
+        77
+       ],
+       "a_at": 0.48377570509910583,
+       "b_at": 0.30144625902175903,
+       "rms": 0.0007659714886429482,
+       "range": 0.9967343211174011,
+       "max_rel_range": 0.18292682635122282,
+       "one_minus_ncc": 6.516069447647469e-06
+      },
+      "post3": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 750363,
+       "share": 0.12721811930338542,
+       "max_abs": 0.08443671464920044,
+       "at": [
+        94,
+        61,
+        69
+       ],
+       "a_at": 0.6711841821670532,
+       "b_at": 0.5867474675178528,
+       "rms": 0.0003752220095017586,
+       "range": 0.9999989867210388,
+       "max_rel_range": 0.08443680020723364,
+       "one_minus_ncc": 1.621424739050367e-06
+      }
+     },
+     "verdict": null,
+     "reason": "Atropos seeds its generator from the clock unless --use-random-seed 0 (sMRIPrep passes 0): the ICM visiting order and the random tie-breaks change from run to run.",
+     "links": []
+    },
+    {
+     "id": "seed1-ants1",
+     "a": "ants-seed-1",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5: the clock's seed − sMRIPrep's fixed seed",
+     "role_label": "the original against itself",
+     "metrics": {
+      "labels": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 250,
+       "share": 4.238552517361111e-05,
+       "max_abs": 1.0,
+       "at": [
+        13,
+        64,
+        89
+       ],
+       "a_at": 2.0,
+       "b_at": 1.0,
+       "rms": 0.006510416666666667,
+       "range": 3.0,
+       "max_rel_range": 0.3333333333333333,
+       "one_minus_ncc": 3.480912294639855e-05,
+       "at_display": [
+        9,
+        46,
+        57
+       ]
+      },
+      "post1": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 736832,
+       "share": 0.12492404513888888,
+       "max_abs": 0.11686721444129944,
+       "at": [
+        130,
+        61,
+        65
+       ],
+       "a_at": 0.5704790949821472,
+       "b_at": 0.4536118805408478,
+       "rms": 0.0005849780384353968,
+       "range": 1.0,
+       "max_rel_range": 0.11686721444129944,
+       "one_minus_ncc": 6.167011148877437e-06,
+       "at_display": [
+        126,
+        43,
+        33
+       ]
+      },
+      "post2": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 793618,
+       "share": 0.13455166286892362,
+       "max_abs": 0.1394553780555725,
+       "at": [
+        82,
+        55,
+        124
+       ],
+       "a_at": 0.7199938297271729,
+       "b_at": 0.5805384516716003,
+       "rms": 0.0007051663922647342,
+       "range": 0.9967342615127563,
+       "max_rel_range": 0.13991229502226532,
+       "one_minus_ncc": 5.522591460203276e-06,
+       "at_display": [
+        78,
+        37,
+        92
+       ]
+      },
+      "post3": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 673316,
+       "share": 0.11415540907118056,
+       "max_abs": 0.13941165804862976,
+       "at": [
+        82,
+        55,
+        124
+       ],
+       "a_at": 0.27956753969192505,
+       "b_at": 0.4189791977405548,
+       "rms": 0.0003935520588347512,
+       "range": 0.9999989867210388,
+       "max_rel_range": 0.13941179931167294,
+       "one_minus_ncc": 1.7839260370510486e-06,
+       "at_display": [
+        78,
+        37,
+        92
+       ]
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 1.0,
+       "at": [
+        9,
+        46,
+        57
+       ],
+       "a": 2.0,
+       "b": 1.0,
+       "differ": 250
+      },
+      "post1": {
+       "max_abs": 0.11686721444129944,
+       "at": [
+        126,
+        43,
+        33
+       ],
+       "a": 0.5704790949821472,
+       "b": 0.4536118805408478,
+       "differ": 733481
+      },
+      "post2": {
+       "max_abs": 0.1394553780555725,
+       "at": [
+        78,
+        37,
+        92
+       ],
+       "a": 0.7199938297271729,
+       "b": 0.5805384516716003,
+       "differ": 785528
+      },
+      "post3": {
+       "max_abs": 0.13941165804862976,
+       "at": [
+        78,
+        37,
+        92
+       ],
+       "a": 0.27956753969192505,
+       "b": 0.4189791977405548,
+       "differ": 665315
+      }
+     },
+     "verdict": null,
+     "reason": "Atropos seeds its generator from the clock unless --use-random-seed 0 (sMRIPrep passes 0): the ICM visiting order and the random tie-breaks change from run to run.",
+     "links": []
+    },
+    {
+     "id": "image1-ants1",
+     "a": "image-1",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs in fMRIPrep's image − ANTs 2.6.5, 1 thread each, as built",
+     "role_label": "the original against itself",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post1": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post2": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9967342615127563,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post3": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9999989867210388,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post1": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post3": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": null,
+     "reason": "ANTs' version and build play no part at one thread.",
+     "links": []
+    },
+    {
+     "id": "fmriprep-ants8",
+     "a": "fmriprep",
+     "b": "ants-8",
+     "kind": "variability",
+     "label": "fMRIPrep's own output − ANTs 2.6.5, 8 threads",
+     "role_label": "the original against itself",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post1": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post2": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9967342615127563,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post3": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9999989867210388,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post1": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post3": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": null,
+     "reason": "fMRIPrep's own run gives the repository's ANTs result bit for bit.",
+     "links": []
+    }
+   ],
+   "default": {
+    "output": "post2",
+    "plane": "axial",
+    "voxel": [
+     83,
+     17,
+     66
+    ],
+    "panels": [
+     "t1w",
+     "ants-1",
+     "larmorx",
+     "fmriprep"
+    ],
+    "diffs": [
+     "lx-ants1",
+     "fix-lx",
+     "seed1-ants1"
+    ],
+    "compare": {
+     "a": "ants-seed-1",
+     "b": "ants-1"
+    },
+    "scale": "log"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 66,
+    "aspect": 0.906,
+    "panels": {
+     "t1w": "6f3c8fbb37248379ced4bf8a.webp",
+     "ants-1": "d75f19e47e086555cf59e60a.webp",
+     "larmorx": "d75f19e47e086555cf59e60a.webp",
+     "fmriprep": "d75f19e47e086555cf59e60a.webp"
+    },
+    "diffs": {
+     "lx-ants1": "8351d70c6900b39b3c637b73.webp",
+     "fix-lx": "696f1127d695269d147b5b63.webp",
+     "seed1-ants1": "257437c7c33c8b2c05650523.webp"
+    },
+    "ranges": {
+     "lx-ants1": 0.1394553780555725,
+     "fix-lx": 0.1394553780555725,
+     "seed1-ants1": 0.1394553780555725
+    },
+    "caption": "Axial slice 67 of 111; the crosshair where ANTs with the clock's seed differs most from its fixed-seed run in it; the differences on one symmetric log scale over six decades below the largest."
+   },
+   "chain": {
+    "title": "What separates fMRIPrep's output from larmorx's",
+    "steps": [
+     {
+      "nodes": [
+       {
+        "label": "fMRIPrep 25.2.6, as it ran",
+        "sub": "ANTs in its image, 8 threads",
+        "role": "fmriprep"
+       }
+      ]
+     },
+     {
+      "nodes": [
+       {
+        "label": "ANTs 2.6.5, 8 threads",
+        "sub": "as built (fMRIPrep ran 8)",
+        "role": "original"
+       },
+       {
+        "label": "ANTs 2.6.5, 1 thread, as built",
+        "sub": "1, 2, 4 and 8 threads: the same bytes",
+        "role": "original"
+       }
+      ]
+     },
+     {
+      "nodes": [
+       {
+        "label": "ANTs 2.6.5, 1 thread, correctly rounded maths",
+        "sub": "the same binary, CORE-MATH preloaded",
+        "role": "reference"
+       },
+       {
+        "label": "larmorx (port), reproduce mode",
+        "sub": "1 and 6 threads",
+        "role": "larmorx"
+       }
+      ]
+     }
+    ],
+    "links": [
+     {
+      "cause": "fMRIPrep's run (its ANTs build, 8 threads)",
+      "max_abs": 0.0
+     },
+     {
+      "cause": "correctly rounded maths instead of glibc's",
+      "max_abs": 1.1920928955078125e-07
+     }
+    ],
+    "note": "Each box holds runs that give the same bytes. Atropos' result does not depend on ANTs' thread count, and fMRIPrep's own run is the repository's ANTs result; larmorx differs from it only where glibc's maths is not correctly rounded, in the last bits of a few posteriors. Its default mode then corrects ITK-50 (the metrics below), a change smaller than ANTs' own spread when it seeds from the clock."
+   },
+   "metrics_note": "Δ is A − B. Every number is computed in float64 over all 5,898,240 voxels of the 160 × 192 × 192 outputs, not only the brain shown; the range is B's maximum minus its minimum. The rows *the original against itself* are ANTs' own variability on this input: its thread counts, its builds and its runs with the clock's seed.",
+   "provenance": [
+    "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
+    "Inputs: N4-corrected T1w (sha256 3f9a610cd436863c…); brain mask (sha256 88951bc71271901f…); fMRIPrep's POSTERIOR_01.nii.gz (sha256 f3c1068ede36eaca…); fMRIPrep's POSTERIOR_02.nii.gz (sha256 aa3556ba097eb997…); fMRIPrep's POSTERIOR_03.nii.gz (sha256 6ad6730b100f5887…); fMRIPrep's sub-01_T1w_noise_corrected_maths_corrected_labeled.nii.gz (sha256 8adb20583f8430fe…)",
+    "Runs: figures cache entry `ants-atropos/fmriprep-ds000005-atropos`, computed 2026-10-22T17:36:55+00:00 with larmorx `d065bb4d4727`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs Version: 2.6.2.dev1-gff61a3d Compiled: Jul 31 2025 06:55:26; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ]
+  },
+  {
+   "id": "oasis-priors",
+   "title": "A segmentation with tissue priors, by ANTs and larmorx",
+   "summary": "The same T1w segmented as antsCorticalThickness segments one: OASIS30ANTs' CSF, cortical grey matter and white matter priors, brought into the T1w's space with the transform fMRIPrep's brain extraction computed, weigh 0.25 against the likelihoods; MRF 0.1, five iterations. Shown: the classified image and the grey matter's posterior, beside its prior.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01's T1w (PDDL-1.0); OASIS30ANTs (Avants et al., MICCAI 2016), from TemplateFlow (CC-BY 4.0)"
+    },
+    {
+     "label": "Command",
+     "text": "`Atropos -d 3 -a <fMRIPrep oracle run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz -x <fMRIPrep oracle run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz -i PriorProbabilityImages[3,<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/prior%02d.nii.gz,0.25] -k Gaussian -m [0.1,1x1x1] -c [5,0] -g 1 -p Socrates[1] -r 0 -e 0 -o [out.nii.gz,out-post%02d.nii.gz]`"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; CORE-MATH preloaded where stated; larmorx at commit `dc5e4b828079`"
+    },
+    {
+     "label": "Grid",
+     "text": "160 × 192 × 192 voxels of 1 × 1.33 × 1.33 mm; shown: 151 × 125 × 111 around the brain"
+    }
+   ],
+   "grid": {
+    "shape": [
+     151,
+     125,
+     111
+    ],
+    "spacing": [
+     1.0,
+     1.333333,
+     1.333333
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      4
+     ],
+     [
+      0,
+      1,
+      0,
+      18
+     ],
+     [
+      0,
+      0,
+      1,
+      32
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      1.0,
+      0.0,
+      0.0,
+      -77.0
+     ],
+     [
+      0.0,
+      1.333333,
+      0.0,
+      -109.000006
+     ],
+     [
+      0.0,
+      0.0,
+      1.333333,
+      -86.333344
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     160,
+     192,
+     192
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "b856c0b70af862db49292f74.bin",
+    "dtype": "u1",
+    "bytes": 25628
+   },
+   "outputs": [
+    {
+     "id": "labels",
+     "label": "Classes (1 CSF, 2 GM, 3 WM)",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 3.0
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 3.0
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "post2",
+     "label": "Posterior: grey matter",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 0.9995754957199097
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 0.9996199607849121
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "t1w",
+     "role": "input",
+     "label": "ds000005 sub-01 T1w, N4-corrected",
+     "sub": "Atropos' input",
+     "arrays": {
+      "all": {
+       "blob": "db293bc71c353015bf2354ba.bin",
+       "dtype": "f4",
+       "bytes": 2682830
+      }
+     },
+     "window": [
+      1.9839863985776915,
+      331.61787200927677
+     ]
+    },
+    {
+     "id": "prior2",
+     "role": "input",
+     "label": "OASIS30ANTs prior: cortical grey matter",
+     "sub": "in the T1w's space (fMRIPrep's transform, Gaussian interpolation)",
+     "arrays": {
+      "all": {
+       "blob": "de026a277018a7c6b41dc346.bin",
+       "dtype": "f8",
+       "bytes": 4983861
+      }
+     },
+     "window": [
+      0.0,
+      0.9645597916328026
+     ]
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "larmorx (port), 1 thread",
+     "sub": "reproduce mode",
+     "arrays": {
+      "labels": {
+       "blob": "19bc8661723d5a2777291734.bin",
+       "dtype": "u4",
+       "bytes": 96592
+      },
+      "post2": {
+       "blob": "88ea88945179f493f8e7d3b9.bin",
+       "dtype": "f4",
+       "bytes": 2653509
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       3.0
+      ],
+      "post2": [
+       0.0,
+       0.9995754957199097
+      ]
+     }
+    },
+    {
+     "id": "larmorx-6",
+     "role": "larmorx",
+     "label": "larmorx (port), 6 threads",
+     "sub": "reproduce",
+     "arrays": {
+      "labels": {
+       "same": "larmorx:labels",
+       "dtype": "u4"
+      },
+      "post2": {
+       "same": "larmorx:post2",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       3.0
+      ],
+      "post2": [
+       0.0,
+       0.9995754957199097
+      ]
+     }
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "larmorx (port), 1 thread",
+     "sub": "default mode",
+     "arrays": {
+      "labels": {
+       "same": "larmorx:labels",
+       "dtype": "u4"
+      },
+      "post2": {
+       "same": "larmorx:post2",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       3.0
+      ],
+      "post2": [
+       0.0,
+       0.9995754957199097
+      ]
+     }
+    },
+    {
+     "id": "ants-1-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, 1 thread, correctly rounded maths",
+     "sub": "the same binary, CORE-MATH preloaded",
+     "arrays": {
+      "labels": {
+       "same": "larmorx:labels",
+       "dtype": "u4"
+      },
+      "post2": {
+       "same": "larmorx:post2",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       3.0
+      ],
+      "post2": [
+       0.0,
+       0.9995754957199097
+      ]
+     }
+    },
+    {
+     "id": "ants-1",
+     "role": "original",
+     "label": "ANTs 2.6.5, 1 thread, as built",
+     "sub": "the repository's oracle build (GCC 14.3), glibc's maths",
+     "arrays": {
+      "labels": {
+       "same": "larmorx:labels",
+       "dtype": "u4"
+      },
+      "post2": {
+       "blob": "bd687e2cedcb3a59b378cfe1.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:post2",
+       "zero": false,
+       "bytes": 10857
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       3.0
+      ],
+      "post2": [
+       0.0,
+       0.9995754957199097
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants1",
+     "a": "larmorx",
+     "b": "ants-1",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post2": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 1079,
+       "share": 0.00018293592664930556,
+       "max_abs": 1.1920928955078125e-07,
+       "at": [
+        26,
+        45,
+        80
+       ],
+       "a_at": 0.9058737754821777,
+       "b_at": 0.9058736562728882,
+       "rms": 3.7538977441358195e-10,
+       "range": 0.9996199607849121,
+       "max_rel_range": 1.1925461097953352e-07,
+       "one_minus_ncc": 2.020199911084588e-18,
+       "at_display": [
+        22,
+        27,
+        48
+       ]
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post2": {
+       "max_abs": 1.1920928955078125e-07,
+       "at": [
+        22,
+        27,
+        48
+       ],
+       "a": 0.9058737754821777,
+       "b": 0.9058736562728882,
+       "differ": 1064
+      }
+     },
+     "links": [
+      {
+       "label": "platform maths",
+       "href": "docs/findings/platform-math.md"
+      }
+     ],
+     "verdict": "identical-cr",
+     "reason": "The classified images are identical; some posteriors differ in their last bits where glibc's expf and logf are not correctly rounded for a value the run meets; with CORE-MATH preloaded the outputs are bit-identical."
+    },
+    {
+     "id": "lx-cr",
+     "a": "larmorx",
+     "b": "ants-1-cr",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, 1 thread, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post2": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9996199607849121,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "With correctly rounded maths, ANTs computes exactly what larmorx computes."
+    },
+    {
+     "id": "fix-lx",
+     "a": "larmorx-fix",
+     "b": "larmorx",
+     "kind": "main",
+     "label": "larmorx default mode − reproduce mode",
+     "role_label": "larmorx's correction",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post2": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9996199607849121,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "No defect larmorx corrects is met: the default mode gives ANTs' result."
+    },
+    {
+     "id": "lx6-lx1",
+     "a": "larmorx-6",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, 6 threads − 1 thread",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "post2": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.9996199607849121,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "post2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx's result does not depend on its thread count."
+    }
+   ],
+   "default": {
+    "output": "post2",
+    "plane": "axial",
+    "voxel": [
+     26,
+     97,
+     66
+    ],
+    "panels": [
+     "t1w",
+     "prior2",
+     "ants-1",
+     "larmorx"
+    ],
+    "diffs": [
+     "lx-ants1"
+    ],
+    "compare": {
+     "a": "ants-1",
+     "b": "larmorx"
+    },
+    "scale": "log"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 66,
+    "aspect": 0.906,
+    "panels": {
+     "t1w": "6f3c8fbb37248379ced4bf8a.webp",
+     "prior2": "a1b1d6144428078c119c9ee1.webp",
+     "ants-1": "ac7e669064f7de75f83c475d.webp",
+     "larmorx": "ac7e669064f7de75f83c475d.webp"
+    },
+    "diffs": {
+     "lx-ants1": "23adde61512155d90a66aac0.webp"
+    },
+    "ranges": {
+     "lx-ants1": 1.1920928955078125e-07
+    },
+    "caption": "Axial slice 67 of 111; the crosshair where larmorx and ANTs as built differ most in it."
+   },
+   "metrics_note": "Δ is A − B. Every number is computed in float64 over all 5,898,240 voxels of the outputs, not only the brain shown.",
+   "provenance": [
+    "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0; OASIS30ANTs (Avants et al., MICCAI 2016), from TemplateFlow, CC-BY 4.0",
+    "Inputs: OASIS30ANTs CSF prior (sha256 ebbe851b6d5898c5…); OASIS30ANTs CGM prior (sha256 c4be7df569fa12d0…); OASIS30ANTs WM prior (sha256 3579a79d197cb3e8…); N4-corrected T1w (sha256 3f9a610cd436863c…); brain mask (sha256 88951bc71271901f…)",
+    "Runs: figures cache entry `ants-atropos/ds000005-oasis-priors`, computed 2026-10-22T17:08:39+00:00 with larmorx `dc5e4b828079`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ]
+  }
+ ]
+}

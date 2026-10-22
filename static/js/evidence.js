@@ -106,7 +106,8 @@
     i2: { arr: Int16Array, bits: Uint16Array, size: 2 },
     u2: { arr: Uint16Array, bits: Uint16Array, size: 2 },
     u1: { arr: Uint8Array, bits: Uint8Array, size: 1 },
-    i4: { arr: Int32Array, bits: Uint32Array, size: 4 }
+    i4: { arr: Int32Array, bits: Uint32Array, size: 4 },
+    u4: { arr: Uint32Array, bits: Uint32Array, size: 4 }
   };
   var blobCache = {};
   function fetchBlob(base, name) {
