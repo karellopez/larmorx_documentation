@@ -22,7 +22,7 @@ implemented:
     page: /tools/ants-apply-transforms/
     use: ["larmorx ants antsApplyTransforms", "lx.ants.apply_transforms"]
     how: port (ANTs/ITK)
-    validation: "[220 cases](repo:docs/validation/ants-apply-transforms.md): 160 of 174 compared bit-identical to ANTs, the rest differ only through glibc's maths"
+    validation: "[258 cases](repo:docs/validation/ants-apply-transforms.md): 185 of 200 compared bit-identical to ANTs, the rest differ only through glibc's maths; B-spline transforms included"
   - eco: ants
     tool: ITK transform files (`.mat`, `.txt`, `.h5`)
     page: /tools/itk-hdf5/
@@ -54,11 +54,11 @@ implemented:
     how: port
     validation: "bit-identical in every compared case ([threshold](repo:docs/validation/ants-threshold-image.md), [multiply](repo:docs/validation/ants-multiply-images.md), [smooth](repo:docs/validation/ants-smooth-image.md), [resample](repo:docs/validation/ants-resample-image.md), [by spacing](repo:docs/validation/ants-resample-image-by-spacing.md))"
   - eco: ants
-    tool: antsRegistration (linear, SyN, B-spline SyN, B-spline and displacement-field stages, image and point-set metrics)
+    tool: "antsRegistration (every stage: linear, SyN, B-spline SyN, B-spline, displacement-field, exponential and time-varying velocity-field; image and point-set metrics)"
     page: /tools/ants-registration/
     use: ["larmorx ants antsRegistration", "lx.ants.registration"]
     how: port
-    validation: "[403 cases](repo:docs/validation/ants-registration.md): 273 of 309 compared identical to ANTs (outputs and messages), 36 more with correctly rounded maths; the velocity-field stages planned"
+    validation: "[505 cases](repo:docs/validation/ants-registration.md): 347 of 391 compared identical to ANTs (outputs and messages), 44 more with correctly rounded maths; [the corrections' effects](repo:docs/validation/ants-registration-corrections.md)"
   - eco: ants
     tool: antsAI, antsAffineInitializer
     page: /tools/ants-ai/
@@ -93,7 +93,7 @@ implemented:
 planned:
   - eco: [ants]
     title: ANTs
-    text: antsRegistration's velocity-field and exponential transforms; antsAI's blob alignment (-b).
+    text: antsAI's blob alignment (-b).
   - eco: [afni]
     title: AFNI
     text: 3dUnifize and 3dAutomask (fMRIPrep's BOLD reference), then 3dQwarp, 3dSkullStrip, 3dcalc and an analysis track (3dTproject, 3dDespike, 3dReHo, 3dRSFC, 3dDeconvolve/3dREMLfit, 3dFWHMx/3dClustSim, ...).

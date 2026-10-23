@@ -3,19 +3,31 @@
  "tool": "ants-registration",
  "title": "antsRegistration",
  "provenance": {
-  "exporter": "146ec72dd34cb66c17f1ba7b866b1bc89c83ffd3",
+  "exporter": "a7ad3350cd27fb73edecf2e7e5c75d82de0f6702",
   "records": [
    {
     "path": "docs/validation/ants-registration.json",
-    "sha256": "5bad07fb7a55c4cd92c87893f6375032b7967c7167b1d1d2607cab2fb841d047",
-    "generated": "2026-10-21",
-    "larmorx_commit": "1dfe56c0dc60"
+    "sha256": "97859e490433db7a0f41a621f2b34976478d6098827d8e42a6f981ded42190dd",
+    "generated": "2026-10-23",
+    "larmorx_commit": "a9401a69f759"
    },
    {
     "path": "docs/validation/ants-registration.md",
-    "sha256": "418f2a4fb4f6051dcd843538f964747938ddfd9e1ee8607fd25bab99ceddefb9",
-    "generated": "2026-10-21",
-    "larmorx_commit": "1dfe56c0dc60"
+    "sha256": "01299de1f126cc57684cefc0d91e56e2c5daf8ffdc0b31503bffc9638b2d6783",
+    "generated": "2026-10-23",
+    "larmorx_commit": "a9401a69f759"
+   },
+   {
+    "path": "docs/validation/ants-registration-corrections.json",
+    "sha256": "fb571eb19d18ee2ee4436487c3dd3ce52c432f9afd887b4d3b9f69a9d399e99d",
+    "generated": "2026-10-22",
+    "larmorx_commit": "88bb1fffccbf"
+   },
+   {
+    "path": "docs/validation/ants-registration-corrections.md",
+    "sha256": "e9af201f25a27492cd2bbb97715e39dfd56cec07941b181116df8a6a9eb64016",
+    "generated": "2026-10-22",
+    "larmorx_commit": "88bb1fffccbf"
    }
   ],
   "benchmarks": [],
@@ -1385,6 +1397,689 @@
     },
     "seed": "ANTS_RANDOM_SEED=42",
     "settings": "fMRIPrep 25.2.6's template registration of ds000005-sub-01-noreconall (its command.txt), its images on every third voxel, as the record's real-bsplinesyn-small/ds000005/template case; larmorx in both modes"
+   },
+   {
+    "entry": "ants-registration/fmriprep-ds000005-template-tvf-small",
+    "description": "sMRIPrep's T1w-to-MNI registration with TimeVaryingVelocityField[0.5,4,3,0,0,0] for its SyN stage, ds000005 sub-01 on every third voxel: ANTs 2.6.5 (1, 2, 4, 8 threads; CORE-MATH) and larmorx",
+    "computed": "2026-10-22T23:50:15+00:00",
+    "larmorx_commit": "a9401a69f759c16672b27feeff06c133ca87efe0",
+    "commands": [
+     {
+      "label": "ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--initial-moving-transform",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/ants-1/transform,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/ants-1/ants_t1_to_mni_Warped.nii.gz]",
+       "--transform",
+       "Rigid[0.05]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "2.0x1.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "Affine[0.08]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "1.0x0.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "TimeVaryingVelocityField[0.5,4,3,0,0,0]",
+       "--metric",
+       "CC[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,4,None,1]",
+       "--convergence",
+       "[100x70x50x20,1e-06,10]",
+       "--smoothing-sigmas",
+       "3.0x2.0x1.0x0.0vox",
+       "--shrink-factors",
+       "8x4x2x1",
+       "--use-histogram-matching",
+       "1",
+       "--winsorize-image-intensities",
+       "[0.005,0.995]",
+       "--write-composite-transform",
+       "1",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "ANTS_RANDOM_SEED": "42"
+      },
+      "exit": 0,
+      "seconds": 1444.87
+     },
+     {
+      "label": "ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--initial-moving-transform",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/ants-1-cr/transform,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/ants-1-cr/ants_t1_to_mni_Warped.nii.gz]",
+       "--transform",
+       "Rigid[0.05]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "2.0x1.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "Affine[0.08]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "1.0x0.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "TimeVaryingVelocityField[0.5,4,3,0,0,0]",
+       "--metric",
+       "CC[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,4,None,1]",
+       "--convergence",
+       "[100x70x50x20,1e-06,10]",
+       "--smoothing-sigmas",
+       "3.0x2.0x1.0x0.0vox",
+       "--shrink-factors",
+       "8x4x2x1",
+       "--use-histogram-matching",
+       "1",
+       "--winsorize-image-intensities",
+       "[0.005,0.995]",
+       "--write-composite-transform",
+       "1",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "ANTS_RANDOM_SEED": "42",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 1548.92
+     },
+     {
+      "label": "ants-2",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--initial-moving-transform",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/ants-2/transform,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/ants-2/ants_t1_to_mni_Warped.nii.gz]",
+       "--transform",
+       "Rigid[0.05]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "2.0x1.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "Affine[0.08]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "1.0x0.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "TimeVaryingVelocityField[0.5,4,3,0,0,0]",
+       "--metric",
+       "CC[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,4,None,1]",
+       "--convergence",
+       "[100x70x50x20,1e-06,10]",
+       "--smoothing-sigmas",
+       "3.0x2.0x1.0x0.0vox",
+       "--shrink-factors",
+       "8x4x2x1",
+       "--use-histogram-matching",
+       "1",
+       "--winsorize-image-intensities",
+       "[0.005,0.995]",
+       "--write-composite-transform",
+       "1",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "2",
+       "ANTS_RANDOM_SEED": "42"
+      },
+      "exit": 0,
+      "seconds": 921.35
+     },
+     {
+      "label": "ants-4",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--initial-moving-transform",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/ants-4/transform,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/ants-4/ants_t1_to_mni_Warped.nii.gz]",
+       "--transform",
+       "Rigid[0.05]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "2.0x1.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "Affine[0.08]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "1.0x0.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "TimeVaryingVelocityField[0.5,4,3,0,0,0]",
+       "--metric",
+       "CC[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,4,None,1]",
+       "--convergence",
+       "[100x70x50x20,1e-06,10]",
+       "--smoothing-sigmas",
+       "3.0x2.0x1.0x0.0vox",
+       "--shrink-factors",
+       "8x4x2x1",
+       "--use-histogram-matching",
+       "1",
+       "--winsorize-image-intensities",
+       "[0.005,0.995]",
+       "--write-composite-transform",
+       "1",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "4",
+       "ANTS_RANDOM_SEED": "42"
+      },
+      "exit": 0,
+      "seconds": 745.49
+     },
+     {
+      "label": "ants-8",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--initial-moving-transform",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/ants-8/transform,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/ants-8/ants_t1_to_mni_Warped.nii.gz]",
+       "--transform",
+       "Rigid[0.05]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "2.0x1.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "Affine[0.08]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "1.0x0.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "TimeVaryingVelocityField[0.5,4,3,0,0,0]",
+       "--metric",
+       "CC[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,4,None,1]",
+       "--convergence",
+       "[100x70x50x20,1e-06,10]",
+       "--smoothing-sigmas",
+       "3.0x2.0x1.0x0.0vox",
+       "--shrink-factors",
+       "8x4x2x1",
+       "--use-histogram-matching",
+       "1",
+       "--winsorize-image-intensities",
+       "[0.005,0.995]",
+       "--write-composite-transform",
+       "1",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "ANTS_RANDOM_SEED": "42"
+      },
+      "exit": 0,
+      "seconds": 527.22
+     },
+     {
+      "label": "larmorx-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--initial-moving-transform",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/larmorx-1/transform,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/larmorx-1/ants_t1_to_mni_Warped.nii.gz]",
+       "--transform",
+       "Rigid[0.05]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "2.0x1.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "Affine[0.08]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "1.0x0.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "TimeVaryingVelocityField[0.5,4,3,0,0,0]",
+       "--metric",
+       "CC[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,4,None,1]",
+       "--convergence",
+       "[100x70x50x20,1e-06,10]",
+       "--smoothing-sigmas",
+       "3.0x2.0x1.0x0.0vox",
+       "--shrink-factors",
+       "8x4x2x1",
+       "--use-histogram-matching",
+       "1",
+       "--winsorize-image-intensities",
+       "[0.005,0.995]",
+       "--write-composite-transform",
+       "1",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "ANTS_RANDOM_SEED": "42",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 613.25
+     },
+     {
+      "label": "larmorx-1-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--initial-moving-transform",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/larmorx-1-reproduce/transform,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/larmorx-1-reproduce/ants_t1_to_mni_Warped.nii.gz]",
+       "--transform",
+       "Rigid[0.05]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "2.0x1.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "Affine[0.08]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "1.0x0.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "TimeVaryingVelocityField[0.5,4,3,0,0,0]",
+       "--metric",
+       "CC[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,4,None,1]",
+       "--convergence",
+       "[100x70x50x20,1e-06,10]",
+       "--smoothing-sigmas",
+       "3.0x2.0x1.0x0.0vox",
+       "--shrink-factors",
+       "8x4x2x1",
+       "--use-histogram-matching",
+       "1",
+       "--winsorize-image-intensities",
+       "[0.005,0.995]",
+       "--write-composite-transform",
+       "1",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "ANTS_RANDOM_SEED": "42",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 579.08
+     },
+     {
+      "label": "larmorx-12",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--initial-moving-transform",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/larmorx-12/transform,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/larmorx-12/ants_t1_to_mni_Warped.nii.gz]",
+       "--transform",
+       "Rigid[0.05]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "2.0x1.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "Affine[0.08]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "1.0x0.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "TimeVaryingVelocityField[0.5,4,3,0,0,0]",
+       "--metric",
+       "CC[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,4,None,1]",
+       "--convergence",
+       "[100x70x50x20,1e-06,10]",
+       "--smoothing-sigmas",
+       "3.0x2.0x1.0x0.0vox",
+       "--shrink-factors",
+       "8x4x2x1",
+       "--use-histogram-matching",
+       "1",
+       "--winsorize-image-intensities",
+       "[0.005,0.995]",
+       "--write-composite-transform",
+       "1",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "12",
+       "ANTS_RANDOM_SEED": "42",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 102.7
+     },
+     {
+      "label": "larmorx-12-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--initial-moving-transform",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/larmorx-12-reproduce/transform,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/larmorx-12-reproduce/ants_t1_to_mni_Warped.nii.gz]",
+       "--transform",
+       "Rigid[0.05]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "2.0x1.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "Affine[0.08]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "1.0x0.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "TimeVaryingVelocityField[0.5,4,3,0,0,0]",
+       "--metric",
+       "CC[<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,4,None,1]",
+       "--convergence",
+       "[100x70x50x20,1e-06,10]",
+       "--smoothing-sigmas",
+       "3.0x2.0x1.0x0.0vox",
+       "--shrink-factors",
+       "8x4x2x1",
+       "--use-histogram-matching",
+       "1",
+       "--winsorize-image-intensities",
+       "[0.005,0.995]",
+       "--write-composite-transform",
+       "1",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "12",
+       "ANTS_RANDOM_SEED": "42",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 124.52
+     },
+     {
+      "label": "moving-unregistered",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/4974e1ee39_ds000005-sub-01-noreconall_moving_masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/inputs/small/cca09ee704_fixed_masked.nii.gz",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-registration/fmriprep-ds000005-template-tvf-small/moving-unregistered.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.12
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "threads": {
+     "ants": [
+      1,
+      2,
+      4,
+      8
+     ],
+     "ants_crmath": 1,
+     "larmorx": [
+      1,
+      12
+     ],
+     "fmriprep_run": 8
+    },
+    "seed": "ANTS_RANDOM_SEED=42",
+    "settings": "fMRIPrep 25.2.6's template registration of ds000005-sub-01-noreconall (its command.txt), its images on every third voxel, as the record's real-time-varying-small/ds000005-sub-01/template case; larmorx in both modes"
    }
   ],
   "command": "python -m larmorx_validation evidence ants-registration --site <site>"
@@ -1397,12 +2092,12 @@
    "record": "docs/validation/ants-registration.md",
    "status": "validated",
    "summary": {
-    "cases": 403,
+    "cases": 505,
     "verdicts": {
-     "bit-identical": 273,
-     "identical-cr": 36,
-     "divergence": 17,
-     "both-reject": 77
+     "bit-identical": 347,
+     "identical-cr": 44,
+     "divergence": 21,
+     "both-reject": 93
     }
    },
    "agreement": [
@@ -1483,9 +2178,9 @@
     {
      "category": "syn",
      "counts": {
-      "bit-identical": 40,
+      "bit-identical": 41,
       "identical-cr": 5,
-      "divergence": 5,
+      "divergence": 4,
       "both-reject": 6
      }
     },
@@ -1523,6 +2218,48 @@
      }
     },
     {
+     "category": "exponential",
+     "counts": {
+      "bit-identical": 20,
+      "identical-cr": 2,
+      "divergence": 2,
+      "both-reject": 6
+     }
+    },
+    {
+     "category": "bspline-exponential",
+     "counts": {
+      "bit-identical": 8,
+      "divergence": 1,
+      "both-reject": 1
+     }
+    },
+    {
+     "category": "time-varying",
+     "counts": {
+      "bit-identical": 18,
+      "divergence": 1,
+      "both-reject": 5
+     }
+    },
+    {
+     "category": "time-varying-bspline",
+     "counts": {
+      "bit-identical": 20,
+      "identical-cr": 1,
+      "divergence": 1,
+      "both-reject": 3
+     }
+    },
+    {
+     "category": "corrections",
+     "counts": {
+      "bit-identical": 7,
+      "identical-cr": 1,
+      "both-reject": 1
+     }
+    },
+    {
      "category": "real",
      "counts": {
       "bit-identical": 3,
@@ -1543,6 +2280,30 @@
     },
     {
      "category": "real-bsplinesyn-small",
+     "counts": {
+      "identical-cr": 1
+     }
+    },
+    {
+     "category": "real-exponential-small",
+     "counts": {
+      "identical-cr": 1
+     }
+    },
+    {
+     "category": "real-bspline-exponential-small",
+     "counts": {
+      "identical-cr": 1
+     }
+    },
+    {
+     "category": "real-time-varying-small",
+     "counts": {
+      "identical-cr": 1
+     }
+    },
+    {
+     "category": "real-time-varying-bspline-small",
      "counts": {
       "identical-cr": 1
      }
@@ -3381,7 +4142,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "0/2",
-     "reason": "file /tmp/lx-reg-lsu21pwl/none.nii.gz does not exist ."
+     "reason": "file /tmp/lx-reg-5aiwzoxb/none.nii.gz does not exist ."
     }
    }
   },
@@ -3773,7 +4534,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "2/2",
-     "reason": "Description: ITK ERROR: ImageRegistrationMethodv4(0x590f071e0bc0): sampling percentage outside expected (0,1] range"
+     "reason": "Description: ITK ERROR: ImageRegistrationMethodv4(0x5f5b5ffb7bc0): sampling percentage outside expected (0,1] range"
     }
    }
   },
@@ -3787,7 +4548,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "2/2",
-     "reason": "Transform file does not exist: /tmp/lx-reg-71wc9ohh/none.mat"
+     "reason": "Transform file does not exist: /tmp/lx-reg-u0oktzj3/none.mat"
     }
    }
   },
@@ -4459,7 +5220,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "2/2",
-     "reason": "Description: ITK ERROR: ImageRegistrationMethodv4(0x5c518a422e60): sampling percentage outside expected (0,1] range"
+     "reason": "Description: ITK ERROR: ImageRegistrationMethodv4(0x62c6d0552e60): sampling percentage outside expected (0,1] range"
     }
    }
   },
@@ -4515,7 +5276,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "larmorx: upstream defect ANTS-62 (antsRegistration) reproduced: '/tmp/lx-reg-zp6bx1zs/moving.txt' ends with a newline: an extra point, a copy of the last one, as the oracle's build adds it from uninit"
+     "reason": "larmorx: upstream defect ANTS-62 (antsRegistration) reproduced: '/tmp/lx-reg-nqsl8td1/moving.txt' ends with a newline: an extra point, a copy of the last one, as the oracle's build adds it from uninit"
     }
    }
   },
@@ -4543,7 +5304,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "larmorx: antsRegistration: an intensity point set could not be read: ANTs goes on with a null point set and crashes"
+     "reason": "larmorx: upstream defect ANTS-68 (antsRegistration) reproduced: IGDM's derivative lacks the 1/sigma^2 factors of its two terms, as in ANTs [LARMORX_UPSTREAM_DEFECTS=fix corrects it]"
     }
    }
   },
@@ -5376,14 +6137,14 @@
   {
    "id": "syn/exponential",
    "category": "syn",
-   "description": "Exponential: A5 part 3",
+   "description": "Exponential[0.1,3,0] with CC in SyN's settings (the velocity-field stages have their own categories)",
    "command": "antsRegistration -d 3 -v 1 -o r -t Exponential[0.1,3,0] -m 'CC[<generated: reg-fixed>,<generated: reg-moving>,1,2]' -c [4x3,1e-6,3] -f 2x1 -s 1x0vox",
    "results": {
     "port": {
-     "outcome": "expected-divergence",
-     "verdict": "divergence",
-     "checks": "1/1",
-     "reason": "the exponential and velocity-field transforms are milestone A5 part 3; larmorx refuses with a message"
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
     }
    }
   },
@@ -5481,7 +6242,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "2/2",
-     "reason": "LabeledPointSetToPointSetMetricv4 (0x58e420a979d0): The label sets are not bijective."
+     "reason": "LabeledPointSetToPointSetMetricv4 (0x563d094079d0): The label sets are not bijective."
     }
    }
   },
@@ -5495,7 +6256,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "2/2",
-     "reason": "LabeledPointSetToPointSetMetricv4 (0x59491c20e3b0): The label sets are not bijective."
+     "reason": "LabeledPointSetToPointSetMetricv4 (0x55b5783403b0): The label sets are not bijective."
     }
    }
   },
@@ -5551,7 +6312,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "larmorx: antsRegistration: a SyN stage that lists IGDM before another metric: ANTs gives IGDM no point sets; ANTs crashes here, larmorx stops"
+     "reason": "larmorx: upstream defect ANTS-68 (antsRegistration) reproduced: IGDM's derivative lacks the 1/sigma^2 factors of its two terms, as in ANTs [LARMORX_UPSTREAM_DEFECTS=fix corrects it]"
     }
    }
   },
@@ -7082,6 +7843,1378 @@
    }
   },
   {
+   "id": "exponential/meansquares",
+   "category": "exponential",
+   "description": "Exponential (update variance 3, velocity variance 0.5), MeanSquares, 2 levels, warped images",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+    }
+   }
+  },
+  {
+   "id": "exponential/no-collapse",
+   "category": "exponential",
+   "description": "-z 0 after an affine stage: 0Affine.mat, 1Warp, 1InverseWarp and 1VelocityField",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -z 0 -t Affine[0.1] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [6,1e-6,5] -f 1 -s 0vox -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/short-name",
+   "category": "exponential",
+   "description": "-t Exp[...] with -z 0: no InverseWarp file (ANTS-81)",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -z 0 -t Exp[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/collapse",
+   "category": "exponential",
+   "description": "an affine stage, then the velocity field: collapsed",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t Affine[0.1] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [6,1e-6,5] -f 1 -s 0vox -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/composite",
+   "category": "exponential",
+   "description": "-a 1",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -a 1 -t Affine[0.1] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [6,1e-6,5] -f 1 -s 0vox -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/integration-steps",
+   "category": "exponential",
+   "description": "4 integration steps, no velocity smoothing",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t Exponential[0.5,2,0,4] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/sigmas-in-mm",
+   "category": "exponential",
+   "description": "smoothing sigmas given in mm (as ANTs takes voxels, ANTS-80)",
+   "command": "antsRegistration -d 3 -v 1 -o r -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 2x0mm",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/cc",
+   "category": "exponential",
+   "description": "CC (radius 2)",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t Exponential[0.5,3,0.5] -m 'CC[<generated: reg-fixed>,<generated: reg-moving>,1,2]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/mattes",
+   "category": "exponential",
+   "description": "Mattes (24 bins)",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t Exponential[0.5,3,0.5] -m 'Mattes[<generated: reg-fixed>,<generated: reg-moving>,1,24]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in r0InverseWarp.nii.gz, r0Warp.nii.gz; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "exponential/mi2",
+   "category": "exponential",
+   "description": "MI2",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t Exponential[0.5,3,0.5] -m 'MI2[<generated: reg-fixed>,<generated: reg-moving>,1,20]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in r0InverseWarp.nii.gz, r0Warp.nii.gz; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "exponential/gc",
+   "category": "exponential",
+   "description": "GC (ITK-30)",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t Exponential[0.5,3,0.5] -m 'GC[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/demons",
+   "category": "exponential",
+   "description": "Demons",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t Exponential[0.5,3,0.5] -m 'Demons[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/multi",
+   "category": "exponential",
+   "description": "CC (0.7) and Mattes (0.3)",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t Exponential[0.5,3,0.5] -m 'CC[<generated: reg-fixed>,<generated: reg-moving>,0.7,2]' -m 'Mattes[<generated: reg-fixed>,<generated: reg-moving>,0.3,20]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/masks",
+   "category": "exponential",
+   "description": "-x [mask,mask]",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -x '[<generated: reg-mask>,<generated: reg-mask>]' -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/float",
+   "category": "exponential",
+   "description": "--float 1",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] --float 1 -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/2d",
+   "category": "exponential",
+   "description": "2D",
+   "command": "antsRegistration -d 2 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed-2d>,<generated: reg-moving-2d>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/oblique",
+   "category": "exponential",
+   "description": "oblique grids",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed-oblique>,<generated: reg-moving-oblique>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/restrict",
+   "category": "exponential",
+   "description": "-g 1x1x0",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -g 1x1x0 -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/initial-field",
+   "category": "exponential",
+   "description": "-r a displacement field",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -r warp-3d.nii.gz -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/per-stage",
+   "category": "exponential",
+   "description": "-i 1 -a 1 -z 0 after an affine stage",
+   "command": "antsRegistration -d 3 -v 1 -o r -a 1 -z 0 -i 1 -t Affine[0.1] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [6,1e-6,5] -f 1 -s 0vox -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/then-affine",
+   "category": "exponential",
+   "description": "an affine stage after the velocity field",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0 -t Affine[0.1] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [6,1e-6,5] -f 1 -s 0vox",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "1/1",
+     "reason": "the affine stage after a displacement field samples its scales' 1000 voxels from the clock (ANTS-72): two ANTs runs differ"
+    }
+   }
+  },
+  {
+   "id": "exponential/regular-sampling",
+   "category": "exponential",
+   "description": "MeanSquares, regular sampling 0.5",
+   "command": "antsRegistration -d 3 -v 1 -o r -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1,1,Regular,0.5]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "1/1",
+     "reason": "the stage never sets its metric's sampling seed (ANTS-82): ANTs samples from the clock, two runs differ; larmorx samples with the registration's seed"
+    }
+   }
+  },
+  {
+   "id": "exponential/icp-second",
+   "category": "exponential",
+   "description": "MeanSquares and ICP",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: ps-mask>' -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: ps-intensity-fixed>,<generated: ps-intensity-moving>,1]' -m 'ICP[<generated: ps-labels-fixed>,<generated: ps-labels-moving>,0.5]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/print-similarity",
+   "category": "exponential",
+   "description": "--print-similarity-measure-interval: the observer's copy of the field fails (ANTS-75)",
+   "command": "antsRegistration -d 3 -v 1 -o r --print-similarity-measure-interval 1 -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "1"
+    }
+   }
+  },
+  {
+   "id": "exponential/interval-volumes",
+   "category": "exponential",
+   "description": "--write-interval-volumes: the observer's copy of the field fails (ANTS-75)",
+   "command": "antsRegistration -d 3 -v 1 -o r --write-interval-volumes 1 -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "1"
+    }
+   }
+  },
+  {
+   "id": "exponential/save-state",
+   "category": "exponential",
+   "description": "--save-state: no state (ANTS-50)",
+   "command": "antsRegistration -d 3 -v 1 -o r -j state.h5 -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "because the the output transform will contain the this processes initializer"
+    }
+   }
+  },
+  {
+   "id": "exponential/zero-iterations",
+   "category": "exponential",
+   "description": "no iteration and one level: the transform never integrates, its inverse has no field (ITK-41)",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [0,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "Description: ITK ERROR: ConstantVelocityFieldTransform(0x63a4590e1680): No displacement field is specified."
+    }
+   }
+  },
+  {
+   "id": "exponential/zero-iterations-prefix",
+   "category": "exponential",
+   "description": "no iteration, no warped images: written as ANTs writes it (ITK-41)",
+   "command": "antsRegistration -d 3 -v 1 -o r -t Exponential[0.5,3,0.5] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [0,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "exponential/icp-first",
+   "category": "exponential",
+   "description": "ICP first: ANTs allocates the velocity field on a null image",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: ps-mask>' -t Exponential[0.5,3,0.5] -m 'ICP[<generated: ps-labels-fixed>,<generated: ps-labels-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "larmorx: antsRegistration: an Exponential stage whose first metric is a point-set metric: ANTs allocates the velocity field on the null image of its first metric; ANTs crashes here, larmorx stops"
+    }
+   }
+  },
+  {
+   "id": "exponential/missing-parameter",
+   "category": "exponential",
+   "description": "Exponential[0.5,3]: the velocity variance is required",
+   "command": "antsRegistration -d 3 -v 1 -o r -t Exponential[0.5,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "ERROR: Unable to convert '' to type 'f' as float"
+    }
+   }
+  },
+  {
+   "id": "bspline-exponential/meansquares",
+   "category": "bspline-exponential",
+   "description": "BSplineExponential (update mesh 4x4x4), MeanSquares, 2 levels, warped images",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t BSplineExponential[0.5,4x4x4,0,0,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+    }
+   }
+  },
+  {
+   "id": "bspline-exponential/velocity-mesh",
+   "category": "bspline-exponential",
+   "description": "a velocity-field mesh (2x2x2) and 5 integration steps",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t BSplineExponential[0.5,4x4x4,2x2x2,5,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "bspline-exponential/knot-spacing",
+   "category": "bspline-exponential",
+   "description": "a knot spacing (30 mm), -z 0",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -z 0 -t BSplineExponential[0.5,30,0,0,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "bspline-exponential/cc",
+   "category": "bspline-exponential",
+   "description": "CC",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t BSplineExponential[0.5,4x4x4,0,0,3] -m 'CC[<generated: reg-fixed>,<generated: reg-moving>,1,2]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "bspline-exponential/float",
+   "category": "bspline-exponential",
+   "description": "--float 1",
+   "command": "antsRegistration -d 3 -v 1 -o r --float 1 -t BSplineExponential[0.5,4x4x4,0,0,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "bspline-exponential/2d",
+   "category": "bspline-exponential",
+   "description": "2D",
+   "command": "antsRegistration -d 2 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t BSplineExponential[0.5,4x4,2x2,0,3] -m 'MeanSquares[<generated: reg-fixed-2d>,<generated: reg-moving-2d>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "bspline-exponential/masks",
+   "category": "bspline-exponential",
+   "description": "-x [mask,mask]",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '[<generated: reg-mask>,<generated: reg-mask>]' -t BSplineExponential[0.5,4x4x4,0,0,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "bspline-exponential/order-2",
+   "category": "bspline-exponential",
+   "description": "order 2",
+   "command": "antsRegistration -d 3 -v 1 -o r -t BSplineExponential[0.5,4x4x4,0,0,2] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "bspline-exponential/mesh-dimension",
+   "category": "bspline-exponential",
+   "description": "a 2D mesh in 3D: ERROR",
+   "command": "antsRegistration -d 3 -v 1 -o r -t BSplineExponential[0.5,4x4,0,0,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "1"
+    }
+   }
+  },
+  {
+   "id": "bspline-exponential/random-sampling",
+   "category": "bspline-exponential",
+   "description": "Mattes, random sampling 0.5",
+   "command": "antsRegistration -d 3 -v 1 -o r -t BSplineExponential[0.5,4x4x4,0,0,3] -m 'Mattes[<generated: reg-fixed>,<generated: reg-moving>,1,24,Random,0.5]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "1/1",
+     "reason": "the stage never sets its metric's sampling seed (ANTS-82): ANTs samples from the clock, two runs differ; larmorx samples with the registration's seed"
+    }
+   }
+  },
+  {
+   "id": "time-varying/meansquares",
+   "category": "time-varying",
+   "description": "TimeVaryingVelocityField (3 time indices), MeanSquares, 2 levels, -z 0: Warp, InverseWarp, VelocityField",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -z 0 -t TimeVaryingVelocityField[0.5,3,3,0,0.5,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+    }
+   }
+  },
+  {
+   "id": "time-varying/short-name",
+   "category": "time-varying",
+   "description": "tvf[...] with time variances (0.5, 0.25)",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -z 0 -t tvf[0.5,3,3,0.5,0.5,0.25] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying/collapse",
+   "category": "time-varying",
+   "description": "an affine stage, then the velocity field: collapsed",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t Affine[0.1] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [6,1e-6,5] -f 1 -s 0vox -t TimeVaryingVelocityField[0.5,3,3,0,0.5,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying/composite",
+   "category": "time-varying",
+   "description": "-a 1 after an affine stage",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -a 1 -t Affine[0.1] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [6,1e-6,5] -f 1 -s 0vox -t TimeVaryingVelocityField[0.5,3,3,0,0.5,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying/cc",
+   "category": "time-varying",
+   "description": "CC",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t TimeVaryingVelocityField[0.5,3,3,0,0.5,0] -m 'CC[<generated: reg-fixed>,<generated: reg-moving>,1,2]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying/mattes",
+   "category": "time-varying",
+   "description": "Mattes (24 bins)",
+   "command": "antsRegistration -d 3 -v 1 -o r -t TimeVaryingVelocityField[0.5,3,3,0,0.5,0] -m 'Mattes[<generated: reg-fixed>,<generated: reg-moving>,1,24]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying/multi",
+   "category": "time-varying",
+   "description": "CC (0.7) and Mattes (0.3)",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t TimeVaryingVelocityField[0.5,3,3,0,0,0] -m 'CC[<generated: reg-fixed>,<generated: reg-moving>,0.7,2]' -m 'Mattes[<generated: reg-fixed>,<generated: reg-moving>,0.3,20]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying/masks",
+   "category": "time-varying",
+   "description": "-x [mask,mask]: the masks given to the metric unchanged (ITK-40)",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '[<generated: reg-mask>,<generated: reg-mask>]' -t TimeVaryingVelocityField[0.5,3,3,0,0.5,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying/float",
+   "category": "time-varying",
+   "description": "--float 1",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] --float 1 -t TimeVaryingVelocityField[0.5,3,3,0,0.5,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying/2d",
+   "category": "time-varying",
+   "description": "2D, 4 time indices",
+   "command": "antsRegistration -d 2 -v 1 -o [r,w.nii.gz,iw.nii.gz] -z 0 -t TimeVaryingVelocityField[0.5,4,3,0,0.5,0] -m 'MeanSquares[<generated: reg-fixed-2d>,<generated: reg-moving-2d>,1]' -c [3x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying/one-time-index",
+   "category": "time-varying",
+   "description": "one time index",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t TimeVaryingVelocityField[0.5,1,3,0,0.5,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying/restrict",
+   "category": "time-varying",
+   "description": "-g 1x0x1",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -g 1x0x1 -t TimeVaryingVelocityField[0.5,3,3,0,0.5,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying/two-stages",
+   "category": "time-varying",
+   "description": "two TimeVaryingVelocityField stages: the number of time indices from the last -t (ANTS-79)",
+   "command": "antsRegistration -d 3 -v 1 -o r -z 0 -t TimeVaryingVelocityField[0.5,2,3,0,0,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0 -t TimeVaryingVelocityField[0.5,3,3,0,0,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying/then-syn",
+   "category": "time-varying",
+   "description": "a SyN stage after the velocity field",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t TimeVaryingVelocityField[0.5,2,3,0,0,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0 -t SyN[0.25,3,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying/per-stage",
+   "category": "time-varying",
+   "description": "-i 1 -a 1 -z 0 after an affine stage",
+   "command": "antsRegistration -d 3 -v 1 -o r -a 1 -z 0 -i 1 -t Affine[0.1] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [6,1e-6,5] -f 1 -s 0vox -t TimeVaryingVelocityField[0.5,3,3,0,0.5,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying/fixed-initial",
+   "category": "time-varying",
+   "description": "-q an affine transform: ignored by the method (ITK-39)",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -q initial.mat -t TimeVaryingVelocityField[0.5,2,3,0,0,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying/print-similarity",
+   "category": "time-varying",
+   "description": "--print-similarity-measure-interval: no full-scale similarity in this observer",
+   "command": "antsRegistration -d 3 -v 1 -o r --print-similarity-measure-interval 1 -t TimeVaryingVelocityField[0.5,3,3,0,0.5,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying/icp-second",
+   "category": "time-varying",
+   "description": "CC and ICP",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: ps-mask>' -t TimeVaryingVelocityField[0.5,2,3,0,0,0] -m 'CC[<generated: ps-intensity-fixed>,<generated: ps-intensity-moving>,1,2]' -m 'ICP[<generated: ps-labels-fixed>,<generated: ps-labels-moving>,0.5]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "1"
+    }
+   }
+  },
+  {
+   "id": "time-varying/regular-sampling",
+   "category": "time-varying",
+   "description": "MeanSquares, regular sampling 0.5",
+   "command": "antsRegistration -d 3 -v 1 -o r -t TimeVaryingVelocityField[0.5,3,3,0,0.5,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1,1,Regular,0.5]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "1/1",
+     "reason": "the stage never sets its metric's sampling seed (ANTS-82): ANTs samples from the clock, two runs differ; larmorx samples with the registration's seed"
+    }
+   }
+  },
+  {
+   "id": "time-varying/zero-iterations-prefix",
+   "category": "time-varying",
+   "description": "no iteration: the transform never integrates; no warped images (ITK-41)",
+   "command": "antsRegistration -d 3 -v 1 -o r -t TimeVaryingVelocityField[0.5,3,3,0,0.5,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [0,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying/zero-iterations",
+   "category": "time-varying",
+   "description": "no iteration and warped images: ANTs maps points through a field without an interpolator input (ITK-41)",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t TimeVaryingVelocityField[0.5,3,3,0,0.5,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [0,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "larmorx: upstream defect ITK-41 (ITK) reproduced: stage 0: the time-varying velocity field transform never integrated its velocity field: ITK crashes at the next use of the transform [LARMORX_UPSTREAM"
+    }
+   }
+  },
+  {
+   "id": "time-varying/zero-time-indices",
+   "category": "time-varying",
+   "description": "0 time indices: ANTs divides by 0",
+   "command": "antsRegistration -d 3 -v 1 -o r -t TimeVaryingVelocityField[0.5,0,3,0,0,0] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "larmorx: antsRegistration: a TimeVaryingVelocityField stage with 0 time indices: ANTs divides the velocity field's voxels by 0; ANTs crashes here, larmorx stops"
+    }
+   }
+  },
+  {
+   "id": "time-varying/icp-first",
+   "category": "time-varying",
+   "description": "ICP first: ANTs allocates the velocity field on a null image",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: ps-mask>' -t TimeVaryingVelocityField[0.5,3,3,0,0.5,0] -m 'ICP[<generated: ps-labels-fixed>,<generated: ps-labels-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "larmorx: antsRegistration: a TimeVaryingVelocityField stage whose first metric is a point-set metric: ANTs allocates the velocity field on the null image of its first metric; ANTs crashes here, larmor"
+    }
+   }
+  },
+  {
+   "id": "time-varying/missing-parameter",
+   "category": "time-varying",
+   "description": "TimeVaryingVelocityField[0.5,2,3]: the other variances are required",
+   "command": "antsRegistration -d 3 -v 1 -o r -t TimeVaryingVelocityField[0.5,2,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "ERROR: Unable to convert '' to type 'f' as float"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/meansquares",
+   "category": "time-varying-bspline",
+   "description": "TimeVaryingBSplineVelocityField (mesh 4x4x4x2, 4 time samples), MeanSquares, 2 levels, warped images",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [2x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/float",
+   "category": "time-varying-bspline",
+   "description": "--float 1",
+   "command": "antsRegistration -d 3 -v 1 -o r --float 1 -t TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [2x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/2d",
+   "category": "time-varying-bspline",
+   "description": "2D",
+   "command": "antsRegistration -d 2 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t TimeVaryingBSplineVelocityField[0.5,4x4x2,4,3] -m 'MeanSquares[<generated: reg-fixed-2d>,<generated: reg-moving-2d>,1]' -c [2x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/masks",
+   "category": "time-varying-bspline",
+   "description": "-x [mask,mask]",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '[<generated: reg-mask>,<generated: reg-mask>]' -t TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/fixed-mask-oblique",
+   "category": "time-varying-bspline",
+   "description": "a fixed mask on an oblique grid",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: reg-mask-oblique>' -t TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/cc",
+   "category": "time-varying-bspline",
+   "description": "CC",
+   "command": "antsRegistration -d 3 -v 1 -o r -t TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,3] -m 'CC[<generated: reg-fixed>,<generated: reg-moving>,1,2]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/multi",
+   "category": "time-varying-bspline",
+   "description": "CC (0.7) and Mattes (0.3)",
+   "command": "antsRegistration -d 3 -v 1 -o r -t TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,3] -m 'CC[<generated: reg-fixed>,<generated: reg-moving>,0.7,2]' -m 'Mattes[<generated: reg-fixed>,<generated: reg-moving>,0.3,20]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "13/13",
+     "reason": "differs from ANTs as built in r0InverseWarp.nii.gz, r0Warp.nii.gz; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/order-2",
+   "category": "time-varying-bspline",
+   "description": "order 2",
+   "command": "antsRegistration -d 3 -v 1 -o r -t TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,2] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/samples-2",
+   "category": "time-varying-bspline",
+   "description": "2 time samples, mesh 3x3x3x1",
+   "command": "antsRegistration -d 3 -v 1 -o r -t TimeVaryingBSplineVelocityField[0.5,3x3x3x1,2,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/samples-1",
+   "category": "time-varying-bspline",
+   "description": "1 time sample",
+   "command": "antsRegistration -d 3 -v 1 -o r -t TimeVaryingBSplineVelocityField[0.5,3x3x3x1,1,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/oblique",
+   "category": "time-varying-bspline",
+   "description": "oblique grids",
+   "command": "antsRegistration -d 3 -v 1 -o r -t TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,3] -m 'MeanSquares[<generated: reg-fixed-oblique>,<generated: reg-moving-oblique>,1]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/restrict",
+   "category": "time-varying-bspline",
+   "description": "-g 1x1x0",
+   "command": "antsRegistration -d 3 -v 1 -o r -g 1x1x0 -t TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/interval-volumes",
+   "category": "time-varying-bspline",
+   "description": "--write-interval-volumes: not written by this observer",
+   "command": "antsRegistration -d 3 -v 1 -o r --write-interval-volumes 1 -t TimeVaryingBSplineVelocityField[0.5,3x3x3x1,2,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/per-stage",
+   "category": "time-varying-bspline",
+   "description": "-i 1 -a 1 -z 0 after an affine stage",
+   "command": "antsRegistration -d 3 -v 1 -o r -a 1 -z 0 -i 1 -t Affine[0.1] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [6,1e-6,5] -f 1 -s 0vox -t TimeVaryingBSplineVelocityField[0.5,3x3x3x1,2,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/zero-iterations",
+   "category": "time-varying-bspline",
+   "description": "no iteration on two levels",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz,iw.nii.gz] -t TimeVaryingBSplineVelocityField[0.5,3x3x3x1,2,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [0x1,1e-6,3] -f 2x1 -s 0x0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/icp",
+   "category": "time-varying-bspline",
+   "description": "ICP alone (identity-direction phantoms): the points fitted directly",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: ps-mask-lpsid>' -t TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,3] -m 'ICP[<generated: ps-labels-fixed-lpsid>,<generated: ps-labels-moving-lpsid>,1]' -c [2x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/pse",
+   "category": "time-varying-bspline",
+   "description": "PSE alone",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: ps-mask-lpsid>' -t TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,3] -m 'PSE[<generated: ps-labels-fixed-lpsid>,<generated: ps-labels-moving-lpsid>,1,1,0,2,5]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/jhct",
+   "category": "time-varying-bspline",
+   "description": "JHCT alone",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: ps-mask-lpsid>' -t TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,3] -m 'JHCT[<generated: ps-labels-fixed-lpsid>,<generated: ps-labels-moving-lpsid>,1,1,0,2,5,1.1,0]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/igdm",
+   "category": "time-varying-bspline",
+   "description": "IGDM alone",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: ps-mask-lpsid>' -t TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,3] -m 'IGDM[<generated: ps-intensity-fixed-lpsid>,<generated: ps-intensity-moving-lpsid>,1,<generated: ps-mask-lpsid>,<generated: ps-mask-moving-lpsid>]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/cc-and-icp",
+   "category": "time-varying-bspline",
+   "description": "CC and ICP: the image metric warped twice (ITK-36)",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: ps-mask-lpsid>' -t TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,3] -m 'CC[<generated: ps-intensity-fixed-lpsid>,<generated: ps-intensity-moving-lpsid>,1,2]' -m 'ICP[<generated: ps-labels-fixed-lpsid>,<generated: ps-labels-moving-lpsid>,0.5]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/meansquares-icp-cc",
+   "category": "time-varying-bspline",
+   "description": "MeanSquares, ICP and CC (ITK-36, ITK-37)",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: ps-mask-lpsid>' -t TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,3] -m 'MeanSquares[<generated: ps-intensity-fixed-lpsid>,<generated: ps-intensity-moving-lpsid>,1]' -m 'ICP[<generated: ps-labels-fixed-lpsid>,<generated: ps-labels-moving-lpsid>,0.5]' -m 'CC[<generated: ps-intensity-fixed-lpsid>,<generated: ps-intensity-moving-lpsid>,1,2]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/icp-ras",
+   "category": "time-varying-bspline",
+   "description": "ICP alone on RAS-stored phantoms: ANTs fits the points outside the parametric domain and throws (ITK-38)",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: ps-mask>' -t TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,3] -m 'ICP[<generated: ps-labels-fixed>,<generated: ps-labels-moving>,1]' -c [2x2,1e-6,3] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "1"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/icp-then-cc",
+   "category": "time-varying-bspline",
+   "description": "ICP first, then CC: ANTs cannot convert the multi-metric queue",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: ps-mask-lpsid>' -t TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,3] -m 'ICP[<generated: ps-labels-fixed-lpsid>,<generated: ps-labels-moving-lpsid>,0.5]' -m 'CC[<generated: ps-intensity-fixed-lpsid>,<generated: ps-intensity-moving-lpsid>,1,2]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "1"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/mesh-dimension",
+   "category": "time-varying-bspline",
+   "description": "a mesh without its time size: the message, then failure",
+   "command": "antsRegistration -d 3 -v 1 -o r -t TimeVaryingBSplineVelocityField[0.5,4x4x4,4,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "1"
+    }
+   }
+  },
+  {
+   "id": "time-varying-bspline/mesh-0",
+   "category": "time-varying-bspline",
+   "description": "a mesh size of 0: ANTs divides by zero and fails on a parametric domain of no span (ANTS-77)",
+   "command": "antsRegistration -d 3 -v 1 -o r -t TimeVaryingBSplineVelocityField[0.5,3x0x3x1,2,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [2,1e-6,3] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "1/1",
+     "reason": "ANTs computes control-point spacings of infinity, prints vnl's SVD warnings and fails with an exception on a parametric domain of no span (ANTS-77); larmorx stops with an error after the same messages"
+    }
+   }
+  },
+  {
+   "id": "corrections/igdm-k-neighbourhood",
+   "category": "corrections",
+   "description": "IGDM with kNeighborhood 5 and gradientSigma 1.5, given sigmas (ANTS-67, ANTS-68)",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: ps-mask>' -t Rigid[0.1] -m 'IGDM[<generated: ps-intensity-fixed>,<generated: ps-intensity-moving>,1,<generated: ps-mask>,<generated: ps-mask-moving>,0x0x0,50,5,5,1.5]' -c [20,1e-8,10] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "corrections/igdm-true-gradient",
+   "category": "corrections",
+   "description": "IGDM, given sigmas, one neighbour, central differences: the derivative alone (ANTS-68)",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: ps-mask>' -t Rigid[0.1] -m 'IGDM[<generated: ps-intensity-fixed>,<generated: ps-intensity-moving>,1,<generated: ps-mask>,<generated: ps-mask-moving>,0x0x0,50,5,1,0]' -c [20,1e-8,10] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "corrections/igdm-same-sets",
+   "category": "corrections",
+   "description": "IGDM of an image with itself moved by half a voxel: every nearest distance 1 mm, the distance sigma 0, NaN parameters, the stage dropped (ANTS-70)",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: ps-mask>' -r half-voxel-x.txt -t Rigid[0.1] -m 'IGDM[<generated: ps-intensity-fixed>,<generated: ps-intensity-fixed>,1,<generated: ps-mask>,<generated: ps-mask>]' -c [10,1e-8,10] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "corrections/jhct-isotropic-sigma-2",
+   "category": "corrections",
+   "description": "JHCT, isotropic, sigma 2: the total number of points alone (ITK-24)",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: ps-mask>' -t Rigid[0.1] -m 'JHCT[<generated: ps-labels-fixed>,<generated: ps-labels-moving>,1,1,0,2,50,1.1,0]' -c [20,1e-8,10] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "11/11",
+     "reason": "differs from ANTs as built in r0GenericAffine.mat; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "corrections/jhct-anisotropic",
+   "category": "corrections",
+   "description": "JHCT, anisotropic: the Parzen kernel sigma (ITK-29, ITK-24, ITK-26)",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: ps-mask>' -t Rigid[0.1] -m 'JHCT[<generated: ps-labels-fixed>,<generated: ps-labels-moving>,1,1,0,1,50,1.1,1]' -c [20,1e-8,10] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "corrections/bspline-then-affine",
+   "category": "corrections",
+   "description": "an affine stage after a BSpline stage, with a mask (ITK-35; ANTs drops it, ANTS-49)",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz] -x '<generated: reg-mask>' -t BSpline[0.2,2x2x2] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0 -t Affine[0.1] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [20,1e-8,10] -f 1 -s 0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "corrections/bspline-then-bspline",
+   "category": "corrections",
+   "description": "two BSpline stages (ITK-35; ANTs fails)",
+   "command": "antsRegistration -d 3 -v 1 -o r -x '<generated: reg-mask>' -t BSpline[0.2,2x2x2] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [3,1e-6,3] -f 1 -s 0 -t BSpline[0.2,1x1x1] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [20,1e-6,5] -f 1 -s 0",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "1"
+    }
+   }
+  },
+  {
+   "id": "corrections/initial-bspline-then-rigid",
+   "category": "corrections",
+   "description": "-r a B-spline transform, then Rigid, with a mask (ITK-35)",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz] -x '<generated: reg-mask>' -r bspline-3d.txt -t Rigid[0.1] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [20,1e-8,10] -f 1 -s 0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "corrections/bspline-field-coarse",
+   "category": "corrections",
+   "description": "BSplineDisplacementField 3x3x3 over 2 levels (ANTS-78; corrected, the coarse level needs ITK-42)",
+   "command": "antsRegistration -d 3 -v 1 -o [r,w.nii.gz] -t BSplineDisplacementField[0.3,3x3x3,0,3] -m 'MeanSquares[<generated: reg-fixed>,<generated: reg-moving>,1]' -c [5x3,1e-6,5] -f 2x1 -s 1x0vox",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
    "id": "real/ds000005-sub-01/boldref-affine",
    "category": "real",
    "description": "fMRIPrep 25.2.6's enhance_and_skullstrip_bold_wf/norm of ds000005-sub-01-noreconall",
@@ -7177,7 +9310,8 @@
      "checks": "16/16",
      "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output); larmorx − ANTs at 1 thread: 0.945 in a parameter"
     }
-   }
+   },
+   "example": "template-syn"
   },
   {
    "id": "real-bsplinesyn-small/ds000005-sub-01/template",
@@ -7191,10 +9325,68 @@
      "checks": "16/16",
      "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output); larmorx − ANTs at 1 thread: 0.51 in a parameter"
     }
+   },
+   "example": "template-bsplinesyn"
+  },
+  {
+   "id": "real-exponential-small/ds000005-sub-01/template",
+   "category": "real-exponential-small",
+   "description": "fMRIPrep 25.2.6's registration of ds000005-sub-01-noreconall with Exponential[0.25,3,0.5] for its SyN stage, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000005-sub-01-noreconall: registration>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "16/16",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output); larmorx − ANTs at 1 thread: 0.113 in a parameter"
+    }
+   }
+  },
+  {
+   "id": "real-bspline-exponential-small/ds000005-sub-01/template",
+   "category": "real-bspline-exponential-small",
+   "description": "fMRIPrep 25.2.6's registration of ds000005-sub-01-noreconall with BSplineExponential[0.25,26,0,0,3] for its SyN stage, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000005-sub-01-noreconall: registration>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "15/15",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "real-time-varying-small/ds000005-sub-01/template",
+   "category": "real-time-varying-small",
+   "description": "fMRIPrep 25.2.6's registration of ds000005-sub-01-noreconall with TimeVaryingVelocityField[0.5,4,3,0,0,0] for its SyN stage, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000005-sub-01-noreconall: registration>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "16/16",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output); larmorx − ANTs at 1 thread: 0.265 in a parameter"
+    }
+   },
+   "example": "template-tvf"
+  },
+  {
+   "id": "real-time-varying-bspline-small/ds000005-sub-01/template",
+   "category": "real-time-varying-bspline-small",
+   "description": "fMRIPrep 25.2.6's registration of ds000005-sub-01-noreconall with TimeVaryingBSplineVelocityField[0.5,4x4x4x2,4,3] for its SyN stage, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000005-sub-01-noreconall: registration>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "15/15",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
    }
   }
  ],
- "cases_total": 403,
+ "cases_total": 505,
  "dots": {
   "band": {
    "title": "The largest change in a transform parameter: ANTs at 2, 4 and 8 threads against its one-thread result, and larmorx against ANTs at one thread (log scale; 0 at the left edge)",
@@ -7319,7 +9511,7 @@
      "input": "smoke/rigid",
      "code": true,
      "values": {
-      "band": 8.78e-13,
+      "band": 8.11e-13,
       "larmorx": 0.0
      }
     },
@@ -7337,7 +9529,7 @@
      "input": "metrics/mattes-mi-alias",
      "code": true,
      "values": {
-      "band": 8.78e-13,
+      "band": 8.11e-13,
       "larmorx": 0.0
      }
     },
@@ -7409,7 +9601,7 @@
      "input": "metrics/mattes-gradient-filter",
      "code": true,
      "values": {
-      "band": 4.41e-16,
+      "band": 8.88e-16,
       "larmorx": 0.0
      }
     },
@@ -7490,7 +9682,7 @@
      "input": "syn-point-sets/icp",
      "code": true,
      "values": {
-      "band": 0.035,
+      "band": 0.0829,
       "larmorx": 0.0
      }
     },
@@ -7540,11 +9732,47 @@
      }
     },
     {
+     "label": "exponential/meansquares",
+     "input": "exponential/meansquares",
+     "code": true,
+     "values": {
+      "band": 0.0,
+      "larmorx": 0.0
+     }
+    },
+    {
+     "label": "bspline-exponential/meansquares",
+     "input": "bspline-exponential/meansquares",
+     "code": true,
+     "values": {
+      "band": 3.21e-08,
+      "larmorx": 0.0
+     }
+    },
+    {
+     "label": "time-varying/meansquares",
+     "input": "time-varying/meansquares",
+     "code": true,
+     "values": {
+      "band": 0.0,
+      "larmorx": 0.0
+     }
+    },
+    {
+     "label": "time-varying-bspline/meansquares",
+     "input": "time-varying-bspline/meansquares",
+     "code": true,
+     "values": {
+      "band": 1.91e-06,
+      "larmorx": 0.0
+     }
+    },
+    {
      "label": "real/ds000005-sub-01/boldref-affine",
      "input": "real/ds000005-sub-01/boldref-affine",
      "code": true,
      "values": {
-      "band": 9.24e-10,
+      "band": 5.39e-10,
       "larmorx": 0.0
      }
     },
@@ -7553,7 +9781,7 @@
      "input": "real/ds005040-sub-002/coregister",
      "code": true,
      "values": {
-      "band": 4.05e-13,
+      "band": 1.46e-12,
       "larmorx": 0.0
      }
     },
@@ -7562,7 +9790,7 @@
      "input": "real-syn-small/ds000005-sub-01/brain-extraction",
      "code": true,
      "values": {
-      "band": 1.48,
+      "band": 1.5,
       "larmorx": 1.63
      }
     },
@@ -7571,7 +9799,7 @@
      "input": "real-syn-small/ds000005-sub-01/template",
      "code": true,
      "values": {
-      "band": 1.52,
+      "band": 1.35,
       "larmorx": 0.945
      }
     },
@@ -7580,14 +9808,525 @@
      "input": "real-bsplinesyn-small/ds000005-sub-01/template",
      "code": true,
      "values": {
-      "band": 1.11,
+      "band": 0.833,
       "larmorx": 0.51
+     }
+    },
+    {
+     "label": "real-exponential-small/ds000005-sub-01/template",
+     "input": "real-exponential-small/ds000005-sub-01/template",
+     "code": true,
+     "values": {
+      "band": 0.276,
+      "larmorx": 0.113
+     }
+    },
+    {
+     "label": "real-time-varying-small/ds000005-sub-01/template",
+     "input": "real-time-varying-small/ds000005-sub-01/template",
+     "code": true,
+     "values": {
+      "band": 0.959,
+      "larmorx": 0.265
      }
     }
    ],
    "note": "From the record: its thread-band sentence and each case's reported distance. Where larmorx differs from ANTs as built, ANTs with correctly rounded maths gives larmorx's result exactly."
   }
  },
+ "tables": [
+  {
+   "id": "corrections-igdm",
+   "title": "IGDM (ANTS-67, ANTS-68, ANTS-70): a rigid registration of the point-set phantoms, whose moving blocks are shifted by 3.77 mm; the translation error each mode leaves",
+   "columns": [
+    {
+     "label": "Case"
+    },
+    {
+     "label": "ANTs (reproduce): error (mm)",
+     "num": true
+    },
+    {
+     "label": "corrected: error (mm)",
+     "num": true
+    },
+    {
+     "label": "ANTs: iterations",
+     "num": true
+    },
+    {
+     "label": "corrected: iterations",
+     "num": true
+    }
+   ],
+   "rows": [
+    {
+     "head": "given sigmas, one neighbour, central differences",
+     "cells": [
+      {
+       "v": 3.775,
+       "fmt": "sig"
+      },
+      {
+       "v": 3.301,
+       "fmt": "sig"
+      },
+      {
+       "v": 40.0,
+       "fmt": "count"
+      },
+      {
+       "v": 40.0,
+       "fmt": "count"
+      }
+     ]
+    },
+    {
+     "head": "one neighbour, gradientSigma 1 mm",
+     "cells": [
+      {
+       "v": 3.775,
+       "fmt": "sig"
+      },
+      {
+       "v": 3.284,
+       "fmt": "sig"
+      },
+      {
+       "v": 40.0,
+       "fmt": "count"
+      },
+      {
+       "v": 40.0,
+       "fmt": "count"
+      }
+     ]
+    },
+    {
+     "head": "kNeighborhood 5",
+     "cells": [
+      {
+       "v": 3.775,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.9211,
+       "fmt": "sig"
+      },
+      {
+       "v": 40.0,
+       "fmt": "count"
+      },
+      {
+       "v": 40.0,
+       "fmt": "count"
+      }
+     ]
+    },
+    {
+     "head": "kNeighborhood 5, gradientSigma 1.5 mm",
+     "cells": [
+      {
+       "v": 3.775,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.623,
+       "fmt": "sig"
+      },
+      {
+       "v": 40.0,
+       "fmt": "count"
+      },
+      {
+       "v": 40.0,
+       "fmt": "count"
+      }
+     ]
+    },
+    {
+     "head": "estimated sigmas (the floor applies)",
+     "cells": [
+      {
+       "v": 3.775,
+       "fmt": "sig"
+      },
+      {
+       "v": 3.328,
+       "fmt": "sig"
+      },
+      {
+       "v": 40.0,
+       "fmt": "count"
+      },
+      {
+       "v": 40.0,
+       "fmt": "count"
+      }
+     ]
+    },
+    {
+     "head": "an image with itself, half a voxel apart",
+     "cells": [
+      {
+       "v": 1.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.000703,
+       "fmt": "sig"
+      },
+      {
+       "v": 9.0,
+       "fmt": "count"
+      },
+      {
+       "v": 10.0,
+       "fmt": "count"
+      }
+     ]
+    }
+   ],
+   "note": "From the ants-registration-corrections record (larmorx in its default mode against `reproduce`, which the ants-registration record compares with ANTs bit for bit; for the B-spline chains, against ANTs 2.6.5 itself)."
+  },
+  {
+   "id": "corrections-jhct",
+   "title": "JHCT (ITK-24, ITK-29): the same registration with the labelled phantoms",
+   "columns": [
+    {
+     "label": "Case"
+    },
+    {
+     "label": "ANTs (reproduce): error (mm)",
+     "num": true
+    },
+    {
+     "label": "corrected: error (mm)",
+     "num": true
+    },
+    {
+     "label": "largest parameter change",
+     "num": true
+    }
+   ],
+   "rows": [
+    {
+     "head": "isotropic, sigma 2: the total alone (ITK-24)",
+     "cells": [
+      {
+       "v": 0.03453,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.03454,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.096e-05,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "isotropic, sigma 1 (ITK-24, ITK-23)",
+     "cells": [
+      {
+       "v": 5.59e-06,
+       "fmt": "sig"
+      },
+      {
+       "v": 4.361e-05,
+       "fmt": "sig"
+      },
+      {
+       "v": 4.322e-05,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "anisotropic, sigma 1 (ITK-29, ITK-24, ITK-26)",
+     "cells": [
+      {
+       "v": 0.02731,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.01013,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.01776,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "anisotropic, sigma 2, alpha 1.5",
+     "cells": [
+      {
+       "v": 0.1042,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.05834,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.03568,
+       "fmt": "sig"
+      }
+     ]
+    }
+   ],
+   "note": "From the ants-registration-corrections record (larmorx in its default mode against `reproduce`, which the ants-registration record compares with ANTs bit for bit; for the B-spline chains, against ANTs 2.6.5 itself)."
+  },
+  {
+   "id": "corrections-mesh",
+   "title": "B-spline field meshes at the base level (ANTS-78; ITK-42): ANTs' stage is the corrected one with twice the mesh, byte for byte; how far the corrected field moves from ANTs' (mm, in the mask) and the fit each leaves",
+   "columns": [
+    {
+     "label": "Case"
+    },
+    {
+     "label": "field moved: largest (mm)",
+     "num": true
+    },
+    {
+     "label": "mean (mm)",
+     "num": true
+    },
+    {
+     "label": "ANTs' fit (MSE)",
+     "num": true
+    },
+    {
+     "label": "corrected fit (MSE)",
+     "num": true
+    }
+   ],
+   "rows": [
+    {
+     "head": "BSplineDisplacementField 3x3x3, two levels",
+     "cells": [
+      {
+       "v": 4.164,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.428,
+       "fmt": "sig"
+      },
+      {
+       "v": 30140.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 30080.0,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "5x5x5, total mesh 4x4x4",
+     "cells": [
+      {
+       "v": 5.476,
+       "fmt": "sig"
+      },
+      {
+       "v": 2.12,
+       "fmt": "sig"
+      },
+      {
+       "v": 31140.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 35570.0,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "a knot spacing of 12 mm",
+     "cells": [
+      {
+       "v": 3.036,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.094,
+       "fmt": "sig"
+      },
+      {
+       "v": 29220.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 29670.0,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "BSplineExponential 4x4x4",
+     "cells": [
+      {
+       "v": 0.1203,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.04387,
+       "fmt": "sig"
+      },
+      {
+       "v": 37500.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 38050.0,
+       "fmt": "sig"
+      }
+     ]
+    }
+   ],
+   "note": "From the ants-registration-corrections record (larmorx in its default mode against `reproduce`, which the ants-registration record compares with ANTs bit for bit; for the B-spline chains, against ANTs 2.6.5 itself)."
+  },
+  {
+   "id": "corrections-chain",
+   "title": "Stages after a B-spline transform (ITK-35), which ANTs cannot run: the corrected stage against ANTs' closest runs, how far their results map the fixed points apart (largest and mean, mm, in the mask)",
+   "columns": [
+    {
+     "label": "Case"
+    },
+    {
+     "label": "vs ANTs on the resampled image: largest",
+     "num": true
+    },
+    {
+     "label": "mean",
+     "num": true
+    },
+    {
+     "label": "vs ANTs with the field (half spacing): largest",
+     "num": true
+    },
+    {
+     "label": "mean",
+     "num": true
+    }
+   ],
+   "rows": [
+    {
+     "head": "BSpline, then Affine",
+     "cells": [
+      {
+       "v": 0.3663,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.1855,
+       "fmt": "sig"
+      },
+      {
+       "v": 3.75,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.635,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "BSpline, then Rigid",
+     "cells": [
+      {
+       "v": 0.2916,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.143,
+       "fmt": "sig"
+      },
+      {
+       "v": 2.063,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.404,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "-r a B-spline transform, then Rigid",
+     "cells": [
+      {
+       "v": 2.63,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.457,
+       "fmt": "sig"
+      },
+      {
+       "v": 4.579,
+       "fmt": "sig"
+      },
+      {
+       "v": 2.444,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "-r a B-spline transform, then Affine",
+     "cells": [
+      {
+       "v": 7.543,
+       "fmt": "sig"
+      },
+      {
+       "v": 3.956,
+       "fmt": "sig"
+      },
+      {
+       "v": 9.435,
+       "fmt": "sig"
+      },
+      {
+       "v": 4.331,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "two BSpline stages",
+     "cells": [
+      {
+       "v": 0.8381,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.4395,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.2385,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.1292,
+       "fmt": "sig"
+      }
+     ]
+    }
+   ],
+   "note": "From the ants-registration-corrections record (larmorx in its default mode against `reproduce`, which the ants-registration record compares with ANTs bit for bit; for the B-spline chains, against ANTs 2.6.5 itself)."
+  }
+ ],
  "examples": [
   {
    "id": "template-syn",
@@ -7707,14 +10446,14 @@
       {
        "id": "brain",
        "label": "brain, 0.5–99.5 %",
-       "lo": -69.63018585205079,
-       "hi": 1036.151260986328
+       "lo": -66.8771726989746,
+       "hi": 1038.995004882812
       },
       {
        "id": "full",
        "label": "full range",
-       "lo": -208.7166290283203,
-       "hi": 1923.7921142578125
+       "lo": -255.85813903808594,
+       "hi": 1753.9127197265625
       },
       {
        "id": "own",
@@ -7732,14 +10471,14 @@
       {
        "id": "brain",
        "label": "brain, 0.5–99.5 %",
-       "lo": -2.120734269618988,
-       "hi": 2.387217309474945
+       "lo": -1.6384027802944183,
+       "hi": 1.396024239063262
       },
       {
        "id": "full",
        "label": "full range",
-       "lo": -2.800283193588257,
-       "hi": 3.2329468727111816
+       "lo": -1.9438860416412354,
+       "hi": 1.8113815784454346
       },
       {
        "id": "own",
@@ -7757,14 +10496,14 @@
       {
        "id": "brain",
        "label": "brain, 0.5–99.5 %",
-       "lo": -3.029993395805359,
-       "hi": 2.2807494616508475
+       "lo": -2.0883433294296263,
+       "hi": 1.7228258168697355
       },
       {
        "id": "full",
        "label": "full range",
-       "lo": -3.9967072010040283,
-       "hi": 2.9088194370269775
+       "lo": -2.8772690296173096,
+       "hi": 2.4001340866088867
       },
       {
        "id": "own",
@@ -7782,14 +10521,14 @@
       {
        "id": "brain",
        "label": "brain, 0.5–99.5 %",
-       "lo": -2.720051510334015,
-       "hi": 3.845595579147335
+       "lo": -2.4846083879470826,
+       "hi": 2.1231859755516047
       },
       {
        "id": "full",
        "label": "full range",
-       "lo": -4.205680847167969,
-       "hi": 5.897071361541748
+       "lo": -3.205625534057617,
+       "hi": 2.7867720127105713
       },
       {
        "id": "own",
@@ -10092,14 +12831,14 @@
       {
        "id": "brain",
        "label": "brain, 0.5–99.5 %",
-       "lo": -69.63018585205079,
-       "hi": 1036.151260986328
+       "lo": -66.8771726989746,
+       "hi": 1038.995004882812
       },
       {
        "id": "full",
        "label": "full range",
-       "lo": -208.7166290283203,
-       "hi": 1923.7921142578125
+       "lo": -255.85813903808594,
+       "hi": 1753.9127197265625
       },
       {
        "id": "own",
@@ -10117,14 +12856,14 @@
       {
        "id": "brain",
        "label": "brain, 0.5–99.5 %",
-       "lo": -2.120734269618988,
-       "hi": 2.387217309474945
+       "lo": -1.6384027802944183,
+       "hi": 1.396024239063262
       },
       {
        "id": "full",
        "label": "full range",
-       "lo": -2.800283193588257,
-       "hi": 3.2329468727111816
+       "lo": -1.9438860416412354,
+       "hi": 1.8113815784454346
       },
       {
        "id": "own",
@@ -10142,14 +12881,14 @@
       {
        "id": "brain",
        "label": "brain, 0.5–99.5 %",
-       "lo": -3.029993395805359,
-       "hi": 2.2807494616508475
+       "lo": -2.0883433294296263,
+       "hi": 1.7228258168697355
       },
       {
        "id": "full",
        "label": "full range",
-       "lo": -3.9967072010040283,
-       "hi": 2.9088194370269775
+       "lo": -2.8772690296173096,
+       "hi": 2.4001340866088867
       },
       {
        "id": "own",
@@ -10167,14 +12906,14 @@
       {
        "id": "brain",
        "label": "brain, 0.5–99.5 %",
-       "lo": -2.720051510334015,
-       "hi": 3.845595579147335
+       "lo": -2.4846083879470826,
+       "hi": 2.1231859755516047
       },
       {
        "id": "full",
        "label": "full range",
-       "lo": -4.205680847167969,
-       "hi": 5.897071361541748
+       "lo": -3.205625534057617,
+       "hi": 2.7867720127105713
       },
       {
        "id": "own",
@@ -12357,6 +15096,2391 @@
     "Inputs: fixed (sha256 b06d202af1954dbf…); moving (sha256 d358573fa558039d…)",
     "Runs: figures cache entry `ants-registration/fmriprep-ds000005-template-bsplinesyn-small`, computed 2026-10-21T15:31:20+00:00 with larmorx `1dfe56c0dc60`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Stage under test: BSplineSyN[0.1,26,0,3]"
+   ]
+  },
+  {
+   "id": "template-tvf",
+   "title": "The same registration with a time-varying velocity field",
+   "summary": "The command above with its SyN stage replaced by TimeVaryingVelocityField[0.5,4,3,0,0,0] (the record's real-time-varying-small case): a velocity field over space and four time points, its displacement the flow from time 0 to 1 integrated by fourth-order Runge–Kutta, the update smoothed in space with SyN's variance of 3 voxels².",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01's T1w as fMRIPrep preprocessed it (PDDL-1.0), × its brain mask; the template, MNI ICBM 152 nonlinear asymmetric 2009c, © McConnell Brain Imaging Centre, Montreal Neurological Institute ([notice](/static/hero/LICENSE-MNI.txt))"
+    },
+    {
+     "label": "Stages",
+     "text": "Rigid and Affine as fMRIPrep's, then TimeVaryingVelocityField[0.5,4,3,0,0,0] in place of SyN[0.1,3,0], with SyN's levels, iterations and CC metric"
+    },
+    {
+     "label": "Inputs",
+     "text": "as the record's case runs it: the masked template and T1w nipype did not keep (`fixed_masked`, `moving_masked`) remade from the run's outputs, the initial transform it did not keep (`transform.mat`) replaced by `[fixed,moving,1]` (centres of mass), every image on every third voxel"
+    },
+    {
+     "label": "Command",
+     "text": "`antsRegistration --collapse-output-transforms 1 --dimensionality 3 --float 1 --initial-moving-transform [transform.mat,0] --initialize-transforms-per-stage 0 --interpolation LanczosWindowedSinc --output [ants_t1_to_mni,ants_t1_to_mni_Warped.nii.gz] --transform Rigid[0.05] --metric Mattes[fixed_masked.nii.gz,moving_masked.nii.gz,1,56,Regular,0.25] --convergence [100x100,1e-06,20] --smoothing-sigmas 2.0x1.0vox --shrink-factors 2x1 --use-histogram-matching 1 --transform Affine[0.08] --metric Mattes[fixed_masked.nii.gz,moving_masked.nii.gz,1,56,Regular,0.25] --convergence [100x100,1e-06,20] --smoothing-sigmas 1.0x0.0vox --shrink-factors 2x1 --use-histogram-matching 1 --transform TimeVaryingVelocityField[0.5,4,3,0,0,0] --metric CC[fixed_masked.nii.gz,moving_masked.nii.gz,1,4,None,1] --convergence [100x70x50x20,1e-06,10] --smoothing-sigmas 3.0x2.0x1.0x0.0vox --shrink-factors 8x4x2x1 --use-histogram-matching 1 --winsorize-image-intensities [0.005,0.995] --write-composite-transform 1`"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0, `ANTS_RANDOM_SEED=42`; larmorx at commit `a9401a69f759`"
+    },
+    {
+     "label": "Output",
+     "text": "standard output (every iteration's DIAGNOSTIC line, normalised as the record does): 988 lines; identical to ANTs with CORE-MATH's, 511 differ from ANTs as built"
+    },
+    {
+     "label": "Grid",
+     "text": "65 × 77 × 65 voxels of 3 × 3 × 3 mm; shown: 55 × 67 × 57 around the brain"
+    }
+   ],
+   "grid": {
+    "shape": [
+     55,
+     67,
+     57
+    ],
+    "spacing": [
+     3.0,
+     3.0,
+     3.0
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      5
+     ],
+     [
+      0,
+      1,
+      0,
+      5
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      3.0,
+      0.0,
+      0.0,
+      -81.0
+     ],
+     [
+      0.0,
+      3.0,
+      0.0,
+      -117.0
+     ],
+     [
+      0.0,
+      0.0,
+      3.0,
+      -78.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     65,
+     77,
+     65
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "25593357b0c2463888ca4c39.bin",
+    "dtype": "u1",
+    "bytes": 3637
+   },
+   "outputs": [
+    {
+     "id": "warped",
+     "label": "Warped T1w",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -66.8771726989746,
+       "hi": 1038.995004882812
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -255.85813903808594,
+       "hi": 1753.9127197265625
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "dx",
+     "label": "Field x (LPS)",
+     "unit": "mm",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -1.6384027802944183,
+       "hi": 1.396024239063262
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -1.9438860416412354,
+       "hi": 1.8113815784454346
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "dy",
+     "label": "Field y (LPS)",
+     "unit": "mm",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -2.0883433294296263,
+       "hi": 1.7228258168697355
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -2.8772690296173096,
+       "hi": 2.4001340866088867
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "dz",
+     "label": "Field z (LPS)",
+     "unit": "mm",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -2.4846083879470826,
+       "hi": 2.1231859755516047
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -3.205625534057617,
+       "hi": 2.7867720127105713
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "template",
+     "role": "input",
+     "label": "MNI152NLin2009cAsym (fixed)",
+     "sub": "the 1 mm template × its brain mask, every third voxel",
+     "arrays": {
+      "all": {
+       "blob": "0500f9d9f40ecc78099a43bd.bin",
+       "dtype": "f4",
+       "bytes": 226237
+      }
+     },
+     "window": [
+      0.0,
+      9300.288261718748
+     ]
+    },
+    {
+     "id": "moving",
+     "role": "input",
+     "label": "ds000005 sub-01 T1w (moving), unregistered",
+     "sub": "fMRIPrep's T1w × brain mask, on this grid without any transform (ANTs, linear)",
+     "arrays": {
+      "all": {
+       "blob": "2d7442ecf36717bc5342b5c8.bin",
+       "dtype": "f4",
+       "bytes": 172387
+      }
+     },
+     "window": [
+      0.0,
+      985.0655737304687
+     ]
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "larmorx (port), 1 thread",
+     "sub": "reproduce mode",
+     "arrays": {
+      "warped": {
+       "blob": "6a5e4a30346c966476d881cc.bin",
+       "dtype": "f4",
+       "bytes": 272396
+      },
+      "dx": {
+       "blob": "59ea4c3f4ace05efc38b5d41.bin",
+       "dtype": "f4",
+       "bytes": 274935
+      },
+      "dy": {
+       "blob": "53442bac332682f3ca7a32c3.bin",
+       "dtype": "f4",
+       "bytes": 272775
+      },
+      "dz": {
+       "blob": "916931711abbf74c020849df.bin",
+       "dtype": "f4",
+       "bytes": 273023
+      }
+     },
+     "own": {
+      "warped": [
+       -66.8771726989746,
+       1038.995004882812
+      ],
+      "dx": [
+       -1.6384027802944183,
+       1.396024239063262
+      ],
+      "dy": [
+       -2.0883433294296263,
+       1.7228258168697355
+      ],
+      "dz": [
+       -2.4846083879470826,
+       2.1231859755516047
+      ]
+     }
+    },
+    {
+     "id": "larmorx-12",
+     "role": "larmorx",
+     "label": "larmorx (port), 12 threads",
+     "sub": "reproduce",
+     "arrays": {
+      "warped": {
+       "same": "larmorx:warped",
+       "dtype": "f4"
+      },
+      "dx": {
+       "same": "larmorx:dx",
+       "dtype": "f4"
+      },
+      "dy": {
+       "same": "larmorx:dy",
+       "dtype": "f4"
+      },
+      "dz": {
+       "same": "larmorx:dz",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "warped": [
+       -66.8771726989746,
+       1038.995004882812
+      ],
+      "dx": [
+       -1.6384027802944183,
+       1.396024239063262
+      ],
+      "dy": [
+       -2.0883433294296263,
+       1.7228258168697355
+      ],
+      "dz": [
+       -2.4846083879470826,
+       2.1231859755516047
+      ]
+     }
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "larmorx (port), 1 thread",
+     "sub": "default mode",
+     "arrays": {
+      "warped": {
+       "same": "larmorx:warped",
+       "dtype": "f4"
+      },
+      "dx": {
+       "same": "larmorx:dx",
+       "dtype": "f4"
+      },
+      "dy": {
+       "same": "larmorx:dy",
+       "dtype": "f4"
+      },
+      "dz": {
+       "same": "larmorx:dz",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "warped": [
+       -66.8771726989746,
+       1038.995004882812
+      ],
+      "dx": [
+       -1.6384027802944183,
+       1.396024239063262
+      ],
+      "dy": [
+       -2.0883433294296263,
+       1.7228258168697355
+      ],
+      "dz": [
+       -2.4846083879470826,
+       2.1231859755516047
+      ]
+     }
+    },
+    {
+     "id": "larmorx-12-fix",
+     "role": "larmorx",
+     "label": "larmorx (port), 12 threads",
+     "sub": "default mode",
+     "arrays": {
+      "warped": {
+       "same": "larmorx:warped",
+       "dtype": "f4"
+      },
+      "dx": {
+       "same": "larmorx:dx",
+       "dtype": "f4"
+      },
+      "dy": {
+       "same": "larmorx:dy",
+       "dtype": "f4"
+      },
+      "dz": {
+       "same": "larmorx:dz",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "warped": [
+       -66.8771726989746,
+       1038.995004882812
+      ],
+      "dx": [
+       -1.6384027802944183,
+       1.396024239063262
+      ],
+      "dy": [
+       -2.0883433294296263,
+       1.7228258168697355
+      ],
+      "dz": [
+       -2.4846083879470826,
+       2.1231859755516047
+      ]
+     }
+    },
+    {
+     "id": "ants-1-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, 1 thread, correctly rounded maths",
+     "sub": "the same binary, CORE-MATH preloaded",
+     "arrays": {
+      "warped": {
+       "same": "larmorx:warped",
+       "dtype": "f4"
+      },
+      "dx": {
+       "same": "larmorx:dx",
+       "dtype": "f4"
+      },
+      "dy": {
+       "same": "larmorx:dy",
+       "dtype": "f4"
+      },
+      "dz": {
+       "same": "larmorx:dz",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "warped": [
+       -66.8771726989746,
+       1038.995004882812
+      ],
+      "dx": [
+       -1.6384027802944183,
+       1.396024239063262
+      ],
+      "dy": [
+       -2.0883433294296263,
+       1.7228258168697355
+      ],
+      "dz": [
+       -2.4846083879470826,
+       2.1231859755516047
+      ]
+     }
+    },
+    {
+     "id": "ants-1",
+     "role": "original",
+     "label": "ANTs 2.6.5, 1 thread, as built",
+     "sub": "the repository's oracle build (GCC 14.3), glibc's maths",
+     "arrays": {
+      "warped": {
+       "blob": "7a875655d7fd06424aafc44a.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:warped",
+       "zero": false,
+       "bytes": 217674
+      },
+      "dx": {
+       "blob": "9f4d6548b4b0e2f5c4cfbba0.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:dx",
+       "zero": false,
+       "bytes": 265117
+      },
+      "dy": {
+       "blob": "930e3ac552c04c9157b58257.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:dy",
+       "zero": false,
+       "bytes": 257869
+      },
+      "dz": {
+       "blob": "19804d2ef834efa127de5989.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:dz",
+       "zero": false,
+       "bytes": 260521
+      }
+     },
+     "own": {
+      "warped": [
+       -67.23465621948242,
+       1038.3708935546874
+      ],
+      "dx": [
+       -1.6323156952857971,
+       1.4238022923469522
+      ],
+      "dy": [
+       -1.9955591654777527,
+       1.7385937988758087
+      ],
+      "dz": [
+       -2.44754816532135,
+       2.0073338794708233
+      ]
+     }
+    },
+    {
+     "id": "ants-8",
+     "role": "original",
+     "label": "ANTs 2.6.5, 8 threads",
+     "sub": "as built (fMRIPrep ran 8)",
+     "arrays": {
+      "warped": {
+       "blob": "33f14095104e910c204df7d5.bin",
+       "dtype": "f4",
+       "xor": "ants-1:warped",
+       "zero": false,
+       "bytes": 229487
+      },
+      "dx": {
+       "blob": "f1fe3bc5306e6f6fac75a566.bin",
+       "dtype": "f4",
+       "xor": "ants-1:dx",
+       "zero": false,
+       "bytes": 274213
+      },
+      "dy": {
+       "blob": "cc23820bb39cc765d31964ee.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:dy",
+       "zero": false,
+       "bytes": 269359
+      },
+      "dz": {
+       "blob": "41acbebfb66371aa103d0411.bin",
+       "dtype": "f4",
+       "xor": "ants-1:dz",
+       "zero": false,
+       "bytes": 265528
+      }
+     },
+     "own": {
+      "warped": [
+       -67.29125694274903,
+       1037.6643286132805
+      ],
+      "dx": [
+       -1.855471704006195,
+       1.376616541147232
+      ],
+      "dy": [
+       -2.2637151741981505,
+       1.542890866994857
+      ],
+      "dz": [
+       -2.4953906750679016,
+       2.0208904576301543
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants1",
+     "a": "larmorx",
+     "b": "ants-1",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "warped": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 129657,
+       "share": 0.39854606931530007,
+       "max_abs": 52.57379150390625,
+       "at": [
+        36,
+        46,
+        52
+       ],
+       "a_at": 545.5242309570312,
+       "b_at": 492.950439453125,
+       "rms": 2.6021933516564446,
+       "range": 2009.5806884765625,
+       "max_rel_range": 0.02616157281236703,
+       "one_minus_ncc": 3.668158242430361e-05,
+       "at_display": [
+        31,
+        41,
+        52
+       ]
+      },
+      "dx": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 276905,
+       "share": 0.8511642203949896,
+       "max_abs": 0.16799716651439667,
+       "at": [
+        50,
+        36,
+        45
+       ],
+       "a_at": 0.21469567716121674,
+       "b_at": 0.3826928436756134,
+       "rms": 0.03865666417919876,
+       "range": 3.9006067514419556,
+       "max_rel_range": 0.043069495906577195,
+       "one_minus_ncc": 0.004964055773113753,
+       "at_display": [
+        45,
+        31,
+        45
+       ]
+      },
+      "dy": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 276661,
+       "share": 0.8504142011834319,
+       "max_abs": 0.20335762202739716,
+       "at": [
+        29,
+        13,
+        22
+       ],
+       "a_at": -0.25820255279541016,
+       "b_at": -0.054844930768013,
+       "rms": 0.032891117090922115,
+       "range": 5.1565845012664795,
+       "max_rel_range": 0.03943649560623929,
+       "one_minus_ncc": 0.002029405697278967,
+       "at_display": [
+        24,
+        8,
+        22
+       ]
+      },
+      "dz": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 276611,
+       "share": 0.8502605087220472,
+       "max_abs": 0.26543939113616943,
+       "at": [
+        30,
+        33,
+        51
+       ],
+       "a_at": 1.5287024974822998,
+       "b_at": 1.2632631063461304,
+       "rms": 0.05458328433200682,
+       "range": 5.883314609527588,
+       "max_rel_range": 0.04511732055027454,
+       "one_minus_ncc": 0.003281031164156458,
+       "at_display": [
+        25,
+        28,
+        51
+       ]
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 52.3966064453125,
+       "at": [
+        19,
+        39,
+        51
+       ],
+       "a": 550.0826416015625,
+       "b": 602.479248046875,
+       "differ": 78137
+      },
+      "dx": {
+       "max_abs": 0.16799716651439667,
+       "at": [
+        45,
+        31,
+        45
+       ],
+       "a": 0.21469567716121674,
+       "b": 0.3826928436756134,
+       "differ": 78139
+      },
+      "dy": {
+       "max_abs": 0.20335762202739716,
+       "at": [
+        24,
+        8,
+        22
+       ],
+       "a": -0.25820255279541016,
+       "b": -0.054844930768013,
+       "differ": 78139
+      },
+      "dz": {
+       "max_abs": 0.26543939113616943,
+       "at": [
+        25,
+        28,
+        51
+       ],
+       "a": 1.5287024974822998,
+       "b": 1.2632631063461304,
+       "differ": 78139
+      }
+     },
+     "verdict": "identical-cr",
+     "reason": "Only where glibc's exp, log, sin or cos is not correctly rounded: with CORE-MATH preloaded, the same ANTs binary gives larmorx's output bit for bit (next row). The change then grows through the optimiser's iterations, as ANTs' own threads do.",
+     "links": [
+      {
+       "label": "platform maths",
+       "href": "docs/findings/platform-math.md"
+      }
+     ]
+    },
+    {
+     "id": "lx-cr",
+     "a": "larmorx",
+     "b": "ants-1-cr",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, 1 thread, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 325325,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2009.7708587646484,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "dx": {
+       "identical": true,
+       "voxels": 325325,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.75526762008667,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "dy": {
+       "identical": true,
+       "voxels": 325325,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 5.325481653213501,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "dz": {
+       "identical": true,
+       "voxels": 325325,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 5.995049238204956,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "dx": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "dy": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "dz": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "With correctly rounded maths, ANTs computes exactly what larmorx computes: the warped image and every value of the displacement field.",
+     "links": []
+    },
+    {
+     "id": "lx12-lx1",
+     "a": "larmorx-12",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, 12 threads − 1 thread",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 325325,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2009.7708587646484,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "dx": {
+       "identical": true,
+       "voxels": 325325,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.75526762008667,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "dy": {
+       "identical": true,
+       "voxels": 325325,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 5.325481653213501,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "dz": {
+       "identical": true,
+       "voxels": 325325,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 5.995049238204956,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "dx": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "dy": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "dz": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "larmorx gives ANTs' single-thread result on any number of threads.",
+     "links": []
+    },
+    {
+     "id": "lx-fix",
+     "a": "larmorx-fix",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 325325,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2009.7708587646484,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "dx": {
+       "identical": true,
+       "voxels": 325325,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.75526762008667,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "dy": {
+       "identical": true,
+       "voxels": 325325,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 5.325481653213501,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "dz": {
+       "identical": true,
+       "voxels": 325325,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 5.995049238204956,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "dx": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "dy": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "dz": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "No correction of the register applies to this command: both modes give the same bytes.",
+     "links": []
+    },
+    {
+     "id": "lx12-fix",
+     "a": "larmorx-12-fix",
+     "b": "larmorx-fix",
+     "kind": "check",
+     "label": "larmorx default mode, 12 threads − 1 thread",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 325325,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2009.7708587646484,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "dx": {
+       "identical": true,
+       "voxels": 325325,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 3.75526762008667,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "dy": {
+       "identical": true,
+       "voxels": 325325,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 5.325481653213501,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "dz": {
+       "identical": true,
+       "voxels": 325325,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 5.995049238204956,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "dx": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "dy": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "dz": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "The same bytes on any number of threads.",
+     "links": []
+    },
+    {
+     "id": "ants2-ants1",
+     "a": "ants-2",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 2 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "warped": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 130625,
+       "share": 0.4015215553677092,
+       "max_abs": 254.39215087890625,
+       "at": [
+        28,
+        31,
+        54
+       ],
+       "a_at": 632.7435302734375,
+       "b_at": 378.35137939453125,
+       "rms": 11.056651659391777,
+       "range": 2009.5806884765625,
+       "max_rel_range": 0.1265896673558093,
+       "one_minus_ncc": 0.0006619834704802457
+      },
+      "dx": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 276946,
+       "share": 0.8512902482133251,
+       "max_abs": 0.23415115475654602,
+       "at": [
+        48,
+        21,
+        11
+       ],
+       "a_at": -0.5182325839996338,
+       "b_at": -0.28408142924308777,
+       "rms": 0.05157365941821789,
+       "range": 3.9006067514419556,
+       "max_rel_range": 0.06002941841547761,
+       "one_minus_ncc": 0.010011105921840775
+      },
+      "dy": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 276722,
+       "share": 0.8506017059863213,
+       "max_abs": 0.40285730361938477,
+       "at": [
+        27,
+        17,
+        11
+       ],
+       "a_at": 0.9426158666610718,
+       "b_at": 0.539758563041687,
+       "rms": 0.0841813714879152,
+       "range": 5.1565845012664795,
+       "max_rel_range": 0.07812483311782077,
+       "one_minus_ncc": 0.01468939677407875
+      },
+      "dz": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 276731,
+       "share": 0.8506293706293706,
+       "max_abs": 0.5344201326370239,
+       "at": [
+        28,
+        44,
+        51
+       ],
+       "a_at": 2.3439831733703613,
+       "b_at": 1.8095630407333374,
+       "rms": 0.12543411615023586,
+       "range": 5.883314609527588,
+       "max_rel_range": 0.09083657225666132,
+       "one_minus_ncc": 0.01779000238115406
+      }
+     },
+     "verdict": null,
+     "reason": "ANTs' result moves with its thread count: its metrics sum per-thread partial results in an order that depends on the threads.",
+     "links": []
+    },
+    {
+     "id": "ants4-ants1",
+     "a": "ants-4",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 4 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "warped": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 129997,
+       "share": 0.3995911780527165,
+       "max_abs": 282.8359375,
+       "at": [
+        28,
+        31,
+        54
+       ],
+       "a_at": 661.1873168945312,
+       "b_at": 378.35137939453125,
+       "rms": 11.69509363402578,
+       "range": 2009.5806884765625,
+       "max_rel_range": 0.1407437577012219,
+       "one_minus_ncc": 0.0007412076433179482
+      },
+      "dx": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 276822,
+       "share": 0.850909090909091,
+       "max_abs": 0.7198880314826965,
+       "at": [
+        12,
+        23,
+        35
+       ],
+       "a_at": -1.3509901762008667,
+       "b_at": -0.6311021447181702,
+       "rms": 0.14503552142905793,
+       "range": 3.9006067514419556,
+       "max_rel_range": 0.18455796171110359,
+       "one_minus_ncc": 0.06369679000558287
+      },
+      "dy": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 276692,
+       "share": 0.8505094905094905,
+       "max_abs": 0.5510696172714233,
+       "at": [
+        19,
+        16,
+        40
+       ],
+       "a_at": 1.1275370121002197,
+       "b_at": 1.678606629371643,
+       "rms": 0.1126617036393309,
+       "range": 5.1565845012664795,
+       "max_rel_range": 0.10686717480069963,
+       "one_minus_ncc": 0.027669328341564076
+      },
+      "dz": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 276626,
+       "share": 0.8503066164604626,
+       "max_abs": 0.4560067653656006,
+       "at": [
+        21,
+        21,
+        46
+       ],
+       "a_at": 1.2181929349899292,
+       "b_at": 1.6741997003555298,
+       "rms": 0.07840520446504082,
+       "range": 5.883314609527588,
+       "max_rel_range": 0.07750847874549012,
+       "one_minus_ncc": 0.00869783107072764
+      }
+     },
+     "verdict": null,
+     "reason": "ANTs' result moves with its thread count: its metrics sum per-thread partial results in an order that depends on the threads.",
+     "links": []
+    },
+    {
+     "id": "ants8-ants1",
+     "a": "ants-8",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 8 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "warped": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 129599,
+       "share": 0.39836778606009376,
+       "max_abs": 112.40606689453125,
+       "at": [
+        50,
+        37,
+        47
+       ],
+       "a_at": 798.3873901367188,
+       "b_at": 910.79345703125,
+       "rms": 5.357981648452774,
+       "range": 2009.5806884765625,
+       "max_rel_range": 0.05593508513447393,
+       "one_minus_ncc": 0.00015556676016421334,
+       "at_display": [
+        45,
+        32,
+        47
+       ]
+      },
+      "dx": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 276789,
+       "share": 0.8508076538845769,
+       "max_abs": 0.334508940577507,
+       "at": [
+        10,
+        36,
+        29
+       ],
+       "a_at": 0.06800864636898041,
+       "b_at": 0.4025175869464874,
+       "rms": 0.08156641430099701,
+       "range": 3.9006067514419556,
+       "max_rel_range": 0.08575818119933458,
+       "one_minus_ncc": 0.01810181419647541,
+       "at_display": [
+        5,
+        31,
+        29
+       ]
+      },
+      "dy": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 276653,
+       "share": 0.8503896103896104,
+       "max_abs": 0.49397575855255127,
+       "at": [
+        35,
+        14,
+        28
+       ],
+       "a_at": -1.863434076309204,
+       "b_at": -1.3694583177566528,
+       "rms": 0.09369035613990379,
+       "range": 5.1565845012664795,
+       "max_rel_range": 0.09579514471860757,
+       "one_minus_ncc": 0.01662123294878321,
+       "at_display": [
+        30,
+        9,
+        28
+       ]
+      },
+      "dz": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 276598,
+       "share": 0.8502205486820872,
+       "max_abs": 0.3194233626127243,
+       "at": [
+        40,
+        39,
+        51
+       ],
+       "a_at": -0.21444781124591827,
+       "b_at": -0.5338711738586426,
+       "rms": 0.05578168295860764,
+       "range": 5.883314609527588,
+       "max_rel_range": 0.05429309561236825,
+       "one_minus_ncc": 0.004298147658718989,
+       "at_display": [
+        35,
+        34,
+        51
+       ]
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 112.40606689453125,
+       "at": [
+        45,
+        32,
+        47
+       ],
+       "a": 798.3873901367188,
+       "b": 910.79345703125,
+       "differ": 78138
+      },
+      "dx": {
+       "max_abs": 0.334508940577507,
+       "at": [
+        5,
+        31,
+        29
+       ],
+       "a": 0.06800864636898041,
+       "b": 0.4025175869464874,
+       "differ": 78139
+      },
+      "dy": {
+       "max_abs": 0.49397575855255127,
+       "at": [
+        30,
+        9,
+        28
+       ],
+       "a": -1.863434076309204,
+       "b": -1.3694583177566528,
+       "differ": 78139
+      },
+      "dz": {
+       "max_abs": 0.3194233626127243,
+       "at": [
+        35,
+        34,
+        51
+       ],
+       "a": -0.21444781124591827,
+       "b": -0.5338711738586426,
+       "differ": 78139
+      }
+     },
+     "verdict": null,
+     "reason": "ANTs' result moves with its thread count: its metrics sum per-thread partial results in an order that depends on the threads.",
+     "links": []
+    },
+    {
+     "id": "cr-ants1",
+     "a": "ants-1-cr",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5 with correctly rounded maths − as built, 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "warped": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 129657,
+       "share": 0.39854606931530007,
+       "max_abs": 52.57379150390625,
+       "at": [
+        36,
+        46,
+        52
+       ],
+       "a_at": 545.5242309570312,
+       "b_at": 492.950439453125,
+       "rms": 2.6021933516564446,
+       "range": 2009.5806884765625,
+       "max_rel_range": 0.02616157281236703,
+       "one_minus_ncc": 3.668158242430361e-05,
+       "at_display": [
+        31,
+        41,
+        52
+       ]
+      },
+      "dx": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 276905,
+       "share": 0.8511642203949896,
+       "max_abs": 0.16799716651439667,
+       "at": [
+        50,
+        36,
+        45
+       ],
+       "a_at": 0.21469567716121674,
+       "b_at": 0.3826928436756134,
+       "rms": 0.03865666417919876,
+       "range": 3.9006067514419556,
+       "max_rel_range": 0.043069495906577195,
+       "one_minus_ncc": 0.004964055773113753,
+       "at_display": [
+        45,
+        31,
+        45
+       ]
+      },
+      "dy": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 276661,
+       "share": 0.8504142011834319,
+       "max_abs": 0.20335762202739716,
+       "at": [
+        29,
+        13,
+        22
+       ],
+       "a_at": -0.25820255279541016,
+       "b_at": -0.054844930768013,
+       "rms": 0.032891117090922115,
+       "range": 5.1565845012664795,
+       "max_rel_range": 0.03943649560623929,
+       "one_minus_ncc": 0.002029405697278967,
+       "at_display": [
+        24,
+        8,
+        22
+       ]
+      },
+      "dz": {
+       "identical": false,
+       "voxels": 325325,
+       "differ": 276611,
+       "share": 0.8502605087220472,
+       "max_abs": 0.26543939113616943,
+       "at": [
+        30,
+        33,
+        51
+       ],
+       "a_at": 1.5287024974822998,
+       "b_at": 1.2632631063461304,
+       "rms": 0.05458328433200682,
+       "range": 5.883314609527588,
+       "max_rel_range": 0.04511732055027454,
+       "one_minus_ncc": 0.003281031164156458,
+       "at_display": [
+        25,
+        28,
+        51
+       ]
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 52.3966064453125,
+       "at": [
+        19,
+        39,
+        51
+       ],
+       "a": 550.0826416015625,
+       "b": 602.479248046875,
+       "differ": 78137
+      },
+      "dx": {
+       "max_abs": 0.16799716651439667,
+       "at": [
+        45,
+        31,
+        45
+       ],
+       "a": 0.21469567716121674,
+       "b": 0.3826928436756134,
+       "differ": 78139
+      },
+      "dy": {
+       "max_abs": 0.20335762202739716,
+       "at": [
+        24,
+        8,
+        22
+       ],
+       "a": -0.25820255279541016,
+       "b": -0.054844930768013,
+       "differ": 78139
+      },
+      "dz": {
+       "max_abs": 0.26543939113616943,
+       "at": [
+        25,
+        28,
+        51
+       ],
+       "a": 1.5287024974822998,
+       "b": 1.2632631063461304,
+       "differ": 78139
+      }
+     },
+     "verdict": null,
+     "reason": "The same ANTs binary, its glibc functions replaced by correctly rounded ones.",
+     "links": [
+      {
+       "label": "platform maths",
+       "href": "docs/findings/platform-math.md"
+      }
+     ]
+    }
+   ],
+   "default": {
+    "output": "warped",
+    "plane": "axial",
+    "voxel": [
+     35,
+     60,
+     27
+    ],
+    "panels": [
+     "template",
+     "moving",
+     "ants-1",
+     "larmorx"
+    ],
+    "diffs": [
+     "lx-ants1",
+     "ants8-ants1",
+     "lx-cr"
+    ],
+    "compare": {
+     "a": "template",
+     "b": "larmorx"
+    },
+    "scale": "log"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 27,
+    "aspect": 0.8209,
+    "panels": {
+     "template": "ce18b6cc6d856b1b041a3da3.webp",
+     "moving": "de0b1ffbf3f9211dce6e65cf.webp",
+     "ants-1": "e73d027aabdb41e97f320516.webp",
+     "larmorx": "91fa610ed3b2127f68dbe99e.webp"
+    },
+    "diffs": {
+     "lx-ants1": "e17532ba4170eef6949171f2.webp",
+     "ants8-ants1": "f28a2ff3da4f00c3286bc054.webp"
+    },
+    "ranges": {
+     "lx-ants1": 112.40606689453125,
+     "ants8-ants1": 112.40606689453125
+    },
+    "caption": "Axial slice 28 of 57; the crosshair where larmorx and ANTs as built differ most in it; the warped T1w in the brain's 0.5–99.5 % window; the differences on one symmetric log scale over six decades below the largest, any non-zero difference tinted."
+   },
+   "chain": {
+    "title": "What separates ANTs' result at fMRIPrep's 8 threads from larmorx's",
+    "steps": [
+     {
+      "nodes": [
+       {
+        "label": "ANTs 2.6.5, 8 threads",
+        "sub": "as built (fMRIPrep ran 8)",
+        "role": "original"
+       }
+      ]
+     },
+     {
+      "nodes": [
+       {
+        "label": "ANTs 2.6.5, 1 thread, as built",
+        "sub": "the repository's oracle build (GCC 14.3), glibc's maths",
+        "role": "original"
+       }
+      ]
+     },
+     {
+      "nodes": [
+       {
+        "label": "ANTs 2.6.5, 1 thread, correctly rounded maths",
+        "sub": "the same binary, CORE-MATH preloaded",
+        "role": "reference"
+       },
+       {
+        "label": "larmorx (port)",
+        "sub": "1 and 12 threads, default and reproduce",
+        "role": "larmorx"
+       }
+      ]
+     }
+    ],
+    "links": [
+     {
+      "cause": "1 thread instead of 8",
+      "max_abs": 112.40606689453125
+     },
+     {
+      "cause": "correctly rounded maths instead of glibc's",
+      "max_abs": 52.57379150390625
+     }
+    ],
+    "note": "Each box holds runs that give the same bytes, every output (the warped T1w and the three components of the displacement field); the largest |Δ| of a link is over all four. ANTs' thread count and glibc's maths are the only two causes, and larmorx computes ANTs' one-thread result with correctly rounded maths, on any number of threads."
+   },
+   "tables": [
+    {
+     "id": "tvf-linear",
+     "title": "The linear stages' result: the affine of the composite transform (Rigid then Affine, collapsed; AffineTransform_float_3_3)",
+     "columns": [
+      {
+       "label": "Parameter"
+      },
+      {
+       "label": "ANTs, 1 thread, as built",
+       "num": true
+      },
+      {
+       "label": "ANTs, 1 thread, CORE-MATH",
+       "num": true
+      },
+      {
+       "label": "larmorx",
+       "num": true
+      },
+      {
+       "label": "larmorx − ANTs as built",
+       "num": true
+      },
+      {
+       "label": "larmorx − ANTs with CORE-MATH",
+       "num": true
+      },
+      {
+       "label": "ANTs 8 threads − 1 thread",
+       "num": true
+      }
+     ],
+     "rows": [
+      {
+       "head": "matrix 1,1",
+       "cells": [
+        {
+         "v": 0.9440593719482422,
+         "fmt": "f32"
+        },
+        {
+         "v": 0.9426622986793518,
+         "fmt": "f32"
+        },
+        {
+         "v": 0.9426622986793518,
+         "fmt": "f32"
+        },
+        {
+         "v": -0.0013970732688903809,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.002498149871826172,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "matrix 1,2",
+       "cells": [
+        {
+         "v": 0.0009248753194697201,
+         "fmt": "f32"
+        },
+        {
+         "v": -0.00027851550839841366,
+         "fmt": "f32"
+        },
+        {
+         "v": -0.00027851550839841366,
+         "fmt": "f32"
+        },
+        {
+         "v": -0.0012033908278681338,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0009866745094768703,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "matrix 1,3",
+       "cells": [
+        {
+         "v": 0.0035838321782648563,
+         "fmt": "f32"
+        },
+        {
+         "v": 0.004230437334626913,
+         "fmt": "f32"
+        },
+        {
+         "v": 0.004230437334626913,
+         "fmt": "f32"
+        },
+        {
+         "v": 0.0006466051563620567,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": -0.000942193204537034,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "matrix 2,1",
+       "cells": [
+        {
+         "v": 0.007971351966261864,
+         "fmt": "f32"
+        },
+        {
+         "v": 0.008520667441189289,
+         "fmt": "f32"
+        },
+        {
+         "v": 0.008520667441189289,
+         "fmt": "f32"
+        },
+        {
+         "v": 0.0005493154749274254,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": -0.0013132039457559586,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "matrix 2,2",
+       "cells": [
+        {
+         "v": 0.821077287197113,
+         "fmt": "f32"
+        },
+        {
+         "v": 0.8222692608833313,
+         "fmt": "f32"
+        },
+        {
+         "v": 0.8222692608833313,
+         "fmt": "f32"
+        },
+        {
+         "v": 0.0011919736862182617,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0030502676963806152,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "matrix 2,3",
+       "cells": [
+        {
+         "v": 0.2969962954521179,
+         "fmt": "f32"
+        },
+        {
+         "v": 0.29518112540245056,
+         "fmt": "f32"
+        },
+        {
+         "v": 0.29518112540245056,
+         "fmt": "f32"
+        },
+        {
+         "v": -0.0018151700496673584,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0004863739013671875,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "matrix 3,1",
+       "cells": [
+        {
+         "v": -0.013978851027786732,
+         "fmt": "f32"
+        },
+        {
+         "v": -0.01470043882727623,
+         "fmt": "f32"
+        },
+        {
+         "v": -0.01470043882727623,
+         "fmt": "f32"
+        },
+        {
+         "v": -0.0007215877994894981,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0037699351087212563,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "matrix 3,2",
+       "cells": [
+        {
+         "v": -0.3289778232574463,
+         "fmt": "f32"
+        },
+        {
+         "v": -0.3297661244869232,
+         "fmt": "f32"
+        },
+        {
+         "v": -0.3297661244869232,
+         "fmt": "f32"
+        },
+        {
+         "v": -0.0007883012294769287,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": -0.0017302334308624268,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "matrix 3,3",
+       "cells": [
+        {
+         "v": 0.7597100138664246,
+         "fmt": "f32"
+        },
+        {
+         "v": 0.7578240036964417,
+         "fmt": "f32"
+        },
+        {
+         "v": 0.7578240036964417,
+         "fmt": "f32"
+        },
+        {
+         "v": -0.0018860101699829102,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": -0.002712845802307129,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "translation x",
+       "cells": [
+        {
+         "v": 1.92343008518219,
+         "fmt": "f32"
+        },
+        {
+         "v": 1.97031831741333,
+         "fmt": "f32"
+        },
+        {
+         "v": 1.97031831741333,
+         "fmt": "f32"
+        },
+        {
+         "v": 0.04688823223114014,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.13496530055999756,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "translation y",
+       "cells": [
+        {
+         "v": 11.570223808288574,
+         "fmt": "f32"
+        },
+        {
+         "v": 11.559066772460938,
+         "fmt": "f32"
+        },
+        {
+         "v": 11.559066772460938,
+         "fmt": "f32"
+        },
+        {
+         "v": -0.011157035827636719,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.10184288024902344,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "translation z",
+       "cells": [
+        {
+         "v": -17.417015075683594,
+         "fmt": "f32"
+        },
+        {
+         "v": -17.481945037841797,
+         "fmt": "f32"
+        },
+        {
+         "v": -17.481945037841797,
+         "fmt": "f32"
+        },
+        {
+         "v": -0.06492996215820312,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": -0.09661674499511719,
+         "fmt": "sig"
+        }
+       ]
+      }
+     ],
+     "note": "The parameters as the files store them (float32: antsRegistration ran with `--float 1`), printed with the digits that identify each value; the matrix row by row in ITK's physical space (LPS), the translation in mm. The centre of rotation is the same in every run (0.250445, 21.9911, 9.73538 mm)."
+    },
+    {
+     "id": "tvf-field",
+     "title": "The displacement fields: how far a voxel's displacement moves (the length of the difference vector, mm), over the template's brain",
+     "columns": [
+      {
+       "label": "Comparison"
+      },
+      {
+       "label": "largest (mm)",
+       "num": true
+      },
+      {
+       "label": "99th percentile (mm)",
+       "num": true
+      },
+      {
+       "label": "RMS (mm)",
+       "num": true
+      },
+      {
+       "label": "voxels that differ, of 69,880",
+       "num": true
+      }
+     ],
+     "rows": [
+      {
+       "head": "larmorx − ANTs as built, 1 thread",
+       "cells": [
+        {
+         "v": 0.2706564661444588,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.2500862514246615,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.12339098249701551,
+         "fmt": "sig"
+        },
+        {
+         "v": 69880,
+         "fmt": "count"
+        }
+       ]
+      },
+      {
+       "head": "larmorx − ANTs with CORE-MATH, 1 thread",
+       "cells": [
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0,
+         "fmt": "count"
+        }
+       ]
+      },
+      {
+       "head": "ANTs 2 threads − 1 thread",
+       "cells": [
+        {
+         "v": 0.6397812779801885,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.5577466411179659,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.25548597803660494,
+         "fmt": "sig"
+        },
+        {
+         "v": 69880,
+         "fmt": "count"
+        }
+       ]
+      },
+      {
+       "head": "ANTs 4 threads − 1 thread",
+       "cells": [
+        {
+         "v": 0.922374817099257,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.7881920868433618,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.32759126421115536,
+         "fmt": "sig"
+        },
+        {
+         "v": 69880,
+         "fmt": "count"
+        }
+       ]
+      },
+      {
+       "head": "ANTs 8 threads − 1 thread",
+       "cells": [
+        {
+         "v": 0.5005792361346003,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.4569918917110005,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.23471472597412116,
+         "fmt": "sig"
+        },
+        {
+         "v": 69880,
+         "fmt": "count"
+        }
+       ]
+      },
+      {
+       "head": "ANTs with CORE-MATH − as built, 1 thread",
+       "cells": [
+        {
+         "v": 0.2706564661444588,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.2500862514246615,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.12339098249701551,
+         "fmt": "sig"
+        },
+        {
+         "v": 69880,
+         "fmt": "count"
+        }
+       ]
+      }
+     ],
+     "note": "ANTs' own runs at 2, 4 and 8 threads are the yardstick: larmorx's difference from ANTs as built is the size of a change of ANTs' thread count, and nothing with correctly rounded maths."
+    }
+   ],
+   "metrics_note": "Δ is A − B. Every number is computed in float64 over all 325,325 voxels of the 65 × 77 × 65 outputs (the field: each component), not only the brain shown; the range is B's maximum minus its minimum. The rows *the original against itself* are ANTs' own variability on this input. The field's components are in mm, in ITK's physical space (LPS).",
+   "provenance": [
+    "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0; MNI ICBM 152 nonlinear asymmetric 2009c (Fonov et al., 2009, 2011), from TemplateFlow, the MNI ICBM 152 notice (static/hero/LICENSE-MNI.txt)",
+    "Inputs: fixed (sha256 b06d202af1954dbf…); moving (sha256 d358573fa558039d…)",
+    "Runs: figures cache entry `ants-registration/fmriprep-ds000005-template-tvf-small`, computed 2026-10-22T23:50:15+00:00 with larmorx `a9401a69f759`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Stage under test: TimeVaryingVelocityField[0.5,4,3,0,0,0]"
    ]
   }
  ]
