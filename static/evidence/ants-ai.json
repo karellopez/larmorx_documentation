@@ -3,19 +3,19 @@
  "tool": "ants-ai",
  "title": "antsAI, antsAffineInitializer",
  "provenance": {
-  "exporter": "146ec72dd34cb66c17f1ba7b866b1bc89c83ffd3",
+  "exporter": "6cb9d9ae73310c2f140789ea024a5af10add2b49",
   "records": [
    {
     "path": "docs/validation/ants-ai.json",
-    "sha256": "6cb98035e21cb1b80e7deb8b5f5adaad853e12801f0cb223191a228cd32f4ccb",
-    "generated": "2026-10-21",
-    "larmorx_commit": "1dfe56c0dc60"
+    "sha256": "39eab487ead6b41fa0c271e33c173a79c41260a2d1381754e4d4e6452105727a",
+    "generated": "2026-10-23",
+    "larmorx_commit": "708bb99389fe"
    },
    {
     "path": "docs/validation/ants-ai.md",
-    "sha256": "380cb87a2a8edcdcf84ea0124d6eab9c836015c91be1c41fa09934328427f3e2",
-    "generated": "2026-10-21",
-    "larmorx_commit": "1dfe56c0dc60"
+    "sha256": "5842c60d22af18a88a3b594a96e15ed5315cc5e44078b0bac3598cd97044e0a5",
+    "generated": "2026-10-23",
+    "larmorx_commit": "708bb99389fe"
    },
    {
     "path": "docs/validation/ants-affine-initializer.json",
@@ -798,6 +798,774 @@
      "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
     },
     "settings": "the moving image of fMRIPrep's init_aff times fMRIPrep's T1w brain mask (antsApplyTransforms, nearest neighbour, onto the moving grid), placed on the fixed grid by each transform of ants-ai/fmriprep-ds000005-init-aff (antsApplyTransforms, linear, one thread)"
+   },
+   {
+    "entry": "ants-ai/blobs-t1w",
+    "description": "antsAI -b on fMRIPrep's T1w of ds000005 sub-01 against a shifted and a rotated copy: ANTs 2.6.5 (1 thread, CORE-MATH, 2-6 threads), its steps from the blob probe, larmorx in both modes",
+    "computed": "2026-10-23T10:41:20+00:00",
+    "larmorx_commit": "c25c378726ebb53fbc62e57de02e0258e92ea42f",
+    "commands": [
+     {
+      "label": "shift-ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-ants-1.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 191.47
+     },
+     {
+      "label": "shift-ants-1b",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-ants-1b.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 194.58
+     },
+     {
+      "label": "shift-ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-ants-1-cr.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 187.22
+     },
+     {
+      "label": "shift-ants-2",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-ants-2.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "2"
+      },
+      "exit": -11,
+      "seconds": 2.74
+     },
+     {
+      "label": "shift-ants-4",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-ants-4.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "4"
+      },
+      "exit": -11,
+      "seconds": 1.79
+     },
+     {
+      "label": "shift-ants-6",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-ants-6.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6"
+      },
+      "exit": -11,
+      "seconds": 1.55
+     },
+     {
+      "label": "shift-probe",
+      "argv": [
+       "<workspace>/oracles/figures-cache/ants-ai/blob-probe-build/blob_probe",
+       "3",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-moving.nii.gz",
+       "30",
+       "30",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 189.81
+     },
+     {
+      "label": "shift-larmorx",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-larmorx.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 23.9
+     },
+     {
+      "label": "shift-larmorx-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-larmorx-1.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 73.23
+     },
+     {
+      "label": "shift-larmorx-fix",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-larmorx-fix.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 23.54
+     },
+     {
+      "label": "shift-steps-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx_validation.evidence.ants_ai_blobs",
+       "dump",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-moving.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-steps-reproduce.json",
+       "reproduce",
+       "6"
+      ],
+      "env": {},
+      "exit": 0,
+      "seconds": 23.45
+     },
+     {
+      "label": "shift-steps-fix",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx_validation.evidence.ants_ai_blobs",
+       "dump",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-moving.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-steps-fix.json",
+       "fix",
+       "6"
+      ],
+      "env": {},
+      "exit": 0,
+      "seconds": 22.43
+     },
+     {
+      "label": "shift-place-identity",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-moving-masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-place-identity.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.52
+     },
+     {
+      "label": "shift-place-truth",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-moving-masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-truth.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-place-truth.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.47
+     },
+     {
+      "label": "shift-place-ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-moving-masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-ants-1.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-place-ants-1.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.51
+     },
+     {
+      "label": "shift-place-larmorx",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-moving-masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-larmorx.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-place-larmorx.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.51
+     },
+     {
+      "label": "shift-place-larmorx-fix",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-moving-masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-larmorx-fix.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/shift-place-larmorx-fix.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.73
+     },
+     {
+      "label": "rotated-ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-ants-1.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 200.12
+     },
+     {
+      "label": "rotated-ants-1b",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-ants-1b.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 189.79
+     },
+     {
+      "label": "rotated-ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-ants-1-cr.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 191.72
+     },
+     {
+      "label": "rotated-ants-2",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-ants-2.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "2"
+      },
+      "exit": -11,
+      "seconds": 2.91
+     },
+     {
+      "label": "rotated-ants-4",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-ants-4.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "4"
+      },
+      "exit": -11,
+      "seconds": 1.87
+     },
+     {
+      "label": "rotated-ants-6",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-ants-6.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6"
+      },
+      "exit": -11,
+      "seconds": 1.53
+     },
+     {
+      "label": "rotated-probe",
+      "argv": [
+       "<workspace>/oracles/figures-cache/ants-ai/blob-probe-build/blob_probe",
+       "3",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-moving.nii.gz",
+       "30",
+       "30",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 182.19
+     },
+     {
+      "label": "rotated-larmorx",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-larmorx.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 20.9
+     },
+     {
+      "label": "rotated-larmorx-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-larmorx-1.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 58.28
+     },
+     {
+      "label": "rotated-larmorx-fix",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsAI",
+       "-d",
+       "3",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz,<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-moving.nii.gz,32,Regular,0.25]",
+       "-t",
+       "Rigid[0.1]",
+       "-b",
+       "30",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-larmorx-fix.mat",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 24.19
+     },
+     {
+      "label": "rotated-steps-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx_validation.evidence.ants_ai_blobs",
+       "dump",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-moving.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-steps-reproduce.json",
+       "reproduce",
+       "6"
+      ],
+      "env": {},
+      "exit": 0,
+      "seconds": 24.03
+     },
+     {
+      "label": "rotated-steps-fix",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx_validation.evidence.ants_ai_blobs",
+       "dump",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-moving.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-steps-fix.json",
+       "fix",
+       "6"
+      ],
+      "env": {},
+      "exit": 0,
+      "seconds": 23.84
+     },
+     {
+      "label": "rotated-place-identity",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-moving-masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-place-identity.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.5
+     },
+     {
+      "label": "rotated-place-truth",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-moving-masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-truth.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-place-truth.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.55
+     },
+     {
+      "label": "rotated-place-larmorx-fix",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-moving-masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-n",
+       "Linear",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-larmorx-fix.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/blobs-t1w/rotated-place-larmorx-fix.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.53
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "threads": {
+     "ants": [
+      1,
+      2,
+      4,
+      6
+     ],
+     "larmorx": [
+      6,
+      1
+     ]
+    },
+    "settings": "fMRIPrep's preprocessed T1w of ds000005 sub-01 against two copies with a transform known by construction (the parity suite's ai-blobs-t1w-shift and ai-blobs-t1w-rotated); antsAI -b 30 with the record's arguments (Rigid[0.1], Mattes 32 bins, Regular 0.25); ANTs' steps from the blob probe (validation/probes/ants-ai-blobs, built against the oracle's ITK with GCC 14.3); larmorx's from lx.ants.blob_alignment; each transform applied to the moving image times its brain mask by antsApplyTransforms (ANTs as built, linear, one thread); the true transform fitted exactly to the construction's points"
    }
   ],
   "command": "python -m larmorx_validation evidence ants-ai --site <site>"
@@ -810,11 +1578,11 @@
    "record": "docs/validation/ants-ai.md",
    "status": "validated",
    "summary": {
-    "cases": 102,
+    "cases": 131,
     "verdicts": {
-     "bit-identical": 51,
+     "bit-identical": 74,
      "identical-cr": 1,
-     "both-reject": 46,
+     "both-reject": 52,
      "divergence": 4
     }
    },
@@ -849,7 +1617,15 @@
     {
      "category": "real",
      "counts": {
-      "bit-identical": 2
+      "bit-identical": 5,
+      "both-reject": 1
+     }
+    },
+    {
+     "category": "blobs",
+     "counts": {
+      "bit-identical": 20,
+      "both-reject": 5
      }
     }
    ],
@@ -2326,6 +3102,414 @@
    }
   },
   {
+   "id": "antsAI/blobs/shift-rigid",
+   "category": "blobs",
+   "description": "Rigid from 30 blobs of a phantom and its copy moved by an exact translation (ANTs' own test keeps the true pairs)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 0.497 mm mean, 1.38 mm largest"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/shift-affine",
+   "category": "blobs",
+   "description": "Affine from 30 blobs of a phantom and its copy moved by an exact translation (ANTs' own test keeps the true pairs)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 1.11e-14 mm mean, 2.2e-14 mm largest, larmorx's default 0.483 mm mean, 1.92 mm largest"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/shift-similarity",
+   "category": "blobs",
+   "description": "Similarity from 30 blobs of a phantom and its copy moved by an exact translation (ANTs' own test keeps the true pairs)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 0.497 mm mean, 1.38 mm largest"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/rigid-rigid",
+   "category": "blobs",
+   "description": "Rigid from 30 blobs of a phantom and its copy moved by a rotation of 7 and 4 degrees and a shift",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 34 mm mean, 66.8 mm largest, larmorx's default no transform"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/rigid-affine",
+   "category": "blobs",
+   "description": "Affine from 30 blobs of a phantom and its copy moved by a rotation of 7 and 4 degrees and a shift",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 654 mm mean, 1.52e+03 mm largest, larmorx's default no transform"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/affine-rigid",
+   "category": "blobs",
+   "description": "Rigid from 30 blobs of a phantom and its copy moved by a rotation of 5 degrees with scales 1.06 and 0.96",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs nan mm mean, nan mm largest, larmorx's default no transform"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/affine-affine",
+   "category": "blobs",
+   "description": "Affine from 30 blobs of a phantom and its copy moved by a rotation of 5 degrees with scales 1.06 and 0.96",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/2d-shift-rigid",
+   "category": "blobs",
+   "description": "Rigid from 30 blobs of a phantom and its copy moved by a 2D translation",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 0.33 mm mean, 0.422 mm largest"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/2d-shift-affine",
+   "category": "blobs",
+   "description": "Affine from 30 blobs of a phantom and its copy moved by a 2D translation",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 5.81e-14 mm mean, 2.07e-13 mm largest, larmorx's default 0.471 mm mean, 1.16 mm largest"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/2d-rigid-rigid",
+   "category": "blobs",
+   "description": "Rigid from 30 blobs of a phantom and its copy moved by a 2D rotation of 9 degrees and a shift",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 6.2 mm mean, 12.3 mm largest, larmorx's default 1.62 mm mean, 3.54 mm largest"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/2d-rigid-affine",
+   "category": "blobs",
+   "description": "Affine from 30 blobs of a phantom and its copy moved by a 2D rotation of 9 degrees and a shift",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 45.4 mm mean, 125 mm largest, larmorx's default 2.73 mm mean, 11.2 mm largest"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/2d-rigid-similarity",
+   "category": "blobs",
+   "description": "Similarity from 30 blobs of a phantom and its copy moved by a 2D rotation of 9 degrees and a shift",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 6.2 mm mean, 12.3 mm largest, larmorx's default 1.62 mm mean, 3.54 mm largest"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/shift-rigid-match-10",
+   "category": "blobs",
+   "description": "-b [30,10]: 30 blobs extracted, at most 10 pairs",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 0.577 mm mean, 1.61 mm largest"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/shift-rigid-search",
+   "category": "blobs",
+   "description": "The blob alignment, then a search over rotations about the image axes",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 3.83 mm mean, 7.99 mm largest, larmorx's default 4.11 mm mean, 9.07 mm largest"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/rigid-affine-search-h5",
+   "category": "blobs",
+   "description": "Affine from the blobs of the rotated phantom, a search, an HDF5 output",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 603 mm mean, 1.25e+03 mm largest, larmorx's default no transform"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/identical-rigid",
+   "category": "blobs",
+   "description": "An image against itself: every displacement is 0, so ANTs' ratios are 0/0 (ANTS-110)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/no-pairs-rigid",
+   "category": "blobs",
+   "description": "-b [5,0]: no pair to match; the rigid fit of no landmark (ANTS-114)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/no-pairs-affine",
+   "category": "blobs",
+   "description": "-b [5,0] with Affine: too few landmarks, ITK's exception",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/2d-no-pairs-rigid",
+   "category": "blobs",
+   "description": "2D, no pair: ITK's warning (fewer than 2 landmarks), then NaN (ANTS-114)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/constant",
+   "category": "blobs",
+   "description": "Two constant images: every voxel is a maximum of value 0",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/noise-rigid",
+   "category": "blobs",
+   "description": "Noise against itself, 48^3: patches barely fit",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/thin",
+   "category": "blobs",
+   "description": "An axis of 3 voxels: the Laplacian of Gaussian refuses it (ITK's exception)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/missing-fixed",
+   "category": "blobs",
+   "description": "A fixed image that does not exist: the blob detector's input is not set",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/missing-moving",
+   "category": "blobs",
+   "description": "A moving image that does not exist (after the fixed image's blobs)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+    }
+   }
+  },
+  {
+   "id": "antsAI/blobs/principal-axes-ignored",
+   "category": "blobs",
+   "description": "-p 1 with -b: the blobs decide the initial transform",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 0.497 mm mean, 1.38 mm largest"
+    }
+   }
+  },
+  {
+   "id": "antsAI/real/ds000005-sub-01/blobs-t1w-shift",
+   "category": "real",
+   "description": "fMRIPrep's T1w of ds000005 against its copy with the origin moved (6, -4, 3) mm",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter; from the known transform: ANTs 5.92e-16 mm mean, 1.78e-15 mm largest, larmorx's default 1.19 mm mean, 2.1 mm largest"
+    }
+   },
+   "example": "blobs-shift"
+  },
+  {
+   "id": "antsAI/real/ds000005-sub-01/blobs-t1w-rotated",
+   "category": "real",
+   "description": "fMRIPrep's T1w of ds000005 against its copy rotated by 8 degrees and shifted",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs nan mm mean, nan mm largest, larmorx's default 1.03 mm mean, 1.87 mm largest"
+    }
+   },
+   "example": "blobs-rotated"
+  },
+  {
+   "id": "antsAI/real/ds000005-sub-01/blobs-t1w-rotated-affine",
+   "category": "real",
+   "description": "The same with Affine (ANTs: too few landmarks)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "larmorx: upstream defect ANTS-110 (antsAI) reproduced: 5 of 7 blob pairs preserve their distances to at least 3 others; ANTs' test of the displacement lengths keeps 0 [LARMORX_UPSTREAM_DEFECTS=fix cor"
+    }
+   }
+  },
+  {
+   "id": "antsAI/real/ds000005-sub-01/blobs-mni-rigid",
+   "category": "real",
+   "description": "MNI152NLin2009cAsym (2 mm) against ds000005-sub-01's T1w, Rigid from 30 blobs",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
    "id": "antsAffineInitializer/messages/no-arguments",
    "category": "messages",
    "description": "No arguments: the usage, exit 0",
@@ -2900,7 +4084,7 @@
    }
   }
  ],
- "cases_total": 143,
+ "cases_total": 172,
  "examples": [
   {
    "id": "init-aff",
@@ -4039,6 +5223,2677 @@
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0; OASIS30ANTs (Avants et al.), from TemplateFlow, CC BY 4.0",
     "Inputs: fixed (sha256 8265828adf534c2e…); moving (sha256 4fc9d00a945155a9…); fMRIPrep's transform (sha256 f223fa5f0aade78e…)",
     "Runs: figures cache entry `ants-ai/fmriprep-ds000005-init-aff and ants-ai/fmriprep-ds000005-init-aff-placed`, computed 2026-10-21T15:17:05+00:00 with larmorx `1dfe56c0dc60`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ]
+  },
+  {
+   "id": "blobs-found",
+   "title": "The blobs ANTs and larmorx find in a T1w",
+   "summary": "antsAI `-b 30` keeps the 30 strongest maxima of the scale-normalised Laplacian of Gaussian over 53 scales; here they lie at the edges of ventricles, vessels and sulci, with radii from 1.7 to 6 mm. Each is drawn as a filled sphere of its radius around its voxel, over the T1w at half its intensity.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01's T1w (PDDL-1.0), as fMRIPrep 25.2.6 preprocessed it"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs' blobs from the blob probe (`validation/probes/ants-ai-blobs`, antsAI's code with prints, built against the same ITK); larmorx's from `lx.ants.blob_alignment` at commit `c25c378726eb`"
+    },
+    {
+     "label": "Grid",
+     "text": "160 × 192 × 192 voxels of 1 × 1.33 × 1.33 mm; shown: 151 × 125 × 111 around the brain"
+    }
+   ],
+   "grid": {
+    "shape": [
+     151,
+     125,
+     111
+    ],
+    "spacing": [
+     1.0,
+     1.333333,
+     1.333333
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      4
+     ],
+     [
+      0,
+      1,
+      0,
+      18
+     ],
+     [
+      0,
+      0,
+      1,
+      32
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      1.0,
+      0.0,
+      0.0,
+      -77.0
+     ],
+     [
+      0.0,
+      1.333333,
+      0.0,
+      -109.000006
+     ],
+     [
+      0.0,
+      0.0,
+      1.333333,
+      -86.333344
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     160,
+     192,
+     192
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "b856c0b70af862db49292f74.bin",
+    "dtype": "u1",
+    "bytes": 25628
+   },
+   "outputs": [
+    {
+     "id": "blobs",
+     "label": "the blobs: spheres of their radius over the T1w at half intensity",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 7.524986526966098,
+       "hi": 588.7126400756833
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -0.0003028461360372603,
+       "hi": 1335.9786376953125
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "fixed",
+     "role": "input",
+     "label": "ds000005 sub-01 T1w (fixed)",
+     "sub": "fMRIPrep's preprocessed T1w",
+     "arrays": {
+      "all": {
+       "blob": "89d0dec41ffcd91526ae2277.bin",
+       "dtype": "f4",
+       "bytes": 2694248
+      }
+     },
+     "window": [
+      7.338375039100648,
+      1076.4802709960936
+     ]
+    },
+    {
+     "id": "ants",
+     "role": "original",
+     "label": "ANTs 2.6.5's blobs",
+     "sub": "antsAI's code with prints (the probe)",
+     "arrays": {
+      "blobs": {
+       "blob": "f2906197ba74b4e6a1dc0d73.bin",
+       "dtype": "f4",
+       "xor": "fixed:all",
+       "zero": false,
+       "bytes": 147257
+      }
+     },
+     "own": {
+      "blobs": [
+       7.524986526966098,
+       588.7126400756833
+      ]
+     }
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "larmorx's blobs",
+     "sub": "reproduce mode, 6 threads",
+     "arrays": {
+      "blobs": {
+       "same": "ants:blobs",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "blobs": [
+       7.524986526966098,
+       588.7126400756833
+      ]
+     }
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "larmorx's blobs",
+     "sub": "default mode (ANTS-112 corrected)",
+     "arrays": {
+      "blobs": {
+       "same": "ants:blobs",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "blobs": [
+       7.524986526966098,
+       588.7126400756833
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants",
+     "a": "larmorx",
+     "b": "ants",
+     "kind": "main",
+     "label": "larmorx (reproduce) − ANTs",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "blobs": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 2.30036997795105,
+       "b_at": 2.30036997795105,
+       "rms": 0.0,
+       "range": 1348.397309256252,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "blobs": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same 30 blobs, each at the same voxel with the same radius and the same Laplacian value, bit for bit, as ANTs' own code finds them."
+    },
+    {
+     "id": "fix-ants",
+     "a": "larmorx-fix",
+     "b": "ants",
+     "kind": "main",
+     "label": "larmorx's default − ANTs",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "blobs": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 2.30036997795105,
+       "b_at": 2.30036997795105,
+       "rms": 0.0,
+       "range": 1348.397309256252,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "blobs": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [
+      {
+       "label": "ANTS-112",
+       "href": "docs/findings/ants-ai.md#blobs"
+      }
+     ],
+     "verdict": "bit-identical",
+     "reason": "ANTS-112's correction keeps the strongest maxima; here the largest scales fill the list before ANTs' early threshold can drop one, so both lists are the same."
+    }
+   ],
+   "default": {
+    "output": "blobs",
+    "plane": "axial",
+    "voxel": [
+     59,
+     50,
+     65
+    ],
+    "panels": [
+     "fixed",
+     "ants",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "lx-ants",
+     "fix-ants"
+    ],
+    "compare": {
+     "a": "fixed",
+     "b": "ants"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 65,
+    "aspect": 0.906,
+    "panels": {
+     "fixed": "51c5aa9e715f68dcab0c3993.webp",
+     "ants": "f8fb18e412f1ba993efe3dc8.webp",
+     "larmorx": "f8fb18e412f1ba993efe3dc8.webp",
+     "larmorx-fix": "f8fb18e412f1ba993efe3dc8.webp"
+    },
+    "diffs": {},
+    "ranges": {},
+    "caption": "Axial slice 66 of 111; each program's blobs, filled spheres over the fixed T1w at half its intensity (the crosshair at the largest blob this slice cuts)."
+   },
+   "chain": null,
+   "groups": [
+    [
+     "main",
+     "LARMORX against ANTs"
+    ]
+   ],
+   "tables": [],
+   "metrics_note": "Δ is A − B between the drawn blobs, over every voxel of the 160 × 192 × 192 grid.",
+   "provenance": [
+    "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
+    "Inputs: fixed: fMRIPrep's preprocessed T1w (sha256 8e977ad0c954252d…); fMRIPrep's T1w brain mask (sha256 726851b7736940c8…); moving (sha256 2885195494bbf915…)",
+    "Runs: figures cache entry `ants-ai/blobs-t1w`, computed 2026-10-23T10:41:20+00:00 with larmorx `c25c378726eb`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ]
+  },
+  {
+   "id": "blobs-shift",
+   "title": "Blob alignment of a T1w and its shifted copy, by ANTs and larmorx",
+   "summary": "antsAI's blob alignment (`-b 30`) between fMRIPrep's T1w of ds000005 sub-01 and the same voxels with the origin moved by (6, −4, 3) mm, so the true transform is known. Each program's pairs and landmarks are listed, and its transform places the copy back on the fixed grid.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01's T1w (PDDL-1.0), as fMRIPrep 25.2.6 preprocessed it; the moving image: the same voxels with the origin moved by (6, −4, 3) mm"
+    },
+    {
+     "label": "Command",
+     "text": "`antsAI -d 3 -m Mattes[fixed.nii.gz,moving.nii.gz,32,Regular,0.25] -t Rigid[0.1] -b 30 -o t.mat -v 1` (the record's arguments)"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs' steps from the blob probe (`validation/probes/ants-ai-blobs`, antsAI's code with prints, built against the same ITK); larmorx at commit `c25c378726eb`"
+    },
+    {
+     "label": "Grid",
+     "text": "160 × 192 × 192 voxels of 1 × 1.33 × 1.33 mm; shown: 151 × 125 × 111 around the brain"
+    }
+   ],
+   "grid": {
+    "shape": [
+     151,
+     125,
+     111
+    ],
+    "spacing": [
+     1.0,
+     1.333333,
+     1.333333
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      4
+     ],
+     [
+      0,
+      1,
+      0,
+      18
+     ],
+     [
+      0,
+      0,
+      1,
+      32
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      1.0,
+      0.0,
+      0.0,
+      -77.0
+     ],
+     [
+      0.0,
+      1.333333,
+      0.0,
+      -109.000006
+     ],
+     [
+      0.0,
+      0.0,
+      1.333333,
+      -86.333344
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     160,
+     192,
+     192
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "b856c0b70af862db49292f74.bin",
+    "dtype": "u1",
+    "bytes": 25628
+   },
+   "outputs": [
+    {
+     "id": "placed",
+     "label": "moving T1w placed on the fixed grid",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 1025.1132336425778
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -0.00030160852475091815,
+       "hi": 2244.072998046875
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "fixed",
+     "role": "input",
+     "label": "ds000005 sub-01 T1w (fixed)",
+     "sub": "fMRIPrep's preprocessed T1w",
+     "arrays": {
+      "all": {
+       "blob": "89d0dec41ffcd91526ae2277.bin",
+       "dtype": "f4",
+       "bytes": 2694248
+      }
+     },
+     "window": [
+      7.338375039100648,
+      1076.4802709960936
+     ]
+    },
+    {
+     "id": "moving",
+     "role": "input",
+     "label": "its copy (moving), unaligned",
+     "sub": "the same voxels with the origin moved by (6, −4, 3) mm; × its brain mask, on the fixed grid with no transform",
+     "arrays": {
+      "all": {
+       "blob": "4e013ad263579e53aad5b774.bin",
+       "dtype": "f4",
+       "bytes": 2309878
+      }
+     },
+     "window": [
+      0.0,
+      1015.2936669921866
+     ]
+    },
+    {
+     "id": "truth",
+     "role": "input",
+     "label": "its copy placed by the true transform",
+     "sub": "the transform known by construction (antsApplyTransforms as built, linear)",
+     "arrays": {
+      "all": {
+       "blob": "728d6d02947ca871f940362a.bin",
+       "dtype": "f4",
+       "xor": "fixed:all",
+       "zero": false,
+       "bytes": 521083
+      }
+     },
+     "window": [
+      0.0,
+      1025.1132336425778
+     ]
+    },
+    {
+     "id": "ants",
+     "role": "original",
+     "label": "antsAI: ANTs 2.6.5, 1 thread",
+     "sub": "the copy placed by its transform",
+     "arrays": {
+      "placed": {
+       "same": "truth:all",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       1025.1132336425778
+      ]
+     }
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "antsAI: larmorx (port)",
+     "sub": "the copy placed by its transform; reproduce mode, 6 threads",
+     "arrays": {
+      "placed": {
+       "same": "truth:all",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       1025.1132336425778
+      ]
+     }
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "antsAI: larmorx (port)",
+     "sub": "the copy placed by its transform; default mode (ANTS-110 corrected), 6 threads",
+     "arrays": {
+      "placed": {
+       "blob": "59f73bd2930078663469afd0.bin",
+       "dtype": "f4",
+       "xor": "ants:placed",
+       "zero": false,
+       "bytes": 2482178
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       1007.98827545166
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants",
+     "a": "larmorx",
+     "b": "ants",
+     "kind": "main",
+     "label": "larmorx (reproduce) − ANTs, 1 thread",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2244.0732996553998,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same transform file, byte for byte, and the same blobs, correlations, pairs and landmarks as ANTs' own code computes them (the probe)."
+    },
+    {
+     "id": "fix-ants",
+     "a": "larmorx-fix",
+     "b": "ants",
+     "kind": "main",
+     "label": "larmorx's default − ANTs, 1 thread",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "placed": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 799368,
+       "share": 0.13552652994791667,
+       "max_abs": 1193.28511428833,
+       "at": [
+        48,
+        91,
+        132
+       ],
+       "a_at": 61.71122360229492,
+       "b_at": 1254.996337890625,
+       "rms": 25.42176393274494,
+       "range": 2244.0732996553998,
+       "max_rel_range": 0.5317496155190524,
+       "one_minus_ncc": 0.0053623804823491935,
+       "at_display": [
+        44,
+        73,
+        100
+       ]
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 1193.28511428833,
+       "at": [
+        44,
+        73,
+        100
+       ],
+       "a": 61.71122360229492,
+       "b": 1254.996337890625,
+       "differ": 799260
+      }
+     },
+     "links": [
+      {
+       "label": "ANTS-110",
+       "href": "docs/findings/ants-ai.md#blobs"
+      }
+     ],
+     "verdict": "d13",
+     "reason": "ANTS-110 corrected by default: a pair is a landmark when its distances to three other pairs are preserved (as the code's comment and ImageMath's MatchBlobs say), where ANTs compares the lengths of the pairs' displacements. Here larmorx keeps 11 of 11 pairs and ANTs 10: for a pure translation ANTs' test is the stricter one: larmorx's transform is 1.4 mm off the truth at most, ANTs' is exact up to rounding (2e-15 mm; the tables below). For a rotation ANTs keeps no landmark (the next example)."
+    },
+    {
+     "id": "ants-truth",
+     "a": "ants",
+     "b": "truth",
+     "kind": "reference",
+     "label": "ANTs − the true transform",
+     "role_label": "against the truth",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2244.0732996553998,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "The same placed image as the true transform's."
+    },
+    {
+     "id": "larmorx-fix-truth",
+     "a": "larmorx-fix",
+     "b": "truth",
+     "kind": "reference",
+     "label": "larmorx's default − the true transform",
+     "role_label": "against the truth",
+     "metrics": {
+      "placed": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 799368,
+       "share": 0.13552652994791667,
+       "max_abs": 1193.28511428833,
+       "at": [
+        48,
+        91,
+        132
+       ],
+       "a_at": 61.71122360229492,
+       "b_at": 1254.996337890625,
+       "rms": 25.42176393274494,
+       "range": 2244.0732996553998,
+       "max_rel_range": 0.5317496155190524,
+       "one_minus_ncc": 0.0053623804823491935,
+       "at_display": [
+        44,
+        73,
+        100
+       ]
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 1193.28511428833,
+       "at": [
+        44,
+        73,
+        100
+       ],
+       "a": 61.71122360229492,
+       "b": 1254.996337890625,
+       "differ": 799260
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "A rotation of 0.94° (the truth: 0.00°); it sends the brain at most 1.4 mm (mean 0.71 mm) from where the true transform does."
+    }
+   ],
+   "default": {
+    "output": "placed",
+    "plane": "axial",
+    "voxel": [
+     24,
+     18,
+     66
+    ],
+    "panels": [
+     "fixed",
+     "moving",
+     "ants",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "lx-ants",
+     "fix-ants",
+     "ants-truth"
+    ],
+    "compare": {
+     "a": "fixed",
+     "b": "larmorx-fix"
+    },
+    "scale": "log"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 66,
+    "aspect": 0.906,
+    "panels": {
+     "fixed": "ec31d64303586fa11de4a20d.webp",
+     "moving": "533769981856a19838ec75d3.webp",
+     "ants": "732de7b8dd3c8282e62943b0.webp",
+     "larmorx-fix": "336e5609dc03c705fbbde63e.webp"
+    },
+    "diffs": {
+     "fix-ants": "76ea9aca8b1fd633f7935da2.webp"
+    },
+    "ranges": {
+     "fix-ants": 1193.28511428833
+    },
+    "caption": "Axial slice 67 of 111; the fixed T1w, its copy before and after each transform; Checkerboard (under Compare) overlays the fixed T1w and a placed copy."
+   },
+   "chain": null,
+   "groups": [
+    [
+     "main",
+     "LARMORX against ANTs"
+    ],
+    [
+     "reference",
+     "Each against the true transform (known by construction)"
+    ]
+   ],
+   "tables": [
+    {
+     "id": "blobs-shift-distance",
+     "title": "Where two transforms send the T1w's brain apart (mm), and how far their matrices differ",
+     "columns": [
+      {
+       "label": "Comparison"
+      },
+      {
+       "label": "the .mat files"
+      },
+      {
+       "label": "largest distance (mm)",
+       "num": true
+      },
+      {
+       "label": "mean distance (mm)",
+       "num": true
+      },
+      {
+       "label": "largest |Δ| in the matrix or translation",
+       "num": true
+      }
+     ],
+     "rows": [
+      {
+       "head": "larmorx (reproduce) − ANTs, 1 thread",
+       "cells": [
+        {
+         "text": "identical file"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "larmorx (reproduce) − ANTs with CORE-MATH",
+       "cells": [
+        {
+         "text": "identical file"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "larmorx 1 thread − 6 threads",
+       "cells": [
+        {
+         "text": "identical file"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "larmorx's default − ANTs",
+       "cells": [
+        {
+         "text": "differ"
+        },
+        {
+         "v": 1.4193898936088214,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.712312320439428,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.24185744896270478,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "ANTs − the true transform",
+       "class": "is-sep",
+       "cells": [
+        {
+         "text": "differ"
+        },
+        {
+         "v": 1.7763568394002505e-15,
+         "fmt": "sig"
+        },
+        {
+         "v": 3.7890497940115596e-16,
+         "fmt": "sig"
+        },
+        {
+         "v": 1.7763568394002505e-15,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "larmorx's default − the true transform",
+       "cells": [
+        {
+         "text": "differ"
+        },
+        {
+         "v": 1.4193898936088214,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.7123123204394283,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.24185744896270478,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "ANTs, 1 thread: run 2 − run 1",
+       "class": "is-sep is-yardstick",
+       "cells": [
+        {
+         "text": "identical file"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "ANTs with CORE-MATH − as built",
+       "class": "is-yardstick",
+       "cells": [
+        {
+         "text": "identical file"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "ANTs, 2 threads",
+       "class": "is-yardstick",
+       "cells": [
+        {
+         "text": "crashed (signal 11)"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        }
+       ]
+      },
+      {
+       "head": "ANTs, 4 threads",
+       "class": "is-yardstick",
+       "cells": [
+        {
+         "text": "crashed (signal 11)"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        }
+       ]
+      },
+      {
+       "head": "ANTs, 6 threads",
+       "class": "is-yardstick",
+       "cells": [
+        {
+         "text": "crashed (signal 11)"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        }
+       ]
+      }
+     ],
+     "note": "Over the 763,153 voxels of fMRIPrep's brain mask of the fixed T1w: each transform maps them into the moving image; the distance is between the two images of each point. The shaded rows are ANTs against itself: at more than one thread its blob detector writes past its per-thread heaps (ANTS-60)."
+    },
+    {
+     "id": "blobs-shift-pairs",
+     "title": "The pairs: each fixed blob matched to a moving blob, and which pairs became landmarks",
+     "columns": [
+      {
+       "label": "Pair"
+      },
+      {
+       "label": "fixed blob (voxel)"
+      },
+      {
+       "label": "moving blob (voxel)"
+      },
+      {
+       "label": "radius (mm)",
+       "num": true
+      },
+      {
+       "label": "patch correlation",
+       "num": true
+      },
+      {
+       "label": "off the true transform (mm)",
+       "num": true
+      },
+      {
+       "label": "ANTs"
+      },
+      {
+       "label": "larmorx's default"
+      }
+     ],
+     "rows": [
+      {
+       "head": "1",
+       "cells": [
+        {
+         "text": "57 122 80"
+        },
+        {
+         "text": "57 122 80"
+        },
+        {
+         "v": 2.2854547424477136,
+         "fmt": "sig"
+        },
+        {
+         "v": 1.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "text": "landmark"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "2",
+       "cells": [
+        {
+         "text": "63 68 97"
+        },
+        {
+         "text": "63 68 97"
+        },
+        {
+         "v": 4.898979485566353,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.9999999403953552,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "text": "landmark"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "3",
+       "cells": [
+        {
+         "text": "101 121 80"
+        },
+        {
+         "text": "101 121 80"
+        },
+        {
+         "v": 2.1324046753679737,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.9999999403953552,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "text": "landmark"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "4",
+       "cells": [
+        {
+         "text": "63 106 98"
+        },
+        {
+         "text": "63 106 98"
+        },
+        {
+         "v": 3.464101615137754,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.9999999403953552,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "text": "landmark"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "5",
+       "cells": [
+        {
+         "text": "21 39 103"
+        },
+        {
+         "text": "21 40 105"
+        },
+        {
+         "v": 2.813724838117146,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.7495813965797424,
+         "fmt": "sig"
+        },
+        {
+         "v": 2.981423259172853,
+         "fmt": "sig"
+        },
+        {
+         "text": "paired"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "6",
+       "cells": [
+        {
+         "text": "56 127 88"
+        },
+        {
+         "text": "56 127 88"
+        },
+        {
+         "v": 2.4494897427831774,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.671914279460907,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "text": "landmark"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "7",
+       "cells": [
+        {
+         "text": "79 85 76"
+        },
+        {
+         "text": "79 85 76"
+        },
+        {
+         "v": 4.264809350735947,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.33548322319984436,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "text": "landmark"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "8",
+       "cells": [
+        {
+         "text": "61 66 96"
+        },
+        {
+         "text": "61 66 96"
+        },
+        {
+         "v": 4.898979485566353,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.31462210416793823,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "text": "landmark"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "9",
+       "cells": [
+        {
+         "text": "96 68 96"
+        },
+        {
+         "text": "96 68 96"
+        },
+        {
+         "v": 4.5709094848954255,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.2681514620780945,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "text": "landmark"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "10",
+       "cells": [
+        {
+         "text": "54 59 88"
+        },
+        {
+         "text": "54 59 88"
+        },
+        {
+         "v": 5.627449676234291,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.21276406943798065,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "text": "landmark"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "11",
+       "cells": [
+        {
+         "text": "79 69 62"
+        },
+        {
+         "text": "79 69 62"
+        },
+        {
+         "v": 6.031351224746367,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.10367944091558456,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "text": "landmark"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      }
+     ],
+     "note": "ANTs' blobs, correlations, pairs and landmarks from the probe (antsAI's own code); larmorx's default from lx.ants.blob_alignment. A pair is a landmark when its distances to at least 3 other pairs are preserved within 10 % (squared); ANTs tests the lengths of the pairs' displacements instead (ANTS-110), so a rotation leaves it no landmark. 'Off the true transform': how far the moving blob is from where the true transform sends the fixed blob's centre."
+    },
+    {
+     "id": "blobs-shift-params",
+     "title": "The transforms as matrices (ITK's physical space, LPS mm, centre 0)",
+     "columns": [
+      {
+       "label": "Entry"
+      },
+      {
+       "label": "true transform",
+       "num": true
+      },
+      {
+       "label": "ANTs 2.6.5, 1 thread",
+       "num": true
+      },
+      {
+       "label": "larmorx (reproduce)",
+       "num": true
+      },
+      {
+       "label": "larmorx's default",
+       "num": true
+      }
+     ],
+     "rows": [
+      {
+       "head": "matrix 1,1",
+       "cells": [
+        {
+         "v": 1.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 1.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 1.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.9998956032455949,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "matrix 1,2",
+       "cells": [
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.003620944352399089,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "matrix 1,3",
+       "cells": [
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": -0.01398825836638503,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "matrix 2,1",
+       "cells": [
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": -0.0037286193970190195,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "matrix 2,2",
+       "cells": [
+        {
+         "v": 1.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 1.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 1.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.9999635634782259,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "matrix 2,3",
+       "cells": [
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": -0.007679134933076921,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "matrix 3,1",
+       "cells": [
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.01395994296263724,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "matrix 3,2",
+       "cells": [
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.007730490147788687,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "matrix 3,3",
+       "cells": [
+        {
+         "v": 1.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 1.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 1.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.9998726716510231,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "translation x",
+       "cells": [
+        {
+         "v": -6.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": -6.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": -6.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": -6.241857448962705,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "translation y",
+       "cells": [
+        {
+         "v": 4.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 3.9999999999999982,
+         "fmt": "sig6"
+        },
+        {
+         "v": 3.9999999999999982,
+         "fmt": "sig6"
+        },
+        {
+         "v": 3.840786667269765,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "translation z",
+       "cells": [
+        {
+         "v": 3.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 3.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 3.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 2.879835820955302,
+         "fmt": "sig6"
+        }
+       ]
+      }
+     ],
+     "note": "antsAI's output (an Euler3DTransform for Rigid): the blob transform after its search of rotations about the image axes (with no iterations, the best start point), written as the matrix and translation that map a fixed point to the moving image; the true transform as constructed. A transform of NaNs (no landmark) is left out."
+    }
+   ],
+   "metrics_note": "Δ is A − B between the placed images, over every voxel of the 160 × 192 × 192 grid.",
+   "provenance": [
+    "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
+    "Inputs: fixed: fMRIPrep's preprocessed T1w (sha256 8e977ad0c954252d…); fMRIPrep's T1w brain mask (sha256 726851b7736940c8…); moving (sha256 2885195494bbf915…)",
+    "Runs: figures cache entry `ants-ai/blobs-t1w`, computed 2026-10-23T10:41:20+00:00 with larmorx `c25c378726eb`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ]
+  },
+  {
+   "id": "blobs-rotated",
+   "title": "Blob alignment of a T1w and its rotated copy: ANTs finds no landmark",
+   "summary": "The same T1w against a copy rotated by 8° and shifted: ANTs' distance test keeps no landmark and its transform is NaN; larmorx's corrected test keeps the pairs whose distances are preserved and finds a rotation close to the truth.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01's T1w (PDDL-1.0), as fMRIPrep 25.2.6 preprocessed it; the moving image: rotated by 8° (in millimetres) about the z axis through the centre and shifted by (5, −3, 2) voxels (linear interpolation)"
+    },
+    {
+     "label": "Command",
+     "text": "`antsAI -d 3 -m Mattes[fixed.nii.gz,moving.nii.gz,32,Regular,0.25] -t Rigid[0.1] -b 30 -o t.mat -v 1` (the record's arguments)"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs' steps from the blob probe (`validation/probes/ants-ai-blobs`, antsAI's code with prints, built against the same ITK); larmorx at commit `c25c378726eb`"
+    },
+    {
+     "label": "Grid",
+     "text": "160 × 192 × 192 voxels of 1 × 1.33 × 1.33 mm; shown: 151 × 125 × 111 around the brain"
+    },
+    {
+     "label": "ANTs",
+     "text": "no pair keeps the lengths of its displacement (ANTS-110), so no landmark: ANTs' rigid fit divides 0 by 0 and antsAI writes a transform of NaNs (ANTS-114), which places nothing. larmorx's reproduce mode writes the same file."
+    }
+   ],
+   "grid": {
+    "shape": [
+     151,
+     125,
+     111
+    ],
+    "spacing": [
+     1.0,
+     1.333333,
+     1.333333
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      4
+     ],
+     [
+      0,
+      1,
+      0,
+      18
+     ],
+     [
+      0,
+      0,
+      1,
+      32
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      1.0,
+      0.0,
+      0.0,
+      -77.0
+     ],
+     [
+      0.0,
+      1.333333,
+      0.0,
+      -109.000006
+     ],
+     [
+      0.0,
+      0.0,
+      1.333333,
+      -86.333344
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     160,
+     192,
+     192
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "b856c0b70af862db49292f74.bin",
+    "dtype": "u1",
+    "bytes": 25628
+   },
+   "outputs": [
+    {
+     "id": "placed",
+     "label": "moving T1w placed on the fixed grid",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 1000.2588595581052
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -4.198395254206844e-05,
+       "hi": 1775.0186767578125
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "fixed",
+     "role": "input",
+     "label": "ds000005 sub-01 T1w (fixed)",
+     "sub": "fMRIPrep's preprocessed T1w",
+     "arrays": {
+      "all": {
+       "blob": "89d0dec41ffcd91526ae2277.bin",
+       "dtype": "f4",
+       "bytes": 2694248
+      }
+     },
+     "window": [
+      7.338375039100648,
+      1076.4802709960936
+     ]
+    },
+    {
+     "id": "moving",
+     "role": "input",
+     "label": "its copy (moving), unaligned",
+     "sub": "rotated by 8° (in millimetres) about the z axis through the centre and shifted by (5, −3, 2) voxels (linear interpolation); × its brain mask, on the fixed grid with no transform",
+     "arrays": {
+      "all": {
+       "blob": "d71c5e463d01b76f1ea06535.bin",
+       "dtype": "f4",
+       "bytes": 2235425
+      }
+     },
+     "window": [
+      0.0,
+      1012.5620770263671
+     ]
+    },
+    {
+     "id": "truth",
+     "role": "input",
+     "label": "its copy placed by the true transform",
+     "sub": "the transform known by construction (antsApplyTransforms as built, linear)",
+     "arrays": {
+      "all": {
+       "blob": "e4cbaea56af22236e52232c4.bin",
+       "dtype": "f4",
+       "bytes": 2510144
+      }
+     },
+     "window": [
+      0.0,
+      1006.3815191650389
+     ]
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "antsAI: larmorx (port)",
+     "sub": "the copy placed by its transform; default mode (ANTS-110 corrected), 6 threads",
+     "arrays": {
+      "placed": {
+       "blob": "b9dfd0ca1205a62a8874fe6b.bin",
+       "dtype": "f4",
+       "xor": "truth:all",
+       "zero": false,
+       "bytes": 2486376
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       1000.2588595581052
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "larmorx-fix-truth",
+     "a": "larmorx-fix",
+     "b": "truth",
+     "kind": "reference",
+     "label": "larmorx's default − the true transform",
+     "role_label": "against the truth",
+     "metrics": {
+      "placed": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 806145,
+       "share": 0.1366755167643229,
+       "max_abs": 888.1482887268066,
+       "at": [
+        90,
+        23,
+        94
+       ],
+       "a_at": 48.04867172241211,
+       "b_at": 936.1969604492188,
+       "rms": 21.285714253477344,
+       "range": 2132.050303495179,
+       "max_rel_range": 0.41657004399512515,
+       "one_minus_ncc": 0.0038075592346750397,
+       "at_display": [
+        86,
+        5,
+        62
+       ]
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 888.1482887268066,
+       "at": [
+        86,
+        5,
+        62
+       ],
+       "a": 48.04867172241211,
+       "b": 936.1969604492188,
+       "differ": 805439
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "A rotation of 8.54° (the truth: 8.00°); it sends the brain at most 1.4 mm (mean 0.74 mm) from where the true transform does."
+    }
+   ],
+   "default": {
+    "output": "placed",
+    "plane": "axial",
+    "voxel": [
+     120,
+     17,
+     66
+    ],
+    "panels": [
+     "fixed",
+     "moving",
+     "truth",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "larmorx-fix-truth"
+    ],
+    "compare": {
+     "a": "fixed",
+     "b": "larmorx-fix"
+    },
+    "scale": "log"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 66,
+    "aspect": 0.906,
+    "panels": {
+     "fixed": "ec31d64303586fa11de4a20d.webp",
+     "moving": "1ee2c09f861adf9370074e99.webp",
+     "truth": "933f98ef5252b2af581bddb5.webp",
+     "larmorx-fix": "72e370946176e1847215a6bf.webp"
+    },
+    "diffs": {
+     "larmorx-fix-truth": "424a1c010f3f12fd175c8c82.webp"
+    },
+    "ranges": {
+     "larmorx-fix-truth": 888.1482887268066
+    },
+    "caption": "Axial slice 67 of 111; the fixed T1w, its copy before and after each transform; Checkerboard (under Compare) overlays the fixed T1w and a placed copy."
+   },
+   "chain": null,
+   "groups": [
+    [
+     "main",
+     "LARMORX against ANTs"
+    ],
+    [
+     "reference",
+     "Each against the true transform (known by construction)"
+    ]
+   ],
+   "tables": [
+    {
+     "id": "blobs-rotated-distance",
+     "title": "Where two transforms send the T1w's brain apart (mm), and how far their matrices differ",
+     "columns": [
+      {
+       "label": "Comparison"
+      },
+      {
+       "label": "the .mat files"
+      },
+      {
+       "label": "largest distance (mm)",
+       "num": true
+      },
+      {
+       "label": "mean distance (mm)",
+       "num": true
+      },
+      {
+       "label": "largest |Δ| in the matrix or translation",
+       "num": true
+      }
+     ],
+     "rows": [
+      {
+       "head": "larmorx (reproduce) − ANTs, 1 thread",
+       "cells": [
+        {
+         "text": "identical file"
+        },
+        {
+         "text": "no transform (NaN)"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        }
+       ]
+      },
+      {
+       "head": "larmorx (reproduce) − ANTs with CORE-MATH",
+       "cells": [
+        {
+         "text": "identical file"
+        },
+        {
+         "text": "no transform (NaN)"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        }
+       ]
+      },
+      {
+       "head": "larmorx 1 thread − 6 threads",
+       "cells": [
+        {
+         "text": "identical file"
+        },
+        {
+         "text": "no transform (NaN)"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        }
+       ]
+      },
+      {
+       "head": "larmorx's default − ANTs",
+       "cells": [
+        {
+         "text": "differ"
+        },
+        {
+         "text": "no transform (NaN)"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        }
+       ]
+      },
+      {
+       "head": "ANTs − the true transform",
+       "class": "is-sep",
+       "cells": [
+        {
+         "text": "differ"
+        },
+        {
+         "text": "no transform (NaN)"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        }
+       ]
+      },
+      {
+       "head": "larmorx's default − the true transform",
+       "cells": [
+        {
+         "text": "differ"
+        },
+        {
+         "v": 1.4249829002511025,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.7374217962556742,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.504437741977112,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "ANTs, 1 thread: run 2 − run 1",
+       "class": "is-sep is-yardstick",
+       "cells": [
+        {
+         "text": "identical file"
+        },
+        {
+         "text": "no transform (NaN)"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        }
+       ]
+      },
+      {
+       "head": "ANTs with CORE-MATH − as built",
+       "class": "is-yardstick",
+       "cells": [
+        {
+         "text": "identical file"
+        },
+        {
+         "text": "no transform (NaN)"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        }
+       ]
+      },
+      {
+       "head": "ANTs, 2 threads",
+       "class": "is-yardstick",
+       "cells": [
+        {
+         "text": "crashed (signal 11)"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        }
+       ]
+      },
+      {
+       "head": "ANTs, 4 threads",
+       "class": "is-yardstick",
+       "cells": [
+        {
+         "text": "crashed (signal 11)"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        }
+       ]
+      },
+      {
+       "head": "ANTs, 6 threads",
+       "class": "is-yardstick",
+       "cells": [
+        {
+         "text": "crashed (signal 11)"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "–"
+        }
+       ]
+      }
+     ],
+     "note": "Over the 763,153 voxels of fMRIPrep's brain mask of the fixed T1w: each transform maps them into the moving image; the distance is between the two images of each point. The shaded rows are ANTs against itself: at more than one thread its blob detector writes past its per-thread heaps (ANTS-60)."
+    },
+    {
+     "id": "blobs-rotated-pairs",
+     "title": "The pairs: each fixed blob matched to a moving blob, and which pairs became landmarks",
+     "columns": [
+      {
+       "label": "Pair"
+      },
+      {
+       "label": "fixed blob (voxel)"
+      },
+      {
+       "label": "moving blob (voxel)"
+      },
+      {
+       "label": "radius (mm)",
+       "num": true
+      },
+      {
+       "label": "patch correlation",
+       "num": true
+      },
+      {
+       "label": "off the true transform (mm)",
+       "num": true
+      },
+      {
+       "label": "ANTs"
+      },
+      {
+       "label": "larmorx's default"
+      }
+     ],
+     "rows": [
+      {
+       "head": "1",
+       "cells": [
+        {
+         "text": "56 127 88"
+        },
+        {
+         "text": "58 131 85"
+        },
+        {
+         "v": 2.4494897427831774,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.7435923218727112,
+         "fmt": "sig"
+        },
+        {
+         "v": 2.580062646930111,
+         "fmt": "sig"
+        },
+        {
+         "text": "paired"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "2",
+       "cells": [
+        {
+         "text": "57 122 80"
+        },
+        {
+         "text": "58 128 78"
+        },
+        {
+         "v": 2.2854547424477136,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.7434835433959961,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.6126130067879135,
+         "fmt": "sig"
+        },
+        {
+         "text": "paired"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "3",
+       "cells": [
+        {
+         "text": "54 59 88"
+        },
+        {
+         "text": "43 66 86"
+        },
+        {
+         "v": 5.627449676234291,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.6863026022911072,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.6587874717066207,
+         "fmt": "sig"
+        },
+        {
+         "text": "paired"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "4",
+       "cells": [
+        {
+         "text": "63 68 97"
+        },
+        {
+         "text": "53 73 95"
+        },
+        {
+         "v": 4.898979485566353,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.6110589504241943,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.9238536936882465,
+         "fmt": "sig"
+        },
+        {
+         "text": "paired"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "5",
+       "cells": [
+        {
+         "text": "101 121 80"
+        },
+        {
+         "text": "45 143 91"
+        },
+        {
+         "v": 2.1324046753679737,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.5212962627410889,
+         "fmt": "sig"
+        },
+        {
+         "v": 65.0750987041758,
+         "fmt": "sig"
+        },
+        {
+         "text": "paired"
+        },
+        {
+         "text": "paired"
+        }
+       ]
+      },
+      {
+       "head": "6",
+       "cells": [
+        {
+         "text": "63 106 98"
+        },
+        {
+         "text": "61 111 96"
+        },
+        {
+         "v": 3.464101615137754,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.3812195658683777,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.3228147270775392,
+         "fmt": "sig"
+        },
+        {
+         "text": "paired"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "7",
+       "cells": [
+        {
+         "text": "21 40 105"
+        },
+        {
+         "text": "82 102 75"
+        },
+        {
+         "v": 3.015675612373185,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.20046769082546234,
+         "fmt": "sig"
+        },
+        {
+         "v": 108.71452554613217,
+         "fmt": "sig"
+        },
+        {
+         "text": "paired"
+        },
+        {
+         "text": "paired"
+        }
+       ]
+      }
+     ],
+     "note": "ANTs' blobs, correlations, pairs and landmarks from the probe (antsAI's own code); larmorx's default from lx.ants.blob_alignment. A pair is a landmark when its distances to at least 3 other pairs are preserved within 10 % (squared); ANTs tests the lengths of the pairs' displacements instead (ANTS-110), so a rotation leaves it no landmark. 'Off the true transform': how far the moving blob is from where the true transform sends the fixed blob's centre."
+    },
+    {
+     "id": "blobs-rotated-params",
+     "title": "The transforms as matrices (ITK's physical space, LPS mm, centre 0)",
+     "columns": [
+      {
+       "label": "Entry"
+      },
+      {
+       "label": "true transform",
+       "num": true
+      },
+      {
+       "label": "larmorx's default",
+       "num": true
+      }
+     ],
+     "rows": [
+      {
+       "head": "matrix 1,1",
+       "cells": [
+        {
+         "v": 0.9902680687415704,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.9889209825913594,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "matrix 1,2",
+       "cells": [
+        {
+         "v": 0.13917310096006544,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.1483528692558205,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "matrix 1,3",
+       "cells": [
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.005168788456270157,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "matrix 2,1",
+       "cells": [
+        {
+         "v": -0.13917310096006544,
+         "fmt": "sig6"
+        },
+        {
+         "v": -0.14831596441221456,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "matrix 2,2",
+       "cells": [
+        {
+         "v": 0.9902680687415704,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.9889158582176808,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "matrix 2,3",
+       "cells": [
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": -0.0069137591845966195,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "matrix 3,1",
+       "cells": [
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": -0.006137172884556734,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "matrix 3,2",
+       "cells": [
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.006070547681496899,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "matrix 3,3",
+       "cells": [
+        {
+         "v": 1.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.9999627410858025,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "translation x",
+       "cells": [
+        {
+         "v": 3.6205941722689836,
+         "fmt": "sig6"
+        },
+        {
+         "v": 3.6306635284368367,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "translation y",
+       "cells": [
+        {
+         "v": -4.393029278020737,
+         "fmt": "sig6"
+        },
+        {
+         "v": -3.8885915360436254,
+         "fmt": "sig6"
+        }
+       ]
+      },
+      {
+       "head": "translation z",
+       "cells": [
+        {
+         "v": -2.666666030883789,
+         "fmt": "sig6"
+        },
+        {
+         "v": -2.823300655951453,
+         "fmt": "sig6"
+        }
+       ]
+      }
+     ],
+     "note": "antsAI's output (an Euler3DTransform for Rigid): the blob transform after its search of rotations about the image axes (with no iterations, the best start point), written as the matrix and translation that map a fixed point to the moving image; the true transform as constructed. A transform of NaNs (no landmark) is left out."
+    }
+   ],
+   "metrics_note": "Δ is A − B between the placed images, over every voxel of the 160 × 192 × 192 grid.",
+   "provenance": [
+    "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
+    "Inputs: fixed: fMRIPrep's preprocessed T1w (sha256 8e977ad0c954252d…); fMRIPrep's T1w brain mask (sha256 726851b7736940c8…); moving (sha256 2885195494bbf915…)",
+    "Runs: figures cache entry `ants-ai/blobs-t1w`, computed 2026-10-23T10:41:20+00:00 with larmorx `c25c378726eb`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ]
   }
  ]

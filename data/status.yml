@@ -64,13 +64,13 @@ implemented:
     page: /tools/ants-ai/
     use: ["larmorx ants antsAI", "larmorx ants antsAffineInitializer"]
     how: port
-    validation: "[antsAI](repo:docs/validation/ants-ai.md): 51 of 52 compared identical; [antsAffineInitializer](repo:docs/validation/ants-affine-initializer.md): 26 of 26"
+    validation: "[antsAI](repo:docs/validation/ants-ai.md): 75 of 75 compared identical (74 as built, 1 with correctly rounded maths), the blob alignment included; [antsAffineInitializer](repo:docs/validation/ants-affine-initializer.md): 26 of 26"
   - eco: ants
     tool: Atropos
     page: /tools/ants-atropos/
     use: ["larmorx ants Atropos", "lx.ants.atropos"]
     how: port
-    validation: "[93 cases](repo:docs/validation/ants-atropos.md): 25 of 56 compared bit-identical to ANTs, 56 of 56 with correctly rounded maths, sMRIPrep's call on the five oracle runs included"
+    validation: "[97 cases](repo:docs/validation/ants-atropos.md): 27 of 58 compared bit-identical to ANTs, 58 of 58 with correctly rounded maths, sMRIPrep's call on the five oracle runs included; partial-volume classes with the MRF corrected (ANTS-106)"
   - eco: larmorx
     tool: fMRIPrep's one-shot BOLD resampler
     page: /tools/resample-series/
@@ -103,9 +103,6 @@ implemented:
     validation: "[compared with FSL's mcflirt](repo:docs/validation/mri-hmc.md): 121 of 122 compared cases within thresholds; [5–16× faster](repo:docs/benchmarks/mri-hmc.md) with threads"
 
 planned:
-  - eco: [ants]
-    title: ANTs
-    text: antsAI's blob alignment (-b).
   - eco: [afni]
     title: AFNI
     text: the clean-room originals of 3dAutomask and 3dUnifize; then 3dQwarp, 3dSkullStrip, 3dcalc and an analysis track (3dTproject, 3dDespike, 3dReHo, 3dRSFC, 3dDeconvolve/3dREMLfit, 3dFWHMx/3dClustSim, ...).

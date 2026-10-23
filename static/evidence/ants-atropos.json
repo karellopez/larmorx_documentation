@@ -3,19 +3,19 @@
  "tool": "ants-atropos",
  "title": "Atropos",
  "provenance": {
-  "exporter": "a17359dbce318f8b2f01f6e8c647ea6f6812382f",
+  "exporter": "6cb9d9ae73310c2f140789ea024a5af10add2b49",
   "records": [
    {
     "path": "docs/validation/ants-atropos.json",
-    "sha256": "f37da07fea21af494f0a196f32f2e9b4351a47cc3d6cba2523e9c3d325f94fff",
-    "generated": "2026-10-22",
-    "larmorx_commit": "8b747322f536"
+    "sha256": "caf0957cecc1f346cefdc48dba8e579a7711f5ec1fd084191f68582315673ddf",
+    "generated": "2026-10-23",
+    "larmorx_commit": "708bb99389fe"
    },
    {
     "path": "docs/validation/ants-atropos.md",
-    "sha256": "14e75b412393ddf7a57a9d356fe69d0b31c4473714fcba35fd026548b38f47a7",
-    "generated": "2026-10-22",
-    "larmorx_commit": "8b747322f536"
+    "sha256": "a12b7f0e08f7a3e58d19a52e8b5ce347d3ef225fc5598954d6be7c2d451c247c",
+    "generated": "2026-10-23",
+    "larmorx_commit": "708bb99389fe"
    }
   ],
   "benchmarks": [],
@@ -791,6 +791,208 @@
      ]
     },
     "settings": "antsCorticalThickness-style Atropos (PriorProbabilityImages weight 0.25, MRF 0.1, five iterations, Socrates, the fixed seed) on the inputs of fMRIPrep's Atropos call in ds000005 sub-01, with OASIS30ANTs' CSF, cortical grey matter and white matter priors brought into the T1w's space by fMRIPrep's map_brainmask command (ANTs antsApplyTransforms, Gaussian interpolation); ANTs 2.6.5 at 1 thread, with CORE-MATH; larmorx in both modes"
+   },
+   {
+    "entry": "ants-atropos/pv-phantom",
+    "description": "Atropos with partial-volume classes and the MRF on the record's partial-volume phantom: ANTs 2.6.5 (as built, CORE-MATH) and larmorx (reproduce, default)",
+    "computed": "2026-10-23T10:06:35+00:00",
+    "larmorx_commit": "15fd54702655ed63d75ea318c709adf373d93928",
+    "commands": [
+     {
+      "label": "ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/Atropos",
+       "-d",
+       "3",
+       "-a",
+       "<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/pv.nii.gz",
+       "-x",
+       "<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/pv-mask.nii.gz",
+       "-i",
+       "KMeans[3]",
+       "-s",
+       "1x2",
+       "-s",
+       "2x3",
+       "--use-partial-volume-likelihoods",
+       "1",
+       "-m",
+       "[0.1,1x1x1]",
+       "-c",
+       "[5,0]",
+       "-r",
+       "0",
+       "-o",
+       "[<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/ants-1.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/ants-1-post%02d.nii.gz]"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.54
+     },
+     {
+      "label": "ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/Atropos",
+       "-d",
+       "3",
+       "-a",
+       "<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/pv.nii.gz",
+       "-x",
+       "<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/pv-mask.nii.gz",
+       "-i",
+       "KMeans[3]",
+       "-s",
+       "1x2",
+       "-s",
+       "2x3",
+       "--use-partial-volume-likelihoods",
+       "1",
+       "-m",
+       "[0.1,1x1x1]",
+       "-c",
+       "[5,0]",
+       "-r",
+       "0",
+       "-o",
+       "[<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/ants-1-cr.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/ants-1-cr-post%02d.nii.gz]"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 0.77
+     },
+     {
+      "label": "larmorx-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "Atropos",
+       "-d",
+       "3",
+       "-a",
+       "<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/pv.nii.gz",
+       "-x",
+       "<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/pv-mask.nii.gz",
+       "-i",
+       "KMeans[3]",
+       "-s",
+       "1x2",
+       "-s",
+       "2x3",
+       "--use-partial-volume-likelihoods",
+       "1",
+       "-m",
+       "[0.1,1x1x1]",
+       "-c",
+       "[5,0]",
+       "-r",
+       "0",
+       "-o",
+       "[<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/larmorx-reproduce.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/larmorx-reproduce-post%02d.nii.gz]"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 0.6
+     },
+     {
+      "label": "larmorx-fix",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "Atropos",
+       "-d",
+       "3",
+       "-a",
+       "<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/pv.nii.gz",
+       "-x",
+       "<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/pv-mask.nii.gz",
+       "-i",
+       "KMeans[3]",
+       "-s",
+       "1x2",
+       "-s",
+       "2x3",
+       "--use-partial-volume-likelihoods",
+       "1",
+       "-m",
+       "[0.1,1x1x1]",
+       "-c",
+       "[5,0]",
+       "-r",
+       "0",
+       "-o",
+       "[<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/larmorx-fix.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/larmorx-fix-post%02d.nii.gz]"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 0.49
+     },
+     {
+      "label": "larmorx-fix-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "Atropos",
+       "-d",
+       "3",
+       "-a",
+       "<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/pv.nii.gz",
+       "-x",
+       "<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/pv-mask.nii.gz",
+       "-i",
+       "KMeans[3]",
+       "-s",
+       "1x2",
+       "-s",
+       "2x3",
+       "--use-partial-volume-likelihoods",
+       "1",
+       "-m",
+       "[0.1,1x1x1]",
+       "-c",
+       "[5,0]",
+       "-r",
+       "0",
+       "-o",
+       "[<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/larmorx-fix-1.nii.gz,<workspace>/oracles/figures-cache/ants-atropos/pv-phantom/larmorx-fix-1-post%02d.nii.gz]"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 0.68
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "threads": {
+     "ants": [
+      1
+     ],
+     "larmorx": [
+      1,
+      6
+     ]
+    },
+    "settings": "the record's partial-volume phantom (40³, nested spheres 60, 130, 200 over 0 box-averaged from a grid five times finer, noise sd 6); Atropos -i KMeans[3] -s 1x2 -s 2x3 --use-partial-volume-likelihoods 1 -m [0.1,1x1x1] -c [5,0] -r 0; the truth: a tissue where one share is at least 0.8, else the partial-volume class of the two largest"
    }
   ],
   "command": "python -m larmorx_validation evidence ants-atropos --site <site>"
@@ -803,12 +1005,12 @@
    "record": "docs/validation/ants-atropos.md",
    "status": "validated",
    "summary": {
-    "cases": 93,
+    "cases": 97,
     "verdicts": {
      "identical-cr": 31,
-     "bit-identical": 28,
+     "bit-identical": 30,
      "divergence": 9,
-     "both-reject": 25
+     "both-reject": 27
     }
    },
    "agreement": [
@@ -852,8 +1054,8 @@
     {
      "category": "partial volume",
      "counts": {
-      "bit-identical": 2,
-      "both-reject": 1
+      "bit-identical": 4,
+      "both-reject": 2
      }
     },
     {
@@ -901,6 +1103,12 @@
      "category": "real (priors)",
      "counts": {
       "identical-cr": 2
+     }
+    },
+    {
+     "category": "real (partial volume)",
+     "counts": {
+      "both-reject": 1
      }
     },
     {
@@ -1475,6 +1683,48 @@
    }
   },
   {
+   "id": "partial-volume-phantom-mrf-0",
+   "category": "partial volume",
+   "description": "the partial-volume phantom, classes 1x2 and 2x3 with their likelihoods, MRF 0 (ANTS-106), scored against the known fractions",
+   "command": "Atropos -d 3 -a '<generated: atropos-pv>' -x '<generated: atropos-pv-mask>' -i KMeans[3] -s 1x2 -s 2x3 --use-partial-volume-likelihoods 1 -m [0,1x1x1] -c [5,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "26/26",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "partial-volume-phantom-mrf-0.1",
+   "category": "partial volume",
+   "description": "the partial-volume phantom, classes 1x2 and 2x3 with their likelihoods, MRF 0.1 (ANTS-106), scored against the known fractions",
+   "command": "Atropos -d 3 -a '<generated: atropos-pv>' -x '<generated: atropos-pv-mask>' -i KMeans[3] -s 1x2 -s 2x3 --use-partial-volume-likelihoods 1 -m [0.1,1x1x1] -c [5,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "26/26",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "partial-volume-phantom-mrf-0.3",
+   "category": "partial volume",
+   "description": "the partial-volume phantom, classes 1x2 and 2x3 with their likelihoods, MRF 0.3 (ANTS-106), scored against the known fractions",
+   "command": "Atropos -d 3 -a '<generated: atropos-pv>' -x '<generated: atropos-pv-mask>' -i KMeans[3] -s 1x2 -s 2x3 --use-partial-volume-likelihoods 1 -m [0.3,1x1x1] -c [5,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
+     "reason": "ANTs exit 1: ''; larmorx exit 1: 'rrects it]\\nlarmorx: upstream defect ANTS-96 (Atropos) reproduced: the partial-volume classes keep their initial means [LARMORX_UPSTREAM_DEFECTS=fix corrects it]'"
+    }
+   }
+  },
+  {
    "id": "2d",
    "category": "dimensions",
    "description": "a 2D slice",
@@ -1512,7 +1762,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'nListSampleFunction.hxx, line 105\\nGaussianListSampleFunction (0x5aa455020f10): The input list sample has <= 1 element. Function evaluations will be equal to 0.'; larmorx exit 1: \"x: upstream defect ANTS-98 (Atropos) reproduced: the first image'…"
+     "reason": "ANTs exit 1: 'nListSampleFunction.hxx, line 105\\nGaussianListSampleFunction (0x5c9d89232f10): The input list sample has <= 1 element. Function evaluations will be equal to 0.'; larmorx exit 1: \"x: upstream defect ANTS-98 (Atropos) reproduced: the first image'…"
     }
    }
   },
@@ -2177,6 +2427,20 @@
    }
   },
   {
+   "id": "real/ds000005-sub-01/smriprep-partial-volume",
+   "category": "real (partial volume)",
+   "description": "sMRIPrep's options on ds000005-sub-01's N4-corrected T1w and brain mask with partial-volume classes 1x2 and 2x3 (ANTS-106: ANTs stops)",
+   "command": "Atropos -d 3 -a '<ds000005-sub-01-noreconall: N4-corrected T1w>' -x '<ds000005-sub-01-noreconall: brain mask>' -i KMeans[3] -k Gaussian -s 1x2 -s 2x3 --use-partial-volume-likelihoods 1 -m [0.1,1x1x1] -c [3,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "ANTs exit 1: ''; larmorx exit 1: 'rrects it]\\nlarmorx: upstream defect ANTS-96 (Atropos) reproduced: the partial-volume classes keep their initial means [LARMORX_UPSTREAM_DEFECTS=fix corrects it]'"
+    }
+   }
+  },
+  {
    "id": "real/ds000005/otsu",
    "category": "real (other)",
    "description": "Otsu[3] on ds000005's N4-corrected T1w",
@@ -2219,7 +2483,7 @@
    }
   }
  ],
- "cases_total": 93,
+ "cases_total": 97,
  "examples": [
   {
    "id": "fmriprep-atropos",
@@ -2386,13 +2650,13 @@
        "id": "brain",
        "label": "brain, 0.5–99.5 %",
        "lo": 0.0,
-       "hi": 0.9995754957199097
+       "hi": 0.9965208593010902
       },
       {
        "id": "full",
        "label": "full range",
        "lo": 0.0,
-       "hi": 0.9996199607849121
+       "hi": 0.9967342615127563
       },
       {
        "id": "own",
@@ -5537,6 +5801,880 @@
     "Inputs: OASIS30ANTs CSF prior (sha256 ebbe851b6d5898c5…); OASIS30ANTs CGM prior (sha256 c4be7df569fa12d0…); OASIS30ANTs WM prior (sha256 3579a79d197cb3e8…); N4-corrected T1w (sha256 3f9a610cd436863c…); brain mask (sha256 88951bc71271901f…)",
     "Runs: figures cache entry `ants-atropos/ds000005-oasis-priors`, computed 2026-10-22T17:08:39+00:00 with larmorx `dc5e4b828079`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ]
+  },
+  {
+   "id": "pv-phantom",
+   "title": "Partial-volume classes with the MRF: ANTs and larmorx's correction",
+   "summary": "The record's partial-volume phantom segmented with classes 1x2 and 2x3, their likelihoods and an MRF of 0.1: ANTs gives the partial-volume classes few voxels (ANTS-106); larmorx's default, with a partial-volume label a member of its own set, labels the boundaries between tissues as their mixtures. The truth comes from the fractions the phantom was built with.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "synthetic (the parity suite's `atropos-pv`): nested spheres of radii 8.3, 13.7 and 17.9 voxels (200, 130, 60 over 0), 40³ voxels of 1 mm"
+    },
+    {
+     "label": "Command",
+     "text": "`Atropos -d 3 -a pv.nii.gz -x pv-mask.nii.gz -i KMeans[3] -s 1x2 -s 2x3 --use-partial-volume-likelihoods 1 -m [0.1,1x1x1] -c [5,0] -r 0 -o [labels.nii.gz,post%02d.nii.gz]`"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; larmorx at commit `15fd54702655`"
+    },
+    {
+     "label": "Classes",
+     "text": "0 background, 1-3 tissues (dark to bright), 4 = 1x2, 5 = 2x3"
+    }
+   ],
+   "grid": {
+    "shape": [
+     40,
+     40,
+     40
+    ],
+    "spacing": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     40,
+     40,
+     40
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "04def2fb9602f302e4d50510.bin",
+    "dtype": "u1",
+    "bytes": 860
+   },
+   "outputs": [
+    {
+     "id": "labels",
+     "label": "Labels (0 background, 1-3 tissues (dark to bright), 4 = 1x2, 5 = 2x3)",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 5.0
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 5.0
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "phantom",
+     "role": "input",
+     "label": "the partial-volume phantom",
+     "sub": "three tissues box-averaged from a grid five times finer, noise sd 6",
+     "arrays": {
+      "all": {
+       "blob": "adbf24bc8f63322efed005a7.bin",
+       "dtype": "f4",
+       "bytes": 95928
+      }
+     },
+     "window": [
+      -8.224650135040283,
+      208.30984924316408
+     ]
+    },
+    {
+     "id": "truth",
+     "role": "input",
+     "label": "the truth",
+     "sub": "from the known fractions: a tissue where one share is at least 0.8, else the partial-volume class of the two largest",
+     "arrays": {
+      "all": {
+       "blob": "075f51c6ab6774465369d49d.bin",
+       "dtype": "i2",
+       "bytes": 1459
+      }
+     },
+     "window": [
+      0.0,
+      5.0
+     ]
+    },
+    {
+     "id": "ants",
+     "role": "original",
+     "label": "Atropos: ANTs 2.6.5, 1 thread",
+     "sub": "as built",
+     "arrays": {
+      "labels": {
+       "blob": "531fcc9176f6aff01b867675.bin",
+       "dtype": "u4",
+       "bytes": 2181
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       4.0
+      ]
+     }
+    },
+    {
+     "id": "ants-cr",
+     "role": "original",
+     "label": "Atropos: ANTs 2.6.5, 1 thread",
+     "sub": "CORE-MATH",
+     "arrays": {
+      "labels": {
+       "same": "ants:labels",
+       "dtype": "u4"
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       4.0
+      ]
+     }
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "Atropos: larmorx (port)",
+     "sub": "reproduce mode",
+     "arrays": {
+      "labels": {
+       "same": "ants:labels",
+       "dtype": "u4"
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       4.0
+      ]
+     }
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "Atropos: larmorx (port)",
+     "sub": "default mode, 6 threads",
+     "arrays": {
+      "labels": {
+       "blob": "22f28077e40a49858aacf128.bin",
+       "dtype": "u4",
+       "xor": "ants-cr:labels",
+       "zero": false,
+       "bytes": 2195
+      }
+     },
+     "own": {
+      "labels": [
+       0.0,
+       5.0
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants-cr",
+     "a": "larmorx",
+     "b": "ants-cr",
+     "kind": "main",
+     "label": "larmorx (reproduce) − ANTs with CORE-MATH",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 64000,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 5.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same labels, voxel for voxel."
+    },
+    {
+     "id": "lx-ants",
+     "a": "larmorx",
+     "b": "ants",
+     "kind": "main",
+     "label": "larmorx (reproduce) − ANTs as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 64000,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 5.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same labels, voxel for voxel."
+    },
+    {
+     "id": "fix-ants",
+     "a": "larmorx-fix",
+     "b": "ants",
+     "kind": "main",
+     "label": "larmorx's default − ANTs as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "labels": {
+       "identical": false,
+       "voxels": 64000,
+       "differ": 1529,
+       "share": 0.023890625,
+       "max_abs": 3.0,
+       "at": [
+        2,
+        22,
+        17
+       ],
+       "a_at": 4.0,
+       "b_at": 1.0,
+       "rms": 0.3927268452754408,
+       "range": 5.0,
+       "max_rel_range": 0.6,
+       "one_minus_ncc": 0.07059714078961889,
+       "at_display": [
+        2,
+        22,
+        17
+       ]
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 3.0,
+       "at": [
+        2,
+        22,
+        17
+       ],
+       "a": 4.0,
+       "b": 1.0,
+       "differ": 1529
+      }
+     },
+     "links": [
+      {
+       "label": "ANTS-106",
+       "href": "docs/findings/ants-atropos.md"
+      }
+     ],
+     "verdict": "d13",
+     "reason": "ANTS-106 corrected by default (with ITK-50 and ANTS-96): a partial-volume label is a member of its own set in the MRF, so the boundary voxels between two tissues can take it. Against the known fractions: ANTs 94.0%, larmorx's default 97.7% of the voxels (the table below has the Dice per class)."
+    },
+    {
+     "id": "fix-1-6",
+     "a": "larmorx-fix-1",
+     "b": "larmorx-fix",
+     "kind": "check",
+     "label": "larmorx's default: 1 thread − 6 threads",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 64000,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 5.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same labels at any thread count."
+    },
+    {
+     "id": "ants-truth",
+     "a": "ants",
+     "b": "truth",
+     "kind": "reference",
+     "label": "ANTs − the truth",
+     "role_label": "against the truth",
+     "metrics": {
+      "labels": {
+       "identical": false,
+       "voxels": 64000,
+       "differ": 1437,
+       "share": 0.022453125,
+       "max_abs": 3.0,
+       "at": [
+        6,
+        16,
+        19
+       ],
+       "a_at": 1.0,
+       "b_at": 4.0,
+       "rms": 0.37579083277802294,
+       "range": 5.0,
+       "max_rel_range": 0.6,
+       "one_minus_ncc": 0.06602754729534807,
+       "at_display": [
+        6,
+        16,
+        19
+       ]
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 3.0,
+       "at": [
+        6,
+        16,
+        19
+       ],
+       "a": 1.0,
+       "b": 4.0,
+       "differ": 1437
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "ANTs labels 94.0% of the voxels as the truth; it gives the partial-volume classes 237 and 106 voxels, the truth has 1368 and 408."
+    },
+    {
+     "id": "fix-truth",
+     "a": "larmorx-fix",
+     "b": "truth",
+     "kind": "reference",
+     "label": "larmorx's default − the truth",
+     "role_label": "against the truth",
+     "metrics": {
+      "labels": {
+       "identical": false,
+       "voxels": 64000,
+       "differ": 552,
+       "share": 0.008625,
+       "max_abs": 3.0,
+       "at": [
+        2,
+        22,
+        17
+       ],
+       "a_at": 4.0,
+       "b_at": 1.0,
+       "rms": 0.2466335844932721,
+       "range": 5.0,
+       "max_rel_range": 0.6,
+       "one_minus_ncc": 0.028642161669280363,
+       "at_display": [
+        2,
+        22,
+        17
+       ]
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 3.0,
+       "at": [
+        2,
+        22,
+        17
+       ],
+       "a": 4.0,
+       "b": 1.0,
+       "differ": 552
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "larmorx's default labels 97.7% of the voxels as the truth; 1418 and 454 voxels in the partial-volume classes."
+    },
+    {
+     "id": "antscr-ants",
+     "a": "ants-cr",
+     "b": "ants",
+     "kind": "variability",
+     "label": "ANTs with CORE-MATH − as built",
+     "role_label": "the original against itself",
+     "metrics": {
+      "labels": {
+       "identical": true,
+       "voxels": 64000,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 5.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "labels": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "The same labels."
+    }
+   ],
+   "default": {
+    "output": "labels",
+    "plane": "axial",
+    "voxel": [
+     6,
+     16,
+     19
+    ],
+    "panels": [
+     "phantom",
+     "truth",
+     "ants",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "fix-ants",
+     "ants-truth",
+     "fix-truth"
+    ],
+    "compare": {
+     "a": "truth",
+     "b": "larmorx-fix"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 19,
+    "aspect": 1.0,
+    "panels": {
+     "phantom": "03c3696ac8659b098268a0f9.webp",
+     "truth": "f2ae035c544e9282a1f6fedf.webp",
+     "ants": "fdbaa3381e3d077a7bed83d9.webp",
+     "larmorx-fix": "d68b74c5ec773ebcbd9c5682.webp"
+    },
+    "diffs": {
+     "fix-ants": "360274dda0de8884a2477ce8.webp",
+     "ants-truth": "6b7e16a7fa4d5f7aa2eed844.webp",
+     "fix-truth": "147e86c3202dafe1627c002c.webp"
+    },
+    "ranges": {
+     "fix-ants": 3.0,
+     "ants-truth": 3.0,
+     "fix-truth": 3.0
+    },
+    "caption": "Axial slice 20 of 40; the phantom, the truth and each program's labels."
+   },
+   "chain": null,
+   "groups": [
+    [
+     "main",
+     "LARMORX against ANTs"
+    ],
+    [
+     "check",
+     "LARMORX against itself"
+    ],
+    [
+     "reference",
+     "Each against the truth (known by construction)"
+    ],
+    [
+     "variability",
+     "ANTs against itself"
+    ]
+   ],
+   "tables": [],
+   "metrics_note": "Δ is A − B between the label images, over every voxel of the 40³ grid.",
+   "provenance": [
+    "Data: synthetic phantom, Apache-2.0",
+    "Inputs: the partial-volume phantom (sha256 db2e464ca8ebec17…); its mask (sha256 1fa2300b4f927cd6…); the truth from the known fractions (sha256 e8a727207c3a7e66…)",
+    "Runs: figures cache entry `ants-atropos/pv-phantom`, computed 2026-10-23T10:06:35+00:00 with larmorx `15fd54702655`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ]
+  }
+ ],
+ "tables": [
+  {
+   "id": "ants-106",
+   "title": "Partial-volume classes with the MRF on the phantom of known fractions: Dice per class and the share of voxels labelled as the truth (the record's cases)",
+   "columns": [
+    {
+     "label": "Run"
+    },
+    {
+     "label": "Dice 1",
+     "num": true
+    },
+    {
+     "label": "Dice 2",
+     "num": true
+    },
+    {
+     "label": "Dice 3",
+     "num": true
+    },
+    {
+     "label": "Dice 4 (1x2)",
+     "num": true
+    },
+    {
+     "label": "Dice 5 (2x3)",
+     "num": true
+    },
+    {
+     "label": "voxels as the truth",
+     "num": true
+    },
+    {
+     "label": "Verdict"
+    }
+   ],
+   "rows": [
+    {
+     "head": "MRF 0: ANTs 2.6.5",
+     "cells": [
+      {
+       "v": 0.975,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.944,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.975,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.728,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.578,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.937,
+       "fmt": "sig"
+      },
+      {
+       "text": "the original"
+      }
+     ]
+    },
+    {
+     "head": "MRF 0: larmorx's default",
+     "cells": [
+      {
+       "v": 0.971,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.948,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.971,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.711,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.594,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.934,
+       "fmt": "sig"
+      },
+      {
+       "verdict": "d13",
+       "text": "ITK-50 and ANTS-96 corrected"
+      }
+     ]
+    },
+    {
+     "head": "MRF 0.1: ANTs 2.6.5",
+     "cells": [
+      {
+       "v": 0.98,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.951,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.964,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.295,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.405,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.94,
+       "fmt": "sig"
+      },
+      {
+       "text": "the original"
+      }
+     ],
+     "class": "is-sep"
+    },
+    {
+     "head": "MRF 0.1: larmorx's default",
+     "cells": [
+      {
+       "v": 0.991,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.983,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.985,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.862,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.805,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.977,
+       "fmt": "sig"
+      },
+      {
+       "verdict": "d13",
+       "text": "ANTS-106 corrected (and ITK-50, ANTS-96)"
+      }
+     ]
+    },
+    {
+     "head": "MRF 0.3: ANTs 2.6.5",
+     "cells": [
+      {
+       "text": "stops (exit 1)"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "the original"
+      }
+     ],
+     "class": "is-sep"
+    },
+    {
+     "head": "MRF 0.3: larmorx's default",
+     "cells": [
+      {
+       "v": 0.991,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.983,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.986,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.835,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.801,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.978,
+       "fmt": "sig"
+      },
+      {
+       "verdict": "d13",
+       "text": "ANTS-106 corrected (and ITK-50, ANTS-96)"
+      }
+     ]
+    }
+   ],
+   "note": "Classes 1-3 are the tissues, 4 and 5 the partial-volume classes 1x2 and 2x3. ANTS-106: in ANTs' MRF a partial-volume label is +1 against every neighbour, its own tissues included; corrected, it is a member of its own set (−1 with its tissues, −2 with itself, +1 with any other label). larmorx's default also corrects ITK-50 and ANTS-96 (the k-means split points, the partial-volume means), which alone change the MRF-0 row. ANTs stops when a class wins no voxel."
   }
  ]
 }

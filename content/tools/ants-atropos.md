@@ -1,8 +1,8 @@
 ---
 title: Atropos
 kicker: Tools · ANTs
-lede: ANTs' finite-mixture segmentation with a Markov random field, ported from ANTs 2.6.5 and ITK. sMRIPrep's call is reproduced bit for bit with correctly rounded maths on all five oracle runs; ITK-50 and eighteen other defects of ANTs and ITK are corrected by default.
-description: LARMORX's port of ANTs' Atropos, validated against ANTs 2.6.5 and fMRIPrep 25.2.6 — sMRIPrep's segmentation of a real T1w to inspect, ANTs at 1 to 8 threads and with the clock's seed, a segmentation with tissue priors, ITK-50 corrected, and every parity case with its verdict.
+lede: ANTs' finite-mixture segmentation with a Markov random field, ported from ANTs 2.6.5 and ITK. sMRIPrep's call is reproduced bit for bit with correctly rounded maths on all five oracle runs; ITK-50 and nineteen other defects of ANTs and ITK are corrected by default, among them partial-volume classes that the MRF shut out (ANTS-106).
+description: LARMORX's port of ANTs' Atropos, validated against ANTs 2.6.5 and fMRIPrep 25.2.6 — sMRIPrep's segmentation of a real T1w to inspect, ANTs at 1 to 8 threads and with the clock's seed, a segmentation with tissue priors, ITK-50 corrected, partial-volume classes with the MRF on a phantom of known fractions (ANTS-106 corrected), and every parity case with its verdict.
 evidence: true
 wide: true
 ---
@@ -50,6 +50,14 @@ The same T1w segmented as antsCorticalThickness segments one: OASIS30ANTs' CSF, 
 
 {{ ev.example('ants-atropos', 'oasis-priors') }}
 
+## Partial-volume classes with the MRF {#partial-volume}
+
+With `--use-partial-volume-likelihoods 1`, Atropos adds a class for each pair of tissues given with `-s` (here 1x2 and 2x3), for the voxels that mix them. In ANTs' MRF a partial-volume label is +1 against every neighbour, its own two tissues included, while a tissue next to its own kind is −2: with any MRF the partial-volume classes hardly win a voxel, and Atropos stops when one wins none ("2 non-zero label sets but 5 is requested"; sMRIPrep's MRF of 0.1 on a real T1w stops this way). The user decided on 2026-10-22 to correct it by default: a partial-volume label counts as a member of its own set, −1 with its tissues, −2 with itself, +1 with any other label; `reproduce` keeps ANTs' energies. A phantom whose voxels' tissue fractions are known measures what the correction does.
+
+{{ ev.example('ants-atropos', 'pv-phantom') }}
+
+{{ ev.table('ants-atropos', 'ants-106') }}
+
 ## Every case {#cases}
 
 Each case of the record, with what it tests, the command line, its verdict and the reason. Search, filter by category or verdict (or select a segment of the chart above), sort by a column; `#case=<name>` links to one.
@@ -58,7 +66,7 @@ Each case of the record, with what it tests, the command line, its verdict and t
 
 ## Corrections by default {#corrections}
 
-The record's fix pass meets ITK-50, ITK-51 and ANTS-90 to ANTS-105, each corrected by default with `upstream_defects="reproduce"` (or `LARMORX_UPSTREAM_DEFECTS=reproduce`) giving ANTs' behaviour ([register](repo:docs/findings/upstream-defects.md)). ITK-50 changes sMRIPrep's own call, as the worked example measures. ANTS-107, where ANTs weighs part of its samples with memory it never wrote, is not met by default and is filled deterministically when reproduced; ANTS-106 (partial-volume classes with an MRF never win a voxel) behaves as in ANTs in both modes, its correction undecided.
+The record's fix pass meets ITK-50, ITK-51 and ANTS-90 to ANTS-106, each corrected by default with `upstream_defects="reproduce"` (or `LARMORX_UPSTREAM_DEFECTS=reproduce`) giving ANTs' behaviour ([register](repo:docs/findings/upstream-defects.md)). ITK-50 changes sMRIPrep's own call, as the worked example measures; ANTS-106 changes partial-volume classes with an MRF, as the phantom above measures. ANTS-107, where ANTs weighs part of its samples with memory it never wrote, is not met by default and is filled deterministically when reproduced.
 
 ## Known limits {#limits}
 

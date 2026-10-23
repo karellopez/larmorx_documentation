@@ -3,7 +3,7 @@
  "tool": "ants-registration",
  "title": "antsRegistration",
  "provenance": {
-  "exporter": "a7ad3350cd27fb73edecf2e7e5c75d82de0f6702",
+  "exporter": "6cb9d9ae73310c2f140789ea024a5af10add2b49",
   "records": [
    {
     "path": "docs/validation/ants-registration.json",
@@ -19,15 +19,15 @@
    },
    {
     "path": "docs/validation/ants-registration-corrections.json",
-    "sha256": "fb571eb19d18ee2ee4436487c3dd3ce52c432f9afd887b4d3b9f69a9d399e99d",
-    "generated": "2026-10-22",
-    "larmorx_commit": "88bb1fffccbf"
+    "sha256": "67afa7666701434ba532f2225fdf9aea24c40ee2463a9076141d17109243c092",
+    "generated": "2026-10-23",
+    "larmorx_commit": "708bb99389fe"
    },
    {
     "path": "docs/validation/ants-registration-corrections.md",
-    "sha256": "e9af201f25a27492cd2bbb97715e39dfd56cec07941b181116df8a6a9eb64016",
-    "generated": "2026-10-22",
-    "larmorx_commit": "88bb1fffccbf"
+    "sha256": "26837164892c7353855abd29914f56e5f5c5f4f8587e39491626ff5ec110f5bc",
+    "generated": "2026-10-23",
+    "larmorx_commit": "708bb99389fe"
    }
   ],
   "benchmarks": [],
@@ -10195,7 +10195,7 @@
   },
   {
    "id": "corrections-chain",
-   "title": "Stages after a B-spline transform (ITK-35), which ANTs cannot run: the corrected stage against ANTs' closest runs, how far their results map the fixed points apart (largest and mean, mm, in the mask)",
+   "title": "Stages after a B-spline transform (ITK-35), which ANTs cannot run: the corrected stage against ANTs' closest runs, how far their results map the fixed points apart (largest and mean, mm, in the mask); with the field, the median of five ANTs runs, and how far ANTs' own runs are apart (ANTS-72)",
    "columns": [
     {
      "label": "Case"
@@ -10215,6 +10215,10 @@
     {
      "label": "mean",
      "num": true
+    },
+    {
+     "label": "ANTs' own runs apart: largest",
+     "num": true
     }
    ],
    "rows": [
@@ -10230,11 +10234,15 @@
        "fmt": "sig"
       },
       {
-       "v": 3.75,
+       "v": 4.664,
        "fmt": "sig"
       },
       {
-       "v": 1.635,
+       "v": 2.337,
+       "fmt": "sig"
+      },
+      {
+       "v": 3.203,
        "fmt": "sig"
       }
      ]
@@ -10251,11 +10259,15 @@
        "fmt": "sig"
       },
       {
-       "v": 2.063,
+       "v": 3.123,
        "fmt": "sig"
       },
       {
-       "v": 1.404,
+       "v": 1.863,
+       "fmt": "sig"
+      },
+      {
+       "v": 7.856,
        "fmt": "sig"
       }
      ]
@@ -10278,6 +10290,10 @@
       {
        "v": 2.444,
        "fmt": "sig"
+      },
+      {
+       "v": 0.0007571,
+       "fmt": "sig"
       }
      ]
     },
@@ -10293,11 +10309,15 @@
        "fmt": "sig"
       },
       {
-       "v": 9.435,
+       "v": 9.268,
        "fmt": "sig"
       },
       {
-       "v": 4.331,
+       "v": 4.236,
+       "fmt": "sig"
+      },
+      {
+       "v": 2.986,
        "fmt": "sig"
       }
      ]
@@ -10319,6 +10339,10 @@
       },
       {
        "v": 0.1292,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
        "fmt": "sig"
       }
      ]
