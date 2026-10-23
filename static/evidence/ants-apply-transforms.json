@@ -3,19 +3,19 @@
  "tool": "ants-apply-transforms",
  "title": "antsApplyTransforms",
  "provenance": {
-  "exporter": "146ec72dd34cb66c17f1ba7b866b1bc89c83ffd3",
+  "exporter": "d47924985530e89e4d47b09d30f0056a81446f82",
   "records": [
    {
     "path": "docs/validation/ants-apply-transforms.json",
-    "sha256": "f689d14c8725e96ea68303fd33fcaa4db3fe2356b83d5a3eea5beca5a0691c3e",
-    "generated": "2026-10-21",
-    "larmorx_commit": "1dfe56c0dc60"
+    "sha256": "2676cf44fd02183b841e19196c775efe3172e12758dab62971b7591b435b779a",
+    "generated": "2026-10-22",
+    "larmorx_commit": "88bb1fffccbf"
    },
    {
     "path": "docs/validation/ants-apply-transforms.md",
-    "sha256": "a63aeb367a9f384659cb769fcce6751c5b4edbeae67f72088ec4eec1ce69e7a2",
-    "generated": "2026-10-21",
-    "larmorx_commit": "1dfe56c0dc60"
+    "sha256": "f62d9f0959ae6293fea6e03af26355960b88d720e4e257c9cdd6a50f4cb110cc",
+    "generated": "2026-10-22",
+    "larmorx_commit": "88bb1fffccbf"
    }
   ],
   "benchmarks": [
@@ -496,6 +496,527 @@
      "fmriprep_run": 1
     },
     "settings": "fMRIPrep 25.2.6's anat2std_t1w node of ds000005 sub-01 (its command.txt and inputs), with --float 1 as fMRIPrep ran it and with --float 0; ANTs as built at 1 and 8 threads and with CORE-MATH; larmorx in both modes at 1 and 12 threads"
+   },
+   {
+    "entry": "ants-apply-transforms/bspline104-ds000005-t1w",
+    "description": "a B-spline transform (ANTs' BSpline stage on ds000005 sub-01) and its affine applied to the T1w: ANTs 2.6.5 and larmorx, single and double precision",
+    "computed": "2026-10-22T23:43:00+00:00",
+    "larmorx_commit": "a9401a69f759c16672b27feeff06c133ca87efe0",
+    "commands": [
+     {
+      "label": "registration",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--float",
+       "1",
+       "--initial-moving-transform",
+       "[<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/inputs/small/856aae4c5a_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/inputs/small/8e9dfd8c00_ds000005-sub-01-noreconall_moving_masked.nii.gz,1]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/transform,<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/ants_t1_to_mni_Warped.nii.gz]",
+       "--transform",
+       "Rigid[0.05]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/inputs/small/856aae4c5a_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/inputs/small/8e9dfd8c00_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "2.0x1.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "Affine[0.08]",
+       "--metric",
+       "Mattes[<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/inputs/small/856aae4c5a_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/inputs/small/8e9dfd8c00_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,56,Regular,0.25]",
+       "--convergence",
+       "[100x100,1e-06,20]",
+       "--smoothing-sigmas",
+       "1.0x0.0vox",
+       "--shrink-factors",
+       "2x1",
+       "--use-histogram-matching",
+       "1",
+       "--transform",
+       "BSpline[0.1,104]",
+       "--metric",
+       "CC[<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/inputs/small/856aae4c5a_fixed_masked.nii.gz,<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/inputs/small/8e9dfd8c00_ds000005-sub-01-noreconall_moving_masked.nii.gz,1,4,None,1]",
+       "--convergence",
+       "[100x70x50x20,1e-06,10]",
+       "--smoothing-sigmas",
+       "3.0x2.0x1.0x0.0vox",
+       "--shrink-factors",
+       "8x4x2x1",
+       "--use-histogram-matching",
+       "1",
+       "--winsorize-image-intensities",
+       "[0.005,0.995]",
+       "--write-composite-transform",
+       "1",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "4",
+       "ANTS_RANDOM_SEED": "42"
+      },
+      "exit": 0,
+      "seconds": 4538.31
+     },
+     {
+      "label": "disassemble",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/CompositeTransformUtil",
+       "--disassemble",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/transformComposite.h5",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/part"
+      ],
+      "env": {},
+      "exit": 0,
+      "seconds": 0.05
+     },
+     {
+      "label": "ants-float-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/d96e838f-0213-4978-9a72-dac8eae4b541/scratchpad/a5-part3/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-n",
+       "LanczosWindowedSinc",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/transformComposite.h5",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/ants-float-1.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 7.36
+     },
+     {
+      "label": "ants-float-8",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/d96e838f-0213-4978-9a72-dac8eae4b541/scratchpad/a5-part3/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-n",
+       "LanczosWindowedSinc",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/transformComposite.h5",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/ants-float-8.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8"
+      },
+      "exit": 0,
+      "seconds": 1.65
+     },
+     {
+      "label": "ants-float-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/d96e838f-0213-4978-9a72-dac8eae4b541/scratchpad/a5-part3/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-n",
+       "LanczosWindowedSinc",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/transformComposite.h5",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/ants-float-1-cr.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 7.96
+     },
+     {
+      "label": "larmorx-float-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/d96e838f-0213-4978-9a72-dac8eae4b541/scratchpad/a5-part3/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-n",
+       "LanczosWindowedSinc",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/transformComposite.h5",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/larmorx-float-1.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 3.3
+     },
+     {
+      "label": "larmorx-float-1-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/d96e838f-0213-4978-9a72-dac8eae4b541/scratchpad/a5-part3/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-n",
+       "LanczosWindowedSinc",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/transformComposite.h5",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/larmorx-float-1-reproduce.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 3.17
+     },
+     {
+      "label": "larmorx-float-12",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/d96e838f-0213-4978-9a72-dac8eae4b541/scratchpad/a5-part3/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-n",
+       "LanczosWindowedSinc",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/transformComposite.h5",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/larmorx-float-12.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "12",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 0.9
+     },
+     {
+      "label": "larmorx-float-12-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/d96e838f-0213-4978-9a72-dac8eae4b541/scratchpad/a5-part3/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-n",
+       "LanczosWindowedSinc",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/transformComposite.h5",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/larmorx-float-12-reproduce.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "12",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 0.87
+     },
+     {
+      "label": "ants-double-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "0",
+       "-i",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/d96e838f-0213-4978-9a72-dac8eae4b541/scratchpad/a5-part3/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-n",
+       "LanczosWindowedSinc",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/transformComposite.h5",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/ants-double-1.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 7.21
+     },
+     {
+      "label": "ants-double-8",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "0",
+       "-i",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/d96e838f-0213-4978-9a72-dac8eae4b541/scratchpad/a5-part3/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-n",
+       "LanczosWindowedSinc",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/transformComposite.h5",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/ants-double-8.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8"
+      },
+      "exit": 0,
+      "seconds": 1.53
+     },
+     {
+      "label": "ants-double-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "0",
+       "-i",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/d96e838f-0213-4978-9a72-dac8eae4b541/scratchpad/a5-part3/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-n",
+       "LanczosWindowedSinc",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/transformComposite.h5",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/ants-double-1-cr.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 7.59
+     },
+     {
+      "label": "larmorx-double-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "0",
+       "-i",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/d96e838f-0213-4978-9a72-dac8eae4b541/scratchpad/a5-part3/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-n",
+       "LanczosWindowedSinc",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/transformComposite.h5",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/larmorx-double-1.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 3.47
+     },
+     {
+      "label": "larmorx-double-1-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "0",
+       "-i",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/d96e838f-0213-4978-9a72-dac8eae4b541/scratchpad/a5-part3/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-n",
+       "LanczosWindowedSinc",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/transformComposite.h5",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/larmorx-double-1-reproduce.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 3.19
+     },
+     {
+      "label": "larmorx-double-12",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "0",
+       "-i",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/d96e838f-0213-4978-9a72-dac8eae4b541/scratchpad/a5-part3/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-n",
+       "LanczosWindowedSinc",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/transformComposite.h5",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/larmorx-double-12.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "12",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 0.88
+     },
+     {
+      "label": "larmorx-double-12-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "0",
+       "-i",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/d96e838f-0213-4978-9a72-dac8eae4b541/scratchpad/a5-part3/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-n",
+       "LanczosWindowedSinc",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/transformComposite.h5",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/larmorx-double-12-reproduce.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "12",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 0.92
+     },
+     {
+      "label": "affine-only",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "--float",
+       "1",
+       "-i",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/d96e838f-0213-4978-9a72-dac8eae4b541/scratchpad/a5-part3/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/ds_std_volumes_wf/mask_anat/sub-01_desc-preproc_T1w_masked.nii.gz",
+       "-r",
+       "<testdata-cache>/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz",
+       "-n",
+       "LanczosWindowedSinc",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/registration/part_00_AffineTransform.mat",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-apply-transforms/bspline104-ds000005-t1w/affine-only.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 4.91
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "threads": {
+     "ants": [
+      1,
+      8
+     ],
+     "larmorx": [
+      1,
+      12
+     ],
+     "registration": 4
+    },
+    "seed": "ANTS_RANDOM_SEED=42",
+    "settings": "the composite transform (affine, then B-spline) of sMRIPrep's template registration of ds000005-sub-01-noreconall with BSpline[0.1,104] for its SyN stage (ANTs 2.6.5, every third voxel), applied to the 1 mm T1w onto the 2 mm template, --float 1 and --float 0"
    }
   ],
   "command": "python -m larmorx_validation evidence ants-apply-transforms --site <site>"
@@ -508,11 +1029,11 @@
    "record": "docs/validation/ants-apply-transforms.md",
    "status": "validated",
    "summary": {
-    "cases": 220,
+    "cases": 258,
     "verdicts": {
-     "bit-identical": 188,
-     "identical-cr": 14,
-     "both-reject": 14,
+     "bit-identical": 219,
+     "identical-cr": 15,
+     "both-reject": 20,
      "divergence": 4
     }
    },
@@ -528,6 +1049,13 @@
      "category": "transform",
      "counts": {
       "bit-identical": 33
+     }
+    },
+    {
+     "category": "bspline",
+     "counts": {
+      "bit-identical": 12,
+      "identical-cr": 1
      }
     },
     {
@@ -553,7 +1081,7 @@
     {
      "category": "errors",
      "counts": {
-      "both-reject": 4
+      "both-reject": 6
      }
     },
     {
@@ -566,16 +1094,16 @@
     {
      "category": "float",
      "counts": {
-      "bit-identical": 87,
-      "both-reject": 4
+      "bit-identical": 100,
+      "both-reject": 6
      }
     },
     {
      "category": "transform-output",
      "counts": {
-      "bit-identical": 28,
+      "bit-identical": 34,
       "divergence": 4,
-      "both-reject": 6
+      "both-reject": 8
      }
     }
    ]
@@ -1325,6 +1853,188 @@
    }
   },
   {
+   "id": "bspline/text",
+   "category": "bspline",
+   "description": "-t bspline.txt: a BSplineTransform_double_3_3 in ITK's text format",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t bspline.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "bspline/matlab",
+   "category": "bspline",
+   "description": "-t bspline.mat: the same in ITK's MATLAB format",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t bspline.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "bspline/hdf5",
+   "category": "bspline",
+   "description": "-t bspline.h5: the same in HDF5",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t bspline.h5 -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "bspline/float-class",
+   "category": "bspline",
+   "description": "-t a BSplineTransform_float_3_3 (float coefficients)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t bspline-float.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "bspline/composite-hdf5",
+   "category": "bspline",
+   "description": "-t composite.h5: an affine and a B-spline transform in one HDF5 composite (-a 1)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-bspline.h5 -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "bspline/chain-affine",
+   "category": "bspline",
+   "description": "-t bspline -t affine: the affine first, then the B-spline transform",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t bspline.txt -t affine-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "bspline/chain-warp",
+   "category": "bspline",
+   "description": "-t warp -t bspline: the B-spline transform first, then the displacement field",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t warp-lps-vector.nii.gz -t bspline.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "bspline/chain-inverse-affine",
+   "category": "bspline",
+   "description": "-t [affine,1] -t bspline: an inverted affine after the B-spline transform",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [affine-centered.mat,1] -t bspline.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "bspline/nearest",
+   "category": "bspline",
+   "description": "-n NearestNeighbor through the B-spline transform",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t bspline.txt -n NearestNeighbor -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "bspline/bspline-interpolation",
+   "category": "bspline",
+   "description": "-n BSpline through the B-spline transform",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t bspline.txt -n BSpline -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "bspline/lanczos",
+   "category": "bspline",
+   "description": "-n LanczosWindowedSinc through the B-spline transform",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t bspline.txt -n LanczosWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "81 voxels differ from ANTs as built (glibc's sin, cos or exp); bit-identical with CORE-MATH preloaded"
+    }
+   }
+  },
+  {
+   "id": "bspline/time-series",
+   "category": "bspline",
+   "description": "-e 3: each volume of a 4D series through the B-spline transform",
+   "command": "antsApplyTransforms -d 3 -i series-float32.nii.gz -r oblique-1.5mm.nii.gz -t bspline.txt -n Linear -e 3 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "bspline/labels-genericlabel",
+   "category": "bspline",
+   "description": "-n GenericLabel -u uchar: a label image through the B-spline transform",
+   "command": "antsApplyTransforms -d 3 -i labels-uint8.nii.gz -r oblique-1.5mm.nii.gz -t bspline.txt -n GenericLabel -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
    "id": "geometry/oblique-to-axial",
    "category": "geometry",
    "description": "oblique anisotropic input onto an axis-aligned grid",
@@ -1731,6 +2441,34 @@
    }
   },
   {
+   "id": "errors/invert-bspline",
+   "category": "errors",
+   "description": "inverting a B-spline transform: it has no inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [bspline.txt,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs exit 1; larmorx: Inverse does not exist: a B-spline transform has no inverse"
+    }
+   }
+  },
+  {
+   "id": "errors/invert-bspline-composite",
+   "category": "errors",
+   "description": "inverting a composite that holds a B-spline transform",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [affine-bspline.h5,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs exit 1; larmorx: Inverse does not exist: a B-spline transform has no inverse"
+    }
+   }
+  },
+  {
    "id": "errors/missing-transform",
    "category": "errors",
    "description": "a transform file that does not exist",
@@ -1740,7 +2478,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "ANTs exit 1; larmorx: Transform file does not exist: /tmp/lx-aat-mjsa0kes/missing.mat"
+     "reason": "ANTs exit 1; larmorx: Transform file does not exist: /tmp/lx-aat-70o4607h/missing.mat"
     }
    }
   },
@@ -2600,6 +3338,188 @@
    }
   },
   {
+   "id": "float/bspline/text",
+   "category": "float",
+   "description": "-t bspline.txt: a BSplineTransform_double_3_3 in ITK's text format",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t bspline.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/bspline/matlab",
+   "category": "float",
+   "description": "-t bspline.mat: the same in ITK's MATLAB format",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t bspline.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/bspline/hdf5",
+   "category": "float",
+   "description": "-t bspline.h5: the same in HDF5",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t bspline.h5 -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/bspline/float-class",
+   "category": "float",
+   "description": "-t a BSplineTransform_float_3_3 (float coefficients)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t bspline-float.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/bspline/composite-hdf5",
+   "category": "float",
+   "description": "-t composite.h5: an affine and a B-spline transform in one HDF5 composite (-a 1)",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t affine-bspline.h5 -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/bspline/chain-affine",
+   "category": "float",
+   "description": "-t bspline -t affine: the affine first, then the B-spline transform",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t bspline.txt -t affine-centered.mat -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/bspline/chain-warp",
+   "category": "float",
+   "description": "-t warp -t bspline: the B-spline transform first, then the displacement field",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t warp-lps-vector.nii.gz -t bspline.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/bspline/chain-inverse-affine",
+   "category": "float",
+   "description": "-t [affine,1] -t bspline: an inverted affine after the B-spline transform",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [affine-centered.mat,1] -t bspline.txt -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/bspline/nearest",
+   "category": "float",
+   "description": "-n NearestNeighbor through the B-spline transform",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t bspline.txt -n NearestNeighbor -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/bspline/bspline-interpolation",
+   "category": "float",
+   "description": "-n BSpline through the B-spline transform",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t bspline.txt -n BSpline -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/bspline/lanczos",
+   "category": "float",
+   "description": "-n LanczosWindowedSinc through the B-spline transform",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t bspline.txt -n LanczosWindowedSinc -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/bspline/time-series",
+   "category": "float",
+   "description": "-e 3: each volume of a 4D series through the B-spline transform",
+   "command": "antsApplyTransforms -d 3 -i series-float32.nii.gz -r oblique-1.5mm.nii.gz -t bspline.txt -n Linear -e 3 -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "float/bspline/labels-genericlabel",
+   "category": "float",
+   "description": "-n GenericLabel -u uchar: a label image through the B-spline transform",
+   "command": "antsApplyTransforms -d 3 -i labels-uint8.nii.gz -r oblique-1.5mm.nii.gz -t bspline.txt -n GenericLabel -u uchar -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
    "id": "float/geometry/oblique-to-axial",
    "category": "float",
    "description": "oblique anisotropic input onto an axis-aligned grid",
@@ -2978,6 +3898,34 @@
    }
   },
   {
+   "id": "float/errors/invert-bspline",
+   "category": "float",
+   "description": "inverting a B-spline transform: it has no inverse",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [bspline.txt,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs exit 1; larmorx: Inverse does not exist: a B-spline transform has no inverse"
+    }
+   }
+  },
+  {
+   "id": "float/errors/invert-bspline-composite",
+   "category": "float",
+   "description": "inverting a composite that holds a B-spline transform",
+   "command": "antsApplyTransforms -d 3 -i axial-1mm.nii.gz -r oblique-1.5mm.nii.gz -t [affine-bspline.h5,1] -n Linear -o out.nii.gz",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs exit 1; larmorx: Inverse does not exist: a B-spline transform has no inverse"
+    }
+   }
+  },
+  {
    "id": "float/errors/missing-transform",
    "category": "float",
    "description": "a transform file that does not exist",
@@ -2987,7 +3935,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "ANTs exit 1; larmorx: Transform file does not exist: /tmp/lx-aat-vso8qcwr/missing.mat"
+     "reason": "ANTs exit 1; larmorx: Transform file does not exist: /tmp/lx-aat-603ac3bl/missing.mat"
     }
    }
   },
@@ -3399,6 +4347,62 @@
    }
   },
   {
+   "id": "transform-output/composite/bspline-text",
+   "category": "transform-output",
+   "description": "-o CompositeTransform[x.txt]: a B-spline transform after a centred affine",
+   "command": "antsApplyTransforms -d 3 -o CompositeTransform[compb.txt] -t {gen-bspline:bspline.txt} -t affine-centered.mat",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/composite/bspline-matlab",
+   "category": "transform-output",
+   "description": "-o CompositeTransform[x.mat]: a B-spline transform read from MATLAB",
+   "command": "antsApplyTransforms -d 3 -o CompositeTransform[compb.mat] -t {gen-bspline:bspline.mat}",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/composite/bspline-hdf5",
+   "category": "transform-output",
+   "description": "-o CompositeTransform[x.h5]: an affine and B-spline composite and an inverted Euler",
+   "command": "antsApplyTransforms -d 3 -o CompositeTransform[compb.h5] -t {gen-bspline:affine-bspline.h5} -t [euler-centered.mat,1]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
+   "id": "transform-output/composite/bspline-float",
+   "category": "transform-output",
+   "description": "--float 1 -o CompositeTransform[x.h5]: a double B-spline transform read in float and a float one",
+   "command": "antsApplyTransforms -d 3 --float 1 -o CompositeTransform[compbf.h5] -t {gen-bspline:bspline.txt} -t {gen-bspline:bspline-float.txt}",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "the file byte for byte (text or MATLAB format)"
+    }
+   }
+  },
+  {
    "id": "transform-output/composite/fmriprep",
    "category": "transform-output",
    "description": "-o CompositeTransform[x.h5]: fMRIPrep's T1w-to-MNI composite (ds000005) after its BOLD-to-T1w affine",
@@ -3497,6 +4501,34 @@
    }
   },
   {
+   "id": "transform-output/field/bspline",
+   "category": "transform-output",
+   "description": "-o DisplacementField[x.nii.gz]: an affine and B-spline composite (pointwise)",
+   "command": "antsApplyTransforms -d 3 -r oblique-1.5mm.nii.gz -o DisplacementField[dfb.nii.gz] -t {gen-bspline:affine-bspline.h5}",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "NIfTI field: header bytes and every vector bit for bit"
+    }
+   }
+  },
+  {
+   "id": "transform-output/field/bspline-float",
+   "category": "transform-output",
+   "description": "--float 1 -o DisplacementField[x.nii.gz]: a B-spline transform in float",
+   "command": "antsApplyTransforms -d 3 --float 1 -r oblique-1.5mm.nii.gz -o DisplacementField[dfbf.nii.gz] -t {gen-bspline:bspline.txt}",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "NIfTI field: header bytes and every vector bit for bit"
+    }
+   }
+  },
+  {
    "id": "transform-output/field/no-transforms",
    "category": "transform-output",
    "description": "-o DisplacementField[x.nii.gz] without -t: zero vectors",
@@ -3563,6 +4595,34 @@
      "verdict": "both-reject",
      "checks": "1/1",
      "reason": "ANTs: The transform or set of transforms is not linear.; larmorx: The transform or set of transforms is not linear."
+    }
+   }
+  },
+  {
+   "id": "transform-output/errors/linear-with-bspline",
+   "category": "transform-output",
+   "description": "-o Linear[...] of a chain with a B-spline transform: not linear",
+   "command": "antsApplyTransforms -d 3 -o Linear[x.txt] -t {gen-bspline:bspline.txt}",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs: The transform or set of transforms is not linear.; larmorx: The transform or set of transforms is not linear."
+    }
+   }
+  },
+  {
+   "id": "transform-output/errors/inverted-bspline",
+   "category": "transform-output",
+   "description": "-o CompositeTransform[...] -t [bspline,1]: a B-spline transform has no inverse",
+   "command": "antsApplyTransforms -d 3 -o CompositeTransform[x.txt] -t [{gen-bspline:bspline.txt},1]",
+   "results": {
+    "port": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "1/1",
+     "reason": "ANTs: Inverse does not exist for /tmp/lx-aat-2vvu341w/gen-bspline.txt; larmorx: Inverse does not exist: a B-spline transform has no inverse"
     }
    }
   },
@@ -3665,7 +4725,7 @@
    }
   }
  ],
- "cases_total": 220,
+ "cases_total": 258,
  "speed": {
   "title": "Seconds for the whole command (read, resample, write), median of repeated runs, log scale; the factor is larmorx's speed-up at one thread",
   "axis": [
@@ -4966,6 +6026,1115 @@
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0; MNI ICBM 152 nonlinear asymmetric 2009c (Fonov et al., 2009, 2011), from TemplateFlow, the MNI ICBM 152 notice (static/hero/LICENSE-MNI.txt)",
     "Inputs: input (sha256 e7d2c881d419c906…); reference (sha256 7c4e551ae8150ac1…); transform (sha256 5c560d36ed0d33d0…); fMRIPrep's output (sha256 feb109660136c85e…)",
     "Runs: figures cache entry `ants-apply-transforms/fmriprep-ds000005-anat2std-t1w`, computed 2026-10-21T14:43:48+00:00 with larmorx `1dfe56c0dc60`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ]
+  },
+  {
+   "id": "bspline-transform",
+   "title": "A B-spline transform applied by ANTs and larmorx",
+   "summary": "The B-spline transform ANTs 2.6.5 found for ds000005 sub-01's T1w (sMRIPrep's template registration with BSpline[0.1,104] for its SyN stage, on every third voxel; a knot spacing of 104 mm, because with antsRegistrationSyN.sh's 26 mm ANTs had not finished after almost four hours), applied with the registration's affine (its composite, as antsRegistration writes it with sMRIPrep's options) to the 1 mm T1w onto the 2 mm template, Lanczos, as fMRIPrep resamples the T1w into MNI space; given to ANTs 2.6.5 and to larmorx, in single and double precision. Before A5 part 3 larmorx refused B-spline transform files.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01's T1w as fMRIPrep preprocessed and masked it (PDDL-1.0); the template, MNI ICBM 152 nonlinear asymmetric 2009c, © McConnell Brain Imaging Centre, Montreal Neurological Institute ([notice](/static/hero/LICENSE-MNI.txt))"
+    },
+    {
+     "label": "Transforms",
+     "text": "`transformComposite.h5` (ANTs' HDF5 file): an `AffineTransform_float_3_3` (the Rigid and Affine stages, collapsed), then a `BSplineTransform_float_3_3` of mesh 16 × 24 × 16 (control points every 12, 9.5, 12 mm, 29241 coefficients up to 43.4 mm)"
+    },
+    {
+     "label": "Command",
+     "text": "`antsApplyTransforms -d 3 --float 1 -i <T1w> -r <MNI 2 mm> -n LanczosWindowedSinc -t transformComposite.h5 -o <out>`"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; CORE-MATH preloaded where stated; larmorx at commit `a9401a69f759`"
+    },
+    {
+     "label": "Grid",
+     "text": "input 160 × 192 × 192; output 97 × 115 × 97 voxels of 2 × 2 × 2 mm; shown: 81 × 99 × 85 around the brain"
+    }
+   ],
+   "grid": {
+    "shape": [
+     81,
+     99,
+     85
+    ],
+    "spacing": [
+     2.0,
+     2.0,
+     2.0
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      8
+     ],
+     [
+      0,
+      1,
+      0,
+      8
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      2.0,
+      0.0,
+      0.0,
+      -80.5
+     ],
+     [
+      0.0,
+      2.0,
+      0.0,
+      -116.5
+     ],
+     [
+      0.0,
+      0.0,
+      2.0,
+      -78.5
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     97,
+     115,
+     97
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "b93db322c6dd6d6c16e27ede.bin",
+    "dtype": "u1",
+    "bytes": 9876
+   },
+   "outputs": [
+    {
+     "id": "warped",
+     "label": "T1w in MNI space",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -47.10031700134277,
+       "hi": 1014.5129699707031
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -364.1195983886719,
+       "hi": 2187.871826171875
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "template",
+     "role": "input",
+     "label": "MNI152NLin2009cAsym, 2 mm (reference, -r)",
+     "sub": "the grid the T1w is resampled onto",
+     "arrays": {
+      "all": {
+       "blob": "71452bd29280c8587d2ec770.bin",
+       "dtype": "i2",
+       "bytes": 448089
+      }
+     },
+     "window": [
+      1055.0,
+      9253.75
+     ]
+    },
+    {
+     "id": "affine-only",
+     "role": "input",
+     "label": "the T1w through the affine alone",
+     "sub": "ANTs, --float 1, Lanczos: what the B-spline transform then moves",
+     "arrays": {
+      "all": {
+       "blob": "6dd7ec2958c18f5a65171210.bin",
+       "dtype": "f4",
+       "bytes": 919871
+      }
+     },
+     "window": [
+      -49.8639554977417,
+      1016.9529571533203
+     ]
+    },
+    {
+     "id": "larmorx-float",
+     "role": "larmorx",
+     "label": "larmorx (port), --float 1",
+     "sub": "1 thread, reproduce mode",
+     "arrays": {
+      "warped": {
+       "blob": "ec750642d04f3ad87d55845b.bin",
+       "dtype": "f4",
+       "bytes": 901912
+      }
+     },
+     "own": {
+      "warped": [
+       -47.10031700134277,
+       1014.5129699707031
+      ]
+     }
+    },
+    {
+     "id": "larmorx-float-12",
+     "role": "larmorx",
+     "label": "larmorx (port), --float 1",
+     "sub": "12 threads, reproduce mode",
+     "arrays": {
+      "warped": {
+       "same": "larmorx-float:warped",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "warped": [
+       -47.10031700134277,
+       1014.5129699707031
+      ]
+     }
+    },
+    {
+     "id": "larmorx-float-fix",
+     "role": "larmorx",
+     "label": "larmorx (port), --float 1",
+     "sub": "1 thread, default mode",
+     "arrays": {
+      "warped": {
+       "same": "larmorx-float:warped",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "warped": [
+       -47.10031700134277,
+       1014.5129699707031
+      ]
+     }
+    },
+    {
+     "id": "ants-float-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, --float 1, correctly rounded maths",
+     "sub": "1 thread, CORE-MATH preloaded",
+     "arrays": {
+      "warped": {
+       "same": "larmorx-float:warped",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "warped": [
+       -47.10031700134277,
+       1014.5129699707031
+      ]
+     }
+    },
+    {
+     "id": "ants-float",
+     "role": "original",
+     "label": "ANTs 2.6.5, --float 1, as built",
+     "sub": "1 thread, glibc's maths (GCC 14.3 build)",
+     "arrays": {
+      "warped": {
+       "same": "larmorx-float:warped",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "warped": [
+       -47.10031700134277,
+       1014.5129699707031
+      ]
+     }
+    },
+    {
+     "id": "ants-float-8",
+     "role": "original",
+     "label": "ANTs 2.6.5, --float 1",
+     "sub": "8 threads, as built",
+     "arrays": {
+      "warped": {
+       "same": "larmorx-float:warped",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "warped": [
+       -47.10031700134277,
+       1014.5129699707031
+      ]
+     }
+    },
+    {
+     "id": "larmorx-double",
+     "role": "larmorx",
+     "label": "larmorx (port), double",
+     "sub": "1 thread, reproduce mode",
+     "arrays": {
+      "warped": {
+       "blob": "0dcebb6ad173331dd1f57477.bin",
+       "dtype": "f8",
+       "bytes": 1938604
+      }
+     },
+     "own": {
+      "warped": [
+       -47.09981015431393,
+       1014.5130478198768
+      ]
+     }
+    },
+    {
+     "id": "larmorx-double-12",
+     "role": "larmorx",
+     "label": "larmorx (port), double",
+     "sub": "12 threads, reproduce mode",
+     "arrays": {
+      "warped": {
+       "same": "larmorx-double:warped",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "warped": [
+       -47.09981015431393,
+       1014.5130478198768
+      ]
+     }
+    },
+    {
+     "id": "larmorx-double-fix",
+     "role": "larmorx",
+     "label": "larmorx (port), double",
+     "sub": "1 thread, default mode",
+     "arrays": {
+      "warped": {
+       "same": "larmorx-double:warped",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "warped": [
+       -47.09981015431393,
+       1014.5130478198768
+      ]
+     }
+    },
+    {
+     "id": "ants-double-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, double, correctly rounded maths",
+     "sub": "1 thread, CORE-MATH preloaded",
+     "arrays": {
+      "warped": {
+       "same": "larmorx-double:warped",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "warped": [
+       -47.09981015431393,
+       1014.5130478198768
+      ]
+     }
+    },
+    {
+     "id": "ants-double",
+     "role": "original",
+     "label": "ANTs 2.6.5, double, as built",
+     "sub": "1 thread, glibc's maths (GCC 14.3 build)",
+     "arrays": {
+      "warped": {
+       "blob": "9dc26bed9c2483ad8b072296.bin",
+       "dtype": "f8",
+       "xor": "ants-double-cr:warped",
+       "zero": false,
+       "bytes": 11724
+      }
+     },
+     "own": {
+      "warped": [
+       -47.09981015431393,
+       1014.5130478198768
+      ]
+     }
+    },
+    {
+     "id": "ants-double-8",
+     "role": "original",
+     "label": "ANTs 2.6.5, double",
+     "sub": "8 threads, as built",
+     "arrays": {
+      "warped": {
+       "same": "ants-double:warped",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "warped": [
+       -47.09981015431393,
+       1014.5130478198768
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants-float",
+     "a": "larmorx-float",
+     "b": "ants-float",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, --float 1, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2551.991424560547,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "The same bytes as ANTs as built.",
+     "links": []
+    },
+    {
+     "id": "lx-cr-float",
+     "a": "larmorx-float",
+     "b": "ants-float-cr",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, --float 1, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2551.991424560547,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "With correctly rounded maths, ANTs computes exactly what larmorx computes, the B-spline transform in single precision as ITK's float instantiation defines it.",
+     "links": []
+    },
+    {
+     "id": "lx12-float",
+     "a": "larmorx-float-12",
+     "b": "larmorx-float",
+     "kind": "check",
+     "label": "larmorx --float 1, 12 threads − 1 thread",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2551.991424560547,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "The same bytes.",
+     "links": []
+    },
+    {
+     "id": "lx-fix-float",
+     "a": "larmorx-float-fix",
+     "b": "larmorx-float",
+     "kind": "check",
+     "label": "larmorx --float 1, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2551.991424560547,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "No correction of the register applies to this command.",
+     "links": []
+    },
+    {
+     "id": "ants8-float",
+     "a": "ants-float-8",
+     "b": "ants-float",
+     "kind": "variability",
+     "label": "ANTs 2.6.5 --float 1, 8 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2551.991424560547,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": null,
+     "reason": "ANTs resamples each voxel on its own: its thread count changes nothing.",
+     "links": []
+    },
+    {
+     "id": "cr-ants-float",
+     "a": "ants-float-cr",
+     "b": "ants-float",
+     "kind": "variability",
+     "label": "ANTs --float 1: correctly rounded − glibc's maths",
+     "role_label": "the original against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2551.991424560547,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": null,
+     "reason": "glibc's maths plays no part here.",
+     "links": [
+      {
+       "label": "platform maths",
+       "href": "docs/findings/platform-math.md"
+      }
+     ]
+    },
+    {
+     "id": "lx-ants-double",
+     "a": "larmorx-double",
+     "b": "ants-double",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, double, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "warped": {
+       "identical": false,
+       "voxels": 1082035,
+       "differ": 2715,
+       "share": 0.0025091609790810834,
+       "max_abs": 6.821210263296962e-13,
+       "at": [
+        29,
+        42,
+        46
+       ],
+       "a_at": 917.863212686142,
+       "b_at": 917.8632126861413,
+       "rms": 9.185295699341233e-15,
+       "range": 2551.9879154130645,
+       "max_rel_range": 2.6729006913000533e-16,
+       "one_minus_ncc": 4.614901127464612e-34,
+       "at_display": [
+        21,
+        34,
+        46
+       ]
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 6.821210263296962e-13,
+       "at": [
+        21,
+        34,
+        46
+       ],
+       "a": 917.863212686142,
+       "b": 917.8632126861413,
+       "differ": 2685
+      }
+     },
+     "verdict": "identical-cr",
+     "reason": "Only where glibc's sin or cos is not correctly rounded (the Lanczos weights): with CORE-MATH preloaded, the same ANTs binary gives larmorx's output bit for bit.",
+     "links": [
+      {
+       "label": "platform maths",
+       "href": "docs/findings/platform-math.md"
+      }
+     ]
+    },
+    {
+     "id": "lx-cr-double",
+     "a": "larmorx-double",
+     "b": "ants-double-cr",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, double, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2551.9879154130645,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "With correctly rounded maths, ANTs computes exactly what larmorx computes.",
+     "links": []
+    },
+    {
+     "id": "lx12-double",
+     "a": "larmorx-double-12",
+     "b": "larmorx-double",
+     "kind": "check",
+     "label": "larmorx double, 12 threads − 1 thread",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2551.9879154130645,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "The same bytes.",
+     "links": []
+    },
+    {
+     "id": "lx-fix-double",
+     "a": "larmorx-double-fix",
+     "b": "larmorx-double",
+     "kind": "check",
+     "label": "larmorx double, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2551.9879154130645,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "No correction of the register applies to this command.",
+     "links": []
+    },
+    {
+     "id": "ants8-double",
+     "a": "ants-double-8",
+     "b": "ants-double",
+     "kind": "variability",
+     "label": "ANTs 2.6.5 double, 8 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "warped": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2551.9879154130645,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": null,
+     "reason": "ANTs resamples each voxel on its own: its thread count changes nothing.",
+     "links": []
+    },
+    {
+     "id": "cr-ants-double",
+     "a": "ants-double-cr",
+     "b": "ants-double",
+     "kind": "variability",
+     "label": "ANTs double: correctly rounded − glibc's maths",
+     "role_label": "the original against itself",
+     "metrics": {
+      "warped": {
+       "identical": false,
+       "voxels": 1082035,
+       "differ": 2715,
+       "share": 0.0025091609790810834,
+       "max_abs": 6.821210263296962e-13,
+       "at": [
+        29,
+        42,
+        46
+       ],
+       "a_at": 917.863212686142,
+       "b_at": 917.8632126861413,
+       "rms": 9.185295699341233e-15,
+       "range": 2551.9879154130645,
+       "max_rel_range": 2.6729006913000533e-16,
+       "one_minus_ncc": 4.614901127464612e-34,
+       "at_display": [
+        21,
+        34,
+        46
+       ]
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 6.821210263296962e-13,
+       "at": [
+        21,
+        34,
+        46
+       ],
+       "a": 917.863212686142,
+       "b": 917.8632126861413,
+       "differ": 2685
+      }
+     },
+     "verdict": null,
+     "reason": "glibc's sin and cos (the windowed sinc's weights) are not always correctly rounded.",
+     "links": [
+      {
+       "label": "platform maths",
+       "href": "docs/findings/platform-math.md"
+      }
+     ]
+    },
+    {
+     "id": "float-double",
+     "a": "ants-float",
+     "b": "ants-double",
+     "kind": "variability",
+     "label": "ANTs 2.6.5: --float 1 − double, as built",
+     "role_label": "the original against itself",
+     "metrics": {
+      "warped": {
+       "identical": false,
+       "voxels": 1082035,
+       "differ": 270759,
+       "share": 0.2502312771768011,
+       "max_abs": 0.014764931657282432,
+       "at": [
+        41,
+        71,
+        27
+       ],
+       "a_at": 1282.3734130859375,
+       "b_at": 1282.3586481542802,
+       "rms": 0.00027985275456982576,
+       "range": 2551.9879154130645,
+       "max_rel_range": 5.785658924208731e-06,
+       "one_minus_ncc": 4.0328467735711593e-13,
+       "at_display": [
+        33,
+        63,
+        27
+       ]
+      }
+     },
+     "display": {
+      "warped": {
+       "max_abs": 0.014764931657282432,
+       "at": [
+        33,
+        63,
+        27
+       ],
+       "a": 1282.3734130859375,
+       "b": 1282.3586481542802,
+       "differ": 266804
+      }
+     },
+     "verdict": null,
+     "reason": "Single precision against double: the size of the precision chosen.",
+     "links": []
+    }
+   ],
+   "default": {
+    "output": "warped",
+    "plane": "axial",
+    "voxel": [
+     61,
+     39,
+     41
+    ],
+    "panels": [
+     "template",
+     "affine-only",
+     "ants-float",
+     "larmorx-float"
+    ],
+    "diffs": [
+     "lx-ants-float",
+     "lx-ants-double",
+     "float-double"
+    ],
+    "compare": {
+     "a": "affine-only",
+     "b": "larmorx-float"
+    },
+    "scale": "log"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 41,
+    "aspect": 0.81818,
+    "panels": {
+     "template": "b1c6103023a363094763bf45.webp",
+     "affine-only": "fa1c96cf918d2e1432f0340e.webp",
+     "ants-float": "9d3092e673a0f20f7232c45c.webp",
+     "larmorx-float": "9d3092e673a0f20f7232c45c.webp"
+    },
+    "diffs": {
+     "lx-ants-double": "42516e5a45c2a396e7e8695f.webp",
+     "float-double": "749c9fe12ceebee8d882693b.webp"
+    },
+    "ranges": {
+     "lx-ants-double": 0.014764931657282432,
+     "float-double": 0.014764931657282432
+    },
+    "caption": "Axial slice 42 of 85; the crosshair where larmorx and ANTs as built differ most in double precision; Swipe compares the T1w through the affine alone with it through the B-spline transform too; the differences on one symmetric log scale over six decades below the largest."
+   },
+   "chain": {
+    "title": "Who gives which bytes: --float 1, then double precision",
+    "steps": [
+     {
+      "nodes": [
+       {
+        "label": "ANTs 2.6.5, --float 1, as built",
+        "sub": "1 and 8 threads, as built",
+        "role": "original"
+       },
+       {
+        "label": "ANTs 2.6.5, --float 1, correctly rounded maths",
+        "sub": "1 thread, CORE-MATH preloaded",
+        "role": "reference"
+       },
+       {
+        "label": "larmorx (port), --float 1",
+        "sub": "1 and 12 threads, both modes",
+        "role": "larmorx"
+       }
+      ]
+     },
+     {
+      "nodes": [
+       {
+        "label": "ANTs 2.6.5, double, as built",
+        "sub": "1 and 8 threads, as built",
+        "role": "original"
+       }
+      ]
+     },
+     {
+      "nodes": [
+       {
+        "label": "ANTs 2.6.5, double, correctly rounded maths",
+        "sub": "1 thread, CORE-MATH preloaded",
+        "role": "reference"
+       },
+       {
+        "label": "larmorx (port), double",
+        "sub": "1 and 12 threads, both modes",
+        "role": "larmorx"
+       }
+      ]
+     }
+    ],
+    "links": [
+     {
+      "cause": "double precision instead of --float 1",
+      "max_abs": 0.014764931657282432
+     },
+     {
+      "cause": "correctly rounded maths instead of glibc's (double)",
+      "max_abs": 6.821210263296962e-13
+     }
+    ],
+    "note": "Each box holds runs that give the same bytes. larmorx applies ANTs' B-spline transform as ANTs does, in single and in double precision, on any number of threads."
+   },
+   "metrics_note": "Δ is A − B. Every number is computed in float64 over all 1,082,035 voxels of the 97 × 115 × 97 outputs, not only the brain shown; the range is B's maximum minus its minimum. The rows *the original against itself* are ANTs' own variability on this input and the size of single against double precision.",
+   "provenance": [
+    "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0; MNI ICBM 152 nonlinear asymmetric 2009c (Fonov et al., 2009, 2011), from TemplateFlow, the MNI ICBM 152 notice (static/hero/LICENSE-MNI.txt)",
+    "Inputs: the registration's composite (sha256 45f5c9ce8dd21c6b…); affine (sha256 350ee9b20ea4009c…); input (sha256 e7d2c881d419c906…); reference (sha256 7c4e551ae8150ac1…)",
+    "Runs: figures cache entry `ants-apply-transforms/bspline104-ds000005-t1w`, computed 2026-10-22T23:43:00+00:00 with larmorx `a9401a69f759`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ]
   }
  ]

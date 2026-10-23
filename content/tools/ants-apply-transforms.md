@@ -15,7 +15,7 @@ wide: true
 
 ## What it is
 
-antsApplyTransforms maps every voxel of a reference grid through a list of transforms (matrices, displacement fields, composite `.h5` files) into an input image and interpolates it there: linear, nearest neighbour, B-spline, Gaussian, windowed sinc, label-preserving. fMRIPrep uses it for every resampling of its anatomical outputs and masks, many of them with `--float 1`.
+antsApplyTransforms maps every voxel of a reference grid through a list of transforms (matrices, displacement fields, B-spline transforms, composite `.h5` files) into an input image and interpolates it there: linear, nearest neighbour, B-spline, Gaussian, windowed sinc, label-preserving. fMRIPrep uses it for every resampling of its anatomical outputs and masks, many of them with `--float 1`.
 
 ```bash
 larmorx ants antsApplyTransforms -d 3 --float 1 -i sub-01_desc-preproc_T1w.nii.gz -r tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz \
@@ -47,6 +47,14 @@ The node that writes fMRIPrep's `space-MNI152NLin2009cAsym_res-2_desc-preproc_T1
 
 {{ ev.example('ants-apply-transforms', 'fmriprep-anat2std') }}
 
+## A B-spline transform {#bspline}
+
+The output of antsRegistration's `BSpline` stage: a cubic B-spline transform, here the one ANTs 2.6.5 found for the same T1w (sMRIPrep's template registration with `BSpline[0.1,104]` in place of its SyN stage, on every third voxel), applied with the registration's affine to the 1 mm T1w onto the 2 mm template, Lanczos, in single and double precision. *Swipe* sets the T1w through the affine alone against it through the B-spline transform too.
+
+Why 104 mm and not antsRegistrationSyN.sh's 26 mm: the mesh doubles at each level, to about a million parameters at the last one, and ANTs computes every parameter's Jacobian at every voxel. With 26 mm ANTs had not finished after almost four hours at 4 threads; LARMORX, which computes only the 64 control points around each voxel, ran the same registration in 38 s at one thread ([findings](repo:docs/findings/ants-bspline.md)).
+
+{{ ev.example('ants-apply-transforms', 'bspline-transform') }}
+
 ## Every case {#cases}
 
 Each case of the record, with what it tests, the command line, its verdict and the reason. Search, filter by category or verdict (or select a segment of the chart above), sort by a column; `#case=<name>` links to one.
@@ -63,4 +71,4 @@ The record's fix pass meets ANTS-06 (undefined float-to-integer conversions of `
 
 ## Known limits {#limits}
 
-`BSplineTransform` files (the output of antsRegistration's `BSpline` stage) are refused with a message; MINC transform files too. The comparison is made on Linux x86-64; the other five platforms are held to LARMORX's own Linux output by the [golden tests](repo:docs/validation/golden.md).
+MINC transform files are refused with a message. A B-spline transform has no inverse: `-t [BSpline.txt,1]` fails, as in ANTs. The comparison is made on Linux x86-64; the other five platforms are held to LARMORX's own Linux output by the [golden tests](repo:docs/validation/golden.md).
