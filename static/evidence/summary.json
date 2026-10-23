@@ -261,6 +261,44 @@
    ]
   },
   {
+   "page": "/tools/afni-automask/",
+   "title": "3dAutomask",
+   "eco": "afni",
+   "implementations": [
+    {
+     "label": "larmorx-gpl replica",
+     "record": "docs/validation/afni-automask.md",
+     "status": "validated",
+     "cases": 105,
+     "verdicts": {
+      "bit-identical": 83,
+      "divergence": 7,
+      "both-reject": 15
+     },
+     "source": "evidence"
+    }
+   ]
+  },
+  {
+   "page": "/tools/afni-unifize/",
+   "title": "3dUnifize",
+   "eco": "afni",
+   "implementations": [
+    {
+     "label": "larmorx-gpl replica",
+     "record": "docs/validation/afni-unifize.md",
+     "status": "validated",
+     "cases": 97,
+     "verdicts": {
+      "bit-identical": 74,
+      "divergence": 4,
+      "both-reject": 19
+     },
+     "source": "evidence"
+    }
+   ]
+  },
+  {
    "page": "/tools/mri-hmc/",
    "title": "Head-motion correction",
    "eco": "fsl",
@@ -322,7 +360,9 @@
  ],
  "note": "Every tool counts its evidence page's verdicts, case by case: each case's verdict is decided from what its record reports and measures (identical to the unmodified original, identical once it uses correctly rounded maths, within the original's own variability, an expected divergence, rejected by both, an open difference).",
  "pilot": [
+  "afni-automask",
   "afni-tshift",
+  "afni-unifize",
   "ants-ai",
   "ants-apply-transforms",
   "ants-atropos",

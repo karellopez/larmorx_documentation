@@ -79,7 +79,10 @@ page's summary of every tool) and the images in `static/evidence/blobs/`, named
 by their SHA-256 so an unchanged export changes nothing. A page places them with
 
 - `{{ ev.example('<tool>', '<example>') }}`: the image viewer (still panels
-  without JavaScript), the chain of causes, the metrics table, the provenance;
+  without JavaScript), the chain of causes, the metrics table, the provenance; a
+  panel whose JSON has `overlay: {<output>: {on: <panel>, window: [lo, hi]}}`
+  draws that output (a mask) over the other panel's image, tinted, with its edge
+  in the slice (since 2026-10-23: 3dAutomask, 3dUnifize);
 - `{{ ev.agreement('<tool>', '<implementation>') }}`, `{{ ev.band('<tool>') }}`,
   `{{ ev.speed('<tool>') }}`, `{{ ev.dots('<tool>', '<id>') }}` (dots on a log
   axis, such as a thread band): the charts, in HTML;

@@ -1,0 +1,3589 @@
+{
+ "schema": 1,
+ "tool": "afni-unifize",
+ "title": "3dUnifize",
+ "provenance": {
+  "exporter": "803c9d8080fc5d1ca746e5f462bc5daafb3f1fd5",
+  "records": [
+   {
+    "path": "docs/validation/afni-unifize.json",
+    "sha256": "ea3c12cc77d005d899e9df80da98d815395f51f45043187992bf46a0e13faf44",
+    "generated": "2026-10-23",
+    "larmorx_commit": "ee419c4422bc"
+   },
+   {
+    "path": "docs/validation/afni-unifize.md",
+    "sha256": "f9c474f1d108c935af46d6cd87f2b18bcdc4f2c25cc657decd238f21c8dbcb1c",
+    "generated": "2026-10-23",
+    "larmorx_commit": "ee419c4422bc"
+   }
+  ],
+  "benchmarks": [],
+  "cache": [
+   {
+    "entry": "afni-unifize/fmriprep-ds005040-clip-1",
+    "description": "fMRIPrep's 3dUnifize of the BOLD reference of ds005040 sub-002 task-clip run-1, and with -T2up 100: AFNI at 1 and 6 threads, fMRIPrep, the replica in both modes",
+    "computed": "2026-10-23T11:06:34+00:00",
+    "larmorx_commit": "ef4d5685a291f64826c80450c8c5584ad4346b89",
+    "commands": [
+     {
+      "label": "afni-1",
+      "argv": [
+       "<workspace>/oracles/afni-25.2.09/bin/3dUnifize",
+       "-clfrac",
+       "0.2",
+       "-rbt",
+       "18.3",
+       "65.0",
+       "90.0",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/afni-1.nii.gz",
+       "-T2",
+       "-input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/first_mask/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_masked.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/.home",
+       "OMP_NUM_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 93.78
+     },
+     {
+      "label": "replica-1",
+      "argv": [
+       "<larmorx>/crates-gpl/target/release/larmorx-gpl",
+       "afni",
+       "3dUnifize",
+       "-clfrac",
+       "0.2",
+       "-rbt",
+       "18.3",
+       "65.0",
+       "90.0",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/replica-1.nii.gz",
+       "-T2",
+       "-input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/first_mask/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_masked.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/.home",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 28.7
+     },
+     {
+      "label": "afni-6",
+      "argv": [
+       "<workspace>/oracles/afni-25.2.09/bin/3dUnifize",
+       "-clfrac",
+       "0.2",
+       "-rbt",
+       "18.3",
+       "65.0",
+       "90.0",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/afni-6.nii.gz",
+       "-T2",
+       "-input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/first_mask/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_masked.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/.home",
+       "OMP_NUM_THREADS": "6"
+      },
+      "exit": 0,
+      "seconds": 28.51
+     },
+     {
+      "label": "replica-6",
+      "argv": [
+       "<larmorx>/crates-gpl/target/release/larmorx-gpl",
+       "afni",
+       "3dUnifize",
+       "-clfrac",
+       "0.2",
+       "-rbt",
+       "18.3",
+       "65.0",
+       "90.0",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/replica-6.nii.gz",
+       "-T2",
+       "-input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/first_mask/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_masked.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/.home",
+       "OMP_NUM_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 10.49
+     },
+     {
+      "label": "replica-reproduce",
+      "argv": [
+       "<larmorx>/crates-gpl/target/release/larmorx-gpl",
+       "afni",
+       "3dUnifize",
+       "-clfrac",
+       "0.2",
+       "-rbt",
+       "18.3",
+       "65.0",
+       "90.0",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/replica-reproduce.nii.gz",
+       "-T2",
+       "-input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/first_mask/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_masked.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/.home",
+       "OMP_NUM_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 11.64
+     },
+     {
+      "label": "t2up100-afni",
+      "argv": [
+       "<workspace>/oracles/afni-25.2.09/bin/3dUnifize",
+       "-clfrac",
+       "0.2",
+       "-rbt",
+       "18.3",
+       "65.0",
+       "90.0",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/t2up100-afni.nii.gz",
+       "-T2",
+       "-T2up",
+       "100",
+       "-input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/first_mask/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_masked.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/.home",
+       "OMP_NUM_THREADS": "6"
+      },
+      "exit": 0,
+      "seconds": 6.89
+     },
+     {
+      "label": "t2up100-replica",
+      "argv": [
+       "<larmorx>/crates-gpl/target/release/larmorx-gpl",
+       "afni",
+       "3dUnifize",
+       "-clfrac",
+       "0.2",
+       "-rbt",
+       "18.3",
+       "65.0",
+       "90.0",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/t2up100-replica.nii.gz",
+       "-T2",
+       "-T2up",
+       "100",
+       "-input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/first_mask/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_masked.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/.home",
+       "OMP_NUM_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 9.64
+     },
+     {
+      "label": "t2up100-replica-reproduce",
+      "argv": [
+       "<larmorx>/crates-gpl/target/release/larmorx-gpl",
+       "afni",
+       "3dUnifize",
+       "-clfrac",
+       "0.2",
+       "-rbt",
+       "18.3",
+       "65.0",
+       "90.0",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/t2up100-replica-reproduce.nii.gz",
+       "-T2",
+       "-T2up",
+       "100",
+       "-input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/first_mask/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_masked.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/.home",
+       "OMP_NUM_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 5.49
+     }
+    ],
+    "versions": {
+     "afni": "AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+     "afni_in_fmriprep_image": "AFNI_25.2.09 (Aug 24 2025) [64-bit]",
+     "larmorx-gpl": "larmorx-gpl 0.0.1",
+     "fmriprep_image": "7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10"
+    },
+    "threads": {
+     "afni": [
+      "1",
+      "6"
+     ],
+     "larmorx": [
+      "1",
+      "6"
+     ]
+    },
+    "settings": "fMRIPrep 25.2.6's 3dUnifize node (unifize) of ds005040 sub-002 task-clip run-1, its arguments from command.txt, its input from the run's working directory; AFNI 25.2.09 (OMP_NUM_THREADS 1 and 6) and the larmorx-gpl replica (1 and 6, both modes); the same with -T2up 100 (AFNI-45)"
+   },
+   {
+    "entry": "afni-unifize/ds000005-t1w",
+    "description": "AFNI's default 3dUnifize of ds000005 sub-01's T1w with its scale image: AFNI at 1 and 6 threads, fMRIPrep's AFNI, the replica in both modes",
+    "computed": "2026-10-23T11:09:11+00:00",
+    "larmorx_commit": "ef4d5685a291f64826c80450c8c5584ad4346b89",
+    "commands": [
+     {
+      "label": "afni-1",
+      "argv": [
+       "<workspace>/oracles/afni-25.2.09/bin/3dUnifize",
+       "-ssave",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/afni-1-scale.nii.gz",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/afni-1.nii.gz",
+       "-input",
+       "<testdata-cache>/openneuro/ds000005/sub-01/anat/sub-01_T1w.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/.home",
+       "OMP_NUM_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 67.45
+     },
+     {
+      "label": "replica-1",
+      "argv": [
+       "<larmorx>/crates-gpl/target/release/larmorx-gpl",
+       "afni",
+       "3dUnifize",
+       "-ssave",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/replica-1-scale.nii.gz",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/replica-1.nii.gz",
+       "-input",
+       "<testdata-cache>/openneuro/ds000005/sub-01/anat/sub-01_T1w.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/.home",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 26.84
+     },
+     {
+      "label": "afni-6",
+      "argv": [
+       "<workspace>/oracles/afni-25.2.09/bin/3dUnifize",
+       "-ssave",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/afni-6-scale.nii.gz",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/afni-6.nii.gz",
+       "-input",
+       "<testdata-cache>/openneuro/ds000005/sub-01/anat/sub-01_T1w.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/.home",
+       "OMP_NUM_THREADS": "6"
+      },
+      "exit": 0,
+      "seconds": 21.02
+     },
+     {
+      "label": "replica-6",
+      "argv": [
+       "<larmorx>/crates-gpl/target/release/larmorx-gpl",
+       "afni",
+       "3dUnifize",
+       "-ssave",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/replica-6-scale.nii.gz",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/replica-6.nii.gz",
+       "-input",
+       "<testdata-cache>/openneuro/ds000005/sub-01/anat/sub-01_T1w.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/.home",
+       "OMP_NUM_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 9.73
+     },
+     {
+      "label": "replica-reproduce",
+      "argv": [
+       "<larmorx>/crates-gpl/target/release/larmorx-gpl",
+       "afni",
+       "3dUnifize",
+       "-ssave",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/replica-reproduce-scale.nii.gz",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/replica-reproduce.nii.gz",
+       "-input",
+       "<testdata-cache>/openneuro/ds000005/sub-01/anat/sub-01_T1w.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/.home",
+       "OMP_NUM_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 11.06
+     },
+     {
+      "label": "image",
+      "argv": [
+       "apptainer",
+       "exec",
+       "--cleanenv",
+       "--no-home",
+       "--bind",
+       "<testdata-cache>/openneuro/ds000005/sub-01/anat:<testdata-cache>/openneuro/ds000005/sub-01/anat",
+       "--bind",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w:<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w",
+       "--env",
+       "AFNI_DONT_LOGFILE=YES",
+       "--env",
+       "AFNI_NIFTI_NOEXT=YES",
+       "--env",
+       "HOME=<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/.home",
+       "--env",
+       "OMP_NUM_THREADS=6",
+       "<workspace>/oracles/images/fmriprep-25.2.6.sif",
+       "3dUnifize",
+       "-ssave",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/image-scale.nii.gz",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/image.nii.gz",
+       "-input",
+       "<testdata-cache>/openneuro/ds000005/sub-01/anat/sub-01_T1w.nii.gz"
+      ],
+      "env": {},
+      "exit": 0,
+      "seconds": 21.25
+     }
+    ],
+    "versions": {
+     "afni": "AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+     "afni_in_fmriprep_image": "AFNI_25.2.09 (Aug 24 2025) [64-bit]",
+     "larmorx-gpl": "larmorx-gpl 0.0.1",
+     "fmriprep_image": "7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10"
+    },
+    "threads": {
+     "afni": [
+      "1",
+      "6"
+     ],
+     "larmorx": [
+      "1",
+      "6"
+     ],
+     "afni_in_fmriprep_image": 6
+    },
+    "settings": "AFNI's default on OpenNeuro ds000005 sub-01's T1w (160 × 192 × 192: the half-size path), with its scale image; AFNI 25.2.09 at 1 and 6 OpenMP threads, fMRIPrep's build of AFNI at 6, the larmorx-gpl replica at 1 and 6 (both modes)"
+   }
+  ],
+  "command": "python -m larmorx_validation evidence afni-unifize --site <site>"
+ },
+ "implementations": [
+  {
+   "id": "replica",
+   "label": "larmorx-gpl replica",
+   "short": "replica",
+   "record": "docs/validation/afni-unifize.md",
+   "status": "validated",
+   "summary": {
+    "cases": 97,
+    "verdicts": {
+     "bit-identical": 74,
+     "divergence": 4,
+     "both-reject": 19
+    }
+   },
+   "agreement": [
+    {
+     "category": "options",
+     "counts": {
+      "bit-identical": 33
+     }
+    },
+    {
+     "category": "datatypes",
+     "counts": {
+      "bit-identical": 10
+     }
+    },
+    {
+     "category": "defects",
+     "counts": {
+      "bit-identical": 7,
+      "divergence": 1
+     }
+    },
+    {
+     "category": "dimensions",
+     "counts": {
+      "bit-identical": 6
+     }
+    },
+    {
+     "category": "errors",
+     "counts": {
+      "divergence": 2,
+      "both-reject": 17
+     }
+    },
+    {
+     "category": "divergences",
+     "counts": {
+      "divergence": 1
+     }
+    },
+    {
+     "category": "global",
+     "counts": {
+      "bit-identical": 6,
+      "both-reject": 2
+     }
+    },
+    {
+     "category": "environment",
+     "counts": {
+      "bit-identical": 3
+     }
+    },
+    {
+     "category": "fmriprep",
+     "counts": {
+      "bit-identical": 7
+     }
+    },
+    {
+     "category": "real",
+     "counts": {
+      "bit-identical": 2
+     }
+    }
+   ]
+  }
+ ],
+ "cases": [
+  {
+   "id": "options/default",
+   "category": "options",
+   "description": "the defaults on the T1-like phantom",
+   "command": "3dUnifize -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/fmriprep-call",
+   "category": "options",
+   "description": "fMRIPrep's options on the T2-like phantom: -clfrac 0.2 -rbt 18.3 65 90 -T2",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii -T2 -input <generated: head-t2-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/Urad-5",
+   "category": "options",
+   "description": "-Urad 5",
+   "command": "3dUnifize -Urad 5 -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/Urad-12",
+   "category": "options",
+   "description": "-Urad 12",
+   "command": "3dUnifize -Urad 12 -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/Urad-30",
+   "category": "options",
+   "description": "-Urad 30",
+   "command": "3dUnifize -Urad 30 -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/rbt",
+   "category": "options",
+   "description": "-rbt 10 30 60",
+   "command": "3dUnifize -rbt 10 30 60 -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/param",
+   "category": "options",
+   "description": "-param, the same as -rbt",
+   "command": "3dUnifize -param 14 75 90 -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/clfrac-0.1",
+   "category": "options",
+   "description": "-clfrac 0.1",
+   "command": "3dUnifize -clfrac 0.1 -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/clfrac-0.5",
+   "category": "options",
+   "description": "-clfrac 0.5",
+   "command": "3dUnifize -clfrac 0.5 -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/clfrac-0.9",
+   "category": "options",
+   "description": "-clfrac 0.9",
+   "command": "3dUnifize -clfrac 0.9 -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/mfrac",
+   "category": "options",
+   "description": "-mfrac, the same as -clfrac",
+   "command": "3dUnifize -mfrac 0.3 -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/T2",
+   "category": "options",
+   "description": "-T2 on the T2-like phantom",
+   "command": "3dUnifize -T2 -prefix uni.nii <generated: head-t2-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/T2-T2",
+   "category": "options",
+   "description": "-T2 -T2: no second inversion, bright edges clipped",
+   "command": "3dUnifize -T2 -T2 -prefix uni.nii <generated: head-t2-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/T2-T2-T2",
+   "category": "options",
+   "description": "-T2 three times: neither (AFNI-48)",
+   "command": "3dUnifize -T2 -T2 -T2 -prefix uni.nii <generated: head-t2-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/T2up-95",
+   "category": "options",
+   "description": "-T2 -T2up 95",
+   "command": "3dUnifize -T2 -T2up 95 -prefix uni.nii <generated: head-t2-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/GM",
+   "category": "options",
+   "description": "-GM",
+   "command": "3dUnifize -GM -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/GM-T2",
+   "category": "options",
+   "description": "-GM -T2",
+   "command": "3dUnifize -GM -T2 -prefix uni.nii <generated: head-t2-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/nosquash",
+   "category": "options",
+   "description": "-nosquash",
+   "command": "3dUnifize -nosquash -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/oink",
+   "category": "options",
+   "description": "-oink, the same as -nosquash",
+   "command": "3dUnifize -oink -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/ssave-amsave",
+   "category": "options",
+   "description": "-ssave and -amsave",
+   "command": "3dUnifize -ssave scale.nii -amsave am.nii -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/quiet",
+   "category": "options",
+   "description": "-quiet",
+   "command": "3dUnifize -quiet -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/verb",
+   "category": "options",
+   "description": "-verb: the automask's messages too",
+   "command": "3dUnifize -verb -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/verb-verb",
+   "category": "options",
+   "description": "-verb -verb",
+   "command": "3dUnifize -verb -verb -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/useall",
+   "category": "options",
+   "description": "-useall: disabled, a warning",
+   "command": "3dUnifize -useall -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/inset",
+   "category": "options",
+   "description": "-inset",
+   "command": "3dUnifize -inset <generated: head-f32> -prefix uni.nii",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/case-insensitive",
+   "category": "options",
+   "description": "-t2 -gm -NOSQUASH: AFNI's strcasecmp options",
+   "command": "3dUnifize -t2 -gm -NOSQUASH -prefix uni.nii <generated: head-t2-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/duplo",
+   "category": "options",
+   "description": "1.2 million voxels: the half-size path",
+   "command": "3dUnifize -prefix uni.nii.gz <generated: big>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/noduplo",
+   "category": "options",
+   "description": "1.2 million voxels with -noduplo",
+   "command": "3dUnifize -noduplo -prefix uni.nii.gz <generated: big>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/duplo-T2",
+   "category": "options",
+   "description": "the half-size path with -T2 and -ssave",
+   "command": "3dUnifize -T2 -ssave scale.nii.gz -prefix uni.nii.gz <generated: big-t2>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/EPI",
+   "category": "options",
+   "description": "-EPI on a 4D series",
+   "command": "3dUnifize -EPI -prefix uni.nii <generated: series-i16>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/EPI-GM",
+   "category": "options",
+   "description": "-EPI -GM: -GM turned off",
+   "command": "3dUnifize -EPI -GM -prefix uni.nii <generated: series-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/EPI-3D",
+   "category": "options",
+   "description": "-EPI on one volume: a warning, -T2 kept",
+   "command": "3dUnifize -EPI -prefix uni.nii <generated: head-t2-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "options/4D-without-EPI",
+   "category": "options",
+   "description": "a 4D series without -EPI: sub-brick #0 only",
+   "command": "3dUnifize -prefix uni.nii <generated: series-i16>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "datatypes/head-i16",
+   "category": "datatypes",
+   "description": "head-i16, with -ssave",
+   "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-i16>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "datatypes/head-u8",
+   "category": "datatypes",
+   "description": "head-u8, with -ssave",
+   "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-u8>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "datatypes/head-i16-slope2",
+   "category": "datatypes",
+   "description": "head-i16-slope2, with -ssave",
+   "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-i16-slope2>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "datatypes/head-i16-slope1",
+   "category": "datatypes",
+   "description": "head-i16-slope1, with -ssave",
+   "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-i16-slope1>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "datatypes/head-f64",
+   "category": "datatypes",
+   "description": "head-f64, with -ssave",
+   "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-f64>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "datatypes/head-i8",
+   "category": "datatypes",
+   "description": "head-i8, with -ssave",
+   "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-i8>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "datatypes/head-nan",
+   "category": "datatypes",
+   "description": "head-nan, with -ssave",
+   "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-nan>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "datatypes/head-oblique",
+   "category": "datatypes",
+   "description": "head-oblique, with -ssave",
+   "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-oblique>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "datatypes/head-qform-only",
+   "category": "datatypes",
+   "description": "head-qform-only, with -ssave",
+   "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-qform-only>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "datatypes/head-las",
+   "category": "datatypes",
+   "description": "head-las, with -ssave",
+   "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-las>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "defects/head-f32-slope-inter",
+   "category": "defects",
+   "description": "float32 with scl_slope and scl_inter (AFNI-02)",
+   "command": "3dUnifize -prefix uni.nii <generated: head-f32-slope-inter>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "in its default mode the replica corrects AFNI-02 and names it: 55,249 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "defects/head-metre",
+   "category": "defects",
+   "description": "a grid in metres (AFNI-07)",
+   "command": "3dUnifize -prefix uni.nii <generated: head-metre>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "in its default mode the replica corrects AFNI-07 and names it: the header or the messages change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "defects/head-nearly-plumb",
+   "category": "defects",
+   "description": "a grid 0.009 degrees from plumb (AFNI-16)",
+   "command": "3dUnifize -prefix uni.nii <generated: head-nearly-plumb>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "in its default mode the replica corrects AFNI-16 and names it: the header or the messages change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "defects/nifti-scale-no",
+   "category": "defects",
+   "description": "AFNI_NIFTI_SCALE=NO on int16 with an intercept (AFNI-23)",
+   "command": "AFNI_NIFTI_SCALE=NO 3dUnifize -prefix uni.nii <generated: head-i16-intercept>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "in its default mode the replica corrects AFNI-23 and names it: 58,184 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "defects/T2up-100",
+   "category": "defects",
+   "description": "-T2 -T2up 100: one past the sorted values (AFNI-45)",
+   "command": "3dUnifize -T2 -T2up 100 -prefix uni.nii <generated: head-t2-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "in its default mode the replica corrects AFNI-45 and names it: 53,571 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "defects/T2up-99.99",
+   "category": "defects",
+   "description": "-T2 -T2up 99.99 on a small mask: one past the values too (AFNI-45)",
+   "command": "3dUnifize -T2 -T2up 99.99 -prefix uni.nii <generated: slice>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "in its default mode the replica corrects AFNI-45 and names it: 2,569 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "defects/EPI-negative-slope",
+   "category": "defects",
+   "description": "-EPI on a series with scl_slope -2 (AFNI-01)",
+   "command": "3dUnifize -EPI -prefix uni.nii <generated: series-negative>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "in its default mode the replica corrects AFNI-01 and names it: 337,232 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "defects/slab",
+   "category": "defects",
+   "description": "1 million voxels with an axis of 2: the half-size grid keeps 1 (AFNI-47)",
+   "command": "3dUnifize -prefix uni.nii.gz <generated: slab>",
+   "results": {
+    "replica": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "3/3",
+     "reason": "AFNI reads memory it never wrote (AFNI-47): this run crashed (Fatal Signal 11) after the same messages; larmorx fills the read with 0 in reproduce mode and corrects it by default"
+    }
+   }
+  },
+  {
+   "id": "dimensions/slice",
+   "category": "dimensions",
+   "description": "a 2D slice (64 x 64 x 1)",
+   "command": "3dUnifize -prefix uni.nii <generated: slice>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "dimensions/two-slices",
+   "category": "dimensions",
+   "description": "two slices",
+   "command": "3dUnifize -prefix uni.nii <generated: two-slices>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "dimensions/tiny",
+   "category": "dimensions",
+   "description": "2 x 2 x 2 voxels",
+   "command": "3dUnifize -prefix uni.nii <generated: tiny>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "dimensions/zeros",
+   "category": "dimensions",
+   "description": "an image of zeros",
+   "command": "3dUnifize -prefix uni.nii <generated: zeros>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "dimensions/constant",
+   "category": "dimensions",
+   "description": "a constant image",
+   "command": "3dUnifize -prefix uni.nii <generated: constant>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "dimensions/series-one",
+   "category": "dimensions",
+   "description": "a 4D file of one volume",
+   "command": "3dUnifize -prefix uni.nii <generated: series-one>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "errors/slice-small",
+   "category": "errors",
+   "description": "a 2D slice smaller than 16 x 16: no automask",
+   "command": "3dUnifize -prefix uni.nii <generated: slice-small>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Can't compute Unifize-d dataset for some reason :-(; larmorx exit 1: ** FATAL ERROR: Can't compute Unifize-d dataset for some reason :-( (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/slice-small-T2",
+   "category": "errors",
+   "description": "-T2 on a 2D slice smaller than 16 x 16: AFNI crashes (AFNI-46)",
+   "command": "3dUnifize -T2 -prefix uni.nii <generated: slice-small>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "divergence",
+     "checks": "2/2",
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: the automask of a 2D image smaller than 16 x 16 is empty (NULL): AFNI crashes inverting the contrast with it (AFNI-46)), after the same messages"
+    }
+   }
+  },
+  {
+   "id": "errors/Urad-low",
+   "category": "errors",
+   "description": "-Urad 3 <input>",
+   "command": "3dUnifize -Urad 3 <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal value 3.000000 after option -Urad; larmorx exit 1: ** FATAL ERROR: Illegal value 3.000000 after option -Urad (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/Urad-high",
+   "category": "errors",
+   "description": "-Urad 120 <input>",
+   "command": "3dUnifize -Urad 120 <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal value 120.000000 after option -Urad; larmorx exit 1: ** FATAL ERROR: Illegal value 120.000000 after option -Urad (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/rbt-bottom",
+   "category": "errors",
+   "description": "-rbt 18 20 80 <input>",
+   "command": "3dUnifize -rbt 18 20 80 <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt'; larmorx exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt' (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/rbt-order",
+   "category": "errors",
+   "description": "-rbt 18 70 60 <input>",
+   "command": "3dUnifize -rbt 18 70 60 <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt'; larmorx exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt' (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/rbt-top",
+   "category": "errors",
+   "description": "-rbt 18 70 95 <input>",
+   "command": "3dUnifize -rbt 18 70 95 <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt'; larmorx exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt' (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/rbt-missing",
+   "category": "errors",
+   "description": "-rbt 18 60",
+   "command": "3dUnifize -rbt 18 60",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Need 3 arguments (R pb pt) after '-rbt'; larmorx exit 1: ** FATAL ERROR: Need 3 arguments (R pb pt) after '-rbt' (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/clfrac-low",
+   "category": "errors",
+   "description": "-clfrac 0.05 <input>",
+   "command": "3dUnifize -clfrac 0.05 <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: -clfrac value 0.050000 is illegal!; larmorx exit 1: ** FATAL ERROR: -clfrac value 0.050000 is illegal! (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/clfrac-missing",
+   "category": "errors",
+   "description": "-clfrac",
+   "command": "3dUnifize -clfrac",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Need argument after '-clfrac'; larmorx exit 1: ** FATAL ERROR: Need argument after '-clfrac' (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/T2up-low",
+   "category": "errors",
+   "description": "-T2up 89 <input>",
+   "command": "3dUnifize -T2up 89 <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-(; larmorx exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-( (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/T2up-high",
+   "category": "errors",
+   "description": "-T2up 101 <input>",
+   "command": "3dUnifize -T2up 101 <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-(; larmorx exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-( (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/T2up-missing",
+   "category": "errors",
+   "description": "-T2up",
+   "command": "3dUnifize -T2up",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "divergence",
+     "checks": "2/2",
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: -T2up needs a value: AFNI crashes (Fatal Signal 11) when an option's value is missing (AFNI-40)), after the same messages"
+    }
+   }
+  },
+  {
+   "id": "errors/prefix-missing",
+   "category": "errors",
+   "description": "-prefix",
+   "command": "3dUnifize -prefix",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Need argument after '-prefix'; larmorx exit 1: ** FATAL ERROR: Need argument after '-prefix' (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/ssave-missing",
+   "category": "errors",
+   "description": "-ssave",
+   "command": "3dUnifize -ssave",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Need argument after '-ssave'; larmorx exit 1: ** FATAL ERROR: Need argument after '-ssave' (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/input-twice",
+   "category": "errors",
+   "description": "-input <input> -input <input>",
+   "command": "3dUnifize -input <generated: head-f32> -input <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Can't use '-input' twice; larmorx exit 1: ** FATAL ERROR: Can't use '-input' twice (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/unknown-option",
+   "category": "errors",
+   "description": "-bogus <input>",
+   "command": "3dUnifize -bogus <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Unknown option: -bogus; larmorx exit 1: ** FATAL ERROR: Unknown option: -bogus (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/no-dataset",
+   "category": "errors",
+   "description": "-quiet",
+   "command": "3dUnifize -quiet",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: No dataset name on command line?; larmorx exit 1: ** FATAL ERROR: No dataset name on command line? (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/missing-input",
+   "category": "errors",
+   "description": "-prefix uni.nii /nonexistent/x.nii",
+   "command": "3dUnifize -prefix uni.nii /nonexistent/x.nii",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Can't open dataset '/nonexistent/x.nii'; larmorx exit 1: ** FATAL ERROR: Can't open dataset '/nonexistent/x.nii' (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "divergences/default-prefix",
+   "category": "divergences",
+   "description": "no -prefix: AFNI writes its own format (Unifized+orig)",
+   "command": "3dUnifize <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "1/1",
+     "reason": "AFNI's default prefix 'Unifized' is its own dataset format, which larmorx-gpl does not write: it refuses (NIfTI only)."
+    }
+   }
+  },
+  {
+   "id": "global/exists",
+   "category": "global",
+   "description": "an existing output (AFNI-11)",
+   "command": "3dUnifize -prefix uni.nii <generated: head-f32> (with uni.nii present)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Neither writes an output; the exit status (0) and the messages are AFNI's. The default mode refuses instead (exit 1) and names AFNI-11 (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "global/overwrite",
+   "category": "global",
+   "description": "-overwrite",
+   "command": "3dUnifize -overwrite -prefix uni.nii <generated: head-f32> (with uni.nii present)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "global/deconflict-yes",
+   "category": "global",
+   "description": "AFNI_DECONFLICT=YES: renamed",
+   "command": "AFNI_DECONFLICT=YES 3dUnifize -prefix uni.nii <generated: head-f32> (with uni.nii present)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "global/ssave-exists",
+   "category": "global",
+   "description": "an existing -ssave output (AFNI-11)",
+   "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-f32> (with scale.nii present)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "in its default mode the replica corrects AFNI-11 and names it: the header or the messages change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "global/D-write-type-2",
+   "category": "global",
+   "description": "-DAFNI_NIFTI_WRITE_TYPE=2",
+   "command": "3dUnifize -DAFNI_NIFTI_WRITE_TYPE=2 -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "environment/quiet-startup",
+   "category": "environment",
+   "description": "AFNI_QUIET_STARTUP=YES",
+   "command": "AFNI_QUIET_STARTUP=YES 3dUnifize -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "environment/message-prefix",
+   "category": "environment",
+   "description": "AFNI_MESSAGE_PREFIX",
+   "command": "AFNI_MESSAGE_PREFIX=UN 3dUnifize -useall -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "environment/echo-commandline",
+   "category": "environment",
+   "description": "AFNI_ECHO_COMMANDLINE=YES",
+   "command": "AFNI_ECHO_COMMANDLINE=YES 3dUnifize -prefix uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "global/prefix-with-blank",
+   "category": "global",
+   "description": "a -prefix with a blank (AFNI-12)",
+   "command": "3dUnifize -prefix 'a b.nii' <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names AFNI-12 (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "global/input-dir-with-blank",
+   "category": "global",
+   "description": "an input in a directory with a blank (AFNI-18)",
+   "command": "3dUnifize -prefix uni.nii <generated: head-f32, in a directory with a blank>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names AFNI-18 (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "global/missing-directory",
+   "category": "global",
+   "description": "an output in a missing directory (AFNI-26)",
+   "command": "3dUnifize -prefix nodir/uni.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Neither writes an output; the exit status (0) and the messages are AFNI's. The default mode refuses instead (exit 1) and names AFNI-26 (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds000005-task_mixedgamblestask_run_01",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds000005-task_mixedgamblestask_run_01)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds000005-task_mixedgamblestask_run_01: masked BOLD reference>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds000005-task_mixedgamblestask_run_02",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds000005-task_mixedgamblestask_run_02)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds000005-task_mixedgamblestask_run_02: masked BOLD reference>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds000005-task_mixedgamblestask_run_03",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds000005-task_mixedgamblestask_run_03)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds000005-task_mixedgamblestask_run_03: masked BOLD reference>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds005040-task_clip_run_1",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds005040-task_clip_run_1)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds005040-task_clip_run_1: masked BOLD reference>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   },
+   "example": "fmriprep-unifize"
+  },
+  {
+   "id": "fmriprep/ds005454-task_rest",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds005454-task_rest)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds005454-task_rest: masked BOLD reference>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds005752-ses_01_task_rest_dir_forward",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds005752-ses_01_task_rest_dir_forward)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds005752-ses_01_task_rest_dir_forward: masked BOLD reference>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds005752-ses_01_task_rest_dir_reverse",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds005752-ses_01_task_rest_dir_reverse)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds005752-ses_01_task_rest_dir_reverse: masked BOLD reference>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "real/T1w-ds000005",
+   "category": "real",
+   "description": "AFNI's default on the T1w of ds000005 (the half-size path)",
+   "command": "3dUnifize -ssave scale.nii.gz -prefix uni.nii.gz ds000005/sub-01/anat/sub-01_T1w.nii.gz",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "AFNI at 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes"
+    }
+   },
+   "example": "t1w-unifize"
+  },
+  {
+   "id": "real/EPI-ds000005",
+   "category": "real",
+   "description": "-EPI on the BOLD series of ds000005",
+   "command": "3dUnifize -EPI -prefix uni.nii.gz ds000005/sub-01/func/sub-01_task-mixedgamblestask_run-01_bold.nii.gz",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "AFNI at 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes"
+    }
+   }
+  }
+ ],
+ "cases_total": 97,
+ "examples": [
+  {
+   "id": "fmriprep-unifize",
+   "title": "fMRIPrep's uniformization of a real BOLD reference",
+   "summary": "The 3dUnifize node fMRIPrep 25.2.6 ran on the BOLD reference of OpenNeuro ds005040 sub-002 (task clip, run 1), N4-corrected and skull-stripped once: its arguments (-T2: the contrast inverted, unifized, inverted back) given to AFNI 25.2.09 at 1 and 6 OpenMP threads and to the larmorx-gpl replica at 1 and 6 threads in both modes. fMRIPrep's own output is the panel it produced in its run.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds005040, sub-002 (CC0-1.0): 64 × 64 × 40 float32 values; shown inside the input's own mask, dilated by one voxel"
+    },
+    {
+     "label": "Node",
+     "text": "fMRIPrep 25.2.6, `bold_fit_wf/enhance_and_skullstrip_bold_wf/unifize`"
+    },
+    {
+     "label": "Command",
+     "text": "`3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input …/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_masked.nii.gz`"
+    },
+    {
+     "label": "Programs",
+     "text": "AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0 (the repository's oracle build; OpenMP); AFNI AFNI_25.2.09 (Aug 24 2025) [64-bit] in fMRIPrep's image; larmorx-gpl 0.0.1 (the replica, with a port of glibc 2.35's tanhf), from larmorx at commit `ef4d5685a291`"
+    },
+    {
+     "label": "Output",
+     "text": "43,338 non-zero values (AFNI's final automask), up to 1499.47"
+    },
+    {
+     "label": "Grid",
+     "text": "64 × 64 × 40 voxels of 3 × 3 × 3.3 mm; shown: 53 × 62 × 40 around the brain"
+    }
+   ],
+   "grid": {
+    "shape": [
+     53,
+     62,
+     40
+    ],
+    "spacing": [
+     3.0,
+     3.0,
+     3.3
+    ],
+    "to_file": [
+     [
+      -1,
+      0,
+      0,
+      57
+     ],
+     [
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      3.0,
+      0.0,
+      0.0,
+      -78.94632
+     ],
+     [
+      0.0,
+      3.0,
+      0.0,
+      -85.079597
+     ],
+     [
+      0.0,
+      0.0,
+      3.299999,
+      -17.595531
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     64,
+     64,
+     40
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "0e403953967abfc83b79cd50.bin",
+    "dtype": "u1",
+    "bytes": 2745
+   },
+   "outputs": [
+    {
+     "id": "uni",
+     "label": "Unifized image",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 1388.5496502685546
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 1499.4674072265625
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "ref",
+     "role": "input",
+     "label": "ds005040 sub-002 BOLD reference, masked",
+     "sub": "3dUnifize's input in fMRIPrep's BOLD reference workflow: N4-corrected, skull-stripped once (float32)",
+     "arrays": {
+      "all": {
+       "blob": "95d0d0d11742398c14237ba6.bin",
+       "dtype": "f4",
+       "bytes": 178803
+      }
+     },
+     "window": [
+      0.0,
+      90459.32531249999
+     ]
+    },
+    {
+     "id": "afni-1",
+     "role": "original",
+     "label": "AFNI 25.2.09, 3dUnifize",
+     "sub": "the repository's build, 1 thread",
+     "arrays": {
+      "uni": {
+       "blob": "98fedab69cb3a3acecd69f3e.bin",
+       "dtype": "f4",
+       "bytes": 154197
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1388.5496502685546
+      ]
+     }
+    },
+    {
+     "id": "afni-6",
+     "role": "original",
+     "label": "AFNI 25.2.09, 3dUnifize",
+     "sub": "the repository's build, 6 threads",
+     "arrays": {
+      "uni": {
+       "same": "afni-1:uni",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1388.5496502685546
+      ]
+     }
+    },
+    {
+     "id": "fmriprep",
+     "role": "fmriprep",
+     "label": "fMRIPrep 25.2.6, as it ran",
+     "sub": "AFNI 25.2.09 in its image",
+     "arrays": {
+      "uni": {
+       "same": "afni-1:uni",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1388.5496502685546
+      ]
+     }
+    },
+    {
+     "id": "replica-1",
+     "role": "larmorx",
+     "label": "larmorx-gpl replica",
+     "sub": "default mode, 1 thread",
+     "arrays": {
+      "uni": {
+       "same": "afni-1:uni",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1388.5496502685546
+      ]
+     }
+    },
+    {
+     "id": "replica-6",
+     "role": "larmorx",
+     "label": "larmorx-gpl replica",
+     "sub": "default mode, 6 threads",
+     "arrays": {
+      "uni": {
+       "same": "afni-1:uni",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1388.5496502685546
+      ]
+     }
+    },
+    {
+     "id": "replica-reproduce",
+     "role": "larmorx",
+     "label": "larmorx-gpl replica",
+     "sub": "reproduce mode, 6 threads",
+     "arrays": {
+      "uni": {
+       "same": "afni-1:uni",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1388.5496502685546
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "replica-afni",
+     "a": "replica-1",
+     "b": "afni-1",
+     "kind": "main",
+     "label": "replica − AFNI 25.2.09, 1 thread each",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 163840,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1499.4674072265625,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same values, every one."
+    },
+    {
+     "id": "afni6-afni1",
+     "a": "afni-6",
+     "b": "afni-1",
+     "kind": "variability",
+     "label": "AFNI 25.2.09, 6 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 163840,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1499.4674072265625,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "AFNI computes every voxel's local mean independently in its OpenMP loop: the same bytes at 1 and 6 threads."
+    },
+    {
+     "id": "fmriprep-afni",
+     "a": "fmriprep",
+     "b": "afni-1",
+     "kind": "variability",
+     "label": "fMRIPrep's own output − the repository's AFNI",
+     "role_label": "the original against itself",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 163840,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1499.4674072265625,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "fMRIPrep's own run (its image's build of AFNI) gives the repository's AFNI result, every value."
+    },
+    {
+     "id": "replica-fmriprep",
+     "a": "replica-1",
+     "b": "fmriprep",
+     "kind": "fmriprep",
+     "label": "replica − fMRIPrep's own output",
+     "role_label": "larmorx against fMRIPrep",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 163840,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1499.4674072265625,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same values, every one."
+    },
+    {
+     "id": "replica6-replica1",
+     "a": "replica-6",
+     "b": "replica-1",
+     "kind": "check",
+     "label": "replica, 6 threads − 1 thread",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 163840,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1499.4674072265625,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same bytes on any number of threads."
+    },
+    {
+     "id": "replica-repro",
+     "a": "replica-6",
+     "b": "replica-reproduce",
+     "kind": "check",
+     "label": "replica, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 163840,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1499.4674072265625,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "No correction of the register applies to this input: both modes give the same bytes."
+    }
+   ],
+   "default": {
+    "output": "uni",
+    "plane": "axial",
+    "voxel": [
+     25,
+     30,
+     18
+    ],
+    "panels": [
+     "ref",
+     "afni-1",
+     "fmriprep",
+     "replica-1"
+    ],
+    "diffs": [
+     "replica-afni",
+     "afni6-afni1",
+     "fmriprep-afni"
+    ],
+    "compare": {
+     "a": "afni-1",
+     "b": "replica-1"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 18,
+    "aspect": 0.85484,
+    "panels": {
+     "ref": "b0257a836d0df596b43a8a63.webp",
+     "afni-1": "a7cdb59016d6d39a1ca5e767.webp",
+     "fmriprep": "a7cdb59016d6d39a1ca5e767.webp",
+     "replica-1": "a7cdb59016d6d39a1ca5e767.webp"
+    },
+    "diffs": {},
+    "ranges": {},
+    "caption": "Axial slice 19 of 40; the crosshair at the brain's centre."
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B. Computed in float64 over all 163,840 voxels of the outputs, not only those shown; the range is B's maximum minus its minimum. The record's threshold: every output bit-identical to AFNI's, with its exit status and messages. The rows *the original against itself* are AFNI's own variability on this input: its thread counts and builds.",
+   "provenance": [
+    "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
+    "Inputs: BOLD reference, masked (sha256 76db33db4206571d…); fMRIPrep's output (sha256 d6d86af0e97d73b7…)",
+    "Runs: figures cache entry `afni-unifize/fmriprep-ds005040-clip-1`, computed 2026-10-23T11:06:34+00:00 with larmorx `ef4d5685a291`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ]
+  },
+  {
+   "id": "t1w-unifize",
+   "title": "AFNI's default on a real T1w",
+   "summary": "3dUnifize's main use: a T1w's white matter made uniform and scaled to 1000. The T1w of OpenNeuro ds000005 sub-01 has 5,898,240 voxels, more than a million: the local white-matter level is computed on a half-size copy and brought back (AFNI's duplo path). AFNI 25.2.09 at 1 and 6 threads, fMRIPrep's build of AFNI, and the replica in both modes; -ssave writes the scale image each voxel is multiplied by.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01's T1w (PDDL-1.0); shown inside fMRIPrep's brain mask, dilated by 2 voxels"
+    },
+    {
+     "label": "Command",
+     "text": "`3dUnifize -ssave scale.nii.gz -prefix uni.nii.gz -input sub-01_T1w.nii.gz`"
+    },
+    {
+     "label": "Programs",
+     "text": "AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI AFNI_25.2.09 (Aug 24 2025) [64-bit] in fMRIPrep's image; larmorx-gpl 0.0.1"
+    },
+    {
+     "label": "Grid",
+     "text": "160 × 192 × 192 voxels of 1 × 1.33 × 1.33 mm; shown: 151 × 125 × 111 around the brain"
+    }
+   ],
+   "grid": {
+    "shape": [
+     151,
+     125,
+     111
+    ],
+    "spacing": [
+     1.0,
+     1.333333,
+     1.333333
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      4
+     ],
+     [
+      0,
+      1,
+      0,
+      18
+     ],
+     [
+      0,
+      0,
+      1,
+      32
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      1.0,
+      0.0,
+      0.0,
+      -77.0
+     ],
+     [
+      0.0,
+      1.333333,
+      0.0,
+      -109.000006
+     ],
+     [
+      0.0,
+      0.0,
+      1.333333,
+      -86.333344
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     160,
+     192,
+     192
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "b856c0b70af862db49292f74.bin",
+    "dtype": "u1",
+    "bytes": 25628
+   },
+   "outputs": [
+    {
+     "id": "uni",
+     "label": "Unifized image",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 1371.0411523437488
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 1500.0
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "scale",
+     "label": "Scale image (-ssave)",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 2.6771628856658936,
+       "hi": 7.176488327980034
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 2.654285430908203,
+       "hi": 9.025094985961914
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "t1w",
+     "role": "input",
+     "label": "ds000005 sub-01 T1w",
+     "sub": "as stored (int16), 3dUnifize's input",
+     "arrays": {
+      "all": {
+       "blob": "8629ddb6a5fbb9843e63366b.bin",
+       "dtype": "i2",
+       "bytes": 940725
+      }
+     },
+     "window": [
+      11.0,
+      410.0
+     ]
+    },
+    {
+     "id": "afni-1",
+     "role": "original",
+     "label": "AFNI 25.2.09, 3dUnifize",
+     "sub": "the repository's build, 1 thread",
+     "arrays": {
+      "uni": {
+       "blob": "2b53981b1840f9e92595b52a.bin",
+       "dtype": "f4",
+       "bytes": 2705407
+      },
+      "scale": {
+       "blob": "bc40bef939ab12eb2da77f0c.bin",
+       "dtype": "f4",
+       "bytes": 2164983
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1371.0411523437488
+      ],
+      "scale": [
+       2.6771628856658936,
+       7.176488327980034
+      ]
+     }
+    },
+    {
+     "id": "afni-6",
+     "role": "original",
+     "label": "AFNI 25.2.09, 3dUnifize",
+     "sub": "the repository's build, 6 threads",
+     "arrays": {
+      "uni": {
+       "same": "afni-1:uni",
+       "dtype": "f4"
+      },
+      "scale": {
+       "same": "afni-1:scale",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1371.0411523437488
+      ],
+      "scale": [
+       2.6771628856658936,
+       7.176488327980034
+      ]
+     }
+    },
+    {
+     "id": "image",
+     "role": "original",
+     "label": "AFNI 25.2.09 in fMRIPrep's image",
+     "sub": "fMRIPrep 25.2.6's build, 6 threads",
+     "arrays": {
+      "uni": {
+       "same": "afni-1:uni",
+       "dtype": "f4"
+      },
+      "scale": {
+       "same": "afni-1:scale",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1371.0411523437488
+      ],
+      "scale": [
+       2.6771628856658936,
+       7.176488327980034
+      ]
+     }
+    },
+    {
+     "id": "replica-1",
+     "role": "larmorx",
+     "label": "larmorx-gpl replica",
+     "sub": "default mode, 1 thread",
+     "arrays": {
+      "uni": {
+       "same": "afni-1:uni",
+       "dtype": "f4"
+      },
+      "scale": {
+       "same": "afni-1:scale",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1371.0411523437488
+      ],
+      "scale": [
+       2.6771628856658936,
+       7.176488327980034
+      ]
+     }
+    },
+    {
+     "id": "replica-6",
+     "role": "larmorx",
+     "label": "larmorx-gpl replica",
+     "sub": "default mode, 6 threads",
+     "arrays": {
+      "uni": {
+       "same": "afni-1:uni",
+       "dtype": "f4"
+      },
+      "scale": {
+       "same": "afni-1:scale",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1371.0411523437488
+      ],
+      "scale": [
+       2.6771628856658936,
+       7.176488327980034
+      ]
+     }
+    },
+    {
+     "id": "replica-reproduce",
+     "role": "larmorx",
+     "label": "larmorx-gpl replica",
+     "sub": "reproduce mode, 6 threads",
+     "arrays": {
+      "uni": {
+       "same": "afni-1:uni",
+       "dtype": "f4"
+      },
+      "scale": {
+       "same": "afni-1:scale",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1371.0411523437488
+      ],
+      "scale": [
+       2.6771628856658936,
+       7.176488327980034
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "replica-afni",
+     "a": "replica-1",
+     "b": "afni-1",
+     "kind": "main",
+     "label": "replica − AFNI 25.2.09, 1 thread each",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1500.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "scale": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 470.5882263183594,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "scale": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same values, every one."
+    },
+    {
+     "id": "afni6-afni1",
+     "a": "afni-6",
+     "b": "afni-1",
+     "kind": "variability",
+     "label": "AFNI 25.2.09, 6 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1500.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "scale": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 470.5882263183594,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "scale": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "AFNI computes every voxel's local mean independently in its OpenMP loop: the same bytes at 1 and 6 threads."
+    },
+    {
+     "id": "image-afni",
+     "a": "image",
+     "b": "afni-6",
+     "kind": "variability",
+     "label": "fMRIPrep's AFNI − the repository's AFNI, 6 threads each",
+     "role_label": "the original against itself",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1500.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "scale": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 470.5882263183594,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "scale": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "Two builds of AFNI 25.2.09 (fMRIPrep's image and the repository's) give the same bytes."
+    },
+    {
+     "id": "replica6-replica1",
+     "a": "replica-6",
+     "b": "replica-1",
+     "kind": "check",
+     "label": "replica, 6 threads − 1 thread",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1500.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "scale": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 470.5882263183594,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "scale": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same bytes on any number of threads."
+    },
+    {
+     "id": "replica-repro",
+     "a": "replica-6",
+     "b": "replica-reproduce",
+     "kind": "check",
+     "label": "replica, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1500.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "scale": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 470.5882263183594,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "scale": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "No correction of the register applies to this input: both modes give the same bytes."
+    }
+   ],
+   "default": {
+    "output": "uni",
+    "plane": "axial",
+    "voxel": [
+     75,
+     62,
+     66
+    ],
+    "panels": [
+     "t1w",
+     "afni-1",
+     "replica-1",
+     "image"
+    ],
+    "diffs": [
+     "replica-afni",
+     "afni6-afni1",
+     "image-afni"
+    ],
+    "compare": {
+     "a": "t1w",
+     "b": "afni-1"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 66,
+    "aspect": 0.906,
+    "panels": {
+     "t1w": "d69cba715033c5dd20b2b362.webp",
+     "afni-1": "c2d2e91ef95f1d27e9c11f7d.webp",
+     "replica-1": "c2d2e91ef95f1d27e9c11f7d.webp",
+     "image": "c2d2e91ef95f1d27e9c11f7d.webp"
+    },
+    "diffs": {},
+    "ranges": {},
+    "caption": "Axial slice 67 of 111; the crosshair at the brain's centre."
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B. Computed in float64 over all 5,898,240 voxels of the outputs, not only those shown; the range is B's maximum minus its minimum. The record's threshold: every output bit-identical to AFNI's, with its exit status and messages. The rows *the original against itself* are AFNI's own variability on this input: its thread counts and builds.",
+   "provenance": [
+    "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
+    "Inputs: T1w (sha256 75c615d7cce397be…)",
+    "Runs: figures cache entry `afni-unifize/ds000005-t1w`, computed 2026-10-23T11:09:11+00:00 with larmorx `ef4d5685a291`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ]
+  },
+  {
+   "id": "afni-45",
+   "title": "AFNI-45: -T2up 100 reads past the sorted values",
+   "summary": "With -T2, 3dUnifize inverts the contrast about an upper percentile of the masked values (-T2up, 98.5 by default, 90 to 100 allowed). At 100 the percentile's index is one past the end of the sorted values. fMRIPrep's call with -T2up 100 added, given to AFNI 25.2.09 and to the replica in both modes, beside fMRIPrep's own call.",
+   "facts": [
+    {
+     "label": "Input",
+     "text": "the masked BOLD reference of the first example"
+    },
+    {
+     "label": "Command",
+     "text": "`3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -T2up 100 -input ref.nii.gz`"
+    },
+    {
+     "label": "Defect",
+     "text": "[AFNI-45](repo:docs/findings/upstream-defects.md#afni-45---t2up-near-100-reads-past-the-sorted-values--a): -T2up near 100 reads past the sorted values; corrected by default, with a warning"
+    },
+    {
+     "label": "AFNI's output",
+     "text": "all 163,840 values 0"
+    }
+   ],
+   "grid": {
+    "shape": [
+     53,
+     62,
+     40
+    ],
+    "spacing": [
+     3.0,
+     3.0,
+     3.3
+    ],
+    "to_file": [
+     [
+      -1,
+      0,
+      0,
+      57
+     ],
+     [
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      3.0,
+      0.0,
+      0.0,
+      -78.94632
+     ],
+     [
+      0.0,
+      3.0,
+      0.0,
+      -85.079597
+     ],
+     [
+      0.0,
+      0.0,
+      3.299999,
+      -17.595531
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     64,
+     64,
+     40
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "0e403953967abfc83b79cd50.bin",
+    "dtype": "u1",
+    "bytes": 2745
+   },
+   "outputs": [
+    {
+     "id": "uni",
+     "label": "Unifized image",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 1026.715344238281
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 1459.6671142578125
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "ref",
+     "role": "input",
+     "label": "ds005040 sub-002 BOLD reference, masked",
+     "sub": "as in the first example",
+     "arrays": {
+      "all": {
+       "blob": "95d0d0d11742398c14237ba6.bin",
+       "dtype": "f4",
+       "bytes": 178803
+      }
+     },
+     "window": [
+      0.0,
+      90459.32531249999
+     ]
+    },
+    {
+     "id": "afni",
+     "role": "original",
+     "label": "AFNI 25.2.09, -T2up 100",
+     "sub": "the repository's build",
+     "arrays": {
+      "uni": {
+       "blob": "ab998f7e36ce41faa671aad1.bin",
+       "dtype": "f4",
+       "bytes": 532
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    {
+     "id": "replica",
+     "role": "larmorx",
+     "label": "larmorx-gpl replica, -T2up 100",
+     "sub": "default mode: corrected",
+     "arrays": {
+      "uni": {
+       "blob": "5373cf930504d4abc1b64344.bin",
+       "dtype": "f4",
+       "bytes": 161963
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1026.715344238281
+      ]
+     }
+    },
+    {
+     "id": "replica-reproduce",
+     "role": "larmorx",
+     "label": "larmorx-gpl replica, -T2up 100",
+     "sub": "reproduce mode",
+     "arrays": {
+      "uni": {
+       "same": "afni:uni",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    {
+     "id": "afni-default",
+     "role": "original",
+     "label": "AFNI 25.2.09, fMRIPrep's call",
+     "sub": "-T2up 98.5, the default",
+     "arrays": {
+      "uni": {
+       "blob": "98fedab69cb3a3acecd69f3e.bin",
+       "dtype": "f4",
+       "bytes": 154197
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1388.5496502685546
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "replica-afni",
+     "a": "replica",
+     "b": "afni",
+     "kind": "main",
+     "label": "replica (default) − AFNI, -T2up 100",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "uni": {
+       "identical": false,
+       "voxels": 163840,
+       "differ": 47016,
+       "share": 0.286962890625,
+       "max_abs": 1459.6671142578125,
+       "at": [
+        23,
+        21,
+        35
+       ],
+       "a_at": 1459.6671142578125,
+       "b_at": 0.0,
+       "rms": 318.1547475452369,
+       "range": 0.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 1.0,
+       "at_display": [
+        34,
+        21,
+        35
+       ]
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 1459.6671142578125,
+       "at": [
+        34,
+        21,
+        35
+       ],
+       "a": 1459.6671142578125,
+       "b": 0.0,
+       "differ": 47016
+      }
+     },
+     "links": [
+      {
+       "label": "AFNI-45",
+       "href": "docs/findings/upstream-defects.md#afni-45---t2up-near-100-reads-past-the-sorted-values--a"
+      }
+     ],
+     "verdict": "d13",
+     "reason": "AFNI-45, corrected by default with a warning: at -T2up 100 the percentile's index falls one past the sorted values, where AFNI reads memory it never wrote (here 0: every value inverts to 0, and so does the output); the default inverts about the largest value, the 100th percentile. Reproduce mode fills that read with 0."
+    },
+    {
+     "id": "repro-afni",
+     "a": "replica-reproduce",
+     "b": "afni",
+     "kind": "main",
+     "label": "replica (reproduce) − AFNI, -T2up 100",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 163840,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [
+      {
+       "label": "AFNI-45",
+       "href": "docs/findings/upstream-defects.md#afni-45---t2up-near-100-reads-past-the-sorted-values--a"
+      }
+     ],
+     "verdict": "bit-identical",
+     "reason": "reproduce mode gives AFNI's result: the read past the end filled with 0, as AFNI read it on this machine."
+    }
+   ],
+   "default": {
+    "output": "uni",
+    "plane": "axial",
+    "voxel": [
+     25,
+     30,
+     18
+    ],
+    "panels": [
+     "ref",
+     "afni",
+     "replica",
+     "afni-default"
+    ],
+    "diffs": [
+     "replica-afni",
+     "repro-afni"
+    ],
+    "compare": {
+     "a": "afni-default",
+     "b": "replica"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 18,
+    "aspect": 0.85484,
+    "panels": {
+     "ref": "b0257a836d0df596b43a8a63.webp",
+     "afni": "0810122b6d960efb7225c1da.webp",
+     "replica": "a0514fbcc3f59091e809c792.webp",
+     "afni-default": "d0fb1b49b1b570e7757e0f24.webp"
+    },
+    "diffs": {
+     "replica-afni": "b1f8f41fae382eb19dfec960.webp"
+    },
+    "ranges": {
+     "replica-afni": 1459.6671142578125
+    },
+    "caption": "Axial slice 19 of 40; the crosshair at the brain's centre."
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B. Computed in float64 over all 163,840 voxels of the outputs, not only those shown; the range is B's maximum minus its minimum. The record's threshold: every output bit-identical to AFNI's, with its exit status and messages. The rows *the original against itself* are AFNI's own variability on this input: its thread counts and builds.",
+   "provenance": [
+    "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
+    "Inputs: BOLD reference, masked (sha256 76db33db4206571d…); fMRIPrep's output (sha256 d6d86af0e97d73b7…)",
+    "Runs: figures cache entry `afni-unifize/fmriprep-ds005040-clip-1`, computed 2026-10-23T11:06:34+00:00 with larmorx `ef4d5685a291`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ]
+  }
+ ]
+}

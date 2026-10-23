@@ -83,6 +83,18 @@ implemented:
     use: ["larmorx afni 3dTshift", "lx.afni.tshift"]
     how: clean-room original; exact replica in `larmorx-gpl`
     validation: "original: [279 of 279](repo:docs/validation/afni-tshift.md) compared agree, 176 bit-identical, [2–6× faster](repo:docs/benchmarks/afni-tshift.md); replica: [279 of 279](repo:docs/validation/afni-tshift-replica.md) bit-identical"
+  - eco: afni
+    tool: 3dAutomask (brain mask)
+    page: /tools/afni-automask/
+    use: ["larmorx afni 3dAutomask", "lx.afni.automask"]
+    how: exact replica in `larmorx-gpl`; clean-room original planned
+    validation: "[105 cases](repo:docs/validation/afni-automask.md): 81 of 81 compared cases that write outputs bit-identical to AFNI, fMRIPrep's call on every oracle run included"
+  - eco: afni
+    tool: 3dUnifize (intensity uniformization)
+    page: /tools/afni-unifize/
+    use: ["larmorx afni 3dUnifize", "lx.afni.unifize"]
+    how: exact replica in `larmorx-gpl`; clean-room original planned
+    validation: "[97 cases](repo:docs/validation/afni-unifize.md): 72 of 72 compared cases that write outputs bit-identical to AFNI at 1, 2 and 6 threads, fMRIPrep's call on every oracle run included"
   - eco: fsl
     tool: Head-motion correction (mcflirt-style options)
     page: /tools/mri-hmc/
@@ -96,7 +108,7 @@ planned:
     text: antsAI's blob alignment (-b).
   - eco: [afni]
     title: AFNI
-    text: 3dUnifize and 3dAutomask (fMRIPrep's BOLD reference), then 3dQwarp, 3dSkullStrip, 3dcalc and an analysis track (3dTproject, 3dDespike, 3dReHo, 3dRSFC, 3dDeconvolve/3dREMLfit, 3dFWHMx/3dClustSim, ...).
+    text: the clean-room originals of 3dAutomask and 3dUnifize; then 3dQwarp, 3dSkullStrip, 3dcalc and an analysis track (3dTproject, 3dDespike, 3dReHo, 3dRSFC, 3dDeconvolve/3dREMLfit, 3dFWHMx/3dClustSim, ...).
   - eco: [fsl]
     title: FSL-compatible tools
     text: the mcflirt replica, BET, FAST, FLIRT with BBR, topup.

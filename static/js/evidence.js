@@ -8,6 +8,7 @@
  *   - the image viewer: planes, slices, volumes, zoom and pan, intensity windows, a crosshair
  *     with the exact value of every panel, difference panels on a stated symmetric scale
  *     (linear or log), side by side, swipe, blink and checkerboard, the largest difference;
+ *     masks drawn over the image they were made from (a panel's overlay);
  *   - the time series of the crosshair's voxel (4D examples);
  *   - the case explorer's search, filters, sorting and deep links (#case=<id>);
  *   - hover details on the charts, and the agreement chart's filter.
@@ -183,8 +184,8 @@
 
   /* ------------------------------------------------------------- colours */
   var PAL = {
-    light: { paper: [240, 235, 224], sunk: [221, 213, 196], neg: [70, 125, 234], pos: [199, 103, 23], cross: '#c76717', ink: '#16130f', ink2: '#4a453e', ink3: '#5b554c', line: 'rgba(22,19,15,0.20)', soft: 'rgba(22,19,15,0.11)', original: '#4a453e', larmorx: '#c76717', replica: '#467dea', input: '#8a847a' },
-    dark: { paper: [26, 25, 22], sunk: [42, 40, 36], neg: [88, 144, 250], pos: [217, 117, 48], cross: '#f2b28a', ink: '#efebe2', ink2: '#b6b0a3', ink3: '#908a7f', line: 'rgba(240,235,226,0.20)', soft: 'rgba(240,235,226,0.11)', original: '#b6b0a3', larmorx: '#d97530', replica: '#5890fa', input: '#7d776d' }
+    light: { paper: [240, 235, 224], sunk: [221, 213, 196], neg: [70, 125, 234], pos: [199, 103, 23], cross: '#c76717', ink: '#16130f', ink2: '#4a453e', ink3: '#5b554c', line: 'rgba(22,19,15,0.20)', soft: 'rgba(22,19,15,0.11)', original: '#4a453e', larmorx: '#c76717', replica: '#467dea', input: '#8a847a', mask: [227, 199, 121], maskEdge: [152, 126, 46] },
+    dark: { paper: [26, 25, 22], sunk: [42, 40, 36], neg: [88, 144, 250], pos: [217, 117, 48], cross: '#f2b28a', ink: '#efebe2', ink2: '#b6b0a3', ink3: '#908a7f', line: 'rgba(240,235,226,0.20)', soft: 'rgba(240,235,226,0.11)', original: '#b6b0a3', larmorx: '#d97530', replica: '#5890fa', input: '#7d776d', mask: [227, 199, 121], maskEdge: [227, 199, 121] }
   };
   function pal() { return PAL[dark() ? 'dark' : 'light']; }
   function mix(a, b, t) { return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t]; }
@@ -569,6 +570,10 @@
       s.diffs.forEach(function (id) { var x = self.ex.diffById[id]; keys[self.key(x.a)] = 1; keys[self.key(x.b)] = 1; });
     } else { keys[this.key(s.a)] = 1; keys[this.key(s.b)] = 1; }
     if (this.ex.timing) this.ex.series.forEach(function (sr) { keys[self.key(sr.panel)] = 1; });
+    Object.keys(keys).forEach(function (k) { // the images masks are drawn over
+      var ov = self.ex.panelById[k.split(':')[0]].overlay;
+      if (ov && ov[s.output]) keys[self.key(ov[s.output].on)] = 1;
+    });
     return Object.keys(keys);
   };
   Viewer.prototype.render = function () {
@@ -617,6 +622,7 @@
   };
   Viewer.prototype.gray = function (pid) {
     var key = this.key(pid), val = this.valueFn(key), p = this.ex.panelById[pid];
+    if (p.overlay && p.overlay[this.s.output]) return this.overlay(p.overlay[this.s.output], val);
     var w = p.window ? { lo: p.window[0], hi: p.window[1] } : this.s.win[this.s.output];
     if (!p.window && w.id === 'own' && p.own && p.own[this.s.output]) w = { lo: p.own[this.s.output][0], hi: p.own[this.s.output][1] };
     var lo = w.lo, k = 255 / ((w.hi - w.lo) || 1);
@@ -624,6 +630,26 @@
       var g = clamp((val(i) - lo) * k, 0, 255);
       px[o] = px[o + 1] = px[o + 2] = g; px[o + 3] = 255;
     });
+  };
+  /* A mask drawn over the image it was made from (a panel's overlay: the base panel and its
+     window): the voxels the mask holds tinted, the mask's edge in this slice drawn in full. */
+  Viewer.prototype.overlay = function (ov, val) {
+    var base = this.valueFn(this.key(ov.on)), lo = ov.window[0], k = 255 / ((ov.window[1] - ov.window[0]) || 1);
+    var P = pal(), inside = [];
+    var img = this.slice(function (i, px, o) {
+      var g = clamp((base(i) - lo) * k, 0, 255), on = val(i) !== 0, c = on ? mix([g, g, g], P.mask, 0.5) : [g, g, g];
+      inside[o >> 2] = on;
+      px[o] = c[0]; px[o + 1] = c[1]; px[o + 2] = c[2]; px[o + 3] = 255;
+    });
+    var nu = img.width, nv = img.height, px = img.data, E = P.maskEdge;
+    for (var j = 0; j < nv; j++) for (var i = 0; i < nu; i++) {
+      var n = j * nu + i;
+      if (!inside[n]) continue;
+      if (i === 0 || i === nu - 1 || j === 0 || j === nv - 1 || !inside[n - 1] || !inside[n + 1] || !inside[n - nu] || !inside[n + nu]) {
+        px[4 * n] = E[0]; px[4 * n + 1] = E[1]; px[4 * n + 2] = E[2];
+      }
+    }
+    return img;
   };
   Viewer.prototype.diffRange = function (ids) {
     var o = this.s.output, self = this, m = 0;
