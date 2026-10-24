@@ -3,7 +3,7 @@
  "tool": "mri-hmc",
  "title": "Head-motion correction",
  "provenance": {
-  "exporter": "34f25faf0f0fea24e92d0799bcb830af12f0ca00",
+  "exporter": "c545572695dca1e024f2d7e03e70830017ddb9f4",
   "records": [
    {
     "path": "docs/validation/mri-hmc.json",
@@ -16,6 +16,18 @@
     "sha256": "0c107279c3c4d2d8bfb4a442ddc7ddd96c6abb6623554eafbbfaaf87e1e63f33",
     "generated": "2026-10-21",
     "larmorx_commit": "1dfe56c0dc60"
+   },
+   {
+    "path": "docs/validation/fsl-mcflirt-replica.json",
+    "sha256": "ecf8577ce20b2aaee54b75cba2a47891ae7ae95f22742e3dbe31447255b8130b",
+    "generated": "2026-10-24",
+    "larmorx_commit": "920ee8e64f2b"
+   },
+   {
+    "path": "docs/validation/fsl-mcflirt-replica.md",
+    "sha256": "5bec35e83fb8d81434371aa99004f83191d03cec38fd5d3b7a89f5def9d35c55",
+    "generated": "2026-10-24",
+    "larmorx_commit": "920ee8e64f2b"
    }
   ],
   "benchmarks": [
@@ -310,6 +322,88 @@
      }
     }
    ]
+  },
+  {
+   "id": "replica",
+   "label": "larmorx-nc replica",
+   "short": "replica",
+   "record": "docs/validation/fsl-mcflirt-replica.md",
+   "status": "validated",
+   "summary": {
+    "cases": 176,
+    "verdicts": {
+     "bit-identical": 155,
+     "both-reject": 21
+    }
+   },
+   "agreement": [
+    {
+     "category": "real",
+     "counts": {
+      "bit-identical": 29,
+      "both-reject": 1
+     }
+    },
+    {
+     "category": "options (ds000005)",
+     "counts": {
+      "bit-identical": 27,
+      "both-reject": 1
+     }
+    },
+    {
+     "category": "synthetic/cli",
+     "counts": {
+      "bit-identical": 6,
+      "both-reject": 5
+     }
+    },
+    {
+     "category": "synthetic/content",
+     "counts": {
+      "bit-identical": 6
+     }
+    },
+    {
+     "category": "synthetic/dtypes",
+     "counts": {
+      "bit-identical": 10
+     }
+    },
+    {
+     "category": "synthetic/geometry",
+     "counts": {
+      "bit-identical": 10
+     }
+    },
+    {
+     "category": "synthetic/motion",
+     "counts": {
+      "bit-identical": 31,
+      "both-reject": 5
+     }
+    },
+    {
+     "category": "synthetic/orientation",
+     "counts": {
+      "bit-identical": 6
+     }
+    },
+    {
+     "category": "replica: edge cases",
+     "counts": {
+      "bit-identical": 23,
+      "both-reject": 9
+     }
+    },
+    {
+     "category": "replica: fMRIPrep's calls",
+     "counts": {
+      "bit-identical": 7
+     }
+    }
+   ],
+   "name": "fsl-mcflirt-replica"
   }
  ],
  "cases": [
@@ -324,6 +418,12 @@
      "verdict": "within-variability",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0212 mm, median Δ 0.0019 mm / 0.0028°; 1/240 matrices identical as text; mcflirt's own: 0.0219 mm, 0.00224 mm / 0.0035°"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -338,6 +438,12 @@
      "verdict": "within-variability",
      "checks": "11/11",
      "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text; mcflirt's own: 0.101 mm, 0.00507 mm / 0.00679°"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -352,6 +458,12 @@
      "verdict": "within-variability",
      "checks": "11/11",
      "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text; mcflirt's own: 0.101 mm, 0.00507 mm / 0.00679°"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -366,6 +478,12 @@
      "verdict": "within-variability",
      "checks": "11/11",
      "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text; mcflirt's own: 0.101 mm, 0.00507 mm / 0.00679°"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -380,6 +498,12 @@
      "verdict": "within-variability",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text; mcflirt's own: 0.101 mm, 0.00507 mm / 0.00679°"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -394,6 +518,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0143 mm, median Δ 0.0004 mm / 0°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -408,6 +538,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -422,6 +558,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0662 mm, median Δ 0.003 mm / 0.0056°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -436,6 +578,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.022 mm, median Δ 0.0003 mm / 0.0006°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -450,6 +598,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0489 mm, median Δ 0.0069 mm / 0.0045°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -464,6 +618,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -478,6 +638,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0653 mm, median Δ 0.0103 mm / 0.0083°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -492,6 +658,12 @@
      "verdict": "open",
      "checks": "5/5",
      "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -506,6 +678,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.022 mm, median Δ 0.0024 mm / 0.0049°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -520,6 +698,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0208 mm, median Δ 0.0021 mm / 0.003°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -534,6 +718,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0206 mm, median Δ 0.0024 mm / 0.0034°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -548,6 +738,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0147 mm, median Δ 0.0007 mm / 0.0001°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -562,6 +758,12 @@
      "verdict": "both-reject",
      "checks": "0/0",
      "reason": "mcflirt exit [-6]: terminate called after throwing an instance of 'NiftiIO::NiftiException' what(): Error: cant open file grefvol_~/VScode_projects/super_fmriprep/oracl; larmorx exit [1]: Error: -gdt (registration of gradient images) is not supported"
+    },
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
     }
    }
   },
@@ -576,6 +778,12 @@
      "verdict": "within-variability",
      "checks": "18/18",
      "reason": "95th-percentile RMS deviation 0.0205 mm, median Δ 0.0023 mm / 0.0034°; 0/240 matrices identical as text; mcflirt's own: 0.0537 mm, 0.00511 mm / 0.00667°"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (247/247), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -590,6 +798,12 @@
      "verdict": "open",
      "checks": "18/18",
      "reason": "95th-percentile RMS deviation 0.0226 mm, median Δ 0.0021 mm / 0.0037°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (247/247), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -604,6 +818,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -618,6 +838,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0204 mm, median Δ 0.0018 mm / 0.004°; 1/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -632,6 +858,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0234 mm, median Δ 0.002 mm / 0.002°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -646,6 +878,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -660,6 +898,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0247 mm, median Δ 0.0013 mm / 0.0001°; 3/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -674,6 +918,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0247 mm, median Δ 0.0013 mm / 0.0017°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -688,6 +938,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -702,6 +958,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0271 mm, median Δ 0.0003 mm / 0.0003°; 3/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -716,6 +978,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0308 mm, median Δ 0.0003 mm / 0.0003°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -730,6 +998,12 @@
      "verdict": "open",
      "checks": "22/22",
      "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (249/249), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -744,6 +1018,12 @@
      "verdict": "within-variability",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.022 mm, median Δ 0.0023 mm / 0.0037°; 1/208 matrices identical as text; mcflirt's own: 0.0231 mm, 0.00256 mm / 0.00384°"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (214/214), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -758,6 +1038,12 @@
      "verdict": "within-variability",
      "checks": "11/11",
      "reason": "95th-percentile RMS deviation 0.0191 mm, median Δ 0.0023 mm / 0.0031°; 0/208 matrices identical as text; mcflirt's own: 0.0203 mm, 0.00356 mm / 0.00407°"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (209/209), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -772,6 +1058,12 @@
      "verdict": "within-variability",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0191 mm, median Δ 0.0023 mm / 0.0031°; 0/208 matrices identical as text; mcflirt's own: 0.0203 mm, 0.00356 mm / 0.00407°"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (214/214), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -786,6 +1078,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0288 mm, median Δ 0.0028 mm / 0.0053°; 1/258 matrices identical as text, FD r 0.9988: above mcflirt's own variability (mcflirt's own: 0.0289 mm, 0.00257 mm / 0.00501°, FD r 0.9987), within the record's thresholds"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (264/264), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -800,6 +1098,12 @@
      "verdict": "within-variability",
      "checks": "11/11",
      "reason": "95th-percentile RMS deviation 0.0299 mm, median Δ 0.0023 mm / 0.0048°; 0/258 matrices identical as text, FD r 0.9985; mcflirt's own: 0.0312 mm, 0.0042 mm / 0.00733°, FD r 0.9977"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (259/259), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -814,6 +1118,12 @@
      "verdict": "within-variability",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0299 mm, median Δ 0.0023 mm / 0.0048°; 0/258 matrices identical as text, FD r 0.9985; mcflirt's own: 0.0312 mm, 0.0042 mm / 0.00733°, FD r 0.9977"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (264/264), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -828,6 +1138,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.021 mm, median Δ 0.0021 mm / 0.0033°; 1/204 matrices identical as text, FD r 0.9911: above mcflirt's own variability (mcflirt's own: 0.0221 mm, 0.00229 mm / 0.00338°, FD r 0.992), within the record's thresholds"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (210/210), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -842,6 +1158,12 @@
      "verdict": "within-variability",
      "checks": "11/11",
      "reason": "95th-percentile RMS deviation 0.0226 mm, median Δ 0.0024 mm / 0.0039°; 0/204 matrices identical as text, FD r 0.982; mcflirt's own: 0.0229 mm, 0.00361 mm / 0.0051°, FD r 0.9799"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (205/205), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -856,6 +1178,12 @@
      "verdict": "within-variability",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0226 mm, median Δ 0.0024 mm / 0.0039°; 0/204 matrices identical as text, FD r 0.982; mcflirt's own: 0.0229 mm, 0.00361 mm / 0.0051°, FD r 0.9799"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (210/210), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -870,6 +1198,12 @@
      "verdict": "within-variability",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0178 mm, median Δ 0.0013 mm / 0.0017°; 1/239 matrices identical as text, FD r 0.9966; mcflirt's own: 0.0186 mm, 0.00157 mm / 0.00269°, FD r 0.9948"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (245/245), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -884,6 +1218,12 @@
      "verdict": "within-variability",
      "checks": "11/11",
      "reason": "95th-percentile RMS deviation 0.0181 mm, median Δ 0.0014 mm / 0.0021°; 0/239 matrices identical as text, FD r 0.9949; mcflirt's own: 0.0193 mm, 0.00245 mm / 0.00395°, FD r 0.9949"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (240/240), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -898,6 +1238,12 @@
      "verdict": "within-variability",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0181 mm, median Δ 0.0014 mm / 0.0021°; 0/239 matrices identical as text, FD r 0.9949; mcflirt's own: 0.0193 mm, 0.00245 mm / 0.00395°, FD r 0.9949"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (245/245), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -912,6 +1258,12 @@
      "verdict": "open",
      "checks": "15/16",
      "reason": "FD (Power, 50 mm) correlation: 0.9885 (threshold ≥ 0.9893 (band))"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (222/222), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -926,6 +1278,12 @@
      "verdict": "within-variability",
      "checks": "11/11",
      "reason": "95th-percentile RMS deviation 0.0259 mm, median Δ 0.0023 mm / 0.004°; 0/216 matrices identical as text, FD r 0.9867; mcflirt's own: 0.0299 mm, 0.00387 mm / 0.00584°, FD r 0.984"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (217/217), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -940,6 +1298,12 @@
      "verdict": "within-variability",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0259 mm, median Δ 0.0023 mm / 0.004°; 0/216 matrices identical as text, FD r 0.9867; mcflirt's own: 0.0299 mm, 0.00387 mm / 0.00584°, FD r 0.984"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (222/222), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -954,6 +1318,12 @@
      "verdict": "both-reject",
      "checks": "0/0",
      "reason": "mcflirt exit [-6]: Image Exception : #22 :: Failed to read volume <testdata-cache>/openneuro/ds003763/sub-16111/func/sub-16111_task-heart_bold.nii.gz Erro; larmorx exit [1]: Error: <testdata-cache>/openneuro/ds003763/sub-16111/func/sub-16111_task-heart_bold.n…"
+    },
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
     }
    }
   },
@@ -968,6 +1338,12 @@
      "verdict": "within-variability",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.026 mm, median Δ 0.0029 mm / 0.0051°; 1/63 matrices identical as text; mcflirt's own: 0.0263 mm, 0.00317 mm / 0.00521°"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (69/69), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -982,6 +1358,12 @@
      "verdict": "within-variability",
      "checks": "11/11",
      "reason": "95th-percentile RMS deviation 0.0252 mm, median Δ 0.0028 mm / 0.0032°; 0/63 matrices identical as text; mcflirt's own: 0.0257 mm, 0.00382 mm / 0.0047°"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (64/64), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -996,6 +1378,12 @@
      "verdict": "within-variability",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0252 mm, median Δ 0.0028 mm / 0.0032°; 0/63 matrices identical as text; mcflirt's own: 0.0257 mm, 0.00382 mm / 0.0047°"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (69/69), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1010,6 +1398,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.013 mm, median Δ 0.0009 mm / 0.0001°; 1/113 matrices identical as text: above mcflirt's own variability (mcflirt's own: 0.0165 mm, 0.000776 mm / 0.000172°), within the record's thresholds"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (119/119), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1024,6 +1418,12 @@
      "verdict": "within-variability",
      "checks": "11/11",
      "reason": "95th-percentile RMS deviation 0.0142 mm, median Δ 0.001 mm / 0.001°; 0/113 matrices identical as text; mcflirt's own: 0.0164 mm, 0.00207 mm / 0.00298°"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (114/114), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1038,6 +1438,12 @@
      "verdict": "within-variability",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0142 mm, median Δ 0.001 mm / 0.001°; 0/113 matrices identical as text; mcflirt's own: 0.0164 mm, 0.00207 mm / 0.00298°"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (119/119), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1052,6 +1458,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0189 mm, median Δ 0.0018 mm / 0.0031°; 1/69 matrices identical as text, FD r 0.9991: above mcflirt's own variability (mcflirt's own: 0.0233 mm, 0.00237 mm / 0.00258°, FD r 0.9989), within the record's thresholds"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (75/75), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1066,6 +1478,12 @@
      "verdict": "within-variability",
      "checks": "11/11",
      "reason": "95th-percentile RMS deviation 0.0252 mm, median Δ 0.0021 mm / 0.0038°; 0/69 matrices identical as text, FD r 0.9987; mcflirt's own: 0.0259 mm, 0.00351 mm / 0.0059°, FD r 0.9974"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (70/70), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1080,6 +1498,12 @@
      "verdict": "within-variability",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0252 mm, median Δ 0.0021 mm / 0.0038°; 0/69 matrices identical as text, FD r 0.9987; mcflirt's own: 0.0259 mm, 0.00351 mm / 0.0059°, FD r 0.9974"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (75/75), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1094,6 +1518,12 @@
      "verdict": "open",
      "checks": "11/11",
      "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (13/13), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1108,6 +1538,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1122,6 +1558,12 @@
      "verdict": "both-reject",
      "checks": "0/0",
      "reason": "mcflirt exit [1]: ; larmorx exit [1]: larmorx: upstream defect FSL-07 (mcflirt) reproduced: -help alone exits 1, as in mcflirt [LARMORX_UPSTREAM_DEFECTS=fix corrects it]"
+    },
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [1]; the same from the replica."
     }
    }
   },
@@ -1136,6 +1578,12 @@
      "verdict": "open",
      "checks": "3/3",
      "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (0/0), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1150,6 +1598,12 @@
      "verdict": "both-reject",
      "checks": "0/0",
      "reason": "mcflirt exit [1]: ; larmorx exit [1]:"
+    },
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [1]; the same from the replica."
     }
    }
   },
@@ -1164,6 +1618,12 @@
      "verdict": "open",
      "checks": "6/6",
      "reason": "Within the record's thresholds (median .par difference 0.0006 / 0.0088 (mm / °)); no matrices to set against mcflirt's own variability."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1178,6 +1638,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1192,6 +1658,12 @@
      "verdict": "both-reject",
      "checks": "0/0",
      "reason": "mcflirt exit [-6]: Image Exception : #61 :: Invalid t index in [] operator terminate called after throwing an instance of 'std::runtime_error' what(): Invalid t index in [] operat; larmorx exit [1]: Error: -refvol -2: invalid volume index for a series of 12 v…"
+    },
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
     }
    }
   },
@@ -1206,6 +1678,12 @@
      "verdict": "open",
      "checks": "12/12",
      "reason": "95th-percentile RMS deviation 0 mm, median Δ 0 mm / 0°; 1/1 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (4/4), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1220,6 +1698,12 @@
      "verdict": "both-reject",
      "checks": "0/0",
      "reason": "mcflirt exit [-6]: Image Exception : #8 :: Attempted to use affine transform with no voxels in vout terminate called after throwing an instance of 'std::runtime_error' what(): Att; larmorx exit [1]: Error: -stages 0 with a reference file: nothing would be reg…"
+    },
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
     }
    }
   },
@@ -1234,6 +1718,12 @@
      "verdict": "both-reject",
      "checks": "0/0",
      "reason": "mcflirt exit [255]: Unrecognised option -edge; larmorx exit [255]: Unrecognised option -edge"
+    },
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [255]; the same from the replica."
     }
    }
   },
@@ -1248,6 +1738,12 @@
      "verdict": "within-variability",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0864 mm, median Δ 0.0036 mm / 0.0126°; 1/6 matrices identical as text, FD r 1; mcflirt's own: 3.96 mm, 0.0122 mm / 0.0297°, FD r 1"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1262,6 +1758,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.087 mm, median Δ 0.0024 mm / 0.0089°; 1/6 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1276,6 +1778,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0567 mm, median Δ 0.0007 mm / 0.0082°; 2/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1290,6 +1798,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0585 mm, median Δ 0.0027 mm / 0.0109°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1304,6 +1818,12 @@
      "verdict": "open",
      "checks": "5/5",
      "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (11/11), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1318,6 +1838,12 @@
      "verdict": "open",
      "checks": "5/5",
      "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (11/11), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1332,6 +1858,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1346,6 +1878,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1360,6 +1898,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1374,6 +1918,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1388,6 +1938,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1402,6 +1958,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1416,6 +1978,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1430,6 +1998,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1444,6 +2018,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0395 mm, median Δ 0.0025 mm / 0.0101°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1458,6 +2038,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0961 mm, median Δ 0.0032 mm / 0.0121°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1472,6 +2058,12 @@
      "verdict": "open",
      "checks": "15/15",
      "reason": "95th-percentile RMS deviation 0 mm, median Δ 0 mm / 0°; 1/1 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (7/7), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1486,6 +2078,12 @@
      "verdict": "open",
      "checks": "15/15",
      "reason": "95th-percentile RMS deviation 0.0104 mm, median Δ 0.0012 mm / 0.0055°; 0/1 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (7/7), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1500,6 +2098,12 @@
      "verdict": "open",
      "checks": "15/15",
      "reason": "95th-percentile RMS deviation 0 mm, median Δ 0 mm / 0°; 1/1 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (7/7), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1514,6 +2118,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0104 mm, median Δ 0.0012 mm / 0.0055°; 0/1 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (7/7), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1528,6 +2138,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0347 mm, median Δ 0.0007 mm / 0°; 1/8 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (14/14), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1542,6 +2158,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0347 mm, median Δ 0.0007 mm / 0°; 1/8 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (14/14), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1556,6 +2178,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.055 mm, median Δ 0.0005 mm / 0°; 1/8 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (14/14), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1570,6 +2198,12 @@
      "verdict": "within-variability",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.113 mm, median Δ 0.0029 mm / 0.0278°; 1/6 matrices identical as text, FD r 0.9995; mcflirt's own: 0.36 mm, 0.00572 mm / 0.0992°, FD r 0.9963"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1584,6 +2218,12 @@
      "verdict": "open",
      "checks": "15/15",
      "reason": "95th-percentile RMS deviation 0.0514 mm, median Δ 0.0015 mm / 0.0005°; 1/2 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (8/8), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1598,6 +2238,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0578 mm, median Δ 0.0017 mm / 0.0251°; 0/2 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (8/8), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1612,6 +2258,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0 mm, median Δ 0 mm / 0°; 6/6 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1626,6 +2278,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0575 mm, median Δ 0.0063 mm / 0.0168°; 0/6 matrices identical as text: above mcflirt's own variability (mcflirt's own: 0.065 mm, 0.00401 mm / 0.0163°), within the record's thresholds"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1640,6 +2298,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0228 mm, median Δ 0.0099 mm / 0.005°; 0/6 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1654,6 +2318,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0463 mm, median Δ 0.0026 mm / 0.0133°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1668,6 +2338,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0646 mm, median Δ 0.0042 mm / 0.0118°; 0/12 matrices identical as text, FD r 0.9993: above mcflirt's own variability (mcflirt's own: 0.0887 mm, 0.0041 mm / 0.0157°, FD r 0.9991), within the record's thresholds"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1682,6 +2358,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0008 mm / 0°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1696,6 +2378,12 @@
      "verdict": "within-variability",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text, FD r 0.9988; mcflirt's own: 0.0558 mm, 0.00144 mm / 0.0094°, FD r 0.9974"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1710,6 +2398,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1724,6 +2418,12 @@
      "verdict": "within-variability",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.125 mm, median Δ 0.0054 mm / 0.0267°; 0/12 matrices identical as text, FD r 0.9975; mcflirt's own: 1.16 mm, 0.0278 mm / 0.0734°, FD r 0.8346"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1738,6 +2438,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0707 mm, median Δ 0.0026 mm / 0.0185°; 0/12 matrices identical as text, FD r 0.9961: above mcflirt's own variability (mcflirt's own: 0.0759 mm, 0.00405 mm / 0.0252°, FD r 0.9968), within the record's thresholds"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1752,6 +2458,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1766,6 +2478,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0486 mm, median Δ 0.0028 mm / 0.0139°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1780,6 +2498,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1794,6 +2518,12 @@
      "verdict": "open",
      "checks": "18/18",
      "reason": "95th-percentile RMS deviation 0.281 mm, median Δ 0.0054 mm / 0.0109°; 0/12 matrices identical as text, FD r 0.9737: above mcflirt's own variability (mcflirt's own: 0.418 mm, 0.00533 mm / 0.0157°, FD r 0.9015), within the record's thresholds"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (19/19), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1808,6 +2538,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1822,6 +2558,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1836,6 +2578,12 @@
      "verdict": "divergence",
      "checks": "1/1",
      "reason": "Without FSLOUTPUTTYPE, mcflirt writes the .mat files and fails (exit 1); larmorx writes every output as .nii.gz (its default)."
+    },
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [1]; the same from the replica."
     }
    }
   },
@@ -1850,6 +2598,12 @@
      "verdict": "both-reject",
      "checks": "0/0",
      "reason": "mcflirt exit [2]: Input filename not found; larmorx exit [2]: Input filename not found"
+    },
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [2]; the same from the replica."
     }
    }
   },
@@ -1864,6 +2618,12 @@
      "verdict": "open",
      "checks": "12/12",
      "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (14/14), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1878,6 +2638,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1892,6 +2658,12 @@
      "verdict": "open",
      "checks": "24/24",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (30/30), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1906,6 +2678,12 @@
      "verdict": "within-variability",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text, FD r 0.9971; mcflirt's own: 0.107 mm, 0.00439 mm / 0.018°, FD r 0.9942"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1920,6 +2698,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.056 mm, median Δ 0.0039 mm / 0.0161°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1934,6 +2718,12 @@
      "verdict": "both-reject",
      "checks": "0/0",
      "reason": "mcflirt exit [-6]: Image Exception : #2 :: Attempted to copydata with non-matching sizes terminate called after throwing an instance of 'std::runtime_error' what(): Attempted to c; larmorx exit [1]: Error: the reference has 57600 voxels and the volumes of the…"
+    },
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
     }
    }
   },
@@ -1948,6 +2738,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1962,6 +2758,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.056 mm, median Δ 0.0039 mm / 0.0108°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1976,6 +2778,12 @@
      "verdict": "both-reject",
      "checks": "0/0",
      "reason": "mcflirt exit [-6]: Image Exception : #61 :: Invalid t index in [] operator terminate called after throwing an instance of 'std::runtime_error' what(): Invalid t index in [] operat; larmorx exit [1]: Error: -refvol 12: invalid volume index for a series of 12 v…"
+    },
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
     }
    }
   },
@@ -1990,6 +2798,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2004,6 +2818,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2018,6 +2838,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0585 mm, median Δ 0.0029 mm / 0.0151°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2032,6 +2858,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2046,6 +2878,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0694 mm, median Δ 0.0022 mm / 0.0043°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2060,6 +2898,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0539 mm, median Δ 0.003 mm / 0.0098°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2074,6 +2918,12 @@
      "verdict": "open",
      "checks": "23/23",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (21/21), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2088,6 +2938,12 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2102,6 +2958,12 @@
      "verdict": "both-reject",
      "checks": "0/0",
      "reason": "mcflirt exit [255]: Lacking argument to option -edge; larmorx exit [255]: Lacking argument to option -edge"
+    },
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [255]; the same from the replica."
     }
    }
   },
@@ -2116,6 +2978,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2130,6 +2998,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2144,6 +3018,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0515 mm, median Δ 0.0022 mm / 0.0064°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2158,6 +3038,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.066 mm, median Δ 0.0024 mm / 0.0108°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2172,6 +3058,12 @@
      "verdict": "open",
      "checks": "16/16",
      "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2186,6 +3078,600 @@
      "verdict": "open",
      "checks": "17/17",
      "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "real/ds000005/opt-sinc_final",
+   "category": "options (ds000005)",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "real/ds000005/opt-stages4",
+   "category": "options (ds000005)",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "real/ds000005/opt-stages4-sinc_final",
+   "category": "options (ds000005)",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/gdt",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (3/3), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/bins4-mutualinfo",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/bins1-normmi",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/bins2-corratio",
+   "category": "replica: edge cases",
+   "description": "mcflirt exits [-6]; the same from the replica. double free or corruption (out)",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. double free or corruption (out)"
+    }
+   }
+  },
+  {
+   "id": "edge/in-missing",
+   "category": "replica: edge cases",
+   "description": "mcflirt exits [-6]; the same from the replica. Image Exception : #63 :: No image files match: nosuch Image Exception : #22 :: Failed to read volume nosuch Erro…",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. Image Exception : #63 :: No image files match: nosuch Image Exception : #22 :: Failed to read volume nosuch Error : No image files match: nosuch terminate called after throwing an instance of 'std::ru"
+    }
+   }
+  },
+  {
+   "id": "edge/init-missing",
+   "category": "replica: edge cases",
+   "description": "mcflirt exits [-6]; the same from the replica. Could not open matrix file nosuch.mat terminate called after throwing an instance of 'std::logic_error' what(): …",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. Could not open matrix file nosuch.mat terminate called after throwing an instance of 'std::logic_error' what(): matrix multiplication: incompatible matrix dimensions: 4x4 and 0x0"
+    }
+   }
+  },
+  {
+   "id": "edge/init-short",
+   "category": "replica: edge cases",
+   "description": "mcflirt exits [-6]; the same from the replica. terminate called after throwing an instance of 'std::logic_error' what(): matrix multiplication: incompatible ma…",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. terminate called after throwing an instance of 'std::logic_error' what(): matrix multiplication: incompatible matrix dimensions: 4x4 and 1x3"
+    }
+   }
+  },
+  {
+   "id": "edge/init-3x3",
+   "category": "replica: edge cases",
+   "description": "mcflirt exits [-6]; the same from the replica. terminate called after throwing an instance of 'std::logic_error' what(): matrix multiplication: incompatible ma…",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. terminate called after throwing an instance of 'std::logic_error' what(): matrix multiplication: incompatible matrix dimensions: 4x4 and 3x3"
+    }
+   }
+  },
+  {
+   "id": "edge/verbose20",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/verbose20-report",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/out-dir-missing",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (0/0), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/out-dir-readonly",
+   "category": "replica: edge cases",
+   "description": "mcflirt exits [-6]; the same from the replica. Error! Could not create directory: <larmorx-testdata>/data/synthetic/hmc/motion/ro/out.mat. No write permission …",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. Error! Could not create directory: <larmorx-testdata>/data/synthetic/hmc/motion/ro/out.mat. No write permission terminate called after throwing an instance of"
+    }
+   }
+  },
+  {
+   "id": "edge/mat-exists",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/fsloutputtype-pair",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/fsloutputtype-pair-gz",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/fsloutputtype-nifti2-gz",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/fsloutputtype-analyze",
+   "category": "replica: edge cases",
+   "description": "mcflirt exits [1]; the same from the replica. ERROR:: Unrecognised value (ANALYZE) of environment variable FSLOUTPUTTYPE Legal values are: NIFTI, NIFTI_PAIR, N…",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [1]; the same from the replica. ERROR:: Unrecognised value (ANALYZE) of environment variable FSLOUTPUTTYPE Legal values are: NIFTI, NIFTI_PAIR, NIFTI_GZ, NIFTI_PAIR_GZ"
+    }
+   }
+  },
+  {
+   "id": "edge/fsloutputtype-bogus",
+   "category": "replica: edge cases",
+   "description": "mcflirt exits [1]; the same from the replica. ERROR:: Unrecognised value (BOGUS) of environment variable FSLOUTPUTTYPE Legal values are: NIFTI, NIFTI_PAIR, NIF…",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [1]; the same from the replica. ERROR:: Unrecognised value (BOGUS) of environment variable FSLOUTPUTTYPE Legal values are: NIFTI, NIFTI_PAIR, NIFTI_GZ, NIFTI_PAIR_GZ"
+    }
+   }
+  },
+  {
+   "id": "edge/stages0-meanvol",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/stages0-refvol",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (3/3), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/dof13",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/int8",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/int32",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/analyze-input",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/rgb-input",
+   "category": "replica: edge cases",
+   "description": "mcflirt exits [-6]; the same from the replica. Image Exception : #8 :: Fslread: DT 128 not supported terminate called after throwing an instance of 'std::runti…",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. Image Exception : #8 :: Fslread: DT 128 not supported terminate called after throwing an instance of 'std::runtime_error' what(): Fslread: DT 128 not supported"
+    }
+   }
+  },
+  {
+   "id": "edge/nan-reffile",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/refvol-last",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (3/3), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/meanvol-reffile-sinc-stats",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (17/17), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/rotation0",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/smooth-negative",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/scaling-hist",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/fov0-2d",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds000005-sub-01-noreconall/task_mixedgamblestask_run_01",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds000005-sub-01-noreconall/task_mixedgamblestask_run_02",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds000005-sub-01-noreconall/task_mixedgamblestask_run_03",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds005040-sub-002-noreconall/task_clip_run_1",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (64/64), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds005454-sub-16-noreconall/task_rest",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (281/281), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds005752-sub-ON01016-noreconall/ses_01_task_rest_dir_forward",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (201/201), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds005752-sub-ON01016-noreconall/ses_01_task_rest_dir_reverse",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (11/11), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   }
@@ -2259,7 +3745,7 @@
    "note": "From the case explorer below: each case's reason gives its numbers."
   }
  ],
- "cases_total": 134,
+ "cases_total": 176,
  "speed": {
   "title": "Seconds for the whole command, median of repeated runs, log scale; the factor is the clean-room original's speed-up at one thread",
   "axis": [
@@ -2335,7 +3821,7 @@
   {
    "id": "fmriprep-hmc",
    "title": "fMRIPrep's head-motion estimation of a real BOLD run, by mcflirt and larmorx",
-   "summary": "The mcflirt node fMRIPrep 25.2.6 ran on OpenNeuro ds000005 sub-01's first BOLD run (240 volumes, its own HMC reference): its command given to FSL 6.0.7's mcflirt and to larmorx's clean-room original. fMRIPrep keeps only the matrices; the realigned series are shown at 6 of the 240 volumes (where larmorx deviates most, the largest motion, the ends).",
+   "summary": "The mcflirt node fMRIPrep 25.2.6 ran on OpenNeuro ds000005 sub-01's first BOLD run (240 volumes, its own HMC reference): its command given to FSL 6.0.7's mcflirt, to the bit-exact replica (larmorx-nc) and to larmorx's clean-room original. fMRIPrep keeps only the matrices; the realigned series are shown at 6 of the 240 volumes (where larmorx deviates most, the largest motion, the ends).",
    "facts": [
     {
      "label": "Data",
@@ -2351,7 +3837,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.17 (mcflirt), run as a black box; larmorx's clean-room original (`lx.mri.hmc`, experimental) at commit `1dfe56c0dc60`"
+     "text": "FSL 6.0.7.17 (mcflirt), run as a black box; larmorx's clean-room original (`lx.mri.hmc`, experimental) at commit `1dfe56c0dc60`; the replica (larmorx-nc 0.0.1, `lx.mri.hmc(implementation=\"replica\")`) at commit `a4b2468b7bbd`"
     },
     {
      "label": "Volumes",
@@ -2599,6 +4085,63 @@
        "xor": "mcflirt-2:series",
        "zero": false,
        "bytes": 50529
+      }
+     },
+     "own": {
+      "series": [
+       0.0,
+       813.0
+      ]
+     }
+    },
+    {
+     "id": "replica",
+     "role": "larmorx",
+     "label": "larmorx-nc replica",
+     "sub": "reproduce mode, 3 threads",
+     "arrays": {
+      "series": {
+       "same": "mcflirt:series",
+       "dtype": "i2"
+      }
+     },
+     "own": {
+      "series": [
+       0.0,
+       813.0
+      ]
+     }
+    },
+    {
+     "id": "replica-1",
+     "role": "larmorx",
+     "label": "larmorx-nc replica",
+     "sub": "reproduce mode, 1 thread",
+     "arrays": {
+      "series": {
+       "same": "mcflirt:series",
+       "dtype": "i2"
+      }
+     },
+     "own": {
+      "series": [
+       0.0,
+       813.0
+      ]
+     }
+    },
+    {
+     "id": "replica-fix",
+     "role": "larmorx",
+     "label": "larmorx-nc replica",
+     "sub": "default mode, 3 threads",
+     "arrays": {
+      "series": {
+       "blob": "0a86c5b59e299c6d6c76e96b.bin",
+       "dtype": "i2",
+       "xor": "larmorx-fix:series",
+       "zero": false,
+       "bytes": 73538
       }
      },
      "own": {
@@ -2868,6 +4411,218 @@
      "verdict": null,
      "reason": "mcflirt's own variability: the same volumes registered in another order end at other estimates (no change of the data).",
      "links": []
+    },
+    {
+     "id": "replica-mcflirt",
+     "a": "replica",
+     "b": "mcflirt",
+     "kind": "main",
+     "label": "replica − mcflirt",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "series": {
+       "identical": true,
+       "voxels": 835584,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1133.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "The replica gives mcflirt's bytes: the realigned series and 240 of 240 matrices identical as text (larmorx-nc 0.0.1, a translation of FSL 6.0.7's source with glibc 2.35's float functions).",
+     "links": [
+      {
+       "label": "replica record",
+       "href": "docs/validation/fsl-mcflirt-replica.md"
+      }
+     ]
+    },
+    {
+     "id": "replica-fix-replica",
+     "a": "replica-fix",
+     "b": "replica",
+     "kind": "main",
+     "label": "replica: default − reproduce mode",
+     "role_label": "larmorx's corrections",
+     "metrics": {
+      "series": {
+       "identical": false,
+       "voxels": 835584,
+       "differ": 152591,
+       "share": 0.1826159907322304,
+       "max_abs": 7.0,
+       "at": [
+        40,
+        50,
+        9,
+        5
+       ],
+       "a_at": 745.0,
+       "b_at": 752.0,
+       "rms": 0.448485855150662,
+       "range": 1133.0,
+       "max_rel_range": 0.00617828773168579,
+       "one_minus_ncc": 1.2772722910197587e-06,
+       "at_display": [
+        17,
+        48,
+        9,
+        5
+       ]
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 7.0,
+       "at": [
+        17,
+        48,
+        9,
+        5
+       ],
+       "a": 745.0,
+       "b": 752.0,
+       "differ": 111334
+      }
+     },
+     "verdict": "d13",
+     "reason": "The same corrections of mcflirt's defects as the clean-room original's, by default with a warning: FSL-01, FSL-09; they move the matrices by up to 0.0217 mm (RMS deviation). Reproduce mode gives mcflirt's bytes.",
+     "links": [
+      {
+       "label": "FSL-01",
+       "href": "docs/findings/upstream-defects.md#fsl-01--the-last-volume-is-not-initialised-from-the-previous-one--c"
+      },
+      {
+       "label": "FSL-09",
+       "href": "docs/findings/upstream-defects.md#fsl-09--output-types-and-conversion--c-a"
+      }
+     ]
+    },
+    {
+     "id": "replica1-replica",
+     "a": "replica-1",
+     "b": "replica",
+     "kind": "check",
+     "label": "replica, 1 thread − 3 threads",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "series": {
+       "identical": true,
+       "voxels": 835584,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1133.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "The same bytes on any number of threads.",
+     "links": []
+    },
+    {
+     "id": "lxfix-replicafix",
+     "a": "larmorx-fix",
+     "b": "replica-fix",
+     "kind": "main",
+     "label": "clean-room original − replica, both in their default mode",
+     "role_label": "the two implementations of the corrections",
+     "metrics": {
+      "series": {
+       "identical": false,
+       "voxels": 835584,
+       "differ": 103925,
+       "share": 0.1243740904564951,
+       "max_abs": 7.0,
+       "at": [
+        39,
+        51,
+        1,
+        4
+       ],
+       "a_at": 345.0,
+       "b_at": 352.0,
+       "rms": 0.43855189109454085,
+       "range": 1134.0,
+       "max_rel_range": 0.006172839506172839,
+       "one_minus_ncc": 1.7798134064942493e-06,
+       "at_display": [
+        18,
+        49,
+        1,
+        4
+       ]
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 7.0,
+       "at": [
+        17,
+        48,
+        9,
+        4
+       ],
+       "a": 754.0,
+       "b": 761.0,
+       "differ": 72269
+      }
+     },
+     "verdict": "within-variability",
+     "reason": "Both implementations correct the same defects; their matrices differ as the original's differ from mcflirt's: 95th-percentile RMS deviation 0.0193 mm against mcflirt's own 0.0241 mm (0 of 240 matrices identical as text).",
+     "links": []
     }
    ],
    "default": {
@@ -2882,10 +4637,12 @@
     "panels": [
      "bold",
      "mcflirt",
+     "replica",
      "larmorx",
      "larmorx-fix"
     ],
     "diffs": [
+     "replica-mcflirt",
      "lx-mcflirt",
      "rev-mc",
      "fix-lx"
@@ -2903,6 +4660,7 @@
     "panels": {
      "bold": "d1e1197baf970203e35817a5.webp",
      "mcflirt": "82e243e4433203cc68814fdc.webp",
+     "replica": "82e243e4433203cc68814fdc.webp",
      "larmorx": "ace4e26ab258b919afe04c5e.webp",
      "larmorx-fix": "da80e271a400fc21f37e2285.webp"
     },
@@ -3172,6 +4930,10 @@
       {
        "label": "larmorx clean-room original (reproduce)",
        "mark": "larmorx"
+      },
+      {
+       "label": "larmorx-nc replica (reproduce: mcflirt's bytes)",
+       "mark": "replica"
       },
       {
        "label": "mcflirt's own variability (worst of its four perturbations)",
@@ -6906,6 +8668,252 @@
           0.006202,
           0.008318
          ]
+        },
+        {
+         "label": "larmorx-nc replica, reproduce",
+         "mark": "replica",
+         "y": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+         ]
         }
        ],
        "bands": [
@@ -7646,6 +9654,252 @@
           0.0,
           0.02302
          ]
+        },
+        {
+         "label": "replica: default − reproduce",
+         "mark": "replica",
+         "y": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.021655
+         ]
         }
        ]
       }
@@ -7953,6 +10207,155 @@
           "fmt": "sig4"
          }
         ]
+       },
+       {
+        "head": "replica (reproduce) − mcflirt",
+        "sub": "240 of 240 matrices identical as text",
+        "class": "is-sep",
+        "cells": [
+         {
+          "v": 8.310863329810284e-15,
+          "fmt": "sig"
+         },
+         {
+          "v": 2.3244856018596125e-14,
+          "fmt": "sig"
+         },
+         {
+          "v": 2.8600131710003574e-14,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 1.0,
+          "fmt": "sig4"
+         }
+        ]
+       },
+       {
+        "head": "replica (default) − mcflirt",
+        "cells": [
+         {
+          "v": 8.310863329810284e-15,
+          "fmt": "sig"
+         },
+         {
+          "v": 2.3244856018596125e-14,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.021655006597498385,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.9999940524828003,
+          "fmt": "sig4"
+         }
+        ]
+       },
+       {
+        "head": "replica: default − reproduce",
+        "sub": "FSL-01, FSL-09 corrected",
+        "cells": [
+         {
+          "v": 8.310863329810284e-15,
+          "fmt": "sig"
+         },
+         {
+          "v": 2.3244856018596125e-14,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.021655006597498385,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.9999940524828003,
+          "fmt": "sig4"
+         }
+        ]
+       },
+       {
+        "head": "replica: 1 thread − 3 threads",
+        "cells": [
+         {
+          "v": 8.310863329810284e-15,
+          "fmt": "sig"
+         },
+         {
+          "v": 2.3244856018596125e-14,
+          "fmt": "sig"
+         },
+         {
+          "v": 2.8600131710003574e-14,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 1.0,
+          "fmt": "sig4"
+         }
+        ]
+       },
+       {
+        "head": "clean-room original − replica (both default)",
+        "sub": "0 of 240 matrices identical as text",
+        "cells": [
+         {
+          "v": 0.010161330050131347,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.019328233042812688,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.02831089627068545,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0018224062500067362,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0012032123692000177,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.8908190064651147,
+          "fmt": "sig4"
+         }
+        ]
        }
       ],
       "note": "The record's thresholds: 95th percentile ≤ 0.1 mm, median parameter differences ≤ 0.05 mm and 0.05°, FD r ≥ 0.99 where FD reaches 0.5 mm, each widened to mcflirt's own variability where that is larger. The shaded rows are mcflirt's own variability: the worst of them is the band of the chart above."
@@ -7963,7 +10366,9 @@
    "provenance": [
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: BOLD (sha256 609ae0a21822318f…); HMC reference (sha256 5030b453bcc3bbd4…)",
-    "Runs: figures cache entry `mri-hmc/fmriprep-ds000005-run-01`, computed 2026-10-21T15:08:32+00:00 with larmorx `1dfe56c0dc60`; FSL 6.0.7.17 (mcflirt); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `mri-hmc/fmriprep-ds000005-run-01`, computed 2026-10-21T15:08:32+00:00 with larmorx `1dfe56c0dc60`; FSL 6.0.7.17 (mcflirt); every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Inputs: BOLD (sha256 609ae0a21822318f…); HMC reference (sha256 5030b453bcc3bbd4…)",
+    "Runs: figures cache entry `mri-hmc/fmriprep-ds000005-run-01-replica`, computed 2026-10-24T19:03:54+00:00 with larmorx `a4b2468b7bbd`; larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ]
   }
  ]
