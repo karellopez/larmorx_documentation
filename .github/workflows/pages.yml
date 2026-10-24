@@ -35,6 +35,20 @@ jobs:
         with:
           python-version: "3.12"
 
+      # The evidence's images are not in main's history: they live on the orphan branch
+      # evidence-blobs (one commit, replaced at every export; tools/blobs.py). Every blob is
+      # checked against the manifest committed on main (static/evidence/blobs.sha256: full
+      # SHA-256 of every blob a JSON names) before it is published; a missing, extra or altered
+      # blob stops the deployment.
+      - name: Check out the evidence's image blobs
+        uses: actions/checkout@v7
+        with:
+          ref: evidence-blobs
+          path: _blobs
+
+      - name: Verify the blobs against the manifest and place them
+        run: python tools/blobs.py publish-dir --dir _blobs
+
       - name: Install the build's requirements
         run: pip install -r requirements.txt
 

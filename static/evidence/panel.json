@@ -1,0 +1,981 @@
+{
+ "approved": "2026-10-24",
+ "summary": "Fourteen OpenNeuro subjects at 1.5 T, 3 T and 7 T from Siemens, GE and Philips scanners: single-band, multiband (4 and 8), multi-echo and sparse BOLD, every kind of field map, MPRAGE, MP2RAGE, T2w and FLAIR anatomy, two children, four older adults, a brain tumour and a stroke with its manual lesion mask, strong head motion and low quality.",
+ "criteria": [
+  {
+   "id": "1.5T",
+   "label": "1.5 T",
+   "group": "Field"
+  },
+  {
+   "id": "3T",
+   "label": "3 T",
+   "group": "Field"
+  },
+  {
+   "id": "7T",
+   "label": "7 T",
+   "group": "Field"
+  },
+  {
+   "id": "siemens",
+   "label": "Siemens",
+   "group": "Vendor"
+  },
+  {
+   "id": "ge",
+   "label": "GE",
+   "group": "Vendor"
+  },
+  {
+   "id": "philips",
+   "label": "Philips",
+   "group": "Vendor"
+  },
+  {
+   "id": "single-band",
+   "label": "Single-band BOLD",
+   "group": "BOLD"
+  },
+  {
+   "id": "multiband",
+   "label": "Multiband BOLD",
+   "group": "BOLD"
+  },
+  {
+   "id": "multi-echo",
+   "label": "Multi-echo BOLD",
+   "group": "BOLD"
+  },
+  {
+   "id": "sparse",
+   "label": "Sparse acquisition (TR far above the acquisition)",
+   "group": "BOLD"
+  },
+  {
+   "id": "short-run",
+   "label": "Short run (at most 63 volumes)",
+   "group": "BOLD"
+  },
+  {
+   "id": "long-run",
+   "label": "Long run (at least 280 volumes)",
+   "group": "BOLD"
+  },
+  {
+   "id": "no-slice-timing",
+   "label": "No slice timing",
+   "group": "BOLD"
+  },
+  {
+   "id": "ascending",
+   "label": "Ascending slices",
+   "group": "BOLD"
+  },
+  {
+   "id": "descending",
+   "label": "Descending slices",
+   "group": "BOLD"
+  },
+  {
+   "id": "interleaved",
+   "label": "Interleaved slices",
+   "group": "BOLD"
+  },
+  {
+   "id": "pepolar",
+   "label": "Reversed phase encoding field map",
+   "group": "Field map"
+  },
+  {
+   "id": "phasediff",
+   "label": "Phase-difference field map",
+   "group": "Field map"
+  },
+  {
+   "id": "phase12",
+   "label": "Two-phase field map",
+   "group": "Field map"
+  },
+  {
+   "id": "fieldmap",
+   "label": "Direct field map (Hz)",
+   "group": "Field map"
+  },
+  {
+   "id": "fmap-unlinked",
+   "label": "Field map not linked to the BOLD",
+   "group": "Field map"
+  },
+  {
+   "id": "no-fmap",
+   "label": "No field map",
+   "group": "Field map"
+  },
+  {
+   "id": "mprage",
+   "label": "T1w MPRAGE (or TFE, FSPGR)",
+   "group": "Anatomy"
+  },
+  {
+   "id": "mp2rage",
+   "label": "MP2RAGE",
+   "group": "Anatomy"
+  },
+  {
+   "id": "t2w",
+   "label": "T2w",
+   "group": "Anatomy"
+  },
+  {
+   "id": "flair",
+   "label": "FLAIR",
+   "group": "Anatomy"
+  },
+  {
+   "id": "anisotropic",
+   "label": "Strongly anisotropic voxels",
+   "group": "Anatomy"
+  },
+  {
+   "id": "child",
+   "label": "Child",
+   "group": "Population"
+  },
+  {
+   "id": "older",
+   "label": "Older adult (64 or more)",
+   "group": "Population"
+  },
+  {
+   "id": "tumour",
+   "label": "Brain tumour",
+   "group": "Population"
+  },
+  {
+   "id": "stroke",
+   "label": "Stroke",
+   "group": "Population"
+  },
+  {
+   "id": "lesion-mask",
+   "label": "Manual lesion mask",
+   "group": "Population"
+  },
+  {
+   "id": "motion-bold",
+   "label": "Strong head motion (BOLD)",
+   "group": "Quality"
+  },
+  {
+   "id": "motion-t1w",
+   "label": "Strong head motion (T1w)",
+   "group": "Quality"
+  },
+  {
+   "id": "low-quality",
+   "label": "Low SNR or artefacts",
+   "group": "Quality"
+  },
+  {
+   "id": "fmriprep",
+   "label": "An fMRIPrep 25.2.6 oracle run (done or planned)",
+   "group": "Pipeline"
+  }
+ ],
+ "datasets": [
+  {
+   "id": "ds000005",
+   "collection": "openneuro-ds000005",
+   "subject": "sub-01",
+   "session": "",
+   "age": "",
+   "sex": "",
+   "scanner": "Siemens 3 T (the study's; the files do not record it)",
+   "role": "fMRIPrep's own test subject: single-band BOLD without slice timing or a field map, 4 mm slices; every tool's reference case.",
+   "covers": [
+    "3T",
+    "siemens",
+    "single-band",
+    "no-slice-timing",
+    "no-fmap",
+    "mprage",
+    "anisotropic",
+    "fmriprep"
+   ],
+   "fmriprep_run": "ds000005-sub-01-noreconall",
+   "fmriprep_options": "--fs-no-reconall",
+   "fmriprep_status": "finished",
+   "note": "",
+   "files": 7,
+   "images": 5,
+   "bytes": 100359113,
+   "megabytes": 100.359113,
+   "anat": [
+    {
+     "file": "sub-01/anat/sub-01_T1w.nii.gz",
+     "defacing": "defaced: the face's voxels set to 0 (OpenfMRI's defacing); no nose, mouth or eyes in the slices or on the surface",
+     "show": "head"
+    },
+    {
+     "file": "sub-01/anat/sub-01_inplaneT2.nii.gz",
+     "defacing": "34 axial slices of 4 mm that end above the eyes: no face in the field of view",
+     "show": "head"
+    }
+   ],
+   "credit": {
+    "id": "openneuro-ds000005",
+    "title": "Mixed-gambles task",
+    "source": "OpenNeuro ds000005",
+    "version": "00001",
+    "doi": "",
+    "url": "https://openneuro.org/datasets/ds000005/versions/00001",
+    "licence": "PDDL-1.0",
+    "licence_name": "Open Data Commons Public Domain Dedication and Licence 1.0",
+    "licence_url": "https://opendatacommons.org/licenses/pddl/1-0/",
+    "citation": "Tom, S.M., Fox, C.R., Trepel, C., Poldrack, R.A. (2007). The neural basis of loss aversion in decision-making under risk. Science, 315(5811):515-8. Dataset: OpenNeuro ds000005 (OpenfMRI), snapshot 00001.",
+    "attribution": false,
+    "share_alike": false,
+    "text": "Mixed-gambles task (OpenNeuro ds000005, version 00001), Open Data Commons Public Domain Dedication and Licence 1.0."
+   }
+  },
+  {
+   "id": "ds001600",
+   "collection": "openneuro-ds001600",
+   "subject": "sub-1",
+   "session": "",
+   "age": "",
+   "sex": "",
+   "scanner": "Siemens Prisma (fit), 3 T",
+   "role": "Field maps of every Siemens kind on one subject: phase difference, two phases, and a reversed-phase-encoding pair on mismatched grids; 5-volume runs.",
+   "covers": [
+    "3T",
+    "siemens",
+    "single-band",
+    "short-run",
+    "interleaved",
+    "pepolar",
+    "phasediff",
+    "phase12",
+    "mprage",
+    "fmriprep"
+   ],
+   "fmriprep_run": "ds001600-sub-1-noreconall",
+   "fmriprep_options": "--fs-no-reconall",
+   "fmriprep_status": "finished",
+   "note": "",
+   "files": 41,
+   "images": 18,
+   "bytes": 16211746,
+   "megabytes": 16.211746,
+   "anat": [
+    {
+     "file": "sub-1/anat/sub-1_T1w.nii.gz",
+     "defacing": "defaced: the face cut away below the brow (pydeface-like plane); no nose, mouth or eyes",
+     "show": "head"
+    }
+   ],
+   "credit": {
+    "id": "openneuro-ds001600",
+    "title": "Example fieldmaps",
+    "source": "OpenNeuro ds001600",
+    "version": "1.0.0",
+    "doi": "",
+    "url": "https://openneuro.org/datasets/ds001600/versions/1.0.0",
+    "licence": "CC-BY-SA",
+    "licence_name": "Creative Commons Attribution-ShareAlike (CC BY-SA; the dataset gives no version)",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "citation": "Cieslak M., Elliott M., Satterthwaite T. Example Fieldmaps. OpenNeuro ds001600, version 1.0.0 (Siemens Prisma, University of Pennsylvania).",
+    "attribution": true,
+    "share_alike": true,
+    "text": "Example fieldmaps (OpenNeuro ds001600, version 1.0.0), Creative Commons Attribution-ShareAlike (CC BY-SA; the dataset gives no version). Attribution: Cieslak M., Elliott M., Satterthwaite T. Example Fieldmaps. OpenNeuro ds001600, version 1.0.0 (Siemens Prisma, University of Pennsylvania). The images shown here are adapted from it: reoriented to RAS, cropped to the region shown, masked outside it, and shown as the outputs of the programs compared. Under its share-alike condition the images adapted from this dataset are shared under the same licence, CC BY-SA."
+   }
+  },
+  {
+   "id": "ds005040",
+   "collection": "openneuro-ds005040",
+   "subject": "sub-002",
+   "session": "",
+   "age": "",
+   "sex": "",
+   "scanner": "Philips Achieva dStream, 3 T",
+   "role": "Philips: a reversed-phase-encoding pair linked by IntendedFor, ascending slices, strongly scaled integers, a 63-volume run.",
+   "covers": [
+    "3T",
+    "philips",
+    "single-band",
+    "short-run",
+    "ascending",
+    "pepolar",
+    "mprage",
+    "fmriprep"
+   ],
+   "fmriprep_run": "ds005040-sub-002-noreconall",
+   "fmriprep_options": "--fs-no-reconall",
+   "fmriprep_status": "finished",
+   "note": "",
+   "files": 10,
+   "images": 4,
+   "bytes": 24042563,
+   "megabytes": 24.042563,
+   "anat": [
+    {
+     "file": "sub-002/anat/sub-002_T1w.nii.gz",
+     "defacing": "defaced: the face cut away below the brow; no nose, mouth or eyes",
+     "show": "head"
+    }
+   ],
+   "credit": {
+    "id": "openneuro-ds005040",
+    "title": "Political Moralization",
+    "source": "OpenNeuro ds005040",
+    "version": "1.2.0",
+    "doi": "10.18112/openneuro.ds005040.v1.2.0",
+    "url": "https://openneuro.org/datasets/ds005040/versions/1.2.0",
+    "licence": "CC0-1.0",
+    "licence_name": "CC0 1.0 public-domain dedication",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "citation": "Cohen MS, Cao Q, Decety J. Political Moralization (PMM). OpenNeuro ds005040 v1.2.0, doi:10.18112/openneuro.ds005040.v1.2.0",
+    "attribution": false,
+    "share_alike": false,
+    "text": "Political Moralization (OpenNeuro ds005040, version 1.2.0, doi:10.18112/openneuro.ds005040.v1.2.0), CC0 1.0 public-domain dedication."
+   }
+  },
+  {
+   "id": "ds005752",
+   "collection": "openneuro-ds005752",
+   "subject": "sub-ON01016",
+   "session": "",
+   "age": "",
+   "sex": "",
+   "scanner": "GE DISCOVERY MR750, 3 T",
+   "role": "GE: a direct field map in Hz that no BOLD names (fMRIPrep does not use it), an IR-FSPGR T1w, interleaved slices.",
+   "covers": [
+    "3T",
+    "ge",
+    "single-band",
+    "interleaved",
+    "fieldmap",
+    "fmap-unlinked",
+    "mprage",
+    "fmriprep"
+   ],
+   "fmriprep_run": "ds005752-sub-ON01016-noreconall",
+   "fmriprep_options": "--fs-no-reconall",
+   "fmriprep_status": "finished",
+   "note": "",
+   "files": 12,
+   "images": 5,
+   "bytes": 60032767,
+   "megabytes": 60.032767,
+   "anat": [
+    {
+     "file": "sub-ON01016/ses-01/anat/sub-ON01016_ses-01_acq-FSPGR_rec-SCIC_T1w.nii.gz",
+     "defacing": "defaced: the face cut away below the brow (the chin below the cut); no nose, mouth or eyes",
+     "show": "head"
+    }
+   ],
+   "credit": {
+    "id": "openneuro-ds005752",
+    "title": "NIMH Healthy Research Volunteer Dataset",
+    "source": "OpenNeuro ds005752",
+    "version": "2.1.0",
+    "doi": "10.18112/openneuro.ds005752.v2.1.0",
+    "url": "https://openneuro.org/datasets/ds005752/versions/2.1.0",
+    "licence": "CC0-1.0",
+    "licence_name": "CC0 1.0 public-domain dedication",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "citation": "Nugent AC, Thomas AG, Mahoney M, Gibbons A, Smith JT, Charles AJ, Shaw JS, Stout JD, Namyst AM, Basavaraj A, Earl E, Riddle T, Snow J, Japee S, Pavletic AJ, Sinclair S, Roopchansingh V, Bandettini PA, Chung J (2022). The NIMH intramural healthy volunteer dataset: A comprehensive MEG, MRI, and behavioral resource. Scientific Data 9:518. doi:10.1038/s41597-022-01623-9. Dataset: OpenNeuro ds005752 v2.1.0, doi:10.18112/openneuro.ds005752.v2.1.0",
+    "attribution": false,
+    "share_alike": false,
+    "text": "NIMH Healthy Research Volunteer Dataset (OpenNeuro ds005752, version 2.1.0, doi:10.18112/openneuro.ds005752.v2.1.0), CC0 1.0 public-domain dedication."
+   }
+  },
+  {
+   "id": "ds005454",
+   "collection": "openneuro-ds005454",
+   "subject": "sub-16",
+   "session": "",
+   "age": "",
+   "sex": "",
+   "scanner": "Siemens MAGNETOM Terra.X, 7 T",
+   "role": "7 T: a 0.8 mm MP2RAGE (denoised and raw uniform image), multiband-4 BOLD at 1.4 mm with 280 volumes, a phase difference linked by B0FieldIdentifier.",
+   "covers": [
+    "7T",
+    "siemens",
+    "multiband",
+    "long-run",
+    "phasediff",
+    "mp2rage",
+    "low-quality",
+    "fmriprep"
+   ],
+   "fmriprep_run": "ds005454-sub-16-noreconall",
+   "fmriprep_options": "--fs-no-reconall",
+   "fmriprep_status": "finished",
+   "note": "",
+   "files": 15,
+   "images": 6,
+   "bytes": 654807260,
+   "megabytes": 654.80726,
+   "anat": [
+    {
+     "file": "sub-16/anat/sub-16_acq-denoised_T1w.nii.gz",
+     "defacing": "defaced: the face cut away below the brow; no nose, mouth or eyes",
+     "show": "head"
+    },
+    {
+     "file": "sub-16/anat/sub-16_acq-mp2rage_T1w.nii.gz",
+     "defacing": "defaced: the same zeroed block as the denoised image (same grid); sagittal slices across the face's width show no nose or lips",
+     "show": "head"
+    }
+   ],
+   "credit": {
+    "id": "openneuro-ds005454",
+    "title": "fMRIPrep boot camp 7T training dataset",
+    "source": "OpenNeuro ds005454",
+    "version": "1.0.0",
+    "doi": "10.18112/openneuro.ds005454.v1.0.0",
+    "url": "https://openneuro.org/datasets/ds005454/versions/1.0.0",
+    "licence": "CC-BY-4.0",
+    "licence_name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+    "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+    "citation": "Sleight EC, Esteban O, Grouiller F. fMRIPrep boot camp -- 7T training dataset. OpenNeuro ds005454, version 1.0.0. doi:10.18112/openneuro.ds005454.v1.0.0",
+    "attribution": true,
+    "share_alike": false,
+    "text": "fMRIPrep boot camp 7T training dataset (OpenNeuro ds005454, version 1.0.0, doi:10.18112/openneuro.ds005454.v1.0.0), Creative Commons Attribution 4.0 (CC BY 4.0). Attribution: Sleight EC, Esteban O, Grouiller F. fMRIPrep boot camp -- 7T training dataset. OpenNeuro ds005454, version 1.0.0. doi:10.18112/openneuro.ds005454.v1.0.0 The images shown here are adapted from it: reoriented to RAS, cropped to the region shown, masked outside it, and shown as the outputs of the programs compared."
+   }
+  },
+  {
+   "id": "ds004958",
+   "collection": "openneuro-ds004958",
+   "subject": "sub-fsm64ps",
+   "session": "",
+   "age": "68",
+   "sex": "F",
+   "scanner": "Siemens Prisma (fit), 3 T",
+   "role": "The HCP/ABCD-style protocol of FreeSurfer's maintenance dataset: multiband-8 BOLD (600 volumes, TR 0.8 s) with its sbref, a spin-echo pair and a GRE phase difference (neither linked), 3 T MP2RAGE, a navigated multi-echo MPRAGE and T2-SPACE, in an older adult.",
+   "covers": [
+    "3T",
+    "siemens",
+    "multiband",
+    "long-run",
+    "interleaved",
+    "pepolar",
+    "phasediff",
+    "fmap-unlinked",
+    "mprage",
+    "mp2rage",
+    "t2w",
+    "older",
+    "fmriprep"
+   ],
+   "fmriprep_run": "ds004958-sub-fsm64ps-noreconall",
+   "fmriprep_options": "--fs-no-reconall",
+   "fmriprep_status": "not run yet",
+   "note": "sub-fsm02cd, the proposal's subject, was replaced: its BOLD is truncated as published (101.7 of its 563 volumes).",
+   "files": 24,
+   "images": 11,
+   "bytes": 727434094,
+   "megabytes": 727.434094,
+   "anat": [
+    {
+     "file": "sub-fsm64ps/anat/sub-fsm64ps_acq-mprageVnav_echo-1_part-mag_T1w.nii.gz",
+     "defacing": "defaced with MiDeFace: the face's surface replaced by a smooth shell bearing the tool's watermark; no eyes, lips or nose detail",
+     "show": "head"
+    },
+    {
+     "file": "sub-fsm64ps/anat/sub-fsm64ps_acq-mprageVnav_T1wRMS.nii.gz",
+     "defacing": "defaced with MiDeFace, as the echo-1 image",
+     "show": "head"
+    },
+    {
+     "file": "sub-fsm64ps/anat/sub-fsm64ps_acq-mp2rage_UNIT1.nii.gz",
+     "defacing": "defaced with MiDeFace: sagittal slices across the face's width show noise where the face was, no nose or lip profile",
+     "show": "head"
+    },
+    {
+     "file": "sub-fsm64ps/anat/sub-fsm64ps_acq-t2spaceVnav_T2w.nii.gz",
+     "defacing": "defaced with MiDeFace, as the T1w",
+     "show": "head"
+    }
+   ],
+   "credit": {
+    "id": "openneuro-ds004958",
+    "title": "The FreeSurfer Maintenance Dataset",
+    "source": "OpenNeuro ds004958",
+    "version": "1.0.0",
+    "doi": "10.18112/openneuro.ds004958.v1.0.0",
+    "url": "https://openneuro.org/datasets/ds004958/versions/1.0.0",
+    "licence": "CC0-1.0",
+    "licence_name": "CC0 1.0 public-domain dedication",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "citation": "Greve DN, Fischl B. The FreeSurfer Maintenance Dataset. OpenNeuro ds004958 v1.0.0, doi:10.18112/openneuro.ds004958.v1.0.0 (FreeSurfer Maintenance grant R01EB023281; https://surfer.nmr.mgh.harvard.edu/fswiki/FsmData)",
+    "attribution": false,
+    "share_alike": false,
+    "text": "The FreeSurfer Maintenance Dataset (OpenNeuro ds004958, version 1.0.0, doi:10.18112/openneuro.ds004958.v1.0.0), CC0 1.0 public-domain dedication."
+   }
+  },
+  {
+   "id": "ds002422",
+   "collection": "openneuro-ds002422",
+   "subject": "sub-02",
+   "session": "",
+   "age": "75",
+   "sex": "M",
+   "scanner": "Siemens Avanto, 1.5 T",
+   "role": "1.5 T: an older adult's MPRAGE (float32, PSR), a rest run and two task runs covering a 79 mm slab, two phase-difference maps linked by IntendedFor.",
+   "covers": [
+    "1.5T",
+    "siemens",
+    "single-band",
+    "interleaved",
+    "phasediff",
+    "mprage",
+    "older",
+    "fmriprep"
+   ],
+   "fmriprep_run": "ds002422-sub-02-noreconall",
+   "fmriprep_options": "--fs-no-reconall",
+   "fmriprep_status": "not run yet",
+   "note": "",
+   "files": 18,
+   "images": 10,
+   "bytes": 132728583,
+   "megabytes": 132.728583,
+   "anat": [
+    {
+     "file": "sub-02/anat/sub-02_T1w.nii",
+     "defacing": "defaced (checked here: the dataset states nothing): the face cut away below the brow; no nose, mouth or eyes",
+     "show": "head"
+    }
+   ],
+   "credit": {
+    "id": "openneuro-ds002422",
+    "title": "fMRI: resting state and arithmetic task",
+    "source": "OpenNeuro ds002422",
+    "version": "1.1.0",
+    "doi": "10.18112/openneuro.ds002422.v1.1.0",
+    "url": "https://openneuro.org/datasets/ds002422/versions/1.1.0",
+    "licence": "CC0-1.0",
+    "licence_name": "CC0 1.0 public-domain dedication",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "citation": "Panikratova Y, Tomyshev A, Pechenkova E, Vlasova R. fMRI: resting state and arithmetic task. OpenNeuro ds002422 v1.1.0, doi:10.18112/openneuro.ds002422.v1.1.0 (\"This dataset was provided by Ya. Panikratova, A. Tomyshev, E. Pechenkova, and R. Vlasova\")",
+    "attribution": false,
+    "share_alike": false,
+    "text": "fMRI: resting state and arithmetic task (OpenNeuro ds002422, version 1.1.0, doi:10.18112/openneuro.ds002422.v1.1.0), CC0 1.0 public-domain dedication."
+   }
+  },
+  {
+   "id": "ds000256",
+   "collection": "openneuro-ds000256",
+   "subject": "sub-CTS203",
+   "session": "",
+   "age": "7.5",
+   "sex": "",
+   "scanner": "Siemens TrioTim, 3 T",
+   "role": "A 7.5-year-old: three rest runs of graded head motion (MRIQC mean FD 0.15, 1.60, 4.97 mm), a low-quality 0.8 mm T1w, a T2w, a phase difference whose EchoTime1 is the longer.",
+   "covers": [
+    "3T",
+    "siemens",
+    "single-band",
+    "interleaved",
+    "phasediff",
+    "fmap-unlinked",
+    "mprage",
+    "t2w",
+    "child",
+    "motion-bold",
+    "low-quality",
+    "fmriprep"
+   ],
+   "fmriprep_run": "ds000256-sub-CTS203-noreconall",
+   "fmriprep_options": "--fs-no-reconall",
+   "fmriprep_status": "not run yet",
+   "note": "",
+   "files": 23,
+   "images": 8,
+   "bytes": 87932572,
+   "megabytes": 87.932572,
+   "anat": [
+    {
+     "file": "sub-CTS203/anat/sub-CTS203_T1w.nii.gz",
+     "defacing": "defaced with pydeface: the face cut away below the brow; no nose, mouth or eyes",
+     "show": "head"
+    },
+    {
+     "file": "sub-CTS203/anat/sub-CTS203_T2w.nii.gz",
+     "defacing": "defaced with pydeface: the cut runs through the eyes; no nose or mouth",
+     "show": "head"
+    }
+   ],
+   "credit": {
+    "id": "openneuro-ds000256",
+    "title": "Behavioral interventions for reducing head motion in children",
+    "source": "OpenNeuro ds000256",
+    "version": "00002",
+    "doi": "",
+    "url": "https://openneuro.org/datasets/ds000256/versions/00002",
+    "licence": "PDDL-1.0",
+    "licence_name": "Open Data Commons Public Domain Dedication and Licence 1.0",
+    "licence_url": "https://opendatacommons.org/licenses/pddl/1-0/",
+    "citation": "Greene DJ, Koller JM, Hampton JM, Wesevich V, Van AN, Nguyen AL, Hoyt CR, McIntyre L, Earl EA, Klein RL, Shimony JS, Petersen SE, Schlaggar BL, Fair DA, Dosenbach NUF (2018). Behavioral interventions for reducing head motion during MRI scans in children. NeuroImage 171:234-245, https://www.sciencedirect.com/science/article/pii/S1053811918300235. Dataset: OpenNeuro ds000256 v00002",
+    "attribution": false,
+    "share_alike": false,
+    "text": "Behavioral interventions for reducing head motion in children (OpenNeuro ds000256, version 00002), Open Data Commons Public Domain Dedication and Licence 1.0."
+   }
+  },
+  {
+   "id": "ds000228",
+   "collection": "openneuro-ds000228",
+   "subject": "sub-pixar008",
+   "session": "",
+   "age": "3.5",
+   "sex": "F",
+   "scanner": "Siemens TrioTim, 3 T",
+   "role": "A 3.5-year-old: a small head with immature contrast, an oblique field of view, BOLD in descending slice order.",
+   "covers": [
+    "3T",
+    "siemens",
+    "single-band",
+    "descending",
+    "no-fmap",
+    "mprage",
+    "child",
+    "fmriprep"
+   ],
+   "fmriprep_run": "ds000228-sub-pixar008-noreconall",
+   "fmriprep_options": "--fs-no-reconall",
+   "fmriprep_status": "not run yet",
+   "note": "",
+   "files": 7,
+   "images": 2,
+   "bytes": 34696428,
+   "megabytes": 34.696428,
+   "anat": [
+    {
+     "file": "sub-pixar008/anat/sub-pixar008_T1w.nii.gz",
+     "defacing": "defaced: the face cut away below the brow; no nose, mouth or eyes",
+     "show": "head"
+    }
+   ],
+   "credit": {
+    "id": "openneuro-ds000228",
+    "title": "Children and adults watching a short film",
+    "source": "OpenNeuro ds000228",
+    "version": "1.1.1",
+    "doi": "10.18112/openneuro.ds000228.v1.1.1",
+    "url": "https://openneuro.org/datasets/ds000228/versions/1.1.1",
+    "licence": "CC0-1.0",
+    "licence_name": "CC0 1.0 public-domain dedication",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "citation": "Richardson H, Lisandrelli G, Riobueno-Naylor A, Saxe R (2018). Development of the social brain from age three to twelve years. Nature Communications 9:1027. doi:10.1038/s41467-018-03399-2. Dataset: OpenNeuro ds000228 v1.1.1, doi:10.18112/openneuro.ds000228.v1.1.1",
+    "attribution": false,
+    "share_alike": false,
+    "text": "Children and adults watching a short film (OpenNeuro ds000228, version 1.1.1, doi:10.18112/openneuro.ds000228.v1.1.1), CC0 1.0 public-domain dedication."
+   }
+  },
+  {
+   "id": "ds003592",
+   "collection": "openneuro-ds003592",
+   "subject": "sub-280",
+   "session": "ses-1",
+   "age": "82",
+   "sex": "F",
+   "scanner": "Siemens TimTrio, 3 T (York University; the data descriptor, Spreng et al. 2022; the sidecars record no vendor)",
+   "role": "An 82-year-old: three-echo BOLD with no field map and no phase-encoding metadata, a 0.42 x 0.42 x 3 mm FLAIR.",
+   "covers": [
+    "3T",
+    "siemens",
+    "multi-echo",
+    "interleaved",
+    "no-fmap",
+    "mprage",
+    "flair",
+    "anisotropic",
+    "older",
+    "fmriprep"
+   ],
+   "fmriprep_run": "ds003592-sub-280-noreconall",
+   "fmriprep_options": "--fs-no-reconall",
+   "fmriprep_status": "not run yet",
+   "note": "",
+   "files": 12,
+   "images": 5,
+   "bytes": 138783184,
+   "megabytes": 138.783184,
+   "anat": [
+    {
+     "file": "sub-280/ses-1/anat/sub-280_ses-1_T1w.nii.gz",
+     "defacing": "defaced with BioImage Suite's defaceImage (its header extension says so): the face cut away below the brow",
+     "show": "head"
+    },
+    {
+     "file": "sub-280/ses-1/anat/sub-280_ses-1_FLAIR.nii.gz",
+     "defacing": "44 axial slices of 3 mm that end at the brow: no face in the field of view",
+     "show": "head"
+    }
+   ],
+   "credit": {
+    "id": "openneuro-ds003592",
+    "title": "Neurocognitive aging data release",
+    "source": "OpenNeuro ds003592",
+    "version": "1.0.13",
+    "doi": "10.18112/openneuro.ds003592.v1.0.13",
+    "url": "https://openneuro.org/datasets/ds003592/versions/1.0.13",
+    "licence": "CC0-1.0",
+    "licence_name": "CC0 1.0 public-domain dedication",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "citation": "Spreng RN, Setton R, Alter U, Cassidy BN, Darboh B, DuPre E, Kantarovich K, Lockrow AW, Mwilambwe-Tshilobo L, Luh W-M, Kundu P, Turner GR. Neurocognitive aging data release with behavioral, structural, and multi-echo functional MRI measures. OpenNeuro ds003592 v1.0.13, doi:10.18112/openneuro.ds003592.v1.0.13",
+    "attribution": false,
+    "share_alike": false,
+    "text": "Neurocognitive aging data release (OpenNeuro ds003592, version 1.0.13, doi:10.18112/openneuro.ds003592.v1.0.13), CC0 1.0 public-domain dedication."
+   }
+  },
+  {
+   "id": "ds005003",
+   "collection": "openneuro-ds005003",
+   "subject": "sub-RS001",
+   "session": "ses-1",
+   "age": "31",
+   "sex": "M",
+   "scanner": "Siemens TrioTim, 3 T",
+   "role": "A 70 mL right frontal oligodendroglioma: brain extraction, segmentation and registration with a mass lesion; a T2w of 5 mm slices 6 mm apart.",
+   "covers": [
+    "3T",
+    "siemens",
+    "single-band",
+    "interleaved",
+    "no-fmap",
+    "mprage",
+    "t2w",
+    "anisotropic",
+    "tumour",
+    "fmriprep"
+   ],
+   "fmriprep_run": "ds005003-sub-RS001-noreconall",
+   "fmriprep_options": "--fs-no-reconall",
+   "fmriprep_status": "not run yet",
+   "note": "",
+   "files": 10,
+   "images": 4,
+   "bytes": 37723201,
+   "megabytes": 37.723201,
+   "anat": [
+    {
+     "file": "sub-RS001/ses-1/anat/sub-RS001_ses-1_T1w.nii.gz",
+     "defacing": "defaced: the face cut away just below the brows (brow ridge and upper orbits remain); no eyes, nose or mouth",
+     "show": "head"
+    },
+    {
+     "file": "sub-RS001/ses-1/anat/sub-RS001_ses-1_T2w.nii.gz",
+     "defacing": "defaced: the cut runs at the eyes; no nose or mouth",
+     "show": "head"
+    }
+   ],
+   "credit": {
+    "id": "openneuro-ds005003",
+    "title": "Retrospective Task/Rest fMRI Data from Tumor Patients",
+    "source": "OpenNeuro ds005003",
+    "version": "2.0.0",
+    "doi": "10.18112/openneuro.ds005003.v2.0.0",
+    "url": "https://openneuro.org/datasets/ds005003/versions/2.0.0",
+    "licence": "CC0-1.0",
+    "licence_name": "CC0 1.0 public-domain dedication",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "citation": "Leuthardt EC, Shimony JS, Snyder AZ, Dierker D, Park KY. Retrospective Task/Rest fMRI Data from Tumor Patients. OpenNeuro ds005003 v2.0.0, doi:10.18112/openneuro.ds005003.v2.0.0. The authors ask to cite doi:10.1016/j.nic.2017.06.011 and doi:10.1371/journal.pone.0236423 and to acknowledge accession ds005003.",
+    "attribution": false,
+    "share_alike": false,
+    "text": "Retrospective Task/Rest fMRI Data from Tumor Patients (OpenNeuro ds005003, version 2.0.0, doi:10.18112/openneuro.ds005003.v2.0.0), CC0 1.0 public-domain dedication."
+   }
+  },
+  {
+   "id": "ds004173",
+   "collection": "openneuro-ds004173",
+   "subject": "sub-603309",
+   "session": "",
+   "age": "64.6",
+   "sex": "F",
+   "scanner": "Siemens Prisma, 3 T",
+   "role": "The same MPRAGE three times in one session: still, slight and strong instructed head motion (rated 1, 2, 3); fMRIPrep merges the three into its T1w template.",
+   "covers": [
+    "3T",
+    "siemens",
+    "mprage",
+    "older",
+    "motion-t1w",
+    "low-quality",
+    "fmriprep"
+   ],
+   "fmriprep_run": "ds004173-sub-603309-noreconall",
+   "fmriprep_options": "--anat-only",
+   "fmriprep_status": "not run yet",
+   "note": "",
+   "files": 9,
+   "images": 3,
+   "bytes": 34677207,
+   "megabytes": 34.677207,
+   "anat": [
+    {
+     "file": "sub-603309/anat/sub-603309_acq-standard_T1w.nii.gz",
+     "defacing": "defaced: the face cut away at the eyes; no nose or mouth",
+     "show": "head"
+    },
+    {
+     "file": "sub-603309/anat/sub-603309_acq-headmotion1_T1w.nii.gz",
+     "defacing": "defaced, as the standard scan",
+     "show": "head"
+    },
+    {
+     "file": "sub-603309/anat/sub-603309_acq-headmotion2_T1w.nii.gz",
+     "defacing": "defaced, as the standard scan",
+     "show": "head"
+    }
+   ],
+   "credit": {
+    "id": "openneuro-ds004173",
+    "title": "Movement-related artefacts (MR-ART)",
+    "source": "OpenNeuro ds004173",
+    "version": "1.0.2",
+    "doi": "10.18112/openneuro.ds004173.v1.0.2",
+    "url": "https://openneuro.org/datasets/ds004173/versions/1.0.2",
+    "licence": "CC0-1.0",
+    "licence_name": "CC0 1.0 public-domain dedication",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "citation": "Nárai Á, Hermann P, Auer T, Kemenczky P, Szalma J, Homolya I, Somogyi E, Vakli P, Weiss B, Vidnyánszky Z (2022). Movement-related artefacts (MR-ART) dataset of matched motion-corrupted and clean structural MRI brain scans. Scientific Data 9:630, doi:10.1038/s41597-022-01694-8. Dataset: OpenNeuro ds004173 v1.0.2, doi:10.18112/openneuro.ds004173.v1.0.2",
+    "attribution": false,
+    "share_alike": false,
+    "text": "Movement-related artefacts (MR-ART) (OpenNeuro ds004173, version 1.0.2, doi:10.18112/openneuro.ds004173.v1.0.2), CC0 1.0 public-domain dedication."
+   }
+  },
+  {
+   "id": "ds002603",
+   "collection": "openneuro-ds002603",
+   "subject": "sub-01",
+   "session": "",
+   "age": "",
+   "sex": "",
+   "scanner": "Philips, 3 T (the sidecars name no model)",
+   "role": "Philips multiband: the same task single-band (TR 2 s) and multiband-4 (TR 0.55 s, 588 volumes), each with its own reversed-phase-encoding EPI, and a phase difference that names both runs (and two runs outside the panel).",
+   "covers": [
+    "3T",
+    "philips",
+    "single-band",
+    "multiband",
+    "long-run",
+    "ascending",
+    "pepolar",
+    "phasediff",
+    "mprage",
+    "t2w",
+    "fmriprep"
+   ],
+   "fmriprep_run": "ds002603-sub-01-noreconall",
+   "fmriprep_options": "--fs-no-reconall",
+   "fmriprep_status": "not run yet",
+   "note": "",
+   "files": 16,
+   "images": 8,
+   "bytes": 246818890,
+   "megabytes": 246.81889,
+   "anat": [
+    {
+     "file": "sub-01/anat/sub-01_acq-SaggitalNsig1Mm1_T1w.nii.gz",
+     "defacing": "defaced (checked here: the dataset states nothing): the face's voxels set to 0 below the brow",
+     "show": "head"
+    },
+    {
+     "file": "sub-01/anat/sub-01_acq-Nsig1Mm1_T2w.nii.gz",
+     "defacing": "defaced (checked here): the face's voxels set to 0 below the brow",
+     "show": "head"
+    }
+   ],
+   "credit": {
+    "id": "openneuro-ds002603",
+    "title": "MB-EPI-comparison",
+    "source": "OpenNeuro ds002603",
+    "version": "1.0.0",
+    "doi": "10.18112/openneuro.ds002603.v1.0.0",
+    "url": "https://openneuro.org/datasets/ds002603/versions/1.0.0",
+    "licence": "CC0-1.0",
+    "licence_name": "CC0 1.0 public-domain dedication",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "citation": "Snoek L, Beemsterboer T, Scholte HS. MB-EPI-comparison. OpenNeuro ds002603 v1.0.0, doi:10.18112/openneuro.ds002603.v1.0.0",
+    "attribution": false,
+    "share_alike": false,
+    "text": "MB-EPI-comparison (OpenNeuro ds002603, version 1.0.0, doi:10.18112/openneuro.ds002603.v1.0.0), CC0 1.0 public-domain dedication."
+   }
+  },
+  {
+   "id": "ds004884",
+   "collection": "openneuro-ds004884",
+   "subject": "sub-M2079",
+   "session": "ses-217",
+   "age": "58 at the stroke",
+   "sex": "M",
+   "scanner": "Siemens TrioTim, 3 T",
+   "role": "A chronic left-hemisphere stroke (176 mL) with the authors' manual lesion mask; a sparse picture-naming run (TR 10 s) and a rest run.",
+   "covers": [
+    "3T",
+    "siemens",
+    "single-band",
+    "sparse",
+    "short-run",
+    "ascending",
+    "descending",
+    "no-fmap",
+    "mprage",
+    "t2w",
+    "stroke",
+    "lesion-mask",
+    "fmriprep"
+   ],
+   "fmriprep_run": "ds004884-sub-M2079-noreconall",
+   "fmriprep_options": "--fs-no-reconall",
+   "fmriprep_status": "not run yet",
+   "note": "The mask is drawn on the T2w and stored on its grid; the oracle run reads it resampled onto the T1w's grid (larmorx validation/investigations/panel-oracle-runs).",
+   "files": 15,
+   "images": 5,
+   "bytes": 50684095,
+   "megabytes": 50.684095,
+   "anat": [
+    {
+     "file": "sub-M2079/ses-217/anat/sub-M2079_ses-217_acq-tfl3p2_run-3_T1w.nii.gz",
+     "defacing": "defaced: the face cut away below the brow; no nose, mouth or eyes",
+     "show": "head"
+    },
+    {
+     "file": "sub-M2079/ses-217/anat/sub-M2079_ses-217_acq-spc3_run-4_T2w.nii.gz",
+     "defacing": "defaced: the face cut away below the brow; no nose, mouth or eyes",
+     "show": "head"
+    }
+   ],
+   "credit": {
+    "id": "openneuro-ds004884",
+    "title": "Aphasia Recovery Cohort",
+    "source": "OpenNeuro ds004884",
+    "version": "1.0.2",
+    "doi": "10.18112/openneuro.ds004884.v1.0.2",
+    "url": "https://openneuro.org/datasets/ds004884/versions/1.0.2",
+    "licence": "CC0-1.0",
+    "licence_name": "CC0 1.0 public-domain dedication",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "citation": "Gibson M, Newman-Norlund R, Bonilha L, Fridriksson J, Hickok G, Hillis AE, den Ouden DB, Rorden C (2024). The Aphasia Recovery Cohort, an open-source chronic stroke repository. Scientific Data 11:981. doi:10.1038/s41597-024-03819-7. Dataset: OpenNeuro ds004884 v1.0.2, doi:10.18112/openneuro.ds004884.v1.0.2",
+    "attribution": false,
+    "share_alike": false,
+    "text": "Aphasia Recovery Cohort (OpenNeuro ds004884, version 1.0.2, doi:10.18112/openneuro.ds004884.v1.0.2), CC0 1.0 public-domain dedication."
+   }
+  }
+ ],
+ "totals": {
+  "files": 219,
+  "bytes": 2346931703,
+  "gigabytes": 2.346931703
+ },
+ "source": {
+  "repository": "https://github.com/karellopez/larmorx-testdata",
+  "definition": "panel.toml",
+  "document": "docs/panel.md",
+  "fetch": "python -m larmorx_testdata fetch --tier full --tag panel"
+ }
+}
