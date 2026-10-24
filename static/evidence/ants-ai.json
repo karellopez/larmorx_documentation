@@ -3,19 +3,19 @@
  "tool": "ants-ai",
  "title": "antsAI, antsAffineInitializer",
  "provenance": {
-  "exporter": "6cb9d9ae73310c2f140789ea024a5af10add2b49",
+  "exporter": "e9ed712fe266d5f90534789eabeb6c5ff1a85d26",
   "records": [
    {
     "path": "docs/validation/ants-ai.json",
-    "sha256": "39eab487ead6b41fa0c271e33c173a79c41260a2d1381754e4d4e6452105727a",
-    "generated": "2026-10-23",
-    "larmorx_commit": "708bb99389fe"
+    "sha256": "2bf6195a31f439af092c9b549f6395b7c147c3ab623f2ea3699070d65ee1d509",
+    "generated": "2026-10-24",
+    "larmorx_commit": "6bf2860fb745"
    },
    {
     "path": "docs/validation/ants-ai.md",
-    "sha256": "5842c60d22af18a88a3b594a96e15ed5315cc5e44078b0bac3598cd97044e0a5",
-    "generated": "2026-10-23",
-    "larmorx_commit": "708bb99389fe"
+    "sha256": "48a8850a596fb893b5e6b322714a7db8947edc2ed5b6d752214608697c4c4077",
+    "generated": "2026-10-24",
+    "larmorx_commit": "6bf2860fb745"
    },
    {
     "path": "docs/validation/ants-affine-initializer.json",
@@ -803,7 +803,7 @@
     "entry": "ants-ai/blobs-t1w",
     "description": "antsAI -b on fMRIPrep's T1w of ds000005 sub-01 against a shifted and a rotated copy: ANTs 2.6.5 (1 thread, CORE-MATH, 2-6 threads), its steps from the blob probe, larmorx in both modes",
     "computed": "2026-10-23T10:41:20+00:00",
-    "larmorx_commit": "c25c378726ebb53fbc62e57de02e0258e92ea42f",
+    "larmorx_commit": "e22378b480f4df857986bfbc9db907f448d17009",
     "commands": [
      {
       "label": "shift-ants-1",
@@ -987,7 +987,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "reproduce"
       },
       "exit": 0,
-      "seconds": 23.9
+      "seconds": 44.86
      },
      {
       "label": "shift-larmorx-1",
@@ -1015,7 +1015,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "reproduce"
       },
       "exit": 0,
-      "seconds": 73.23
+      "seconds": 70.02
      },
      {
       "label": "shift-larmorx-fix",
@@ -1043,7 +1043,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "fix"
       },
       "exit": 0,
-      "seconds": 23.54
+      "seconds": 49.84
      },
      {
       "label": "shift-steps-reproduce",
@@ -1060,7 +1060,7 @@
       ],
       "env": {},
       "exit": 0,
-      "seconds": 23.45
+      "seconds": 47.16
      },
      {
       "label": "shift-steps-fix",
@@ -1077,7 +1077,7 @@
       ],
       "env": {},
       "exit": 0,
-      "seconds": 22.43
+      "seconds": 47.23
      },
      {
       "label": "shift-place-identity",
@@ -1175,7 +1175,7 @@
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.51
+      "seconds": 0.7
      },
      {
       "label": "shift-place-larmorx-fix",
@@ -1200,7 +1200,7 @@
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.73
+      "seconds": 0.65
      },
      {
       "label": "rotated-ants-1",
@@ -1384,7 +1384,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "reproduce"
       },
       "exit": 0,
-      "seconds": 20.9
+      "seconds": 45.78
      },
      {
       "label": "rotated-larmorx-1",
@@ -1412,7 +1412,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "reproduce"
       },
       "exit": 0,
-      "seconds": 58.28
+      "seconds": 79.41
      },
      {
       "label": "rotated-larmorx-fix",
@@ -1440,7 +1440,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "fix"
       },
       "exit": 0,
-      "seconds": 24.19
+      "seconds": 39.93
      },
      {
       "label": "rotated-steps-reproduce",
@@ -1457,7 +1457,7 @@
       ],
       "env": {},
       "exit": 0,
-      "seconds": 24.03
+      "seconds": 47.31
      },
      {
       "label": "rotated-steps-fix",
@@ -1474,7 +1474,7 @@
       ],
       "env": {},
       "exit": 0,
-      "seconds": 23.84
+      "seconds": 47.83
      },
      {
       "label": "rotated-place-identity",
@@ -1547,7 +1547,7 @@
        "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.53
+      "seconds": 0.81
      }
     ],
     "versions": {
@@ -1567,6 +1567,9 @@
     },
     "settings": "fMRIPrep's preprocessed T1w of ds000005 sub-01 against two copies with a transform known by construction (the parity suite's ai-blobs-t1w-shift and ai-blobs-t1w-rotated); antsAI -b 30 with the record's arguments (Rigid[0.1], Mattes 32 bins, Regular 0.25); ANTs' steps from the blob probe (validation/probes/ants-ai-blobs, built against the oracle's ITK with GCC 14.3); larmorx's from lx.ants.blob_alignment; each transform applied to the moving image times its brain mask by antsApplyTransforms (ANTs as built, linear, one thread); the true transform fitted exactly to the construction's points"
    }
+  ],
+  "measurements": [
+   "validation/investigations/ants-116-blob-orientation/results.json"
   ],
   "command": "python -m larmorx_validation evidence ants-ai --site <site>"
  },
@@ -3111,7 +3114,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "9/9",
-     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 0.497 mm mean, 1.38 mm largest"
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 0 mm mean, 0 mm largest"
     }
    }
   },
@@ -3125,7 +3128,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 1.11e-14 mm mean, 2.2e-14 mm largest, larmorx's default 0.483 mm mean, 1.92 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 1.11e-14 mm mean, 2.2e-14 mm largest, larmorx's default 6.69e-15 mm mean, 1.04e-14 mm largest"
     }
    }
   },
@@ -3139,7 +3142,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 0.497 mm mean, 1.38 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 0 mm mean, 0 mm largest"
     }
    }
   },
@@ -3153,7 +3156,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 34 mm mean, 66.8 mm largest, larmorx's default no transform"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 34 mm mean, 66.8 mm largest, larmorx's default 0.495 mm mean, 0.647 mm largest"
     }
    }
   },
@@ -3167,7 +3170,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 654 mm mean, 1.52e+03 mm largest, larmorx's default no transform"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 654 mm mean, 1.52e+03 mm largest, larmorx's default 1.41 mm mean, 2.89 mm largest"
     }
    }
   },
@@ -3181,7 +3184,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs nan mm mean, nan mm largest, larmorx's default no transform"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs nan mm mean, nan mm largest, larmorx's default 2.44 mm mean, 5.5 mm largest"
     }
    }
   },
@@ -3209,7 +3212,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 0.33 mm mean, 0.422 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 2.66e-15 mm mean, 7.11e-15 mm largest"
     }
    }
   },
@@ -3223,7 +3226,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 5.81e-14 mm mean, 2.07e-13 mm largest, larmorx's default 0.471 mm mean, 1.16 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 5.81e-14 mm mean, 2.07e-13 mm largest, larmorx's default 2.61e-14 mm mean, 7.03e-14 mm largest"
     }
    }
   },
@@ -3237,7 +3240,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 6.2 mm mean, 12.3 mm largest, larmorx's default 1.62 mm mean, 3.54 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 6.2 mm mean, 12.3 mm largest, larmorx's default 0.85 mm mean, 1.24 mm largest"
     }
    }
   },
@@ -3251,7 +3254,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 45.4 mm mean, 125 mm largest, larmorx's default 2.73 mm mean, 11.2 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 45.4 mm mean, 125 mm largest, larmorx's default 1.44 mm mean, 4.39 mm largest"
     }
    }
   },
@@ -3265,7 +3268,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 6.2 mm mean, 12.3 mm largest, larmorx's default 1.62 mm mean, 3.54 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 6.2 mm mean, 12.3 mm largest, larmorx's default 0.85 mm mean, 1.24 mm largest"
     }
    }
   },
@@ -3279,7 +3282,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 0.577 mm mean, 1.61 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 8.88e-17 mm mean, 4.44e-16 mm largest"
     }
    }
   },
@@ -3293,7 +3296,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 3.83 mm mean, 7.99 mm largest, larmorx's default 4.11 mm mean, 9.07 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 3.83 mm mean, 7.99 mm largest, larmorx's default 3.83 mm mean, 7.99 mm largest"
     }
    }
   },
@@ -3307,7 +3310,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 603 mm mean, 1.25e+03 mm largest, larmorx's default no transform"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 603 mm mean, 1.25e+03 mm largest, larmorx's default 4.48 mm mean, 7.33 mm largest"
     }
    }
   },
@@ -3447,7 +3450,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 0.497 mm mean, 1.38 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 0 mm mean, 0 mm largest"
     }
    }
   },
@@ -3461,7 +3464,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "9/9",
-     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter; from the known transform: ANTs 5.92e-16 mm mean, 1.78e-15 mm largest, larmorx's default 1.19 mm mean, 2.1 mm largest"
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter; from the known transform: ANTs 5.92e-16 mm mean, 1.78e-15 mm largest, larmorx's default 1.78e-15 mm mean, 4.07e-15 mm largest"
     }
    },
    "example": "blobs-shift"
@@ -3476,7 +3479,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs nan mm mean, nan mm largest, larmorx's default 1.03 mm mean, 1.87 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs nan mm mean, nan mm largest, larmorx's default 1.08 mm mean, 1.95 mm largest"
     }
    },
    "example": "blobs-rotated"
@@ -4085,6 +4088,320 @@
   }
  ],
  "cases_total": 172,
+ "tables": [
+  {
+   "id": "ants-116",
+   "title": "ANTS-116, corrected by default: the blob patches compared in the orientation that matches best, against ANTs' method (the eigenvectors' signs as they come, reflections included); antsAI -b 30, rigid",
+   "columns": [
+    {
+     "label": "Moving image"
+    },
+    {
+     "label": "identical pairs at 1",
+     "num": true
+    },
+    {
+     "label": "true / matched pairs",
+     "num": true
+    },
+    {
+     "label": "true / landmarks",
+     "num": true
+    },
+    {
+     "label": "mean distance (mm)",
+     "num": true
+    },
+    {
+     "label": "largest distance (mm)",
+     "num": true
+    }
+   ],
+   "rows": [
+    {
+     "head": "fMRIPrep's T1w of ds000005, its origin moved",
+     "sub": "ANTs' method (reproduce)",
+     "cells": [
+      {
+       "text": "4 of 13"
+      },
+      {
+       "text": "10 / 11"
+      },
+      {
+       "text": "10 / 10"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "",
+     "sub": "larmorx",
+     "cells": [
+      {
+       "text": "13 of 13"
+      },
+      {
+       "text": "13 / 13"
+      },
+      {
+       "text": "13 / 13"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      }
+     ],
+     "verdict": "d13"
+    },
+    {
+     "head": "the same T1w rotated by 8° and shifted",
+     "sub": "ANTs' method (reproduce)",
+     "cells": [
+      {
+       "text": "–"
+      },
+      {
+       "text": "5 / 7"
+      },
+      {
+       "text": "0 / 0"
+      },
+      {
+       "text": "no landmark"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "",
+     "sub": "larmorx",
+     "cells": [
+      {
+       "text": "–"
+      },
+      {
+       "text": "7 / 8"
+      },
+      {
+       "text": "7 / 8"
+      },
+      {
+       "v": 1.08,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.947,
+       "fmt": "sig"
+      }
+     ],
+     "verdict": "d13"
+    },
+    {
+     "head": "3D blob phantom, a translation",
+     "sub": "ANTs' method (reproduce)",
+     "cells": [
+      {
+       "text": "5 of 19"
+      },
+      {
+       "text": "24 / 26"
+      },
+      {
+       "text": "24 / 24"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "",
+     "sub": "larmorx",
+     "cells": [
+      {
+       "text": "19 of 19"
+      },
+      {
+       "text": "19 / 19"
+      },
+      {
+       "text": "19 / 19"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      }
+     ],
+     "verdict": "d13"
+    },
+    {
+     "head": "3D blob phantom, rotated by 7° and 4° and shifted",
+     "sub": "ANTs' method (reproduce)",
+     "cells": [
+      {
+       "text": "–"
+      },
+      {
+       "text": "15 / 16"
+      },
+      {
+       "text": "13 / 13"
+      },
+      {
+       "v": 33.967,
+       "fmt": "sig"
+      },
+      {
+       "v": 66.782,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "",
+     "sub": "larmorx",
+     "cells": [
+      {
+       "text": "–"
+      },
+      {
+       "text": "9 / 11"
+      },
+      {
+       "text": "9 / 9"
+      },
+      {
+       "v": 0.495,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.647,
+       "fmt": "sig"
+      }
+     ],
+     "verdict": "d13"
+    },
+    {
+     "head": "2D blob phantom, a translation",
+     "sub": "ANTs' method (reproduce)",
+     "cells": [
+      {
+       "text": "14 of 28"
+      },
+      {
+       "text": "19 / 20"
+      },
+      {
+       "text": "19 / 19"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "",
+     "sub": "larmorx",
+     "cells": [
+      {
+       "text": "28 of 28"
+      },
+      {
+       "text": "28 / 28"
+      },
+      {
+       "text": "28 / 28"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      }
+     ],
+     "verdict": "d13"
+    },
+    {
+     "head": "2D blob phantom, rotated by 9° and shifted",
+     "sub": "ANTs' method (reproduce)",
+     "cells": [
+      {
+       "text": "–"
+      },
+      {
+       "text": "9 / 17"
+      },
+      {
+       "text": "6 / 7"
+      },
+      {
+       "v": 6.195,
+       "fmt": "sig"
+      },
+      {
+       "v": 12.338,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "",
+     "sub": "larmorx",
+     "cells": [
+      {
+       "text": "–"
+      },
+      {
+       "text": "10 / 16"
+      },
+      {
+       "text": "10 / 11"
+      },
+      {
+       "v": 0.85,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.24,
+       "fmt": "sig"
+      }
+     ],
+     "verdict": "d13"
+    }
+   ],
+   "note": "From `validation/investigations/ants-116-blob-orientation/results.json` (measure.py: `lx.ants.blob_alignment` at 30 blobs in both modes; larmorx's default also corrects ANTS-110, -111, -112, -114 and ITK-60, reproduce mode is ANTs' result bit for bit). Identical pairs: the blobs found at the same voxel in both images whose patches fit in both; a pair is true when the moving blob lies within two voxels of where the known transform sends the fixed one; the distances are those of the brain's (or the phantom's) points from where the true transform sends them."
+  }
+ ],
  "examples": [
   {
    "id": "init-aff",
@@ -5236,7 +5553,7 @@
     },
     {
      "label": "Programs",
-     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs' blobs from the blob probe (`validation/probes/ants-ai-blobs`, antsAI's code with prints, built against the same ITK); larmorx's from `lx.ants.blob_alignment` at commit `c25c378726eb`"
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs' blobs from the blob probe (`validation/probes/ants-ai-blobs`, antsAI's code with prints, built against the same ITK); larmorx's from `lx.ants.blob_alignment` at commit `e22378b480f4`"
     },
     {
      "label": "Grid",
@@ -5568,7 +5885,7 @@
    "provenance": [
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: fixed: fMRIPrep's preprocessed T1w (sha256 8e977ad0c954252d…); fMRIPrep's T1w brain mask (sha256 726851b7736940c8…); moving (sha256 2885195494bbf915…)",
-    "Runs: figures cache entry `ants-ai/blobs-t1w`, computed 2026-10-23T10:41:20+00:00 with larmorx `c25c378726eb`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `ants-ai/blobs-t1w`, computed 2026-10-23T10:41:20+00:00 with larmorx `e22378b480f4`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ]
   },
   {
@@ -5586,7 +5903,7 @@
     },
     {
      "label": "Programs",
-     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs' steps from the blob probe (`validation/probes/ants-ai-blobs`, antsAI's code with prints, built against the same ITK); larmorx at commit `c25c378726eb`"
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs' steps from the blob probe (`validation/probes/ants-ai-blobs`, antsAI's code with prints, built against the same ITK); larmorx at commit `e22378b480f4`"
     },
     {
      "label": "Grid",
@@ -5789,20 +6106,17 @@
      "id": "larmorx-fix",
      "role": "larmorx",
      "label": "antsAI: larmorx (port)",
-     "sub": "the copy placed by its transform; default mode (ANTS-110 corrected), 6 threads",
+     "sub": "the copy placed by its transform; default mode (ANTS-110 and ANTS-116 corrected), 6 threads",
      "arrays": {
       "placed": {
-       "blob": "59f73bd2930078663469afd0.bin",
-       "dtype": "f4",
-       "xor": "ants:placed",
-       "zero": false,
-       "bytes": 2482178
+       "same": "truth:all",
+       "dtype": "f4"
       }
      },
      "own": {
       "placed": [
        0.0,
-       1007.98827545166
+       1025.1132336425778
       ]
      }
     }
@@ -5862,50 +6176,46 @@
      "role_label": "larmorx against the original",
      "metrics": {
       "placed": {
-       "identical": false,
+       "identical": true,
        "voxels": 5898240,
-       "differ": 799368,
-       "share": 0.13552652994791667,
-       "max_abs": 1193.28511428833,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
        "at": [
-        48,
-        91,
-        132
+        0,
+        0,
+        0
        ],
-       "a_at": 61.71122360229492,
-       "b_at": 1254.996337890625,
-       "rms": 25.42176393274494,
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
        "range": 2244.0732996553998,
-       "max_rel_range": 0.5317496155190524,
-       "one_minus_ncc": 0.0053623804823491935,
-       "at_display": [
-        44,
-        73,
-        100
-       ]
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
       }
      },
      "display": {
       "placed": {
-       "max_abs": 1193.28511428833,
+       "max_abs": 0.0,
        "at": [
-        44,
-        73,
-        100
+        0,
+        0,
+        0
        ],
-       "a": 61.71122360229492,
-       "b": 1254.996337890625,
-       "differ": 799260
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
       }
      },
      "links": [
       {
-       "label": "ANTS-110",
+       "label": "ANTS-116",
        "href": "docs/findings/ants-ai.md#blobs"
       }
      ],
-     "verdict": "d13",
-     "reason": "ANTS-110 corrected by default: a pair is a landmark when its distances to three other pairs are preserved (as the code's comment and ImageMath's MatchBlobs say), where ANTs compares the lengths of the pairs' displacements. Here larmorx keeps 11 of 11 pairs and ANTs 10: for a pure translation ANTs' test is the stricter one: larmorx's transform is 1.4 mm off the truth at most, ANTs' is exact up to rounding (2e-15 mm; the tables below). For a rotation ANTs keeps no landmark (the next example)."
+     "verdict": "bit-identical",
+     "reason": "The same placed image: both transforms send the copy where the truth does (4.1e-15 and 1.8e-15 mm off at most). ANTS-116, corrected by default, changes the pairs and landmarks: larmorx keeps 13 landmarks of 13 pairs and ANTs 10 of 11 (the tables below); the patches are compared in the orientation that matches best (proper rotations, every sign combination of their principal axes), where ANTs may compare identical patches reflected or turned. For a rotation ANTs keeps no landmark (the next example)."
     },
     {
      "id": "ants-truth",
@@ -5961,53 +6271,49 @@
      "role_label": "against the truth",
      "metrics": {
       "placed": {
-       "identical": false,
+       "identical": true,
        "voxels": 5898240,
-       "differ": 799368,
-       "share": 0.13552652994791667,
-       "max_abs": 1193.28511428833,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
        "at": [
-        48,
-        91,
-        132
+        0,
+        0,
+        0
        ],
-       "a_at": 61.71122360229492,
-       "b_at": 1254.996337890625,
-       "rms": 25.42176393274494,
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
        "range": 2244.0732996553998,
-       "max_rel_range": 0.5317496155190524,
-       "one_minus_ncc": 0.0053623804823491935,
-       "at_display": [
-        44,
-        73,
-        100
-       ]
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
       }
      },
      "display": {
       "placed": {
-       "max_abs": 1193.28511428833,
+       "max_abs": 0.0,
        "at": [
-        44,
-        73,
-        100
+        0,
+        0,
+        0
        ],
-       "a": 61.71122360229492,
-       "b": 1254.996337890625,
-       "differ": 799260
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
       }
      },
      "links": [],
      "verdict": null,
-     "reason": "A rotation of 0.94° (the truth: 0.00°); it sends the brain at most 1.4 mm (mean 0.71 mm) from where the true transform does."
+     "reason": "The same placed image as the true transform's."
     }
    ],
    "default": {
     "output": "placed",
     "plane": "axial",
     "voxel": [
-     24,
-     18,
+     75,
+     62,
      66
     ],
     "panels": [
@@ -6035,14 +6341,10 @@
      "fixed": "ec31d64303586fa11de4a20d.webp",
      "moving": "533769981856a19838ec75d3.webp",
      "ants": "732de7b8dd3c8282e62943b0.webp",
-     "larmorx-fix": "336e5609dc03c705fbbde63e.webp"
+     "larmorx-fix": "732de7b8dd3c8282e62943b0.webp"
     },
-    "diffs": {
-     "fix-ants": "76ea9aca8b1fd633f7935da2.webp"
-    },
-    "ranges": {
-     "fix-ants": 1193.28511428833
-    },
+    "diffs": {},
+    "ranges": {},
     "caption": "Axial slice 67 of 111; the fixed T1w, its copy before and after each transform; Checkerboard (under Compare) overlays the fixed T1w and a placed copy."
    },
    "chain": null,
@@ -6148,15 +6450,15 @@
          "text": "differ"
         },
         {
-         "v": 1.4193898936088214,
+         "v": 4.070144838902081e-15,
          "fmt": "sig"
         },
         {
-         "v": 0.712312320439428,
+         "v": 1.5669552269732066e-15,
          "fmt": "sig"
         },
         {
-         "v": 0.24185744896270478,
+         "v": 1.7763568394002505e-15,
          "fmt": "sig"
         }
        ]
@@ -6189,15 +6491,15 @@
          "text": "differ"
         },
         {
-         "v": 1.4193898936088214,
+         "v": 4.070144838902081e-15,
          "fmt": "sig"
         },
         {
-         "v": 0.7123123204394283,
+         "v": 1.923614640470712e-15,
          "fmt": "sig"
         },
         {
-         "v": 0.24185744896270478,
+         "v": 3.552713678800501e-15,
          "fmt": "sig"
         }
        ]
@@ -6475,7 +6777,7 @@
          "text": "paired"
         },
         {
-         "text": "landmark"
+         "text": "–"
         }
        ]
       },
@@ -6652,9 +6954,96 @@
          "text": "landmark"
         }
        ]
+      },
+      {
+       "head": "12",
+       "cells": [
+        {
+         "text": "21 40 105"
+        },
+        {
+         "text": "21 40 105"
+        },
+        {
+         "v": 3.015675612373185,
+         "fmt": "sig"
+        },
+        {
+         "v": 1.0000001192092896,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "13",
+       "cells": [
+        {
+         "text": "21 39 103"
+        },
+        {
+         "text": "21 39 103"
+        },
+        {
+         "v": 2.813724838117146,
+         "fmt": "sig"
+        },
+        {
+         "v": 1.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "14",
+       "cells": [
+        {
+         "text": "22 40 108"
+        },
+        {
+         "text": "22 40 108"
+        },
+        {
+         "v": 3.015675612373185,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.9999998807907104,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
       }
      ],
-     "note": "ANTs' blobs, correlations, pairs and landmarks from the probe (antsAI's own code); larmorx's default from lx.ants.blob_alignment. A pair is a landmark when its distances to at least 3 other pairs are preserved within 10 % (squared); ANTs tests the lengths of the pairs' displacements instead (ANTS-110), so a rotation leaves it no landmark. 'Off the true transform': how far the moving blob is from where the true transform sends the fixed blob's centre."
+     "note": "ANTs' blobs, correlations, pairs and landmarks from the probe (antsAI's own code); larmorx's default from lx.ants.blob_alignment. A pair is a landmark when its distances to at least 3 other pairs are preserved within 10 % (squared); ANTs tests the lengths of the pairs' displacements instead (ANTS-110), so a rotation leaves it no landmark. larmorx compares the patches in the orientation that matches best, ANTs in the one its eigenvectors' signs give, reflected or not (ANTS-116). 'Off the true transform': how far the moving blob is from where the true transform sends the fixed blob's centre."
     },
     {
      "id": "blobs-shift-params",
@@ -6697,7 +7086,7 @@
          "fmt": "sig6"
         },
         {
-         "v": 0.9998956032455949,
+         "v": 1.0,
          "fmt": "sig6"
         }
        ]
@@ -6718,7 +7107,7 @@
          "fmt": "sig6"
         },
         {
-         "v": 0.003620944352399089,
+         "v": 0.0,
          "fmt": "sig6"
         }
        ]
@@ -6739,7 +7128,7 @@
          "fmt": "sig6"
         },
         {
-         "v": -0.01398825836638503,
+         "v": 0.0,
          "fmt": "sig6"
         }
        ]
@@ -6760,7 +7149,7 @@
          "fmt": "sig6"
         },
         {
-         "v": -0.0037286193970190195,
+         "v": 0.0,
          "fmt": "sig6"
         }
        ]
@@ -6781,7 +7170,7 @@
          "fmt": "sig6"
         },
         {
-         "v": 0.9999635634782259,
+         "v": 1.0,
          "fmt": "sig6"
         }
        ]
@@ -6802,7 +7191,7 @@
          "fmt": "sig6"
         },
         {
-         "v": -0.007679134933076921,
+         "v": 0.0,
          "fmt": "sig6"
         }
        ]
@@ -6823,7 +7212,7 @@
          "fmt": "sig6"
         },
         {
-         "v": 0.01395994296263724,
+         "v": 0.0,
          "fmt": "sig6"
         }
        ]
@@ -6844,7 +7233,7 @@
          "fmt": "sig6"
         },
         {
-         "v": 0.007730490147788687,
+         "v": 0.0,
          "fmt": "sig6"
         }
        ]
@@ -6865,7 +7254,7 @@
          "fmt": "sig6"
         },
         {
-         "v": 0.9998726716510231,
+         "v": 1.0,
          "fmt": "sig6"
         }
        ]
@@ -6886,7 +7275,7 @@
          "fmt": "sig6"
         },
         {
-         "v": -6.241857448962705,
+         "v": -6.000000000000002,
          "fmt": "sig6"
         }
        ]
@@ -6907,7 +7296,7 @@
          "fmt": "sig6"
         },
         {
-         "v": 3.840786667269765,
+         "v": 3.9999999999999964,
          "fmt": "sig6"
         }
        ]
@@ -6928,7 +7317,7 @@
          "fmt": "sig6"
         },
         {
-         "v": 2.879835820955302,
+         "v": 2.999999999999999,
          "fmt": "sig6"
         }
        ]
@@ -6941,7 +7330,7 @@
    "provenance": [
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: fixed: fMRIPrep's preprocessed T1w (sha256 8e977ad0c954252d…); fMRIPrep's T1w brain mask (sha256 726851b7736940c8…); moving (sha256 2885195494bbf915…)",
-    "Runs: figures cache entry `ants-ai/blobs-t1w`, computed 2026-10-23T10:41:20+00:00 with larmorx `c25c378726eb`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `ants-ai/blobs-t1w`, computed 2026-10-23T10:41:20+00:00 with larmorx `e22378b480f4`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ]
   },
   {
@@ -6959,7 +7348,7 @@
     },
     {
      "label": "Programs",
-     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs' steps from the blob probe (`validation/probes/ants-ai-blobs`, antsAI's code with prints, built against the same ITK); larmorx at commit `c25c378726eb`"
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs' steps from the blob probe (`validation/probes/ants-ai-blobs`, antsAI's code with prints, built against the same ITK); larmorx at commit `e22378b480f4`"
     },
     {
      "label": "Grid",
@@ -7055,13 +7444,13 @@
        "id": "brain",
        "label": "brain, 0.5–99.5 %",
        "lo": 0.0,
-       "hi": 1000.2588595581052
+       "hi": 998.3696612548827
       },
       {
        "id": "full",
        "label": "full range",
-       "lo": -4.198395254206844e-05,
-       "hi": 1775.0186767578125
+       "lo": -1.5847119357204065e-05,
+       "hi": 2042.2735595703125
       },
       {
        "id": "own",
@@ -7128,20 +7517,20 @@
      "id": "larmorx-fix",
      "role": "larmorx",
      "label": "antsAI: larmorx (port)",
-     "sub": "the copy placed by its transform; default mode (ANTS-110 corrected), 6 threads",
+     "sub": "the copy placed by its transform; default mode (ANTS-110 and ANTS-116 corrected), 6 threads",
      "arrays": {
       "placed": {
-       "blob": "b9dfd0ca1205a62a8874fe6b.bin",
+       "blob": "beabbd6c28ed020fe989f5f1.bin",
        "dtype": "f4",
        "xor": "truth:all",
        "zero": false,
-       "bytes": 2486376
+       "bytes": 2459609
       }
      },
      "own": {
       "placed": [
        0.0,
-       1000.2588595581052
+       998.3696612548827
       ]
      }
     }
@@ -7158,51 +7547,51 @@
       "placed": {
        "identical": false,
        "voxels": 5898240,
-       "differ": 806145,
-       "share": 0.1366755167643229,
-       "max_abs": 888.1482887268066,
+       "differ": 803506,
+       "share": 0.13622809516059028,
+       "max_abs": 1065.7360610961914,
        "at": [
-        90,
-        23,
-        94
+        48,
+        91,
+        132
        ],
-       "a_at": 48.04867172241211,
-       "b_at": 936.1969604492188,
-       "rms": 21.285714253477344,
+       "a_at": 72.7151107788086,
+       "b_at": 1138.451171875,
+       "rms": 19.35284037371128,
        "range": 2132.050303495179,
-       "max_rel_range": 0.41657004399512515,
-       "one_minus_ncc": 0.0038075592346750397,
+       "max_rel_range": 0.4998644072089087,
+       "one_minus_ncc": 0.0031475124045209904,
        "at_display": [
-        86,
-        5,
-        62
+        44,
+        73,
+        100
        ]
       }
      },
      "display": {
       "placed": {
-       "max_abs": 888.1482887268066,
+       "max_abs": 1065.7360610961914,
        "at": [
-        86,
-        5,
-        62
+        44,
+        73,
+        100
        ],
-       "a": 48.04867172241211,
-       "b": 936.1969604492188,
-       "differ": 805439
+       "a": 72.7151107788086,
+       "b": 1138.451171875,
+       "differ": 803200
       }
      },
      "links": [],
      "verdict": null,
-     "reason": "A rotation of 8.54° (the truth: 8.00°); it sends the brain at most 1.4 mm (mean 0.74 mm) from where the true transform does."
+     "reason": "A rotation of 8.18° (the truth: 8.00°); it sends the brain at most 1.2 mm (mean 0.62 mm) from where the true transform does."
     }
    ],
    "default": {
     "output": "placed",
     "plane": "axial",
     "voxel": [
-     120,
-     17,
+     48,
+     8,
      66
     ],
     "panels": [
@@ -7228,13 +7617,13 @@
      "fixed": "ec31d64303586fa11de4a20d.webp",
      "moving": "1ee2c09f861adf9370074e99.webp",
      "truth": "933f98ef5252b2af581bddb5.webp",
-     "larmorx-fix": "72e370946176e1847215a6bf.webp"
+     "larmorx-fix": "2fc7ec5626337f9892797ad8.webp"
     },
     "diffs": {
-     "larmorx-fix-truth": "424a1c010f3f12fd175c8c82.webp"
+     "larmorx-fix-truth": "d4863a4788de9fbe5b146b0a.webp"
     },
     "ranges": {
-     "larmorx-fix-truth": 888.1482887268066
+     "larmorx-fix-truth": 1065.7360610961914
     },
     "caption": "Axial slice 67 of 111; the fixed T1w, its copy before and after each transform; Checkerboard (under Compare) overlays the fixed T1w and a placed copy."
    },
@@ -7367,15 +7756,15 @@
          "text": "differ"
         },
         {
-         "v": 1.4249829002511025,
+         "v": 1.1991455754364364,
          "fmt": "sig"
         },
         {
-         "v": 0.7374217962556742,
+         "v": 0.6230594829615924,
          "fmt": "sig"
         },
         {
-         "v": 0.504437741977112,
+         "v": 0.33650784570343895,
          "fmt": "sig"
         }
        ]
@@ -7618,7 +8007,7 @@
          "text": "paired"
         },
         {
-         "text": "landmark"
+         "text": "–"
         }
        ]
       },
@@ -7647,7 +8036,7 @@
          "text": "paired"
         },
         {
-         "text": "paired"
+         "text": "–"
         }
        ]
       },
@@ -7705,12 +8094,128 @@
          "text": "paired"
         },
         {
-         "text": "paired"
+         "text": "–"
+        }
+       ]
+      },
+      {
+       "head": "8",
+       "cells": [
+        {
+         "text": "79 69 62"
+        },
+        {
+         "text": "69 73 60"
+        },
+        {
+         "v": 6.031351224746367,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.8804757595062256,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.7409931178173377,
+         "fmt": "sig"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "9",
+       "cells": [
+        {
+         "text": "101 121 80"
+        },
+        {
+         "text": "101 122 78"
+        },
+        {
+         "v": 2.1324046753679737,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.680046021938324,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.12800067301390192,
+         "fmt": "sig"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "10",
+       "cells": [
+        {
+         "text": "61 66 96"
+        },
+        {
+         "text": "53 73 95"
+        },
+        {
+         "v": 4.898979485566353,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.6687222123146057,
+         "fmt": "sig"
+        },
+        {
+         "v": 2.753955930026556,
+         "fmt": "sig"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "landmark"
+        }
+       ]
+      },
+      {
+       "head": "11",
+       "cells": [
+        {
+         "text": "96 68 96"
+        },
+        {
+         "text": "86 70 94"
+        },
+        {
+         "v": 4.5709094848954255,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.5228028297424316,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.34551038697020703,
+         "fmt": "sig"
+        },
+        {
+         "text": "–"
+        },
+        {
+         "text": "landmark"
         }
        ]
       }
      ],
-     "note": "ANTs' blobs, correlations, pairs and landmarks from the probe (antsAI's own code); larmorx's default from lx.ants.blob_alignment. A pair is a landmark when its distances to at least 3 other pairs are preserved within 10 % (squared); ANTs tests the lengths of the pairs' displacements instead (ANTS-110), so a rotation leaves it no landmark. 'Off the true transform': how far the moving blob is from where the true transform sends the fixed blob's centre."
+     "note": "ANTs' blobs, correlations, pairs and landmarks from the probe (antsAI's own code); larmorx's default from lx.ants.blob_alignment. A pair is a landmark when its distances to at least 3 other pairs are preserved within 10 % (squared); ANTs tests the lengths of the pairs' displacements instead (ANTS-110), so a rotation leaves it no landmark. larmorx compares the patches in the orientation that matches best, ANTs in the one its eigenvectors' signs give, reflected or not (ANTS-116). 'Off the true transform': how far the moving blob is from where the true transform sends the fixed blob's centre."
     },
     {
      "id": "blobs-rotated-params",
@@ -7737,7 +8242,7 @@
          "fmt": "sig6"
         },
         {
-         "v": 0.9889209825913594,
+         "v": 0.9898562248248817,
          "fmt": "sig6"
         }
        ]
@@ -7750,7 +8255,7 @@
          "fmt": "sig6"
         },
         {
-         "v": 0.1483528692558205,
+         "v": 0.14167719558806813,
          "fmt": "sig6"
         }
        ]
@@ -7763,7 +8268,7 @@
          "fmt": "sig6"
         },
         {
-         "v": 0.005168788456270157,
+         "v": -0.01059369745338212,
          "fmt": "sig6"
         }
        ]
@@ -7776,7 +8281,7 @@
          "fmt": "sig6"
         },
         {
-         "v": -0.14831596441221456,
+         "v": -0.14176618376277805,
          "fmt": "sig6"
         }
        ]
@@ -7789,7 +8294,7 @@
          "fmt": "sig6"
         },
         {
-         "v": 0.9889158582176808,
+         "v": 0.9898663808353552,
          "fmt": "sig6"
         }
        ]
@@ -7802,7 +8307,7 @@
          "fmt": "sig6"
         },
         {
-         "v": -0.0069137591845966195,
+         "v": -0.008179072884744532,
          "fmt": "sig6"
         }
        ]
@@ -7815,7 +8320,7 @@
          "fmt": "sig6"
         },
         {
-         "v": -0.006137172884556734,
+         "v": 0.009327556849023057,
          "fmt": "sig6"
         }
        ]
@@ -7828,7 +8333,7 @@
          "fmt": "sig6"
         },
         {
-         "v": 0.006070547681496899,
+         "v": 0.009597934268164217,
          "fmt": "sig6"
         }
        ]
@@ -7841,7 +8346,7 @@
          "fmt": "sig6"
         },
         {
-         "v": 0.9999627410858025,
+         "v": 0.9999104341594864,
          "fmt": "sig6"
         }
        ]
@@ -7854,7 +8359,7 @@
          "fmt": "sig6"
         },
         {
-         "v": 3.6306635284368367,
+         "v": 3.2840863265655447,
          "fmt": "sig6"
         }
        ]
@@ -7867,7 +8372,7 @@
          "fmt": "sig6"
         },
         {
-         "v": -3.8885915360436254,
+         "v": -4.580513071690246,
          "fmt": "sig6"
         }
        ]
@@ -7880,7 +8385,7 @@
          "fmt": "sig6"
         },
         {
-         "v": -2.823300655951453,
+         "v": -2.8583709476218466,
          "fmt": "sig6"
         }
        ]
@@ -7893,7 +8398,7 @@
    "provenance": [
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: fixed: fMRIPrep's preprocessed T1w (sha256 8e977ad0c954252d…); fMRIPrep's T1w brain mask (sha256 726851b7736940c8…); moving (sha256 2885195494bbf915…)",
-    "Runs: figures cache entry `ants-ai/blobs-t1w`, computed 2026-10-23T10:41:20+00:00 with larmorx `c25c378726eb`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `ants-ai/blobs-t1w`, computed 2026-10-23T10:41:20+00:00 with larmorx `e22378b480f4`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ]
   }
  ]

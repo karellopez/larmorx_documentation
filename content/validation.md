@@ -15,6 +15,14 @@ wide: true
 
 **Default and reproduce modes.** When an original has a deterministic defect that changes its results, LARMORX corrects it by default and warns; `upstream_defects="reproduce"` (on the command line `LARMORX_UPSTREAM_DEFECTS=reproduce`) gives the original's result, defect included. The parity records compare in reproduce mode, so they compare with the original as it is; every defect is in the [register](repo:docs/findings/upstream-defects.md).
 
+**Corrections checked against known results.** Where a correction's result can be computed
+another way (SciPy's morphology, NumPy, or the original program itself on an input where its
+defect cannot arise), the record checks LARMORX's default against it, bit for bit; such a case
+carries the verdict *deliberate correction*, and its comparison with the original, in reproduce
+mode, is bit for bit like every other. Where an input makes no sense and the original silently
+does something arbitrary (AFNI-41, AFNI-48), LARMORX refuses it by default with a message naming
+the defect, and reproduce mode gives the original's result.
+
 **Parity tiers.** Each tool's suite of cases runs in tiers: *smoke* under pytest, *standard* for the records quoted on this site (fMRIPrep's, sMRIPrep's and sdcflows' own command lines on real data, every option, generated edge cases, the invalid inputs), *full* where a tool has more. Parity needs the originals, so it runs on a Linux x86-64 workstation, never in continuous integration.
 
 ```bash

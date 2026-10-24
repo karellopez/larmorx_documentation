@@ -34,19 +34,19 @@ implemented:
     page: /tools/ants-n4/
     use: ["larmorx ants N4BiasFieldCorrection", "lx.ants.n4_bias_field_correction"]
     how: port
-    validation: "[29 of 45](repo:docs/validation/ants-n4.md) bit-identical to ANTs, 45 of 45 with correctly rounded maths"
+    validation: "[29 of 46](repo:docs/validation/ants-n4.md) bit-identical to ANTs, 46 of 46 with correctly rounded maths; ANTS-40 corrected by default"
   - eco: ants
     tool: DenoiseImage
     page: /tools/ants-denoise/
     use: ["larmorx ants DenoiseImage", "lx.ants.denoise_image"]
     how: port
-    validation: "[7 of 40](repo:docs/validation/ants-denoise.md) bit-identical to ANTs, 40 of 40 with correctly rounded maths"
+    validation: "[7 of 40](repo:docs/validation/ants-denoise.md) bit-identical to ANTs, 40 of 40 with correctly rounded maths; ANTS-43 and ANTS-44 corrected by default"
   - eco: ants
     tool: ImageMath (every operation fMRIPrep, sMRIPrep and sdcflows call)
     page: /tools/ants-programs/
     use: ["larmorx ants ImageMath", "lx.ants.image_math"]
     how: port
-    validation: "[327 cases](repo:docs/validation/ants-image-math.md): values bit-identical in 296 of 301, headers in 301 of 301"
+    validation: "[334 cases](repo:docs/validation/ants-image-math.md): values bit-identical in 303 of 308, headers in 308 of 308; ANTS-17, -22 and -23 corrected, checked against known results"
   - eco: ants
     tool: ThresholdImage, MultiplyImages, SmoothImage, ResampleImage, ResampleImageBySpacing
     page: /tools/ants-programs/
@@ -64,7 +64,7 @@ implemented:
     page: /tools/ants-ai/
     use: ["larmorx ants antsAI", "larmorx ants antsAffineInitializer"]
     how: port
-    validation: "[antsAI](repo:docs/validation/ants-ai.md): 75 of 75 compared identical (74 as built, 1 with correctly rounded maths), the blob alignment included; [antsAffineInitializer](repo:docs/validation/ants-affine-initializer.md): 26 of 26"
+    validation: "[antsAI](repo:docs/validation/ants-ai.md): 75 of 75 compared identical (74 as built, 1 with correctly rounded maths), the blob alignment included (its corrections, ANTS-116 among them, by default); [antsAffineInitializer](repo:docs/validation/ants-affine-initializer.md): 26 of 26"
   - eco: ants
     tool: Atropos
     page: /tools/ants-atropos/
@@ -88,13 +88,13 @@ implemented:
     page: /tools/afni-automask/
     use: ["larmorx afni 3dAutomask", "lx.afni.automask"]
     how: exact replica in `larmorx-gpl`; clean-room original planned
-    validation: "[105 cases](repo:docs/validation/afni-automask.md): 81 of 81 compared cases that write outputs bit-identical to AFNI, fMRIPrep's call on every oracle run included"
+    validation: "[109 cases](repo:docs/validation/afni-automask.md): 85 of 85 compared cases that write outputs bit-identical to AFNI, fMRIPrep's call on every oracle run included; AFNI-41 refused by default"
   - eco: afni
     tool: 3dUnifize (intensity uniformization)
     page: /tools/afni-unifize/
     use: ["larmorx afni 3dUnifize", "lx.afni.unifize"]
     how: exact replica in `larmorx-gpl`; clean-room original planned
-    validation: "[97 cases](repo:docs/validation/afni-unifize.md): 72 of 72 compared cases that write outputs bit-identical to AFNI at 1, 2 and 6 threads, fMRIPrep's call on every oracle run included"
+    validation: "[99 cases](repo:docs/validation/afni-unifize.md): 74 of 74 compared cases that write outputs bit-identical to AFNI at 1, 2 and 6 threads, fMRIPrep's call on every oracle run included; AFNI-48 refused by default"
   - eco: fsl
     tool: Head-motion correction (mcflirt-style options)
     page: /tools/mri-hmc/

@@ -3,19 +3,19 @@
  "tool": "ants-denoise",
  "title": "DenoiseImage",
  "provenance": {
-  "exporter": "146ec72dd34cb66c17f1ba7b866b1bc89c83ffd3",
+  "exporter": "e9ed712fe266d5f90534789eabeb6c5ff1a85d26",
   "records": [
    {
     "path": "docs/validation/ants-denoise.json",
-    "sha256": "9f0145553dc45d45b218ebb0aee537913fa572d6c253eeb89f8040ddcf3efe64",
-    "generated": "2026-10-12",
-    "larmorx_commit": "50509e30b3e8"
+    "sha256": "7ffd7d9b15ecf3d3e90bdc397171621dab52789a585a5b33bac3464661a6b6f3",
+    "generated": "2026-10-24",
+    "larmorx_commit": "6bf2860fb745"
    },
    {
     "path": "docs/validation/ants-denoise.md",
-    "sha256": "3f3bcb51b7a0ab1094c05704ae8ac2fea39734ea890bb4b4e2b2434caa195f99",
-    "generated": "2026-10-12",
-    "larmorx_commit": "50509e30b3e8"
+    "sha256": "fadbe67a4a5a97c2ec13c96285f0e071d023a0085576d9300753509eb2487bc1",
+    "generated": "2026-10-24",
+    "larmorx_commit": "6bf2860fb745"
    }
   ],
   "benchmarks": [
@@ -460,6 +460,117 @@
      "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
     },
     "settings": "fMRIPrep's DenoiseImage command run again by ANTs 2.6.5: four more times at 8 threads and twice more at 12, one after another"
+   },
+   {
+    "entry": "ants-denoise/ds000005-preproc-masked-ants44",
+    "description": "ANTS-44: denoising fMRIPrep's T1w within its brain mask",
+    "computed": "2026-10-23T22:15:22+00:00",
+    "larmorx_commit": "e22378b480f4df857986bfbc9db907f448d17009",
+    "commands": [
+     {
+      "label": "ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/DenoiseImage",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-x",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-brain_mask.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[<workspace>/oracles/figures-cache/ants-denoise/ds000005-preproc-masked-ants44/ants-1-denoised.nii.gz,<workspace>/oracles/figures-cache/ants-denoise/ds000005-preproc-masked-ants44/ants-1-noise.nii.gz]"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 54.66
+     },
+     {
+      "label": "ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/DenoiseImage",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-x",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-brain_mask.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[<workspace>/oracles/figures-cache/ants-denoise/ds000005-preproc-masked-ants44/ants-1-cr-denoised.nii.gz,<workspace>/oracles/figures-cache/ants-denoise/ds000005-preproc-masked-ants44/ants-1-cr-noise.nii.gz]"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 55.03
+     },
+     {
+      "label": "larmorx",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "DenoiseImage",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-x",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-brain_mask.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[<workspace>/oracles/figures-cache/ants-denoise/ds000005-preproc-masked-ants44/larmorx-denoised.nii.gz,<workspace>/oracles/figures-cache/ants-denoise/ds000005-preproc-masked-ants44/larmorx-noise.nii.gz]"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 4.34
+     },
+     {
+      "label": "larmorx-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "DenoiseImage",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz",
+       "-x",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/anat/sub-01_desc-brain_mask.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[<workspace>/oracles/figures-cache/ants-denoise/ds000005-preproc-masked-ants44/larmorx-reproduce-denoised.nii.gz,<workspace>/oracles/figures-cache/ants-denoise/ds000005-preproc-masked-ants44/larmorx-reproduce-noise.nii.gz]"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 4.62
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "threads": {
+     "ants": 1,
+     "larmorx": 6
+    },
+    "settings": "DenoiseImage -n Rician with fMRIPrep 25.2.6's brain mask on its preprocessed T1w of ds000005 sub-01 (no fMRIPrep node: fMRIPrep denoises without a mask)"
    }
   ],
   "command": "python -m larmorx_validation evidence ants-denoise --site <site>"
@@ -536,7 +647,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "20/20",
-     "reason": "denoised: as built, 5389 of 11534336 differ; max |diff| 0.00214, max rel 0.00079, 1 - NCC 2.2e-13 (÷ ANTs' thread band: 3.6e-06 max |Δ|, 3.6e-09 1 − NCC); noise: as built, 5389 of 11534336 differ; max |diff| 0.00214, max rel 0.011, 1 - NCC 0 (÷ ANTs' thread band: 3.6e-06 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 5389 of 11534336 differ; max |diff| 0.00214, max rel 0.00079, 1 - NCC 3.1e-13 (÷ ANTs' thread band: 3.6e-06 max |Δ|, 5e-09 1 − NCC); noise: as built, 5389 of 11534336 differ; max |diff| 0.00214, max rel 0.011, 1 - NCC 0 (÷ ANTs' thread band: 3.6e-06 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -550,7 +661,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "20/20",
-     "reason": "denoised: as built, 495 of 5898240 differ; max |diff| 0.000122, max rel 7.1e-07, 1 - NCC 0 (÷ ANTs' thread band: 8.1e-07 max |Δ|, 0 1 − NCC); noise: as built, 495 of 5898240 differ; max |diff| 0.000122, max rel 0.00056, 1 - NCC 0 (÷ ANTs' thread band: 8.1e-07 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 495 of 5898240 differ; max |diff| 0.000122, max rel 7.1e-07, 1 - NCC 1.2e-13 (÷ ANTs' thread band: 8.1e-07 max |Δ|, 4.1e-08 1 − NCC); noise: as built, 495 of 5898240 differ; max |diff| 0.000122, max rel 0.00056, 1 - NCC 0 (÷ ANTs' thread band: 8.1e-07 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -578,7 +689,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "20/20",
-     "reason": "denoised: as built, 44 of 139264 differ; max |diff| 0.000122, max rel 1.6e-06, 1 - NCC 0 (÷ ANTs' thread band: 6.9e-07 max |Δ|, 0 1 − NCC); noise: as built, 44 of 139264 differ; max |diff| 0.000122, max rel 3.7e-05, 1 - NCC 0 (÷ ANTs' thread band: 6.9e-07 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 44 of 139264 differ; max |diff| 0.000122, max rel 1.6e-06, 1 - NCC 0 (÷ ANTs' thread band: 6e-07 max |Δ|, 0 1 − NCC); noise: as built, 44 of 139264 differ; max |diff| 0.000122, max rel 3.7e-05, 1 - NCC 0 (÷ ANTs' thread band: 6e-07 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -592,7 +703,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 112 of 147456 differ; max |diff| 0.00016, max rel 2e-06, 1 - NCC 3.3e-16 (÷ ANTs' thread band: 3.9e-07 max |Δ|, 7e-13 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 112 of 147456 differ; max |diff| 0.00016, max rel 2e-06, 1 - NCC 7.8e-16 (÷ ANTs' thread band: 3.9e-07 max |Δ|, 1.7e-12 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -606,7 +717,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 44 of 35840 differ; max |diff| 3.05e-05, max rel 2.2e-07, 1 - NCC 0 (÷ ANTs' thread band: 5.1e-05 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 44 of 35840 differ; max |diff| 3.05e-05, max rel 2.2e-07, 1 - NCC 1.1e-16 (÷ ANTs' thread band: 4.8e-06 max |Δ|, 5.4e-10 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -620,7 +731,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "20/20",
-     "reason": "denoised: as built, 25 of 35840 differ; max |diff| 3.05e-05, max rel 6.6e-07, 1 - NCC 2.2e-16 (÷ ANTs' thread band: 4e-07 max |Δ|, 3.2e-14 1 − NCC); noise: as built, 25 of 35840 differ; max |diff| 3.05e-05, max rel 0.00014, 1 - NCC 2.2e-16 (÷ ANTs' thread band: 4e-07 max |Δ|, 2.3e-15 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 25 of 35840 differ; max |diff| 3.05e-05, max rel 6.6e-07, 1 - NCC 0 (÷ ANTs' thread band: 4.2e-07 max |Δ|, 0 1 − NCC); noise: as built, 25 of 35840 differ; max |diff| 3.05e-05, max rel 0.00014, 1 - NCC 1.1e-16 (÷ ANTs' thread band: 4.2e-07 max |Δ|, 8.9e-16 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -634,7 +745,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "20/20",
-     "reason": "denoised: as built, 44 of 35840 differ; max |diff| 3.05e-05, max rel 2.2e-07, 1 - NCC 0 (÷ ANTs' thread band: 2e-05 max |Δ|, 0 1 − NCC); noise: as built, 45 of 35840 differ; max |diff| 3.05e-05, max rel 3.1e-05, 1 - NCC 4.4e-16 (÷ ANTs' thread band: 2e-05 max |Δ|, 9.3e-10 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 44 of 35840 differ; max |diff| 3.05e-05, max rel 2.2e-07, 1 - NCC 1.1e-16 (÷ ANTs' thread band: 3.4e-05 max |Δ|, 2.6e-08 1 − NCC); noise: as built, 45 of 35840 differ; max |diff| 3.05e-05, max rel 3.1e-05, 1 - NCC 5.6e-16 (÷ ANTs' thread band: 3.4e-05 max |Δ|, 3.7e-09 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -648,7 +759,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 25 of 35840 differ; max |diff| 3.05e-05, max rel 6.6e-07, 1 - NCC 2.2e-16 (÷ ANTs' thread band: 4.2e-07 max |Δ|, 2.9e-14 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 25 of 35840 differ; max |diff| 3.05e-05, max rel 6.6e-07, 1 - NCC 0 (÷ ANTs' thread band: 4.2e-07 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -662,7 +773,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "20/20",
-     "reason": "denoised: as built, 10 of 35840 differ; max |diff| 2.29e-05, max rel 5.2e-07, 1 - NCC 2.2e-16 (÷ ANTs' thread band: 4.4e-07 max |Δ|, 1.7e-13 1 − NCC); noise: as built, 10 of 35840 differ; max |diff| 2.29e-05, max rel 7.2e-06, 1 - NCC 6.7e-16 (÷ ANTs' thread band: 4.4e-07 max |Δ|, 8.9e-15 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 10 of 35840 differ; max |diff| 2.29e-05, max rel 5.2e-07, 1 - NCC 1.1e-16 (÷ ANTs' thread band: 4.4e-07 max |Δ|, 1e-13 1 − NCC); noise: as built, 10 of 35840 differ; max |diff| 2.29e-05, max rel 7.2e-06, 1 - NCC 2.2e-16 (÷ ANTs' thread band: 4.4e-07 max |Δ|, 3.5e-15 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -676,7 +787,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 10 of 35840 differ; max |diff| 1.53e-05, max rel 1.4e-07, 1 - NCC 0 (÷ ANTs' thread band: 2.1e-06 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 10 of 35840 differ; max |diff| 1.53e-05, max rel 1.4e-07, 1 - NCC 0 (÷ ANTs' thread band: 2.8e-06 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -690,7 +801,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 2 of 35840 differ; max |diff| 7.63e-06, max rel 6.8e-08, 1 - NCC 0 (÷ ANTs' thread band: 1.5e-07 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 2 of 35840 differ; max |diff| 7.63e-06, max rel 6.8e-08, 1 - NCC 0 (÷ ANTs' thread band: 2e-07 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -704,7 +815,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 1 of 35840 differ; max |diff| 1.53e-05, max rel 9.6e-08, 1 - NCC 1.1e-16 (÷ ANTs' thread band: 3.2e-07 max |Δ|, 7.8e-14 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 1 of 35840 differ; max |diff| 1.53e-05, max rel 9.6e-08, 1 - NCC 0 (÷ ANTs' thread band: 3.3e-07 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -718,7 +829,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 10 of 35840 differ; max |diff| 2.29e-05, max rel 5.2e-07, 1 - NCC 2.2e-16 (÷ ANTs' thread band: 3.8e-07 max |Δ|, 1.6e-13 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 10 of 35840 differ; max |diff| 2.29e-05, max rel 5.2e-07, 1 - NCC 1.1e-16 (÷ ANTs' thread band: 4.2e-07 max |Δ|, 9.6e-14 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -732,7 +843,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 25 of 35840 differ; max |diff| 3.05e-05, max rel 6.6e-07, 1 - NCC 2.2e-16 (÷ ANTs' thread band: 4.2e-07 max |Δ|, 3.3e-14 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 25 of 35840 differ; max |diff| 3.05e-05, max rel 6.6e-07, 1 - NCC 0 (÷ ANTs' thread band: 4e-07 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -746,7 +857,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "20/20",
-     "reason": "denoised: as built, 93 of 35840 differ; max |diff| 1.91e-05, max rel 2.7e-06, 1 - NCC 2.2e-16 (÷ ANTs' thread band: 3e-07 max |Δ|, 1.6e-14 1 − NCC); noise: as built, 160 of 35840 differ; max |diff| 1.72e-05, max rel 4.4e-06, 1 - NCC 0 (÷ ANTs' thread band: 2.7e-07 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 93 of 35840 differ; max |diff| 1.91e-05, max rel 2.7e-06, 1 - NCC 0 (÷ ANTs' thread band: 3.1e-07 max |Δ|, 0 1 − NCC); noise: as built, 160 of 35840 differ; max |diff| 1.72e-05, max rel 4.4e-06, 1 - NCC 0 (÷ ANTs' thread band: 2.8e-07 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -774,7 +885,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 44 of 35840 differ; max |diff| 3.05e-05, max rel 2.2e-07, 1 - NCC 0 (÷ ANTs' thread band: 1.1e-05 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 44 of 35840 differ; max |diff| 3.05e-05, max rel 2.2e-07, 1 - NCC 1.1e-16 (÷ ANTs' thread band: 0.00011 max |Δ|, 2e-07 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -802,7 +913,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 25 of 35840 differ; max |diff| 3.05e-05, max rel 8.2e-07, 1 - NCC 1.1e-16 (÷ ANTs' thread band: 4.1e-07 max |Δ|, 6.2e-15 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 25 of 35840 differ; max |diff| 3.05e-05, max rel 8.2e-07, 1 - NCC 5.6e-16 (÷ ANTs' thread band: 4.1e-07 max |Δ|, 2.9e-14 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -816,7 +927,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 11 of 35840 differ; max |diff| 3.05e-05, max rel 8.8e-07, 1 - NCC 7.8e-16 (÷ ANTs' thread band: inf max |Δ|, inf 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 11 of 35840 differ; max |diff| 3.05e-05, max rel 8.8e-07, 1 - NCC 1.1e-16 (÷ ANTs' thread band: inf max |Δ|, inf 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -830,7 +941,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 27 of 35840 differ; max |diff| 2.29e-05, max rel 2.2e-07, 1 - NCC 1.1e-16 (÷ ANTs' thread band: 8.4e-06 max |Δ|, 2.4e-09 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 27 of 35840 differ; max |diff| 2.29e-05, max rel 2.2e-07, 1 - NCC 1.1e-16 (÷ ANTs' thread band: 5.2e-06 max |Δ|, 1.3e-09 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -844,7 +955,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 23 of 35840 differ; max |diff| 7.44e-05, max rel 3e-06, 1 - NCC 2.2e-16 (÷ ANTs' thread band: 1e-06 max |Δ|, 2.8e-14 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 23 of 35840 differ; max |diff| 7.44e-05, max rel 3e-06, 1 - NCC 0 (÷ ANTs' thread band: 9.9e-07 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -858,7 +969,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 29 of 35840 differ; max |diff| 4.2e-05, max rel 1.5e-06, 1 - NCC 0 (÷ ANTs' thread band: 5.9e-07 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 29 of 35840 differ; max |diff| 4.2e-05, max rel 1.5e-06, 1 - NCC 6.7e-16 (÷ ANTs' thread band: 5.9e-07 max |Δ|, 9.5e-14 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -872,7 +983,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 44 of 35840 differ; max |diff| 3.05e-05, max rel 2.2e-07, 1 - NCC 0 (÷ ANTs' thread band: 0.00012 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 44 of 35840 differ; max |diff| 3.05e-05, max rel 2.2e-07, 1 - NCC 1.1e-16 (÷ ANTs' thread band: 1.5e-06 max |Δ|, 6.1e-11 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -900,7 +1011,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 44 of 35840 differ; max |diff| 3.05e-05, max rel 2.2e-07, 1 - NCC 0 (÷ ANTs' thread band: 0.00017 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 44 of 35840 differ; max |diff| 3.05e-05, max rel 2.2e-07, 1 - NCC 1.1e-16 (÷ ANTs' thread band: 1.4e-06 max |Δ|, 5.6e-11 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -928,7 +1039,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "20/20",
-     "reason": "denoised: as built, 21 of 35840 differ; max |diff| 0.0117, max rel 9.1e-07, 1 - NCC 0 (÷ ANTs' thread band: 1e-07 max |Δ|, 0 1 − NCC); noise: as built, 21 of 35840 differ; max |diff| 0.0117, max rel 4.6e-06, 1 - NCC 0 (÷ ANTs' thread band: 1e-07 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 21 of 35840 differ; max |diff| 0.0117, max rel 9.1e-07, 1 - NCC 1.7e-15 (÷ ANTs' thread band: 9.3e-08 max |Δ|, 7.4e-15 1 − NCC); noise: as built, 21 of 35840 differ; max |diff| 0.0117, max rel 4.6e-06, 1 - NCC 0 (÷ ANTs' thread band: 9.3e-08 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -942,7 +1053,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 37 of 35840 differ; max |diff| 0.000977, max rel 2.7e-07, 1 - NCC 0 (÷ ANTs' thread band: 2.4e-06 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 37 of 35840 differ; max |diff| 0.000977, max rel 2.7e-07, 1 - NCC 0 (÷ ANTs' thread band: 2.1e-06 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -984,7 +1095,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 22 of 35840 differ; max |diff| 9.16e-05, max rel 5.6e-06, 1 - NCC 2.2e-16 (÷ ANTs' thread band: 1.3e-06 max |Δ|, 2.1e-14 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 22 of 35840 differ; max |diff| 9.16e-05, max rel 5.6e-06, 1 - NCC 3.6e-15 (÷ ANTs' thread band: 1.3e-06 max |Δ|, 2.4e-13 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -998,7 +1109,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "20/20",
-     "reason": "denoised: as built, 1 of 1280 differ; max |diff| 1.53e-05, max rel 1.1e-07, 1 - NCC 0 (÷ ANTs' thread band: 2.5e-07 max |Δ|, 0 1 − NCC); noise: as built, 1 of 1280 differ; max |diff| 1.53e-05, max rel 8.8e-07, 1 - NCC 5.6e-16 (÷ ANTs' thread band: 2.5e-07 max |Δ|, 7.8e-15 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 1 of 1280 differ; max |diff| 1.53e-05, max rel 1.1e-07, 1 - NCC 0 (÷ ANTs' thread band: 3.6e-07 max |Δ|, 0 1 − NCC); noise: as built, 1 of 1280 differ; max |diff| 1.53e-05, max rel 8.8e-07, 1 - NCC 5.6e-16 (÷ ANTs' thread band: 3.6e-07 max |Δ|, 2.2e-14 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -1040,7 +1151,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "20/20",
-     "reason": "denoised: as built, 43 of 22400 differ; max |diff| 1.91e-05, max rel 7e-07, 1 - NCC 1.1e-15 (÷ ANTs' thread band: 1.2e-06 max |Δ|, 2.1e-13 1 − NCC); noise: as built, 46 of 22400 differ; max |diff| 1.91e-05, max rel 2.9e-06, 1 - NCC 4.4e-16 (÷ ANTs' thread band: 1.2e-06 max |Δ|, 9.1e-13 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 43 of 22400 differ; max |diff| 1.91e-05, max rel 7e-07, 1 - NCC 1.1e-15 (÷ ANTs' thread band: 1.2e-06 max |Δ|, 1.6e-13 1 − NCC); noise: as built, 46 of 22400 differ; max |diff| 1.91e-05, max rel 2.9e-06, 1 - NCC 1.1e-16 (÷ ANTs' thread band: 1.2e-06 max |Δ|, 1.8e-13 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -1068,7 +1179,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 6 of 4480 differ; max |diff| 1.14e-05, max rel 3.3e-07, 1 - NCC 2.2e-16 (÷ ANTs' thread band: 5.8e-07 max |Δ|, 3.5e-14 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 6 of 4480 differ; max |diff| 1.14e-05, max rel 3.3e-07, 1 - NCC 2.2e-16 (÷ ANTs' thread band: 4.6e-07 max |Δ|, 4.1e-14 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -1082,7 +1193,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "denoised: as built, 25 of 35840 differ; max |diff| 3.05e-05, max rel 6.6e-07, 1 - NCC 2.2e-16 (÷ ANTs' thread band: 4e-07 max |Δ|, 3.9e-14 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "denoised: as built, 25 of 35840 differ; max |diff| 3.05e-05, max rel 6.6e-07, 1 - NCC 0 (÷ ANTs' thread band: 4e-07 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -1110,7 +1221,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "ANTs exit -6: \"s/antsCommandLineParser.h:133:\\nITK ERROR: CommandLineParser(0x64914982adb0): ERROR: Parse error occured during command line argument processing\\nERROR: Unable to convert '1.5' to type 'i' as signed int\"; larmorx exit 1: \"larmorx: DenoiseImage:…"
+     "reason": "ANTs exit -6: \"s/antsCommandLineParser.h:133:\\nITK ERROR: CommandLineParser(0x5d6b64048db0): ERROR: Parse error occured during command line argument processing\\nERROR: Unable to convert '1.5' to type 'i' as signed int\"; larmorx exit 1: \"larmorx: DenoiseImage:…"
     }
    }
   },
@@ -1231,10 +1342,14 @@
  "band": {
   "title": "The 32 cases that differ from ANTs as built: larmorx's difference divided by ANTs' own difference between thread counts (log scale)",
   "axis": [
-   1e-15,
+   1e-16,
    0.001
   ],
   "ticks": [
+   [
+    1e-16,
+    "1e-16×"
+   ],
    [
     1e-15,
     "1e-15×"
@@ -1299,7 +1414,7 @@
     "case": "fmriprep/smriprep-t1w-ds000210",
     "output": "denoised",
     "ratio_max": 3.6e-06,
-    "ratio_ncc": 3.6e-09
+    "ratio_ncc": 5e-09
    },
    {
     "case": "fmriprep/smriprep-t1w-ds000210",
@@ -1311,7 +1426,7 @@
     "case": "fmriprep/t1w-preproc-mask",
     "output": "denoised",
     "ratio_max": 8.1e-07,
-    "ratio_ncc": 0.0
+    "ratio_ncc": 4.1e-08
    },
    {
     "case": "fmriprep/t1w-preproc-mask",
@@ -1328,152 +1443,152 @@
    {
     "case": "fmriprep/boldref",
     "output": "denoised",
-    "ratio_max": 6.9e-07,
+    "ratio_max": 6e-07,
     "ratio_ncc": 0.0
    },
    {
     "case": "fmriprep/boldref",
     "output": "noise",
-    "ratio_max": 6.9e-07,
+    "ratio_max": 6e-07,
     "ratio_ncc": 0.0
    },
    {
     "case": "fmriprep/magnitude",
     "output": "denoised",
     "ratio_max": 3.9e-07,
-    "ratio_ncc": 7e-13
+    "ratio_ncc": 1.7e-12
    },
    {
     "case": "options/defaults",
     "output": "denoised",
-    "ratio_max": 5.1e-05,
-    "ratio_ncc": 0.0
+    "ratio_max": 4.8e-06,
+    "ratio_ncc": 5.4e-10
    },
    {
     "case": "options/rician",
     "output": "denoised",
-    "ratio_max": 4e-07,
-    "ratio_ncc": 3.2e-14
+    "ratio_max": 4.2e-07,
+    "ratio_ncc": 0.0
    },
    {
     "case": "options/rician",
     "output": "noise",
-    "ratio_max": 4e-07,
-    "ratio_ncc": 2.3e-15
+    "ratio_max": 4.2e-07,
+    "ratio_ncc": 8.9e-16
    },
    {
     "case": "options/gaussian",
     "output": "denoised",
-    "ratio_max": 2e-05,
-    "ratio_ncc": 0.0
+    "ratio_max": 3.4e-05,
+    "ratio_ncc": 2.6e-08
    },
    {
     "case": "options/gaussian",
     "output": "noise",
-    "ratio_max": 2e-05,
-    "ratio_ncc": 9.3e-10
+    "ratio_max": 3.4e-05,
+    "ratio_ncc": 3.7e-09
    },
    {
     "case": "options/model-case",
     "output": "denoised",
     "ratio_max": 4.2e-07,
-    "ratio_ncc": 2.9e-14
+    "ratio_ncc": 0.0
    },
    {
     "case": "options/mask-rician",
     "output": "denoised",
     "ratio_max": 4.4e-07,
-    "ratio_ncc": 1.7e-13
+    "ratio_ncc": 1e-13
    },
    {
     "case": "options/mask-rician",
     "output": "noise",
     "ratio_max": 4.4e-07,
-    "ratio_ncc": 8.9e-15
+    "ratio_ncc": 3.5e-15
    },
    {
     "case": "options/mask-gaussian",
     "output": "denoised",
-    "ratio_max": 2.1e-06,
+    "ratio_max": 2.8e-06,
     "ratio_ncc": 0.0
    },
    {
     "case": "options/mask-fractional",
     "output": "denoised",
-    "ratio_max": 1.5e-07,
+    "ratio_max": 2e-07,
     "ratio_ncc": 0.0
    },
    {
     "case": "options/mask-values",
     "output": "denoised",
-    "ratio_max": 3.2e-07,
-    "ratio_ncc": 7.8e-14
+    "ratio_max": 3.3e-07,
+    "ratio_ncc": 0.0
    },
    {
     "case": "options/mask-larger",
     "output": "denoised",
-    "ratio_max": 3.8e-07,
-    "ratio_ncc": 1.6e-13
+    "ratio_max": 4.2e-07,
+    "ratio_ncc": 9.6e-14
    },
    {
     "case": "options/missing-mask",
     "output": "denoised",
-    "ratio_max": 4.2e-07,
-    "ratio_ncc": 3.3e-14
+    "ratio_max": 4e-07,
+    "ratio_ncc": 0.0
    },
    {
     "case": "options/shrink-2",
     "output": "denoised",
-    "ratio_max": 3e-07,
-    "ratio_ncc": 1.6e-14
+    "ratio_max": 3.1e-07,
+    "ratio_ncc": 0.0
    },
    {
     "case": "options/shrink-2",
     "output": "noise",
-    "ratio_max": 2.7e-07,
+    "ratio_max": 2.8e-07,
     "ratio_ncc": 0.0
    },
    {
     "case": "options/shrink-0",
     "output": "denoised",
-    "ratio_max": 1.1e-05,
-    "ratio_ncc": 0.0
+    "ratio_max": 0.00011,
+    "ratio_ncc": 2e-07
    },
    {
     "case": "options/patch-2",
     "output": "denoised",
     "ratio_max": 4.1e-07,
-    "ratio_ncc": 6.2e-15
+    "ratio_ncc": 2.9e-14
    },
    {
     "case": "options/search-1",
     "output": "denoised",
-    "ratio_max": 8.4e-06,
-    "ratio_ncc": 2.4e-09
+    "ratio_max": 5.2e-06,
+    "ratio_ncc": 1.3e-09
    },
    {
     "case": "options/search-3",
     "output": "denoised",
-    "ratio_max": 1e-06,
-    "ratio_ncc": 2.8e-14
+    "ratio_max": 9.9e-07,
+    "ratio_ncc": 0.0
    },
    {
     "case": "options/radii-per-axis",
     "output": "denoised",
     "ratio_max": 5.9e-07,
-    "ratio_ncc": 0.0
+    "ratio_ncc": 9.5e-14
    },
    {
     "case": "options/output-one-parameter",
     "output": "denoised",
-    "ratio_max": 0.00012,
-    "ratio_ncc": 0.0
+    "ratio_max": 1.5e-06,
+    "ratio_ncc": 6.1e-11
    },
    {
     "case": "options/verbose",
     "output": "denoised",
-    "ratio_max": 0.00017,
-    "ratio_ncc": 0.0
+    "ratio_max": 1.4e-06,
+    "ratio_ncc": 5.6e-11
    },
    {
     "case": "inputs/int16-scaled",
@@ -1484,62 +1599,62 @@
    {
     "case": "inputs/outliers",
     "output": "denoised",
-    "ratio_max": 1e-07,
-    "ratio_ncc": 0.0
+    "ratio_max": 9.3e-08,
+    "ratio_ncc": 7.4e-15
    },
    {
     "case": "inputs/outliers",
     "output": "noise",
-    "ratio_max": 1e-07,
+    "ratio_max": 9.3e-08,
     "ratio_ncc": 0.0
    },
    {
     "case": "inputs/outliers-gaussian",
     "output": "denoised",
-    "ratio_max": 2.4e-06,
+    "ratio_max": 2.1e-06,
     "ratio_ncc": 0.0
    },
    {
     "case": "inputs/negative-pixdim",
     "output": "denoised",
     "ratio_max": 1.3e-06,
-    "ratio_ncc": 2.1e-14
+    "ratio_ncc": 2.4e-13
    },
    {
     "case": "inputs/dim2",
     "output": "denoised",
-    "ratio_max": 2.5e-07,
+    "ratio_max": 3.6e-07,
     "ratio_ncc": 0.0
    },
    {
     "case": "inputs/dim2",
     "output": "noise",
-    "ratio_max": 2.5e-07,
-    "ratio_ncc": 7.8e-15
+    "ratio_max": 3.6e-07,
+    "ratio_ncc": 2.2e-14
    },
    {
     "case": "inputs/dim4",
     "output": "denoised",
     "ratio_max": 1.2e-06,
-    "ratio_ncc": 2.1e-13
+    "ratio_ncc": 1.6e-13
    },
    {
     "case": "inputs/dim4",
     "output": "noise",
     "ratio_max": 1.2e-06,
-    "ratio_ncc": 9.1e-13
+    "ratio_ncc": 1.8e-13
    },
    {
     "case": "inputs/dim3-of-4d",
     "output": "denoised",
-    "ratio_max": 5.8e-07,
-    "ratio_ncc": 3.5e-14
+    "ratio_max": 4.6e-07,
+    "ratio_ncc": 4.1e-14
    },
    {
     "case": "inputs/dimension-from-file",
     "output": "denoised",
     "ratio_max": 4e-07,
-    "ratio_ncc": 3.9e-14
+    "ratio_ncc": 0.0
    }
   ],
   "note": "From the record's table: ANTs at 2, 4 and 12 threads against 1 thread give ANTs' thread band for each case and output; a ratio below 1 lies inside it, and a 1 − NCC of 0 is not drawn. Every one of these differences vanishes with correctly rounded maths. Not drawn: `options/patch-0` (denoised), where ANTs' threads change nothing (a band of 0) and larmorx differs from ANTs as built by glibc's maths alone."
@@ -2063,7 +2178,7 @@
        "rms": 3.4303313433506327e-07,
        "range": 1428.7581977844238,
        "max_rel_range": 1.388368291570285e-07,
-       "one_minus_ncc": 6.4153550170051866e-18,
+       "one_minus_ncc": 6.415355018303152e-18,
        "at_display": null
       }
      },
@@ -2158,7 +2273,7 @@
        "rms": 1.428326315303069,
        "range": 1420.3264389038086,
        "max_rel_range": 0.19058234820872128,
-       "one_minus_ncc": 0.00011118662416020586,
+       "one_minus_ncc": 0.00011118662416020291,
        "at_display": null
       }
      },
@@ -2208,7 +2323,7 @@
        "rms": 0.1803511257815699,
        "range": 1428.7581977844238,
        "max_rel_range": 0.001963921706718791,
-       "one_minus_ncc": 1.1958098337345487e-06,
+       "one_minus_ncc": 1.1958098337345665e-06,
        "at_display": [
         102,
         104,
@@ -2397,7 +2512,7 @@
        "rms": 0.4974004020401205,
        "range": 1428.7581977844238,
        "max_rel_range": 0.06776991412800609,
-       "one_minus_ncc": 1.347836123261519e-05
+       "one_minus_ncc": 1.3478361232614109e-05
       }
      },
      "verdict": null,
@@ -2433,7 +2548,7 @@
        "rms": 0.649256969683305,
        "range": 1428.7581977844238,
        "max_rel_range": 0.11284259118981158,
-       "one_minus_ncc": 2.296719085406567e-05
+       "one_minus_ncc": 2.2967190854067192e-05
       }
      },
      "verdict": null,
@@ -2469,7 +2584,7 @@
        "rms": 1.0412708499702716,
        "range": 1428.7581977844238,
        "max_rel_range": 0.18945763416719258,
-       "one_minus_ncc": 5.9078064515763275e-05
+       "one_minus_ncc": 5.907806451575697e-05
       }
      },
      "verdict": null,
@@ -2505,7 +2620,7 @@
        "rms": 1.421119800128211,
        "range": 1428.7581977844238,
        "max_rel_range": 0.18945763416719258,
-       "one_minus_ncc": 0.00011006776083258175,
+       "one_minus_ncc": 0.00011006776083258892,
        "at_display": null
       }
      },
@@ -2555,7 +2670,7 @@
        "rms": 1.6990666235110001,
        "range": 1428.7581977844238,
        "max_rel_range": 0.18945765552670477,
-       "one_minus_ncc": 0.0001573463006729343,
+       "one_minus_ncc": 0.0001573463006729268,
        "at_display": null
       }
      },
@@ -2605,7 +2720,7 @@
        "rms": 0.14364703910707918,
        "range": 1420.3264389038086,
        "max_rel_range": 0.05114950511086059,
-       "one_minus_ncc": 1.1251092976700814e-06,
+       "one_minus_ncc": 1.1251092976700793e-06,
        "at_display": [
         104,
         69,
@@ -2988,6 +3103,788 @@
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: T1w (sha256 75c615d7cce397be…); fMRIPrep's denoised T1w (sha256 ec055df157667867…)",
     "Runs: figures cache entry `ants-denoise/fmriprep-ds000005-denoise and ants-denoise/fmriprep-ds000005-denoise-repeats`, computed 2026-10-21T15:20:52+00:00 with larmorx `1dfe56c0dc60`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs Version: 2.6.2.dev1-gff61a3d Compiled: Jul 31 2025 06:55:26; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ]
+  },
+  {
+   "id": "ants-44",
+   "title": "ANTS-44: denoising fMRIPrep's T1w within its brain mask",
+   "summary": "DenoiseImage with a mask (`-x`, Rician noise), on fMRIPrep 25.2.6's preprocessed T1w of OpenNeuro ds000005 sub-01 and its brain mask. The patches of the centres in the mask reach the voxels just outside it, which are denoised like the others; ITK smooths and corrects the Rician bias only inside the mask and leaves those voxels the raw noise estimate of a centre. larmorx's default gives them the smoothed and corrected bias, its reproduce mode ANTs' output.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds000005 (mixed-gambles task), v00001, sub-01 (CC0-1.0)"
+    },
+    {
+     "label": "Command",
+     "text": "`DenoiseImage -d 3 -i …/out/sub-01/anat/sub-01_desc-preproc_T1w.nii.gz -x …/out/sub-01/anat/sub-01_desc-brain_mask.nii.gz -n Rician -o [denoised.nii.gz,noise.nii.gz]`"
+    },
+    {
+     "label": "Defect",
+     "text": "[ANTS-44](repo:docs/findings/upstream-defects.md#ants-44-denoiseimages-bias-outside-the-mask--c): DenoiseImage's bias outside the mask; corrected by default (decided 2026-10-23), `reproduce` gives ANTs' result"
+    },
+    {
+     "label": "Effect",
+     "text": "70,886 voxels outside the mask change (the voxels next to it that a centre inside reached), 540,681 inside it (ANTS-43, corrected since 2026-10-12). Outside, the corrected voxels are denoised as the mask's own edge is: they move from the input by 8.5 on average (ANTs' 7.0; the mask's two-voxel inner edge 16.8), and 812 of them become 0 (ANTs' 3), as the Rician correction makes the darkest voxels inside the mask 0 too (1,299 of the edge's); Denoised image: 611,567 of 5,898,240 values change, by at most 177; Noise image: 618,279 of 5,898,240 values change, by at most 177"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0, one thread; larmorx at commit `e22378b480f4`, 6 threads"
+    },
+    {
+     "label": "Grid",
+     "text": "160 × 192 × 192 voxels of 1 × 1.33 × 1.33 mm; shown: 155 × 129 × 115 around the brain"
+    }
+   ],
+   "grid": {
+    "shape": [
+     155,
+     129,
+     115
+    ],
+    "spacing": [
+     1.0,
+     1.333333,
+     1.333333
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      2
+     ],
+     [
+      0,
+      1,
+      0,
+      16
+     ],
+     [
+      0,
+      0,
+      1,
+      30
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      1.0,
+      0.0,
+      0.0,
+      -79.0
+     ],
+     [
+      0.0,
+      1.333333,
+      0.0,
+      -111.666672
+     ],
+     [
+      0.0,
+      0.0,
+      1.333333,
+      -89.00001
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     160,
+     192,
+     192
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "ac3251a78a80a4cf814487f3.bin",
+    "dtype": "u1",
+    "bytes": 27367
+   },
+   "outputs": [
+    {
+     "id": "denoised",
+     "label": "Denoised image",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 1237.6219696044939
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -0.0003406518662814051,
+       "hi": 2638.841064453125
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "noise",
+     "label": "Noise image",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -69.31497356414795,
+       "hi": 50.78691083908092
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -224.75640869140625,
+       "hi": 364.4599304199219
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "t1w",
+     "role": "input",
+     "label": "ds000005 sub-01 T1w",
+     "sub": "fMRIPrep's desc-preproc_T1w",
+     "arrays": {
+      "all": {
+       "blob": "b8aa7e2e25779e7c80cd54ba.bin",
+       "dtype": "f4",
+       "bytes": 2965533
+      }
+     },
+     "window": [
+      0.0,
+      1241.8437640380862
+     ]
+    },
+    {
+     "id": "mask",
+     "role": "input",
+     "label": "Brain mask (-x)",
+     "sub": "fMRIPrep's desc-brain_mask",
+     "arrays": {
+      "all": {
+       "blob": "cc4157c2c065fe9556adfc3c.bin",
+       "dtype": "u1",
+       "bytes": 24569
+      }
+     },
+     "window": [
+      0.0,
+      1.0
+     ]
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "default mode: ANTS-44 corrected",
+     "arrays": {
+      "denoised": {
+       "blob": "a2db0f87376adf1da87f61a8.bin",
+       "dtype": "f4",
+       "xor": "t1w:all",
+       "zero": false,
+       "bytes": 2482014
+      },
+      "noise": {
+       "blob": "9e0d6390e9e0a5985bc45e0c.bin",
+       "dtype": "f4",
+       "bytes": 2699271
+      }
+     },
+     "own": {
+      "denoised": [
+       0.0,
+       1237.2168701171877
+      ],
+      "noise": [
+       -68.99604541778565,
+       52.95157745361332
+      ]
+     }
+    },
+    {
+     "id": "larmorx-reproduce",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "reproduce mode: ANTs' behaviour",
+     "arrays": {
+      "denoised": {
+       "blob": "e386d5f6381464ba614588b9.bin",
+       "dtype": "f4",
+       "xor": "larmorx:denoised",
+       "zero": false,
+       "bytes": 1660538
+      },
+      "noise": {
+       "blob": "1a9895970f1fcb5e5af96ff0.bin",
+       "dtype": "f4",
+       "xor": "larmorx:noise",
+       "zero": false,
+       "bytes": 1917804
+      }
+     },
+     "own": {
+      "denoised": [
+       0.0,
+       1237.6219696044939
+      ],
+      "noise": [
+       -69.31497356414795,
+       50.78691083908092
+      ]
+     }
+    },
+    {
+     "id": "ants-1-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, 1 thread, correctly rounded maths",
+     "sub": "the same binary, CORE-MATH preloaded",
+     "arrays": {
+      "denoised": {
+       "same": "larmorx-reproduce:denoised",
+       "dtype": "f4"
+      },
+      "noise": {
+       "same": "larmorx-reproduce:noise",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "denoised": [
+       0.0,
+       1237.6219696044939
+      ],
+      "noise": [
+       -69.31497356414795,
+       50.78691083908092
+      ]
+     }
+    },
+    {
+     "id": "ants-1",
+     "role": "original",
+     "label": "ANTs 2.6.5, 1 thread, as built",
+     "sub": "the repository's oracle build (GCC 14.3), glibc's maths",
+     "arrays": {
+      "denoised": {
+       "blob": "02e3489175e18c0eb5febc42.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:denoised",
+       "zero": false,
+       "bytes": 10418
+      },
+      "noise": {
+       "blob": "2fafe74a0bf6db22b5ff4d14.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:noise",
+       "zero": false,
+       "bytes": 10857
+      }
+     },
+     "own": {
+      "denoised": [
+       0.0,
+       1237.6219696044939
+      ],
+      "noise": [
+       -69.31497356414795,
+       50.78691083908092
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "fix-repro",
+     "a": "larmorx",
+     "b": "larmorx-reproduce",
+     "kind": "main",
+     "label": "larmorx default − reproduce mode (ANTS-44)",
+     "role_label": "larmorx's correction",
+     "metrics": {
+      "denoised": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 611567,
+       "share": 0.1036863538953993,
+       "max_abs": 177.12155151367188,
+       "at": [
+        71,
+        98,
+        79
+       ],
+       "a_at": 0.0,
+       "b_at": 177.12155151367188,
+       "rms": 0.9349947610567704,
+       "range": 2696.7935535424913,
+       "max_rel_range": 0.0656785727187037,
+       "one_minus_ncc": 4.983367316866685e-06,
+       "at_display": [
+        69,
+        82,
+        49
+       ]
+      },
+      "noise": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 618279,
+       "share": 0.10482432047526041,
+       "max_abs": 177.12155151367188,
+       "at": [
+        71,
+        98,
+        79
+       ],
+       "a_at": 120.69989013671875,
+       "b_at": -56.421661376953125,
+       "rms": 0.9349947605346275,
+       "range": 589.2163391113281,
+       "max_rel_range": 0.3006052951294788,
+       "one_minus_ncc": 0.007359400125821009,
+       "at_display": [
+        69,
+        82,
+        49
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 177.12155151367188,
+       "at": [
+        69,
+        82,
+        49
+       ],
+       "a": 0.0,
+       "b": 177.12155151367188,
+       "differ": 611567
+      },
+      "noise": {
+       "max_abs": 177.12155151367188,
+       "at": [
+        69,
+        82,
+        49
+       ],
+       "a": 120.69989013671875,
+       "b": -56.421661376953125,
+       "differ": 618271
+      }
+     },
+     "links": [
+      {
+       "label": "ANTS-44",
+       "href": "docs/findings/upstream-defects.md#ants-44-denoiseimages-bias-outside-the-mask--c"
+      }
+     ],
+     "verdict": "d13",
+     "reason": "ANTS-44, corrected by default with a warning: the voxels outside the mask that the patches of centres in the mask reach are denoised like the others, but ITK smooths and corrects their Rician bias only inside the mask and leaves them the raw noise estimate of the last such centre. larmorx gives them the smoothed and corrected bias, as inside; the voxels no centre reached are not denoised, as in ITK. Inside the mask the default also corrects ANTS-43 (the Rician correction factor's overflow at a high SNR, corrected since 2026-10-12). Reproduce mode gives ANTs' output."
+    },
+    {
+     "id": "fix-ants",
+     "a": "larmorx",
+     "b": "ants-1",
+     "kind": "main",
+     "label": "larmorx default − ANTs 2.6.5, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "denoised": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 611764,
+       "share": 0.10371975368923611,
+       "max_abs": 177.12155151367188,
+       "at": [
+        71,
+        98,
+        79
+       ],
+       "a_at": 0.0,
+       "b_at": 177.12155151367188,
+       "rms": 0.9349947605480872,
+       "range": 2696.7935535424913,
+       "max_rel_range": 0.0656785727187037,
+       "one_minus_ncc": 4.983367318362829e-06,
+       "at_display": [
+        69,
+        82,
+        49
+       ]
+      },
+      "noise": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 618472,
+       "share": 0.10485704210069445,
+       "max_abs": 177.12155151367188,
+       "at": [
+        71,
+        98,
+        79
+       ],
+       "a_at": 120.69989013671875,
+       "b_at": -56.421661376953125,
+       "rms": 0.9349947600630998,
+       "range": 589.2163391113281,
+       "max_rel_range": 0.3006052951294788,
+       "one_minus_ncc": 0.007359400121478644,
+       "at_display": [
+        69,
+        82,
+        49
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 177.12155151367188,
+       "at": [
+        69,
+        82,
+        49
+       ],
+       "a": 0.0,
+       "b": 177.12155151367188,
+       "differ": 611764
+      },
+      "noise": {
+       "max_abs": 177.12155151367188,
+       "at": [
+        69,
+        82,
+        49
+       ],
+       "a": 120.69989013671875,
+       "b": -56.421661376953125,
+       "differ": 618464
+      }
+     },
+     "links": [
+      {
+       "label": "ANTS-44",
+       "href": "docs/findings/upstream-defects.md#ants-44-denoiseimages-bias-outside-the-mask--c"
+      }
+     ],
+     "verdict": "d13",
+     "reason": "ANTS-44, corrected by default with a warning: the voxels outside the mask that the patches of centres in the mask reach are denoised like the others, but ITK smooths and corrects their Rician bias only inside the mask and leaves them the raw noise estimate of the last such centre. larmorx gives them the smoothed and corrected bias, as inside; the voxels no centre reached are not denoised, as in ITK. Inside the mask the default also corrects ANTS-43 (the Rician correction factor's overflow at a high SNR, corrected since 2026-10-12). Reproduce mode gives ANTs' output."
+    },
+    {
+     "id": "repro-cr",
+     "a": "larmorx-reproduce",
+     "b": "ants-1-cr",
+     "kind": "main",
+     "label": "larmorx reproduce − ANTs 2.6.5, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "denoised": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 4.6007399559021,
+       "b_at": 4.6007399559021,
+       "rms": 0.0,
+       "range": 2696.7935535424913,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "noise": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 589.2163391113281,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "noise": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "Reproduce mode gives ANTs' result, the defect included."
+    },
+    {
+     "id": "repro-ants",
+     "a": "larmorx-reproduce",
+     "b": "ants-1",
+     "kind": "main",
+     "label": "larmorx reproduce − ANTs 2.6.5, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "denoised": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 521,
+       "share": 8.833143446180555e-05,
+       "max_abs": 0.00018310546875,
+       "at": [
+        83,
+        101,
+        83
+       ],
+       "a_at": 627.169921875,
+       "b_at": 627.1697387695312,
+       "rms": 5.790996753414319e-07,
+       "range": 2696.7935535424913,
+       "max_rel_range": 6.789747346787958e-08,
+       "one_minus_ncc": 2.1591140756635626e-18,
+       "at_display": [
+        81,
+        85,
+        53
+       ]
+      },
+      "noise": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 522,
+       "share": 8.85009765625e-05,
+       "max_abs": 0.00018310546875,
+       "at": [
+        83,
+        101,
+        83
+       ],
+       "a_at": -44.39752197265625,
+       "b_at": -44.3973388671875,
+       "rms": 5.780079989885572e-07,
+       "range": 589.2163391113281,
+       "max_rel_range": 3.1076101695714103e-07,
+       "one_minus_ncc": 2.922389695289526e-15,
+       "at_display": [
+        81,
+        85,
+        53
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 0.00018310546875,
+       "at": [
+        81,
+        85,
+        53
+       ],
+       "a": 627.169921875,
+       "b": 627.1697387695312,
+       "differ": 521
+      },
+      "noise": {
+       "max_abs": 0.00018310546875,
+       "at": [
+        81,
+        85,
+        53
+       ],
+       "a": -44.39752197265625,
+       "b": -44.3973388671875,
+       "differ": 522
+      }
+     },
+     "links": [],
+     "verdict": "identical-cr",
+     "reason": "Only where glibc's maths is not correctly rounded: with CORE-MATH preloaded, ANTs gives larmorx's reproduce-mode output bit for bit (the row above)."
+    },
+    {
+     "id": "cr-ants",
+     "a": "ants-1-cr",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5: correctly rounded maths − glibc's",
+     "role_label": "the original against itself",
+     "metrics": {
+      "denoised": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 521,
+       "share": 8.833143446180555e-05,
+       "max_abs": 0.00018310546875,
+       "at": [
+        83,
+        101,
+        83
+       ],
+       "a_at": 627.169921875,
+       "b_at": 627.1697387695312,
+       "rms": 5.790996753414319e-07,
+       "range": 2696.7935535424913,
+       "max_rel_range": 6.789747346787958e-08,
+       "one_minus_ncc": 2.1591140756635626e-18,
+       "at_display": [
+        81,
+        85,
+        53
+       ]
+      },
+      "noise": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 522,
+       "share": 8.85009765625e-05,
+       "max_abs": 0.00018310546875,
+       "at": [
+        83,
+        101,
+        83
+       ],
+       "a_at": -44.39752197265625,
+       "b_at": -44.3973388671875,
+       "rms": 5.780079989885572e-07,
+       "range": 589.2163391113281,
+       "max_rel_range": 3.1076101695714103e-07,
+       "one_minus_ncc": 2.922389695289526e-15,
+       "at_display": [
+        81,
+        85,
+        53
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 0.00018310546875,
+       "at": [
+        81,
+        85,
+        53
+       ],
+       "a": 627.169921875,
+       "b": 627.1697387695312,
+       "differ": 521
+      },
+      "noise": {
+       "max_abs": 0.00018310546875,
+       "at": [
+        81,
+        85,
+        53
+       ],
+       "a": -44.39752197265625,
+       "b": -44.3973388671875,
+       "differ": 522
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "Where glibc's exp, log, sin or cos is not correctly rounded for a value the run meets: ANTs' own result moves with the maths library."
+    }
+   ],
+   "default": {
+    "output": "denoised",
+    "plane": "axial",
+    "voxel": [
+     35,
+     112,
+     68
+    ],
+    "panels": [
+     "t1w",
+     "ants-1",
+     "larmorx",
+     "larmorx-reproduce"
+    ],
+    "diffs": [
+     "fix-repro",
+     "repro-cr"
+    ],
+    "compare": {
+     "a": "ants-1",
+     "b": "larmorx"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 68,
+    "aspect": 0.90116,
+    "panels": {
+     "t1w": "2c529094a45cec1278cb5d9e.webp",
+     "ants-1": "0b64d6b230bf6cd9eb73c8c8.webp",
+     "larmorx": "ab444c8157f3e04ee2a0ac6f.webp",
+     "larmorx-reproduce": "0b64d6b230bf6cd9eb73c8c8.webp"
+    },
+    "diffs": {
+     "fix-repro": "ae2e0cf24011eaaff5e80638.webp"
+    },
+    "ranges": {
+     "fix-repro": 177.12155151367188
+    },
+    "caption": "Axial slice 69 of 115; the crosshair where larmorx's correction changes the output most outside the mask (ANTS-44; inside it the default also corrects ANTS-43)."
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B, over all 5,898,240 voxels of each output file; the rows *the original against itself* are ANTs' own variability on this input.",
+   "provenance": [
+    "Data: OpenNeuro ds000005 (mixed-gambles task), v00001, sub-01, CC0-1.0",
+    "Inputs: fMRIPrep's preprocessed T1w (sha256 8e977ad0c954252d…); fMRIPrep's brain mask (sha256 726851b7736940c8…)",
+    "Runs: figures cache entry `ants-denoise/ds000005-preproc-masked-ants44`, computed 2026-10-23T22:15:22+00:00 with larmorx `e22378b480f4`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ]
   }
  ]

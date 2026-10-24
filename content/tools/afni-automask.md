@@ -66,7 +66,9 @@ Each case of the record, with what it tests, its command line, the verdict and t
 
 ## Corrections by default {#corrections}
 
-The replica corrects AFNI's deterministic defects by default and warns: the record's fix pass meets AFNI-43 (`-peels 0`), AFNI-01 (a negative scale factor dropped while averaging a series) and the dataset defects 3dAutomask shares with 3dTshift (AFNI-02, AFNI-07, AFNI-11, AFNI-12, AFNI-16, AFNI-18, AFNI-23, AFNI-26), with `upstream_defects="reproduce"` giving AFNI's behaviour ([register](repo:docs/findings/upstream-defects.md)). AFNI-41, AFNI-42 and AFNI-44 behave as in AFNI until they are decided.
+The replica corrects AFNI's deterministic defects by default and warns: the record's fix pass meets AFNI-43 (`-peels 0`), AFNI-01 (a negative scale factor dropped while averaging a series) and the dataset defects 3dAutomask shares with 3dTshift (AFNI-02, AFNI-07, AFNI-11, AFNI-12, AFNI-16, AFNI-18, AFNI-23, AFNI-26), with `upstream_defects="reproduce"` giving AFNI's behaviour ([register](repo:docs/findings/upstream-defects.md)). AFNI-42 and AFNI-44 are kept as AFNI does them in both modes (decided 2026-10-23: deliberate behaviour that fMRIPrep's masks rely on).
+
+**Refused by default: AFNI-41.** `-nbhrs` takes a value between 6 and 26, as the help says; outside that range AFNI accepts it silently and peels as with 17. A value outside the range makes no sense, and the project's rule for that case (2026-10-23) is a clear error: by default the replica stops with a message naming AFNI-41, before reading the input; `LARMORX_UPSTREAM_DEFECTS=reproduce` gives AFNI's mask, bit for bit. The case explorer shows it: [options/nbhrs-40](#case=options/nbhrs-40), and in the standard tier `nbhrs-5`, `nbhrs-27`, `nbhrs-0` and `nbhrs-40-then-NN1`, each with the verdict *deliberate correction* (refused by default) and bit-identical to AFNI in reproduce mode.
 
 ## Known limits {#limits}
 
