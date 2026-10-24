@@ -3,19 +3,19 @@
  "tool": "afni-unifize",
  "title": "3dUnifize",
  "provenance": {
-  "exporter": "803c9d8080fc5d1ca746e5f462bc5daafb3f1fd5",
+  "exporter": "e9ed712fe266d5f90534789eabeb6c5ff1a85d26",
   "records": [
    {
     "path": "docs/validation/afni-unifize.json",
-    "sha256": "ea3c12cc77d005d899e9df80da98d815395f51f45043187992bf46a0e13faf44",
-    "generated": "2026-10-23",
-    "larmorx_commit": "ee419c4422bc"
+    "sha256": "dbf1dd79edaeb7e26e1ba64da826fdacf3fe4d79ab83bf028033c0ec5cd68847",
+    "generated": "2026-10-24",
+    "larmorx_commit": "6bf2860fb745"
    },
    {
     "path": "docs/validation/afni-unifize.md",
-    "sha256": "f9c474f1d108c935af46d6cd87f2b18bcdc4f2c25cc657decd238f21c8dbcb1c",
-    "generated": "2026-10-23",
-    "larmorx_commit": "ee419c4422bc"
+    "sha256": "0897a62ac16a7b283abe3389607cf3095121b9fd1a895f4582f517a769a124ef",
+    "generated": "2026-10-24",
+    "larmorx_commit": "6bf2860fb745"
    }
   ],
   "benchmarks": [],
@@ -444,9 +444,10 @@
    "record": "docs/validation/afni-unifize.md",
    "status": "validated",
    "summary": {
-    "cases": 97,
+    "cases": 99,
     "verdicts": {
      "bit-identical": 74,
+     "d13": 2,
      "divergence": 4,
      "both-reject": 19
     }
@@ -455,7 +456,8 @@
     {
      "category": "options",
      "counts": {
-      "bit-identical": 33
+      "bit-identical": 33,
+      "d13": 2
      }
     },
     {
@@ -704,8 +706,36 @@
   {
    "id": "options/T2-T2-T2",
    "category": "options",
-   "description": "-T2 three times: neither (AFNI-48)",
+   "description": "-T2 three times: AFNI neither inverts back nor clips; refused by default (AFNI-48)",
    "command": "3dUnifize -T2 -T2 -T2 -prefix uni.nii <generated: head-t2-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "6/6",
+     "reason": "Refused by default (AFNI-48, decided 2026-10-23, rule B: the input makes no sense and AFNI silently does something arbitrary): the help documents -T2 once and twice; given a third time it neither inverts the output back nor clips its edges, so AFNI writes an inverted image. The replica's default stops with a fatal error naming the entry (exit status 1); its reproduce mode gives AFNI's output, whi…"
+    }
+   }
+  },
+  {
+   "id": "options/T2-x4",
+   "category": "options",
+   "description": "-T2 four times: as three (AFNI-48)",
+   "command": "3dUnifize -T2 -T2 -T2 -T2 -prefix uni.nii <generated: head-t2-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "6/6",
+     "reason": "Refused by default (AFNI-48, decided 2026-10-23, rule B: the input makes no sense and AFNI silently does something arbitrary): the help documents -T2 once and twice; given a third time it neither inverts the output back nor clips its edges, so AFNI writes an inverted image. The replica's default stops with a fatal error naming the entry (exit status 1); its reproduce mode gives AFNI's output, whi…"
+    }
+   }
+  },
+  {
+   "id": "options/T2-x3-EPI",
+   "category": "options",
+   "description": "-T2 three times with -EPI: -EPI sets one -T2, nothing refused",
+   "command": "3dUnifize -T2 -T2 -T2 -EPI -prefix uni.nii <generated: series-f32>",
    "results": {
     "replica": {
      "outcome": "pass",
@@ -1761,7 +1791,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "11/11",
-     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1775,7 +1805,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "11/11",
-     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1789,7 +1819,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "11/11",
-     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1803,7 +1833,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "11/11",
-     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    },
    "example": "fmriprep-unifize"
@@ -1818,7 +1848,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "11/11",
-     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1832,7 +1862,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "11/11",
-     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1846,7 +1876,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "11/11",
-     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1880,7 +1910,7 @@
    }
   }
  ],
- "cases_total": 97,
+ "cases_total": 99,
  "examples": [
   {
    "id": "fmriprep-unifize",

@@ -3,19 +3,19 @@
  "tool": "ants-n4",
  "title": "N4BiasFieldCorrection",
  "provenance": {
-  "exporter": "146ec72dd34cb66c17f1ba7b866b1bc89c83ffd3",
+  "exporter": "e9ed712fe266d5f90534789eabeb6c5ff1a85d26",
   "records": [
    {
     "path": "docs/validation/ants-n4.json",
-    "sha256": "6757171b0f985a3523cb0885f614918fcaf6296cc456d383cd03a50bae1a7a60",
-    "generated": "2026-10-12",
-    "larmorx_commit": "50509e30b3e8"
+    "sha256": "1cbbf32e1c3dd83bbb9b0defcc6660d33ba13735f9842194bf16a831a9e1931d",
+    "generated": "2026-10-24",
+    "larmorx_commit": "6bf2860fb745"
    },
    {
     "path": "docs/validation/ants-n4.md",
-    "sha256": "43c37fa400f6f87506c8834afe5ebbba03ad7f0f7c7669f829500a2bbf3088b3",
-    "generated": "2026-10-12",
-    "larmorx_commit": "50509e30b3e8"
+    "sha256": "533565d0c75aac5133dc58b98bb3c2a8ca5b2dc32724766b2ca5c6099e4ebb7a",
+    "generated": "2026-10-24",
+    "larmorx_commit": "6bf2860fb745"
    }
   ],
   "benchmarks": [
@@ -31,7 +31,7 @@
     "entry": "ants-n4/fmriprep-ds000005-final-n4",
     "description": "fMRIPrep's final N4 (inu_n4_final) of ds000005 sub-01: fMRIPrep, ANTs 2.6.5 and larmorx",
     "computed": "2026-10-21T09:26:11+00:00",
-    "larmorx_commit": "c61f3c1a18472f4b236f45e156f67152547df7f1",
+    "larmorx_commit": "e22378b480f4df857986bfbc9db907f448d17009",
     "commands": [
      {
       "label": "ants-1",
@@ -409,7 +409,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "fix"
       },
       "exit": 0,
-      "seconds": 4.05
+      "seconds": 7.34
      },
      {
       "label": "larmorx-1-reproduce",
@@ -448,11 +448,14 @@
        "LARMORX_UPSTREAM_DEFECTS": "reproduce"
       },
       "exit": 0,
-      "seconds": 3.87
+      "seconds": 7.31
      },
      {
       "label": "larmorx-12",
       "argv": [
+       "taskset",
+       "-c",
+       "9,10,11",
        "<workspace>/.venv/bin/python",
        "-m",
        "larmorx",
@@ -487,11 +490,14 @@
        "LARMORX_UPSTREAM_DEFECTS": "fix"
       },
       "exit": 0,
-      "seconds": 1.45
+      "seconds": 4.86
      },
      {
       "label": "larmorx-12-reproduce",
       "argv": [
+       "taskset",
+       "-c",
+       "9,10,11",
        "<workspace>/.venv/bin/python",
        "-m",
        "larmorx",
@@ -526,7 +532,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "reproduce"
       },
       "exit": 0,
-      "seconds": 1.51
+      "seconds": 4.68
      }
     ],
     "versions": {
@@ -549,7 +555,162 @@
      "fmriprep_run": 8
     },
     "settings": "fMRIPrep 25.2.6's final N4 of its brain extraction (inu_n4_final), ds000005 sub-01, its arguments from command.txt and its inputs from the run's working directory; fMRIPrep ran it with NSLOTS=8"
+   },
+   {
+    "entry": "ants-n4/fmriprep-ds005454-final-n4-ants40",
+    "description": "ANTS-40: fMRIPrep's final N4 of a 7T T1w, which ANTs leaves uncorrected",
+    "computed": "2026-10-23T22:04:37+00:00",
+    "larmorx_commit": "e22378b480f4df857986bfbc9db907f448d17009",
+    "commands": [
+     {
+      "label": "ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
+       "--bspline-fitting",
+       "[",
+       "200",
+       "]",
+       "-d",
+       "3",
+       "--input-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/anat_template_wf/anat_merge/sub-16_acq-denoised_T1w_noise_corrected_template.nii.gz",
+       "--convergence",
+       "[",
+       "50x50x50x50x50,",
+       "1e-07",
+       "]",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds005454-final-n4-ants40/ants-1-corrected.nii.gz,<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds005454-final-n4-ants40/ants-1-bias.nii.gz]",
+       "-r",
+       "--shrink-factor",
+       "4",
+       "--weight-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 109.75
+     },
+     {
+      "label": "ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/N4BiasFieldCorrection",
+       "--bspline-fitting",
+       "[",
+       "200",
+       "]",
+       "-d",
+       "3",
+       "--input-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/anat_template_wf/anat_merge/sub-16_acq-denoised_T1w_noise_corrected_template.nii.gz",
+       "--convergence",
+       "[",
+       "50x50x50x50x50,",
+       "1e-07",
+       "]",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds005454-final-n4-ants40/ants-1-cr-corrected.nii.gz,<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds005454-final-n4-ants40/ants-1-cr-bias.nii.gz]",
+       "-r",
+       "--shrink-factor",
+       "4",
+       "--weight-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 102.77
+     },
+     {
+      "label": "larmorx",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "N4BiasFieldCorrection",
+       "--bspline-fitting",
+       "[",
+       "200",
+       "]",
+       "-d",
+       "3",
+       "--input-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/anat_template_wf/anat_merge/sub-16_acq-denoised_T1w_noise_corrected_template.nii.gz",
+       "--convergence",
+       "[",
+       "50x50x50x50x50,",
+       "1e-07",
+       "]",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds005454-final-n4-ants40/larmorx-corrected.nii.gz,<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds005454-final-n4-ants40/larmorx-bias.nii.gz]",
+       "-r",
+       "--shrink-factor",
+       "4",
+       "--weight-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 12.18
+     },
+     {
+      "label": "larmorx-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "N4BiasFieldCorrection",
+       "--bspline-fitting",
+       "[",
+       "200",
+       "]",
+       "-d",
+       "3",
+       "--input-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/anat_template_wf/anat_merge/sub-16_acq-denoised_T1w_noise_corrected_template.nii.gz",
+       "--convergence",
+       "[",
+       "50x50x50x50x50,",
+       "1e-07",
+       "]",
+       "--output",
+       "[<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds005454-final-n4-ants40/larmorx-reproduce-corrected.nii.gz,<workspace>/oracles/figures-cache/ants-n4/fmriprep-ds005454-final-n4-ants40/larmorx-reproduce-bias.nii.gz]",
+       "-r",
+       "--shrink-factor",
+       "4",
+       "--weight-image",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 13.01
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "threads": {
+     "ants": 1,
+     "larmorx": 6
+    },
+    "settings": "fMRIPrep 25.2.6's final N4 of ds005454 sub-16 (inu_n4_final), its arguments from command.txt and its inputs from the run's working directory"
    }
+  ],
+  "measurements": [
+   "validation/investigations/ants-40-n4-nonpositive/analysis.json",
+   "validation/investigations/ants-40-n4-nonpositive/phantom.json"
   ],
   "command": "python -m larmorx_validation evidence ants-n4 --site <site>"
  },
@@ -561,10 +722,11 @@
    "record": "docs/validation/ants-n4.md",
    "status": "validated",
    "summary": {
-    "cases": 51,
+    "cases": 52,
     "verdicts": {
      "identical-cr": 16,
      "bit-identical": 30,
+     "d13": 1,
      "both-reject": 5
     }
    },
@@ -587,7 +749,8 @@
      "category": "inputs",
      "counts": {
       "bit-identical": 8,
-      "identical-cr": 4
+      "identical-cr": 4,
+      "d13": 1
      }
     },
     {
@@ -625,7 +788,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "corrected: as built, 467120 of 1082035 differ; max |diff| 0.00439, max rel 1.7e-06, 1 - NCC 8.8e-15 (÷ ANTs' thread band: 0.25 max |Δ|, 0.16 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "corrected: as built, 467120 of 1082035 differ; max |diff| 0.00439, max rel 1.7e-06, 1 - NCC 0 (÷ ANTs' thread band: 0.25 max |Δ|, 0 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -752,7 +915,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "corrected: as built, 517729 of 5898240 differ; max |diff| 0.000244, max rel 3.4e-07, 1 - NCC 4.7e-14 (÷ ANTs' thread band: 0.023 max |Δ|, 0.012 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "corrected: as built, 517729 of 5898240 differ; max |diff| 0.000244, max rel 3.4e-07, 1 - NCC 5.8e-14 (÷ ANTs' thread band: 0.023 max |Δ|, 0.015 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -850,7 +1013,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "corrected: as built, 33414 of 35840 differ; max |diff| 0.000122, max rel 8e-07, 1 - NCC 4.8e-15 (÷ ANTs' thread band: 0.36 max |Δ|, 0.28 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "corrected: as built, 33414 of 35840 differ; max |diff| 0.000122, max rel 8e-07, 1 - NCC 4.4e-15 (÷ ANTs' thread band: 0.36 max |Δ|, 0.26 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -878,7 +1041,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "corrected: as built, 33414 of 35840 differ; max |diff| 0.000122, max rel 8e-07, 1 - NCC 4.8e-15 (÷ ANTs' thread band: 0.36 max |Δ|, 0.28 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "corrected: as built, 33414 of 35840 differ; max |diff| 0.000122, max rel 8e-07, 1 - NCC 4.4e-15 (÷ ANTs' thread band: 0.36 max |Δ|, 0.26 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -1079,9 +1242,23 @@
    }
   },
   {
+   "id": "inputs/zero-background-known",
+   "category": "inputs",
+   "description": "a brain on an exact 0 background with 1 % dropout (0 and -20), no mask: by default the non-positive voxels are left out of the fit, which gives ANTs' own bias field with a mask of the positive voxels (one thread, correctly rounded maths); ANTs fits them like tissue",
+   "command": "N4BiasFieldCorrection -d 3 -i '<generated: known-n4-zero-background>' -s 2 -c [20x20,0] -o [out.nii.gz,bias.nii.gz]",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "21/21",
+     "reason": "ANTS-40, corrected by default (decided 2026-10-23): larmorx's default gives the methodically correct result bit for bit, checked against ANTs' own N4 with a mask of the positive voxels, where the defect cannot arise (one thread, correctly rounded maths); its reproduce mode gives ANTs's output bit for bit (the record's comparison)."
+    }
+   }
+  },
+  {
    "id": "inputs/outliers",
    "category": "inputs",
-   "description": "hot, negative and zero voxels (NaN and -inf read as 0): non-positive values keep their value in the log image",
+   "description": "hot, negative and zero voxels (NaN and -inf read as 0): ANTs keeps non-positive values in its log image (ANTS-40, corrected by default)",
    "command": "N4BiasFieldCorrection -d 3 -i '<generated: head-outliers>' -c [20x20] -o out.nii.gz",
    "results": {
     "port": {
@@ -1228,7 +1405,7 @@
      "outcome": "pass",
      "verdict": "identical-cr",
      "checks": "12/12",
-     "reason": "corrected: as built, 53416 of 94276 differ; max |diff| 0.00165, max rel 2.4e-06, 1 - NCC 2.4e-13 (÷ ANTs' thread band: 0.39 max |Δ|, 0.74 1 − NCC); bit-identical with correctly rounded maths"
+     "reason": "corrected: as built, 53416 of 94276 differ; max |diff| 0.00165, max rel 2.4e-06, 1 - NCC 2.4e-13 (÷ ANTs' thread band: 0.39 max |Δ|, 0.73 1 − NCC); bit-identical with correctly rounded maths"
     }
    }
   },
@@ -1256,7 +1433,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "ANTs exit -6: \"s/antsCommandLineParser.h:133:\\nITK ERROR: CommandLineParser(0x5924ed7c9da0): ERROR: Parse error occured during command line argument processing\\nERROR: Unable to convert '2.5' to type 'i' as signed int\"; larmorx exit 1: \"la…"
+     "reason": "ANTs exit -6: \"s/antsCommandLineParser.h:133:\\nITK ERROR: CommandLineParser(0x5bcba1094da0): ERROR: Parse error occured during command line argument processing\\nERROR: Unable to convert '2.5' to type 'i' as signed int\"; larmorx exit 1: \"la…"
     }
    }
   },
@@ -1317,9 +1494,9 @@
    }
   }
  ],
- "cases_total": 51,
+ "cases_total": 52,
  "band": {
-  "title": "The 16 cases that differ from ANTs as built: larmorx's difference divided by ANTs' own difference between thread counts (log scale)",
+  "title": "The 17 cases that differ from ANTs as built: larmorx's difference divided by ANTs' own difference between thread counts (log scale)",
   "axis": [
    0.001,
    10.0
@@ -1357,7 +1534,7 @@
     "case": "fmriprep/boldref-template",
     "output": "corrected",
     "ratio_max": 0.25,
-    "ratio_ncc": 0.16
+    "ratio_ncc": 0.0
    },
    {
     "case": "fmriprep/smriprep-pre-template",
@@ -1393,7 +1570,7 @@
     "case": "fmriprep/t1w-preproc-mask",
     "output": "corrected",
     "ratio_max": 0.023,
-    "ratio_ncc": 0.012
+    "ratio_ncc": 0.015
    },
    {
     "case": "options/mask-and-weight",
@@ -1405,7 +1582,7 @@
     "case": "options/shrink-1",
     "output": "corrected",
     "ratio_max": 0.36,
-    "ratio_ncc": 0.28
+    "ratio_ncc": 0.26
    },
    {
     "case": "options/shrink-3",
@@ -1417,7 +1594,7 @@
     "case": "options/shrink-0",
     "output": "corrected",
     "ratio_max": 0.36,
-    "ratio_ncc": 0.28
+    "ratio_ncc": 0.26
    },
    {
     "case": "options/distance-30",
@@ -1444,6 +1621,18 @@
     "ratio_ncc": 0.0031
    },
    {
+    "case": "inputs/zero-background-known",
+    "output": "corrected",
+    "ratio_max": 2.2,
+    "ratio_ncc": 5.3
+   },
+   {
+    "case": "inputs/zero-background-known",
+    "output": "bias field",
+    "ratio_max": 2.4,
+    "ratio_ncc": 4.7
+   },
+   {
     "case": "inputs/las-sform-only",
     "output": "corrected",
     "ratio_max": 0.46,
@@ -1459,7 +1648,7 @@
     "case": "inputs/bold-first-volume",
     "output": "corrected",
     "ratio_max": 0.39,
-    "ratio_ncc": 0.74
+    "ratio_ncc": 0.73
    }
   ],
   "note": "From the record's table: ANTs at 2, 3, 4, 8 and 12 threads against 1 thread give ANTs' thread band for each case and output; a ratio below 1 lies inside it. Every one of these differences vanishes with correctly rounded maths."
@@ -1584,6 +1773,1169 @@
   ],
   "note": "From the benchmark report `docs/benchmarks/ants-n4.json` (Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz, 12 logical CPUs), measured on 2026-10-11 against the ANTs build of that day; a re-run against the current oracle build is planned."
  },
+ "tables": [
+  {
+   "id": "ants-40-calls",
+   "title": "ANTS-40 on fMRIPrep's 25 N4 calls: the voxels N4 uses that are 0 or negative, and how leaving them out changes the bias field (its global factor; its shape, the ratio over its median, over fMRIPrep's brain mask, the head for the field maps), beside ANTs' own variability (1 against 6 threads) and, for the final N4s, the white matter's CV over the N4's weight region",
+   "columns": [
+    {
+     "label": "Call"
+    },
+    {
+     "label": "0 or negative",
+     "num": true
+    },
+    {
+     "label": "voxels used",
+     "num": true
+    },
+    {
+     "label": "global factor",
+     "num": true
+    },
+    {
+     "label": "shape change, 99th pct",
+     "num": true
+    },
+    {
+     "label": "shape change, max",
+     "num": true
+    },
+    {
+     "label": "ANTs' thread band, 99th pct",
+     "num": true
+    },
+    {
+     "label": "WM CV: input",
+     "num": true
+    },
+    {
+     "label": "ANTs",
+     "num": true
+    },
+    {
+     "label": "corrected",
+     "num": true
+    }
+   ],
+   "rows": [
+    {
+     "head": "ds000005-sub-01: T1w, the brain extraction's final N4",
+     "sub": "weight image; over the brain",
+     "cells": [
+      {
+       "v": 8,
+       "fmt": "count"
+      },
+      {
+       "v": 10657,
+       "fmt": "count"
+      },
+      {
+       "v": 0.9546227149952069,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.03043119748117512,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.16657865202511757,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.1089947766169672e-05,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.08787097416326595,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.04119456569836839,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.04113045351398362,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "ds000005-sub-01: T1w, the brain extraction's first N4",
+     "sub": "over the brain",
+     "cells": [
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "v": 92160,
+       "fmt": "count"
+      },
+      {
+       "v": 1.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.9885916366382257e-05,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds000005-sub-01: BOLD reference (task mixedgamblestask run 01)",
+     "sub": "weight image; over the brain",
+     "cells": [
+      {
+       "v": 61,
+       "fmt": "count"
+      },
+      {
+       "v": 688,
+       "fmt": "count"
+      },
+      {
+       "v": 0.963305063012364,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.10828485204199394,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.20724199571749602,
+       "fmt": "sig"
+      },
+      {
+       "v": 2.994672428524579e-06,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds000005-sub-01: BOLD reference (task mixedgamblestask run 02)",
+     "sub": "weight image; over the brain",
+     "cells": [
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "v": 693,
+       "fmt": "count"
+      },
+      {
+       "v": 1.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.00030758569136313696,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds000005-sub-01: BOLD reference (task mixedgamblestask run 03)",
+     "sub": "weight image; over the brain",
+     "cells": [
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "v": 704,
+       "fmt": "count"
+      },
+      {
+       "v": 1.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.003103109819301369,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds001600-sub-1: T1w, the brain extraction's final N4",
+     "sub": "weight image; over the brain",
+     "cells": [
+      {
+       "v": 1,
+       "fmt": "count"
+      },
+      {
+       "v": 19028,
+       "fmt": "count"
+      },
+      {
+       "v": 0.9700017685623035,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.005986672855719737,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.025094166309434396,
+       "fmt": "sig"
+      },
+      {
+       "v": 3.344620492877759e-06,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.06961929193282292,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.03583867346242373,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.03571407191177008,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "ds001600-sub-1: T1w, the brain extraction's first N4",
+     "sub": "over the brain",
+     "cells": [
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "v": 180224,
+       "fmt": "count"
+      },
+      {
+       "v": 1.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 2.4320764801288864e-06,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds001600-sub-1: field-map magnitude (wf auto 00000)",
+     "sub": "over the head",
+     "cells": [
+      {
+       "v": 1302,
+       "fmt": "count"
+      },
+      {
+       "v": 2816,
+       "fmt": "count"
+      },
+      {
+       "v": 0.9619805360615762,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.35891494375547217,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.6253613930902031,
+       "fmt": "sig"
+      },
+      {
+       "v": 7.976425491615902e-06,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds001600-sub-1: field-map magnitude (wf auto 00001)",
+     "sub": "over the head",
+     "cells": [
+      {
+       "v": 1352,
+       "fmt": "count"
+      },
+      {
+       "v": 2816,
+       "fmt": "count"
+      },
+      {
+       "v": 0.9870007858021723,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.09728781426158253,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.4325958950792932,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.4923723325681587e-05,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds001600-sub-1: field-map magnitude (wf auto 00002)",
+     "sub": "over the head",
+     "cells": [
+      {
+       "v": 1368,
+       "fmt": "count"
+      },
+      {
+       "v": 2816,
+       "fmt": "count"
+      },
+      {
+       "v": 0.9991342936177601,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.19340727975293667,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.5130938004824386,
+       "fmt": "sig"
+      },
+      {
+       "v": 4.434032237972118e-06,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds001600-sub-1: field-map magnitude (wf auto 00003)",
+     "sub": "over the head",
+     "cells": [
+      {
+       "v": 2950,
+       "fmt": "count"
+      },
+      {
+       "v": 6000,
+       "fmt": "count"
+      },
+      {
+       "v": 1.0692411858680857,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.17338130069744367,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.37809942809972763,
+       "fmt": "sig"
+      },
+      {
+       "v": 3.6164803536220553e-06,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds005040-sub-002: T1w, the brain extraction's final N4",
+     "sub": "weight image; over the brain",
+     "cells": [
+      {
+       "v": 9,
+       "fmt": "count"
+      },
+      {
+       "v": 35692,
+       "fmt": "count"
+      },
+      {
+       "v": 0.7673483623116373,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.054203299702722155,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.11029953679300686,
+       "fmt": "sig"
+      },
+      {
+       "v": 4.8992597907338015e-06,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.09321995278973012,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.03197552624668357,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.031325417071470636,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "ds005040-sub-002: T1w, the brain extraction's first N4",
+     "sub": "over the brain",
+     "cells": [
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "v": 248832,
+       "fmt": "count"
+      },
+      {
+       "v": 1.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 8.06501805056259e-06,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds005040-sub-002: BOLD reference (task clip run 1)",
+     "sub": "weight image; over the brain",
+     "cells": [
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "v": 1042,
+       "fmt": "count"
+      },
+      {
+       "v": 1.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0003714165446962671,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds005040-sub-002: field-map magnitude (wf auto 00000)",
+     "sub": "over the head",
+     "cells": [
+      {
+       "v": 981,
+       "fmt": "count"
+      },
+      {
+       "v": 2560,
+       "fmt": "count"
+      },
+      {
+       "v": 1.0481369432750274,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.26454445214906425,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.0254778451091777,
+       "fmt": "sig"
+      },
+      {
+       "v": 5.528753413770455e-06,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds005454-sub-16: T1w template, before merging (image 1)",
+     "sub": "over the brain",
+     "cells": [
+      {
+       "v": 116646,
+       "fmt": "count"
+      },
+      {
+       "v": 274176,
+       "fmt": "count"
+      },
+      {
+       "v": 0.8318955282218192,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.07279976559881574,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.10985171144467243,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.6766312306165655e-05,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds005454-sub-16: T1w template, before merging (image 2)",
+     "sub": "over the brain",
+     "cells": [
+      {
+       "v": 81506,
+       "fmt": "count"
+      },
+      {
+       "v": 274176,
+       "fmt": "count"
+      },
+      {
+       "v": 1.4626010510943082,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.11592955936584001,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.13010212935200016,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.740118213795494e-05,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds005454-sub-16: T1w, the brain extraction's final N4",
+     "sub": "weight image; over the brain",
+     "cells": [
+      {
+       "v": 43,
+       "fmt": "count"
+      },
+      {
+       "v": 33471,
+       "fmt": "count"
+      },
+      {
+       "v": 0.8695276363807739,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.30089840529691425,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.3957987965409854,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.1084964104401962e-05,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.07624779492328711,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.07624975190992529,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.06889232711230028,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "ds005454-sub-16: T1w, the brain extraction's first N4",
+     "sub": "over the brain",
+     "cells": [
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "v": 274176,
+       "fmt": "count"
+      },
+      {
+       "v": 1.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.6699601791780874e-05,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds005454-sub-16: BOLD reference (task rest)",
+     "sub": "weight image; over the brain",
+     "cells": [
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "v": 9775,
+       "fmt": "count"
+      },
+      {
+       "v": 1.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 2.136255026410349e-06,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds005454-sub-16: field-map magnitude (wf gre16)",
+     "sub": "over the head",
+     "cells": [
+      {
+       "v": 6190,
+       "fmt": "count"
+      },
+      {
+       "v": 13328,
+       "fmt": "count"
+      },
+      {
+       "v": 0.9783234236109334,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.18044189750821368,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.39953703043039135,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.0360100700528305e-05,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds005752-sub-ON01016: T1w, the brain extraction's final N4",
+     "sub": "weight image; over the brain",
+     "cells": [
+      {
+       "v": 4,
+       "fmt": "count"
+      },
+      {
+       "v": 15275,
+       "fmt": "count"
+      },
+      {
+       "v": 0.9329596112220874,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.016416789418259952,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.03760060556754352,
+       "fmt": "sig"
+      },
+      {
+       "v": 6.873306194368213e-06,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.08030471209536724,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.049758957327789795,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.04971452730305368,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "ds005752-sub-ON01016: T1w, the brain extraction's first N4",
+     "sub": "over the brain",
+     "cells": [
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "v": 200704,
+       "fmt": "count"
+      },
+      {
+       "v": 1.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0,
+       "fmt": "sig"
+      },
+      {
+       "v": 1.1119331465246907e-05,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds005752-sub-ON01016: BOLD reference (ses 01 task rest dir forward)",
+     "sub": "weight image; over the brain",
+     "cells": [
+      {
+       "v": 1,
+       "fmt": "count"
+      },
+      {
+       "v": 778,
+       "fmt": "count"
+      },
+      {
+       "v": 1.009056208168101,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.011843422319524151,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.029429302355096,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.000613637228872994,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "ds005752-sub-ON01016: BOLD reference (ses 01 task rest dir reverse)",
+     "sub": "weight image; over the brain",
+     "cells": [
+      {
+       "v": 3,
+       "fmt": "count"
+      },
+      {
+       "v": 771,
+       "fmt": "count"
+      },
+      {
+       "v": 0.9983835238868477,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.025346246684981966,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.05859791442473372,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.0029912078167326013,
+       "fmt": "sig"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    }
+   ],
+   "note": "From `validation/investigations/ants-40-n4-nonpositive/analysis.json` (measure.py and analyse.py, larmorx's N4 as ANTs runs it with and without a mask of the positive voxels, which the unit test and the parity case `inputs/zero-background-known` show to be the correction)."
+  },
+  {
+   "id": "ants-40-phantoms",
+   "title": "ANTS-40 on phantoms with a known bias field (±25 %): the error of the estimated field's shape and the white matter's CV, ANTs' way and with the zero voxels left out",
+   "columns": [
+    {
+     "label": "Phantom"
+    },
+    {
+     "label": "zero voxels",
+     "num": true
+    },
+    {
+     "label": "field error: ANTs",
+     "num": true
+    },
+    {
+     "label": "corrected",
+     "num": true
+    },
+    {
+     "label": "WM CV: input",
+     "num": true
+    },
+    {
+     "label": "ANTs",
+     "num": true
+    },
+    {
+     "label": "corrected",
+     "num": true
+    }
+   ],
+   "rows": [
+    {
+     "head": "zero background",
+     "cells": [
+      {
+       "v": 768640,
+       "fmt": "count"
+      },
+      {
+       "v": 0.025972309827985696,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.009668425048439311,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.06596437841653824,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.02706295167315657,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.025471699645419316,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "zero dropout",
+     "cells": [
+      {
+       "v": 773901,
+       "fmt": "count"
+      },
+      {
+       "v": 0.026432148586294786,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.009612543902717393,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.1570405662059784,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.14478700127492136,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.14451557477685467,
+       "fmt": "sig"
+      }
+     ]
+    },
+    {
+     "head": "noisy background",
+     "cells": [
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "v": 0.1112025119380903,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.1112025119380903,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.06596437841653824,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.02571310080067887,
+       "fmt": "sig"
+      },
+      {
+       "v": 0.02571310080067887,
+       "fmt": "sig"
+      }
+     ]
+    }
+   ],
+   "note": "From `validation/investigations/ants-40-n4-nonpositive/phantom.json` (phantom.py); the noisy background has no zero voxel, so both runs give the same bits there."
+  }
+ ],
  "examples": [
   {
    "id": "final-n4",
@@ -1604,7 +2956,7 @@
     },
     {
      "label": "Programs",
-     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs 2.6.2.dev1-gff61a3d (conda-forge) in fMRIPrep's image; CORE-MATH's correctly rounded functions preloaded where stated; larmorx at commit `c61f3c1a1847`"
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs 2.6.2.dev1-gff61a3d (conda-forge) in fMRIPrep's image; CORE-MATH's correctly rounded functions preloaded where stated; larmorx at commit `e22378b480f4`"
     },
     {
      "label": "Grid",
@@ -1777,7 +3129,7 @@
      "id": "larmorx",
      "role": "larmorx",
      "label": "larmorx (port), 1 thread",
-     "sub": "default mode",
+     "sub": "reproduce mode",
      "arrays": {
       "bias": {
        "blob": "462d9a75c33f76d84f74a467.bin",
@@ -1812,77 +3164,86 @@
      "id": "larmorx-12",
      "role": "larmorx",
      "label": "larmorx (port), 12 threads",
+     "sub": "reproduce mode",
+     "arrays": {
+      "bias": {
+       "same": "larmorx:bias",
+       "dtype": "f4"
+      },
+      "corrected": {
+       "same": "larmorx:corrected",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "corrected": [
+       7.338318796157838,
+       1076.472921752929
+      ],
+      "bias": [
+       0.18575943440198897,
+       0.4252035231888294
+      ]
+     }
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "larmorx (port), 1 thread",
+     "sub": "default mode: ANTS-40 corrected",
+     "arrays": {
+      "bias": {
+       "blob": "bf346853899590c47fa62106.bin",
+       "dtype": "f4",
+       "bytes": 2133724
+      },
+      "corrected": {
+       "blob": "be469c79515d77d417215ea1.bin",
+       "dtype": "f4",
+       "xor": {
+        "div": [
+         "t1w:all",
+         "larmorx-fix:bias"
+        ]
+       },
+       "zero": true,
+       "bytes": 8156
+      }
+     },
+     "own": {
+      "corrected": [
+       7.647346444129948,
+       1122.9814660644497
+      ],
+      "bias": [
+       0.18017447054386138,
+       0.40441505298018454
+      ]
+     }
+    },
+    {
+     "id": "larmorx-12-fix",
+     "role": "larmorx",
+     "label": "larmorx (port), 12 threads",
      "sub": "default mode",
      "arrays": {
       "bias": {
-       "same": "larmorx:bias",
+       "same": "larmorx-fix:bias",
        "dtype": "f4"
       },
       "corrected": {
-       "same": "larmorx:corrected",
+       "same": "larmorx-fix:corrected",
        "dtype": "f4"
       }
      },
      "own": {
       "corrected": [
-       7.338318796157838,
-       1076.472921752929
+       7.647346444129948,
+       1122.9814660644497
       ],
       "bias": [
-       0.18575943440198897,
-       0.4252035231888294
-      ]
-     }
-    },
-    {
-     "id": "larmorx-reproduce",
-     "role": "larmorx",
-     "label": "larmorx (port), 1 thread",
-     "sub": "reproduce mode",
-     "arrays": {
-      "bias": {
-       "same": "larmorx:bias",
-       "dtype": "f4"
-      },
-      "corrected": {
-       "same": "larmorx:corrected",
-       "dtype": "f4"
-      }
-     },
-     "own": {
-      "corrected": [
-       7.338318796157838,
-       1076.472921752929
-      ],
-      "bias": [
-       0.18575943440198897,
-       0.4252035231888294
-      ]
-     }
-    },
-    {
-     "id": "larmorx-12-reproduce",
-     "role": "larmorx",
-     "label": "larmorx (port), 12 threads",
-     "sub": "reproduce mode",
-     "arrays": {
-      "bias": {
-       "same": "larmorx:bias",
-       "dtype": "f4"
-      },
-      "corrected": {
-       "same": "larmorx:corrected",
-       "dtype": "f4"
-      }
-     },
-     "own": {
-      "corrected": [
-       7.338318796157838,
-       1076.472921752929
-      ],
-      "bias": [
-       0.18575943440198897,
-       0.4252035231888294
+       0.18017447054386138,
+       0.40441505298018454
       ]
      }
     },
@@ -2090,7 +3451,7 @@
        "rms": 0.0018102298980782771,
        "range": 2696.808046246064,
        "max_rel_range": 1.1587773198578134e-05,
-       "one_minus_ncc": 3.2661487759745366e-12,
+       "one_minus_ncc": 3.266148775974626e-12,
        "at_display": [
         89,
         81,
@@ -2113,7 +3474,7 @@
        "rms": 1.0565068502353824e-06,
        "range": 0.792129248380661,
        "max_rel_range": 7.298872696636615e-06,
-       "one_minus_ncc": 4.3775944124999845e-12,
+       "one_minus_ncc": 4.377594412499948e-12,
        "at_display": [
         23,
         60,
@@ -2226,7 +3587,7 @@
       }
      },
      "verdict": "bit-identical",
-     "reason": "With correctly rounded maths, ANTs computes exactly what larmorx computes.",
+     "reason": "With correctly rounded maths, ANTs computes exactly what larmorx's reproduce mode computes.",
      "links": []
     },
     {
@@ -2253,7 +3614,7 @@
        "rms": 0.0024952572691866745,
        "range": 2696.794618512504,
        "max_rel_range": 3.5849851833851004e-05,
-       "one_minus_ncc": 1.254642277277163e-11,
+       "one_minus_ncc": 1.254642277277098e-11,
        "at_display": [
         90,
         81,
@@ -2276,7 +3637,7 @@
        "rms": 1.2121855758781615e-06,
        "range": 0.79212886095047,
        "max_rel_range": 1.9752113607836795e-05,
-       "one_minus_ncc": 9.505167171664262e-12,
+       "one_minus_ncc": 9.505167171664166e-12,
        "at_display": [
         90,
         79,
@@ -2393,11 +3754,99 @@
      "links": []
     },
     {
-     "id": "lx-repro",
-     "a": "larmorx",
-     "b": "larmorx-reproduce",
+     "id": "fix-lx",
+     "a": "larmorx-fix",
+     "b": "larmorx",
+     "kind": "main",
+     "label": "larmorx default mode − reproduce mode (ANTS-40)",
+     "role_label": "larmorx's correction",
+     "metrics": {
+      "corrected": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 5380307,
+       "share": 0.9121885511610243,
+       "max_abs": 143.24462890625,
+       "at": [
+        55,
+        94,
+        62
+       ],
+       "a_at": 2433.29296875,
+       "b_at": 2290.04833984375,
+       "rms": 13.829317753381046,
+       "range": 2696.793886090396,
+       "max_rel_range": 0.053116639593808565,
+       "one_minus_ncc": 8.974072349238321e-05,
+       "at_display": [
+        51,
+        76,
+        30
+       ]
+      },
+      "bias": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 5898240,
+       "share": 1.0,
+       "max_abs": 0.05446520447731018,
+       "at": [
+        28,
+        78,
+        49
+       ],
+       "a_at": 0.33676519989967346,
+       "b_at": 0.2822999954223633,
+       "rms": 0.009310773718507874,
+       "range": 0.7921279668807983,
+       "max_rel_range": 0.06875808802936288,
+       "one_minus_ncc": 0.0001352480031527961,
+       "at_display": [
+        24,
+        60,
+        17
+       ]
+      }
+     },
+     "display": {
+      "corrected": {
+       "max_abs": 133.951171875,
+       "at": [
+        101,
+        74,
+        31
+       ],
+       "a": 2527.340087890625,
+       "b": 2393.388916015625,
+       "differ": 841516
+      },
+      "bias": {
+       "max_abs": 0.03432442247867584,
+       "at": [
+        30,
+        57,
+        18
+       ],
+       "a": 0.27714505791664124,
+       "b": 0.2428206354379654,
+       "differ": 845260
+      }
+     },
+     "verdict": "d13",
+     "reason": "ANTS-40, corrected by default with a warning: of the voxels N4 uses (the weight is positive there), those whose value is 0 have no logarithm; ITK keeps them in its log image as the log of an intensity of 1, inside the histogram and the fit. larmorx leaves them out, as a mask of the positive voxels would. Reproduce mode gives ANTs' result.",
+     "links": [
+      {
+       "label": "ANTS-40",
+       "href": "docs/findings/upstream-defects.md#ants-40-n4-keeps-zero-and-negative-values-in-the-log-image--c"
+      }
+     ]
+    },
+    {
+     "id": "fix12-fix1",
+     "a": "larmorx-12-fix",
+     "b": "larmorx-fix",
      "kind": "check",
-     "label": "larmorx, default − reproduce mode",
+     "label": "larmorx default mode, 12 threads − 1 thread",
      "role_label": "larmorx against itself",
      "metrics": {
       "corrected": {
@@ -2411,10 +3860,10 @@
         0,
         0
        ],
-       "a_at": 4.600738048553467,
-       "b_at": 4.600738048553467,
+       "a_at": 4.614645957946777,
+       "b_at": 4.614645957946777,
        "rms": 0.0,
-       "range": 2696.793886090396,
+       "range": 2825.9545541248517,
        "max_rel_range": 0.0,
        "one_minus_ncc": 0.0,
        "at_display": null
@@ -2430,10 +3879,10 @@
         0,
         0
        ],
-       "a_at": 0.8022233843803406,
-       "b_at": 0.8022233843803406,
+       "a_at": 0.7998056411743164,
+       "b_at": 0.7998056411743164,
        "rms": 0.0,
-       "range": 0.7921279668807983,
+       "range": 0.7948000133037567,
        "max_rel_range": 0.0,
        "one_minus_ncc": 0.0,
        "at_display": null
@@ -2464,13 +3913,8 @@
       }
      },
      "verdict": "bit-identical",
-     "reason": "No correction of the register applies to this command: both modes give the same bytes (ANTS-36's notice, that -r without a mask rescales nothing, is printed in both).",
-     "links": [
-      {
-       "label": "ANTS-36",
-       "href": "docs/findings/upstream-defects.md#ants-36-n4s-mask-and-rescaling--e"
-      }
-     ]
+     "reason": "larmorx's default mode too gives one result on any number of threads.",
+     "links": []
     },
     {
      "id": "ants2-ants1",
@@ -2496,7 +3940,7 @@
        "rms": 0.0005158773140938564,
        "range": 2696.808046246064,
        "max_rel_range": 7.332887727225225e-06,
-       "one_minus_ncc": 1.542061387508503e-12
+       "one_minus_ncc": 1.5420613875089083e-12
       },
       "bias": {
        "identical": false,
@@ -2514,7 +3958,7 @@
        "rms": 9.547119585217254e-07,
        "range": 0.792129248380661,
        "max_rel_range": 6.132557987380249e-06,
-       "one_minus_ncc": 3.1740996123312404e-12
+       "one_minus_ncc": 3.1740996123311366e-12
       }
      },
      "verdict": null,
@@ -2550,7 +3994,7 @@
        "rms": 0.0016577792547947774,
        "range": 2696.808046246064,
        "max_rel_range": 9.46033046290168e-06,
-       "one_minus_ncc": 2.605730736014911e-12
+       "one_minus_ncc": 2.605730736015695e-12
       },
       "bias": {
        "identical": false,
@@ -2568,7 +4012,7 @@
        "rms": 9.420369521347808e-07,
        "range": 0.792129248380661,
        "max_rel_range": 8.164202964794565e-06,
-       "one_minus_ncc": 2.878674884314231e-12
+       "one_minus_ncc": 2.8786748843141432e-12
       }
      },
      "verdict": null,
@@ -2604,7 +4048,7 @@
        "rms": 0.0006867689185569543,
        "range": 2696.808046246064,
        "max_rel_range": 1.5299481801247692e-05,
-       "one_minus_ncc": 2.7877162087524485e-12
+       "one_minus_ncc": 2.78771620875296e-12
       },
       "bias": {
        "identical": false,
@@ -2622,7 +4066,7 @@
        "rms": 8.850067946123382e-07,
        "range": 0.792129248380661,
        "max_rel_range": 8.465187405892982e-06,
-       "one_minus_ncc": 2.7671685731311278e-12
+       "one_minus_ncc": 2.76716857313104e-12
       }
      },
      "verdict": null,
@@ -2658,7 +4102,7 @@
        "rms": 0.000990816641531869,
        "range": 2696.808046246064,
        "max_rel_range": 2.435242961263686e-05,
-       "one_minus_ncc": 5.260288908857e-12,
+       "one_minus_ncc": 5.260288908856891e-12,
        "at_display": [
         90,
         81,
@@ -2681,7 +4125,7 @@
        "rms": 9.679992832836617e-07,
        "range": 0.792129248380661,
        "max_rel_range": 1.3469053739154166e-05,
-       "one_minus_ncc": 3.9127059958369194e-12,
+       "one_minus_ncc": 3.912705995836673e-12,
        "at_display": [
         89,
         79,
@@ -2746,7 +4190,7 @@
        "rms": 0.0011623641722136077,
        "range": 2696.808046246064,
        "max_rel_range": 6.4728576851432545e-06,
-       "one_minus_ncc": 1.5397383416638238e-12
+       "one_minus_ncc": 1.5397383416628942e-12
       },
       "bias": {
        "identical": false,
@@ -2764,7 +4208,7 @@
        "rms": 1.065210829224222e-06,
        "range": 0.792129248380661,
        "max_rel_range": 5.906819656556436e-06,
-       "one_minus_ncc": 2.3610582296952704e-12
+       "one_minus_ncc": 2.3610582296952175e-12
       }
      },
      "verdict": null,
@@ -3020,7 +4464,7 @@
      "lx-ants1",
      "ants8-ants1",
      "lx-cr",
-     "lx-fmriprep"
+     "fix-lx"
     ],
     "compare": {
      "a": "ants-1",
@@ -3039,16 +4483,16 @@
      "larmorx": "667632180874f21ff78d4e78.webp"
     },
     "diffs": {
-     "lx-ants1": "85d8e241c56f6b7223083ca7.webp",
-     "ants8-ants1": "7289aee052253e0b3511e153.webp",
-     "lx-fmriprep": "611a161cde4559604bbe9fb6.webp"
+     "lx-ants1": "fd5f3fd4102777743738f874.webp",
+     "ants8-ants1": "e8bf9d9b8fd2b3392f9a8a9b.webp",
+     "fix-lx": "949ee3889bb70478975fbd58.webp"
     },
     "ranges": {
-     "lx-ants1": 0.0966796875,
-     "ants8-ants1": 0.0966796875,
-     "lx-fmriprep": 0.0966796875
+     "lx-ants1": 133.951171875,
+     "ants8-ants1": 133.951171875,
+     "fix-lx": 133.951171875
     },
-    "caption": "Axial slice 67 of 111 of the shown grid (the one with the most brain), the crosshair where larmorx and ANTs as built differ most in it; the corrected image, in the brain's 0.5–99.5 % window; the differences on one symmetric log scale over six decades below ±0.0967, any non-zero difference tinted."
+    "caption": "Axial slice 67 of 111 of the shown grid (the one with the most brain), the crosshair where larmorx and ANTs as built differ most in it; the corrected image, in the brain's 0.5–99.5 % window; the differences on one symmetric log scale over six decades below ±134, any non-zero difference tinted."
    },
    "chain": {
     "title": "What separates fMRIPrep's output from larmorx's (the corrected image)",
@@ -3094,8 +4538,8 @@
         "role": "reference"
        },
        {
-        "label": "larmorx (port)",
-        "sub": "1 and 12 threads, default and reproduce",
+        "label": "larmorx (port), reproduce mode",
+        "sub": "1 and 12 threads",
         "role": "larmorx"
        }
       ]
@@ -3111,13 +4555,902 @@
       "max_abs": 0.03125
      }
     ],
-    "note": "Each box holds runs that give the same bytes, both outputs. fMRIPrep's ANTs 2.6.2 and the repository's ANTs 2.6.5 agree bit for bit at equal thread counts and maths, so the version plays no part; ANTs' thread count and glibc's maths are the only two causes, and larmorx computes ANTs' result at one thread with correctly rounded maths, on any number of threads."
+    "note": "Each box holds runs that give the same bytes, both outputs. fMRIPrep's ANTs 2.6.2 and the repository's ANTs 2.6.5 agree bit for bit at equal thread counts and maths, so the version plays no part; ANTs' thread count and glibc's maths are the only two causes, and larmorx's reproduce mode computes ANTs' result at one thread with correctly rounded maths, on any number of threads. Its default mode then corrects ANTS-40 (the row larmorx default − reproduce mode)."
    },
    "metrics_note": "Δ is A − B. Every number is computed in float64 over all 5,898,240 voxels of the 160 × 192 × 192 outputs, not only the brain shown; the range is B's maximum minus its minimum; NCC is Pearson's correlation. The record's thresholds: values bit-identical to ANTs at one thread with correctly rounded math (CORE-MATH preloaded); with ANTs as built (glibc's math), bit-identity reported and NCC > 0.995 where they differ. The rows *the original against itself* are ANTs' own variability on this input, the yardstick for the rest.",
    "provenance": [
     "Inputs: fMRIPrep 25.2.6's oracle run `ds000005-sub-01-noreconall` (image sha256 `7f84379b40f39987…`): input (ec055df157667867…); weight image (18144dfca7a49ddd…); fMRIPrep's corrected image (fe9f33bd9791dfaf…); fMRIPrep's bias field (932355402736757a…)",
-    "Runs: figures cache entry `ants-n4/fmriprep-ds000005-final-n4`, computed 2026-10-21T09:26:11+00:00 with larmorx `c61f3c1a1847`; every command, its environment, threads, exit status and time are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `ants-n4/fmriprep-ds000005-final-n4`, computed 2026-10-21T09:26:11+00:00 with larmorx `e22378b480f4`; every command, its environment, threads, exit status and time are in its `RUN_INFO.json`",
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0"
+   ]
+  },
+  {
+   "id": "ants-40",
+   "title": "ANTS-40: fMRIPrep's final N4 of a 7T T1w, which ANTs leaves uncorrected",
+   "summary": "sMRIPrep's final N4 of its brain extraction, as fMRIPrep 25.2.6 ran it on OpenNeuro ds005454 sub-16 (a 7T T1w template with negative values), its arguments and inputs from the oracle run: a few of the voxels N4 uses are negative, ITK keeps them in its log image, and ANTs' field stays flat. larmorx's default leaves them out of the fit and corrects the image; its reproduce mode gives ANTs' result.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds005454 (fMRIPrep boot camp, 7T training dataset), v1.0.0, sub-16 (CC0-1.0)"
+    },
+    {
+     "label": "Node",
+     "text": "fMRIPrep 25.2.6, `anat_fit_wf/brain_extraction_wf/atropos_wf/inu_n4_final`"
+    },
+    {
+     "label": "Command",
+     "text": "`N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image …/anat_fit_wf/anat_template_wf/anat_merge/sub-16_acq-denoised_T1w_noise_corrected_template.nii.gz --convergence [ 50x50x50x50x50, 1e-07 ] --output [corrected.nii.gz,bias.nii.gz] -r --shrink-factor 4 --weight-image …/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz`"
+    },
+    {
+     "label": "Defect",
+     "text": "[ANTS-40](repo:docs/findings/upstream-defects.md#ants-40-n4-keeps-zero-and-negative-values-in-the-log-image--c): N4 keeps zero and negative values in the log image; corrected by default (decided 2026-10-23), `reproduce` gives ANTs' result"
+    },
+    {
+     "label": "Effect",
+     "text": "43 of the 33,471 voxels N4 uses are 0 or negative (0 zero, 43 negative; larmorx's notice); ANTs' bias field spans 1.0000 to 1.0002, larmorx's 0.485 to 1.157; Corrected image: 17,379,407 of 17,547,264 values change, by at most 2.03e+03; Bias field: 17,547,263 of 17,547,264 values change, by at most 0.515"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0, one thread; larmorx at commit `e22378b480f4`, 6 threads"
+    },
+    {
+     "label": "Grid",
+     "text": "224 × 272 × 288 voxels of 0.8 × 0.799 × 0.799 mm; shown: 172 × 214 × 172 around the brain"
+    }
+   ],
+   "grid": {
+    "shape": [
+     172,
+     214,
+     172
+    ],
+    "spacing": [
+     0.8,
+     0.798611,
+     0.798611
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      25
+     ],
+     [
+      0,
+      1,
+      0,
+      12
+     ],
+     [
+      0,
+      0,
+      1,
+      87
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      0.798919,
+      -0.024708,
+      0.033349,
+      -70.455946
+     ],
+     [
+      0.02463,
+      0.798225,
+      0.003396,
+      -89.647321
+     ],
+     [
+      -0.033496,
+      -0.002365,
+      0.797907,
+      -73.317229
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     224,
+     272,
+     288
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "66550fdd8390ec36a88b265c.bin",
+    "dtype": "u1",
+    "bytes": 64601
+   },
+   "outputs": [
+    {
+     "id": "corrected",
+     "label": "Corrected image",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 71.6824188232422,
+       "hi": 1948.592988281252
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -131.8512420654297,
+       "hi": 2525.691162109375
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "bias",
+     "label": "Bias field",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 1.0001120567321777,
+       "hi": 1.0001600980758667
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 1.0001089572906494,
+       "hi": 1.0001648664474487
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "t1w",
+     "role": "input",
+     "label": "ds005454 sub-16 T1w template (7T)",
+     "sub": "as fMRIPrep passed it, after DenoiseImage",
+     "arrays": {
+      "all": {
+       "blob": "e15dc69b1e4a230af49527ff.bin",
+       "dtype": "f4",
+       "bytes": 7921581
+      }
+     },
+     "window": [
+      71.6929379272461,
+      1948.8361328125006
+     ]
+    },
+    {
+     "id": "weight",
+     "role": "input",
+     "label": "Weight image (-w)",
+     "sub": "fMRIPrep's white-matter posterior × prior",
+     "arrays": {
+      "all": {
+       "blob": "28176dcccc11f44a50653e00.bin",
+       "dtype": "f4",
+       "bytes": 3822529
+      }
+     },
+     "window": [
+      0.0,
+      0.9999593496322632
+     ]
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "default mode: ANTS-40 corrected",
+     "arrays": {
+      "corrected": {
+       "blob": "35cd15901b4529e412e0b1bb.bin",
+       "dtype": "f4",
+       "xor": "t1w:all",
+       "zero": false,
+       "bytes": 7814125
+      },
+      "bias": {
+       "blob": "65d79e9d626381eeb3472557.bin",
+       "dtype": "f4",
+       "bytes": 6405657
+      }
+     },
+     "own": {
+      "corrected": [
+       90.39572082519534,
+       2211.6320996093755
+      ],
+      "bias": [
+       0.5808372068405151,
+       1.1051002597808839
+      ]
+     }
+    },
+    {
+     "id": "larmorx-reproduce",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "reproduce mode: ANTs' behaviour",
+     "arrays": {
+      "corrected": {
+       "blob": "80a94b78dae8c4db6c68475f.bin",
+       "dtype": "f4",
+       "xor": "t1w:all",
+       "zero": false,
+       "bytes": 4540331
+      },
+      "bias": {
+       "blob": "bdf6f5b1f9f68727ab713236.bin",
+       "dtype": "f4",
+       "bytes": 1929853
+      }
+     },
+     "own": {
+      "corrected": [
+       71.68265747070313,
+       1948.5933349609381
+      ],
+      "bias": [
+       1.0001109838485718,
+       1.000156044960022
+      ]
+     }
+    },
+    {
+     "id": "ants-1-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, 1 thread, correctly rounded maths",
+     "sub": "the same binary, CORE-MATH preloaded",
+     "arrays": {
+      "corrected": {
+       "same": "larmorx-reproduce:corrected",
+       "dtype": "f4"
+      },
+      "bias": {
+       "same": "larmorx-reproduce:bias",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "corrected": [
+       71.68265747070313,
+       1948.5933349609381
+      ],
+      "bias": [
+       1.0001109838485718,
+       1.000156044960022
+      ]
+     }
+    },
+    {
+     "id": "ants-1",
+     "role": "original",
+     "label": "ANTs 2.6.5, 1 thread, as built",
+     "sub": "the repository's oracle build (GCC 14.3), glibc's maths",
+     "arrays": {
+      "corrected": {
+       "blob": "f66dc05737387f96cb4be053.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:corrected",
+       "zero": false,
+       "bytes": 2577563
+      },
+      "bias": {
+       "blob": "7a26c2d357a0c98573e214b7.bin",
+       "dtype": "f4",
+       "bytes": 1972366
+      }
+     },
+     "own": {
+      "corrected": [
+       71.6824188232422,
+       1948.592988281252
+      ],
+      "bias": [
+       1.0001120567321777,
+       1.0001600980758667
+      ]
+     }
+    },
+    {
+     "id": "fmriprep",
+     "role": "fmriprep",
+     "label": "fMRIPrep 25.2.6, as it ran",
+     "sub": "ANTs 2.6.2 in its image",
+     "arrays": {
+      "corrected": {
+       "blob": "0dd8a8a209fddf0ab8a07572.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:corrected",
+       "zero": false,
+       "bytes": 1757127
+      },
+      "bias": {
+       "blob": "fb7d489e2673ab7f7b2697fc.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:bias",
+       "zero": false,
+       "bytes": 1432814
+      }
+     },
+     "own": {
+      "corrected": [
+       71.68265472412111,
+       1948.593569335938
+      ],
+      "bias": [
+       1.0001107454299927,
+       1.0001559257507324
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "fix-repro",
+     "a": "larmorx",
+     "b": "larmorx-reproduce",
+     "kind": "main",
+     "label": "larmorx default − reproduce mode (ANTS-40)",
+     "role_label": "larmorx's correction",
+     "metrics": {
+      "corrected": {
+       "identical": false,
+       "voxels": 17547264,
+       "differ": 17379407,
+       "share": 0.9904340072617589,
+       "max_abs": 2027.0361328125,
+       "at": [
+        70,
+        201,
+        174
+       ],
+       "a_at": 4630.787109375,
+       "b_at": 2603.7509765625,
+       "rms": 300.96535830302025,
+       "range": 2936.251235961914,
+       "max_rel_range": 0.6903483285034512,
+       "one_minus_ncc": 0.022227095626673472,
+       "at_display": [
+        45,
+        189,
+        87
+       ]
+      },
+      "bias": {
+       "identical": false,
+       "voxels": 17547264,
+       "differ": 17547263,
+       "share": 0.9999999430110585,
+       "max_abs": 0.514737069606781,
+       "at": [
+        80,
+        85,
+        82
+       ],
+       "a_at": 0.4854201674461365,
+       "b_at": 1.0001572370529175,
+       "rms": 0.20911961856700917,
+       "range": 0.00011420249938964844,
+       "max_rel_range": 4507.23121085595,
+       "one_minus_ncc": 1.5502636975898976,
+       "at_display": null
+      }
+     },
+     "display": {
+      "corrected": {
+       "max_abs": 1346.4832763671875,
+       "at": [
+        131,
+        44,
+        32
+       ],
+       "a": 3009.19775390625,
+       "b": 1662.7144775390625,
+       "differ": 2532656
+      },
+      "bias": {
+       "max_abs": 0.48843711614608765,
+       "at": [
+        55,
+        78,
+        2
+       ],
+       "a": 0.511720597743988,
+       "b": 1.0001577138900757,
+       "differ": 2532656
+      }
+     },
+     "links": [
+      {
+       "label": "ANTS-40",
+       "href": "docs/findings/upstream-defects.md#ants-40-n4-keeps-zero-and-negative-values-in-the-log-image--c"
+      }
+     ],
+     "verdict": "d13",
+     "reason": "ANTS-40, corrected by default with a warning: ITK keeps the voxels N4 uses whose value is 0 or negative in its log image as they are; here negative values, whose logs lie far below every tissue's, stretch the histogram until the tissue sits in one or two of its bins, the sharpening changes nothing and ANTs' field stays flat. larmorx leaves them out of the fit, as a mask of the positive voxels would; reproduce mode gives ANTs' result."
+    },
+    {
+     "id": "fix-ants",
+     "a": "larmorx",
+     "b": "ants-1",
+     "kind": "main",
+     "label": "larmorx default − ANTs 2.6.5, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "corrected": {
+       "identical": false,
+       "voxels": 17547264,
+       "differ": 17379407,
+       "share": 0.9904340072617589,
+       "max_abs": 2027.037841796875,
+       "at": [
+        70,
+        201,
+        174
+       ],
+       "a_at": 4630.787109375,
+       "b_at": 2603.749267578125,
+       "rms": 300.966406039489,
+       "range": 2936.247085571289,
+       "max_rel_range": 0.6903498863422407,
+       "one_minus_ncc": 0.02222731183791633,
+       "at_display": [
+        45,
+        189,
+        87
+       ]
+      },
+      "bias": {
+       "identical": false,
+       "voxels": 17547264,
+       "differ": 17547263,
+       "share": 0.9999999430110585,
+       "max_abs": 0.514738142490387,
+       "at": [
+        80,
+        85,
+        82
+       ],
+       "a_at": 0.4854201674461365,
+       "b_at": 1.0001583099365234,
+       "rms": 0.2091204812006823,
+       "range": 0.00011777877807617188,
+       "max_rel_range": 4370.381072874494,
+       "one_minus_ncc": 1.5622969855218263,
+       "at_display": null
+      }
+     },
+     "display": {
+      "corrected": {
+       "max_abs": 1346.4888916015625,
+       "at": [
+        131,
+        44,
+        32
+       ],
+       "a": 3009.19775390625,
+       "b": 1662.7088623046875,
+       "differ": 2532656
+      },
+      "bias": {
+       "max_abs": 0.4884369969367981,
+       "at": [
+        55,
+        78,
+        2
+       ],
+       "a": 0.511720597743988,
+       "b": 1.0001575946807861,
+       "differ": 2532656
+      }
+     },
+     "links": [
+      {
+       "label": "ANTS-40",
+       "href": "docs/findings/upstream-defects.md#ants-40-n4-keeps-zero-and-negative-values-in-the-log-image--c"
+      }
+     ],
+     "verdict": "d13",
+     "reason": "ANTS-40, corrected by default with a warning: ITK keeps the voxels N4 uses whose value is 0 or negative in its log image as they are; here negative values, whose logs lie far below every tissue's, stretch the histogram until the tissue sits in one or two of its bins, the sharpening changes nothing and ANTs' field stays flat. larmorx leaves them out of the fit, as a mask of the positive voxels would; reproduce mode gives ANTs' result."
+    },
+    {
+     "id": "repro-cr",
+     "a": "larmorx-reproduce",
+     "b": "ants-1-cr",
+     "kind": "main",
+     "label": "larmorx reproduce − ANTs 2.6.5, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "corrected": {
+       "identical": true,
+       "voxels": 17547264,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2936.251235961914,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "bias": {
+       "identical": true,
+       "voxels": 17547264,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 1.000062346458435,
+       "b_at": 1.000062346458435,
+       "rms": 0.0,
+       "range": 0.00011420249938964844,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "corrected": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "bias": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "Reproduce mode gives ANTs' result, the defect included."
+    },
+    {
+     "id": "repro-ants",
+     "a": "larmorx-reproduce",
+     "b": "ants-1",
+     "kind": "main",
+     "label": "larmorx reproduce − ANTs 2.6.5, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "corrected": {
+       "identical": false,
+       "voxels": 17547264,
+       "differ": 12470213,
+       "share": 0.7106642380259396,
+       "max_abs": 0.032958984375,
+       "at": [
+        86,
+        161,
+        127
+       ],
+       "a_at": 2423.566650390625,
+       "b_at": 2423.53369140625,
+       "rms": 0.002159828986935968,
+       "range": 2936.247085571289,
+       "max_rel_range": 1.1224867463286849e-05,
+       "one_minus_ncc": 5.566371366317556e-12,
+       "at_display": [
+        61,
+        149,
+        40
+       ]
+      },
+      "bias": {
+       "identical": false,
+       "voxels": 17547264,
+       "differ": 12476998,
+       "share": 0.7110509079934056,
+       "max_abs": 1.4543533325195312e-05,
+       "at": [
+        137,
+        168,
+        131
+       ],
+       "a_at": 1.0001468658447266,
+       "b_at": 1.0001614093780518,
+       "rms": 1.801055672787822e-06,
+       "range": 0.00011777877807617188,
+       "max_rel_range": 0.12348178137651822,
+       "one_minus_ncc": 0.0027356947913174533,
+       "at_display": [
+        112,
+        156,
+        44
+       ]
+      }
+     },
+     "display": {
+      "corrected": {
+       "max_abs": 0.02783203125,
+       "at": [
+        149,
+        121,
+        135
+       ],
+       "a": 2126.0234375,
+       "b": 2126.05126953125,
+       "differ": 2437204
+      },
+      "bias": {
+       "max_abs": 1.3709068298339844e-05,
+       "at": [
+        150,
+        123,
+        133
+       ],
+       "a": 1.00014328956604,
+       "b": 1.0001295804977417,
+       "differ": 2437204
+      }
+     },
+     "links": [],
+     "verdict": "identical-cr",
+     "reason": "Only where glibc's maths is not correctly rounded: with CORE-MATH preloaded, ANTs gives larmorx's reproduce-mode output bit for bit (the row above)."
+    },
+    {
+     "id": "cr-ants",
+     "a": "ants-1-cr",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5: correctly rounded maths − glibc's",
+     "role_label": "the original against itself",
+     "metrics": {
+      "corrected": {
+       "identical": false,
+       "voxels": 17547264,
+       "differ": 12470213,
+       "share": 0.7106642380259396,
+       "max_abs": 0.032958984375,
+       "at": [
+        86,
+        161,
+        127
+       ],
+       "a_at": 2423.566650390625,
+       "b_at": 2423.53369140625,
+       "rms": 0.002159828986935968,
+       "range": 2936.247085571289,
+       "max_rel_range": 1.1224867463286849e-05,
+       "one_minus_ncc": 5.566371366317556e-12,
+       "at_display": [
+        61,
+        149,
+        40
+       ]
+      },
+      "bias": {
+       "identical": false,
+       "voxels": 17547264,
+       "differ": 12476998,
+       "share": 0.7110509079934056,
+       "max_abs": 1.4543533325195312e-05,
+       "at": [
+        137,
+        168,
+        131
+       ],
+       "a_at": 1.0001468658447266,
+       "b_at": 1.0001614093780518,
+       "rms": 1.801055672787822e-06,
+       "range": 0.00011777877807617188,
+       "max_rel_range": 0.12348178137651822,
+       "one_minus_ncc": 0.0027356947913174533,
+       "at_display": [
+        112,
+        156,
+        44
+       ]
+      }
+     },
+     "display": {
+      "corrected": {
+       "max_abs": 0.02783203125,
+       "at": [
+        149,
+        121,
+        135
+       ],
+       "a": 2126.0234375,
+       "b": 2126.05126953125,
+       "differ": 2437204
+      },
+      "bias": {
+       "max_abs": 1.3709068298339844e-05,
+       "at": [
+        150,
+        123,
+        133
+       ],
+       "a": 1.00014328956604,
+       "b": 1.0001295804977417,
+       "differ": 2437204
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "Where glibc's exp, log, sin or cos is not correctly rounded for a value the run meets: ANTs' own result moves with the maths library."
+    },
+    {
+     "id": "fmriprep-ants",
+     "a": "fmriprep",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "fMRIPrep's own output − ANTs 2.6.5, 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "corrected": {
+       "identical": false,
+       "voxels": 17547264,
+       "differ": 12160508,
+       "share": 0.6930144779265873,
+       "max_abs": 0.033203125,
+       "at": [
+        86,
+        165,
+        127
+       ],
+       "a_at": 2493.82470703125,
+       "b_at": 2493.79150390625,
+       "rms": 0.0021244302508747017,
+       "range": 2936.247085571289,
+       "max_rel_range": 1.1308014629681566e-05,
+       "one_minus_ncc": 5.373825058263924e-12,
+       "at_display": [
+        61,
+        153,
+        40
+       ]
+      },
+      "bias": {
+       "identical": false,
+       "voxels": 17547264,
+       "differ": 12169422,
+       "share": 0.6935224773503151,
+       "max_abs": 1.4543533325195312e-05,
+       "at": [
+        84,
+        162,
+        130
+       ],
+       "a_at": 1.0001461505889893,
+       "b_at": 1.0001606941223145,
+       "rms": 1.7673954088134768e-06,
+       "range": 0.00011777877807617188,
+       "max_rel_range": 0.12348178137651822,
+       "one_minus_ncc": 0.002638243668893294,
+       "at_display": [
+        59,
+        150,
+        43
+       ]
+      }
+     },
+     "display": {
+      "corrected": {
+       "max_abs": 0.0283203125,
+       "at": [
+        149,
+        121,
+        135
+       ],
+       "a": 2126.02294921875,
+       "b": 2126.05126953125,
+       "differ": 2433580
+      },
+      "bias": {
+       "max_abs": 1.4066696166992188e-05,
+       "at": [
+        150,
+        123,
+        134
+       ],
+       "a": 1.0001437664031982,
+       "b": 1.0001296997070312,
+       "differ": 2433580
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "fMRIPrep's run used its own ANTs build and thread count: ANTs' own variability."
+    }
+   ],
+   "default": {
+    "output": "corrected",
+    "plane": "axial",
+    "voxel": [
+     128,
+     26,
+     108
+    ],
+    "panels": [
+     "t1w",
+     "ants-1",
+     "larmorx",
+     "larmorx-reproduce"
+    ],
+    "diffs": [
+     "fix-repro",
+     "repro-cr"
+    ],
+    "compare": {
+     "a": "ants-1",
+     "b": "larmorx"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 108,
+    "aspect": 0.80514,
+    "panels": {
+     "t1w": "9f488406a0fa75c005a2f73a.webp",
+     "ants-1": "9cda6e151d77d821d1263c0b.webp",
+     "larmorx": "7ce299f599f8c9b655c3a5a6.webp",
+     "larmorx-reproduce": "172dd6e3fa8ac252a6bf4908.webp"
+    },
+    "diffs": {
+     "fix-repro": "d5a0aeda9621904be687e764.webp"
+    },
+    "ranges": {
+     "fix-repro": 1346.4832763671875
+    },
+    "caption": "Axial slice 109 of 172; the crosshair where larmorx's correction changes the output most in it."
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B, over all 17,547,264 voxels of each output file; the rows *the original against itself* are ANTs' own variability on this input.",
+   "provenance": [
+    "Data: OpenNeuro ds005454 (fMRIPrep boot camp, 7T training dataset), v1.0.0, sub-16, CC0-1.0",
+    "Inputs: input (sha256 065c3abba40a2cb5…); weight image (sha256 c8081b480c163d71…); fMRIPrep's corrected (sha256 96eac1e300adfc83…); fMRIPrep's bias (sha256 85a1f00e5a39fd93…)",
+    "Runs: figures cache entry `ants-n4/fmriprep-ds005454-final-n4-ants40`, computed 2026-10-23T22:04:37+00:00 with larmorx `e22378b480f4`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ]
   }
  ]

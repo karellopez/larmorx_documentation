@@ -1,7 +1,7 @@
 ---
 title: N4BiasFieldCorrection
 kicker: Tools · ANTs
-lede: Intensity non-uniformity correction, ported from ANTs 2.6.5 and ITK 5.4.5. Every case of its record is bit-identical to ANTs, as built or once ANTs uses correctly rounded maths; on fMRIPrep's own N4 of a real T1w, larmorx is ANTs at one thread with correctly rounded maths, at any thread count.
+lede: Intensity non-uniformity correction, ported from ANTs 2.6.5 and ITK 5.4.5. In reproduce mode every case of its record is bit-identical to ANTs, as built or once ANTs uses correctly rounded maths; on fMRIPrep's own N4 of a real T1w it is ANTs at one thread with correctly rounded maths, at any thread count. By default LARMORX leaves the zero and negative voxels out of the fit (ANTS-40, measured on fMRIPrep's 25 N4 calls).
 description: LARMORX's port of ANTs' N4BiasFieldCorrection, validated against ANTs 2.6.5 and fMRIPrep 25.2.6 — a worked example on a real T1w to inspect, every parity case with its verdict, ANTs' own variability, and speed.
 evidence: true
 wide: true
@@ -37,13 +37,27 @@ The [API page](repo:docs/api/ants-n4.md) maps every option. How to read what fol
 
 {{ ev.agreement('ants-n4', 'port') }}
 
-Every case that produces an image is bit-identical to ANTs: as built (glibc's maths, one thread), or, where glibc's `expf`, `logf`, `exp` or `sincos` is not correctly rounded for a value the run meets, once the same ANTs binary uses CORE-MATH's correctly rounded functions. The invalid inputs are refused by both programs. Nothing is open.
+Every case that produces an image is bit-identical to ANTs in reproduce mode: as built (glibc's maths, one thread), or, where glibc's `expf`, `logf`, `exp` or `sincos` is not correctly rounded for a value the run meets, once the same ANTs binary uses CORE-MATH's correctly rounded functions. The invalid inputs are refused by both programs. One case, `inputs/zero-background-known`, checks ANTS-40's correction against ANTs' own field with a mask of the positive voxels (its verdict is the correction). Nothing is open.
 
 ## A worked example: fMRIPrep's own N4 {#example}
 
-The image viewer below holds the same N4 run by fMRIPrep 25.2.6, by its own ANTs at one thread, by the repository's ANTs 2.6.5 (as built, with correctly rounded maths, at 1 to 12 threads) and by larmorx (1 and 12 threads, default and reproduce modes). Choose the panels, the plane, the slice and the window; select a point to read every panel's exact value there; set two images side by side, swipe or blink between them.
+The image viewer below holds the same N4 run by fMRIPrep 25.2.6, by its own ANTs at one thread, by the repository's ANTs 2.6.5 (as built, with correctly rounded maths, at 1 to 12 threads) and by LARMORX (1 and 12 threads, reproduce and default modes). The *larmorx* panels are reproduce mode, ANTs' result; *larmorx-fix* is the default, where ANTS-40's correction leaves out the few zero voxels this call's weight image includes (the row *larmorx default mode − reproduce mode*). Choose the panels, the plane, the slice and the window; select a point to read every panel's exact value there; set two images side by side, swipe or blink between them.
 
 {{ ev.example('ants-n4', 'final-n4') }}
+
+## A deliberate correction: zero and negative voxels (ANTS-40) {#ants-40}
+
+ITK's N4 takes the logarithm of the voxels it uses only where they are above 0: a 0 stays 0, the logarithm of an intensity of 1, and a negative value stays negative, far below every tissue's logarithm. Both enter the histogram N4 sharpens and the B-spline fit. fMRIPrep runs every N4 without a mask, so a zero background, zero-filled voxels and negative values are fitted as if they were tissue. The project's rules put this to measurement first (2026-10-23): every N4 call of the five fMRIPrep oracle runs, run as ANTs does and with those voxels left out (what a mask of the positive voxels does, which LARMORX's unit test shows to be the correction itself), against ANTs' own variability for the same call, and phantoms with a known bias field.
+
+{{ ev.table('ants-n4', 'ants-40-calls') }}
+
+Sixteen of the 25 calls use such voxels. Leaving them out changes the field far beyond ANTs' own variability, even for a handful of voxels among tens of thousands; on the phantoms it recovers the known field better, and on fMRIPrep's final N4s the white matter becomes more uniform in all five runs.
+
+{{ ev.table('ants-n4', 'ants-40-phantoms') }}
+
+The decision was to correct it by default: a value without a logarithm has no place in N4's model of the log intensities. The example is the run where it matters most: sMRIPrep's final N4 of a 7T T1w template (ds005454 sub-16), which has negative values. Their logarithms stretch the histogram until the tissue sits in one or two of its bins, the sharpening changes nothing, and ANTs' bias field is flat: it corrects nothing. With them left out, LARMORX corrects the image; reproduce mode gives ANTs' output.
+
+{{ ev.example('ants-n4', 'ants-40') }}
 
 ## Against ANTs' own variability {#variability}
 
@@ -63,7 +77,7 @@ Each case of the record, with what it tests, the command line, its verdict and t
 
 ## Corrections by default {#corrections}
 
-Where ANTs has a deterministic defect that changes a result, LARMORX corrects it by default and warns; `upstream_defects="reproduce"` (or `LARMORX_UPSTREAM_DEFECTS=reproduce`) gives ANTs' behaviour, and the record compares in that mode. Its fix pass meets ANTS-35, ANTS-36, ANTS-38 and ITK-02 ([register](repo:docs/findings/upstream-defects.md), [findings](repo:docs/findings/ants-n4.md)); none of them applies to fMRIPrep's command above, so both modes give the same bytes there.
+Where ANTs has a deterministic defect that changes a result, LARMORX corrects it by default and warns; `upstream_defects="reproduce"` (or `LARMORX_UPSTREAM_DEFECTS=reproduce`) gives ANTs' behaviour, and the record compares in that mode. Its fix pass meets ANTS-35, ANTS-36, ANTS-38, ANTS-40 and ITK-02 ([register](repo:docs/findings/upstream-defects.md), [findings](repo:docs/findings/ants-n4.md)). Of them only ANTS-40 applies to fMRIPrep's calls (above); the measurement and its code are in the repository ([investigation](repo:validation/investigations/ants-40-n4-nonpositive/README.md)).
 
 ## Known limits {#limits}
 

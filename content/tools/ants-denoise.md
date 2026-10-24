@@ -1,8 +1,8 @@
 ---
 title: DenoiseImage
 kicker: Tools · ANTs
-lede: Adaptive non-local means denoising, ported from ANTs 2.6.5 and ITK. ANTs' result changes with its thread count (in 85 % of a T1w's voxels at 12 threads); LARMORX gives ANTs' single-thread result at any thread count, and corrects ANTS-43 by default.
-description: LARMORX's port of ANTs' DenoiseImage, validated against ANTs 2.6.5 and fMRIPrep 25.2.6 — fMRIPrep's denoising of a real T1w to inspect, ANTs at 1 to 12 threads and repeated, ANTS-43 corrected, every parity case with its verdict, and speed.
+lede: Adaptive non-local means denoising, ported from ANTs 2.6.5 and ITK. ANTs' result changes with its thread count (in 85 % of a T1w's voxels at 12 threads); LARMORX gives ANTs' single-thread result at any thread count, and corrects ANTS-43 and ANTS-44 by default.
+description: LARMORX's port of ANTs' DenoiseImage, validated against ANTs 2.6.5 and fMRIPrep 25.2.6 — fMRIPrep's denoising of a real T1w to inspect, ANTs at 1 to 12 threads and repeated, ANTS-43 and ANTS-44 corrected, every parity case with its verdict, and speed.
 evidence: true
 wide: true
 ---
@@ -42,6 +42,12 @@ The first step of fMRIPrep's anatomical workflow, with its own arguments, by ANT
 
 {{ ev.example('ants-denoise', 'fmriprep-denoise') }}
 
+## A deliberate correction: the bias outside a mask (ANTS-44) {#ants-44}
+
+With a mask (`-x`) and the Rician noise model, the patches of the centres in the mask reach the voxels just outside it, which are denoised like the others. ITK smooths and corrects the Rician bias only inside the mask: outside it, those voxels keep the raw noise estimate of the last centre that reached them, an unsmoothed value on the mask's edge. Decided on 2026-10-23 (the input makes sense, the result is wrong): LARMORX gives them the smoothed and corrected bias, as inside; the voxels no centre reached are not denoised, as in ITK; reproduce mode gives ANTs' output. fMRIPrep denoises without a mask, so its own call is unchanged; the example is a user's call, fMRIPrep's preprocessed T1w of ds000005 denoised within its brain mask.
+
+{{ ev.example('ants-denoise', 'ants-44') }}
+
 ## Against ANTs' own variability {#variability}
 
 Where LARMORX differs from ANTs as built (glibc's `expf`), the record sets the difference against ANTs' own difference between one thread and 2, 4 and 12 threads.
@@ -60,7 +66,7 @@ Each case of the record, with what it tests, the command line, its verdict and t
 
 ## Corrections by default {#corrections}
 
-The record's fix pass meets ANTS-06, ANTS-43, ANTS-47, ITK-01 and ITK-02, each corrected by default with `upstream_defects="reproduce"` (or `LARMORX_UPSTREAM_DEFECTS=reproduce`) giving ANTs' behaviour ([register](repo:docs/findings/upstream-defects.md)). ANTS-43 changes sMRIPrep's own command, as the worked example measures. Nondeterministic behaviour, such as the thread dependence (ANTS-42), is never reproduced.
+The record's fix pass meets ANTS-06, ANTS-43, ANTS-44, ANTS-47, ITK-01 and ITK-02, each corrected by default with `upstream_defects="reproduce"` (or `LARMORX_UPSTREAM_DEFECTS=reproduce`) giving ANTs' behaviour ([register](repo:docs/findings/upstream-defects.md)). ANTS-43 changes sMRIPrep's own command, as the worked example measures. Nondeterministic behaviour, such as the thread dependence (ANTS-42), is never reproduced.
 
 ## Known limits {#limits}
 

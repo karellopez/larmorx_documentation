@@ -3,19 +3,19 @@
  "tool": "afni-automask",
  "title": "3dAutomask",
  "provenance": {
-  "exporter": "803c9d8080fc5d1ca746e5f462bc5daafb3f1fd5",
+  "exporter": "e9ed712fe266d5f90534789eabeb6c5ff1a85d26",
   "records": [
    {
     "path": "docs/validation/afni-automask.json",
-    "sha256": "a9f6448fa408f72062e75f3d657a50fef3413fac026b9b6e671f74e674da6c90",
-    "generated": "2026-10-23",
-    "larmorx_commit": "0cd5ea2b3549"
+    "sha256": "1d74c0b752fed471a5194788cc9ff28327c5fd8cebe0ce61c58785031b8698ee",
+    "generated": "2026-10-24",
+    "larmorx_commit": "6bf2860fb745"
    },
    {
     "path": "docs/validation/afni-automask.md",
-    "sha256": "ead47f16d2fd4ba31aeda286d06c3ef448f2bac5e10fc5c3561ad00b71b179f3",
-    "generated": "2026-10-23",
-    "larmorx_commit": "0cd5ea2b3549"
+    "sha256": "629682e6cc278866813275ab2d3c398508c1de09cb7dfc9efd754003ca278c3d",
+    "generated": "2026-10-24",
+    "larmorx_commit": "6bf2860fb745"
    }
   ],
   "benchmarks": [],
@@ -296,9 +296,10 @@
    "record": "docs/validation/afni-automask.md",
    "status": "validated",
    "summary": {
-    "cases": 105,
+    "cases": 109,
     "verdicts": {
-     "bit-identical": 83,
+     "bit-identical": 82,
+     "d13": 5,
      "both-reject": 15,
      "divergence": 7
     }
@@ -307,7 +308,8 @@
     {
      "category": "options",
      "counts": {
-      "bit-identical": 33
+      "bit-identical": 32,
+      "d13": 5
      }
     },
     {
@@ -574,9 +576,65 @@
    "results": {
     "replica": {
      "outcome": "pass",
-     "verdict": "bit-identical",
+     "verdict": "d13",
      "checks": "6/6",
-     "reason": ""
+     "reason": "Refused by default (AFNI-41, decided 2026-10-23, rule B: the input makes no sense and AFNI silently does something arbitrary): the help gives -nbhrs a range of 6 to 26, but AFNI accepts any value and peels as with 17 (or as -NN1/2/3 say). The replica's default stops with a fatal error naming the entry (exit status 1); its reproduce mode gives AFNI's output, which the record compares byte for byte."
+    }
+   }
+  },
+  {
+   "id": "options/nbhrs-5",
+   "category": "options",
+   "description": "-nbhrs 5: outside 6..26, refused by default (AFNI-41)",
+   "command": "3dAutomask -nbhrs 5 -prefix mask.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "6/6",
+     "reason": "Refused by default (AFNI-41, decided 2026-10-23, rule B: the input makes no sense and AFNI silently does something arbitrary): the help gives -nbhrs a range of 6 to 26, but AFNI accepts any value and peels as with 17 (or as -NN1/2/3 say). The replica's default stops with a fatal error naming the entry (exit status 1); its reproduce mode gives AFNI's output, which the record compares byte for byte."
+    }
+   }
+  },
+  {
+   "id": "options/nbhrs-27",
+   "category": "options",
+   "description": "-nbhrs 27: outside 6..26, refused by default (AFNI-41)",
+   "command": "3dAutomask -nbhrs 27 -prefix mask.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "6/6",
+     "reason": "Refused by default (AFNI-41, decided 2026-10-23, rule B: the input makes no sense and AFNI silently does something arbitrary): the help gives -nbhrs a range of 6 to 26, but AFNI accepts any value and peels as with 17 (or as -NN1/2/3 say). The replica's default stops with a fatal error naming the entry (exit status 1); its reproduce mode gives AFNI's output, which the record compares byte for byte."
+    }
+   }
+  },
+  {
+   "id": "options/nbhrs-0",
+   "category": "options",
+   "description": "-nbhrs 0: outside 6..26, refused by default (AFNI-41)",
+   "command": "3dAutomask -nbhrs 0 -prefix mask.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "6/6",
+     "reason": "Refused by default (AFNI-41, decided 2026-10-23, rule B: the input makes no sense and AFNI silently does something arbitrary): the help gives -nbhrs a range of 6 to 26, but AFNI accepts any value and peels as with 17 (or as -NN1/2/3 say). The replica's default stops with a fatal error naming the entry (exit status 1); its reproduce mode gives AFNI's output, which the record compares byte for byte."
+    }
+   }
+  },
+  {
+   "id": "options/nbhrs-40-then-NN1",
+   "category": "options",
+   "description": "-nbhrs 40 then -NN1: AFNI peels as -NN1 says; refused by default (AFNI-41)",
+   "command": "3dAutomask -nbhrs 40 -NN1 -prefix mask.nii <generated: head-f32>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "6/6",
+     "reason": "Refused by default (AFNI-41, decided 2026-10-23, rule B: the input makes no sense and AFNI silently does something arbitrary): the help gives -nbhrs a range of 6 to 26, but AFNI accepts any value and peels as with 17 (or as -NN1/2/3 say). The replica's default stops with a fatal error naming the entry (exit status 1); its reproduce mode gives AFNI's output, which the record compares byte for byte."
     }
    }
   },
@@ -1710,7 +1768,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "13/13",
-     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1724,7 +1782,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "13/13",
-     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1738,7 +1796,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "13/13",
-     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1752,7 +1810,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "13/13",
-     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
     }
    },
    "example": "fmriprep-automask"
@@ -1767,7 +1825,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "13/13",
-     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1781,7 +1839,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "13/13",
-     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1795,7 +1853,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "13/13",
-     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1842,7 +1900,7 @@
    }
   }
  ],
- "cases_total": 105,
+ "cases_total": 109,
  "examples": [
   {
    "id": "fmriprep-automask",
@@ -3299,7 +3357,7 @@
        "rms": 0.04575484520108226,
        "range": 1.0,
        "max_rel_range": 1.0,
-       "one_minus_ncc": 0.004953431680783168,
+       "one_minus_ncc": 0.004953431680783158,
        "at_display": [
         49,
         32,
@@ -3322,7 +3380,7 @@
        "rms": 3.915596661067081,
        "range": 1499.4674072265625,
        "max_rel_range": 0.6687481077469156,
-       "one_minus_ncc": 6.707887696237355e-05,
+       "one_minus_ncc": 6.707887696237362e-05,
        "at_display": [
         17,
         25,
