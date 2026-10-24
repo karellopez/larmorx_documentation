@@ -2,19 +2,19 @@
 title: 3dAutomask
 kicker: Tools · AFNI
 lede: >-
-  AFNI's brain mask of an EPI series or a skull-stripped image, as an exact replica of AFNI's
-  source in the separate larmorx-gpl package: bit-identical to AFNI 25.2.09 in every compared
-  case, fMRIPrep's own calls included. A clean-room original in LARMORX (Apache-2.0) is still to
-  be written from its specification.
-description: LARMORX's replica of AFNI's 3dAutomask, validated against AFNI 25.2.09 and fMRIPrep 25.2.6 — fMRIPrep's skull strip of a real BOLD reference, a raw BOLD series and a deliberate correction to inspect, and every parity case with its verdict.
+  AFNI's brain mask of an EPI series or a skull-stripped image, in two implementations: an
+  exact replica of AFNI's source in the separate larmorx-gpl package, and a clean-room original
+  in LARMORX (Apache-2.0), written from a behavioural specification. Both give AFNI 25.2.09's
+  masks bit for bit in every compared case, fMRIPrep's own calls included.
+description: LARMORX's two implementations of AFNI's 3dAutomask, validated against AFNI 25.2.09 and fMRIPrep 25.2.6 — fMRIPrep's skull strip of a real BOLD reference, a raw BOLD series and a deliberate correction to inspect, and every parity case with its verdict.
 evidence: true
 wide: true
 ---
 
 <dl class="facts">
-<dt>Implementations</dt><dd>exact replica (<code>larmorx-gpl</code>, GPL-3.0-or-later, run as a separate program); clean-room original: not yet, to be written from <a href="{{ repo('specs/3dAutomask.md') }}">specs/3dAutomask.md</a></dd>
-<dt>Status</dt><dd><span class="status-tag eco-afni">validated</span> (the replica)</dd>
-<dt>Records</dt><dd><a href="{{ repo('docs/validation/afni-automask.md') }}">afni-automask</a> · API <a href="{{ repo('docs/api/afni-automask.md') }}">afni-automask</a></dd>
+<dt>Implementations</dt><dd>exact replica (<code>larmorx-gpl</code>, GPL-3.0-or-later, run as a separate program); clean-room original (<code>larmorx</code>, Apache-2.0, from <a href="{{ repo('specs/3dAutomask.md') }}">specs/3dAutomask.md</a>)</dd>
+<dt>Status</dt><dd><span class="status-tag eco-afni">validated</span> (each)</dd>
+<dt>Records</dt><dd><a href="{{ repo('docs/validation/afni-automask-replica.md') }}">replica</a> · <a href="{{ repo('docs/validation/afni-automask.md') }}">original</a> · API <a href="{{ repo('docs/api/afni-automask.md') }}">afni-automask</a></dd>
 </dl>
 
 ## What it is
@@ -28,21 +28,23 @@ larmorx afni 3dAutomask -apply_prefix uni_xform_masked.nii.gz -dilate 1 -prefix 
 ```python
 import larmorx as lx
 
-r = lx.afni.automask("uni_xform.nii.gz", dilate=1, apply=True)
+r = lx.afni.automask("uni_xform.nii.gz", dilate=1, apply=True)   # implementation="auto"
 r.mask, r.masked
 ```
 
-3dAutomask's results depend on AFNI library routines copyrighted by the Medical College of Wisconsin (GPL-2), so the replica lives in `larmorx-gpl` (`pip install "larmorx[exact]"`), which LARMORX runs as a separate program; without it `larmorx afni 3dAutomask` stops with a message naming that command. How to read what follows: [the validation guide](/validation/#reading).
+3dAutomask's results depend on AFNI library routines copyrighted by the Medical College of Wisconsin (GPL-2), so LARMORX has two implementations. `implementation="auto" | "replica" | "original"` chooses (on the command line `LARMORX_IMPLEMENTATION`); `auto` takes the replica when `larmorx-gpl` is installed (`pip install "larmorx[exact]"`), and the clean-room original otherwise. The original decides each pass of its mask operations voxel by voxel in parallel, finds clusters by union-find over runs of voxels and replaces two of AFNI's repeated sweeps by breadth-first searches with the same result; its result does not depend on the thread count. How to read what follows: [the validation guide](/validation/#reading).
 
 ## The verdicts at a glance {#verdicts}
 
 {{ ev.agreement('afni-automask', 'replica') }}
 
-The replica gives AFNI's bytes, data and NIfTI header, in every case that writes an output, and AFNI's exit status and messages in every case. Where AFNI crashes on a missing option value (AFNI-40), the replica stops with an error instead: the expected divergences. Each case is also run in the default mode, where LARMORX corrects AFNI's deterministic defects and names them.
+{{ ev.agreement('afni-automask', 'original') }}
+
+Both records run the same 105 cases against AFNI 25.2.09. The replica gives AFNI's bytes, data and NIfTI header, in every case that writes an output, and AFNI's exit status and messages in every case. So does the clean-room original, but in one case: fMRIPrep's call on the BOLD reference of ds005454, whose header differs where AFNI reads the input's geometry from its own header extension, in 7 significant digits (AFNI-10, the *deliberate correction*); its masks are AFNI's. Where AFNI crashes on a missing option value (AFNI-40), both stop with an error instead: the expected divergences. Each case is also run in the default mode, where LARMORX corrects AFNI's deterministic defects and names them.
 
 ## In fMRIPrep: the BOLD reference's second skull strip {#example}
 
-fMRIPrep's own call on one of its oracle runs, given to AFNI, to fMRIPrep's build of AFNI and to the replica. Each mask is drawn over the image it was made from; choose *Masked input* above the panels for `-apply_prefix`'s output, and the difference panels for what separates two runs.
+fMRIPrep's own call on one of its oracle runs, given to AFNI, to fMRIPrep's build of AFNI, to the replica and to the clean-room original (at 1 and 6 threads). Each mask is drawn over the image it was made from; choose *Masked input* above the panels for `-apply_prefix`'s output, and the difference panels for what separates two runs.
 
 {{ ev.example('afni-automask', 'fmriprep-automask') }}
 
@@ -54,20 +56,26 @@ The functional path: with several volumes, 3dAutomask first averages their absol
 
 ## A deliberate correction: AFNI-43 {#correction}
 
-3dAutomask's help says `-peels 0` turns the peeling off; AFNI peels once instead ([AFNI-43](repo:docs/findings/upstream-defects.md)). The replica's default does not peel, and warns; `reproduce` gives AFNI's mask.
+3dAutomask's help says `-peels 0` turns the peeling off; AFNI peels once instead ([AFNI-43](repo:docs/findings/upstream-defects.md)). Both implementations' default does not peel, and warns; `reproduce` gives AFNI's mask.
 
 {{ ev.example('afni-automask', 'afni-43') }}
 
 ## Every case {#cases}
 
-Each case of the record, with what it tests, its command line, the verdict and the reason. Search, filter (or select a segment of the chart above), sort; `#case=<name>` links to one.
+Each case of the two records, with what it tests, its command line, the verdict of each implementation and the reason. Search, filter (or select a segment of a chart above), sort; `#case=<name>` links to one.
 
 {{ ev.cases('afni-automask') }}
 
+## Speed {#speed}
+
+{{ ev.speed('afni-automask') }}
+
+3dAutomask is quick in every implementation: its time is mostly reading and writing compressed NIfTI, and AFNI's is single-threaded. These are informal timings on a shared machine ([findings](repo:docs/findings/afni-masks-original.md)); there is no benchmark report yet.
+
 ## Corrections by default {#corrections}
 
-The replica corrects AFNI's deterministic defects by default and warns: the record's fix pass meets AFNI-43 (`-peels 0`), AFNI-01 (a negative scale factor dropped while averaging a series) and the dataset defects 3dAutomask shares with 3dTshift (AFNI-02, AFNI-07, AFNI-11, AFNI-12, AFNI-16, AFNI-18, AFNI-23, AFNI-26), with `upstream_defects="reproduce"` giving AFNI's behaviour ([register](repo:docs/findings/upstream-defects.md)). AFNI-41, AFNI-42 and AFNI-44 behave as in AFNI until they are decided.
+Both implementations correct AFNI's deterministic defects by default and warn: the records' fix passes meet AFNI-43 (`-peels 0`), AFNI-01 (a negative scale factor dropped while averaging a series) and the dataset defects 3dAutomask shares with 3dTshift (AFNI-02, AFNI-07, AFNI-11, AFNI-12, AFNI-16, AFNI-18, AFNI-23, AFNI-26), with `upstream_defects="reproduce"` giving AFNI's behaviour ([register](repo:docs/findings/upstream-defects.md)). AFNI-41 (`-nbhrs` outside 6 to 26, silently 17 in AFNI) is refused by default before any input is read, in the same words by both implementations (decided 2026-10-23), with `reproduce` giving AFNI's mask; AFNI-42 (`-NN1/2/3` reset the peel threshold) and AFNI-44 (the large-hole filling decided by the number of slices) are kept as AFNI's and documented.
 
 ## Known limits {#limits}
 
-LARMORX writes NIfTI only: AFNI's default prefix `automask` is its own dataset format, which the replica refuses (an expected divergence). There is no clean-room original yet, so `implementation="original"` is an error. 3dAutomask is single-threaded in AFNI and in the replica; there is no benchmark report. The other five platforms are held to LARMORX's own Linux output by the [golden tests](repo:docs/validation/golden.md).
+LARMORX writes NIfTI only: AFNI's default prefix `automask` is its own dataset format, which both implementations refuse (an expected divergence). The clean-room original ignores AFNI's own header extension in an AFNI-written input (AFNI-10), as 3dTshift's original does; the replica reads it as AFNI does. The other five platforms are held to LARMORX's own Linux output by the [golden tests](repo:docs/validation/golden.md).
