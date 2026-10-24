@@ -3,22 +3,39 @@
  "tool": "afni-unifize",
  "title": "3dUnifize",
  "provenance": {
-  "exporter": "e9ed712fe266d5f90534789eabeb6c5ff1a85d26",
+  "exporter": "34f25faf0f0fea24e92d0799bcb830af12f0ca00",
   "records": [
    {
     "path": "docs/validation/afni-unifize.json",
-    "sha256": "dbf1dd79edaeb7e26e1ba64da826fdacf3fe4d79ab83bf028033c0ec5cd68847",
+    "sha256": "6e6c50f4aa861c5da5b4194d784ca54683098d4c3eaaa4b151316075d1cc4c78",
     "generated": "2026-10-24",
-    "larmorx_commit": "6bf2860fb745"
+    "larmorx_commit": "bd2ca21ddea8"
    },
    {
     "path": "docs/validation/afni-unifize.md",
-    "sha256": "0897a62ac16a7b283abe3389607cf3095121b9fd1a895f4582f517a769a124ef",
+    "sha256": "edc128d1b118d609d50efe8f7209e94b5cc9d6e8e01866da93246dc08694d4c0",
     "generated": "2026-10-24",
-    "larmorx_commit": "6bf2860fb745"
+    "larmorx_commit": "bd2ca21ddea8"
+   },
+   {
+    "path": "docs/validation/afni-unifize-replica.json",
+    "sha256": "79ebcb4c507edbc3ff9a65c323e67461becb052c6e6de3b2ca52fccfa802766e",
+    "generated": "2026-10-24",
+    "larmorx_commit": "bd2ca21ddea8"
+   },
+   {
+    "path": "docs/validation/afni-unifize-replica.md",
+    "sha256": "0da7c002b3781fa5707ea3a93b9fe2fc0be17f5fbf7e8e8863d664c45b557661",
+    "generated": "2026-10-24",
+    "larmorx_commit": "bd2ca21ddea8"
    }
   ],
-  "benchmarks": [],
+  "benchmarks": [
+   {
+    "path": "validation/investigations/afni-masks-original/timings-2026-10-24.json",
+    "sha256": "3d3e9eddc0d544df1e3fbc059b1ff2f1cf7343bf1ccd8e1ef31ea93cb30dc111"
+   }
+  ],
   "cache": [
    {
     "entry": "afni-unifize/fmriprep-ds005040-clip-1",
@@ -432,16 +449,432 @@
      "afni_in_fmriprep_image": 6
     },
     "settings": "AFNI's default on OpenNeuro ds000005 sub-01's T1w (160 × 192 × 192: the half-size path), with its scale image; AFNI 25.2.09 at 1 and 6 OpenMP threads, fMRIPrep's build of AFNI at 6, the larmorx-gpl replica at 1 and 6 (both modes)"
+   },
+   {
+    "entry": "afni-unifize/fmriprep-ds005040-clip-1-original",
+    "description": "the clean-room original on fMRIPrep's 3dUnifize call of ds005040 sub-002 task-clip run-1 (and with -T2up 100), and AFNI with correctly rounded maths",
+    "computed": "2026-10-23T23:46:10+00:00",
+    "larmorx_commit": "ca2145f7951eba639976e9a52979c4b9560f0e7d-dirty",
+    "commands": [
+     {
+      "label": "original-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "afni",
+       "3dUnifize",
+       "-clfrac",
+       "0.2",
+       "-rbt",
+       "18.3",
+       "65.0",
+       "90.0",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1-original/original-1.nii.gz",
+       "-T2",
+       "-input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/first_mask/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_masked.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1-original/.home",
+       "LARMORX_IMPLEMENTATION": "original",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 5.91
+     },
+     {
+      "label": "original-6",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "afni",
+       "3dUnifize",
+       "-clfrac",
+       "0.2",
+       "-rbt",
+       "18.3",
+       "65.0",
+       "90.0",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1-original/original-6.nii.gz",
+       "-T2",
+       "-input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/first_mask/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_masked.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1-original/.home",
+       "LARMORX_IMPLEMENTATION": "original",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "6"
+      },
+      "exit": 0,
+      "seconds": 1.7
+     },
+     {
+      "label": "original-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "afni",
+       "3dUnifize",
+       "-clfrac",
+       "0.2",
+       "-rbt",
+       "18.3",
+       "65.0",
+       "90.0",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1-original/original-reproduce.nii.gz",
+       "-T2",
+       "-input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/first_mask/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_masked.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1-original/.home",
+       "LARMORX_IMPLEMENTATION": "original",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 5.74
+     },
+     {
+      "label": "t2up100-original",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "afni",
+       "3dUnifize",
+       "-clfrac",
+       "0.2",
+       "-rbt",
+       "18.3",
+       "65.0",
+       "90.0",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1-original/t2up100-original.nii.gz",
+       "-T2",
+       "-T2up",
+       "100",
+       "-input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/first_mask/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_masked.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1-original/.home",
+       "LARMORX_IMPLEMENTATION": "original",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "6"
+      },
+      "exit": 0,
+      "seconds": 1.93
+     },
+     {
+      "label": "t2up100-original-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "afni",
+       "3dUnifize",
+       "-clfrac",
+       "0.2",
+       "-rbt",
+       "18.3",
+       "65.0",
+       "90.0",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1-original/t2up100-original-reproduce.nii.gz",
+       "-T2",
+       "-T2up",
+       "100",
+       "-input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/first_mask/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_masked.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1-original/.home",
+       "LARMORX_IMPLEMENTATION": "original",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "6"
+      },
+      "exit": 0,
+      "seconds": 0.77
+     },
+     {
+      "label": "afni-cr",
+      "argv": [
+       "<workspace>/oracles/afni-25.2.09/bin/3dUnifize",
+       "-clfrac",
+       "0.2",
+       "-rbt",
+       "18.3",
+       "65.0",
+       "90.0",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1-original/afni-cr.nii.gz",
+       "-T2",
+       "-input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/first_mask/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_masked.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1-original/.home",
+       "OMP_NUM_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload-tanhf/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 128.57
+     }
+    ],
+    "versions": {
+     "larmorx": "larmorx 0.0.1 (the clean-room original)"
+    },
+    "threads": {
+     "larmorx": [
+      "1",
+      "6"
+     ],
+     "afni-cr": [
+      "1"
+     ]
+    },
+    "settings": "the clean-room original (larmorx afni 3dUnifize, LARMORX_IMPLEMENTATION=original) on fMRIPrep's call of the replica's entry: default mode at 1 and 6 threads, reproduce at 1; with -T2up 100 (AFNI-45) in both modes; AFNI 25.2.09 at 1 thread with CORE-MATH's correctly rounded functions preloaded (tanhf, cbrtf among them)"
+   },
+   {
+    "entry": "afni-unifize/ds000005-t1w-original",
+    "description": "the clean-room original on ds000005 sub-01's T1w, and AFNI with correctly rounded maths",
+    "computed": "2026-10-23T23:47:01+00:00",
+    "larmorx_commit": "ca2145f7951eba639976e9a52979c4b9560f0e7d-dirty",
+    "commands": [
+     {
+      "label": "original-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "afni",
+       "3dUnifize",
+       "-ssave",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w-original/original-1-scale.nii.gz",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w-original/original-1.nii.gz",
+       "-input",
+       "<testdata-cache>/openneuro/ds000005/sub-01/anat/sub-01_T1w.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w-original/.home",
+       "LARMORX_IMPLEMENTATION": "original",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 10.47
+     },
+     {
+      "label": "original-6",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "afni",
+       "3dUnifize",
+       "-ssave",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w-original/original-6-scale.nii.gz",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w-original/original-6.nii.gz",
+       "-input",
+       "<testdata-cache>/openneuro/ds000005/sub-01/anat/sub-01_T1w.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w-original/.home",
+       "LARMORX_IMPLEMENTATION": "original",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "6"
+      },
+      "exit": 0,
+      "seconds": 4.08
+     },
+     {
+      "label": "original-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "afni",
+       "3dUnifize",
+       "-ssave",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w-original/original-reproduce-scale.nii.gz",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w-original/original-reproduce.nii.gz",
+       "-input",
+       "<testdata-cache>/openneuro/ds000005/sub-01/anat/sub-01_T1w.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w-original/.home",
+       "LARMORX_IMPLEMENTATION": "original",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 9.96
+     },
+     {
+      "label": "afni-cr",
+      "argv": [
+       "<workspace>/oracles/afni-25.2.09/bin/3dUnifize",
+       "-ssave",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w-original/afni-cr-scale.nii.gz",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w-original/afni-cr.nii.gz",
+       "-input",
+       "<testdata-cache>/openneuro/ds000005/sub-01/anat/sub-01_T1w.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w-original/.home",
+       "OMP_NUM_THREADS": "6",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload-tanhf/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 26.47
+     }
+    ],
+    "versions": {
+     "larmorx": "larmorx 0.0.1 (the clean-room original)"
+    },
+    "threads": {
+     "larmorx": [
+      "1",
+      "6"
+     ],
+     "afni-cr": [
+      "6"
+     ]
+    },
+    "settings": "the clean-room original on ds000005 sub-01's T1w (the half-size path), default mode at 1 and 6 threads, reproduce at 1; AFNI 25.2.09 at 6 OpenMP threads with CORE-MATH's correctly rounded functions preloaded"
    }
   ],
   "command": "python -m larmorx_validation evidence afni-unifize --site <site>"
  },
  "implementations": [
   {
+   "id": "original",
+   "label": "LARMORX clean-room original",
+   "short": "original",
+   "record": "docs/validation/afni-unifize.md",
+   "status": "validated",
+   "summary": {
+    "cases": 99,
+    "verdicts": {
+     "identical-cr": 40,
+     "bit-identical": 34,
+     "d13": 2,
+     "divergence": 4,
+     "both-reject": 19
+    }
+   },
+   "agreement": [
+    {
+     "category": "options",
+     "counts": {
+      "bit-identical": 16,
+      "identical-cr": 17,
+      "d13": 2
+     }
+    },
+    {
+     "category": "datatypes",
+     "counts": {
+      "bit-identical": 4,
+      "identical-cr": 6
+     }
+    },
+    {
+     "category": "defects",
+     "counts": {
+      "bit-identical": 5,
+      "identical-cr": 2,
+      "divergence": 1
+     }
+    },
+    {
+     "category": "dimensions",
+     "counts": {
+      "bit-identical": 5,
+      "identical-cr": 1
+     }
+    },
+    {
+     "category": "errors",
+     "counts": {
+      "divergence": 2,
+      "both-reject": 17
+     }
+    },
+    {
+     "category": "divergences",
+     "counts": {
+      "divergence": 1
+     }
+    },
+    {
+     "category": "global",
+     "counts": {
+      "bit-identical": 2,
+      "identical-cr": 4,
+      "both-reject": 2
+     }
+    },
+    {
+     "category": "environment",
+     "counts": {
+      "identical-cr": 3
+     }
+    },
+    {
+     "category": "fmriprep",
+     "counts": {
+      "bit-identical": 1,
+      "identical-cr": 6
+     }
+    },
+    {
+     "category": "real",
+     "counts": {
+      "bit-identical": 1,
+      "identical-cr": 1
+     }
+    }
+   ]
+  },
+  {
    "id": "replica",
    "label": "larmorx-gpl replica",
    "short": "replica",
-   "record": "docs/validation/afni-unifize.md",
+   "record": "docs/validation/afni-unifize-replica.md",
    "status": "validated",
    "summary": {
     "cases": 99,
@@ -527,6 +960,12 @@
    "description": "the defaults on the T1-like phantom",
    "command": "3dUnifize -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "9/9",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -541,6 +980,12 @@
    "description": "fMRIPrep's options on the T2-like phantom: -clfrac 0.2 -rbt 18.3 65 90 -T2",
    "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii -T2 -input <generated: head-t2-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -555,6 +1000,12 @@
    "description": "-Urad 5",
    "command": "3dUnifize -Urad 5 -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "9/9",
+     "reason": "uni.nii: 3 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -569,6 +1020,12 @@
    "description": "-Urad 12",
    "command": "3dUnifize -Urad 12 -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -583,6 +1040,12 @@
    "description": "-Urad 30",
    "command": "3dUnifize -Urad 30 -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -597,6 +1060,12 @@
    "description": "-rbt 10 30 60",
    "command": "3dUnifize -rbt 10 30 60 -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "9/9",
+     "reason": "uni.nii: 326 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -611,6 +1080,12 @@
    "description": "-param, the same as -rbt",
    "command": "3dUnifize -param 14 75 90 -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -625,6 +1100,12 @@
    "description": "-clfrac 0.1",
    "command": "3dUnifize -clfrac 0.1 -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -639,6 +1120,12 @@
    "description": "-clfrac 0.5",
    "command": "3dUnifize -clfrac 0.5 -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -653,6 +1140,12 @@
    "description": "-clfrac 0.9",
    "command": "3dUnifize -clfrac 0.9 -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 4 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -667,6 +1160,12 @@
    "description": "-mfrac, the same as -clfrac",
    "command": "3dUnifize -mfrac 0.3 -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -681,6 +1180,12 @@
    "description": "-T2 on the T2-like phantom",
    "command": "3dUnifize -T2 -prefix uni.nii <generated: head-t2-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -695,6 +1200,12 @@
    "description": "-T2 -T2: no second inversion, bright edges clipped",
    "command": "3dUnifize -T2 -T2 -prefix uni.nii <generated: head-t2-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -709,6 +1220,12 @@
    "description": "-T2 three times: AFNI neither inverts back nor clips; refused by default (AFNI-48)",
    "command": "3dUnifize -T2 -T2 -T2 -prefix uni.nii <generated: head-t2-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "6/6",
+     "reason": "Refused by default (AFNI-48, decided 2026-10-23, rule B: the input makes no sense and AFNI silently does something arbitrary): the help documents -T2 once and twice; given a third time it neither inverts the output back nor clips its edges, so AFNI writes an inverted image. The original's default stops with a fatal error naming the entry (exit status 1); its reproduce mode gives AFNI's output, wh…"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "d13",
@@ -723,6 +1240,12 @@
    "description": "-T2 four times: as three (AFNI-48)",
    "command": "3dUnifize -T2 -T2 -T2 -T2 -prefix uni.nii <generated: head-t2-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "6/6",
+     "reason": "Refused by default (AFNI-48, decided 2026-10-23, rule B: the input makes no sense and AFNI silently does something arbitrary): the help documents -T2 once and twice; given a third time it neither inverts the output back nor clips its edges, so AFNI writes an inverted image. The original's default stops with a fatal error naming the entry (exit status 1); its reproduce mode gives AFNI's output, wh…"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "d13",
@@ -737,6 +1260,12 @@
    "description": "-T2 three times with -EPI: -EPI sets one -T2, nothing refused",
    "command": "3dUnifize -T2 -T2 -T2 -EPI -prefix uni.nii <generated: series-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -751,6 +1280,12 @@
    "description": "-T2 -T2up 95",
    "command": "3dUnifize -T2 -T2up 95 -prefix uni.nii <generated: head-t2-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -765,6 +1300,12 @@
    "description": "-GM",
    "command": "3dUnifize -GM -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "9/9",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -779,6 +1320,12 @@
    "description": "-GM -T2",
    "command": "3dUnifize -GM -T2 -prefix uni.nii <generated: head-t2-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -793,6 +1340,12 @@
    "description": "-nosquash",
    "command": "3dUnifize -nosquash -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -807,6 +1360,12 @@
    "description": "-oink, the same as -nosquash",
    "command": "3dUnifize -oink -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -821,6 +1380,12 @@
    "description": "-ssave and -amsave",
    "command": "3dUnifize -ssave scale.nii -amsave am.nii -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "13/13",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -835,6 +1400,12 @@
    "description": "-quiet",
    "command": "3dUnifize -quiet -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -849,6 +1420,12 @@
    "description": "-verb: the automask's messages too",
    "command": "3dUnifize -verb -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -863,6 +1440,12 @@
    "description": "-verb -verb",
    "command": "3dUnifize -verb -verb -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -877,6 +1460,12 @@
    "description": "-useall: disabled, a warning",
    "command": "3dUnifize -useall -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -891,6 +1480,12 @@
    "description": "-inset",
    "command": "3dUnifize -inset <generated: head-f32> -prefix uni.nii",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -905,6 +1500,12 @@
    "description": "-t2 -gm -NOSQUASH: AFNI's strcasecmp options",
    "command": "3dUnifize -t2 -gm -NOSQUASH -prefix uni.nii <generated: head-t2-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -919,6 +1520,12 @@
    "description": "1.2 million voxels: the half-size path",
    "command": "3dUnifize -prefix uni.nii.gz <generated: big>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii.gz: 5 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -933,6 +1540,12 @@
    "description": "1.2 million voxels with -noduplo",
    "command": "3dUnifize -noduplo -prefix uni.nii.gz <generated: big>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "9/9",
+     "reason": "uni.nii.gz: 10 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -947,6 +1560,12 @@
    "description": "the half-size path with -T2 and -ssave",
    "command": "3dUnifize -T2 -ssave scale.nii.gz -prefix uni.nii.gz <generated: big-t2>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -961,6 +1580,12 @@
    "description": "-EPI on a 4D series",
    "command": "3dUnifize -EPI -prefix uni.nii <generated: series-i16>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -975,6 +1600,12 @@
    "description": "-EPI -GM: -GM turned off",
    "command": "3dUnifize -EPI -GM -prefix uni.nii <generated: series-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -989,6 +1620,12 @@
    "description": "-EPI on one volume: a warning, -T2 kept",
    "command": "3dUnifize -EPI -prefix uni.nii <generated: head-t2-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1003,6 +1640,12 @@
    "description": "a 4D series without -EPI: sub-brick #0 only",
    "command": "3dUnifize -prefix uni.nii <generated: series-i16>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 9 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1017,6 +1660,12 @@
    "description": "head-i16, with -ssave",
    "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-i16>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1031,6 +1680,12 @@
    "description": "head-u8, with -ssave",
    "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-u8>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1045,6 +1700,12 @@
    "description": "head-i16-slope2, with -ssave",
    "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-i16-slope2>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1059,6 +1720,12 @@
    "description": "head-i16-slope1, with -ssave",
    "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-i16-slope1>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1073,6 +1740,12 @@
    "description": "head-f64, with -ssave",
    "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-f64>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1087,6 +1760,12 @@
    "description": "head-i8, with -ssave",
    "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-i8>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1101,6 +1780,12 @@
    "description": "head-nan, with -ssave",
    "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-nan>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1115,6 +1800,12 @@
    "description": "head-oblique, with -ssave",
    "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-oblique>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1129,6 +1820,12 @@
    "description": "head-qform-only, with -ssave",
    "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-qform-only>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1143,6 +1840,12 @@
    "description": "head-las, with -ssave",
    "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-las>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1157,6 +1860,12 @@
    "description": "float32 with scl_slope and scl_inter (AFNI-02)",
    "command": "3dUnifize -prefix uni.nii <generated: head-f32-slope-inter>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "in its default mode the original corrects AFNI-02 and names it: 55,249 values change (the record's D13 section)"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1171,6 +1880,12 @@
    "description": "a grid in metres (AFNI-07)",
    "command": "3dUnifize -prefix uni.nii <generated: head-metre>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; in its default mode the original corrects AFNI-07 and names it: the header or the messages change (the record's D13 section)"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1185,6 +1900,12 @@
    "description": "a grid 0.009 degrees from plumb (AFNI-16)",
    "command": "3dUnifize -prefix uni.nii <generated: head-nearly-plumb>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; in its default mode the original corrects AFNI-16 and names it: the header or the messages change (the record's D13 section)"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1199,6 +1920,12 @@
    "description": "AFNI_NIFTI_SCALE=NO on int16 with an intercept (AFNI-23)",
    "command": "AFNI_NIFTI_SCALE=NO 3dUnifize -prefix uni.nii <generated: head-i16-intercept>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "in its default mode the original corrects AFNI-23 and names it: 58,184 values change (the record's D13 section)"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1213,6 +1940,12 @@
    "description": "-T2 -T2up 100: one past the sorted values (AFNI-45)",
    "command": "3dUnifize -T2 -T2up 100 -prefix uni.nii <generated: head-t2-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "in its default mode the original corrects AFNI-45 and names it: 53,571 values change (the record's D13 section)"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1227,6 +1960,12 @@
    "description": "-T2 -T2up 99.99 on a small mask: one past the values too (AFNI-45)",
    "command": "3dUnifize -T2 -T2up 99.99 -prefix uni.nii <generated: slice>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "in its default mode the original corrects AFNI-45 and names it: 2,569 values change (the record's D13 section)"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1241,6 +1980,12 @@
    "description": "-EPI on a series with scl_slope -2 (AFNI-01)",
    "command": "3dUnifize -EPI -prefix uni.nii <generated: series-negative>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "in its default mode the original corrects AFNI-01 and names it: 337,232 values change (the record's D13 section)"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1255,6 +2000,12 @@
    "description": "1 million voxels with an axis of 2: the half-size grid keeps 1 (AFNI-47)",
    "command": "3dUnifize -prefix uni.nii.gz <generated: slab>",
    "results": {
+    "original": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "3/3",
+     "reason": "AFNI reads memory it never wrote (AFNI-47): this run crashed (Fatal Signal 11) after the same messages; larmorx fills the read with 0 in reproduce mode and corrects it by default"
+    },
     "replica": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
@@ -1269,6 +2020,12 @@
    "description": "a 2D slice (64 x 64 x 1)",
    "command": "3dUnifize -prefix uni.nii <generated: slice>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1283,6 +2040,12 @@
    "description": "two slices",
    "command": "3dUnifize -prefix uni.nii <generated: two-slices>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1297,6 +2060,12 @@
    "description": "2 x 2 x 2 voxels",
    "command": "3dUnifize -prefix uni.nii <generated: tiny>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1311,6 +2080,12 @@
    "description": "an image of zeros",
    "command": "3dUnifize -prefix uni.nii <generated: zeros>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1325,6 +2100,12 @@
    "description": "a constant image",
    "command": "3dUnifize -prefix uni.nii <generated: constant>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1339,6 +2120,12 @@
    "description": "a 4D file of one volume",
    "command": "3dUnifize -prefix uni.nii <generated: series-one>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 7 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1353,6 +2140,12 @@
    "description": "a 2D slice smaller than 16 x 16: no automask",
    "command": "3dUnifize -prefix uni.nii <generated: slice-small>",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Can't compute Unifize-d dataset for some reason :-(; larmorx exit 1: ** FATAL ERROR: Can't compute Unifize-d dataset for some reason :-( (the same messages)"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
@@ -1367,6 +2160,12 @@
    "description": "-T2 on a 2D slice smaller than 16 x 16: AFNI crashes (AFNI-46)",
    "command": "3dUnifize -T2 -prefix uni.nii <generated: slice-small>",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "divergence",
+     "checks": "2/2",
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: the automask of a 2D image smaller than 16 x 16 is empty (NULL): AFNI crashes inverting the contrast with it (AFNI-46)), after the same messages"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "divergence",
@@ -1381,6 +2180,12 @@
    "description": "-Urad 3 <input>",
    "command": "3dUnifize -Urad 3 <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal value 3.000000 after option -Urad; larmorx exit 1: ** FATAL ERROR: Illegal value 3.000000 after option -Urad (the same messages)"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
@@ -1395,6 +2200,12 @@
    "description": "-Urad 120 <input>",
    "command": "3dUnifize -Urad 120 <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal value 120.000000 after option -Urad; larmorx exit 1: ** FATAL ERROR: Illegal value 120.000000 after option -Urad (the same messages)"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
@@ -1409,6 +2220,12 @@
    "description": "-rbt 18 20 80 <input>",
    "command": "3dUnifize -rbt 18 20 80 <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt'; larmorx exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt' (the same messages)"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
@@ -1423,6 +2240,12 @@
    "description": "-rbt 18 70 60 <input>",
    "command": "3dUnifize -rbt 18 70 60 <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt'; larmorx exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt' (the same messages)"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
@@ -1437,6 +2260,12 @@
    "description": "-rbt 18 70 95 <input>",
    "command": "3dUnifize -rbt 18 70 95 <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt'; larmorx exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt' (the same messages)"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
@@ -1451,6 +2280,12 @@
    "description": "-rbt 18 60",
    "command": "3dUnifize -rbt 18 60",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Need 3 arguments (R pb pt) after '-rbt'; larmorx exit 1: ** FATAL ERROR: Need 3 arguments (R pb pt) after '-rbt' (the same messages)"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
@@ -1465,6 +2300,12 @@
    "description": "-clfrac 0.05 <input>",
    "command": "3dUnifize -clfrac 0.05 <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: -clfrac value 0.050000 is illegal!; larmorx exit 1: ** FATAL ERROR: -clfrac value 0.050000 is illegal! (the same messages)"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
@@ -1479,6 +2320,12 @@
    "description": "-clfrac",
    "command": "3dUnifize -clfrac",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Need argument after '-clfrac'; larmorx exit 1: ** FATAL ERROR: Need argument after '-clfrac' (the same messages)"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
@@ -1493,6 +2340,12 @@
    "description": "-T2up 89 <input>",
    "command": "3dUnifize -T2up 89 <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-(; larmorx exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-( (the same messages)"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
@@ -1507,6 +2360,12 @@
    "description": "-T2up 101 <input>",
    "command": "3dUnifize -T2up 101 <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-(; larmorx exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-( (the same messages)"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
@@ -1521,6 +2380,12 @@
    "description": "-T2up",
    "command": "3dUnifize -T2up",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "divergence",
+     "checks": "2/2",
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: -T2up needs a value: AFNI crashes (Fatal Signal 11) when an option's value is missing (AFNI-40)), after the same messages"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "divergence",
@@ -1535,6 +2400,12 @@
    "description": "-prefix",
    "command": "3dUnifize -prefix",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Need argument after '-prefix'; larmorx exit 1: ** FATAL ERROR: Need argument after '-prefix' (the same messages)"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
@@ -1549,6 +2420,12 @@
    "description": "-ssave",
    "command": "3dUnifize -ssave",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Need argument after '-ssave'; larmorx exit 1: ** FATAL ERROR: Need argument after '-ssave' (the same messages)"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
@@ -1563,6 +2440,12 @@
    "description": "-input <input> -input <input>",
    "command": "3dUnifize -input <generated: head-f32> -input <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Can't use '-input' twice; larmorx exit 1: ** FATAL ERROR: Can't use '-input' twice (the same messages)"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
@@ -1577,6 +2460,12 @@
    "description": "-bogus <input>",
    "command": "3dUnifize -bogus <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Unknown option: -bogus; larmorx exit 1: ** FATAL ERROR: Unknown option: -bogus (the same messages)"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
@@ -1591,6 +2480,12 @@
    "description": "-quiet",
    "command": "3dUnifize -quiet",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: No dataset name on command line?; larmorx exit 1: ** FATAL ERROR: No dataset name on command line? (the same messages)"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
@@ -1605,6 +2500,12 @@
    "description": "-prefix uni.nii /nonexistent/x.nii",
    "command": "3dUnifize -prefix uni.nii /nonexistent/x.nii",
    "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Can't open dataset '/nonexistent/x.nii'; larmorx exit 1: ** FATAL ERROR: Can't open dataset '/nonexistent/x.nii' (the same messages)"
+    },
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
@@ -1619,6 +2520,12 @@
    "description": "no -prefix: AFNI writes its own format (Unifized+orig)",
    "command": "3dUnifize <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "1/1",
+     "reason": "AFNI's default prefix 'Unifized' is its own dataset format, which larmorx-gpl does not write: it refuses (NIfTI only)."
+    },
     "replica": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
@@ -1633,6 +2540,12 @@
    "description": "an existing output (AFNI-11)",
    "command": "3dUnifize -prefix uni.nii <generated: head-f32> (with uni.nii present)",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Neither writes an output; the exit status (0) and the messages are AFNI's. The default mode refuses instead (exit 1) and names AFNI-11 (the record's D13 section)."
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1647,6 +2560,12 @@
    "description": "-overwrite",
    "command": "3dUnifize -overwrite -prefix uni.nii <generated: head-f32> (with uni.nii present)",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1661,6 +2580,12 @@
    "description": "AFNI_DECONFLICT=YES: renamed",
    "command": "AFNI_DECONFLICT=YES 3dUnifize -prefix uni.nii <generated: head-f32> (with uni.nii present)",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni_AA1.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1675,6 +2600,12 @@
    "description": "an existing -ssave output (AFNI-11)",
    "command": "3dUnifize -ssave scale.nii -prefix uni.nii <generated: head-f32> (with scale.nii present)",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; in its default mode the original corrects AFNI-11 and names it: the header or the messages change (the record's D13 section)"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1689,6 +2620,12 @@
    "description": "-DAFNI_NIFTI_WRITE_TYPE=2",
    "command": "3dUnifize -DAFNI_NIFTI_WRITE_TYPE=2 -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1703,6 +2640,12 @@
    "description": "AFNI_QUIET_STARTUP=YES",
    "command": "AFNI_QUIET_STARTUP=YES 3dUnifize -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1717,6 +2660,12 @@
    "description": "AFNI_MESSAGE_PREFIX",
    "command": "AFNI_MESSAGE_PREFIX=UN 3dUnifize -useall -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1731,6 +2680,12 @@
    "description": "AFNI_ECHO_COMMANDLINE=YES",
    "command": "AFNI_ECHO_COMMANDLINE=YES 3dUnifize -prefix uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "8/8",
+     "reason": "uni.nii: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1745,6 +2700,12 @@
    "description": "a -prefix with a blank (AFNI-12)",
    "command": "3dUnifize -prefix 'a b.nii' <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "AFNI refuses it (exit 1), and so does the original in reproduce mode, with AFNI's messages; its default mode accepts it and names AFNI-12 (the record's D13 section)."
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "both-reject",
@@ -1759,6 +2720,12 @@
    "description": "an input in a directory with a blank (AFNI-18)",
    "command": "3dUnifize -prefix uni.nii <generated: head-f32, in a directory with a blank>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "AFNI refuses it (exit 1), and so does the original in reproduce mode, with AFNI's messages; its default mode accepts it and names AFNI-18 (the record's D13 section)."
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "both-reject",
@@ -1773,6 +2740,12 @@
    "description": "an output in a missing directory (AFNI-26)",
    "command": "3dUnifize -prefix nodir/uni.nii <generated: head-f32>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Neither writes an output; the exit status (0) and the messages are AFNI's. The default mode refuses instead (exit 1) and names AFNI-26 (the record's D13 section)."
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1787,11 +2760,17 @@
    "description": "fMRIPrep's call on its BOLD reference's input (ds000005-task_mixedgamblestask_run_01)",
    "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds000005-task_mixedgamblestask_run_01: masked BOLD reference>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "11/11",
-     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1801,11 +2780,17 @@
    "description": "fMRIPrep's call on its BOLD reference's input (ds000005-task_mixedgamblestask_run_02)",
    "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds000005-task_mixedgamblestask_run_02: masked BOLD reference>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 2 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 2 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "11/11",
-     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1815,11 +2800,17 @@
    "description": "fMRIPrep's call on its BOLD reference's input (ds000005-task_mixedgamblestask_run_03)",
    "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds000005-task_mixedgamblestask_run_03: masked BOLD reference>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 2 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 2 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "11/11",
-     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1829,11 +2820,17 @@
    "description": "fMRIPrep's call on its BOLD reference's input (ds005040-task_clip_run_1)",
    "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds005040-task_clip_run_1: masked BOLD reference>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 7 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 7 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "11/11",
-     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    },
    "example": "fmriprep-unifize"
@@ -1844,11 +2841,17 @@
    "description": "fMRIPrep's call on its BOLD reference's input (ds005454-task_rest)",
    "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds005454-task_rest: masked BOLD reference>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 14 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 14 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "11/11",
-     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1858,11 +2861,17 @@
    "description": "fMRIPrep's call on its BOLD reference's input (ds005752-ses_01_task_rest_dir_forward)",
    "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds005752-ses_01_task_rest_dir_forward: masked BOLD reference>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 1 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "11/11",
-     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1872,11 +2881,17 @@
    "description": "fMRIPrep's call on its BOLD reference's input (ds005752-ses_01_task_rest_dir_reverse)",
    "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds005752-ses_01_task_rest_dir_reverse: masked BOLD reference>",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 2 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 2 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "11/11",
-     "reason": "AFNI at 1 and 6 threads give the oracle's bytes; fMRIPrep 25.2.6's AFNI: 1 values differ; uni.nii.gz: fMRIPrep's own output, the same bytes"
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
   },
@@ -1886,6 +2901,12 @@
    "description": "AFNI's default on the T1w of ds000005 (the half-size path)",
    "command": "3dUnifize -ssave scale.nii.gz -prefix uni.nii.gz ds000005/sub-01/anat/sub-01_T1w.nii.gz",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "12/12",
+     "reason": "uni.nii.gz: 1,633 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1901,6 +2922,12 @@
    "description": "-EPI on the BOLD series of ds000005",
    "command": "3dUnifize -EPI -prefix uni.nii.gz ds000005/sub-01/func/sub-01_task-mixedgamblestask_run-01_bold.nii.gz",
    "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "AFNI at 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes"
+    },
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
@@ -1911,11 +2938,110 @@
   }
  ],
  "cases_total": 99,
+ "speed": {
+  "title": "3dUnifize: wall time of the whole program (informal timings, 2026-10-24)",
+  "axis": [
+   0.1,
+   100.0
+  ],
+  "ticks": [
+   [
+    0.1,
+    "0.1 s"
+   ],
+   [
+    1.0,
+    "1 s"
+   ],
+   [
+    10.0,
+    "10 s"
+   ],
+   [
+    100.0,
+    "100 s"
+   ]
+  ],
+  "series": [
+   {
+    "id": "AFNI 1",
+    "label": "AFNI 25.2.09, 1 thread",
+    "mark": "original"
+   },
+   {
+    "id": "AFNI 6",
+    "label": "AFNI 25.2.09, 6 threads",
+    "mark": "original-open"
+   },
+   {
+    "id": "replica 1",
+    "label": "replica, 1 thread",
+    "mark": "replica"
+   },
+   {
+    "id": "replica 6",
+    "label": "replica, 6 threads",
+    "mark": "replica-open"
+   },
+   {
+    "id": "original 1",
+    "label": "clean-room original, 1 thread",
+    "mark": "larmorx"
+   },
+   {
+    "id": "original 6",
+    "label": "clean-room original, 6 threads",
+    "mark": "larmorx-open"
+   }
+  ],
+  "rows": [
+   {
+    "label": "fMRIPrep's call, ds000005 BOLD reference",
+    "input": "3dUnifize, fMRIPrep's call, ds000005 BOLD reference",
+    "seconds": {
+     "AFNI 1": 93.34,
+     "AFNI 6": 21.6,
+     "replica 1": 39.37,
+     "replica 6": 8.68,
+     "original 1": 3.76,
+     "original 6": 0.94
+    },
+    "speedup": 24.824468085106385
+   },
+   {
+    "label": "fMRIPrep's call, ds005454 BOLD reference (half-size path)",
+    "input": "3dUnifize, fMRIPrep's call, ds005454 BOLD reference (half-size path)",
+    "seconds": {
+     "AFNI 1": 18.68,
+     "AFNI 6": 7.45,
+     "replica 1": 13.29,
+     "replica 6": 4.85,
+     "original 1": 4.58,
+     "original 6": 1.21
+    },
+    "speedup": 4.078602620087336
+   },
+   {
+    "label": "a T1w, ds000005 (half-size path)",
+    "input": "3dUnifize, a T1w, ds000005 (half-size path)",
+    "seconds": {
+     "AFNI 1": 67.11,
+     "AFNI 6": 23.55,
+     "replica 1": 35.35,
+     "replica 6": 14.87,
+     "original 1": 9.26,
+     "original 6": 2.66
+    },
+    "speedup": 7.247300215982722
+   }
+  ],
+  "note": "Each program run once (larmorx after one warm-up run), reading and writing compressed NIfTI included, on a 12-CPU machine shared with another job throughout (load 17 to 22): indications, not a benchmark report. The ratio is AFNI's time over the clean-room original's, at one thread each. Tool: validation/investigations/afni-masks-original/timing.py."
+ },
  "examples": [
   {
    "id": "fmriprep-unifize",
    "title": "fMRIPrep's uniformization of a real BOLD reference",
-   "summary": "The 3dUnifize node fMRIPrep 25.2.6 ran on the BOLD reference of OpenNeuro ds005040 sub-002 (task clip, run 1), N4-corrected and skull-stripped once: its arguments (-T2: the contrast inverted, unifized, inverted back) given to AFNI 25.2.09 at 1 and 6 OpenMP threads and to the larmorx-gpl replica at 1 and 6 threads in both modes. fMRIPrep's own output is the panel it produced in its run.",
+   "summary": "The 3dUnifize node fMRIPrep 25.2.6 ran on the BOLD reference of OpenNeuro ds005040 sub-002 (task clip, run 1), N4-corrected and skull-stripped once: its arguments (-T2: the contrast inverted, unifized, inverted back) given to AFNI 25.2.09 at 1 and 6 OpenMP threads, to the larmorx-gpl replica and to LARMORX's clean-room original at 1 and 6 threads in both modes. fMRIPrep's own output is the panel it produced in its run.",
    "facts": [
     {
      "label": "Data",
@@ -1931,7 +3057,7 @@
     },
     {
      "label": "Programs",
-     "text": "AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0 (the repository's oracle build; OpenMP); AFNI AFNI_25.2.09 (Aug 24 2025) [64-bit] in fMRIPrep's image; larmorx-gpl 0.0.1 (the replica, with a port of glibc 2.35's tanhf), from larmorx at commit `ef4d5685a291`"
+     "text": "AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0 (the repository's oracle build; OpenMP); AFNI AFNI_25.2.09 (Aug 24 2025) [64-bit] in fMRIPrep's image; larmorx-gpl 0.0.1 (the replica, with a port of glibc 2.35's tanhf), from larmorx at commit `ef4d5685a291`; larmorx 0.0.1 (the clean-room original) at commit `ca2145f7951e` (a correctly rounded tanhf)"
     },
     {
      "label": "Output",
@@ -2170,9 +3296,128 @@
        1388.5496502685546
       ]
      }
+    },
+    {
+     "id": "original-1",
+     "role": "larmorx",
+     "label": "LARMORX clean-room original",
+     "sub": "default mode, 1 thread",
+     "arrays": {
+      "uni": {
+       "blob": "5dfd1227118b35a1baea44ff.bin",
+       "dtype": "f4",
+       "xor": "afni-1:uni",
+       "zero": false,
+       "bytes": 564
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1388.5496502685546
+      ]
+     }
+    },
+    {
+     "id": "original-reproduce",
+     "role": "larmorx",
+     "label": "LARMORX clean-room original",
+     "sub": "reproduce mode, 1 thread",
+     "arrays": {
+      "uni": {
+       "same": "original-1:uni",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1388.5496502685546
+      ]
+     }
     }
    ],
    "diffs": [
+    {
+     "id": "original-afni",
+     "a": "original-1",
+     "b": "afni-1",
+     "kind": "main",
+     "label": "original − AFNI 25.2.09, 1 thread each",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "uni": {
+       "identical": false,
+       "voxels": 163840,
+       "differ": 7,
+       "share": 4.2724609375e-05,
+       "max_abs": 0.0001220703125,
+       "at": [
+        15,
+        12,
+        22
+       ],
+       "a_at": 174.1085205078125,
+       "b_at": 174.108642578125,
+       "rms": 7.979011788693195e-07,
+       "range": 1499.4674072265625,
+       "max_rel_range": 8.140911360373153e-08,
+       "one_minus_ncc": 2.7854613692248188e-18,
+       "at_display": [
+        42,
+        12,
+        22
+       ]
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0001220703125,
+       "at": [
+        10,
+        25,
+        7
+       ],
+       "a": 140.1771240234375,
+       "b": 140.177001953125,
+       "differ": 7
+      }
+     },
+     "links": [],
+     "verdict": "identical-cr",
+     "reason": "AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is. With CORE-MATH's correctly rounded functions preloaded, AFNI gives the original's bytes, every value."
+    },
+    {
+     "id": "original-afnicr",
+     "a": "original-1",
+     "b": "afni-cr",
+     "kind": "main",
+     "label": "original − AFNI with correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 163840,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1499.4674072265625,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same values, every one: AFNI with correctly rounded maths."
+    },
     {
      "id": "replica-afni",
      "a": "replica-1",
@@ -2442,6 +3687,180 @@
      "links": [],
      "verdict": "bit-identical",
      "reason": "No correction of the register applies to this input: both modes give the same bytes."
+    },
+    {
+     "id": "original-fmriprep",
+     "a": "original-1",
+     "b": "fmriprep",
+     "kind": "fmriprep",
+     "label": "original − fMRIPrep's own output",
+     "role_label": "larmorx against fMRIPrep",
+     "metrics": {
+      "uni": {
+       "identical": false,
+       "voxels": 163840,
+       "differ": 7,
+       "share": 4.2724609375e-05,
+       "max_abs": 0.0001220703125,
+       "at": [
+        15,
+        12,
+        22
+       ],
+       "a_at": 174.1085205078125,
+       "b_at": 174.108642578125,
+       "rms": 7.979011788693195e-07,
+       "range": 1499.4674072265625,
+       "max_rel_range": 8.140911360373153e-08,
+       "one_minus_ncc": 2.7854613692248188e-18,
+       "at_display": [
+        42,
+        12,
+        22
+       ]
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0001220703125,
+       "at": [
+        10,
+        25,
+        7
+       ],
+       "a": 140.1771240234375,
+       "b": 140.177001953125,
+       "differ": 7
+      }
+     },
+     "links": [],
+     "verdict": "identical-cr",
+     "reason": "fMRIPrep's own output is AFNI's; the original differs from it only where glibc's tanhf is not correctly rounded (AFNI with correctly rounded maths gives the original's bytes)."
+    },
+    {
+     "id": "original-replica",
+     "a": "original-1",
+     "b": "replica-1",
+     "kind": "check",
+     "label": "original − replica, 1 thread each",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "uni": {
+       "identical": false,
+       "voxels": 163840,
+       "differ": 7,
+       "share": 4.2724609375e-05,
+       "max_abs": 0.0001220703125,
+       "at": [
+        15,
+        12,
+        22
+       ],
+       "a_at": 174.1085205078125,
+       "b_at": 174.108642578125,
+       "rms": 7.979011788693195e-07,
+       "range": 1499.4674072265625,
+       "max_rel_range": 8.140911360373153e-08,
+       "one_minus_ncc": 2.7854613692248188e-18,
+       "at_display": [
+        42,
+        12,
+        22
+       ]
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0001220703125,
+       "at": [
+        10,
+        25,
+        7
+       ],
+       "a": 140.1771240234375,
+       "b": 140.177001953125,
+       "differ": 7
+      }
+     },
+     "links": [],
+     "verdict": "identical-cr",
+     "reason": "The replica carries glibc 2.35's tanhf, the original a correctly rounded one: they differ exactly where AFNI and AFNI with correctly rounded maths do."
+    },
+    {
+     "id": "original6-original1",
+     "a": "original-6",
+     "b": "original-1",
+     "kind": "check",
+     "label": "original, 6 threads − 1 thread",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 163840,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1499.4674072265625,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The original's result does not depend on its thread count."
+    },
+    {
+     "id": "original-repro",
+     "a": "original-1",
+     "b": "original-reproduce",
+     "kind": "check",
+     "label": "original, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 163840,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1499.4674072265625,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "No correction of the register applies to this input: both modes give the same bytes."
     }
    ],
    "default": {
@@ -2455,17 +3874,17 @@
     "panels": [
      "ref",
      "afni-1",
-     "fmriprep",
+     "original-1",
      "replica-1"
     ],
     "diffs": [
+     "original-afni",
      "replica-afni",
-     "afni6-afni1",
-     "fmriprep-afni"
+     "afni6-afni1"
     ],
     "compare": {
      "a": "afni-1",
-     "b": "replica-1"
+     "b": "original-1"
     },
     "scale": "linear"
    },
@@ -2476,25 +3895,30 @@
     "panels": {
      "ref": "b0257a836d0df596b43a8a63.webp",
      "afni-1": "a7cdb59016d6d39a1ca5e767.webp",
-     "fmriprep": "a7cdb59016d6d39a1ca5e767.webp",
+     "original-1": "a7cdb59016d6d39a1ca5e767.webp",
      "replica-1": "a7cdb59016d6d39a1ca5e767.webp"
     },
-    "diffs": {},
-    "ranges": {},
+    "diffs": {
+     "original-afni": "f018cca8e9bfab082b1b74ae.webp"
+    },
+    "ranges": {
+     "original-afni": 0.0001220703125
+    },
     "caption": "Axial slice 19 of 40; the crosshair at the brain's centre."
    },
    "chain": null,
-   "metrics_note": "Δ is A − B. Computed in float64 over all 163,840 voxels of the outputs, not only those shown; the range is B's maximum minus its minimum. The record's threshold: every output bit-identical to AFNI's, with its exit status and messages. The rows *the original against itself* are AFNI's own variability on this input: its thread counts and builds.",
+   "metrics_note": "Δ is A − B. Computed in float64 over all 163,840 voxels of the outputs, not only those shown; the range is B's maximum minus its minimum. The records' thresholds: every output bit-identical to AFNI's (the replica), or float32 values within 1e-5 of AFNI's largest with bit-identity reported (the clean-room original); with their exit status and messages. The rows *the original against itself* are AFNI's own variability on this input: its thread counts and builds.",
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: BOLD reference, masked (sha256 76db33db4206571d…); fMRIPrep's output (sha256 d6d86af0e97d73b7…)",
-    "Runs: figures cache entry `afni-unifize/fmriprep-ds005040-clip-1`, computed 2026-10-23T11:06:34+00:00 with larmorx `ef4d5685a291`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `afni-unifize/fmriprep-ds005040-clip-1`, computed 2026-10-23T11:06:34+00:00 with larmorx `ef4d5685a291`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs of the clean-room original: figures cache entry `afni-unifize/fmriprep-ds005040-clip-1-original`, computed 2026-10-23T23:46:10+00:00 with larmorx `ca2145f7951e` (default mode at 1 and 6 threads, reproduce mode at 1)"
    ]
   },
   {
    "id": "t1w-unifize",
    "title": "AFNI's default on a real T1w",
-   "summary": "3dUnifize's main use: a T1w's white matter made uniform and scaled to 1000. The T1w of OpenNeuro ds000005 sub-01 has 5,898,240 voxels, more than a million: the local white-matter level is computed on a half-size copy and brought back (AFNI's duplo path). AFNI 25.2.09 at 1 and 6 threads, fMRIPrep's build of AFNI, and the replica in both modes; -ssave writes the scale image each voxel is multiplied by.",
+   "summary": "3dUnifize's main use: a T1w's white matter made uniform and scaled to 1000. The T1w of OpenNeuro ds000005 sub-01 has 5,898,240 voxels, more than a million: the local white-matter level is computed on a half-size copy and brought back (AFNI's duplo path). AFNI 25.2.09 at 1 and 6 threads, fMRIPrep's build of AFNI, the replica and the clean-room original in both modes; -ssave writes the scale image each voxel is multiplied by.",
    "facts": [
     {
      "label": "Data",
@@ -2506,7 +3930,7 @@
     },
     {
      "label": "Programs",
-     "text": "AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI AFNI_25.2.09 (Aug 24 2025) [64-bit] in fMRIPrep's image; larmorx-gpl 0.0.1"
+     "text": "AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI AFNI_25.2.09 (Aug 24 2025) [64-bit] in fMRIPrep's image; larmorx-gpl 0.0.1; larmorx 0.0.1 (the clean-room original)"
     },
     {
      "label": "Grid",
@@ -2815,9 +4239,188 @@
        7.176488327980034
       ]
      }
+    },
+    {
+     "id": "original-1",
+     "role": "larmorx",
+     "label": "LARMORX clean-room original",
+     "sub": "default mode, 1 thread",
+     "arrays": {
+      "uni": {
+       "blob": "aebece52bd3673a5a07dcd4f.bin",
+       "dtype": "f4",
+       "xor": "afni-1:uni",
+       "zero": false,
+       "bytes": 8541
+      },
+      "scale": {
+       "same": "afni-1:scale",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1371.0411523437488
+      ],
+      "scale": [
+       2.6771628856658936,
+       7.176488327980034
+      ]
+     }
+    },
+    {
+     "id": "original-reproduce",
+     "role": "larmorx",
+     "label": "LARMORX clean-room original",
+     "sub": "reproduce mode, 1 thread",
+     "arrays": {
+      "uni": {
+       "same": "original-1:uni",
+       "dtype": "f4"
+      },
+      "scale": {
+       "same": "afni-1:scale",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1371.0411523437488
+      ],
+      "scale": [
+       2.6771628856658936,
+       7.176488327980034
+      ]
+     }
     }
    ],
    "diffs": [
+    {
+     "id": "original-afni",
+     "a": "original-1",
+     "b": "afni-1",
+     "kind": "main",
+     "label": "original − AFNI 25.2.09, 1 thread each",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "uni": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 1633,
+       "share": 0.0002768622504340278,
+       "max_abs": 0.0001220703125,
+       "at": [
+        0,
+        58,
+        54
+       ],
+       "a_at": 1424.02685546875,
+       "b_at": 1424.0267333984375,
+       "rms": 2.031149679912553e-06,
+       "range": 1500.0,
+       "max_rel_range": 8.138020833333333e-08,
+       "one_minus_ncc": 1.3230228286102056e-17,
+       "at_display": null
+      },
+      "scale": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 470.5882263183594,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0001220703125,
+       "at": [
+        15,
+        63,
+        82
+       ],
+       "a": 1457.7855224609375,
+       "b": 1457.785400390625,
+       "differ": 135
+      },
+      "scale": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "identical-cr",
+     "reason": "AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is. With CORE-MATH's correctly rounded functions preloaded, AFNI gives the original's bytes, every value."
+    },
+    {
+     "id": "original-afnicr",
+     "a": "original-1",
+     "b": "afni-cr",
+     "kind": "main",
+     "label": "original − AFNI with correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1500.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      },
+      "scale": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 470.5882263183594,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same values, every one: AFNI with correctly rounded maths."
+    },
     {
      "id": "replica-afni",
      "a": "replica-1",
@@ -3192,6 +4795,205 @@
      "links": [],
      "verdict": "bit-identical",
      "reason": "No correction of the register applies to this input: both modes give the same bytes."
+    },
+    {
+     "id": "original-replica",
+     "a": "original-1",
+     "b": "replica-1",
+     "kind": "check",
+     "label": "original − replica, 1 thread each",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "uni": {
+       "identical": false,
+       "voxels": 5898240,
+       "differ": 1633,
+       "share": 0.0002768622504340278,
+       "max_abs": 0.0001220703125,
+       "at": [
+        0,
+        58,
+        54
+       ],
+       "a_at": 1424.02685546875,
+       "b_at": 1424.0267333984375,
+       "rms": 2.031149679912553e-06,
+       "range": 1500.0,
+       "max_rel_range": 8.138020833333333e-08,
+       "one_minus_ncc": 1.3230228286102056e-17,
+       "at_display": null
+      },
+      "scale": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 470.5882263183594,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0001220703125,
+       "at": [
+        15,
+        63,
+        82
+       ],
+       "a": 1457.7855224609375,
+       "b": 1457.785400390625,
+       "differ": 135
+      },
+      "scale": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "identical-cr",
+     "reason": "The replica carries glibc 2.35's tanhf, the original a correctly rounded one: they differ exactly where AFNI and AFNI with correctly rounded maths do."
+    },
+    {
+     "id": "original6-original1",
+     "a": "original-6",
+     "b": "original-1",
+     "kind": "check",
+     "label": "original, 6 threads − 1 thread",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1500.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      },
+      "scale": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 470.5882263183594,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The original's result does not depend on its thread count."
+    },
+    {
+     "id": "original-repro",
+     "a": "original-1",
+     "b": "original-reproduce",
+     "kind": "check",
+     "label": "original, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1500.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "scale": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 470.5882263183594,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "scale": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "No correction of the register applies to this input: both modes give the same bytes."
     }
    ],
    "default": {
@@ -3205,17 +5007,17 @@
     "panels": [
      "t1w",
      "afni-1",
-     "replica-1",
-     "image"
+     "original-1",
+     "replica-1"
     ],
     "diffs": [
+     "original-afni",
      "replica-afni",
-     "afni6-afni1",
-     "image-afni"
+     "afni6-afni1"
     ],
     "compare": {
-     "a": "t1w",
-     "b": "afni-1"
+     "a": "afni-1",
+     "b": "original-1"
     },
     "scale": "linear"
    },
@@ -3226,25 +5028,30 @@
     "panels": {
      "t1w": "d69cba715033c5dd20b2b362.webp",
      "afni-1": "c2d2e91ef95f1d27e9c11f7d.webp",
-     "replica-1": "c2d2e91ef95f1d27e9c11f7d.webp",
-     "image": "c2d2e91ef95f1d27e9c11f7d.webp"
+     "original-1": "c2d2e91ef95f1d27e9c11f7d.webp",
+     "replica-1": "c2d2e91ef95f1d27e9c11f7d.webp"
     },
-    "diffs": {},
-    "ranges": {},
+    "diffs": {
+     "original-afni": "19c7ea5574055e7b0de791d7.webp"
+    },
+    "ranges": {
+     "original-afni": 0.0001220703125
+    },
     "caption": "Axial slice 67 of 111; the crosshair at the brain's centre."
    },
    "chain": null,
-   "metrics_note": "Δ is A − B. Computed in float64 over all 5,898,240 voxels of the outputs, not only those shown; the range is B's maximum minus its minimum. The record's threshold: every output bit-identical to AFNI's, with its exit status and messages. The rows *the original against itself* are AFNI's own variability on this input: its thread counts and builds.",
+   "metrics_note": "Δ is A − B. Computed in float64 over all 5,898,240 voxels of the outputs, not only those shown; the range is B's maximum minus its minimum. The records' thresholds: every output bit-identical to AFNI's (the replica), or float32 values within 1e-5 of AFNI's largest with bit-identity reported (the clean-room original); with their exit status and messages. The rows *the original against itself* are AFNI's own variability on this input: its thread counts and builds.",
    "provenance": [
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: T1w (sha256 75c615d7cce397be…)",
-    "Runs: figures cache entry `afni-unifize/ds000005-t1w`, computed 2026-10-23T11:09:11+00:00 with larmorx `ef4d5685a291`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `afni-unifize/ds000005-t1w`, computed 2026-10-23T11:09:11+00:00 with larmorx `ef4d5685a291`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs of the clean-room original: figures cache entry `afni-unifize/ds000005-t1w-original`, computed 2026-10-23T23:47:01+00:00 with larmorx `ca2145f7951e` (default mode at 1 and 6 threads, reproduce mode at 1)"
    ]
   },
   {
    "id": "afni-45",
    "title": "AFNI-45: -T2up 100 reads past the sorted values",
-   "summary": "With -T2, 3dUnifize inverts the contrast about an upper percentile of the masked values (-T2up, 98.5 by default, 90 to 100 allowed). At 100 the percentile's index is one past the end of the sorted values. fMRIPrep's call with -T2up 100 added, given to AFNI 25.2.09 and to the replica in both modes, beside fMRIPrep's own call.",
+   "summary": "With -T2, 3dUnifize inverts the contrast about an upper percentile of the masked values (-T2up, 98.5 by default, 90 to 100 allowed). At 100 the percentile's index is one past the end of the sorted values. fMRIPrep's call with -T2up 100 added, given to AFNI 25.2.09, to the replica and to the clean-room original in both modes, beside fMRIPrep's own call.",
    "facts": [
     {
      "label": "Input",
@@ -3457,6 +5264,45 @@
        1388.5496502685546
       ]
      }
+    },
+    {
+     "id": "original",
+     "role": "larmorx",
+     "label": "LARMORX clean-room original, -T2up 100",
+     "sub": "default mode: corrected",
+     "arrays": {
+      "uni": {
+       "blob": "0de37b2d44c29f3220076663.bin",
+       "dtype": "f4",
+       "xor": "replica:uni",
+       "zero": false,
+       "bytes": 595
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1026.715344238281
+      ]
+     }
+    },
+    {
+     "id": "original-reproduce",
+     "role": "larmorx",
+     "label": "LARMORX clean-room original, -T2up 100",
+     "sub": "reproduce mode",
+     "arrays": {
+      "uni": {
+       "same": "afni:uni",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       0.0
+      ]
+     }
     }
    ],
    "diffs": [
@@ -3563,6 +5409,110 @@
      ],
      "verdict": "bit-identical",
      "reason": "reproduce mode gives AFNI's result: the read past the end filled with 0, as AFNI read it on this machine."
+    },
+    {
+     "id": "original-afni",
+     "a": "original",
+     "b": "afni",
+     "kind": "main",
+     "label": "original (default) − AFNI, -T2up 100",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "uni": {
+       "identical": false,
+       "voxels": 163840,
+       "differ": 47016,
+       "share": 0.286962890625,
+       "max_abs": 1459.6671142578125,
+       "at": [
+        23,
+        21,
+        35
+       ],
+       "a_at": 1459.6671142578125,
+       "b_at": 0.0,
+       "rms": 318.1547475469252,
+       "range": 0.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 1.0,
+       "at_display": [
+        34,
+        21,
+        35
+       ]
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 1459.6671142578125,
+       "at": [
+        34,
+        21,
+        35
+       ],
+       "a": 1459.6671142578125,
+       "b": 0.0,
+       "differ": 47016
+      }
+     },
+     "links": [
+      {
+       "label": "AFNI-45",
+       "href": "docs/findings/upstream-defects.md#afni-45---t2up-near-100-reads-past-the-sorted-values--a"
+      }
+     ],
+     "verdict": "d13",
+     "reason": "AFNI-45, corrected by default with a warning: at -T2up 100 the percentile's index falls one past the sorted values, where AFNI reads memory it never wrote (here 0: every value inverts to 0, and so does the output); the default inverts about the largest value, the 100th percentile. Reproduce mode fills that read with 0."
+    },
+    {
+     "id": "original-repro-afni",
+     "a": "original-reproduce",
+     "b": "afni",
+     "kind": "main",
+     "label": "original (reproduce) − AFNI, -T2up 100",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 163840,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [
+      {
+       "label": "AFNI-45",
+       "href": "docs/findings/upstream-defects.md#afni-45---t2up-near-100-reads-past-the-sorted-values--a"
+      }
+     ],
+     "verdict": "bit-identical",
+     "reason": "reproduce mode gives AFNI's result: the read past the end filled with 0, as AFNI read it on this machine."
     }
    ],
    "default": {
@@ -3576,16 +5526,17 @@
     "panels": [
      "ref",
      "afni",
-     "replica",
+     "original",
      "afni-default"
     ],
     "diffs": [
-     "replica-afni",
-     "repro-afni"
+     "original-afni",
+     "original-repro-afni",
+     "replica-afni"
     ],
     "compare": {
      "a": "afni-default",
-     "b": "replica"
+     "b": "original"
     },
     "scale": "linear"
    },
@@ -3596,23 +5547,26 @@
     "panels": {
      "ref": "b0257a836d0df596b43a8a63.webp",
      "afni": "0810122b6d960efb7225c1da.webp",
-     "replica": "a0514fbcc3f59091e809c792.webp",
+     "original": "a0514fbcc3f59091e809c792.webp",
      "afni-default": "d0fb1b49b1b570e7757e0f24.webp"
     },
     "diffs": {
+     "original-afni": "b1f8f41fae382eb19dfec960.webp",
      "replica-afni": "b1f8f41fae382eb19dfec960.webp"
     },
     "ranges": {
+     "original-afni": 1459.6671142578125,
      "replica-afni": 1459.6671142578125
     },
     "caption": "Axial slice 19 of 40; the crosshair at the brain's centre."
    },
    "chain": null,
-   "metrics_note": "Δ is A − B. Computed in float64 over all 163,840 voxels of the outputs, not only those shown; the range is B's maximum minus its minimum. The record's threshold: every output bit-identical to AFNI's, with its exit status and messages. The rows *the original against itself* are AFNI's own variability on this input: its thread counts and builds.",
+   "metrics_note": "Δ is A − B. Computed in float64 over all 163,840 voxels of the outputs, not only those shown; the range is B's maximum minus its minimum. The records' thresholds: every output bit-identical to AFNI's (the replica), or float32 values within 1e-5 of AFNI's largest with bit-identity reported (the clean-room original); with their exit status and messages. The rows *the original against itself* are AFNI's own variability on this input: its thread counts and builds.",
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: BOLD reference, masked (sha256 76db33db4206571d…); fMRIPrep's output (sha256 d6d86af0e97d73b7…)",
-    "Runs: figures cache entry `afni-unifize/fmriprep-ds005040-clip-1`, computed 2026-10-23T11:06:34+00:00 with larmorx `ef4d5685a291`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `afni-unifize/fmriprep-ds005040-clip-1`, computed 2026-10-23T11:06:34+00:00 with larmorx `ef4d5685a291`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs of the clean-room original: figures cache entry `afni-unifize/fmriprep-ds005040-clip-1-original`, computed 2026-10-23T23:46:10+00:00 with larmorx `ca2145f7951e` (default mode at 1 and 6 threads, reproduce mode at 1)"
    ]
   }
  ]
