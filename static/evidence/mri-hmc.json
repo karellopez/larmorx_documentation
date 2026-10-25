@@ -3,7 +3,7 @@
  "tool": "mri-hmc",
  "title": "Head-motion correction",
  "provenance": {
-  "exporter": "c545572695dca1e024f2d7e03e70830017ddb9f4",
+  "exporter": "51b22fb9ec504a539a598f35c734f6de6b4cfa43",
   "records": [
    {
     "path": "docs/validation/mri-hmc.json",
@@ -19,15 +19,15 @@
    },
    {
     "path": "docs/validation/fsl-mcflirt-replica.json",
-    "sha256": "ecf8577ce20b2aaee54b75cba2a47891ae7ae95f22742e3dbe31447255b8130b",
-    "generated": "2026-10-24",
-    "larmorx_commit": "920ee8e64f2b"
+    "sha256": "899fd86285e8648f64c2db2d5ebe4a68b5a011dd2ed7c1f2205634d95e61c732",
+    "generated": "2026-10-25",
+    "larmorx_commit": "205bee40f36f"
    },
    {
     "path": "docs/validation/fsl-mcflirt-replica.md",
-    "sha256": "5bec35e83fb8d81434371aa99004f83191d03cec38fd5d3b7a89f5def9d35c55",
-    "generated": "2026-10-24",
-    "larmorx_commit": "920ee8e64f2b"
+    "sha256": "6d9dfa8b28626f5ad8f1598820962f8071813a6a4263b8659dae8e273b82669e",
+    "generated": "2026-10-25",
+    "larmorx_commit": "205bee40f36f"
    }
   ],
   "benchmarks": [
@@ -330,9 +330,9 @@
    "record": "docs/validation/fsl-mcflirt-replica.md",
    "status": "validated",
    "summary": {
-    "cases": 176,
+    "cases": 194,
     "verdicts": {
-     "bit-identical": 155,
+     "bit-identical": 173,
      "both-reject": 21
     }
    },
@@ -392,14 +392,14 @@
     {
      "category": "replica: edge cases",
      "counts": {
-      "bit-identical": 23,
+      "bit-identical": 26,
       "both-reject": 9
      }
     },
     {
      "category": "replica: fMRIPrep's calls",
      "counts": {
-      "bit-identical": 7
+      "bit-identical": 22
      }
     }
    ],
@@ -3522,6 +3522,48 @@
    }
   },
   {
+   "id": "edge/atanf-phantom-2",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/atanf-phantom-11",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/atanf-phantom-27",
+   "category": "replica: edge cases",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
    "id": "edge/rotation0",
    "category": "replica: edge cases",
    "description": "6/6",
@@ -3616,6 +3658,216 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds000228-sub-pixar008-noreconall/task_pixar",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (169/169), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds000256-sub-CTS203-noreconall/task_restbaseline",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (165/165), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds000256-sub-CTS203-noreconall/task_restfixationfixed",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (165/165), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds000256-sub-CTS203-noreconall/task_restfixationnofeedback",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (165/165), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds002422-sub-02-noreconall/task_arithm_run_01",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (211/211), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds002422-sub-02-noreconall/task_arithm_run_02",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (211/211), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds002422-sub-02-noreconall/task_rest",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (201/201), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds002603-sub-01-noreconall/task_wm_acq_Mb4Mm3Tr550",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (589/589), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds002603-sub-01-noreconall/task_wm_acq_SeqMm3Tr2000",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (161/161), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds003592-sub-280-noreconall/ses_1_task_rest_echo_1",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (201/201), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds004884-sub-M2079-noreconall/ses_217_task_naming40_acq_epfid2_dir_AP_run_2",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (61/61), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds004884-sub-M2079-noreconall/ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (197/197), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds004958-sub-fsm64ps-noreconall/task_rest",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (601/601), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds005003-sub-RS001-noreconall/ses_1_task_motor",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (81/81), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds005003-sub-RS001-noreconall/ses_1_task_rest",
+   "category": "replica: fMRIPrep's calls",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (81/81), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3745,7 +3997,7 @@
    "note": "From the case explorer below: each case's reason gives its numbers."
   }
  ],
- "cases_total": 176,
+ "cases_total": 194,
  "speed": {
   "title": "Seconds for the whole command, median of repeated runs, log scale; the factor is the clean-room original's speed-up at one thread",
   "axis": [
@@ -3837,7 +4089,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.17 (mcflirt), run as a black box; larmorx's clean-room original (`lx.mri.hmc`, experimental) at commit `1dfe56c0dc60`; the replica (larmorx-nc 0.0.1, `lx.mri.hmc(implementation=\"replica\")`) at commit `a4b2468b7bbd`"
+     "text": "FSL 6.0.7.17 (mcflirt), run as a black box; larmorx's clean-room original (`lx.mri.hmc`, experimental) at commit `1dfe56c0dc60`; the replica (larmorx-nc 0.0.1, `lx.mri.hmc(implementation=\"replica\")`) at commit `d6ba67e5ccc3`"
     },
     {
      "label": "Volumes",
@@ -10368,8 +10620,239 @@
     "Inputs: BOLD (sha256 609ae0a21822318f…); HMC reference (sha256 5030b453bcc3bbd4…)",
     "Runs: figures cache entry `mri-hmc/fmriprep-ds000005-run-01`, computed 2026-10-21T15:08:32+00:00 with larmorx `1dfe56c0dc60`; FSL 6.0.7.17 (mcflirt); every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Inputs: BOLD (sha256 609ae0a21822318f…); HMC reference (sha256 5030b453bcc3bbd4…)",
-    "Runs: figures cache entry `mri-hmc/fmriprep-ds000005-run-01-replica`, computed 2026-10-24T19:03:54+00:00 with larmorx `a4b2468b7bbd`; larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `mri-hmc/fmriprep-ds000005-run-01-replica`, computed 2026-10-24T19:03:54+00:00 with larmorx `d6ba67e5ccc3`; larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds000005"
    ]
   }
- ]
+ ],
+ "cases_credits": [
+  "openneuro-ds000005",
+  "openneuro-ds000117",
+  "openneuro-ds000122",
+  "openneuro-ds000210",
+  "openneuro-ds000258",
+  "openneuro-ds003345",
+  "openneuro-ds003763",
+  "openneuro-ds005040",
+  "openneuro-ds006010",
+  "openneuro-ds006736",
+  "openneuro-ds000228",
+  "openneuro-ds003592",
+  "openneuro-ds005454",
+  "openneuro-ds005752"
+ ],
+ "credits": {
+  "openneuro-ds000005": {
+   "id": "openneuro-ds000005",
+   "title": "Mixed-gambles task",
+   "source": "OpenNeuro ds000005",
+   "version": "00001",
+   "doi": "",
+   "url": "https://openneuro.org/datasets/ds000005/versions/00001",
+   "licence": "PDDL-1.0",
+   "licence_name": "Open Data Commons Public Domain Dedication and Licence 1.0",
+   "licence_url": "https://opendatacommons.org/licenses/pddl/1-0/",
+   "citation": "Tom, S.M., Fox, C.R., Trepel, C., Poldrack, R.A. (2007). The neural basis of loss aversion in decision-making under risk. Science, 315(5811):515-8. Dataset: OpenNeuro ds000005 (OpenfMRI), snapshot 00001.",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Mixed-gambles task (OpenNeuro ds000005, version 00001), Open Data Commons Public Domain Dedication and Licence 1.0."
+  },
+  "openneuro-ds000117": {
+   "id": "openneuro-ds000117",
+   "title": "Multisubject, multimodal face processing",
+   "source": "OpenNeuro ds000117",
+   "version": "2.0.0",
+   "doi": "10.18112/openneuro.ds000117.v2.0.0",
+   "url": "https://openneuro.org/datasets/ds000117/versions/2.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Wakeman DG, Henson RN (2015). A multi-subject, multi-modal human neuroimaging dataset. Scientific Data 2:150001. doi:10.1038/sdata.2015.1. Dataset: OpenNeuro ds000117, version 2.0.0, doi:10.18112/openneuro.ds000117.v2.0.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Multisubject, multimodal face processing (OpenNeuro ds000117, version 2.0.0, doi:10.18112/openneuro.ds000117.v2.0.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds000122": {
+   "id": "openneuro-ds000122",
+   "title": "Concurrent but opposite network modulations",
+   "source": "OpenNeuro ds000122",
+   "version": "00001",
+   "doi": "",
+   "url": "https://openneuro.org/datasets/ds000122/versions/00001",
+   "licence": "PDDL-1.0",
+   "licence_name": "Open Data Commons Public Domain Dedication and Licence 1.0",
+   "licence_url": "https://opendatacommons.org/licenses/pddl/1-0/",
+   "citation": "Xu J, Zhang S, Calhoun VD, Monterosso J, Potenza MN (2013). Task-related concurrent but opposite modulations of overlapping functional networks as revealed by spatial ICA. NeuroImage 79:62-71. Dataset: OpenNeuro ds000122 (OpenfMRI), snapshot 00001.",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Concurrent but opposite network modulations (OpenNeuro ds000122, version 00001), Open Data Commons Public Domain Dedication and Licence 1.0."
+  },
+  "openneuro-ds000210": {
+   "id": "openneuro-ds000210",
+   "title": "Multi-echo fMRI replication sample",
+   "source": "OpenNeuro ds000210",
+   "version": "00002",
+   "doi": "",
+   "url": "https://openneuro.org/datasets/ds000210/versions/00002",
+   "licence": "PDDL-1.0",
+   "licence_name": "Open Data Commons Public Domain Dedication and Licence 1.0",
+   "licence_url": "https://opendatacommons.org/licenses/pddl/1-0/",
+   "citation": "DuPre, E., Luh, W.-M., Spreng, R.N. (2016). Multi-echo fMRI replication sample of autobiographical memory, prospection and theory of mind reasoning tasks. Scientific Data 3, 160116. doi:10.1038/sdata.2016.116. Dataset: OpenNeuro ds000210, snapshot 00002.",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Multi-echo fMRI replication sample (OpenNeuro ds000210, version 00002), Open Data Commons Public Domain Dedication and Licence 1.0."
+  },
+  "openneuro-ds000228": {
+   "id": "openneuro-ds000228",
+   "title": "Children and adults watching a short film",
+   "source": "OpenNeuro ds000228",
+   "version": "1.1.1",
+   "doi": "10.18112/openneuro.ds000228.v1.1.1",
+   "url": "https://openneuro.org/datasets/ds000228/versions/1.1.1",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Richardson H, Lisandrelli G, Riobueno-Naylor A, Saxe R (2018). Development of the social brain from age three to twelve years. Nature Communications 9:1027. doi:10.1038/s41467-018-03399-2. Dataset: OpenNeuro ds000228 v1.1.1, doi:10.18112/openneuro.ds000228.v1.1.1",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Children and adults watching a short film (OpenNeuro ds000228, version 1.1.1, doi:10.18112/openneuro.ds000228.v1.1.1), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds000258": {
+   "id": "openneuro-ds000258",
+   "title": "Multi-echo Cambridge",
+   "source": "OpenNeuro ds000258",
+   "version": "1.0.1",
+   "doi": "10.18112/openneuro.ds000258.v1.0.1",
+   "url": "https://openneuro.org/datasets/ds000258/versions/1.0.1",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Power JD, Voon V, Kundu P, Bhogawar S, Bandettini PA, Martin A. Multi-echo Cambridge. OpenNeuro ds000258 v1.0.1, doi:10.18112/openneuro.ds000258.v1.0.1 (https://www.jonathanpower.net/paper-multiecho.html)",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Multi-echo Cambridge (OpenNeuro ds000258, version 1.0.1, doi:10.18112/openneuro.ds000258.v1.0.1), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds003345": {
+   "id": "openneuro-ds003345",
+   "title": "PenaltyKik.02",
+   "source": "OpenNeuro ds003345",
+   "version": "1.0.2",
+   "doi": "10.18112/openneuro.ds003345.v1.0.2",
+   "url": "https://openneuro.org/datasets/ds003345/versions/1.0.2",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "McDonald K, Broderick W, Huettel S, Pearson J. PenaltyKik.02. OpenNeuro ds003345 v1.0.2, doi:10.18112/openneuro.ds003345.v1.0.2; see McDonald et al. (2019) Nature Communications and McDonald et al. (2020) Social Cognitive and Affective Neuroscience 15(4):383.",
+   "attribution": false,
+   "share_alike": false,
+   "text": "PenaltyKik.02 (OpenNeuro ds003345, version 1.0.2, doi:10.18112/openneuro.ds003345.v1.0.2), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds003592": {
+   "id": "openneuro-ds003592",
+   "title": "Neurocognitive aging data release",
+   "source": "OpenNeuro ds003592",
+   "version": "1.0.13",
+   "doi": "10.18112/openneuro.ds003592.v1.0.13",
+   "url": "https://openneuro.org/datasets/ds003592/versions/1.0.13",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Spreng RN, Setton R, Alter U, Cassidy BN, Darboh B, DuPre E, Kantarovich K, Lockrow AW, Mwilambwe-Tshilobo L, Luh W-M, Kundu P, Turner GR. Neurocognitive aging data release with behavioral, structural, and multi-echo functional MRI measures. OpenNeuro ds003592 v1.0.13, doi:10.18112/openneuro.ds003592.v1.0.13",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Neurocognitive aging data release (OpenNeuro ds003592, version 1.0.13, doi:10.18112/openneuro.ds003592.v1.0.13), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds003763": {
+   "id": "openneuro-ds003763",
+   "title": "Interoception during aging",
+   "source": "OpenNeuro ds003763",
+   "version": "1.0.5",
+   "doi": "10.18112/openneuro.ds003763.v1.0.5",
+   "url": "https://openneuro.org/datasets/ds003763/versions/1.0.5",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Dobrushina OR, Arina GA, Dobrynina LA, et al. (2021). Sensory integration in interoception: Interplay between top-down and bottom-up processing. Cortex. doi:10.1016/j.cortex.2021.08.009. Dataset: OpenNeuro ds003763 v1.0.5, doi:10.18112/openneuro.ds003763.v1.0.5",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Interoception during aging (OpenNeuro ds003763, version 1.0.5, doi:10.18112/openneuro.ds003763.v1.0.5), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds005040": {
+   "id": "openneuro-ds005040",
+   "title": "Political Moralization",
+   "source": "OpenNeuro ds005040",
+   "version": "1.2.0",
+   "doi": "10.18112/openneuro.ds005040.v1.2.0",
+   "url": "https://openneuro.org/datasets/ds005040/versions/1.2.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Cohen MS, Cao Q, Decety J. Political Moralization (PMM). OpenNeuro ds005040 v1.2.0, doi:10.18112/openneuro.ds005040.v1.2.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Political Moralization (OpenNeuro ds005040, version 1.2.0, doi:10.18112/openneuro.ds005040.v1.2.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds005454": {
+   "id": "openneuro-ds005454",
+   "title": "fMRIPrep boot camp 7T training dataset",
+   "source": "OpenNeuro ds005454",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds005454.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds005454/versions/1.0.0",
+   "licence": "CC-BY-4.0",
+   "licence_name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+   "citation": "Sleight EC, Esteban O, Grouiller F. fMRIPrep boot camp -- 7T training dataset. OpenNeuro ds005454, version 1.0.0. doi:10.18112/openneuro.ds005454.v1.0.0",
+   "attribution": true,
+   "share_alike": false,
+   "text": "fMRIPrep boot camp 7T training dataset (OpenNeuro ds005454, version 1.0.0, doi:10.18112/openneuro.ds005454.v1.0.0), Creative Commons Attribution 4.0 (CC BY 4.0). Attribution: Sleight EC, Esteban O, Grouiller F. fMRIPrep boot camp -- 7T training dataset. OpenNeuro ds005454, version 1.0.0. doi:10.18112/openneuro.ds005454.v1.0.0 The images shown here are adapted from it: reoriented to RAS, cropped to the region shown, masked outside it, and shown as the outputs of the programs compared."
+  },
+  "openneuro-ds005752": {
+   "id": "openneuro-ds005752",
+   "title": "NIMH Healthy Research Volunteer Dataset",
+   "source": "OpenNeuro ds005752",
+   "version": "2.1.0",
+   "doi": "10.18112/openneuro.ds005752.v2.1.0",
+   "url": "https://openneuro.org/datasets/ds005752/versions/2.1.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Nugent AC, Thomas AG, Mahoney M, Gibbons A, Smith JT, Charles AJ, Shaw JS, Stout JD, Namyst AM, Basavaraj A, Earl E, Riddle T, Snow J, Japee S, Pavletic AJ, Sinclair S, Roopchansingh V, Bandettini PA, Chung J (2022). The NIMH intramural healthy volunteer dataset: A comprehensive MEG, MRI, and behavioral resource. Scientific Data 9:518. doi:10.1038/s41597-022-01623-9. Dataset: OpenNeuro ds005752 v2.1.0, doi:10.18112/openneuro.ds005752.v2.1.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "NIMH Healthy Research Volunteer Dataset (OpenNeuro ds005752, version 2.1.0, doi:10.18112/openneuro.ds005752.v2.1.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds006010": {
+   "id": "openneuro-ds006010",
+   "title": "Geometric shape regularity fMRI",
+   "source": "OpenNeuro ds006010",
+   "version": "1.0.1",
+   "doi": "10.18112/openneuro.ds006010.v1.0.1",
+   "url": "https://openneuro.org/datasets/ds006010/versions/1.0.1",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Sable-Meyer M, Benjamin L, Potier Watkins C, He C, Pajot M, Morfoisse T, Al Roumi F, Dehaene S. A geometric shape regularity effect in the human brain: fMRI dataset. OpenNeuro ds006010, version 1.0.1. doi:10.18112/openneuro.ds006010.v1.0.1",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Geometric shape regularity fMRI (OpenNeuro ds006010, version 1.0.1, doi:10.18112/openneuro.ds006010.v1.0.1), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds006736": {
+   "id": "openneuro-ds006736",
+   "title": "CS_fmri",
+   "source": "OpenNeuro ds006736",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds006736.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds006736/versions/1.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Shen X, Gurguryam L, Chen H, Dimsdale-Zucker H, Ballard IC. CS_fmri. OpenNeuro ds006736 v1.0.0, doi:10.18112/openneuro.ds006736.v1.0.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "CS_fmri (OpenNeuro ds006736, version 1.0.0, doi:10.18112/openneuro.ds006736.v1.0.0), CC0 1.0 public-domain dedication."
+  }
+ }
 }

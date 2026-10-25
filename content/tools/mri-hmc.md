@@ -7,7 +7,7 @@ lede: >-
   estimates stay within mcflirt's own variability, and the cases where that variability is not
   measured, or is exceeded, are open; and an exact replica of mcflirt's source in the separate
   larmorx-nc package (FSL Licence, non-commercial), bit-identical to mcflirt in every compared
-  case (155 of 155).
+  case (173 of 173).
 description: LARMORX's head-motion correction with mcflirt's options, a clean-room original and a bit-exact replica, validated against FSL 6.0.7's mcflirt — fMRIPrep's mcflirt command on a real run to inspect, the six parameters and FD over the run against mcflirt's perturbation band, the corrections, every parity case of both records with its verdict, and speed.
 evidence: true
 wide: true
@@ -47,7 +47,7 @@ A clean-room original is written without mcflirt's source, so it is not expected
 
 {{ ev.agreement('mri-hmc', 'original') }}
 
-The replica is a translation of mcflirt's own source, so the question for it is whether it gives mcflirt's bytes: every output file, the exit status and both message streams, compared with mcflirt as built (FSL 6.0.7.17, with the C library's maths it calls on Linux). Its record runs the 137 recorded mcflirt runs above, fMRIPrep's own mcflirt calls on the five oracle runs, and edge cases made for it (the failure cases, every output type, `-gdt`, `-verbose 20`, histogram costs with few bins) ([the record](repo:docs/validation/fsl-mcflirt-replica.md)).
+The replica is a translation of mcflirt's own source, so the question for it is whether it gives mcflirt's bytes: every output file, the exit status and both message streams, compared with mcflirt as built (FSL 6.0.7.17, with the C library's maths it calls on Linux). Its record runs the 137 recorded mcflirt runs above, fMRIPrep's own mcflirt calls on the twelve oracle runs that have BOLD runs (22 calls, the data panel's included: a child's extreme motion, 1.5 T, multiband-8 with 600 volumes, multi-echo, a stroke, a glioma; fMRIPrep's 4,517 matrices identical too), and edge cases made for it (the failure cases, every output type, `-gdt`, `-verbose 20`, histogram costs with few bins, moving phantoms) ([the record](repo:docs/validation/fsl-mcflirt-replica.md)). Two of the panel's calls and 58 of the first 59 differences random testing found came from one constant of the C library's `atanf` in the replica's translation: `aT[0]` had been taken from fdlibm's source comment (`0x3eaaaaaa`) instead of its decimal value (`0x3eaaaaab`, the value glibc holds), which moved one rotation angle by one ulp (on ds002422's rest run, in 1 of mcflirt's 600 rotation decompositions); with it corrected, every one of them is bit-identical, and the last one was a missing FSL-08 notice, now given ([findings](repo:docs/findings/fsl-mcflirt.md)).
 
 {{ ev.agreement('mri-hmc', 'replica') }}
 
@@ -79,4 +79,4 @@ The replica corrects the same defects the same way by default, and three more th
 
 - One case misses its threshold: `real/ds003345/default` (mcflirt's defaults, the middle volume as reference), whose framewise displacement correlates with mcflirt's at r = 0.9885 where mcflirt's own band reaches 0.9893.
 - mcflirt's variability is measured for fMRIPrep's command on the nine real runs, for mcflirt's defaults on most of them and for a few synthetic series; the options and the other synthetic series are held to the record's fixed thresholds only, so they stay open until their band is measured.
-- The bit-exact replica of mcflirt, in the separately licensed `larmorx-nc` package, is done: 155 of 155 compared cases bit-identical to mcflirt as built, and mcflirt's messages and exit status in the 21 where both fail. For the clean-room original, FSL-20 and FSL-21 are still to be specified and corrected.
+- The bit-exact replica of mcflirt, in the separately licensed `larmorx-nc` package, is done: 173 of 173 compared cases bit-identical to mcflirt as built, and mcflirt's messages and exit status in the 21 where both fail. For the clean-room original, FSL-20 and FSL-21 are still to be specified and corrected.
