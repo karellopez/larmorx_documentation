@@ -11,7 +11,7 @@ wide: true
 
 **The original program is the oracle.** Each LARMORX tool is run beside the program it reimplements, on the same files with the same arguments, and their outputs, exit statuses and messages are compared. The originals are exact builds of the pinned releases: ANTs 2.6.5 on ITK 5.4.5, built by the repository's script with GCC 14.3 (older GCCs drop float roundings the source asks for, so the build matters), AFNI 25.2.09, FSL 6.0.7, nibabel, and fMRIPrep 25.2.6 itself, run on real datasets with its own image. Where the original's result depends on how it runs, its own variability is measured too: ANTs at 1 to 12 threads, another build or version of the same program, and the original with CORE-MATH's correctly rounded maths library preloaded in place of glibc's.
 
-**Three ways of reimplementing.** A *port* translates source whose licence allows it (ANTs, ITK) and aims at the original's bits. Where the licence restricts the source (AFNI's MCW code, FSL, Workbench), there are two: an exact *replica* in a separate package under the original's licence (`larmorx-gpl` for AFNI), which aims at the original's bits, and a *clean-room original* in LARMORX itself (Apache-2.0), written without the source, from a behavioural specification, which aims at the original's behaviour within stated thresholds and at speed ([licensing](repo:docs/licensing.md)). Every AFNI tool so far has both.
+**Three ways of reimplementing.** A *port* translates source whose licence allows it (ANTs, ITK) and aims at the original's bits. Where the licence restricts the source (AFNI's MCW code, FSL, Workbench), there are two: an exact *replica* in a separate package under the original's licence (`larmorx-gpl` for AFNI, `larmorx-nc` for FSL), which aims at the original's bits, and a *clean-room original* in LARMORX itself (Apache-2.0), written without the source, from a behavioural specification, which aims at the original's behaviour within stated thresholds and at speed ([licensing](repo:docs/licensing.md)). Every AFNI tool so far has both, and so has head-motion correction (FSL's mcflirt).
 
 **Default and reproduce modes.** When an original has a deterministic defect that changes its results, LARMORX corrects it by default and warns; `upstream_defects="reproduce"` (on the command line `LARMORX_UPSTREAM_DEFECTS=reproduce`) gives the original's result, defect included. The parity records compare in reproduce mode, so they compare with the original as it is; every defect is in the [register](repo:docs/findings/upstream-defects.md).
 
@@ -25,6 +25,13 @@ the defect, and reproduce mode gives the original's result.
 
 **Parity tiers.** Each tool's suite of cases runs in tiers: *smoke* under pytest, *standard* for the records quoted on this site (fMRIPrep's, sMRIPrep's and sdcflows' own command lines on real data, every option, generated edge cases, the invalid inputs), *full* where a tool has more. Parity needs the originals, so it runs on a Linux x86-64 workstation, never in continuous integration.
 
+
+**One data panel for every tool.** Since 2026-10-24 every tool is to be validated, and shown, on
+the same fourteen shareable datasets: 1.5, 3 and 7 T; Siemens, GE and Philips; single-band,
+multiband, multi-echo and sparse BOLD; every kind of field map; children, older adults, a
+tumour and a stroke; head motion and low quality ([Data panel](/data-panel/)). The finished
+tools are re-validated on it one by one.
+
 ```bash
 pytest tests/parity                                                    # the smoke tier
 python -m larmorx_validation parity ants-n4 --tier standard --out docs/validation
@@ -37,6 +44,11 @@ python -m larmorx_validation parity ants-n4 --tier standard --out docs/validatio
 Each tool's page under [Tools](/tools/) leads with its record's cases by verdict, then shows **worked examples** on real data:
 
 - **What was run, on what.** The dataset and subject, the exact command (fMRIPrep's own, read from its working directory, where the pipeline calls the tool), and every program with its version, build, thread count and mode.
+- **Whole volumes, and three slices for panel cases.** Every example is a whole volume, except
+  cases from the data panel beyond a tool's key datasets: those show three full-resolution
+  slices, one per plane, through the voxel where the comparison differs most (the example says
+  so under its panels). Every metric is over every voxel of the files either way. Every example
+  carries the credit line of the data it shows, and every page ends with its data credits.
 - **The image viewer.** Each panel is labelled with exactly what it is: an input, the original program's output (as built, with correctly rounded maths, at another thread count), fMRIPrep's own output, LARMORX's output (replica or clean-room original, default or reproduce mode). Choose the plane, slice and volume, zoom and pan, set the intensity window; select a point to read every panel's exact value there. Compare two images side by side, by swiping or blinking between them, or in a checkerboard.
 - **Differences.** A difference panel shows A − B on a symmetric scale whose range is printed, blue below zero and apricot above, linear or logarithmic; differences shown together share one scale, so LARMORX's difference sits next to the original's own variability on the same footing. A difference that is zero everywhere says *bit-identical*; *Go to the largest difference* finds where they differ most.
 - **The chain of causes.** Where LARMORX and fMRIPrep's output differ, the runs between them are lined up, each step changing one thing (threads, maths library, version), so the cause of every difference is shown, not asserted.

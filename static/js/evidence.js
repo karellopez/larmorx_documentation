@@ -209,6 +209,11 @@
     this.store = new Store(ex, base);
     var g = ex.grid;
     this.shape = g.shape; this.nt = g.volumes || 1; this.sp = g.spacing;
+    /* A slices view stores three full-resolution slices through one voxel (ex.view: each plane's
+       slice index, its box [u0, v0, nu, nv] in the grid and its offset in the arrays); a volume
+       view, the whole grid. */
+    this.stored = ex.view || { kind: 'volume' };
+    this.slices = this.stored.kind === 'slices';
     var def = ex['default'];
     this.s = {
       output: def.output, plane: def.plane, voxel: def.voxel.slice(0, 3), t: def.t || 0,
@@ -259,7 +264,7 @@
     viewer.classList.add('is-live');
     var bar = el('div', { class: 'ev-toolbar' });
     if (ex.outputs.length > 1) bar.appendChild(field('Output', segmented('Output', ex.outputs.map(function (o) { return { id: o.id, label: o.label }; }), s.output, function (id) { s.output = id; self.syncWindow(); self.update(); })));
-    bar.appendChild(field('Plane', segmented('Plane', ['axial', 'coronal', 'sagittal'].map(function (p) { return { id: p, label: PLANES[p].name }; }), s.plane, function (id) { s.plane = id; s.zoom = 1; s.cx = s.cy = 0.5; self.layout(); self.update(); })));
+    bar.appendChild(field('Plane', segmented('Plane', ['axial', 'coronal', 'sagittal'].map(function (p) { return { id: p, label: PLANES[p].name }; }), s.plane, function (id) { s.plane = id; self.toPlane(); s.zoom = 1; s.cx = s.cy = 0.5; self.layout(); self.update(); })));
     this.sliceInput = el('input', { type: 'range', min: 0, step: 1, 'aria-label': 'Slice' });
     this.sliceInput.addEventListener('input', function () { s.voxel[PLANES[s.plane].slice] = +self.sliceInput.value; self.update(); });
     this.sliceText = el('output', { class: 'ev-num' });
@@ -337,7 +342,9 @@
     this.single = el('div', { class: 'ev-single', hidden: true });
     this.colorbar = el('div', { class: 'ev-colorbar' });
     this.readout = el('div', { class: 'ev-readout', 'aria-live': 'polite' });
-    var help = el('p', { class: 'ev-help', text: 'Select a point in any panel to move the crosshair; drag to pan when zoomed (Ctrl and the wheel, or two fingers, to zoom). Keys on a focused panel: arrows move the crosshair, Page Up and Page Down change the slice, + and − zoom.' });
+    var help = el('p', { class: 'ev-help', text: this.slices
+      ? 'Three full-resolution slices are stored for this example, one per plane, through the voxel where the main comparison differs most (the centre of the field of view where nothing differs); every metric is over every voxel of the files. Select a point in any panel to move the crosshair within its slice; drag to pan when zoomed (Ctrl and the wheel, or two fingers, to zoom). Keys on a focused panel: arrows move the crosshair, + and − zoom.'
+      : 'Select a point in any panel to move the crosshair; drag to pan when zoomed (Ctrl and the wheel, or two fingers, to zoom). Keys on a focused panel: arrows move the crosshair, Page Up and Page Down change the slice, + and − zoom.' });
     var old = viewer.querySelector('.ev-panels');
     var still = viewer.querySelector('.ev-still');
     viewer.insertBefore(bar, old);
@@ -390,10 +397,20 @@
     this.winLo.value = own ? '' : +w.lo.toPrecision(6); this.winHi.value = own ? '' : +w.hi.toPrecision(6);
     this.update();
   };
+  /* A slices view: the crosshair moves to the stored slice of the current plane. */
+  Viewer.prototype.toPlane = function () {
+    if (this.slices) this.s.voxel[PLANES[this.s.plane].slice] = this.stored.planes[this.s.plane].index;
+  };
+  /* A slices view crops a plane only where every array is exactly constant: there every array
+     holds 0 and the display mask the value recorded for the plane. */
+  Viewer.prototype.outsideMask = function () {
+    return this.slices ? (this.stored.planes[this.s.plane].outside_mask || 0) : 0;
+  };
   Viewer.prototype.syncControls = function () {
     var s = this.s, P = PLANES[s.plane], n = this.shape[P.slice];
     this.sliceInput.max = n - 1; this.sliceInput.value = s.voxel[P.slice];
-    this.sliceText.textContent = (s.voxel[P.slice] + 1) + ' of ' + n;
+    this.sliceInput.disabled = this.slices;
+    this.sliceText.textContent = (s.voxel[P.slice] + 1) + ' of ' + n + (this.slices ? ', the one stored' : '');
     if (this.volInput) {
       this.volInput.value = s.t;
       var ti = this.ex.grid.t_index;
@@ -513,8 +530,8 @@
       var du = { ArrowLeft: -1, ArrowRight: 1 }[k], dv = { ArrowUp: 1, ArrowDown: -1 }[k];
       if (du) { v[P.u] = clamp(v[P.u] + (P.flipU ? -du : du), 0, n[P.u] - 1); }
       else if (dv) { v[P.v] = clamp(v[P.v] + dv, 0, n[P.v] - 1); }
-      else if (k === 'PageUp' || k === ']') v[P.slice] = clamp(v[P.slice] + 1, 0, n[P.slice] - 1);
-      else if (k === 'PageDown' || k === '[') v[P.slice] = clamp(v[P.slice] - 1, 0, n[P.slice] - 1);
+      else if ((k === 'PageUp' || k === ']') && !self.slices) v[P.slice] = clamp(v[P.slice] + 1, 0, n[P.slice] - 1);
+      else if ((k === 'PageDown' || k === '[') && !self.slices) v[P.slice] = clamp(v[P.slice] - 1, 0, n[P.slice] - 1);
       else if (k === '+' || k === '=') { self.zoomBy(1.6); e.preventDefault(); return; }
       else if (k === '-') { self.zoomBy(1 / 1.6); e.preventDefault(); return; }
       else return;
@@ -547,15 +564,22 @@
     if (!d) return;
     this.s.voxel = d.at.slice(0, 3);
     if (d.at.length > 3) this.s.t = d.at[3];
+    if (d.plane && d.plane !== this.s.plane) { this.s.plane = d.plane; this.s.zoom = 1; this.s.cx = this.s.cy = 0.5; this.layout(); }
     this.syncControls(); this.update();
     var c = this.cells['d:' + id];
     if (c) c.fig.classList.add('is-flash'), setTimeout(function () { c.fig.classList.remove('is-flash'); }, 900);
   };
 
   /* ----------------------------------------------------------- rendering */
-  Viewer.prototype.index = function (x, y, z, t) {
+  /* The position of display voxel (x, y, z) at volume t in an example's arrays; in a slices view,
+     in the stored slice of `plane` (the current plane by default), or −1 outside it. */
+  Viewer.prototype.index = function (x, y, z, t, plane) {
     var n = this.shape;
-    return x + n[0] * (y + n[1] * (z + n[2] * (t || 0)));
+    if (!this.slices) return x + n[0] * (y + n[1] * (z + n[2] * (t || 0)));
+    var name = plane || this.s.plane, P = PLANES[name], p = this.stored.planes[name], v = [x, y, z];
+    var u = v[P.u] - p.box[0], w = v[P.v] - p.box[1];
+    if (v[P.slice] !== p.index || u < 0 || w < 0 || u >= p.box[2] || w >= p.box[3]) return -1;
+    return (t || 0) * this.stored.per_volume + p.offset + u + p.box[2] * w;
   };
   Viewer.prototype.update = function () {
     var self = this;
@@ -603,13 +627,13 @@
   /* The slice of an array as RGBA, at one voxel per pixel. */
   Viewer.prototype.slice = function (fn) {
     var s = this.s, P = PLANES[s.plane], n = this.shape, nu = n[P.u], nv = n[P.v];
-    var img = new ImageData(nu, nv), px = img.data, v = s.voxel.slice(), mask = this.store.mask;
+    var img = new ImageData(nu, nv), px = img.data, v = s.voxel.slice(), mask = this.store.mask, out = this.outsideMask();
     for (var j = 0; j < nv; j++) {
       for (var i = 0; i < nu; i++) {
         v[P.u] = P.flipU ? nu - 1 - i : i; v[P.v] = nv - 1 - j;
         var at = this.index(v[0], v[1], v[2], s.t), m3 = this.index(v[0], v[1], v[2], 0);
         var o = 4 * (j * nu + i);
-        if (!mask[m3]) { px[o + 3] = 0; continue; }
+        if (!(m3 < 0 ? out : mask[m3])) { px[o + 3] = 0; continue; }
         fn(at, px, o);
       }
     }
@@ -618,7 +642,7 @@
   Viewer.prototype.valueFn = function (key) {
     var a = this.loaded[key], spec = this.store.spec(key);
     var sc = spec.scale === undefined ? 1 : spec.scale, ic = spec.inter || 0;
-    return function (i) { return a[i] * sc + ic; };
+    return function (i) { return (i < 0 ? 0 : a[i]) * sc + ic; }; // a slices view's cropped margins hold 0
   };
   Viewer.prototype.gray = function (pid) {
     var key = this.key(pid), val = this.valueFn(key), p = this.ex.panelById[pid];
@@ -788,8 +812,8 @@
     var A = ex.grid.to_file, F = ex.grid.affine;
     var fi = [0, 1, 2].map(function (r) { return A[r][0] * v[0] + A[r][1] * v[1] + A[r][2] * v[2] + A[r][3]; });
     var mm = [0, 1, 2].map(function (r) { return F[r][0] * v[0] + F[r][1] * v[1] + F[r][2] * v[2] + F[r][3]; });
-    var at = this.index(v[0], v[1], v[2], s.t);
-    var inMask = this.store.mask[this.index(v[0], v[1], v[2], 0)];
+    var at = this.index(v[0], v[1], v[2], s.t), m0 = this.index(v[0], v[1], v[2], 0);
+    var inMask = m0 >= 0 ? this.store.mask[m0] : this.outsideMask();
     var tf = ex.grid.t_index ? ex.grid.t_index[s.t] : s.t;
     var where = 'Voxel ' + fi.join(', ') + (this.nt > 1 ? ', volume ' + tf : '') + ' of the file · ' + mm.map(function (x) { return sig(x, 4); }).join(', ') + ' mm';
     var rows = [];
@@ -799,7 +823,7 @@
       var p = ex.panelById[id], key = self.key(id), a = self.loaded[key];
       var name = labels.filter(function (l) { return l === p.label; }).length > 1 && p.sub ? p.label + ', ' + p.sub : p.label;
       if (!a) return;
-      var spec = self.store.spec(key), raw = a[at];
+      var spec = self.store.spec(key), raw = at < 0 ? 0 : a[at];
       var val = spec.scale === undefined ? raw : raw * spec.scale + (spec.inter || 0);
       var txt = spec.dtype === 'f4' ? f32(raw) : spec.dtype === 'f8' ? f64(raw) : (spec.scale !== undefined ? count(raw) + ' × ' + f32(Math.fround(spec.scale)) + ' = ' + f64(val) : count(raw));
       rows.push(el('tr', {}, [el('th', { scope: 'row', text: name }), el('td', { class: 'n', 'data-raw': String(raw), text: inMask ? txt : '(outside the shown brain)' })]));
@@ -1155,7 +1179,7 @@
           var ka = x.a + ':' + (ex.panelById[x.a].arrays[o] ? o : 'all'), kb = x.b + ':' + (ex.panelById[x.b].arrays[o] ? o : 'all');
           return Promise.all([vw.store.get(ka), vw.store.get(kb)]).then(function (r) {
             var sa = vw.store.spec(ka), sb = vw.store.spec(kb);
-            var i = vw.index(d.at[0], d.at[1], d.at[2], d.at[3] || 0);
+            var i = vw.index(d.at[0], d.at[1], d.at[2], d.at[3] || 0, d.plane);
             var va = r[0][i] * (sa.scale === undefined ? 1 : sa.scale) + (sa.inter || 0);
             var vb = r[1][i] * (sb.scale === undefined ? 1 : sb.scale) + (sb.inter || 0);
             out.push({ diff: x.id, output: o, ok: va === d.a && vb === d.b && Math.abs(va - vb) === d.max_abs, shown: [va, vb], json: [d.a, d.b, d.max_abs] });

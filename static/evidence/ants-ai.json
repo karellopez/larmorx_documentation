@@ -3,7 +3,7 @@
  "tool": "ants-ai",
  "title": "antsAI, antsAffineInitializer",
  "provenance": {
-  "exporter": "34f25faf0f0fea24e92d0799bcb830af12f0ca00",
+  "exporter": "f82992b55fd6ca5b48682b959a546aedc5331326",
   "records": [
    {
     "path": "docs/validation/ants-ai.json",
@@ -5540,6 +5540,10 @@
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0; OASIS30ANTs (Avants et al.), from TemplateFlow, CC BY 4.0",
     "Inputs: fixed (sha256 8265828adf534c2e…); moving (sha256 4fc9d00a945155a9…); fMRIPrep's transform (sha256 f223fa5f0aade78e…)",
     "Runs: figures cache entry `ants-ai/fmriprep-ds000005-init-aff and ants-ai/fmriprep-ds000005-init-aff-placed`, computed 2026-10-21T15:17:05+00:00 with larmorx `1dfe56c0dc60`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds000005",
+    "templateflow-OASIS30ANTs"
    ]
   },
   {
@@ -5886,6 +5890,9 @@
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: fixed: fMRIPrep's preprocessed T1w (sha256 8e977ad0c954252d…); fMRIPrep's T1w brain mask (sha256 726851b7736940c8…); moving (sha256 2885195494bbf915…)",
     "Runs: figures cache entry `ants-ai/blobs-t1w`, computed 2026-10-23T10:41:20+00:00 with larmorx `e22378b480f4`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds000005"
    ]
   },
   {
@@ -7331,6 +7338,9 @@
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: fixed: fMRIPrep's preprocessed T1w (sha256 8e977ad0c954252d…); fMRIPrep's T1w brain mask (sha256 726851b7736940c8…); moving (sha256 2885195494bbf915…)",
     "Runs: figures cache entry `ants-ai/blobs-t1w`, computed 2026-10-23T10:41:20+00:00 with larmorx `e22378b480f4`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds000005"
    ]
   },
   {
@@ -8399,7 +8409,62 @@
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: fixed: fMRIPrep's preprocessed T1w (sha256 8e977ad0c954252d…); fMRIPrep's T1w brain mask (sha256 726851b7736940c8…); moving (sha256 2885195494bbf915…)",
     "Runs: figures cache entry `ants-ai/blobs-t1w`, computed 2026-10-23T10:41:20+00:00 with larmorx `e22378b480f4`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds000005"
    ]
   }
- ]
+ ],
+ "cases_credits": [
+  "openneuro-ds000005",
+  "templateflow-MNI152NLin2009cAsym",
+  "templateflow-OASIS30ANTs"
+ ],
+ "credits": {
+  "openneuro-ds000005": {
+   "id": "openneuro-ds000005",
+   "title": "Mixed-gambles task",
+   "source": "OpenNeuro ds000005",
+   "version": "00001",
+   "doi": "",
+   "url": "https://openneuro.org/datasets/ds000005/versions/00001",
+   "licence": "PDDL-1.0",
+   "licence_name": "Open Data Commons Public Domain Dedication and Licence 1.0",
+   "licence_url": "https://opendatacommons.org/licenses/pddl/1-0/",
+   "citation": "Tom, S.M., Fox, C.R., Trepel, C., Poldrack, R.A. (2007). The neural basis of loss aversion in decision-making under risk. Science, 315(5811):515-8. Dataset: OpenNeuro ds000005 (OpenfMRI), snapshot 00001.",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Mixed-gambles task (OpenNeuro ds000005, version 00001), Open Data Commons Public Domain Dedication and Licence 1.0."
+  },
+  "templateflow-MNI152NLin2009cAsym": {
+   "id": "templateflow-MNI152NLin2009cAsym",
+   "title": "MNI152NLin2009cAsym template",
+   "source": "TemplateFlow",
+   "version": "tpl-MNI152NLin2009cAsym git 15d7c02160f79f5218d2545b4febebeecc11531d",
+   "doi": "",
+   "url": "https://github.com/templateflow/tpl-MNI152NLin2009cAsym/tree/15d7c02160f79f5218d2545b4febebeecc11531d",
+   "licence": "MNI-ICBM152",
+   "licence_name": "the MNI ICBM 152 copyright notice",
+   "licence_url": "/static/hero/LICENSE-MNI.txt",
+   "citation": "Fonov V, Evans AC, Botteron K, Almli CR, McKinstry RC, Collins DL. ICBM 152 Nonlinear Asymmetrical template version 2009c. https://doi.org/10.1016/j.neuroimage.2010.07.033; https://doi.org/10.1016/S1053-8119(09)70884-5; http://nist.mni.mcgill.ca/?p=904; https://doi.org/10.1007/3-540-48714-X_16. Distributed by TemplateFlow: Ciric R, et al. TemplateFlow: FAIR-sharing of multi-scale, multi-species brain models. Nat Methods 19, 1568-1571 (2022). doi:10.1038/s41592-022-01681-2",
+   "attribution": false,
+   "share_alike": false,
+   "text": "MNI152NLin2009cAsym template (TemplateFlow, version tpl-MNI152NLin2009cAsym git 15d7c02160f79f5218d2545b4febebeecc11531d), the MNI ICBM 152 copyright notice. Copyright (C) 1993–2004 Louis Collins, McConnell Brain Imaging Centre, Montreal Neurological Institute, McGill University."
+  },
+  "templateflow-OASIS30ANTs": {
+   "id": "templateflow-OASIS30ANTs",
+   "title": "OASIS30ANTs template",
+   "source": "TemplateFlow",
+   "version": "tpl-OASIS30ANTs git e37b3f4e0e50b6c2f79e9e01e8f1aeffcb69fc7f",
+   "doi": "",
+   "url": "https://github.com/templateflow/tpl-OASIS30ANTs/tree/e37b3f4e0e50b6c2f79e9e01e8f1aeffcb69fc7f",
+   "licence": "CC-BY-4.0",
+   "licence_name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+   "citation": "Avants BB, Tustison NJ, Song G, Cook PA, Klein A, Gee JC. OASIS30 - Generated with ANTs for MICCAI 2016. https://doi.org/10.1016/j.neuroimage.2010.09.025; https://doi.org/10.1162/jocn.2007.19.9.1498; https://figshare.com/articles/ANTs_ANTsR_Brain_Templates/915436. Distributed by TemplateFlow: Ciric R, et al. TemplateFlow: FAIR-sharing of multi-scale, multi-species brain models. Nat Methods 19, 1568-1571 (2022). doi:10.1038/s41592-022-01681-2",
+   "attribution": true,
+   "share_alike": false,
+   "text": "OASIS30ANTs template (TemplateFlow, version tpl-OASIS30ANTs git e37b3f4e0e50b6c2f79e9e01e8f1aeffcb69fc7f), Creative Commons Attribution 4.0 (CC BY 4.0). Attribution: Avants BB, Tustison NJ, Song G, Cook PA, Klein A, Gee JC. OASIS30 - Generated with ANTs for MICCAI 2016. https://doi.org/10.1016/j.neuroimage.2010.09.025; https://doi.org/10.1162/jocn.2007.19.9.1498; https://figshare.com/articles/ANTs_ANTsR_Brain_Templates/915436. Distributed by TemplateFlow: Ciric R, et al. TemplateFlow: FAIR-sharing of multi-scale, multi-species brain models. Nat Methods 19, 1568-1571 (2022). doi:10.1038/s41592-022-01681-2 The images shown here are adapted from it: reoriented to RAS, cropped to the region shown, masked outside it, and shown as the outputs of the programs compared."
+  }
+ }
 }
