@@ -299,6 +299,8 @@ class Site:
             env: dict = {"link": h["link"]}
             page.html = Markup(self.md.render(body, env))
             page.toc = [e for e in env.get("toc", []) if e["level"] in (2, 3)]
+            if h["ev"].page_credits():  # the template ends an evidence page with its data credits
+                page.toc.append({"level": 2, "id": "data-credits", "text": "Data credits"})
             page.meta.setdefault("description", self.site["description"])
             ctx = dict(h)
             ctx["page"] = PageView(page, self.site)

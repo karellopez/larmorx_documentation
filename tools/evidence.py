@@ -257,6 +257,14 @@ class Evidence:
             '<span class="ev-nojs">The interactive viewer needs JavaScript; the metrics below are '
             "complete without it.</span></p>"
         )
+        view = ex.get("view") or {}
+        if view.get("kind") == "slices":
+            vox = ", ".join(str(int(v) + 1) for v in view["voxel"])
+            note += (
+                '<p class="ev-viewnote">Stored for this example: three full-resolution slices, '
+                f"one per plane, through display voxel ({vox}): where the main comparison differs most, or the field's centre where nothing differs; "
+                "every metric is computed over every voxel of the files.</p>"
+            )
         facts = "".join(
             f"<dt>{esc(f['label'])}</dt><dd>{self.text(f['text'])}</dd>" for f in ex["facts"]
         )
@@ -266,7 +274,9 @@ class Evidence:
             f'<div class="ev-head"><p class="kicker">Worked example</p>'
             f'<p class="ev-title">{esc(ex["title"])}</p>'
             f'<p class="ev-sum">{self.text(ex["summary"])}</p>'
-            f'<dl class="ev-facts">{facts}</dl></div>'
+            f'<dl class="ev-facts">{facts}</dl>'
+            + self.credits_html(doc, ex.get("credits", []), "Data shown")
+            + "</div>"
             f'<div class="ev-viewer"><div class="ev-panels">{"".join(cells)}</div>{note}</div>'
             + "".join(
                 self.lines_html(tool, spec, ptr("examples", k, "lines", lid))
@@ -418,6 +428,143 @@ class Evidence:
             f'<div class="table-wrap"><table class="ev-mtable"><thead>{head}</thead>'
             f'{"".join(body)}</table></div><p class="ev-metrics-note">{cap}</p></div>'
         )
+
+    # ---------------------------------------------------------------- credits
+
+    def credit_item(self, c: dict) -> str:
+        """One dataset's credit line (the JSON's ``credits``, from larmorx-testdata's catalog):
+        its name and version, DOI, licence; for CC BY the attribution and the changes made, for
+        CC BY-SA also the share-alike notice."""
+        doi = f', doi:<a href="https://doi.org/{esc(c["doi"])}">{esc(c["doi"])}</a>' if c.get("doi") else ""
+        lic_url = self.link(c["licence_url"]) if c.get("licence_url", "").startswith("/") else c.get("licence_url", "")
+        lic = f'<a href="{esc(lic_url)}">{esc(c["licence_name"])}</a>' if lic_url else esc(c["licence_name"])
+        out = (
+            f'<li data-credit="{esc(c["id"])}"><a href="{esc(c["url"])}">{esc(c["title"])}</a> '
+            f'({esc(c["source"])}, version {esc(c["version"])}{doi}), {lic}.'
+        )
+        if c.get("attribution"):
+            out += (
+                f' <span class="ev-attr">Attribution: {esc(c["citation"])} The images shown are '
+                "adapted from it: reoriented to RAS, cropped to the region shown, masked outside "
+                "it, and shown as the outputs of the programs compared.</span>"
+            )
+        if c.get("share_alike"):
+            out += (
+                ' <span class="ev-attr">Share-alike: the images adapted from this dataset are '
+                "shared under the same licence, CC BY-SA.</span>"
+            )
+        return out + "</li>"
+
+    def credits_html(self, doc: dict, ids: list[str], title: str) -> str:
+        cs = [doc.get("credits", {}).get(i) for i in ids]
+        cs = [c for c in cs if c]
+        if not cs:
+            return ""
+        return (
+            f'<div class="ev-credit"><p class="ev-credit-title">{esc(title)}</p>'
+            f'<ul>{"".join(self.credit_item(c) for c in cs)}</ul></div>'
+        )
+
+    def page_credits(self) -> Markup:
+        """Every dataset the page's evidence shows or names (its examples, cases and tables),
+        credited once at the page's end; empty on a page without evidence."""
+        seen: dict[str, dict] = {}
+        for doc in self._docs.values():
+            for cid, c in (doc.get("credits") or {}).items():
+                seen.setdefault(cid, c)
+        if not seen:
+            return Markup("")
+        items = "".join(self.credit_item(c) for c in seen.values())
+        return Markup(
+            '<section class="ev-credits-page" aria-labelledby="data-credits">'
+            '<h2 id="data-credits">Data credits</h2>'
+            "<p>The data this page shows or names: each dataset with its version, DOI and licence, "
+            "from LARMORX's test-data catalog. Public-domain dedications (CC0, PDDL) ask nothing; "
+            "the datasets are cited all the same.</p>"
+            f'<ul class="ev-credit-list">{items}</ul></section>'
+        )
+
+    # ------------------------------------------------------------- data panel
+
+    def panel_table(self) -> Markup:
+        """The data panel's datasets (``static/evidence/panel.json``): one row each."""
+        doc = self.doc("panel")
+        rows = []
+        for i, d in enumerate(doc["datasets"]):
+            p = ptr("datasets", i)
+            who = esc(d["subject"]) + (f", {esc(d['session'])}" if d.get("session") else "")
+            age = d.get("age", "")
+            extra = [f"{esc(age)} y" if age.replace(".", "", 1).isdigit() else esc(age), esc(d.get("sex", ""))]
+            extra = [x for x in extra if x]
+            if extra:
+                who += f'<small>{", ".join(extra)}</small>'
+            run = f"<code>{esc(d['fmriprep_run'])}</code>"
+            if d.get("fmriprep_options") and d["fmriprep_options"] != "--fs-no-reconall":
+                run += f" <small>{esc(d['fmriprep_options'])}</small>"
+            run += f"<small>{esc(d.get('fmriprep_status', ''))}</small>"
+            rows.append(
+                f'<tr id="panel-{esc(d["id"])}"><th scope=row><span class="tname">{esc(d["id"])}</span>'
+                f"<small>{who}</small></th><td>{esc(d['scanner'])}</td><td>{esc(d['role'])}</td>"
+                f"<td>{esc(d['credit']['licence'])}</td>"
+                f'<td class=n>{self.num("panel", p + "/files", fmt_count(d["files"]))}</td>'
+                f'<td class=n>{self.num("panel", p + "/megabytes", fmt_sig(d["megabytes"], 3))} MB</td>'
+                f"<td>{run}</td></tr>"
+            )
+        tot = doc["totals"]
+        rows.append(
+            '<tr class="is-total"><th scope=row>Total</th><td></td><td></td><td></td>'
+            f'<td class=n>{self.num("panel", "/totals/files", fmt_count(tot["files"]))}</td>'
+            f'<td class=n>{self.num("panel", "/totals/gigabytes", fmt_sig(tot["gigabytes"], 3))} GB</td><td></td></tr>'
+        )
+        return Markup(
+            '<div class="table-wrap ev-panel-table"><table class="ev-ttable"><thead><tr>'
+            "<th scope=col>Dataset, subject</th><th scope=col>Scanner</th><th scope=col>Why it is in the panel</th>"
+            "<th scope=col>Licence</th><th scope=col class=n>Files</th><th scope=col class=n>Size</th>"
+            "<th scope=col>fMRIPrep 25.2.6 oracle run</th></tr></thead>"
+            f'<tbody>{"".join(rows)}</tbody></table></div>'
+        )
+
+    def panel_coverage(self) -> Markup:
+        """Which dataset covers which criterion."""
+        doc = self.doc("panel")
+        ds = doc["datasets"]
+        head = "<tr><th scope=col>Criterion</th>" + "".join(
+            f'<th scope=col class="vh"><span>{esc(d["id"])}</span></th>' for d in ds
+        ) + "<th scope=col class=n>Datasets</th></tr>"
+        rows, group = [], None
+        for c in doc["criteria"]:
+            if c["group"] != group:
+                group = c["group"]
+                rows.append(f'<tr class="grp-head"><th colspan="{len(ds) + 2}" scope=colgroup>{esc(group)}</th></tr>')
+            marks = [c["id"] in d["covers"] for d in ds]
+            cells = "".join(
+                f'<td class="cv{" on" if m else ""}">' + ('<span aria-label="yes">●</span>' if m else "") + "</td>"
+                for m in marks
+            )
+            rows.append(f"<tr><th scope=row>{esc(c['label'])}</th>{cells}<td class=n>{sum(marks)}</td></tr>")
+        return Markup(
+            f'<div class="table-wrap ev-coverage"><table><thead>{head}</thead><tbody>{"".join(rows)}</tbody></table></div>'
+        )
+
+    def panel_details(self) -> Markup:
+        """Per dataset: its credit line and the defacing check of each anatomical image."""
+        doc = self.doc("panel")
+        parts = []
+        for d in doc["datasets"]:
+            rows = "".join(
+                f"<tr><th scope=row><code>{esc(a['file'])}</code></th><td>{esc(a['defacing'])}</td>"
+                f"<td>{'the head, cropped to it' if a['show'] == 'head' else 'brain-masked views only'}</td></tr>"
+                for a in d["anat"]
+            )
+            note = f'<p class="ev-chart-note">{esc(d["note"])}</p>' if d.get("note") else ""
+            parts.append(
+                f'<div class="ev-panel-ds" id="data-{esc(d["id"])}"><p class="ev-metrics-title">{esc(d["id"])}: '
+                f'{esc(d["credit"]["title"])}</p><ul class="ev-credit-list">{self.credit_item(d["credit"])}</ul>{note}'
+                '<div class="table-wrap"><table class="ev-ttable"><thead><tr><th scope=col>Anatomical image</th>'
+                "<th scope=col>Defacing, as checked</th><th scope=col>The site may show</th></tr></thead>"
+                f"<tbody>{rows}</tbody></table></div></div>"
+            )
+        return Markup("".join(parts))
 
     def provenance(self, tool: str, ex: dict) -> str:
         src = self.link(f"/static/evidence/{tool}.json")

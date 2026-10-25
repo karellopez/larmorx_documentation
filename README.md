@@ -12,6 +12,7 @@ GitHub Actions builds and deploys it on every push to `main`
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+python3 tools/blobs.py fetch                  # the evidence's images, from the branch evidence-blobs (below)
 .venv/bin/python tools/build.py --serve      # build, serve on http://localhost:8765/larmorx_documentation/, rebuild on change
 .venv/bin/python tools/build.py              # build into _site/ and check it
 .venv/bin/python tools/build.py --preview    # also write _preview/index.html: the home page as one file
@@ -39,7 +40,8 @@ static/hero/      the hero's points (hero.bin) and its stills (hero-light.svg, h
 static/fonts/     Instrument Serif, Inter, JetBrains Mono, and the Greek letters of Inter, JetBrains Mono
                   and Noto Serif Display (SIL Open Font License, texts beside them)
 static/evidence/  the interactive evidence, exported by the main repository
-                  (larmorx_validation.evidence): <tool>.json, summary.json, blobs/
+                  (larmorx_validation.evidence): <tool>.json, summary.json, panel.json,
+                  blobs.sha256 (the manifest); blobs/ is git-ignored (the branch evidence-blobs)
 static/js/        also evidence.js (the viewer, charts, case explorer, number check)
 static/css/       also evidence.css (the verdicts, the viewer, the evidence tables and charts)
 data/verdicts.yml the verdict taxonomy: one legend for the whole site
@@ -47,6 +49,7 @@ tools/evidence.py the evidence's HTML, used by the builder
 static/brand/     the mark and the icons
 site.yml          the site's name, address, repositories and navigation
 tools/build.py    the builder
+tools/blobs.py    the evidence images' branch: fetch, verify, commit (evidence-blobs)
 tools/hero/       make_hero.py, which precomputes static/hero/ from the MNI template
 tools/fonts/      make_greek.py, which cuts the Greek subsets in static/fonts/ (fontTools, brotli)
 tools/review/     shoot.mjs, which photographs pages in headless Chrome, for review
@@ -96,6 +99,41 @@ by their SHA-256 so an unchanged export changes nothing. A page places them with
   agreement chart's segments filtering their own);
 - `{{ verdict('<id>') }}`, `{{ ev.legend() }}`, `{{ ev.taxonomy() }}`,
   `{{ ev.matrix(site.tools) }}`: the verdicts of `data/verdicts.yml`.
+
+- `{{ ev.panel_table() }}`, `{{ ev.panel_coverage() }}`, `{{ ev.panel_details() }}`:
+  the Data panel page (`content/data-panel.md`) from `static/evidence/panel.json`
+  (`python -m larmorx_validation evidence panel`): the datasets, the criteria each
+  covers, each dataset's credit line and defacing check.
+
+Every example carries the credit line of the data it shows, and every evidence page
+ends with **Data credits** (every dataset its examples, cases and tables name), both
+generated from LARMORX's test-data catalog (the JSON's `credits`): for CC BY data a
+proper attribution with the changes made, for CC BY-SA data the share-alike notice.
+A new data-panel case may be exported as a **slices view** (the JSON's `view`: three
+full-resolution slices through one voxel, cropped only where every array is exactly
+constant, the constant drawn as it is); it says so under its panels, and its viewer keeps
+the slice fixed per plane. Existing examples stay whole volumes.
+
+**The images live on the orphan branch `evidence-blobs`, not on `main`.**
+`static/evidence/blobs/` is git-ignored; `static/evidence/blobs.sha256` (written by the
+export: every blob a JSON names, with its full SHA-256) is committed with the JSON and
+pins them. `tools/blobs.py`:
+
+```bash
+python3 tools/blobs.py fetch              # fetch evidence-blobs from origin, extract into static/evidence/blobs/, verify
+python3 tools/blobs.py verify             # every blob of the manifest there, hashes right, every JSON's blob listed
+python3 tools/blobs.py commit             # after an export: the branch evidence-blobs as one parentless commit of
+                                          # the manifest's blobs (the same blobs give the same commit)
+git push --force origin evidence-blobs    # publish the images first,
+git push origin main                      # then the JSON and the manifest
+```
+
+The Pages workflow checks `evidence-blobs` out into `_blobs/`, verifies it against the
+manifest (`tools/blobs.py publish-dir`: a missing, extra or altered blob stops the
+deployment) and publishes the blobs with the site. The branch is replaced at every export,
+so the images of a superseded export leave the repository; `main`'s history grows by the
+JSON only. Every export also checks the published size (`python -m larmorx_validation
+evidence sizes`): at most 500 MB in all, and 40 MB per page unless a page's budget is raised with its reason (N4's: 60 MB); the guard never removes content.
 
 `tools/evidence.py` renders them; the build refuses an unknown verdict or a
 missing blob. Every number a page shows carries its JSON pointer (`data-ev`);
