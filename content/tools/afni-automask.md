@@ -60,6 +60,12 @@ The functional path: with several volumes, 3dAutomask first averages their absol
 
 {{ ev.example('afni-automask', 'afni-43') }}
 
+## On the data panel: extreme head motion {#panel}
+
+The first case of the [data panel](/data-panel/) on this page, added beside the examples above: AFNI's default on a child's resting-state run with extreme head motion (OpenNeuro ds000256), the whole field of view shown, its noise and the masks' edges included. Like every panel case that is not one of a tool's key datasets, it is stored as three full-resolution slices through the voxel where the comparison differs most (the field's centre where nothing differs); its metrics are over every voxel.
+
+{{ ev.example('afni-automask', 'panel-ds000256-motion') }}
+
 ## Every case {#cases}
 
 Each case of the two records, with what it tests, its command line, the verdict of each implementation and the reason. Search, filter (or select a segment of a chart above), sort; `#case=<name>` links to one.

@@ -57,9 +57,22 @@ git, commits, usage limits and long runs.
 - One verdict taxonomy for the whole site (`data/verdicts.yml`, defined on the Validation page);
   colour plus pattern plus name, never colour alone.
 - The data under `static/evidence/` is content-addressed and byte-deterministic (a re-export of
-  unchanged results changes nothing in git); brain-masked or cropped, never a face; only data
-  whose licence allows it (OpenNeuro CC0-1.0 or PDDL-1.0, or CC-BY credited; templates with their
-  notices, the MNI notice in `static/hero/LICENSE-MNI.txt` and the footer).
+  unchanged results changes nothing in git); its images (`blobs/`) are not on `main` but on the
+  orphan branch `evidence-blobs`, one commit replaced at every export and verified by the Pages
+  workflow against `static/evidence/blobs.sha256` (`tools/blobs.py`: `fetch` before a local
+  build, `commit` after an export; push the branch before `main`). Brain-masked, or the head of
+  an image whose defacing was checked (larmorx-testdata `panel.toml`, `show = "head"`), never a
+  recognisable face; only data whose licence allows it, each credited from the test-data catalog
+  under every example and at the page's end (CC-BY attribution, CC-BY-SA share-alike notice);
+  templates with their notices (the MNI notice in `static/hero/LICENSE-MNI.txt` and the footer).
+- The size guard of every export: the site at most 500 MB, a page at most 40 MB unless its
+  budget is raised with a reason (`sizes.PAGE_BUDGETS`; N4 60 MB); `python -m
+  larmorx_validation evidence sizes`. The guard never removes content.
+- The site never shows less, or lower quality, than before (the user, 2026-10-24): nothing
+  existing is removed or reduced, no existing whole volume becomes slices, crops leave out only
+  exactly constant margins; every change is proven with a before/after inventory per page and
+  side-by-side screenshots.
+- The Data panel page (`content/data-panel.md`) describes the fixed data every tool is shown on.
 - Every number shown comes from the records or from metrics computed offline; check them with
   `tools/review/shoot.mjs --eval` before publishing. Review every component state (desktop and
   phone, light and dark) for meaning as well as looks; a pilot goes to the user before a design is
@@ -69,6 +82,7 @@ git, commits, usage limits and long runs.
 
 ## Build, preview, deploy
 ```bash
+python3 tools/blobs.py fetch                # the evidence's images (branch evidence-blobs)
 python -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python tools/build.py --serve     # http://localhost:8765/larmorx_documentation/
 .venv/bin/python tools/build.py             # build into _site/ and check (links, anchors, headings)

@@ -418,3 +418,27 @@ th[aria-sort="descending"] .ev-sort::after { content: " ↓"; }
   font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--ink-2); }
 .ev-dt-fixed { border-color: var(--deep-larmorx); color: var(--ink); }
 .ev-dt-unclear { border-style: dashed; }
+
+/* ------------------------------------------------- credits and the data panel */
+.ev-credit { margin: 12px 0 0; padding: 10px 0 0; border-top: 1px solid var(--line-soft); font-size: 0.84rem; color: var(--ink-2); }
+.ev-credit-title { margin: 0 0 4px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+.ev-credit ul, .ev-credit-list { margin: 0; padding: 0; list-style: none; }
+.ev-credit li, .ev-credit-list li { margin: 2px 0 0; overflow-wrap: anywhere; }
+.ev-attr { display: block; margin-top: 2px; font-size: 0.8rem; color: var(--ink-3); }
+.ev-viewnote { margin: 8px 0 0; font-size: 0.84rem; color: var(--ink-2); }
+.ev-credits-page { margin: 40px 0 0; }
+.ev-credits-page > p { color: var(--ink-2); font-size: 0.92rem; }
+.ev-credits-page .ev-credit-list li { margin: 8px 0 0; font-size: 0.9rem; color: var(--ink-2); }
+.ev-panel-table td, .ev-panel-table th { vertical-align: top; }
+.ev-panel-table th small, .ev-panel-table td small { display: block; font-weight: 400; color: var(--ink-3); }
+.ev-panel-table tr.is-total th, .ev-panel-table tr.is-total td { border-top: 1px solid var(--line); font-weight: 600; }
+.ev-coverage table { font-size: 0.82rem; }
+.ev-coverage th.vh { writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; padding: 8px 2px !important;
+  font-family: var(--mono); font-size: 11px; font-weight: 400; letter-spacing: 0.02em; text-transform: none; }
+.ev-coverage tbody tr:not(.grp-head) th { font-family: inherit; font-size: 0.86rem; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--ink); }
+.ev-coverage td.cv { width: 1.9em; text-align: center; color: var(--num-ink); }
+.ev-coverage td.cv span { font-size: 9px; }
+.ev-coverage td.n { font-family: var(--mono); font-size: 12px; text-align: right; }
+.ev-coverage .grp-head th { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); padding-top: 14px !important; }
+.ev-panel-ds { margin: 26px 0 0; }
+.ev-panel-ds .ev-credit-list { font-size: 0.88rem; color: var(--ink-2); margin-bottom: 8px; }

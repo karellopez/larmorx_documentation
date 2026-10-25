@@ -3,7 +3,7 @@
  "tool": "afni-automask",
  "title": "3dAutomask",
  "provenance": {
-  "exporter": "34f25faf0f0fea24e92d0799bcb830af12f0ca00",
+  "exporter": "f82992b55fd6ca5b48682b959a546aedc5331326",
   "records": [
    {
     "path": "docs/validation/afni-automask.json",
@@ -4047,6 +4047,9 @@
     "Inputs: BOLD reference, unifized (sha256 a16170b6e54b3207…); fMRIPrep's mask (sha256 94be87d836809707…); BOLD (sha256 590cda2ebbff3701…)",
     "Runs: figures cache entry `afni-automask/fmriprep-ds005040-clip-1`, computed 2026-10-23T11:03:14+00:00 with larmorx `71f5223b7836`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs of the clean-room original: figures cache entry `afni-automask/fmriprep-ds005040-clip-1-original`, computed 2026-10-23T21:35:46+00:00 with larmorx `6f0b06b96112` (default mode at 1 and 6 threads, reproduce mode at 1)"
+   ],
+   "credits": [
+    "openneuro-ds005040"
    ]
   },
   {
@@ -4709,6 +4712,9 @@
     "Inputs: BOLD reference, unifized (sha256 a16170b6e54b3207…); fMRIPrep's mask (sha256 94be87d836809707…); BOLD (sha256 590cda2ebbff3701…)",
     "Runs: figures cache entry `afni-automask/fmriprep-ds005040-clip-1`, computed 2026-10-23T11:03:14+00:00 with larmorx `71f5223b7836`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs of the clean-room original: figures cache entry `afni-automask/fmriprep-ds005040-clip-1-original`, computed 2026-10-23T21:35:46+00:00 with larmorx `6f0b06b96112` (default mode at 1 and 6 threads, reproduce mode at 1)"
+   ],
+   "credits": [
+    "openneuro-ds005040"
    ]
   },
   {
@@ -5567,7 +5573,847 @@
     "Inputs: BOLD reference, unifized (sha256 a16170b6e54b3207…); fMRIPrep's mask (sha256 94be87d836809707…); BOLD (sha256 590cda2ebbff3701…)",
     "Runs: figures cache entry `afni-automask/fmriprep-ds005040-clip-1`, computed 2026-10-23T11:03:14+00:00 with larmorx `71f5223b7836`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs of the clean-room original: figures cache entry `afni-automask/fmriprep-ds005040-clip-1-original`, computed 2026-10-23T21:35:46+00:00 with larmorx `6f0b06b96112` (default mode at 1 and 6 threads, reproduce mode at 1)"
+   ],
+   "credits": [
+    "openneuro-ds005040"
+   ]
+  },
+  {
+   "id": "panel-ds000256-motion",
+   "title": "Data panel: a child's run with extreme head motion",
+   "summary": "The first case of the data panel on this page: AFNI's default (the mean of the absolute values over the 164 volumes, then its mask) on a 7.5-year-old's resting-state run whose head moved 4.97 mm per volume on average (the dataset's MRIQC), given to AFNI 25.2.09, fMRIPrep's AFNI, the replica and the clean-room original in both modes. The whole field of view is shown, its noise and the mask's edges included; as a panel case beside the examples above, it is stored as three full-resolution slices.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds000256 (Greene et al., 2018), snapshot 00002, sub-CTS203, task restfixationnofeedback (PDDL-1.0): 64 × 64 × 32 × 164 int16 values; the whole field of view shown"
+    },
+    {
+     "label": "Command",
+     "text": "`3dAutomask -prefix mask.nii.gz sub-CTS203_task-restfixationnofeedback_bold.nii.gz`"
+    },
+    {
+     "label": "Programs",
+     "text": "AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI AFNI_25.2.09 (Aug 24 2025) [64-bit] in fMRIPrep's image; larmorx-gpl 0.0.1; larmorx 0.0.1 (the clean-room original)"
+    },
+    {
+     "label": "Mask",
+     "text": "23,168 of 131,072 voxels"
+    },
+    {
+     "label": "Grid",
+     "text": "64 × 64 × 32 × 164 voxels of 4 × 4 × 4 mm; shown: the whole field of view (64 × 64 × 32), only margins where every array is 0 left out"
+    }
+   ],
+   "grid": {
+    "shape": [
+     64,
+     64,
+     32
+    ],
+    "spacing": [
+     4.0,
+     4.0,
+     3.999999
+    ],
+    "to_file": [
+     [
+      -1,
+      0,
+      0,
+      63
+     ],
+     [
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      3.986674,
+      0.315858,
+      -0.081635,
+      -132.958875
+     ],
+     [
+      -0.29565,
+      3.921103,
+      0.733171,
+      -121.793208
+     ],
+     [
+      0.13792,
+      -0.724695,
+      3.931385,
+      -3.524074
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     64,
+     64,
+     32,
+     164
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "view": {
+    "kind": "slices",
+    "voxel": [
+     31,
+     31,
+     15
+    ],
+    "planes": {
+     "axial": {
+      "index": 15,
+      "box": [
+       0,
+       0,
+       64,
+       64
+      ],
+      "offset": 0,
+      "outside_mask": 1
+     },
+     "coronal": {
+      "index": 31,
+      "box": [
+       0,
+       0,
+       64,
+       32
+      ],
+      "offset": 4096,
+      "outside_mask": 1
+     },
+     "sagittal": {
+      "index": 31,
+      "box": [
+       0,
+       0,
+       64,
+       32
+      ],
+      "offset": 6144,
+      "outside_mask": 1
+     }
+    },
+    "per_volume": 8192
+   },
+   "mask": {
+    "blob": "64579b4e3b87cda9a2c190ff.bin",
+    "dtype": "u1",
+    "bytes": 48
+   },
+   "outputs": [
+    {
+     "id": "mask",
+     "label": "Mask",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 1.0
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 1.0
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "bold-mean",
+     "role": "input",
+     "label": "ds000256 sub-CTS203 BOLD, rest (no feedback)",
+     "sub": "the mean of |value| over its 164 volumes (computed for this page in float64, shown as float32): what 3dAutomask masks",
+     "arrays": {
+      "all": {
+       "blob": "4b1ba7e06963b48f12183dff.bin",
+       "dtype": "f4",
+       "bytes": 23486
+      }
+     },
+     "window": [
+      0.25609755516052246,
+      649.0987313842771
+     ]
+    },
+    {
+     "id": "afni",
+     "role": "original",
+     "label": "AFNI 25.2.09, 3dAutomask",
+     "sub": "the repository's oracle build",
+     "arrays": {
+      "mask": {
+       "blob": "8791cc5de7f7b74b1f090910.bin",
+       "dtype": "u1",
+       "bytes": 221
+      }
+     },
+     "overlay": {
+      "mask": {
+       "on": "bold-mean",
+       "window": [
+        0.25609755516052246,
+        649.0987313842771
+       ]
+      }
+     },
+     "own": {
+      "mask": [
+       0.0,
+       1.0
+      ]
+     }
+    },
+    {
+     "id": "image",
+     "role": "original",
+     "label": "AFNI 25.2.09 in fMRIPrep's image",
+     "sub": "fMRIPrep 25.2.6's build",
+     "arrays": {
+      "mask": {
+       "same": "afni:mask",
+       "dtype": "u1"
+      }
+     },
+     "overlay": {
+      "mask": {
+       "on": "bold-mean",
+       "window": [
+        0.25609755516052246,
+        649.0987313842771
+       ]
+      }
+     },
+     "own": {
+      "mask": [
+       0.0,
+       1.0
+      ]
+     }
+    },
+    {
+     "id": "replica",
+     "role": "larmorx",
+     "label": "larmorx-gpl replica",
+     "sub": "default mode",
+     "arrays": {
+      "mask": {
+       "same": "afni:mask",
+       "dtype": "u1"
+      }
+     },
+     "overlay": {
+      "mask": {
+       "on": "bold-mean",
+       "window": [
+        0.25609755516052246,
+        649.0987313842771
+       ]
+      }
+     },
+     "own": {
+      "mask": [
+       0.0,
+       1.0
+      ]
+     }
+    },
+    {
+     "id": "replica-reproduce",
+     "role": "larmorx",
+     "label": "larmorx-gpl replica",
+     "sub": "reproduce mode",
+     "arrays": {
+      "mask": {
+       "same": "afni:mask",
+       "dtype": "u1"
+      }
+     },
+     "overlay": {
+      "mask": {
+       "on": "bold-mean",
+       "window": [
+        0.25609755516052246,
+        649.0987313842771
+       ]
+      }
+     },
+     "own": {
+      "mask": [
+       0.0,
+       1.0
+      ]
+     }
+    },
+    {
+     "id": "original",
+     "role": "larmorx",
+     "label": "LARMORX clean-room original",
+     "sub": "default mode, 1 thread",
+     "arrays": {
+      "mask": {
+       "same": "afni:mask",
+       "dtype": "u1"
+      }
+     },
+     "overlay": {
+      "mask": {
+       "on": "bold-mean",
+       "window": [
+        0.25609755516052246,
+        649.0987313842771
+       ]
+      }
+     },
+     "own": {
+      "mask": [
+       0.0,
+       1.0
+      ]
+     }
+    },
+    {
+     "id": "original-reproduce",
+     "role": "larmorx",
+     "label": "LARMORX clean-room original",
+     "sub": "reproduce mode",
+     "arrays": {
+      "mask": {
+       "same": "afni:mask",
+       "dtype": "u1"
+      }
+     },
+     "overlay": {
+      "mask": {
+       "on": "bold-mean",
+       "window": [
+        0.25609755516052246,
+        649.0987313842771
+       ]
+      }
+     },
+     "own": {
+      "mask": [
+       0.0,
+       1.0
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "original-afni",
+     "a": "original",
+     "b": "afni",
+     "kind": "main",
+     "label": "original − AFNI 25.2.09",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "mask": {
+       "identical": true,
+       "voxels": 131072,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        63,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "mask": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        15
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same values, every one."
+    },
+    {
+     "id": "replica-afni",
+     "a": "replica",
+     "b": "afni",
+     "kind": "main",
+     "label": "replica − AFNI 25.2.09",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "mask": {
+       "identical": true,
+       "voxels": 131072,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        63,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "mask": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        15
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same values, every one."
+    },
+    {
+     "id": "image-afni",
+     "a": "image",
+     "b": "afni",
+     "kind": "variability",
+     "label": "fMRIPrep's AFNI − the repository's AFNI build",
+     "role_label": "the original against itself",
+     "metrics": {
+      "mask": {
+       "identical": true,
+       "voxels": 131072,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        63,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "mask": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        15
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "Two builds of AFNI 25.2.09 (fMRIPrep's image and the repository's) give the same bytes: AFNI's own variability on this input is zero."
+    },
+    {
+     "id": "original-replica",
+     "a": "original",
+     "b": "replica",
+     "kind": "check",
+     "label": "original − replica (both default mode)",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "mask": {
+       "identical": true,
+       "voxels": 131072,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        63,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "mask": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        15
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The two implementations, written independently (one translated from AFNI's source, one from a behavioural specification), give the same bytes."
+    },
+    {
+     "id": "original-threads",
+     "a": "original-3",
+     "b": "original",
+     "kind": "check",
+     "label": "original, 3 threads − 1 thread",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "mask": {
+       "identical": true,
+       "voxels": 131072,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The original's result does not depend on its thread count: the same bytes at 1 and 3 threads."
+    },
+    {
+     "id": "original-repro",
+     "a": "original",
+     "b": "original-reproduce",
+     "kind": "check",
+     "label": "original, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "mask": {
+       "identical": true,
+       "voxels": 131072,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        63,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "mask": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        15
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "No correction of the register applies to this input: both modes give the same bytes."
+    },
+    {
+     "id": "replica-repro",
+     "a": "replica",
+     "b": "replica-reproduce",
+     "kind": "check",
+     "label": "replica, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "mask": {
+       "identical": true,
+       "voxels": 131072,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        63,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "mask": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        15
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "No correction of the register applies to this input: both modes give the same bytes."
+    }
+   ],
+   "default": {
+    "output": "mask",
+    "plane": "axial",
+    "voxel": [
+     31,
+     31,
+     15
+    ],
+    "panels": [
+     "bold-mean",
+     "afni",
+     "original",
+     "replica"
+    ],
+    "diffs": [
+     "original-afni",
+     "replica-afni",
+     "image-afni"
+    ],
+    "compare": {
+     "a": "afni",
+     "b": "original"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 15,
+    "aspect": 1.0,
+    "panels": {
+     "bold-mean": "44b47795824d2fab60b0e239.webp",
+     "afni": "2ccde601af136701fa60f317.webp",
+     "original": "2ccde601af136701fa60f317.webp",
+     "replica": "2ccde601af136701fa60f317.webp"
+    },
+    "diffs": {},
+    "ranges": {},
+    "caption": "Axial slice 16 of 32; the crosshair at the centre of the field of view; the three slices through it are stored at full resolution."
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B: for the masks +1 where only A holds a voxel, −1 where only B does. Computed in float64 over all 131,072 voxels of the outputs, not only those shown. The record's threshold: every output bit-identical to AFNI's, with its exit status and messages.",
+   "provenance": [
+    "Data: OpenNeuro ds000256 (Greene et al., 2018), snapshot 00002, sub-CTS203, task restfixationnofeedback, PDDL-1.0",
+    "Inputs: BOLD (sha256 de3e3a8c3e2d4f6b…)",
+    "Runs: figures cache entry `afni-automask/panel-ds000256-CTS203-nofeedback`, computed 2026-10-24T15:31:29+00:00 with larmorx `569ea25214b5`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; larmorx 0.0.1 (the clean-room original); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds000256"
    ]
   }
- ]
+ ],
+ "cases_credits": [
+  "openneuro-ds005040",
+  "openneuro-ds000005",
+  "openneuro-ds005454",
+  "openneuro-ds005752",
+  "openneuro-ds001600"
+ ],
+ "credits": {
+  "openneuro-ds000005": {
+   "id": "openneuro-ds000005",
+   "title": "Mixed-gambles task",
+   "source": "OpenNeuro ds000005",
+   "version": "00001",
+   "doi": "",
+   "url": "https://openneuro.org/datasets/ds000005/versions/00001",
+   "licence": "PDDL-1.0",
+   "licence_name": "Open Data Commons Public Domain Dedication and Licence 1.0",
+   "licence_url": "https://opendatacommons.org/licenses/pddl/1-0/",
+   "citation": "Tom, S.M., Fox, C.R., Trepel, C., Poldrack, R.A. (2007). The neural basis of loss aversion in decision-making under risk. Science, 315(5811):515-8. Dataset: OpenNeuro ds000005 (OpenfMRI), snapshot 00001.",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Mixed-gambles task (OpenNeuro ds000005, version 00001), Open Data Commons Public Domain Dedication and Licence 1.0."
+  },
+  "openneuro-ds000256": {
+   "id": "openneuro-ds000256",
+   "title": "Behavioral interventions for reducing head motion in children",
+   "source": "OpenNeuro ds000256",
+   "version": "00002",
+   "doi": "",
+   "url": "https://openneuro.org/datasets/ds000256/versions/00002",
+   "licence": "PDDL-1.0",
+   "licence_name": "Open Data Commons Public Domain Dedication and Licence 1.0",
+   "licence_url": "https://opendatacommons.org/licenses/pddl/1-0/",
+   "citation": "Greene DJ, Koller JM, Hampton JM, Wesevich V, Van AN, Nguyen AL, Hoyt CR, McIntyre L, Earl EA, Klein RL, Shimony JS, Petersen SE, Schlaggar BL, Fair DA, Dosenbach NUF (2018). Behavioral interventions for reducing head motion during MRI scans in children. NeuroImage 171:234-245, https://www.sciencedirect.com/science/article/pii/S1053811918300235. Dataset: OpenNeuro ds000256 v00002",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Behavioral interventions for reducing head motion in children (OpenNeuro ds000256, version 00002), Open Data Commons Public Domain Dedication and Licence 1.0."
+  },
+  "openneuro-ds001600": {
+   "id": "openneuro-ds001600",
+   "title": "Example fieldmaps",
+   "source": "OpenNeuro ds001600",
+   "version": "1.0.0",
+   "doi": "",
+   "url": "https://openneuro.org/datasets/ds001600/versions/1.0.0",
+   "licence": "CC-BY-SA",
+   "licence_name": "Creative Commons Attribution-ShareAlike (CC BY-SA; the dataset gives no version)",
+   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "citation": "Cieslak M., Elliott M., Satterthwaite T. Example Fieldmaps. OpenNeuro ds001600, version 1.0.0 (Siemens Prisma, University of Pennsylvania).",
+   "attribution": true,
+   "share_alike": true,
+   "text": "Example fieldmaps (OpenNeuro ds001600, version 1.0.0), Creative Commons Attribution-ShareAlike (CC BY-SA; the dataset gives no version). Attribution: Cieslak M., Elliott M., Satterthwaite T. Example Fieldmaps. OpenNeuro ds001600, version 1.0.0 (Siemens Prisma, University of Pennsylvania). The images shown here are adapted from it: reoriented to RAS, cropped to the region shown, masked outside it, and shown as the outputs of the programs compared. Under its share-alike condition the images adapted from this dataset are shared under the same licence, CC BY-SA."
+  },
+  "openneuro-ds005040": {
+   "id": "openneuro-ds005040",
+   "title": "Political Moralization",
+   "source": "OpenNeuro ds005040",
+   "version": "1.2.0",
+   "doi": "10.18112/openneuro.ds005040.v1.2.0",
+   "url": "https://openneuro.org/datasets/ds005040/versions/1.2.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Cohen MS, Cao Q, Decety J. Political Moralization (PMM). OpenNeuro ds005040 v1.2.0, doi:10.18112/openneuro.ds005040.v1.2.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Political Moralization (OpenNeuro ds005040, version 1.2.0, doi:10.18112/openneuro.ds005040.v1.2.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds005454": {
+   "id": "openneuro-ds005454",
+   "title": "fMRIPrep boot camp 7T training dataset",
+   "source": "OpenNeuro ds005454",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds005454.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds005454/versions/1.0.0",
+   "licence": "CC-BY-4.0",
+   "licence_name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+   "citation": "Sleight EC, Esteban O, Grouiller F. fMRIPrep boot camp -- 7T training dataset. OpenNeuro ds005454, version 1.0.0. doi:10.18112/openneuro.ds005454.v1.0.0",
+   "attribution": true,
+   "share_alike": false,
+   "text": "fMRIPrep boot camp 7T training dataset (OpenNeuro ds005454, version 1.0.0, doi:10.18112/openneuro.ds005454.v1.0.0), Creative Commons Attribution 4.0 (CC BY 4.0). Attribution: Sleight EC, Esteban O, Grouiller F. fMRIPrep boot camp -- 7T training dataset. OpenNeuro ds005454, version 1.0.0. doi:10.18112/openneuro.ds005454.v1.0.0 The images shown here are adapted from it: reoriented to RAS, cropped to the region shown, masked outside it, and shown as the outputs of the programs compared."
+  },
+  "openneuro-ds005752": {
+   "id": "openneuro-ds005752",
+   "title": "NIMH Healthy Research Volunteer Dataset",
+   "source": "OpenNeuro ds005752",
+   "version": "2.1.0",
+   "doi": "10.18112/openneuro.ds005752.v2.1.0",
+   "url": "https://openneuro.org/datasets/ds005752/versions/2.1.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Nugent AC, Thomas AG, Mahoney M, Gibbons A, Smith JT, Charles AJ, Shaw JS, Stout JD, Namyst AM, Basavaraj A, Earl E, Riddle T, Snow J, Japee S, Pavletic AJ, Sinclair S, Roopchansingh V, Bandettini PA, Chung J (2022). The NIMH intramural healthy volunteer dataset: A comprehensive MEG, MRI, and behavioral resource. Scientific Data 9:518. doi:10.1038/s41597-022-01623-9. Dataset: OpenNeuro ds005752 v2.1.0, doi:10.18112/openneuro.ds005752.v2.1.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "NIMH Healthy Research Volunteer Dataset (OpenNeuro ds005752, version 2.1.0, doi:10.18112/openneuro.ds005752.v2.1.0), CC0 1.0 public-domain dedication."
+  }
+ }
 }

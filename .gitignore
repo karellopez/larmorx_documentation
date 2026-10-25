@@ -2,6 +2,11 @@
 _site/
 _preview/
 
+# The evidence's image blobs live on the orphan branch evidence-blobs (tools/blobs.py), not on
+# main: static/evidence/blobs.sha256 pins them; the Pages workflow checks the branch out into _blobs/.
+static/evidence/blobs/
+_blobs/
+
 # The build's virtual environment
 .venv/
 __pycache__/
