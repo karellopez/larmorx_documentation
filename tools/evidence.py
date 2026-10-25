@@ -1051,9 +1051,18 @@ class Evidence:
                 elif result.startswith("beyond"):
                     # Predicted from the original's sizing law, not run (heavy_predict.py).
                     state = f"{esc(result)}: predicted, not run"
+                elif result.startswith("pending"):
+                    # Kept with its prediction and command for a larger machine (heavy_pending.py).
+                    state = f"{esc(result)}: not run here"
                 else:
+                    peak = str(h.get("peak") or "")
+                    try:
+                        number, unit = peak.split()
+                        peak = f"{float(number):.1f} {unit}"
+                    except ValueError:
+                        pass
                     state = f"run to its end: {esc(result)}" + (
-                        f", peak {esc(h['peak'])}" if h.get("peak") else ""
+                        f", the run's peak {esc(peak)}" if peak else ""
                     )
                 items.append(f"<code>{esc(h['case'])}</code> ({state})")
         if not items:
