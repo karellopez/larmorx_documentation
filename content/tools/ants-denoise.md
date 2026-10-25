@@ -68,6 +68,12 @@ Each case of the record, with what it tests, the command line, its verdict and t
 
 The record's fix pass meets ANTS-06, ANTS-43, ANTS-44, ANTS-47, ITK-01 and ITK-02, each corrected by default with `upstream_defects="reproduce"` (or `LARMORX_UPSTREAM_DEFECTS=reproduce`) giving ANTs' behaviour ([register](repo:docs/findings/upstream-defects.md)). ANTS-43 changes sMRIPrep's own command, as the worked example measures. Nondeterministic behaviour, such as the thread dependence (ANTS-42), is never reproduced.
 
+## Random testing {#random-testing}
+
+Random testing runs random valid inputs and option combinations through the original program and LARMORX, a night at a time: inputs from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind), with options drawn in random combinations from those the program accepts ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest input and fewest options that still show it, then fixed and kept as a parity case, registered as a defect of the original, or reported. The latest night:
+
+{{ ev.random_testing('/tools/ants-denoise/') }}
+
 ## Known limits {#limits}
 
 The comparison with ANTs is made on Linux x86-64, against ANTs at one thread; ANTs at several threads has no single result to compare with. The other five platforms are held to LARMORX's own Linux output by the [golden tests](repo:docs/validation/golden.md).

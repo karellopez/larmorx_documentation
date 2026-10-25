@@ -61,6 +61,12 @@ Each case of the record, with what it tests, the command line, its verdict and t
 
 The record's fix pass meets FSL-01 (the last volume not initialised from the previous one), FSL-03, FSL-05, FSL-06, FSL-08, FSL-09, FSL-10, FSL-13 and FSL-14; each is corrected by default, with `upstream_defects="reproduce"` giving mcflirt's behaviour, the mode the comparison runs in ([register](repo:docs/findings/upstream-defects.md)). The worked example shows what they change on fMRIPrep's run.
 
+## Random testing {#random-testing}
+
+Random testing runs random valid inputs and option combinations through the original program and LARMORX, a night at a time: inputs from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind), with options drawn in random combinations from those the program accepts ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest input and fewest options that still show it, then fixed and kept as a parity case, registered as a defect of the original, or reported. The latest night:
+
+{{ ev.random_testing('/tools/mri-hmc/') }}
+
 ## What is open {#open}
 
 {{ ev.table('mri-hmc', 'open') }}

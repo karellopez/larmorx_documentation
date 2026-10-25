@@ -69,6 +69,12 @@ Each case of the record, with what it tests, the command line, its verdict and t
 
 The record's fix pass meets ANTS-06 (undefined float-to-integer conversions of `-u char`/`uchar` outputs, clamped by default; [register](repo:docs/findings/upstream-defects.md)); it does not apply to fMRIPrep's commands.
 
+## Random testing {#random-testing}
+
+Random testing runs random valid inputs and option combinations through the original program and LARMORX, a night at a time: inputs from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind), with options drawn in random combinations from those the program accepts ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest input and fewest options that still show it, then fixed and kept as a parity case, registered as a defect of the original, or reported. The latest night:
+
+{{ ev.random_testing('/tools/ants-apply-transforms/') }}
+
 ## Known limits {#limits}
 
 MINC transform files are refused with a message. A B-spline transform has no inverse: `-t [BSpline.txt,1]` fails, as in ANTs. The comparison is made on Linux x86-64; the other five platforms are held to LARMORX's own Linux output by the [golden tests](repo:docs/validation/golden.md).

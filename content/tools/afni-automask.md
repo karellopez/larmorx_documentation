@@ -79,6 +79,12 @@ Both implementations correct AFNI's deterministic defects by default and warn: t
 **Refused by default: AFNI-41.** `-nbhrs` takes a value between 6 and 26, as the help says; outside that range AFNI accepts it silently and peels as with 17. A value outside the range makes no sense, and the project's rule for that case (2026-10-23) is a clear error: by default the replica stops with a message naming AFNI-41, before reading the input; `LARMORX_UPSTREAM_DEFECTS=reproduce` gives AFNI's mask, bit for bit. The case explorer shows it: [options/nbhrs-40](#case=options/nbhrs-40), and in the standard tier `nbhrs-5`, `nbhrs-27`, `nbhrs-0` and `nbhrs-40-then-NN1`, each with the verdict *deliberate correction* (refused by default) and bit-identical to AFNI in reproduce mode.
 
 
+## Random testing {#random-testing}
+
+Random testing runs random valid inputs and option combinations through the original program and LARMORX, a night at a time: inputs from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind), with options drawn in random combinations from those the program accepts ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest input and fewest options that still show it, then fixed and kept as a parity case, registered as a defect of the original, or reported. The latest night:
+
+{{ ev.random_testing('/tools/afni-automask/') }}
+
 ## Known limits {#limits}
 
 LARMORX writes NIfTI only: AFNI's default prefix `automask` is its own dataset format, which both implementations refuse (an expected divergence). The clean-room original ignores AFNI's own header extension in an AFNI-written input (AFNI-10), as 3dTshift's original does; the replica reads it as AFNI does. The other five platforms are held to LARMORX's own Linux output by the [golden tests](repo:docs/validation/golden.md).

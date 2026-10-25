@@ -79,6 +79,12 @@ Each case of the record, with what it tests, the command line, its verdict and t
 
 Where ANTs has a deterministic defect that changes a result, LARMORX corrects it by default and warns; `upstream_defects="reproduce"` (or `LARMORX_UPSTREAM_DEFECTS=reproduce`) gives ANTs' behaviour, and the record compares in that mode. Its fix pass meets ANTS-35, ANTS-36, ANTS-38, ANTS-40 and ITK-02 ([register](repo:docs/findings/upstream-defects.md), [findings](repo:docs/findings/ants-n4.md)). Of them only ANTS-40 applies to fMRIPrep's calls (above); the measurement and its code are in the repository ([investigation](repo:validation/investigations/ants-40-n4-nonpositive/README.md)).
 
+## Random testing {#random-testing}
+
+Random testing runs random valid inputs and option combinations through the original program and LARMORX, a night at a time: inputs from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind), with options drawn in random combinations from those the program accepts ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest input and fewest options that still show it, then fixed and kept as a parity case, registered as a defect of the original, or reported. The latest night:
+
+{{ ev.random_testing('/tools/ants-n4/') }}
+
 ## Known limits {#limits}
 
 The comparison with ANTs is made on Linux x86-64; the other five platforms are held to LARMORX's own Linux output by the [golden tests](repo:docs/validation/golden.md). ANTs' oracle is built by GCC 14.3, which honours the source's float roundings; an older GCC 11 build of ANTs gives other bits ([findings](repo:docs/findings/ants-n4.md)).
