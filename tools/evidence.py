@@ -945,6 +945,179 @@ class Evidence:
             f'<tbody>{"".join(rows)}</tbody></table></div></div>'
         )
 
+    # ------------------------------------------------------- random testing
+
+    #: Random testing's outcomes (its own, not the verdict taxonomy), in table order.
+    DIFFTEST_COLUMNS = (
+        ("agree", "Agree", "the parity runner passed: bit-identical where the tool must be, within the record's thresholds for a clean-room original, or both programs rejected the input alike"),
+        ("explained", "glibc", "differs from the original as built only through glibc's maths: identical once it runs with correctly rounded functions"),
+        ("notice", "Notices", "a correction named where it changed nothing this input shows (D13 notices are meant to fire exactly where the result differs)"),
+        ("undefined", "Undefined", "the original's values depend on memory it never wrote or on the clock: not comparable (a defect larmorx names)"),
+        ("differ", "Differ", "a difference: shrunk to its smallest reproducer, then fixed, registered or reported"),
+        ("memory", "Heavy", "a run exceeded the case's memory limit (3 GiB, no swap), or was predicted to: queued as a heavy case and run to its end later, one at a time, in a large box"),
+        ("guard", "Guard", "predicted over the case's memory limit: not compared; LARMORX's default stopped at once with its guard's clear error (ANTS-162, AFNI-75), the original's predicted need recorded"),
+    )
+    DIFFTEST_STATUS = {
+        "fixed": "fixed in LARMORX",
+        "register": "a defect of the original, in the register",
+        "open": "open (a clean-room original's difference, reported for its agent)",
+        "harness": "the comparison's own mistake, corrected",
+        "unclear": "not yet triaged",
+    }
+
+    def _difftest(self) -> dict:
+        return self.doc("difftest")
+
+    def _difftest_rows(self, tools: list[tuple[str, int, dict]], with_page: bool) -> str:
+        rows = []
+        for pi, ti, t in tools:
+            p = ptr("pages", pi, "tools", ti)
+            name = esc(t["label"])
+            if with_page:
+                page = self._difftest()["pages"][pi]["page"]
+                name = f'<a href="{self.link(page)}">{name}</a>'
+            impls = ", ".join(t["implementations"])
+            cells = [
+                f"<th scope=row>{name}<small>{esc(impls)}</small></th>",
+                f'<td class=n>{self.num("difftest", p + "/cases", fmt_count(t["cases"]))}</td>',
+                f'<td class=n>{self.num("difftest", p + "/extreme", fmt_count(t.get("extreme", 0)))}</td>',
+                f'<td class=n>{self.num("difftest", p + "/options_covered", fmt_count(t["options_covered"]))}</td>',
+            ]
+            for key, _, _ in self.DIFFTEST_COLUMNS:
+                n = t["outcomes"].get(key, 0)
+                cells.append(
+                    f'<td class="n{" zero" if not n else ""}">'
+                    + (self.num("difftest", f"{p}/outcomes/{key}", fmt_count(n)) if n else "·")
+                    + "</td>"
+                )
+            n = t["unclear"]
+            cells.append(f'<td class="n{" zero" if not n else ""}">' + (self.num("difftest", p + "/unclear", fmt_count(n)) if n else "·") + "</td>")
+            rows.append(f"<tr>{''.join(cells)}</tr>")
+        return "".join(rows)
+
+    def _difftest_head(self, first: str) -> str:
+        cols = "".join(f'<th scope=col class=n title="{esc(m)}">{esc(lab)}</th>' for _, lab, m in self.DIFFTEST_COLUMNS)
+        return (
+            f"<tr><th scope=col>{esc(first)}</th><th scope=col class=n>Random cases</th>"
+            "<th scope=col class=n title=\"the cases drawn as the extreme share of the night (odd units, extreme voxel sizes); the others are realistic\">Extreme</th>"
+            f'<th scope=col class=n title="distinct options and option values drawn">Options covered</th>{cols}'
+            '<th scope=col class=n title="timed out or crashed: for the orchestrator">Unclear</th></tr>'
+        )
+
+    def _difftest_notices(self, tools: list[tuple[str, int, dict]]) -> str:
+        """The D13 notices each tool named where the correction changed nothing the input
+        shows (the *Notices* column), defect by defect."""
+        parts = []
+        for pi, ti, t in tools:
+            items = []
+            for ni, n in enumerate(t.get("notices", [])):
+                p = ptr("pages", pi, "tools", ti, "notices", ni)
+                items.append(f'{esc(n["defect"])} ({self.num("difftest", p + "/cases", fmt_count(n["cases"]))})')
+            if items:
+                parts.append(f"{esc(t['label'])}: {', '.join(items)}")
+        if not parts:
+            return ""
+        return (
+            '<p class="ev-metrics-note">Notices: a correction named in a case where it changed '
+            f"nothing the input shows (defect, cases): {'; '.join(parts)}.</p>"
+        )
+
+    def _difftest_differences(self, tools: list[tuple[str, int, dict]]) -> str:
+        items = []
+        for pi, ti, t in tools:
+            for di, d in enumerate(t["differences"]):
+                p = ptr("pages", pi, "tools", ti, "differences", di)
+                status = self.DIFFTEST_STATUS.get(d["status"], d["status"])
+                link = f' (<a href="{self.href(d["link"])}">{esc(d.get("defect") or "details")}</a>)' if d.get("link") else ""
+                checks = ", ".join(d["checks"])
+                items.append(
+                    f'<li><span class="ev-dt-status ev-dt-{esc(d["status"])}">{esc(status)}</span> '
+                    f'{esc(t["label"])} ({esc(d["implementation"])}), {self.num("difftest", p + "/cases", fmt_count(d["cases"]))} '
+                    f'case(s): <code>{esc(checks)}</code>: {self.text(d["explanation"])}{link}</li>'
+                )
+        if not items:
+            return '<p class="ev-chart-note">No difference.</p>'
+        return f'<ul class="ev-dt-diffs">{"".join(items)}</ul>'
+
+    def _difftest_heavy(self, tools: list[tuple[str, int, dict]]) -> str:
+        """The cases over the night's memory limit, and what became of them once run to their
+        end in the large box (``difftest --heavy``)."""
+        items = []
+        for pi, ti, t in tools:
+            for hi, h in enumerate(t.get("heavy", [])):
+                result = h["result"]
+                if result == "waiting":
+                    state = "waiting to be run to its end in the large box"
+                elif result.startswith("beyond"):
+                    # Predicted from the original's sizing law, not run (heavy_predict.py).
+                    state = f"{esc(result)}: predicted, not run"
+                elif result.startswith("pending"):
+                    # Kept with its prediction and command for a larger machine (heavy_pending.py).
+                    state = f"{esc(result)}: not run here"
+                else:
+                    peak = str(h.get("peak") or "")
+                    try:
+                        number, unit = peak.split()
+                        peak = f"{float(number):.1f} {unit}"
+                    except ValueError:
+                        pass
+                    state = f"run to its end: {esc(result)}" + (
+                        f", the run's peak {esc(peak)}" if peak else ""
+                    )
+                items.append(f"<code>{esc(h['case'])}</code> ({state})")
+        if not items:
+            return ""
+        return (
+            '<p class="ev-metrics-note">Heavy cases (a run over the memory limit of a case, '
+            f"queued and run to its end later, one at a time, in a large box): {'; '.join(items)}.</p>"
+        )
+
+    def random_testing(self, page: str) -> Markup:
+        """A tool page's panel: the latest night's random cases of the page's tools, their
+        outcomes, and what was done about each difference (``static/evidence/difftest.json``)."""
+        d = self._difftest()
+        tools = [(pi, ti, t) for pi, pg in enumerate(d["pages"]) if pg["page"] == page for ti, t in enumerate(pg["tools"])]
+        if not tools:
+            self.problems.append(f"random testing: no tool of {page} in static/evidence/difftest.json")
+            return Markup("")
+        n = d["night"]
+        title = (
+            f'Random testing, the night of {esc(n["date"])} (seed <code>{esc(n["seed"])}</code>, '
+            f'{self.num("difftest", "/night/hours", fmt_sig(n["hours"]))} h for '
+            f'{self.num("difftest", "/night/tools", fmt_count(n["tools"]))} tools): random valid inputs and '
+            "option combinations through the original program and LARMORX"
+        )
+        note = (
+            f'Every case is drawn from its tool, the night\'s seed and its number, and replays anywhere: '
+            f'<a href="{self.href(d["how"])}">how random testing works</a>; each difference\'s triage: '
+            f'<a href="{self.href(d["triage"])}">{esc(d["triage"])}</a>.'
+        )
+        return Markup(
+            f'<figure class="ev-chart ev-tablefig ev-difftest" id="random-testing-panel"><div class="ev-table">'
+            f'<p class="ev-metrics-title">{title}</p>'
+            f'<div class="table-wrap"><table class="ev-ttable"><thead>{self._difftest_head("Tool")}</thead>'
+            f"<tbody>{self._difftest_rows(tools, with_page=False)}</tbody></table></div>"
+            f"{self._difftest_differences(tools)}{self._difftest_notices(tools)}{self._difftest_heavy(tools)}"
+            f'<p class="ev-metrics-note">{note}</p></div></figure>'
+        )
+
+    def random_testing_summary(self) -> Markup:
+        """The Validation page's table: every tool's random cases of the latest night."""
+        d = self._difftest()
+        tools = [(pi, ti, t) for pi, pg in enumerate(d["pages"]) for ti, t in enumerate(pg["tools"])]
+        n = d["night"]
+        total = self.num("difftest", "/night/cases", fmt_count(n["cases"]))
+        return Markup(
+            f'<figure class="ev-chart ev-tablefig ev-difftest" id="random-testing-summary"><div class="ev-table">'
+            f'<p class="ev-metrics-title">The night of {esc(n["date"])}: {total} random cases '
+            f'({self.num("difftest", "/night/hours", fmt_sig(n["hours"]))} h, seed <code>{esc(n["seed"])}</code>)</p>'
+            f'<div class="table-wrap"><table class="ev-ttable"><thead>{self._difftest_head("Tool")}</thead>'
+            f"<tbody>{self._difftest_rows(tools, with_page=True)}</tbody></table></div>"
+            f"{self._difftest_differences(tools)}{self._difftest_notices(tools)}{self._difftest_heavy(tools)}"
+            f'<p class="ev-metrics-note"><a href="{self.href(d["how"])}">How random testing works</a>; '
+            f'each difference\'s triage: <a href="{self.href(d["triage"])}">{esc(d["triage"])}</a>.</p></div></figure>'
+        )
+
     # ------------------------------------------------------- validation page
 
     def matrix(self, tools: list[dict]) -> Markup:

@@ -77,6 +77,12 @@ The clean-room original is 4 to 25 times faster than AFNI at the same thread cou
 
 Both implementations correct AFNI's deterministic defects by default and warn: the records' fix passes meet AFNI-45 (`-T2up` near 100), AFNI-47 (a volume of more than a million voxels with an axis of 2 or 3), AFNI-01 (`-EPI`'s median of a series with a negative scale factor) and the dataset defects 3dUnifize shares with 3dTshift (AFNI-02, AFNI-07, AFNI-11, AFNI-12, AFNI-16, AFNI-18, AFNI-23, AFNI-26), with `upstream_defects="reproduce"` giving AFNI's behaviour ([register](repo:docs/findings/upstream-defects.md)). AFNI-48 (`-T2` given three times without `-EPI`, which leaves the output inverted) is refused by default, in the same words by both implementations (decided 2026-10-23), with `reproduce` giving AFNI's output.
 
+## Random testing {#random-testing}
+
+Random testing runs random valid inputs and option combinations through the original program and LARMORX, a night at a time: inputs from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind), with options drawn in random combinations from those the program accepts ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest input and fewest options that still show it, then fixed and kept as a parity case, registered as a defect of the original, or reported. The latest night:
+
+{{ ev.random_testing('/tools/afni-unifize/') }}
+
 ## Known limits {#limits}
 
 LARMORX writes NIfTI only: AFNI's default prefix `Unifized` is its own dataset format, which both implementations refuse (an expected divergence). The original's squashed values (above 1300) can differ from AFNI's in their last bit where glibc's `tanhf` is not correctly rounded; AFNI with correctly rounded maths gives the original's bytes. There is no benchmark report yet. The golden tests cannot reach the half-size path (more than a million voxels, beyond their 32³ budget); the parity records cover it on real T1w images. The other five platforms are held to LARMORX's own Linux output by the [golden tests](repo:docs/validation/golden.md).

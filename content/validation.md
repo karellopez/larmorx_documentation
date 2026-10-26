@@ -69,6 +69,12 @@ Every tool ported so far, each implementation, and how many cases of its record 
 
 {{ ev.matrix(site.tools) }}
 
+## Random testing {#random-testing}
+
+The records test the cases people chose. Random testing runs, a night at a time, random valid inputs and option combinations through each original program and LARMORX: inputs drawn from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind) with options drawn in random combinations from those the program accepts, each case compared by the same runners as the records. A difference is shrunk to the smallest input and fewest options that still show it; a LARMORX mistake is fixed and the shrunk case kept as a permanent parity case, a defect of the original goes into the [register](repo:docs/findings/upstream-defects.md), a clean-room original's difference is reported with its reproducer ([how random testing works](repo:docs/validation/difftest.md)). From the next night on, nine cases in ten are realistic (millimetre voxels of about 0.5 to 4 mm, the usual matrix sizes and options) and one in ten is drawn extreme (metres or micrometres, voxels of 0.01 to 50, labelled as such), and every case of a tool whose memory has a known law is predicted before it runs: one predicted over its limit is checked as a guard case instead (LARMORX must stop at once with its clear error). The latest night, tool by tool:
+
+{{ ev.random_testing_summary() }}
+
 ## The records {#records}
 
 Every record lives in the main repository, in [docs/validation](repo:docs/validation/): what was compared, the thresholds, the environment and every case. Benchmark reports are in [docs/benchmarks](repo:docs/benchmarks/). The stage-by-stage comparisons with fMRIPrep 25.2.6 on four oracle runs are in the `fmriprep-stages` records.

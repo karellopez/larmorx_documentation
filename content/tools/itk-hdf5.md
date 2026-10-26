@@ -53,6 +53,12 @@ Each case of the record, with what it tests, its verdict and the reason. Search,
 
 No benchmark report yet: reading HDF5 against h5py and ANTs is among the planned benchmarks ([next steps](repo:docs/next-steps.md)).
 
+## Random testing {#random-testing}
+
+Random testing runs random valid inputs and option combinations through the original program and LARMORX, a night at a time: inputs from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind), with options drawn in random combinations from those the program accepts ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest input and fewest options that still show it, then fixed and kept as a parity case, registered as a defect of the original, or reported. The latest night:
+
+{{ ev.random_testing('/tools/itk-hdf5/') }}
+
 ## Known limits {#limits}
 
 The expected divergences: data stored in other files (external raw files, external links, virtual datasets), which ITK's HDF5 follows, are refused; a 2-D component in a 3-D composite is refused (ITK-17, an undefined cast in ITK); a composite of 38 or more transforms is written with its links laid out compactly. Compressed chunks are compared by content, not bytes, by design (decided 2026-10-16).

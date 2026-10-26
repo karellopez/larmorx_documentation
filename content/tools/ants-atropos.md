@@ -68,6 +68,12 @@ Each case of the record, with what it tests, the command line, its verdict and t
 
 The record's fix pass meets ITK-50, ITK-51 and ANTS-90 to ANTS-106, each corrected by default with `upstream_defects="reproduce"` (or `LARMORX_UPSTREAM_DEFECTS=reproduce`) giving ANTs' behaviour ([register](repo:docs/findings/upstream-defects.md)). ITK-50 changes sMRIPrep's own call, as the worked example measures; ANTS-106 changes partial-volume classes with an MRF, as the phantom above measures. ANTS-107, where ANTs weighs part of its samples with memory it never wrote, is not met by default and is filled deterministically when reproduced.
 
+## Random testing {#random-testing}
+
+Random testing runs random valid inputs and option combinations through the original program and LARMORX, a night at a time: inputs from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind), with options drawn in random combinations from those the program accepts ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest input and fewest options that still show it, then fixed and kept as a parity case, registered as a defect of the original, or reported. The latest night:
+
+{{ ev.random_testing('/tools/ants-atropos/') }}
+
 ## Known limits {#limits}
 
 The comparison with ANTs is made on Linux x86-64, against ANTs at one thread. ANTs' clock-seeded runs have no single result to compare with: they are compared as one more draw. There is no benchmark report yet. The other five platforms are held to LARMORX's own Linux output by the [golden tests](repo:docs/validation/golden.md).

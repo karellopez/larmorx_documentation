@@ -102,6 +102,12 @@ Each program's record, with what each case tests, its command line, its verdict 
 
 The records' fix passes meet ANTS-05, ANTS-06, ANTS-08, ANTS-09, ANTS-10, ANTS-12, ANTS-14, ANTS-15, ANTS-16, ANTS-17, ANTS-19, ANTS-20, ANTS-22, ANTS-23 (ImageMath), ANTS-24 (ThresholdImage), ANTS-27 (MultiplyImages), ANTS-28, ANTS-29, ANTS-30, ANTS-31, ANTS-32 (the resamplers) and ITK-02, each corrected by default with `upstream_defects="reproduce"` giving ANTs' behaviour ([register](repo:docs/findings/upstream-defects.md)). None applies to sMRIPrep's calls above. ANTS-30, ResampleImage's corrected command line, awaits the user's review.
 
+## Random testing {#random-testing}
+
+Random testing runs random valid inputs and option combinations through the original program and LARMORX, a night at a time: inputs from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind), with options drawn in random combinations from those the program accepts ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest input and fewest options that still show it, then fixed and kept as a parity case, registered as a defect of the original, or reported. The latest night:
+
+{{ ev.random_testing('/tools/ants-programs/') }}
+
 ## Known limits {#limits}
 
 ThresholdImage's `Kmeans` is not ported (fMRIPrep does not use it). ResampleImage interpolates with B-splines, Gaussians and windowed sinc in 3D only.

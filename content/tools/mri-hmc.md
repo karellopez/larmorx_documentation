@@ -73,6 +73,12 @@ The record's fix pass meets FSL-01 (the last volume not initialised from the pre
 
 The replica corrects the same defects the same way by default, and three more that its translation found: `-gdt` (FSL-04: refused; `reproduce` registers the gradient images as mcflirt does), a `.mat` directory that cannot be created (FSL-20: mcflirt exits with status 0 having written nothing more; an error), and the histogram costs with fewer than 8 bins (FSL-21: the first stage has no bins, the matrices are arbitrary, and `corratio` corrupts its heap and aborts; refused). `reproduce` gives mcflirt's bytes, aborts included.
 
+## Random testing {#random-testing}
+
+Random testing runs random valid inputs and option combinations through the original program and LARMORX, a night at a time: inputs from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind), with options drawn in random combinations from those the program accepts ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest input and fewest options that still show it, then fixed and kept as a parity case, registered as a defect of the original, or reported. The latest night:
+
+{{ ev.random_testing('/tools/mri-hmc/') }}
+
 ## What is open {#open}
 
 {{ ev.table('mri-hmc', 'open') }}

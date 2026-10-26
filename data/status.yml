@@ -10,97 +10,99 @@
 
 as_of: the main repository's README, October 2026
 
+# BEGIN GENERATED: implemented tools (python -m larmorx_validation tables in the main repository; edit its validation/tools.toml)
 implemented:
   - eco: larmorx
-    tool: NIfTI-1/2 I/O
+    tool: "NIfTI-1/2 I/O"
     page: /tools/nifti-io/
     use: ["lx.load", "lx.save", "lx.Image"]
-    how: own implementation
+    how: "own implementation"
     validation: "[254 files](repo:docs/validation/nifti-io.md), data bit-identical to nibabel; [4–8× faster](repo:docs/benchmarks/nifti-io.md) on compressed writes with threads"
   - eco: ants
-    tool: antsApplyTransforms
+    tool: "antsApplyTransforms"
     page: /tools/ants-apply-transforms/
     use: ["larmorx ants antsApplyTransforms", "lx.ants.apply_transforms"]
-    how: port (ANTs/ITK)
+    how: "port (ANTs/ITK)"
     validation: "[258 cases](repo:docs/validation/ants-apply-transforms.md): 185 of 200 compared bit-identical to ANTs, the rest differ only through glibc's maths; B-spline transforms included"
   - eco: ants
-    tool: ITK transform files (`.mat`, `.txt`, `.h5`)
+    tool: "ITK transform files (`.mat`, `.txt`, `.h5`)"
     page: /tools/itk-hdf5/
     use: ["lx.transforms"]
-    how: port (ITK, HDF5)
+    how: "port (ITK, HDF5)"
     validation: "[149 cases](repo:docs/validation/itk-hdf5.md), 0 failures; HDF5 read and written in pure Rust"
   - eco: ants
-    tool: N4BiasFieldCorrection
+    tool: "N4BiasFieldCorrection"
     page: /tools/ants-n4/
     use: ["larmorx ants N4BiasFieldCorrection", "lx.ants.n4_bias_field_correction"]
-    how: port
+    how: "port"
     validation: "[29 of 46](repo:docs/validation/ants-n4.md) bit-identical to ANTs, 46 of 46 with correctly rounded maths; ANTS-40 corrected by default"
   - eco: ants
-    tool: DenoiseImage
+    tool: "DenoiseImage"
     page: /tools/ants-denoise/
     use: ["larmorx ants DenoiseImage", "lx.ants.denoise_image"]
-    how: port
+    how: "port"
     validation: "[7 of 40](repo:docs/validation/ants-denoise.md) bit-identical to ANTs, 40 of 40 with correctly rounded maths; ANTS-43 and ANTS-44 corrected by default"
   - eco: ants
-    tool: ImageMath (every operation fMRIPrep, sMRIPrep and sdcflows call)
+    tool: "ImageMath (every operation fMRIPrep, sMRIPrep and sdcflows call)"
     page: /tools/ants-programs/
     use: ["larmorx ants ImageMath", "lx.ants.image_math"]
-    how: port
+    how: "port"
     validation: "[334 cases](repo:docs/validation/ants-image-math.md): values bit-identical in 303 of 308, headers in 308 of 308; ANTS-17, -22 and -23 corrected, checked against known results"
   - eco: ants
-    tool: ThresholdImage, MultiplyImages, SmoothImage, ResampleImage, ResampleImageBySpacing
+    tool: "ThresholdImage, MultiplyImages, SmoothImage, ResampleImage, ResampleImageBySpacing"
     page: /tools/ants-programs/
     use: ["larmorx ants ..."]
-    how: port
+    how: "port"
     validation: "bit-identical in every compared case ([threshold](repo:docs/validation/ants-threshold-image.md), [multiply](repo:docs/validation/ants-multiply-images.md), [smooth](repo:docs/validation/ants-smooth-image.md), [resample](repo:docs/validation/ants-resample-image.md), [by spacing](repo:docs/validation/ants-resample-image-by-spacing.md))"
   - eco: ants
     tool: "antsRegistration (every stage: linear, SyN, B-spline SyN, B-spline, displacement-field, exponential and time-varying velocity-field; image and point-set metrics)"
     page: /tools/ants-registration/
     use: ["larmorx ants antsRegistration", "lx.ants.registration"]
-    how: port
+    how: "port"
     validation: "[505 cases](repo:docs/validation/ants-registration.md): 347 of 391 compared identical to ANTs (outputs and messages), 44 more with correctly rounded maths; [the corrections' effects](repo:docs/validation/ants-registration-corrections.md)"
   - eco: ants
-    tool: antsAI, antsAffineInitializer
+    tool: "antsAI, antsAffineInitializer"
     page: /tools/ants-ai/
     use: ["larmorx ants antsAI", "larmorx ants antsAffineInitializer"]
-    how: port
-    validation: "[antsAI](repo:docs/validation/ants-ai.md): 75 of 75 compared identical (74 as built, 1 with correctly rounded maths), the blob alignment included (its corrections, ANTS-116 among them, by default); [antsAffineInitializer](repo:docs/validation/ants-affine-initializer.md): 26 of 26"
+    how: "port"
+    validation: "[antsAI](repo:docs/validation/ants-ai.md): 75 of 75 compared identical (74 as built, 1 with correctly rounded maths), the blob alignment (`-b`) included (its corrections, ANTS-116 among them, by default); [antsAffineInitializer](repo:docs/validation/ants-affine-initializer.md): 26 of 26"
   - eco: ants
-    tool: Atropos
+    tool: "Atropos (every initialization, likelihood model, MRF, outlier and partial-volume option)"
     page: /tools/ants-atropos/
     use: ["larmorx ants Atropos", "lx.ants.atropos"]
-    how: port
+    how: "port"
     validation: "[97 cases](repo:docs/validation/ants-atropos.md): 27 of 58 compared bit-identical to ANTs, 58 of 58 with correctly rounded maths, sMRIPrep's call on the five oracle runs included; partial-volume classes with the MRF corrected (ANTS-106)"
   - eco: larmorx
-    tool: fMRIPrep's one-shot BOLD resampler
+    tool: "fMRIPrep's one-shot BOLD resampler"
     page: /tools/resample-series/
     use: ["lx.transforms.resample_series"]
-    how: port (fMRIPrep, nitransforms, SciPy)
+    how: "port (fMRIPrep, nitransforms, SciPy)"
     validation: "[139 cases](repo:docs/validation/resample-series.md): 136 of 136 compared bit-identical"
   - eco: afni
-    tool: 3dTshift (slice timing)
+    tool: "3dTshift (slice timing)"
     page: /tools/afni-tshift/
     use: ["larmorx afni 3dTshift", "lx.afni.tshift"]
-    how: clean-room original; exact replica in `larmorx-gpl`
+    how: "clean-room original; exact replica in `larmorx-gpl`"
     validation: "original: [279 of 279](repo:docs/validation/afni-tshift.md) compared agree, 176 bit-identical, [2–6× faster](repo:docs/benchmarks/afni-tshift.md); replica: [279 of 279](repo:docs/validation/afni-tshift-replica.md) bit-identical"
   - eco: afni
-    tool: 3dAutomask (brain mask)
+    tool: "3dAutomask (brain mask)"
     page: /tools/afni-automask/
     use: ["larmorx afni 3dAutomask", "lx.afni.automask"]
-    how: clean-room original; exact replica in `larmorx-gpl`
-    validation: "original: [109 cases](repo:docs/validation/afni-automask.md), 84 of 85 compared cases that write outputs bit-identical to AFNI (the other: AFNI-10's header, its masks bit-identical); replica: [85 of 85](repo:docs/validation/afni-automask-replica.md) bit-identical; fMRIPrep's call on every oracle run included"
+    how: "clean-room original; exact replica in `larmorx-gpl`"
+    validation: "original: [109 cases](repo:docs/validation/afni-automask.md), 84 of 85 compared cases that write outputs bit-identical to AFNI (the other: AFNI-10's header, its data bit-identical), fMRIPrep's call on every oracle run's BOLD reference included; replica: [85 of 85](repo:docs/validation/afni-automask-replica.md) bit-identical"
   - eco: afni
-    tool: 3dUnifize (intensity uniformization)
+    tool: "3dUnifize (intensity uniformization)"
     page: /tools/afni-unifize/
     use: ["larmorx afni 3dUnifize", "lx.afni.unifize"]
-    how: clean-room original; exact replica in `larmorx-gpl`
-    validation: "original: [99 cases](repo:docs/validation/afni-unifize.md), 74 of 74 compared cases that write outputs agree, 34 bit-identical and 40 bit-identical with correctly rounded maths, 4–25× faster (informal timings); replica: [74 of 74](repo:docs/validation/afni-unifize-replica.md) bit-identical; fMRIPrep's call on every oracle run included"
+    how: "clean-room original; exact replica in `larmorx-gpl`"
+    validation: "original: [99 cases](repo:docs/validation/afni-unifize.md), none failing: 34 of 74 compared cases that write outputs bit-identical to AFNI, the other 40 within 1e-5 (at most 8.7e-8 of the largest value) and bit-identical to AFNI run with correctly rounded maths (glibc's `tanhf` in AFNI's squash), fMRIPrep's call on every oracle run included; 4 to 25 times faster than AFNI (informal timings); replica: [74 of 74](repo:docs/validation/afni-unifize-replica.md) bit-identical at 1, 2 and 6 threads"
   - eco: fsl
-    tool: Head-motion correction (mcflirt)
+    tool: "Head-motion correction (mcflirt)"
     page: /tools/mri-hmc/
     use: ["larmorx mri hmc", "larmorx fsl mcflirt", "lx.mri.hmc"]
-    how: clean-room original, `experimental`; exact replica in `larmorx-nc` (FSL Licence, non-commercial)
-    validation: "original: [compared with FSL's mcflirt](repo:docs/validation/mri-hmc.md): 121 of 122 compared cases within thresholds; [5–16× faster](repo:docs/benchmarks/mri-hmc.md) with threads; replica: [173 of 173](repo:docs/validation/fsl-mcflirt-replica.md) compared cases bit-identical to mcflirt as built, fMRIPrep's 22 calls on the twelve oracle runs included"
+    how: "clean-room original, `experimental`; exact replica in `larmorx-nc` (FSL Licence, non-commercial)"
+    validation: "original: [compared with FSL's mcflirt](repo:docs/validation/mri-hmc.md): 121 of 122 compared cases within thresholds; [5–16× faster](repo:docs/benchmarks/mri-hmc.md) with threads; replica: [173 of 173](repo:docs/validation/fsl-mcflirt-replica.md) compared cases bit-identical to mcflirt as built (the recorded runs, fMRIPrep's calls on every oracle run with BOLD runs, the data panel's included, and the edge cases; 21 more rejected by both, alike), fMRIPrep's own matrices identical"
+# END GENERATED: implemented tools
 
 planned:
   - eco: [afni]

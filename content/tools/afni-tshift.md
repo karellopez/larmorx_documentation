@@ -69,6 +69,12 @@ Each case of the two records, with what it tests, its command line, the verdict 
 
 Both implementations correct AFNI's deterministic defects by default and warn: the records' fix passes meet AFNI-01, AFNI-02, AFNI-03, AFNI-05, AFNI-07, AFNI-08, AFNI-16, AFNI-19, AFNI-22 and AFNI-23, with `upstream_defects="reproduce"` giving AFNI's behaviour ([register](repo:docs/findings/upstream-defects.md)).
 
+## Random testing {#random-testing}
+
+Random testing runs random valid inputs and option combinations through the original program and LARMORX, a night at a time: inputs from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind), with options drawn in random combinations from those the program accepts ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest input and fewest options that still show it, then fixed and kept as a parity case, registered as a defect of the original, or reported. The latest night:
+
+{{ ev.random_testing('/tools/afni-tshift/') }}
+
 ## Known limits {#limits}
 
 LARMORX writes NIfTI only (a `-prefix` in AFNI's own format is refused), `-voxshift` is not supported, and a dataset of one row is written as NIfTI where AFNI writes a 1D text file (AFNI-20): the three expected divergences. Writing in place an existing output in a directory that cannot be written, as AFNI does, is planned.

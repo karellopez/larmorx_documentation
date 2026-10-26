@@ -409,6 +409,16 @@ th[aria-sort="descending"] .ev-sort::after { content: " ↓"; }
 .table-wrap .ev-ttable tr.is-yardstick > th { background: color-mix(in srgb, var(--bg-sunk) 35%, transparent); }
 .ev-ttable td code { white-space: nowrap; }
 
+/* ------------------------------------------------- random testing (the main repository's docs/validation/difftest.md) */
+.ev-difftest td.zero { color: var(--ink-3); }
+.ev-dt-diffs { margin: 14px 0 0; padding: 0; list-style: none; font-size: 0.84rem; line-height: 1.5; }
+.ev-dt-diffs li { padding: 7px 0; border-top: 1px solid var(--line-soft); }
+.ev-dt-diffs code { font-size: 0.78rem; overflow-wrap: anywhere; }
+.ev-dt-status { display: inline-block; margin-right: 6px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line);
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--ink-2); }
+.ev-dt-fixed { border-color: var(--deep-larmorx); color: var(--ink); }
+.ev-dt-unclear { border-style: dashed; }
+
 /* ------------------------------------------------- credits and the data panel */
 .ev-credit { margin: 12px 0 0; padding: 10px 0 0; border-top: 1px solid var(--line-soft); font-size: 0.84rem; color: var(--ink-2); }
 .ev-credit-title { margin: 0 0 4px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }

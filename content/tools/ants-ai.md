@@ -81,6 +81,12 @@ Each case of the two records, with what it tests, its verdict and the reason. Se
 
 No benchmark report yet: the benchmark of antsAI and antsAffineInitializer is pending.
 
+## Random testing {#random-testing}
+
+Random testing runs random valid inputs and option combinations through the original program and LARMORX, a night at a time: inputs from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind), with options drawn in random combinations from those the program accepts ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest input and fewest options that still show it, then fixed and kept as a parity case, registered as a defect of the original, or reported. The latest night:
+
+{{ ev.random_testing('/tools/ants-ai/') }}
+
 ## Known limits {#limits}
 
 The expected divergences: where ANTs never finishes or crashes (an empty blob list, ANTS-115; `-b` at more than one thread, ANTS-60), LARMORX refuses or gives ANTs' one-thread result; where ANTs seeds its random sampling from the clock (ANTS-58), LARMORX is repeatable. The blob alignment's corrections (ANTS-110, -111, -112, -114, -116 and ITK-60) are LARMORX's default; `upstream_defects="reproduce"` gives ANTs' result bit for bit.

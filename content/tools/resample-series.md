@@ -63,6 +63,12 @@ Each case of the record, with what it tests, its verdict and the reason. Search,
 
 PIPE-03 (fMRIPrep's Jacobian) and SCI-03 (SciPy's `reflect` and `grid-mirror` splines on short axes) are corrected by default; `upstream_defects="reproduce"` gives fMRIPrep's and SciPy's results bit for bit ([register](repo:docs/findings/upstream-defects.md)). A report of PIPE-03 for fMRIPrep is drafted, not yet filed.
 
+## Random testing {#random-testing}
+
+Random testing runs random valid inputs and option combinations through the original program and LARMORX, a night at a time: inputs from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind), with options drawn in random combinations from those the program accepts ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest input and fewest options that still show it, then fixed and kept as a parity case, registered as a defect of the original, or reported. The latest night:
+
+{{ ev.random_testing('/tools/resample-series/') }}
+
 ## Known limits {#limits}
 
 The resampler covers fMRIPrep's one-shot path; the field-map estimation itself (sdcflows) is planned.
