@@ -331,6 +331,26 @@
    ]
   },
   {
+   "page": "/tools/fsl-bet/",
+   "title": "BET",
+   "eco": "fsl",
+   "implementations": [
+    {
+     "label": "larmorx-nc replica",
+     "record": "docs/validation/fsl-bet-replica-full.md",
+     "status": "validated",
+     "cases": 173,
+     "verdicts": {
+      "bit-identical": 126,
+      "d13": 3,
+      "divergence": 16,
+      "both-reject": 28
+     },
+     "source": "evidence"
+    }
+   ]
+  },
+  {
    "page": "/tools/mri-hmc/",
    "title": "Head-motion correction",
    "eco": "fsl",
@@ -402,6 +422,7 @@
   "ants-n4",
   "ants-programs",
   "ants-registration",
+  "fsl-bet",
   "itk-hdf5",
   "mri-hmc",
   "nifti-io",
