@@ -12,6 +12,7 @@ wide: true
 <dt>Status</dt><dd><span class="status-tag eco-ants">validated</span> (each)</dd>
 <dt>Records</dt><dd><a href="{{ repo('docs/validation/ants-image-math.md') }}">ImageMath</a> · <a href="{{ repo('docs/validation/ants-threshold-image.md') }}">ThresholdImage</a> · <a href="{{ repo('docs/validation/ants-multiply-images.md') }}">MultiplyImages</a> · <a href="{{ repo('docs/validation/ants-smooth-image.md') }}">SmoothImage</a> · <a href="{{ repo('docs/validation/ants-resample-image.md') }}">ResampleImage</a> · <a href="{{ repo('docs/validation/ants-resample-image-by-spacing.md') }}">ResampleImageBySpacing</a></dd>
 <dt>Benchmarks</dt><dd><a href="{{ repo('docs/benchmarks/ants-programs.md') }}">programs</a> · <a href="{{ repo('docs/benchmarks/ants-gaussian.md') }}">Gaussian filters and resampling</a> · <a href="{{ repo('docs/benchmarks/ants-morphology.md') }}">morphology</a></dd>
+<dt>Data panel</dt><dd><a href="{{ repo('docs/validation/ants-image-math-panel.md') }}">ImageMath</a> · <a href="{{ repo('docs/validation/ants-threshold-image-panel.md') }}">ThresholdImage</a> · <a href="{{ repo('docs/validation/ants-multiply-images-panel.md') }}">MultiplyImages</a> · <a href="{{ repo('docs/validation/ants-smooth-image-panel.md') }}">SmoothImage</a> · <a href="{{ repo('docs/validation/ants-resample-image-panel.md') }}">ResampleImage</a> · <a href="{{ repo('docs/validation/ants-resample-image-by-spacing-panel.md') }}">ResampleImageBySpacing</a></dd>
 </dl>
 
 ## What they are
@@ -65,6 +66,30 @@ Four of ANTs' behaviours were questionable until 2026-10-23, when the project's 
 The example below is ANTS-17 on a real label map: eroding the white-matter label of fMRIPrep's segmentation of ds000005 sub-01, which ANTs returns with the grey matter and the CSF still in it.
 
 {{ ev.example('ants-programs', 'ants-17') }}
+
+## On the data panel {#data-panel}
+
+The [data panel](/data-panel/) is the fixed set of fourteen OpenNeuro subjects every tool of LARMORX is validated on: 1.5, 3 and 7 T; Siemens, GE and Philips; single-band, multiband and multi-echo BOLD; a 3.5-year-old to an 82-year-old; a tumour, a stroke with its lesion mask, strong motion. Each record of the panel tier replays every call fMRIPrep 25.2.6 made of the program in its fourteen oracle runs, the node's own `command.txt` with its inputs from the run's working directory (calls repeated word for word are compared once), and runs the program on panel images fMRIPrep never gives it. ANTs runs at one thread, as built and with correctly rounded maths, and at 2 and 3 threads for its own variability where it has any; LARMORX in reproduce mode, and in its default mode for the corrections. The panel's cases are in the case explorers below (categories `panel-fmriprep` and `panel-images`).
+
+**ImageMath: 374 of 374 compared cases bit-identical, headers in 374**: every ImageMath call of the fourteen runs (sMRIPrep's brain extraction and template steps, sdcflows' and fMRIPrep's masks) and the panel's own images (truncation of the 7 T MP2RAGE, the FLAIR and the 1.5 T T1w, Laplacians, the lesion mask's components, a 600-volume series). **ThresholdImage 18 of 18, MultiplyImages 44 of 44, SmoothImage 4 of 4 (a zero sigma along time refused by both), ResampleImage 4 of 4, ResampleImageBySpacing 3 of 3 bit-identical**, header bytes included; fMRIPrep calls the last three on none of its runs, so their cases are the panel's images.
+
+{{ ev.table('ants-programs', 'panel-nodes-image-math') }}
+
+{{ ev.table('ants-programs', 'panel-nodes-threshold-image') }}
+
+{{ ev.table('ants-programs', 'panel-nodes-multiply-images') }}
+
+Images on a small grid (a BOLD reference, a template at 2 mm) are shown as whole volumes; the panel's large anatomical images (up to 17.5 million voxels) as three full-resolution slices through the voxel where LARMORX and ANTs as built differ most (the centre of the field of view where they agree), the whole field of view shown, defaced heads included (the data panel's defacing check).
+
+{{ ev.example('ants-programs', 'panel-truncate-7t') }}
+
+{{ ev.example('ants-programs', 'panel-smooth-flair') }}
+
+{{ ev.example('ants-programs', 'panel-otsu-7t') }}
+
+{{ ev.example('ants-programs', 'panel-multiply-stroke') }}
+
+{{ ev.example('ants-programs', 'panel-laplacian-toddler') }}
 
 ## Every case {#cases}
 
