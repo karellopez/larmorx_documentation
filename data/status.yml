@@ -23,7 +23,7 @@ implemented:
     page: /tools/ants-apply-transforms/
     use: ["larmorx ants antsApplyTransforms", "lx.ants.apply_transforms"]
     how: "port (ANTs/ITK)"
-    validation: "[258 cases](repo:docs/validation/ants-apply-transforms.md): 185 of 200 compared bit-identical to ANTs, the rest differ only through glibc's maths; B-spline transforms included"
+    validation: "[258 cases](repo:docs/validation/ants-apply-transforms.md): 185 of 200 compared bit-identical to ANTs, the rest differ only through glibc's maths; B-spline transforms included; data panel: [329 of 425](repo:docs/validation/ants-apply-transforms-panel.md) as built, all with correctly rounded maths (fMRIPrep's 421 calls on the fourteen oracle runs)"
   - eco: ants
     tool: "ITK transform files (`.mat`, `.txt`, `.h5`)"
     page: /tools/itk-hdf5/
@@ -35,43 +35,43 @@ implemented:
     page: /tools/ants-n4/
     use: ["larmorx ants N4BiasFieldCorrection", "lx.ants.n4_bias_field_correction"]
     how: "port"
-    validation: "[29 of 46](repo:docs/validation/ants-n4.md) bit-identical to ANTs, 46 of 46 with correctly rounded maths; ANTS-40 corrected by default"
+    validation: "[29 of 46](repo:docs/validation/ants-n4.md) bit-identical to ANTs, 46 of 46 with correctly rounded maths; ANTS-40 corrected by default; data panel: [20 of 69](repo:docs/validation/ants-n4-panel.md) as built, 69 of 69 with correctly rounded maths"
   - eco: ants
     tool: "DenoiseImage"
     page: /tools/ants-denoise/
     use: ["larmorx ants DenoiseImage", "lx.ants.denoise_image"]
     how: "port"
-    validation: "[7 of 40](repo:docs/validation/ants-denoise.md) bit-identical to ANTs, 40 of 40 with correctly rounded maths; ANTS-43 and ANTS-44 corrected by default"
+    validation: "[7 of 40](repo:docs/validation/ants-denoise.md) bit-identical to ANTs, 40 of 40 with correctly rounded maths; ANTS-43 and ANTS-44 corrected by default; data panel: [0 of 21](repo:docs/validation/ants-denoise-panel.md) as built, 21 of 21 with correctly rounded maths"
   - eco: ants
     tool: "ImageMath (every operation fMRIPrep, sMRIPrep and sdcflows call)"
     page: /tools/ants-programs/
     use: ["larmorx ants ImageMath", "lx.ants.image_math"]
     how: "port"
-    validation: "[334 cases](repo:docs/validation/ants-image-math.md): values bit-identical in 303 of 308, headers in 308 of 308; ANTS-17, -22 and -23 corrected, checked against known results"
+    validation: "[334 cases](repo:docs/validation/ants-image-math.md): values bit-identical in 303 of 308, headers in 308 of 308; ANTS-17, -22 and -23 corrected, checked against known results; data panel: [374 of 374](repo:docs/validation/ants-image-math-panel.md) bit-identical"
   - eco: ants
     tool: "ThresholdImage, MultiplyImages, SmoothImage, ResampleImage, ResampleImageBySpacing"
     page: /tools/ants-programs/
     use: ["larmorx ants ..."]
     how: "port"
-    validation: "bit-identical in every compared case ([threshold](repo:docs/validation/ants-threshold-image.md), [multiply](repo:docs/validation/ants-multiply-images.md), [smooth](repo:docs/validation/ants-smooth-image.md), [resample](repo:docs/validation/ants-resample-image.md), [by spacing](repo:docs/validation/ants-resample-image-by-spacing.md))"
+    validation: "bit-identical in every compared case ([threshold](repo:docs/validation/ants-threshold-image.md), [multiply](repo:docs/validation/ants-multiply-images.md), [smooth](repo:docs/validation/ants-smooth-image.md), [resample](repo:docs/validation/ants-resample-image.md), [by spacing](repo:docs/validation/ants-resample-image-by-spacing.md)); data panel: [threshold](repo:docs/validation/ants-threshold-image-panel.md), [multiply](repo:docs/validation/ants-multiply-images-panel.md), [smooth](repo:docs/validation/ants-smooth-image-panel.md), [resample](repo:docs/validation/ants-resample-image-panel.md), [by spacing](repo:docs/validation/ants-resample-image-by-spacing-panel.md), every compared case bit-identical"
   - eco: ants
     tool: "antsRegistration (every stage: linear, SyN, B-spline SyN, B-spline, displacement-field, exponential and time-varying velocity-field; image and point-set metrics)"
     page: /tools/ants-registration/
     use: ["larmorx ants antsRegistration", "lx.ants.registration"]
     how: "port"
-    validation: "[505 cases](repo:docs/validation/ants-registration.md): 347 of 391 compared identical to ANTs (outputs and messages), 44 more with correctly rounded maths; [the corrections' effects](repo:docs/validation/ants-registration-corrections.md)"
+    validation: "[505 cases](repo:docs/validation/ants-registration.md): 347 of 391 compared identical to ANTs (outputs and messages), 44 more with correctly rounded maths; [the corrections' effects](repo:docs/validation/ants-registration-corrections.md); data panel: [71 compared](repo:docs/validation/ants-registration-panel.md), 16 identical as built, 55 more with correctly rounded maths (the whole template registrations on every third voxel)"
   - eco: ants
     tool: "antsAI, antsAffineInitializer"
     page: /tools/ants-ai/
     use: ["larmorx ants antsAI", "larmorx ants antsAffineInitializer"]
     how: "port"
-    validation: "[antsAI](repo:docs/validation/ants-ai.md): 75 of 75 compared identical (74 as built, 1 with correctly rounded maths), the blob alignment (`-b`) included (its corrections, ANTS-116 among them, by default); [antsAffineInitializer](repo:docs/validation/ants-affine-initializer.md): 26 of 26"
+    validation: "[antsAI](repo:docs/validation/ants-ai.md): 75 of 75 compared identical (74 as built, 1 with correctly rounded maths), the blob alignment (`-b`) included (its corrections, ANTS-116 among them, by default); [antsAffineInitializer](repo:docs/validation/ants-affine-initializer.md): 26 of 26; data panel: [antsAI](repo:docs/validation/ants-ai-panel.md) 40 of 40, [antsAffineInitializer](repo:docs/validation/ants-affine-initializer-panel.md) 14 of 14"
   - eco: ants
     tool: "Atropos (every initialization, likelihood model, MRF, outlier and partial-volume option)"
     page: /tools/ants-atropos/
     use: ["larmorx ants Atropos", "lx.ants.atropos"]
     how: "port"
-    validation: "[97 cases](repo:docs/validation/ants-atropos.md): 27 of 58 compared bit-identical to ANTs, 58 of 58 with correctly rounded maths, sMRIPrep's call on the five oracle runs included; partial-volume classes with the MRF corrected (ANTS-106)"
+    validation: "[97 cases](repo:docs/validation/ants-atropos.md): 27 of 58 compared bit-identical to ANTs, 58 of 58 with correctly rounded maths, sMRIPrep's call on the five oracle runs included; partial-volume classes with the MRF corrected (ANTS-106); data panel: [3 of 17](repo:docs/validation/ants-atropos-panel.md) as built, 17 of 17 with correctly rounded maths, the classes identical in all"
   - eco: larmorx
     tool: "fMRIPrep's one-shot BOLD resampler"
     page: /tools/resample-series/

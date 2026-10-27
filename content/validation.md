@@ -30,7 +30,9 @@ the defect, and reproduce mode gives the original's result.
 the same fourteen shareable datasets: 1.5, 3 and 7 T; Siemens, GE and Philips; single-band,
 multiband, multi-echo and sparse BOLD; every kind of field map; children, older adults, a
 tumour and a stroke; head motion and low quality ([Data panel](/data-panel/)). The finished
-tools are re-validated on it one by one.
+tools are re-validated on it one by one. The ANTs tools are re-validated on the panel (2026-10-27): every
+page has a section *On the data panel* with fMRIPrep's calls of the fourteen oracle runs and the
+panel's own images.
 
 ```bash
 pytest tests/parity                                                    # the smoke tier

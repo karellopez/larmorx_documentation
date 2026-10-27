@@ -11,6 +11,7 @@ wide: true
 <dt>Implementation</dt><dd>port of ANTs' and ITK's source (with ITK's AdaptiveDenoising module), in <code>larmorx</code></dd>
 <dt>Status</dt><dd><span class="status-tag eco-ants">validated</span></dd>
 <dt>Record</dt><dd><a href="{{ repo('docs/validation/ants-denoise.md') }}">ants-denoise</a> · benchmark <a href="{{ repo('docs/benchmarks/ants-denoise.md') }}">ants-denoise</a> · API <a href="{{ repo('docs/api/ants-denoise.md') }}">ants-denoise</a> · findings <a href="{{ repo('docs/findings/ants-denoise.md') }}">ants-denoise</a></dd>
+<dt>Data panel</dt><dd><a href="{{ repo('docs/validation/ants-denoise-panel.md') }}">ants-denoise-panel</a></dd>
 </dl>
 
 ## What it is
@@ -53,6 +54,24 @@ With a mask (`-x`) and the Rician noise model, the patches of the centres in the
 Where LARMORX differs from ANTs as built (glibc's `expf`), the record sets the difference against ANTs' own difference between one thread and 2, 4 and 12 threads.
 
 {{ ev.band('ants-denoise') }}
+
+## On the data panel {#data-panel}
+
+The [data panel](/data-panel/) is the fixed set of fourteen OpenNeuro subjects every tool of LARMORX is validated on: 1.5, 3 and 7 T; Siemens, GE and Philips; single-band, multiband and multi-echo BOLD; a 3.5-year-old to an 82-year-old; a tumour, a stroke with its lesion mask, strong motion. Each record of the panel tier replays every call fMRIPrep 25.2.6 made of the program in its fourteen oracle runs, the node's own `command.txt` with its inputs from the run's working directory (calls repeated word for word are compared once), and runs the program on panel images fMRIPrep never gives it. ANTs runs at one thread, as built and with correctly rounded maths, and at 2 and 3 threads for its own variability where it has any; LARMORX in reproduce mode, and in its default mode for the corrections. The panel's cases are in the case explorers below (categories `panel-fmriprep` and `panel-images`).
+
+**21 of 21 bit-identical to ANTs with correctly rounded maths**: sMRIPrep's denoising of every T1w of the fourteen runs (17 calls, the 3.5-year-old, the glioma, the stroke, strong motion, 1.5 T and 7 T among them) and four images fMRIPrep never denoises (the 7 T MP2RAGE, the 82-year-old's FLAIR, a child's T2w, the 1.5 T T1w with the Gaussian model). Against ANTs as built, glibc's `expf` moves voxels in every case, by at most 0.0015 of ANTs' own difference between one thread and two or three.
+
+{{ ev.table('ants-denoise', 'panel-nodes') }}
+
+Images on a small grid (a BOLD reference, a template at 2 mm) are shown as whole volumes; the panel's large anatomical images (up to 17.5 million voxels) as three full-resolution slices through the voxel where LARMORX and ANTs as built differ most (the centre of the field of view where they agree), the whole field of view shown, defaced heads included (the data panel's defacing check).
+
+{{ ev.example('ants-denoise', 'panel-7t') }}
+
+{{ ev.example('ants-denoise', 'panel-motion') }}
+
+{{ ev.example('ants-denoise', 'panel-flair') }}
+
+{{ ev.example('ants-denoise', 'panel-child-t2w') }}
 
 ## Every case {#cases}
 

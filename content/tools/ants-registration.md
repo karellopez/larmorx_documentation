@@ -11,6 +11,7 @@ wide: true
 <dt>Implementation</dt><dd>port of ANTs' and ITK's source (Apache-2.0), in <code>larmorx</code></dd>
 <dt>Status</dt><dd><span class="status-tag eco-ants">validated</span> · every stage ANTs has</dd>
 <dt>Record</dt><dd><a href="{{ repo('docs/validation/ants-registration.md') }}">ants-registration</a> (standard tier) · <a href="{{ repo('docs/validation/ants-registration-full.md') }}">full tier</a> (<a href="{{ repo('docs/validation/ants-registration-velocity-full.md') }}">its velocity-field cases</a>) · <a href="{{ repo('docs/validation/ants-registration-corrections.md') }}">the corrections' effects</a> · API <a href="{{ repo('docs/api/ants-registration.md') }}">ants-registration</a></dd>
+<dt>Data panel</dt><dd><a href="{{ repo('docs/validation/ants-registration-panel.md') }}">ants-registration-panel</a></dd>
 </dl>
 
 ## What it is
@@ -83,6 +84,24 @@ ANTs cannot run a stage after a B-spline transform (ITK-35), so the last table s
 {{ ev.table('ants-registration', 'corrections-chain') }}
 
 **A reference that varies:** for the linear stages after a B-spline transform, read the "with the field" columns as the median of a varying reference, next to its own spread: ANTs' runs with the field as initial transform are several millimetres apart from each other (the last column), as far as they are from LARMORX. LARMORX's side and the resampled-image reference are identical from run to run.
+
+## On the data panel {#data-panel}
+
+The [data panel](/data-panel/) is the fixed set of fourteen OpenNeuro subjects every tool of LARMORX is validated on: 1.5, 3 and 7 T; Siemens, GE and Philips; single-band, multiband and multi-echo BOLD; a 3.5-year-old to an 82-year-old; a tumour, a stroke with its lesion mask, strong motion. Each record of the panel tier replays every call fMRIPrep 25.2.6 made of the program in its fourteen oracle runs, the node's own `command.txt` with its inputs from the run's working directory (calls repeated word for word are compared once), and runs the program on panel images fMRIPrep never gives it. ANTs runs at one thread, as built and with correctly rounded maths, and at 2 and 3 threads for its own variability where it has any; LARMORX in reproduce mode, and in its default mode for the corrections. The panel's cases are in the case explorers below (categories `panel-fmriprep` and `panel-images`).
+
+**71 compared cases: 16 identical to ANTs as built, 55 more with correctly rounded maths**: every antsRegistration node of the fourteen runs with fMRIPrep's seed (the BOLD references' registrations to the template, the field maps' coregistrations, sMRIPrep's brain extraction at full size) and the whole template registrations on every third voxel (their full size, about 2.4 hours of ANTs at one thread each, is left for a larger machine). The template registration's inputs, which niworkflows writes for itself and nipype does not keep, are made again exactly from each node's recorded inputs.
+
+{{ ev.table('ants-registration', 'panel-nodes') }}
+
+Images on a small grid (a BOLD reference, a template at 2 mm) are shown as whole volumes; the panel's large anatomical images (up to 17.5 million voxels) as three full-resolution slices through the voxel where LARMORX and ANTs as built differ most (the centre of the field of view where they agree), the whole field of view shown, defaced heads included (the data panel's defacing check).
+
+{{ ev.example('ants-registration', 'panel-boldref-7t') }}
+
+{{ ev.table('ants-registration', 'panel-boldref-7t-transforms') }}
+
+{{ ev.example('ants-registration', 'panel-coregister-philips') }}
+
+{{ ev.table('ants-registration', 'panel-coregister-philips-transforms') }}
 
 ## Every case {#cases}
 

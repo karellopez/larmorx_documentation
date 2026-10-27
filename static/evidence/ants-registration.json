@@ -3,7 +3,7 @@
  "tool": "ants-registration",
  "title": "antsRegistration",
  "provenance": {
-  "exporter": "f82992b55fd6ca5b48682b959a546aedc5331326",
+  "exporter": "7e73202873630562b940bf0500715a6e9086b51c",
   "records": [
    {
     "path": "docs/validation/ants-registration.json",
@@ -28,6 +28,18 @@
     "sha256": "26837164892c7353855abd29914f56e5f5c5f4f8587e39491626ff5ec110f5bc",
     "generated": "2026-10-23",
     "larmorx_commit": "708bb99389fe"
+   },
+   {
+    "path": "docs/validation/ants-registration-panel.json",
+    "sha256": "d105552b5c2534c38feb353a3dfa9af49cf0dbb66de3b5917ee307d71b341dab",
+    "generated": "2026-10-27",
+    "larmorx_commit": "349d3f781431"
+   },
+   {
+    "path": "docs/validation/ants-registration-panel.md",
+    "sha256": "57ee576805a4cd600caaeb1b4e1f9dcb6b9a93d90cce25e0cfc2e69b08baab80",
+    "generated": "2026-10-27",
+    "larmorx_commit": "349d3f781431"
    }
   ],
   "benchmarks": [],
@@ -2080,6 +2092,1284 @@
     },
     "seed": "ANTS_RANDOM_SEED=42",
     "settings": "fMRIPrep 25.2.6's template registration of ds000005-sub-01-noreconall (its command.txt), its images on every third voxel, as the record's real-time-varying-small/ds000005-sub-01/template case; larmorx in both modes"
+   },
+   {
+    "entry": "ants-registration/panel-fmriprep-boldref-7t",
+    "description": "Data panel: fMRIPrep's BOLD reference to MNI at 7 T (data panel)",
+    "computed": "2026-10-27T01:40:47+00:00",
+    "larmorx_commit": "042d70d5a17c8438706b96f9df65869801ddd2ef",
+    "commands": [
+     {
+      "label": "ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--initial-moving-transform",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/bold_task_rest_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff/initialization.mat,",
+       "0",
+       "]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "Linear",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/ants-1/transform",
+       "--transform",
+       "Affine[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_desc-fMRIPrep_boldref.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/out/sub-16/func/sub-16_task-rest_desc-hmc_boldref.nii.gz,",
+       "1,",
+       "64,",
+       "Random,",
+       "0.2",
+       "]",
+       "--convergence",
+       "[",
+       "200,",
+       "1e-09,",
+       "10",
+       "]",
+       "--smoothing-sigmas",
+       "2.0mm",
+       "--shrink-factors",
+       "2",
+       "--use-histogram-matching",
+       "1",
+       "--winsorize-image-intensities",
+       "[",
+       "0.05,",
+       "0.98",
+       "]",
+       "--write-composite-transform",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "ANTS_RANDOM_SEED": "50495"
+      },
+      "exit": 0,
+      "seconds": 2.04
+     },
+     {
+      "label": "ants-1-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/out/sub-16/func/sub-16_task-rest_desc-hmc_boldref.nii.gz",
+       "-r",
+       "<workspace>/oracles/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_desc-fMRIPrep_boldref.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/ants-1/transform0GenericAffine.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/ants-1/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.4
+     },
+     {
+      "label": "ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--initial-moving-transform",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/bold_task_rest_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff/initialization.mat,",
+       "0",
+       "]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "Linear",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/ants-1-cr/transform",
+       "--transform",
+       "Affine[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_desc-fMRIPrep_boldref.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/out/sub-16/func/sub-16_task-rest_desc-hmc_boldref.nii.gz,",
+       "1,",
+       "64,",
+       "Random,",
+       "0.2",
+       "]",
+       "--convergence",
+       "[",
+       "200,",
+       "1e-09,",
+       "10",
+       "]",
+       "--smoothing-sigmas",
+       "2.0mm",
+       "--shrink-factors",
+       "2",
+       "--use-histogram-matching",
+       "1",
+       "--winsorize-image-intensities",
+       "[",
+       "0.05,",
+       "0.98",
+       "]",
+       "--write-composite-transform",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "ANTS_RANDOM_SEED": "50495",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 2.13
+     },
+     {
+      "label": "ants-1-cr-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/out/sub-16/func/sub-16_task-rest_desc-hmc_boldref.nii.gz",
+       "-r",
+       "<workspace>/oracles/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_desc-fMRIPrep_boldref.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/ants-1-cr/transform0GenericAffine.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/ants-1-cr/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.38
+     },
+     {
+      "label": "ants-8",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--initial-moving-transform",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/bold_task_rest_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff/initialization.mat,",
+       "0",
+       "]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "Linear",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/ants-8/transform",
+       "--transform",
+       "Affine[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_desc-fMRIPrep_boldref.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/out/sub-16/func/sub-16_task-rest_desc-hmc_boldref.nii.gz,",
+       "1,",
+       "64,",
+       "Random,",
+       "0.2",
+       "]",
+       "--convergence",
+       "[",
+       "200,",
+       "1e-09,",
+       "10",
+       "]",
+       "--smoothing-sigmas",
+       "2.0mm",
+       "--shrink-factors",
+       "2",
+       "--use-histogram-matching",
+       "1",
+       "--winsorize-image-intensities",
+       "[",
+       "0.05,",
+       "0.98",
+       "]",
+       "--write-composite-transform",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "ANTS_RANDOM_SEED": "50495"
+      },
+      "exit": 0,
+      "seconds": 2.11
+     },
+     {
+      "label": "ants-8-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/out/sub-16/func/sub-16_task-rest_desc-hmc_boldref.nii.gz",
+       "-r",
+       "<workspace>/oracles/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_desc-fMRIPrep_boldref.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/ants-8/transform0GenericAffine.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/ants-8/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.34
+     },
+     {
+      "label": "larmorx",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--initial-moving-transform",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/bold_task_rest_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff/initialization.mat,",
+       "0",
+       "]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "Linear",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/larmorx/transform",
+       "--transform",
+       "Affine[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_desc-fMRIPrep_boldref.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/out/sub-16/func/sub-16_task-rest_desc-hmc_boldref.nii.gz,",
+       "1,",
+       "64,",
+       "Random,",
+       "0.2",
+       "]",
+       "--convergence",
+       "[",
+       "200,",
+       "1e-09,",
+       "10",
+       "]",
+       "--smoothing-sigmas",
+       "2.0mm",
+       "--shrink-factors",
+       "2",
+       "--use-histogram-matching",
+       "1",
+       "--winsorize-image-intensities",
+       "[",
+       "0.05,",
+       "0.98",
+       "]",
+       "--write-composite-transform",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "ANTS_RANDOM_SEED": "50495"
+      },
+      "exit": 0,
+      "seconds": 2.21
+     },
+     {
+      "label": "larmorx-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/out/sub-16/func/sub-16_task-rest_desc-hmc_boldref.nii.gz",
+       "-r",
+       "<workspace>/oracles/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_desc-fMRIPrep_boldref.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/larmorx/transform0GenericAffine.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/larmorx/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.42
+     },
+     {
+      "label": "larmorx-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--initial-moving-transform",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/bold_task_rest_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff/initialization.mat,",
+       "0",
+       "]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "Linear",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/larmorx-1/transform",
+       "--transform",
+       "Affine[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_desc-fMRIPrep_boldref.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/out/sub-16/func/sub-16_task-rest_desc-hmc_boldref.nii.gz,",
+       "1,",
+       "64,",
+       "Random,",
+       "0.2",
+       "]",
+       "--convergence",
+       "[",
+       "200,",
+       "1e-09,",
+       "10",
+       "]",
+       "--smoothing-sigmas",
+       "2.0mm",
+       "--shrink-factors",
+       "2",
+       "--use-histogram-matching",
+       "1",
+       "--winsorize-image-intensities",
+       "[",
+       "0.05,",
+       "0.98",
+       "]",
+       "--write-composite-transform",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "ANTS_RANDOM_SEED": "50495"
+      },
+      "exit": 0,
+      "seconds": 2.23
+     },
+     {
+      "label": "larmorx-1-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/out/sub-16/func/sub-16_task-rest_desc-hmc_boldref.nii.gz",
+       "-r",
+       "<workspace>/oracles/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_desc-fMRIPrep_boldref.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/larmorx-1/transform0GenericAffine.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/larmorx-1/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.36
+     },
+     {
+      "label": "larmorx-fix",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--initial-moving-transform",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/bold_task_rest_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff/initialization.mat,",
+       "0",
+       "]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "Linear",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/larmorx-fix/transform",
+       "--transform",
+       "Affine[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_desc-fMRIPrep_boldref.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/out/sub-16/func/sub-16_task-rest_desc-hmc_boldref.nii.gz,",
+       "1,",
+       "64,",
+       "Random,",
+       "0.2",
+       "]",
+       "--convergence",
+       "[",
+       "200,",
+       "1e-09,",
+       "10",
+       "]",
+       "--smoothing-sigmas",
+       "2.0mm",
+       "--shrink-factors",
+       "2",
+       "--use-histogram-matching",
+       "1",
+       "--winsorize-image-intensities",
+       "[",
+       "0.05,",
+       "0.98",
+       "]",
+       "--write-composite-transform",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "ANTS_RANDOM_SEED": "50495"
+      },
+      "exit": 0,
+      "seconds": 2.23
+     },
+     {
+      "label": "larmorx-fix-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005454-sub-16-noreconall/out/sub-16/func/sub-16_task-rest_desc-hmc_boldref.nii.gz",
+       "-r",
+       "<workspace>/oracles/templateflow/tpl-MNI152NLin2009cAsym/tpl-MNI152NLin2009cAsym_res-02_desc-fMRIPrep_boldref.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/larmorx-fix/transform0GenericAffine.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-boldref-7t/larmorx-fix/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.35
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "threads": {
+     "ants": [
+      1,
+      8
+     ],
+     "ants_crmath": 1,
+     "larmorx": [
+      8,
+      1
+     ]
+    },
+    "settings": "a data-panel case of antsRegistration: ANTs 2.6.5 at 1 thread (as built and with CORE-MATH) and at 8 threads; larmorx in reproduce mode at 8 and 1 threads, in its default mode at 8; each transform placed by ANTs' antsApplyTransforms (linear)"
+   },
+   {
+    "entry": "ants-registration/panel-fmriprep-coregister-philips",
+    "description": "Data panel: fMRIPrep's field map to a Philips multiband BOLD reference (data panel)",
+    "computed": "2026-10-27T01:42:06+00:00",
+    "larmorx_commit": "042d70d5a17c8438706b96f9df65869801ddd2ef",
+    "commands": [
+     {
+      "label": "ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--initial-moving-transform",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1",
+       "]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/ants-1/transform",
+       "--transform",
+       "Rigid[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1,",
+       "32,",
+       "Random,",
+       "0.25",
+       "]",
+       "--convergence",
+       "[",
+       "50,",
+       "1e-07,",
+       "5",
+       "]",
+       "--smoothing-sigmas",
+       "8.0mm",
+       "--shrink-factors",
+       "2",
+       "--use-histogram-matching",
+       "1",
+       "--masks",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_fmap_mask/sub-01_acq-Mm2_fmapid-auto00000_desc-brain_mask_dil.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_target_mask/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected_brain_mask_maths_dil.nii.gz",
+       "]",
+       "--transform",
+       "Rigid[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1,",
+       "32,",
+       "Random,",
+       "0.5",
+       "]",
+       "--convergence",
+       "[",
+       "20,",
+       "1e-08,",
+       "3",
+       "]",
+       "--smoothing-sigmas",
+       "2.0mm",
+       "--shrink-factors",
+       "1",
+       "--use-histogram-matching",
+       "1",
+       "--masks",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_fmap_mask/sub-01_acq-Mm2_fmapid-auto00000_desc-brain_mask_dil.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_target_mask/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected_brain_mask_maths_dil.nii.gz",
+       "]",
+       "--winsorize-image-intensities",
+       "[",
+       "0.001,",
+       "0.999",
+       "]",
+       "--write-composite-transform",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "ANTS_RANDOM_SEED": "50495"
+      },
+      "exit": 0,
+      "seconds": 10.06
+     },
+     {
+      "label": "ants-1-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/ants-1/transform0GenericAffine.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/ants-1/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.3
+     },
+     {
+      "label": "ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--initial-moving-transform",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1",
+       "]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/ants-1-cr/transform",
+       "--transform",
+       "Rigid[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1,",
+       "32,",
+       "Random,",
+       "0.25",
+       "]",
+       "--convergence",
+       "[",
+       "50,",
+       "1e-07,",
+       "5",
+       "]",
+       "--smoothing-sigmas",
+       "8.0mm",
+       "--shrink-factors",
+       "2",
+       "--use-histogram-matching",
+       "1",
+       "--masks",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_fmap_mask/sub-01_acq-Mm2_fmapid-auto00000_desc-brain_mask_dil.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_target_mask/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected_brain_mask_maths_dil.nii.gz",
+       "]",
+       "--transform",
+       "Rigid[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1,",
+       "32,",
+       "Random,",
+       "0.5",
+       "]",
+       "--convergence",
+       "[",
+       "20,",
+       "1e-08,",
+       "3",
+       "]",
+       "--smoothing-sigmas",
+       "2.0mm",
+       "--shrink-factors",
+       "1",
+       "--use-histogram-matching",
+       "1",
+       "--masks",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_fmap_mask/sub-01_acq-Mm2_fmapid-auto00000_desc-brain_mask_dil.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_target_mask/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected_brain_mask_maths_dil.nii.gz",
+       "]",
+       "--winsorize-image-intensities",
+       "[",
+       "0.001,",
+       "0.999",
+       "]",
+       "--write-composite-transform",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "ANTS_RANDOM_SEED": "50495",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 11.47
+     },
+     {
+      "label": "ants-1-cr-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/ants-1-cr/transform0GenericAffine.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/ants-1-cr/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.29
+     },
+     {
+      "label": "ants-8",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--initial-moving-transform",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1",
+       "]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/ants-8/transform",
+       "--transform",
+       "Rigid[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1,",
+       "32,",
+       "Random,",
+       "0.25",
+       "]",
+       "--convergence",
+       "[",
+       "50,",
+       "1e-07,",
+       "5",
+       "]",
+       "--smoothing-sigmas",
+       "8.0mm",
+       "--shrink-factors",
+       "2",
+       "--use-histogram-matching",
+       "1",
+       "--masks",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_fmap_mask/sub-01_acq-Mm2_fmapid-auto00000_desc-brain_mask_dil.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_target_mask/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected_brain_mask_maths_dil.nii.gz",
+       "]",
+       "--transform",
+       "Rigid[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1,",
+       "32,",
+       "Random,",
+       "0.5",
+       "]",
+       "--convergence",
+       "[",
+       "20,",
+       "1e-08,",
+       "3",
+       "]",
+       "--smoothing-sigmas",
+       "2.0mm",
+       "--shrink-factors",
+       "1",
+       "--use-histogram-matching",
+       "1",
+       "--masks",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_fmap_mask/sub-01_acq-Mm2_fmapid-auto00000_desc-brain_mask_dil.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_target_mask/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected_brain_mask_maths_dil.nii.gz",
+       "]",
+       "--winsorize-image-intensities",
+       "[",
+       "0.001,",
+       "0.999",
+       "]",
+       "--write-composite-transform",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "ANTS_RANDOM_SEED": "50495"
+      },
+      "exit": 0,
+      "seconds": 10.4
+     },
+     {
+      "label": "ants-8-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/ants-8/transform0GenericAffine.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/ants-8/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.3
+     },
+     {
+      "label": "larmorx",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--initial-moving-transform",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1",
+       "]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/larmorx/transform",
+       "--transform",
+       "Rigid[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1,",
+       "32,",
+       "Random,",
+       "0.25",
+       "]",
+       "--convergence",
+       "[",
+       "50,",
+       "1e-07,",
+       "5",
+       "]",
+       "--smoothing-sigmas",
+       "8.0mm",
+       "--shrink-factors",
+       "2",
+       "--use-histogram-matching",
+       "1",
+       "--masks",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_fmap_mask/sub-01_acq-Mm2_fmapid-auto00000_desc-brain_mask_dil.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_target_mask/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected_brain_mask_maths_dil.nii.gz",
+       "]",
+       "--transform",
+       "Rigid[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1,",
+       "32,",
+       "Random,",
+       "0.5",
+       "]",
+       "--convergence",
+       "[",
+       "20,",
+       "1e-08,",
+       "3",
+       "]",
+       "--smoothing-sigmas",
+       "2.0mm",
+       "--shrink-factors",
+       "1",
+       "--use-histogram-matching",
+       "1",
+       "--masks",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_fmap_mask/sub-01_acq-Mm2_fmapid-auto00000_desc-brain_mask_dil.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_target_mask/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected_brain_mask_maths_dil.nii.gz",
+       "]",
+       "--winsorize-image-intensities",
+       "[",
+       "0.001,",
+       "0.999",
+       "]",
+       "--write-composite-transform",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "ANTS_RANDOM_SEED": "50495"
+      },
+      "exit": 0,
+      "seconds": 13.27
+     },
+     {
+      "label": "larmorx-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/larmorx/transform0GenericAffine.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/larmorx/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.29
+     },
+     {
+      "label": "larmorx-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--initial-moving-transform",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1",
+       "]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/larmorx-1/transform",
+       "--transform",
+       "Rigid[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1,",
+       "32,",
+       "Random,",
+       "0.25",
+       "]",
+       "--convergence",
+       "[",
+       "50,",
+       "1e-07,",
+       "5",
+       "]",
+       "--smoothing-sigmas",
+       "8.0mm",
+       "--shrink-factors",
+       "2",
+       "--use-histogram-matching",
+       "1",
+       "--masks",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_fmap_mask/sub-01_acq-Mm2_fmapid-auto00000_desc-brain_mask_dil.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_target_mask/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected_brain_mask_maths_dil.nii.gz",
+       "]",
+       "--transform",
+       "Rigid[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1,",
+       "32,",
+       "Random,",
+       "0.5",
+       "]",
+       "--convergence",
+       "[",
+       "20,",
+       "1e-08,",
+       "3",
+       "]",
+       "--smoothing-sigmas",
+       "2.0mm",
+       "--shrink-factors",
+       "1",
+       "--use-histogram-matching",
+       "1",
+       "--masks",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_fmap_mask/sub-01_acq-Mm2_fmapid-auto00000_desc-brain_mask_dil.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_target_mask/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected_brain_mask_maths_dil.nii.gz",
+       "]",
+       "--winsorize-image-intensities",
+       "[",
+       "0.001,",
+       "0.999",
+       "]",
+       "--write-composite-transform",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "ANTS_RANDOM_SEED": "50495"
+      },
+      "exit": 0,
+      "seconds": 12.92
+     },
+     {
+      "label": "larmorx-1-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/larmorx-1/transform0GenericAffine.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/larmorx-1/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.28
+     },
+     {
+      "label": "larmorx-fix",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsRegistration",
+       "--collapse-output-transforms",
+       "1",
+       "--dimensionality",
+       "3",
+       "--initial-moving-transform",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1",
+       "]",
+       "--initialize-transforms-per-stage",
+       "0",
+       "--interpolation",
+       "LanczosWindowedSinc",
+       "--output",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/larmorx-fix/transform",
+       "--transform",
+       "Rigid[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1,",
+       "32,",
+       "Random,",
+       "0.25",
+       "]",
+       "--convergence",
+       "[",
+       "50,",
+       "1e-07,",
+       "5",
+       "]",
+       "--smoothing-sigmas",
+       "8.0mm",
+       "--shrink-factors",
+       "2",
+       "--use-histogram-matching",
+       "1",
+       "--masks",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_fmap_mask/sub-01_acq-Mm2_fmapid-auto00000_desc-brain_mask_dil.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_target_mask/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected_brain_mask_maths_dil.nii.gz",
+       "]",
+       "--transform",
+       "Rigid[",
+       "0.1",
+       "]",
+       "--metric",
+       "Mattes[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz,",
+       "1,",
+       "32,",
+       "Random,",
+       "0.5",
+       "]",
+       "--convergence",
+       "[",
+       "20,",
+       "1e-08,",
+       "3",
+       "]",
+       "--smoothing-sigmas",
+       "2.0mm",
+       "--shrink-factors",
+       "1",
+       "--use-histogram-matching",
+       "1",
+       "--masks",
+       "[",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_fmap_mask/sub-01_acq-Mm2_fmapid-auto00000_desc-brain_mask_dil.nii.gz,",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/fmapreg_wf/dilate_target_mask/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected_brain_mask_maths_dil.nii.gz",
+       "]",
+       "--winsorize-image-intensities",
+       "[",
+       "0.001,",
+       "0.999",
+       "]",
+       "--write-composite-transform",
+       "0"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "ANTS_RANDOM_SEED": "50495"
+      },
+      "exit": 0,
+      "seconds": 13.35
+     },
+     {
+      "label": "larmorx-fix-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds002603-sub-01-noreconall/out/sub-01/fmap/sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/larmorx-fix/transform0GenericAffine.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-registration/panel-fmriprep-coregister-philips/larmorx-fix/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.28
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "threads": {
+     "ants": [
+      1,
+      8
+     ],
+     "ants_crmath": 1,
+     "larmorx": [
+      8,
+      1
+     ]
+    },
+    "settings": "a data-panel case of antsRegistration: ANTs 2.6.5 at 1 thread (as built and with CORE-MATH) and at 8 threads; larmorx in reproduce mode at 8 and 1 threads, in its default mode at 8; each transform placed by ANTs' antsApplyTransforms (linear)"
    }
   ],
   "command": "python -m larmorx_validation evidence ants-registration --site <site>"
@@ -2092,10 +3382,10 @@
    "record": "docs/validation/ants-registration.md",
    "status": "validated",
    "summary": {
-    "cases": 505,
+    "cases": 576,
     "verdicts": {
-     "bit-identical": 347,
-     "identical-cr": 44,
+     "bit-identical": 363,
+     "identical-cr": 99,
      "divergence": 21,
      "both-reject": 93
     }
@@ -2306,6 +3596,19 @@
      "category": "real-time-varying-bspline-small",
      "counts": {
       "identical-cr": 1
+     }
+    },
+    {
+     "category": "panel-fmriprep",
+     "counts": {
+      "bit-identical": 16,
+      "identical-cr": 27
+     }
+    },
+    {
+     "category": "panel-fmriprep-small",
+     "counts": {
+      "identical-cr": 28
      }
     }
    ]
@@ -9384,9 +10687,1003 @@
      "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output)"
     }
    }
+  },
+  {
+   "id": "panel/fmriprep/ds000005-sub-01/anat_fit/brain_extraction/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds000005-sub-01 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, full size",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000005-sub-01-noreconall: brain_extraction_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds000005-sub-01/anat_fit/brain_extraction/norm/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds000005-sub-01 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000005-sub-01-noreconall: brain_extraction_wf/norm, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "18/18",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output); larmorx − ANTs at 1 thread: 3.18 in a parameter"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds000005-sub-01/anat_fit/register_template[MNI152NLin2009cAsym]/registration/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of the oracle run ds000005-sub-01 (anat_fit_wf/register_template_wf/registration): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000005-sub-01-noreconall: _template_MNI152NLin2009cAsym/registration, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "16/16",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output); larmorx − ANTs at 1 thread: 0.614 in a parameter"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds000005-sub-01/bold[task_mixedgamblestask_run_01]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_mixedgamblestask_run_01]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds000005-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000005-sub-01-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds000005-sub-01/bold[task_mixedgamblestask_run_02]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_mixedgamblestask_run_02]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds000005-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000005-sub-01-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "11/11",
+     "reason": "differs from ANTs as built in standard output, transform0GenericAffine.mat; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds000005-sub-01/bold[task_mixedgamblestask_run_03]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_mixedgamblestask_run_03]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds000005-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000005-sub-01-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "11/11",
+     "reason": "differs from ANTs as built in standard output, transform0GenericAffine.mat; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds000228-sub-pixar008/anat_fit/brain_extraction/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds000228-sub-pixar008 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, full size",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000228-sub-pixar008-noreconall: brain_extraction_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds000228-sub-pixar008/anat_fit/brain_extraction/norm/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds000228-sub-pixar008 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000228-sub-pixar008-noreconall: brain_extraction_wf/norm, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds000228-sub-pixar008/anat_fit/register_template[MNI152NLin2009cAsym]/registration/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of the oracle run ds000228-sub-pixar008 (anat_fit_wf/register_template_wf/registration): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000228-sub-pixar008-noreconall: _template_MNI152NLin2009cAsym/registration, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "15/15",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds000228-sub-pixar008/bold[task_pixar]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_pixar]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds000228-sub-pixar008 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000228-sub-pixar008-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "11/11",
+     "reason": "differs from ANTs as built in standard output, transform0GenericAffine.mat; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds000256-sub-CTS203/anat_fit/brain_extraction/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds000256-sub-CTS203 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, full size",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000256-sub-CTS203-noreconall: brain_extraction_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds000256-sub-CTS203/anat_fit/brain_extraction/norm/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds000256-sub-CTS203 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000256-sub-CTS203-noreconall: brain_extraction_wf/norm, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds000256-sub-CTS203/anat_fit/register_template[MNI152NLin2009cAsym]/registration/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of the oracle run ds000256-sub-CTS203 (anat_fit_wf/register_template_wf/registration): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000256-sub-CTS203-noreconall: _template_MNI152NLin2009cAsym/registration, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "15/15",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds000256-sub-CTS203/bold[task_restbaseline]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_restbaseline]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds000256-sub-CTS203 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000256-sub-CTS203-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds000256-sub-CTS203/bold[task_restfixationfixed]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_restfixationfixed]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds000256-sub-CTS203 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000256-sub-CTS203-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds000256-sub-CTS203/bold[task_restfixationnofeedback]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_restfixationnofeedback]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds000256-sub-CTS203 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds000256-sub-CTS203-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "11/11",
+     "reason": "differs from ANTs as built in standard output, transform0GenericAffine.mat; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds001600-sub-1/anat_fit/brain_extraction/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds001600-sub-1 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, full size",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds001600-sub-1-noreconall: brain_extraction_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds001600-sub-1/anat_fit/brain_extraction/norm/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds001600-sub-1 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds001600-sub-1-noreconall: brain_extraction_wf/norm, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds001600-sub-1/anat_fit/register_template[MNI152NLin2009cAsym]/registration/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of the oracle run ds001600-sub-1 (anat_fit_wf/register_template_wf/registration): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds001600-sub-1-noreconall: _template_MNI152NLin2009cAsym/registration, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "15/15",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002422-sub-02/anat_fit/brain_extraction/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds002422-sub-02 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, full size",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds002422-sub-02-noreconall: brain_extraction_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002422-sub-02/anat_fit/brain_extraction/norm/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds002422-sub-02 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds002422-sub-02-noreconall: brain_extraction_wf/norm, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002422-sub-02/anat_fit/register_template[MNI152NLin2009cAsym]/registration/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of the oracle run ds002422-sub-02 (anat_fit_wf/register_template_wf/registration): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds002422-sub-02-noreconall: _template_MNI152NLin2009cAsym/registration, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "15/15",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002422-sub-02/bold[task_arithm_run_01]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_arithm_run_01]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds002422-sub-02 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds002422-sub-02-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002422-sub-02/bold[task_arithm_run_01]/bold_fit/fmapreg/coregister",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_arithm_run_01]/bold_fit/fmapreg/coregister` of the oracle run ds002422-sub-02 (bold_wf/bold_fit_wf/fmapreg_wf/coregister): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds002422-sub-02-noreconall: fmapreg_wf/coregister>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002422-sub-02/bold[task_arithm_run_02]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_arithm_run_02]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds002422-sub-02 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds002422-sub-02-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002422-sub-02/bold[task_arithm_run_02]/bold_fit/fmapreg/coregister",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_arithm_run_02]/bold_fit/fmapreg/coregister` of the oracle run ds002422-sub-02 (bold_wf/bold_fit_wf/fmapreg_wf/coregister): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds002422-sub-02-noreconall: fmapreg_wf/coregister>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002422-sub-02/bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds002422-sub-02 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds002422-sub-02-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002422-sub-02/bold[task_rest]/bold_fit/fmapreg/coregister",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_rest]/bold_fit/fmapreg/coregister` of the oracle run ds002422-sub-02 (bold_wf/bold_fit_wf/fmapreg_wf/coregister): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds002422-sub-02-noreconall: fmapreg_wf/coregister>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002603-sub-01/anat_fit/brain_extraction/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds002603-sub-01 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, full size",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds002603-sub-01-noreconall: brain_extraction_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002603-sub-01/anat_fit/brain_extraction/norm/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds002603-sub-01 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds002603-sub-01-noreconall: brain_extraction_wf/norm, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002603-sub-01/anat_fit/register_template[MNI152NLin2009cAsym]/registration/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of the oracle run ds002603-sub-01 (anat_fit_wf/register_template_wf/registration): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds002603-sub-01-noreconall: _template_MNI152NLin2009cAsym/registration, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "15/15",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002603-sub-01/bold[task_wm_acq_Mb4Mm3Tr550]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_wm_acq_Mb4Mm3Tr550]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds002603-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds002603-sub-01-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "11/11",
+     "reason": "differs from ANTs as built in standard output, transform0GenericAffine.mat; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002603-sub-01/bold[task_wm_acq_Mb4Mm3Tr550]/bold_fit/fmapreg/coregister",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_wm_acq_Mb4Mm3Tr550]/bold_fit/fmapreg/coregister` of the oracle run ds002603-sub-01 (bold_wf/bold_fit_wf/fmapreg_wf/coregister): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds002603-sub-01-noreconall: fmapreg_wf/coregister>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002603-sub-01/bold[task_wm_acq_SeqMm3Tr2000]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_wm_acq_SeqMm3Tr2000]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds002603-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds002603-sub-01-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "11/11",
+     "reason": "differs from ANTs as built in standard output, transform0GenericAffine.mat; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002603-sub-01/bold[task_wm_acq_SeqMm3Tr2000]/bold_fit/fmapreg/coregister",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_wm_acq_SeqMm3Tr2000]/bold_fit/fmapreg/coregister` of the oracle run ds002603-sub-01 (bold_wf/bold_fit_wf/fmapreg_wf/coregister): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds002603-sub-01-noreconall: fmapreg_wf/coregister>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "11/11",
+     "reason": "differs from ANTs as built in transform0GenericAffine.mat; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds003592-sub-280/anat_fit/brain_extraction/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds003592-sub-280 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, full size",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds003592-sub-280-noreconall: brain_extraction_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds003592-sub-280/anat_fit/brain_extraction/norm/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds003592-sub-280 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds003592-sub-280-noreconall: brain_extraction_wf/norm, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds003592-sub-280/anat_fit/register_template[MNI152NLin2009cAsym]/registration/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of the oracle run ds003592-sub-280 (anat_fit_wf/register_template_wf/registration): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds003592-sub-280-noreconall: _template_MNI152NLin2009cAsym/registration, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "15/15",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds003592-sub-280/bold[ses_1_task_rest_echo_1]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[ses_1_task_rest_echo_1]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds003592-sub-280 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds003592-sub-280-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds004173-sub-603309/anat_fit/brain_extraction/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds004173-sub-603309 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, full size",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds004173-sub-603309-noreconall: brain_extraction_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds004173-sub-603309/anat_fit/brain_extraction/norm/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds004173-sub-603309 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds004173-sub-603309-noreconall: brain_extraction_wf/norm, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds004173-sub-603309/anat_fit/register_template[MNI152NLin2009cAsym]/registration/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of the oracle run ds004173-sub-603309 (anat_fit_wf/register_template_wf/registration): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds004173-sub-603309-noreconall: _template_MNI152NLin2009cAsym/registration, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "15/15",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds004884-sub-M2079/anat_fit/brain_extraction/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds004884-sub-M2079 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, full size",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds004884-sub-M2079-noreconall: brain_extraction_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds004884-sub-M2079/anat_fit/brain_extraction/norm/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds004884-sub-M2079 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds004884-sub-M2079-noreconall: brain_extraction_wf/norm, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds004884-sub-M2079/anat_fit/register_template[MNI152NLin2009cAsym]/registration/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of the oracle run ds004884-sub-M2079 (anat_fit_wf/register_template_wf/registration): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds004884-sub-M2079-noreconall: _template_MNI152NLin2009cAsym/registration, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "15/15",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds004884-sub-M2079/bold[ses_217_task_naming40_acq_epfid2_dir_AP_run_2]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[ses_217_task_naming40_acq_epfid2_dir_AP_run_2]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds004884-sub-M2079 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds004884-sub-M2079-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "11/11",
+     "reason": "differs from ANTs as built in standard output, transform0GenericAffine.mat; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds004884-sub-M2079/bold[ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds004884-sub-M2079 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds004884-sub-M2079-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "11/11",
+     "reason": "differs from ANTs as built in standard output, transform0GenericAffine.mat; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds004958-sub-fsm64ps/anat_fit/brain_extraction/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds004958-sub-fsm64ps (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, full size",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds004958-sub-fsm64ps-noreconall: brain_extraction_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds004958-sub-fsm64ps/anat_fit/brain_extraction/norm/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds004958-sub-fsm64ps (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds004958-sub-fsm64ps-noreconall: brain_extraction_wf/norm, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds004958-sub-fsm64ps/anat_fit/register_template[MNI152NLin2009cAsym]/registration/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of the oracle run ds004958-sub-fsm64ps (anat_fit_wf/register_template_wf/registration): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds004958-sub-fsm64ps-noreconall: _template_MNI152NLin2009cAsym/registration, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "15/15",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds004958-sub-fsm64ps/bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds004958-sub-fsm64ps (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds004958-sub-fsm64ps-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005003-sub-RS001/anat_fit/brain_extraction/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds005003-sub-RS001 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, full size",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005003-sub-RS001-noreconall: brain_extraction_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005003-sub-RS001/anat_fit/brain_extraction/norm/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds005003-sub-RS001 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005003-sub-RS001-noreconall: brain_extraction_wf/norm, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005003-sub-RS001/anat_fit/register_template[MNI152NLin2009cAsym]/registration/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of the oracle run ds005003-sub-RS001 (anat_fit_wf/register_template_wf/registration): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005003-sub-RS001-noreconall: _template_MNI152NLin2009cAsym/registration, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "15/15",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005003-sub-RS001/bold[ses_1_task_motor]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[ses_1_task_motor]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds005003-sub-RS001 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005003-sub-RS001-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005003-sub-RS001/bold[ses_1_task_rest]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[ses_1_task_rest]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds005003-sub-RS001 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005003-sub-RS001-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "11/11",
+     "reason": "differs from ANTs as built in standard output, transform0GenericAffine.mat; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005040-sub-002/anat_fit/brain_extraction/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds005040-sub-002 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, full size",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005040-sub-002-noreconall: brain_extraction_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005040-sub-002/anat_fit/brain_extraction/norm/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds005040-sub-002 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005040-sub-002-noreconall: brain_extraction_wf/norm, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005040-sub-002/anat_fit/register_template[MNI152NLin2009cAsym]/registration/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of the oracle run ds005040-sub-002 (anat_fit_wf/register_template_wf/registration): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005040-sub-002-noreconall: _template_MNI152NLin2009cAsym/registration, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "15/15",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005040-sub-002/bold[task_clip_run_1]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_clip_run_1]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds005040-sub-002 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005040-sub-002-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "11/11",
+     "reason": "differs from ANTs as built in standard output, transform0GenericAffine.mat; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005040-sub-002/bold[task_clip_run_1]/bold_fit/fmapreg/coregister",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_clip_run_1]/bold_fit/fmapreg/coregister` of the oracle run ds005040-sub-002 (bold_wf/bold_fit_wf/fmapreg_wf/coregister): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005040-sub-002-noreconall: fmapreg_wf/coregister>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005454-sub-16/anat_fit/brain_extraction/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds005454-sub-16 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, full size",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005454-sub-16-noreconall: brain_extraction_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005454-sub-16/anat_fit/brain_extraction/norm/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds005454-sub-16 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005454-sub-16-noreconall: brain_extraction_wf/norm, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005454-sub-16/anat_fit/register_template[MNI152NLin2009cAsym]/registration/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of the oracle run ds005454-sub-16 (anat_fit_wf/register_template_wf/registration): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005454-sub-16-noreconall: _template_MNI152NLin2009cAsym/registration, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "15/15",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005454-sub-16/bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds005454-sub-16 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005454-sub-16-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "11/11",
+     "reason": "differs from ANTs as built in standard output, transform0GenericAffine.mat; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005454-sub-16/bold[task_rest]/bold_fit/fmapreg/coregister",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[task_rest]/bold_fit/fmapreg/coregister` of the oracle run ds005454-sub-16 (bold_wf/bold_fit_wf/fmapreg_wf/coregister): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005454-sub-16-noreconall: fmapreg_wf/coregister>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005752-sub-ON01016/anat_fit/brain_extraction/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds005752-sub-ON01016 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, full size",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005752-sub-ON01016-noreconall: brain_extraction_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005752-sub-ON01016/anat_fit/brain_extraction/norm/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/brain_extraction/norm` of the oracle run ds005752-sub-ON01016 (anat_fit_wf/brain_extraction_wf/norm): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005752-sub-ON01016-noreconall: brain_extraction_wf/norm, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "17/17",
+     "reason": "differs from ANTs as built in anat_to_template_Warped.nii.gz, standard output, transform0GenericAffine.mat, transform1InverseWarp.nii.gz …; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005752-sub-ON01016/anat_fit/register_template[MNI152NLin2009cAsym]/registration/small",
+   "category": "panel-fmriprep-small",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of the oracle run ds005752-sub-ON01016 (anat_fit_wf/register_template_wf/registration): its command.txt replayed, its inputs from the run's working directory, on one voxel in 3 along each axis of its images",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005752-sub-ON01016-noreconall: _template_MNI152NLin2009cAsym/registration, every third voxel>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "15/15",
+     "reason": "differs from ANTs as built in ants_t1_to_mni_Warped.nii.gz, standard output, transformComposite.h5, transformInverseComposite.h5; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005752-sub-ON01016/bold[ses_01_task_rest_dir_forward]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[ses_01_task_rest_dir_forward]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds005752-sub-ON01016 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005752-sub-ON01016-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "11/11",
+     "reason": "differs from ANTs as built in standard output, transform0GenericAffine.mat; identical to ANTs with CORE-MATH preloaded (every output)"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005752-sub-ON01016/bold[ses_01_task_rest_dir_reverse]/bold_fit/enhance_and_skullstrip_bold/norm",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsRegistration node `bold[ses_01_task_rest_dir_reverse]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds005752-sub-ON01016 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm): its command.txt replayed, its inputs from the run's working directory",
+   "command": "antsRegistration '<fMRIPrep 25.2.6'\"'\"'s command.txt of ds005752-sub-ON01016-noreconall: enhance_and_skullstrip_bold_wf/norm>'",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
   }
  ],
- "cases_total": 505,
+ "cases_total": 576,
  "dots": {
   "band": {
    "title": "The largest change in a transform parameter: ANTs at 2, 4 and 8 threads against its one-thread result, and larmorx against ANTs at one thread (log scale; 0 at the left edge)",
@@ -10349,6 +12646,990 @@
     }
    ],
    "note": "From the ants-registration-corrections record (larmorx in its default mode against `reproduce`, which the ants-registration record compares with ANTs bit for bit; for the B-spline chains, against ANTs 2.6.5 itself)."
+  },
+  {
+   "id": "panel-nodes",
+   "title": "fMRIPrep's antsRegistration nodes in the fourteen oracle runs, and what the panel record compares of them",
+   "columns": [
+    {
+     "label": "Node (normalised path)"
+    },
+    {
+     "label": "Nodes",
+     "num": true
+    },
+    {
+     "label": "Runs",
+     "num": true
+    },
+    {
+     "label": "Compared",
+     "num": true
+    },
+    {
+     "label": "Same call as a compared one",
+     "num": true
+    },
+    {
+     "label": "Statuses",
+     "num": false
+    },
+    {
+     "label": "Not compared: why",
+     "num": false
+    }
+   ],
+   "rows": [
+    {
+     "head": "anat_fit_wf/brain_extraction_wf/norm",
+     "cells": [
+      {
+       "v": 14,
+       "fmt": "count"
+      },
+      {
+       "v": 14,
+       "fmt": "count"
+      },
+      {
+       "v": 14,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "text": "14 pass"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "anat_fit_wf/register_template_wf/registration",
+     "cells": [
+      {
+       "v": 14,
+       "fmt": "count"
+      },
+      {
+       "v": 14,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "text": "–"
+      },
+      {
+       "text": "full size not run in this record (hours of ANTs at one thread each, as built and with CORE-MATH: the next part, on a larger machine); compared on every 3rd voxel instead (28 small cases)"
+      }
+     ]
+    },
+    {
+     "head": "bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/norm",
+     "cells": [
+      {
+       "v": 22,
+       "fmt": "count"
+      },
+      {
+       "v": 12,
+       "fmt": "count"
+      },
+      {
+       "v": 22,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "text": "22 pass"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "bold_wf/bold_fit_wf/fmapreg_wf/coregister",
+     "cells": [
+      {
+       "v": 7,
+       "fmt": "count"
+      },
+      {
+       "v": 4,
+       "fmt": "count"
+      },
+      {
+       "v": 7,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "text": "7 pass"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    }
+   ],
+   "note": "From the panel record (docs/validation/ants-registration-panel.md): every node of the finished fMRIPrep 25.2.6 oracle runs that ran the program, grouped by its path with the subject, run, space and item removed; a call repeated word for word is compared once."
+  },
+  {
+   "id": "panel-boldref-7t-transforms",
+   "title": "Data panel: fMRIPrep's BOLD reference to MNI at 7 T: every run's transform",
+   "columns": [
+    {
+     "label": "Run"
+    },
+    {
+     "label": "Class"
+    },
+    {
+     "label": "p0",
+     "num": true
+    },
+    {
+     "label": "p1",
+     "num": true
+    },
+    {
+     "label": "p2",
+     "num": true
+    },
+    {
+     "label": "p3",
+     "num": true
+    },
+    {
+     "label": "p4",
+     "num": true
+    },
+    {
+     "label": "p5",
+     "num": true
+    },
+    {
+     "label": "p6",
+     "num": true
+    },
+    {
+     "label": "p7",
+     "num": true
+    },
+    {
+     "label": "p8",
+     "num": true
+    },
+    {
+     "label": "p9",
+     "num": true
+    },
+    {
+     "label": "p10",
+     "num": true
+    },
+    {
+     "label": "p11",
+     "num": true
+    },
+    {
+     "label": "Centre (fixed parameters)"
+    }
+   ],
+   "rows": [
+    {
+     "head": "ANTs 2.6.5, 1 thread (as built (GCC 14.3), glibc's maths)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.8695858586795301,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.006695985014170093,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.0004951559045512054,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.03494006259232191,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.8305532382266546,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.3336756611818985,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.008088924657355695,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.32833462642056066,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.7578730003602518,
+       "fmt": "f64"
+      },
+      {
+       "v": 2.039522862293599,
+       "fmt": "f64"
+      },
+      {
+       "v": -9.380221859996066,
+       "fmt": "f64"
+      },
+      {
+       "v": -10.241086502425679,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.218475699 20.3963718 12.6540527"
+      }
+     ]
+    },
+    {
+     "head": "ANTs 2.6.5, correctly rounded maths (1 thread, CORE-MATH preloaded)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.8695858586795995,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.006695985014134464,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.0004951559045407467,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.03494006259244027,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.8305532382266101,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.3336756611819881,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.008088924657254387,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.32833462642065037,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.7578730003606966,
+       "fmt": "f64"
+      },
+      {
+       "v": 2.0395228622856614,
+       "fmt": "f64"
+      },
+      {
+       "v": -9.380221860003642,
+       "fmt": "f64"
+      },
+      {
+       "v": -10.2410865024278,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.218475699 20.3963718 12.6540527"
+      }
+     ]
+    },
+    {
+     "head": "ANTs 2.6.5, 8 threads (as built)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.8695858586787719,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.006695985016565874,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.0004951559065171345,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.0349400625849211,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.8305532382300399,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.3336756611759714,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.008088924661362074,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.32833462641490246,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.7578730003268729,
+       "fmt": "f64"
+      },
+      {
+       "v": 2.039522862663477,
+       "fmt": "f64"
+      },
+      {
+       "v": -9.380221859486497,
+       "fmt": "f64"
+      },
+      {
+       "v": -10.24108650285752,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.218475699 20.3963718 12.6540527"
+      }
+     ]
+    },
+    {
+     "head": "larmorx (port) (reproduce mode, 8 threads)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.8695858586795995,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.006695985014134464,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.0004951559045407467,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.03494006259244027,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.8305532382266101,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.3336756611819881,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.008088924657254387,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.32833462642065037,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.7578730003606966,
+       "fmt": "f64"
+      },
+      {
+       "v": 2.0395228622856614,
+       "fmt": "f64"
+      },
+      {
+       "v": -9.380221860003642,
+       "fmt": "f64"
+      },
+      {
+       "v": -10.2410865024278,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.218475699 20.3963718 12.6540527"
+      }
+     ]
+    },
+    {
+     "head": "larmorx (port) (reproduce mode, 1 thread)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.8695858586795995,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.006695985014134464,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.0004951559045407467,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.03494006259244027,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.8305532382266101,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.3336756611819881,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.008088924657254387,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.32833462642065037,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.7578730003606966,
+       "fmt": "f64"
+      },
+      {
+       "v": 2.0395228622856614,
+       "fmt": "f64"
+      },
+      {
+       "v": -9.380221860003642,
+       "fmt": "f64"
+      },
+      {
+       "v": -10.2410865024278,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.218475699 20.3963718 12.6540527"
+      }
+     ]
+    },
+    {
+     "head": "larmorx (port) (default mode, 8 threads)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.8695858586795995,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.006695985014134464,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.0004951559045407467,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.03494006259244027,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.8305532382266101,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.3336756611819881,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.008088924657254387,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.32833462642065037,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.7578730003606966,
+       "fmt": "f64"
+      },
+      {
+       "v": 2.0395228622856614,
+       "fmt": "f64"
+      },
+      {
+       "v": -9.380221860003642,
+       "fmt": "f64"
+      },
+      {
+       "v": -10.2410865024278,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.218475699 20.3963718 12.6540527"
+      }
+     ]
+    }
+   ],
+   "note": "Every parameter as stored (the shortest float64 that reads back exactly)."
+  },
+  {
+   "id": "panel-coregister-philips-transforms",
+   "title": "Data panel: fMRIPrep's field map to a Philips multiband BOLD reference: every run's transform",
+   "columns": [
+    {
+     "label": "Run"
+    },
+    {
+     "label": "Class"
+    },
+    {
+     "label": "p0",
+     "num": true
+    },
+    {
+     "label": "p1",
+     "num": true
+    },
+    {
+     "label": "p2",
+     "num": true
+    },
+    {
+     "label": "p3",
+     "num": true
+    },
+    {
+     "label": "p4",
+     "num": true
+    },
+    {
+     "label": "p5",
+     "num": true
+    },
+    {
+     "label": "p6",
+     "num": true
+    },
+    {
+     "label": "p7",
+     "num": true
+    },
+    {
+     "label": "p8",
+     "num": true
+    },
+    {
+     "label": "p9",
+     "num": true
+    },
+    {
+     "label": "p10",
+     "num": true
+    },
+    {
+     "label": "p11",
+     "num": true
+    },
+    {
+     "label": "Centre (fixed parameters)"
+    }
+   ],
+   "rows": [
+    {
+     "head": "ANTs 2.6.5, 1 thread (as built (GCC 14.3), glibc's maths)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.9998618205985751,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.012886477506775495,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.01050135261622249,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.012970196402157963,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.9998843309028401,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.007943476585784513,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.010397774501898108,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.008078583566865378,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.9999133076286968,
+       "fmt": "f64"
+      },
+      {
+       "v": -2.0935394254810404,
+       "fmt": "f64"
+      },
+      {
+       "v": -3.1515078852597957,
+       "fmt": "f64"
+      },
+      {
+       "v": 3.7083510016714083,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.584962374 -2.25883554 -10.259005"
+      }
+     ]
+    },
+    {
+     "head": "ANTs 2.6.5, correctly rounded maths (1 thread, CORE-MATH preloaded)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.9998618205985751,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.012886477506775495,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.01050135261622249,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.012970196402157963,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.9998843309028401,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.007943476585784513,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.010397774501898108,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.008078583566865378,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.9999133076286968,
+       "fmt": "f64"
+      },
+      {
+       "v": -2.0935394254810404,
+       "fmt": "f64"
+      },
+      {
+       "v": -3.1515078852597957,
+       "fmt": "f64"
+      },
+      {
+       "v": 3.7083510016714083,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.584962374 -2.25883554 -10.259005"
+      }
+     ]
+    },
+    {
+     "head": "ANTs 2.6.5, 8 threads (as built)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.9998618205985739,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.012886477506831383,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.010501352616264732,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.012970196402214617,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.999884330902839,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.0079434765858254,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.010397774501939364,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.008078583566907395,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.999913307628696,
+       "fmt": "f64"
+      },
+      {
+       "v": -2.0935394254807034,
+       "fmt": "f64"
+      },
+      {
+       "v": -3.1515078852597815,
+       "fmt": "f64"
+      },
+      {
+       "v": 3.7083510016710157,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.584962374 -2.25883554 -10.259005"
+      }
+     ]
+    },
+    {
+     "head": "larmorx (port) (reproduce mode, 8 threads)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.9998618205985751,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.012886477506775495,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.01050135261622249,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.012970196402157963,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.9998843309028401,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.007943476585784513,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.010397774501898108,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.008078583566865378,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.9999133076286968,
+       "fmt": "f64"
+      },
+      {
+       "v": -2.0935394254810404,
+       "fmt": "f64"
+      },
+      {
+       "v": -3.1515078852597957,
+       "fmt": "f64"
+      },
+      {
+       "v": 3.7083510016714083,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.584962374 -2.25883554 -10.259005"
+      }
+     ]
+    },
+    {
+     "head": "larmorx (port) (reproduce mode, 1 thread)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.9998618205985751,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.012886477506775495,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.01050135261622249,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.012970196402157963,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.9998843309028401,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.007943476585784513,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.010397774501898108,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.008078583566865378,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.9999133076286968,
+       "fmt": "f64"
+      },
+      {
+       "v": -2.0935394254810404,
+       "fmt": "f64"
+      },
+      {
+       "v": -3.1515078852597957,
+       "fmt": "f64"
+      },
+      {
+       "v": 3.7083510016714083,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.584962374 -2.25883554 -10.259005"
+      }
+     ]
+    },
+    {
+     "head": "larmorx (port) (default mode, 8 threads)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.9998618205985751,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.012886477506775495,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.01050135261622249,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.012970196402157963,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.9998843309028401,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.007943476585784513,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.010397774501898108,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.008078583566865378,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.9999133076286968,
+       "fmt": "f64"
+      },
+      {
+       "v": -2.0935394254810404,
+       "fmt": "f64"
+      },
+      {
+       "v": -3.1515078852597957,
+       "fmt": "f64"
+      },
+      {
+       "v": 3.7083510016714083,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.584962374 -2.25883554 -10.259005"
+      }
+     ]
+    }
+   ],
+   "note": "Every parameter as stored (the shortest float64 that reads back exactly)."
   }
  ],
  "examples": [
@@ -17518,12 +20799,1108 @@
     "openneuro-ds000005",
     "templateflow-MNI152NLin2009cAsym"
    ]
+  },
+  {
+   "id": "panel-boldref-7t",
+   "title": "Data panel: fMRIPrep's BOLD reference to MNI at 7 T",
+   "summary": "fMRIPrep 25.2.6's own call (the BOLD reference's registration to MNI152NLin2009cAsym's fMRIPrep BOLD reference at 2 mm: Affine, Mattes with random sampling from fMRIPrep's seed) on ds005454 sub-16's 7 T multiband BOLD reference (1.4 mm): each run's transform places the BOLD reference on the template's grid (ANTs' antsApplyTransforms, linear). A key dataset, shown as a whole volume; every run's parameters are in the table below it.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds005454, sub-16 (CC-BY-4.0); the whole field of view shown, only margins where every array is 0 left out"
+    },
+    {
+     "label": "Node",
+     "text": "`bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/norm` of the oracle run ds005454-sub-16-noreconall"
+    },
+    {
+     "label": "Command",
+     "text": "`antsRegistration --collapse-output-transforms 1 --dimensionality 3 --initial-moving-transform [ initialization.mat, 0 ] --initialize-transforms-per-stage 0 --interpolation Linear --output transform --transform Affine[ 0.1 ] --metric Mattes[ tpl-MNI152NLin2009cAsym_res-02_desc-fMRIPrep_boldref.nii.gz, sub-16_task-rest_desc-hmc_boldref.nii.gz, 1, 64, Random, 0.2 ] --convergence [ 200, 1e-09, 10 ] --smoothing-sigmas 2.0mm --shrink-factors 2 --use-histogram-matching 1 --winsorize-image-intensities [ 0.05, 0.98 ] --write-composite-transform 0`"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; larmorx at commit `042d70d5a17c`"
+    },
+    {
+     "label": "Grid",
+     "text": "97 × 115 × 97 voxels of 2 × 2 × 2 mm; shown 97 × 115 × 92, every slice"
+    }
+   ],
+   "grid": {
+    "shape": [
+     97,
+     115,
+     92
+    ],
+    "spacing": [
+     2.0,
+     2.0,
+     2.0
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      2.0,
+      0.0,
+      0.0,
+      -96.5
+     ],
+     [
+      0.0,
+      2.0,
+      0.0,
+      -132.5
+     ],
+     [
+      0.0,
+      0.0,
+      2.0,
+      -78.5
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     97,
+     115,
+     97
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "9971c313344896138b776337.bin",
+    "dtype": "u1",
+    "bytes": 1022
+   },
+   "outputs": [
+    {
+     "id": "placed",
+     "label": "BOLD reference placed",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 816.1314177275996
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 1033.2679086260657
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "template",
+     "role": "input",
+     "label": "MNI152NLin2009cAsym's BOLD reference, 2 mm",
+     "sub": "tpl-MNI152NLin2009cAsym_res-02_desc-fMRIPrep_boldref.nii.gz",
+     "arrays": {
+      "all": {
+       "blob": "d7445453d73df533f8eed9c9.bin",
+       "dtype": "f4",
+       "bytes": 1506269
+      }
+     },
+     "window": [
+      0.0,
+      1051.818842773438
+     ]
+    },
+    {
+     "id": "ants-1",
+     "role": "original",
+     "label": "ANTs 2.6.5, 1 thread",
+     "sub": "as built (GCC 14.3), glibc's maths",
+     "arrays": {
+      "placed": {
+       "blob": "9fdad84e2d1df2955e5be418.bin",
+       "dtype": "f8",
+       "bytes": 6200413
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       816.1314177265712
+      ]
+     }
+    },
+    {
+     "id": "ants-1-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, correctly rounded maths",
+     "sub": "1 thread, CORE-MATH preloaded",
+     "arrays": {
+      "placed": {
+       "blob": "21aa42597a9a5943ff75179a.bin",
+       "dtype": "f8",
+       "xor": "ants-1:placed",
+       "zero": false,
+       "bytes": 2118504
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       816.1314177275996
+      ]
+     }
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "reproduce mode, 8 threads",
+     "arrays": {
+      "placed": {
+       "same": "ants-1-cr:placed",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       816.1314177275996
+      ]
+     }
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "default mode, 8 threads",
+     "arrays": {
+      "placed": {
+       "same": "ants-1-cr:placed",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       816.1314177275996
+      ]
+     }
+    },
+    {
+     "id": "ants-8",
+     "role": "original",
+     "label": "ANTs 2.6.5, 8 threads",
+     "sub": "as built",
+     "arrays": {
+      "placed": {
+       "blob": "b9b56448494fb90a90474668.bin",
+       "dtype": "f8",
+       "xor": "ants-1:placed",
+       "zero": false,
+       "bytes": 2798135
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       816.1314177665279
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants",
+     "a": "larmorx",
+     "b": "ants-1",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "placed": {
+       "identical": false,
+       "voxels": 1082035,
+       "differ": 896318,
+       "share": 0.8283632230011044,
+       "max_abs": 2.10401367439772e-08,
+       "at": [
+        57,
+        58,
+        80
+       ],
+       "a_at": 721.2680093732288,
+       "b_at": 721.2680093942689,
+       "rms": 7.503755055025326e-10,
+       "range": 1033.2679086260173,
+       "max_rel_range": 2.0362711904945557e-11,
+       "one_minus_ncc": 1.0305027134754239e-23,
+       "at_display": [
+        57,
+        58,
+        80
+       ]
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 2.10401367439772e-08,
+       "at": [
+        57,
+        58,
+        80
+       ],
+       "a": 721.2680093732288,
+       "b": 721.2680093942689,
+       "differ": 896318
+      }
+     },
+     "links": [],
+     "verdict": "identical-cr",
+     "reason": "Only where glibc's maths is not correctly rounded (placed): with CORE-MATH preloaded, ANTs gives larmorx's bytes."
+    },
+    {
+     "id": "lx-cr",
+     "a": "larmorx",
+     "b": "ants-1-cr",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1033.2679086260657,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx gives ANTs' bytes with correctly rounded maths."
+    },
+    {
+     "id": "lx1-lx",
+     "a": "larmorx-1",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, 1 thread − 8 threads (reproduce)",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1033.2679086260657,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx's result does not depend on its thread count."
+    },
+    {
+     "id": "fix-lx",
+     "a": "larmorx-fix",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 1082035,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1033.2679086260657,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "No correction of the defect register changes this call."
+    },
+    {
+     "id": "ants8-ants1",
+     "a": "ants-8",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 8 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "placed": {
+       "identical": false,
+       "voxels": 1082035,
+       "differ": 896328,
+       "share": 0.8283724648463312,
+       "max_abs": 1.8748461343420786e-06,
+       "at": [
+        57,
+        58,
+        80
+       ],
+       "a_at": 721.268011269115,
+       "b_at": 721.2680093942689,
+       "rms": 6.01417858261438e-08,
+       "range": 1033.2679086260173,
+       "max_rel_range": 1.8144821093254948e-09,
+       "one_minus_ncc": 6.633432050466812e-20,
+       "at_display": [
+        57,
+        58,
+        80
+       ]
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 1.8748461343420786e-06,
+       "at": [
+        57,
+        58,
+        80
+       ],
+       "a": 721.268011269115,
+       "b": 721.2680093942689,
+       "differ": 896328
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "ANTs' own result moves with its thread count (placed): the yardstick for any difference above."
+    }
+   ],
+   "default": {
+    "output": "placed",
+    "plane": "axial",
+    "voxel": [
+     15,
+     57,
+     45
+    ],
+    "panels": [
+     "template",
+     "ants-1",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "lx-ants",
+     "lx-cr",
+     "fix-lx"
+    ],
+    "compare": {
+     "a": "ants-1",
+     "b": "larmorx"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 45,
+    "aspect": 0.84348,
+    "panels": {
+     "template": "9f856b36a9463a205f9c9ed9.webp",
+     "ants-1": "f0a84128fa5a418d7e873212.webp",
+     "larmorx": "f0a84128fa5a418d7e873212.webp",
+     "larmorx-fix": "f0a84128fa5a418d7e873212.webp"
+    },
+    "diffs": {
+     "lx-ants": "996679b206639ee9dca95e88.webp"
+    },
+    "ranges": {
+     "lx-ants": 2.10401367439772e-08
+    },
+    "caption": "Axial slice 46 of 92; the crosshair where larmorx differs most from ANTs as built."
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B over all 1,082,035 values of each output (the moving image placed on the fixed grid through each run's transform).",
+   "provenance": [
+    "Data: OpenNeuro ds005454, sub-16, CC-BY-4.0",
+    "Inputs: input 1 (sha256 c6524103102987da…)",
+    "Runs: figures cache entry `ants-registration/panel-fmriprep-boldref-7t`, computed 2026-10-27T01:40:47+00:00 with larmorx `042d70d5a17c`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds005454",
+    "templateflow-MNI152NLin2009cAsym"
+   ]
+  },
+  {
+   "id": "panel-coregister-philips",
+   "title": "Data panel: fMRIPrep's field map to a Philips multiband BOLD reference",
+   "summary": "fMRIPrep 25.2.6's own call (sdcflows' coregistration of the field map's magnitude and the BOLD reference: two Rigid stages, Mattes with random sampling, masks) on ds002603 sub-01's multiband-4 run (Philips, 588 volumes): each run's transform places the BOLD reference on the magnitude's grid.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds002603, sub-01 (CC0-1.0); the whole field of view shown, only margins where every array is 0 left out"
+    },
+    {
+     "label": "Node",
+     "text": "`bold[task_wm_acq_Mb4Mm3Tr550]/bold_fit/fmapreg/coregister` of the oracle run ds002603-sub-01-noreconall"
+    },
+    {
+     "label": "Command",
+     "text": "`antsRegistration --collapse-output-transforms 1 --dimensionality 3 --initial-moving-transform [ sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz, sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz, 1 ] --initialize-transforms-per-stage 0 --interpolation LanczosWindowedSinc --output transform --transform Rigid[ 0.1 ] --metric Mattes[ sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz, sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz, 1, 32, Random, 0.25 ] --convergence [ 50, 1e-07, 5 ] --smoothing-sigmas 8.0mm --shrink-factors 2 --use-histogram-matching 1 --masks [ sub-01_acq-Mm2_fmapid-auto00000_desc-brain_mask_dil.nii.gz, sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected_brain_mask_maths_dil.nii.gz ] --transform Rigid[ 0.1 ] --metric Mattes[ sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz, sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz, 1, 32, Random, 0.5 ] --convergence [ 20, 1e-08, 3 ] --smoothing-sigmas 2.0mm --shrink-factors 1 --use-histogram-matching 1 --masks [ sub-01_acq-Mm2_fmapid-auto00000_desc-brain_mask_dil.nii.gz, sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected_brain_mask_maths_dil.nii.gz ] --winsorize-image-intensities [ 0.001, 0.999 ] --write-composite-transform 0`"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; larmorx at commit `042d70d5a17c`"
+    },
+    {
+     "label": "Grid",
+     "text": "128 × 128 × 128 voxels of 2 × 2 × 2 mm; shown 126 × 128 × 127, three full-resolution slices"
+    }
+   ],
+   "grid": {
+    "shape": [
+     126,
+     128,
+     127
+    ],
+    "spacing": [
+     2.0,
+     2.0,
+     2.0
+    ],
+    "to_file": [
+     [
+      -1,
+      0,
+      0,
+      127
+     ],
+     [
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      1.999436,
+      -0.041533,
+      0.023038,
+      -124.950744
+     ],
+     [
+      0.043943,
+      1.985816,
+      -0.233673,
+      -102.315482
+     ],
+     [
+      -0.018022,
+      0.234113,
+      1.986169,
+      -119.966501
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     128,
+     128,
+     128
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "view": {
+    "kind": "slices",
+    "voxel": [
+     62,
+     63,
+     62
+    ],
+    "planes": {
+     "axial": {
+      "index": 62,
+      "box": [
+       2,
+       0,
+       122,
+       128
+      ],
+      "offset": 0,
+      "outside_mask": 0
+     },
+     "coronal": {
+      "index": 63,
+      "box": [
+       2,
+       0,
+       122,
+       125
+      ],
+      "offset": 15616,
+      "outside_mask": 0
+     },
+     "sagittal": {
+      "index": 62,
+      "box": [
+       0,
+       0,
+       128,
+       127
+      ],
+      "offset": 30866,
+      "outside_mask": 1
+     }
+    },
+    "per_volume": 47122
+   },
+   "mask": {
+    "blob": "f7c5f716185482a05514c7b4.bin",
+    "dtype": "u1",
+    "bytes": 71
+   },
+   "outputs": [
+    {
+     "id": "placed",
+     "label": "BOLD reference placed",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 51816.56779596762
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 76430.18050957841
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "magnitude",
+     "role": "input",
+     "label": "the field map's magnitude (fMRIPrep's)",
+     "sub": "sub-01_acq-Mm2_fmapid-auto00000_desc-magnitude_fieldmap.nii.gz",
+     "arrays": {
+      "all": {
+       "blob": "46f460689c0e8ffd9346fddd.bin",
+       "dtype": "i2",
+       "bytes": 25024
+      }
+     },
+     "window": [
+      0.0,
+      255.0
+     ]
+    },
+    {
+     "id": "ants-1",
+     "role": "original",
+     "label": "ANTs 2.6.5, 1 thread",
+     "sub": "as built (GCC 14.3), glibc's maths",
+     "arrays": {
+      "placed": {
+       "blob": "a7d138f95226f9e97d292c92.bin",
+       "dtype": "f8",
+       "bytes": 199962
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       51816.56779596762
+      ]
+     }
+    },
+    {
+     "id": "ants-1-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, correctly rounded maths",
+     "sub": "1 thread, CORE-MATH preloaded",
+     "arrays": {
+      "placed": {
+       "same": "ants-1:placed",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       51816.56779596762
+      ]
+     }
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "reproduce mode, 8 threads",
+     "arrays": {
+      "placed": {
+       "same": "ants-1:placed",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       51816.56779596762
+      ]
+     }
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "default mode, 8 threads",
+     "arrays": {
+      "placed": {
+       "same": "ants-1:placed",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       51816.56779596762
+      ]
+     }
+    },
+    {
+     "id": "ants-8",
+     "role": "original",
+     "label": "ANTs 2.6.5, 8 threads",
+     "sub": "as built",
+     "arrays": {
+      "placed": {
+       "blob": "c290189b986e360977a559a0.bin",
+       "dtype": "f8",
+       "xor": "ants-1-cr:placed",
+       "zero": false,
+       "bytes": 57482
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       51816.56779596761
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants",
+     "a": "larmorx",
+     "b": "ants-1",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 2097152,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 76430.18050957841,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 0.0,
+       "at": [
+        2,
+        0,
+        62
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx gives the unmodified ANTs program's bytes."
+    },
+    {
+     "id": "lx-cr",
+     "a": "larmorx",
+     "b": "ants-1-cr",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 2097152,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 76430.18050957841,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 0.0,
+       "at": [
+        2,
+        0,
+        62
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx gives ANTs' bytes with correctly rounded maths."
+    },
+    {
+     "id": "lx1-lx",
+     "a": "larmorx-1",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, 1 thread − 8 threads (reproduce)",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 2097152,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 76430.18050957841,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx's result does not depend on its thread count."
+    },
+    {
+     "id": "fix-lx",
+     "a": "larmorx-fix",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 2097152,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 76430.18050957841,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 0.0,
+       "at": [
+        2,
+        0,
+        62
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "No correction of the defect register changes this call."
+    },
+    {
+     "id": "ants8-ants1",
+     "a": "ants-8",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 8 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "placed": {
+       "identical": false,
+       "voxels": 2097152,
+       "differ": 853957,
+       "share": 0.407198429107666,
+       "max_abs": 9.224459063261747e-08,
+       "at": [
+        78,
+        94,
+        42
+       ],
+       "a_at": 70822.71471971092,
+       "b_at": 70822.71471961867,
+       "rms": 2.739004187053901e-09,
+       "range": 76430.18050957841,
+       "max_rel_range": 1.2069131594037929e-12,
+       "one_minus_ncc": 2.3763405387142247e-26,
+       "at_display": [
+        49,
+        94,
+        42
+       ]
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 6.378104444593191e-08,
+       "at": [
+        62,
+        38,
+        80
+       ],
+       "a": 27950.337609536356,
+       "b": 27950.337609600138,
+       "differ": 28613,
+       "plane": "sagittal"
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "ANTs' own result moves with its thread count (placed): the yardstick for any difference above."
+    }
+   ],
+   "default": {
+    "output": "placed",
+    "plane": "axial",
+    "voxel": [
+     62,
+     63,
+     62
+    ],
+    "panels": [
+     "magnitude",
+     "ants-1",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "lx-ants",
+     "lx-cr",
+     "fix-lx"
+    ],
+    "compare": {
+     "a": "ants-1",
+     "b": "larmorx"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 62,
+    "aspect": 0.98438,
+    "panels": {
+     "magnitude": "fbf2925da9655cce0b1bbbca.webp",
+     "ants-1": "b8a44d4233b7ca1afd6e1140.webp",
+     "larmorx": "b8a44d4233b7ca1afd6e1140.webp",
+     "larmorx-fix": "b8a44d4233b7ca1afd6e1140.webp"
+    },
+    "diffs": {},
+    "ranges": {},
+    "caption": "Axial slice 63 of 127; the crosshair at the centre of the field of view; the three slices through it are stored at full resolution."
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B over all 2,097,152 values of each output (the moving image placed on the fixed grid through each run's transform).",
+   "provenance": [
+    "Data: OpenNeuro ds002603, sub-01, CC0-1.0",
+    "Inputs: input 1 (sha256 5211a3e1d6558e9f…)",
+    "Runs: figures cache entry `ants-registration/panel-fmriprep-coregister-philips`, computed 2026-10-27T01:42:06+00:00 with larmorx `042d70d5a17c`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds002603"
+   ]
   }
  ],
  "cases_credits": [
   "openneuro-ds000005",
+  "openneuro-ds005454",
+  "openneuro-ds002603",
   "openneuro-ds005040",
-  "openneuro-ds005454"
+  "openneuro-ds000228",
+  "openneuro-ds000256",
+  "openneuro-ds001600",
+  "openneuro-ds002422",
+  "openneuro-ds003592",
+  "openneuro-ds004173",
+  "openneuro-ds004884",
+  "openneuro-ds004958",
+  "openneuro-ds005003",
+  "openneuro-ds005752",
+  "templateflow-MNI152NLin2009cAsym"
  ],
  "credits": {
   "openneuro-ds000005": {
@@ -17540,6 +21917,156 @@
    "attribution": false,
    "share_alike": false,
    "text": "Mixed-gambles task (OpenNeuro ds000005, version 00001), Open Data Commons Public Domain Dedication and Licence 1.0."
+  },
+  "openneuro-ds000228": {
+   "id": "openneuro-ds000228",
+   "title": "Children and adults watching a short film",
+   "source": "OpenNeuro ds000228",
+   "version": "1.1.1",
+   "doi": "10.18112/openneuro.ds000228.v1.1.1",
+   "url": "https://openneuro.org/datasets/ds000228/versions/1.1.1",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Richardson H, Lisandrelli G, Riobueno-Naylor A, Saxe R (2018). Development of the social brain from age three to twelve years. Nature Communications 9:1027. doi:10.1038/s41467-018-03399-2. Dataset: OpenNeuro ds000228 v1.1.1, doi:10.18112/openneuro.ds000228.v1.1.1",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Children and adults watching a short film (OpenNeuro ds000228, version 1.1.1, doi:10.18112/openneuro.ds000228.v1.1.1), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds000256": {
+   "id": "openneuro-ds000256",
+   "title": "Behavioral interventions for reducing head motion in children",
+   "source": "OpenNeuro ds000256",
+   "version": "00002",
+   "doi": "",
+   "url": "https://openneuro.org/datasets/ds000256/versions/00002",
+   "licence": "PDDL-1.0",
+   "licence_name": "Open Data Commons Public Domain Dedication and Licence 1.0",
+   "licence_url": "https://opendatacommons.org/licenses/pddl/1-0/",
+   "citation": "Greene DJ, Koller JM, Hampton JM, Wesevich V, Van AN, Nguyen AL, Hoyt CR, McIntyre L, Earl EA, Klein RL, Shimony JS, Petersen SE, Schlaggar BL, Fair DA, Dosenbach NUF (2018). Behavioral interventions for reducing head motion during MRI scans in children. NeuroImage 171:234-245, https://www.sciencedirect.com/science/article/pii/S1053811918300235. Dataset: OpenNeuro ds000256 v00002",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Behavioral interventions for reducing head motion in children (OpenNeuro ds000256, version 00002), Open Data Commons Public Domain Dedication and Licence 1.0."
+  },
+  "openneuro-ds001600": {
+   "id": "openneuro-ds001600",
+   "title": "Example fieldmaps",
+   "source": "OpenNeuro ds001600",
+   "version": "1.0.0",
+   "doi": "",
+   "url": "https://openneuro.org/datasets/ds001600/versions/1.0.0",
+   "licence": "CC-BY-SA",
+   "licence_name": "Creative Commons Attribution-ShareAlike (CC BY-SA; the dataset gives no version)",
+   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "citation": "Cieslak M., Elliott M., Satterthwaite T. Example Fieldmaps. OpenNeuro ds001600, version 1.0.0 (Siemens Prisma, University of Pennsylvania).",
+   "attribution": true,
+   "share_alike": true,
+   "text": "Example fieldmaps (OpenNeuro ds001600, version 1.0.0), Creative Commons Attribution-ShareAlike (CC BY-SA; the dataset gives no version). Attribution: Cieslak M., Elliott M., Satterthwaite T. Example Fieldmaps. OpenNeuro ds001600, version 1.0.0 (Siemens Prisma, University of Pennsylvania). The images shown here are adapted from it: reoriented to RAS, cropped to the region shown, masked outside it, and shown as the outputs of the programs compared. Under its share-alike condition the images adapted from this dataset are shared under the same licence, CC BY-SA."
+  },
+  "openneuro-ds002422": {
+   "id": "openneuro-ds002422",
+   "title": "fMRI: resting state and arithmetic task",
+   "source": "OpenNeuro ds002422",
+   "version": "1.1.0",
+   "doi": "10.18112/openneuro.ds002422.v1.1.0",
+   "url": "https://openneuro.org/datasets/ds002422/versions/1.1.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Panikratova Y, Tomyshev A, Pechenkova E, Vlasova R. fMRI: resting state and arithmetic task. OpenNeuro ds002422 v1.1.0, doi:10.18112/openneuro.ds002422.v1.1.0 (\"This dataset was provided by Ya. Panikratova, A. Tomyshev, E. Pechenkova, and R. Vlasova\")",
+   "attribution": false,
+   "share_alike": false,
+   "text": "fMRI: resting state and arithmetic task (OpenNeuro ds002422, version 1.1.0, doi:10.18112/openneuro.ds002422.v1.1.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds002603": {
+   "id": "openneuro-ds002603",
+   "title": "MB-EPI-comparison",
+   "source": "OpenNeuro ds002603",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds002603.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds002603/versions/1.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Snoek L, Beemsterboer T, Scholte HS. MB-EPI-comparison. OpenNeuro ds002603 v1.0.0, doi:10.18112/openneuro.ds002603.v1.0.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "MB-EPI-comparison (OpenNeuro ds002603, version 1.0.0, doi:10.18112/openneuro.ds002603.v1.0.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds003592": {
+   "id": "openneuro-ds003592",
+   "title": "Neurocognitive aging data release",
+   "source": "OpenNeuro ds003592",
+   "version": "1.0.13",
+   "doi": "10.18112/openneuro.ds003592.v1.0.13",
+   "url": "https://openneuro.org/datasets/ds003592/versions/1.0.13",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Spreng RN, Setton R, Alter U, Cassidy BN, Darboh B, DuPre E, Kantarovich K, Lockrow AW, Mwilambwe-Tshilobo L, Luh W-M, Kundu P, Turner GR. Neurocognitive aging data release with behavioral, structural, and multi-echo functional MRI measures. OpenNeuro ds003592 v1.0.13, doi:10.18112/openneuro.ds003592.v1.0.13",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Neurocognitive aging data release (OpenNeuro ds003592, version 1.0.13, doi:10.18112/openneuro.ds003592.v1.0.13), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds004173": {
+   "id": "openneuro-ds004173",
+   "title": "Movement-related artefacts (MR-ART)",
+   "source": "OpenNeuro ds004173",
+   "version": "1.0.2",
+   "doi": "10.18112/openneuro.ds004173.v1.0.2",
+   "url": "https://openneuro.org/datasets/ds004173/versions/1.0.2",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Nárai Á, Hermann P, Auer T, Kemenczky P, Szalma J, Homolya I, Somogyi E, Vakli P, Weiss B, Vidnyánszky Z (2022). Movement-related artefacts (MR-ART) dataset of matched motion-corrupted and clean structural MRI brain scans. Scientific Data 9:630, doi:10.1038/s41597-022-01694-8. Dataset: OpenNeuro ds004173 v1.0.2, doi:10.18112/openneuro.ds004173.v1.0.2",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Movement-related artefacts (MR-ART) (OpenNeuro ds004173, version 1.0.2, doi:10.18112/openneuro.ds004173.v1.0.2), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds004884": {
+   "id": "openneuro-ds004884",
+   "title": "Aphasia Recovery Cohort",
+   "source": "OpenNeuro ds004884",
+   "version": "1.0.2",
+   "doi": "10.18112/openneuro.ds004884.v1.0.2",
+   "url": "https://openneuro.org/datasets/ds004884/versions/1.0.2",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Gibson M, Newman-Norlund R, Bonilha L, Fridriksson J, Hickok G, Hillis AE, den Ouden DB, Rorden C (2024). The Aphasia Recovery Cohort, an open-source chronic stroke repository. Scientific Data 11:981. doi:10.1038/s41597-024-03819-7. Dataset: OpenNeuro ds004884 v1.0.2, doi:10.18112/openneuro.ds004884.v1.0.2",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Aphasia Recovery Cohort (OpenNeuro ds004884, version 1.0.2, doi:10.18112/openneuro.ds004884.v1.0.2), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds004958": {
+   "id": "openneuro-ds004958",
+   "title": "The FreeSurfer Maintenance Dataset",
+   "source": "OpenNeuro ds004958",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds004958.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds004958/versions/1.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Greve DN, Fischl B. The FreeSurfer Maintenance Dataset. OpenNeuro ds004958 v1.0.0, doi:10.18112/openneuro.ds004958.v1.0.0 (FreeSurfer Maintenance grant R01EB023281; https://surfer.nmr.mgh.harvard.edu/fswiki/FsmData)",
+   "attribution": false,
+   "share_alike": false,
+   "text": "The FreeSurfer Maintenance Dataset (OpenNeuro ds004958, version 1.0.0, doi:10.18112/openneuro.ds004958.v1.0.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds005003": {
+   "id": "openneuro-ds005003",
+   "title": "Retrospective Task/Rest fMRI Data from Tumor Patients",
+   "source": "OpenNeuro ds005003",
+   "version": "2.0.0",
+   "doi": "10.18112/openneuro.ds005003.v2.0.0",
+   "url": "https://openneuro.org/datasets/ds005003/versions/2.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Leuthardt EC, Shimony JS, Snyder AZ, Dierker D, Park KY. Retrospective Task/Rest fMRI Data from Tumor Patients. OpenNeuro ds005003 v2.0.0, doi:10.18112/openneuro.ds005003.v2.0.0. The authors ask to cite doi:10.1016/j.nic.2017.06.011 and doi:10.1371/journal.pone.0236423 and to acknowledge accession ds005003.",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Retrospective Task/Rest fMRI Data from Tumor Patients (OpenNeuro ds005003, version 2.0.0, doi:10.18112/openneuro.ds005003.v2.0.0), CC0 1.0 public-domain dedication."
   },
   "openneuro-ds005040": {
    "id": "openneuro-ds005040",
@@ -17570,6 +22097,21 @@
    "attribution": true,
    "share_alike": false,
    "text": "fMRIPrep boot camp 7T training dataset (OpenNeuro ds005454, version 1.0.0, doi:10.18112/openneuro.ds005454.v1.0.0), Creative Commons Attribution 4.0 (CC BY 4.0). Attribution: Sleight EC, Esteban O, Grouiller F. fMRIPrep boot camp -- 7T training dataset. OpenNeuro ds005454, version 1.0.0. doi:10.18112/openneuro.ds005454.v1.0.0 The images shown here are adapted from it: reoriented to RAS, cropped to the region shown, masked outside it, and shown as the outputs of the programs compared."
+  },
+  "openneuro-ds005752": {
+   "id": "openneuro-ds005752",
+   "title": "NIMH Healthy Research Volunteer Dataset",
+   "source": "OpenNeuro ds005752",
+   "version": "2.1.0",
+   "doi": "10.18112/openneuro.ds005752.v2.1.0",
+   "url": "https://openneuro.org/datasets/ds005752/versions/2.1.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Nugent AC, Thomas AG, Mahoney M, Gibbons A, Smith JT, Charles AJ, Shaw JS, Stout JD, Namyst AM, Basavaraj A, Earl E, Riddle T, Snow J, Japee S, Pavletic AJ, Sinclair S, Roopchansingh V, Bandettini PA, Chung J (2022). The NIMH intramural healthy volunteer dataset: A comprehensive MEG, MRI, and behavioral resource. Scientific Data 9:518. doi:10.1038/s41597-022-01623-9. Dataset: OpenNeuro ds005752 v2.1.0, doi:10.18112/openneuro.ds005752.v2.1.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "NIMH Healthy Research Volunteer Dataset (OpenNeuro ds005752, version 2.1.0, doi:10.18112/openneuro.ds005752.v2.1.0), CC0 1.0 public-domain dedication."
   },
   "templateflow-MNI152NLin2009cAsym": {
    "id": "templateflow-MNI152NLin2009cAsym",
