@@ -3,7 +3,7 @@
  "tool": "ants-ai",
  "title": "antsAI, antsAffineInitializer",
  "provenance": {
-  "exporter": "f82992b55fd6ca5b48682b959a546aedc5331326",
+  "exporter": "8f0505aab20895ade1e823d7b832106e25a22c53-dirty",
   "records": [
    {
     "path": "docs/validation/ants-ai.json",
@@ -18,6 +18,18 @@
     "larmorx_commit": "6bf2860fb745"
    },
    {
+    "path": "docs/validation/ants-ai-panel.json",
+    "sha256": "1017516f5659a567183ec59beeb8e862bad137033bd3b4a0952bd66febc8cd66",
+    "generated": "2026-10-26",
+    "larmorx_commit": "31f7554c83d3"
+   },
+   {
+    "path": "docs/validation/ants-ai-panel.md",
+    "sha256": "c43bd5803239acb85d3ab6d5ba2dacc39f8df57430d088ba5f2e2c023164c273",
+    "generated": "2026-10-26",
+    "larmorx_commit": "31f7554c83d3"
+   },
+   {
     "path": "docs/validation/ants-affine-initializer.json",
     "sha256": "3fcc9e6256529812bf6d64d5ff878b92248f0624fb7ab6c0e71bf4f860d8f294",
     "generated": "2026-10-17",
@@ -28,6 +40,18 @@
     "sha256": "c76d4a6c0dbf25338fc98c8f71ea26506230788af90076ba747e46908193b1c6",
     "generated": "2026-10-17",
     "larmorx_commit": "61309dd10e0e"
+   },
+   {
+    "path": "docs/validation/ants-affine-initializer-panel.json",
+    "sha256": "f6cca81400864135b2abbfa9a2c167a5f28b48d6c8edf026feb2fbcd29e580cd",
+    "generated": "2026-10-26",
+    "larmorx_commit": "31f7554c83d3"
+   },
+   {
+    "path": "docs/validation/ants-affine-initializer-panel.md",
+    "sha256": "d5bcfb1196e4abd801fd04f1a7e665b288f902878a92ec889733530b5e1b6996",
+    "generated": "2026-10-26",
+    "larmorx_commit": "31f7554c83d3"
    }
   ],
   "benchmarks": [],
@@ -1566,6 +1590,666 @@
      ]
     },
     "settings": "fMRIPrep's preprocessed T1w of ds000005 sub-01 against two copies with a transform known by construction (the parity suite's ai-blobs-t1w-shift and ai-blobs-t1w-rotated); antsAI -b 30 with the record's arguments (Rigid[0.1], Mattes 32 bins, Regular 0.25); ANTs' steps from the blob probe (validation/probes/ants-ai-blobs, built against the oracle's ITK with GCC 14.3); larmorx's from lx.ants.blob_alignment; each transform applied to the moving image times its brain mask by antsApplyTransforms (ANTs as built, linear, one thread); the true transform fitted exactly to the construction's points"
+   },
+   {
+    "entry": "ants-ai/panel-fmriprep-init-aff-tumour",
+    "description": "Data panel: fMRIPrep's brain-extraction antsAI on a brain with a tumour (data panel)",
+    "computed": "2026-10-26T21:59:46+00:00",
+    "larmorx_commit": "349d3f781431aaa79f30d06b9c0ca8619522e4b4",
+    "commands": [
+     {
+      "label": "ants-1",
+      "argv": [
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/ants-2.6.5/bin/antsAI",
+       "-c",
+       "[10,1e-06,10]",
+       "-d",
+       "3",
+       "-x",
+       "<workspace>/oracles/templateflow/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_desc-BrainCerebellumExtraction_mask.nii.gz",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz,<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-RS001_ses-1_T1w_noise_corrected_maths_corrected_regrid.nii.gz,32,Regular,0.25]",
+       "-o",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/ants-1/initialization.mat",
+       "-p",
+       "0",
+       "-s",
+       "[15,0.1]",
+       "-g",
+       "[40.0,0x40x40]",
+       "-t",
+       "Affine[0.1]",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "ANTS_RANDOM_SEED": "50495"
+      },
+      "exit": 0,
+      "seconds": 78.26
+     },
+     {
+      "label": "ants-1-placed",
+      "argv": [
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-RS001_ses-1_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-t",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/ants-1/initialization.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/ants-1/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.08
+     },
+     {
+      "label": "ants-1-cr",
+      "argv": [
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/ants-2.6.5/bin/antsAI",
+       "-c",
+       "[10,1e-06,10]",
+       "-d",
+       "3",
+       "-x",
+       "<workspace>/oracles/templateflow/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_desc-BrainCerebellumExtraction_mask.nii.gz",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz,<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-RS001_ses-1_T1w_noise_corrected_maths_corrected_regrid.nii.gz,32,Regular,0.25]",
+       "-o",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/ants-1-cr/initialization.mat",
+       "-p",
+       "0",
+       "-s",
+       "[15,0.1]",
+       "-g",
+       "[40.0,0x40x40]",
+       "-t",
+       "Affine[0.1]",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "ANTS_RANDOM_SEED": "50495",
+       "LD_PRELOAD": "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 77.14
+     },
+     {
+      "label": "ants-1-cr-placed",
+      "argv": [
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-RS001_ses-1_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-t",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/ants-1-cr/initialization.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/ants-1-cr/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.07
+     },
+     {
+      "label": "ants-8",
+      "argv": [
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/ants-2.6.5/bin/antsAI",
+       "-c",
+       "[10,1e-06,10]",
+       "-d",
+       "3",
+       "-x",
+       "<workspace>/oracles/templateflow/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_desc-BrainCerebellumExtraction_mask.nii.gz",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz,<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-RS001_ses-1_T1w_noise_corrected_maths_corrected_regrid.nii.gz,32,Regular,0.25]",
+       "-o",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/ants-8/initialization.mat",
+       "-p",
+       "0",
+       "-s",
+       "[15,0.1]",
+       "-g",
+       "[40.0,0x40x40]",
+       "-t",
+       "Affine[0.1]",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "ANTS_RANDOM_SEED": "50495"
+      },
+      "exit": 0,
+      "seconds": 19.42
+     },
+     {
+      "label": "ants-8-placed",
+      "argv": [
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-RS001_ses-1_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-t",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/ants-8/initialization.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/ants-8/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.08
+     },
+     {
+      "label": "larmorx",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsAI",
+       "-c",
+       "[10,1e-06,10]",
+       "-d",
+       "3",
+       "-x",
+       "<workspace>/oracles/templateflow/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_desc-BrainCerebellumExtraction_mask.nii.gz",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz,<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-RS001_ses-1_T1w_noise_corrected_maths_corrected_regrid.nii.gz,32,Regular,0.25]",
+       "-o",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/larmorx/initialization.mat",
+       "-p",
+       "0",
+       "-s",
+       "[15,0.1]",
+       "-g",
+       "[40.0,0x40x40]",
+       "-t",
+       "Affine[0.1]",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "ANTS_RANDOM_SEED": "50495"
+      },
+      "exit": 0,
+      "seconds": 38.4
+     },
+     {
+      "label": "larmorx-placed",
+      "argv": [
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-RS001_ses-1_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-t",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/larmorx/initialization.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/larmorx/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.08
+     },
+     {
+      "label": "larmorx-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsAI",
+       "-c",
+       "[10,1e-06,10]",
+       "-d",
+       "3",
+       "-x",
+       "<workspace>/oracles/templateflow/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_desc-BrainCerebellumExtraction_mask.nii.gz",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz,<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-RS001_ses-1_T1w_noise_corrected_maths_corrected_regrid.nii.gz,32,Regular,0.25]",
+       "-o",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/larmorx-1/initialization.mat",
+       "-p",
+       "0",
+       "-s",
+       "[15,0.1]",
+       "-g",
+       "[40.0,0x40x40]",
+       "-t",
+       "Affine[0.1]",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "ANTS_RANDOM_SEED": "50495"
+      },
+      "exit": 0,
+      "seconds": 131.33
+     },
+     {
+      "label": "larmorx-1-placed",
+      "argv": [
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-RS001_ses-1_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-t",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/larmorx-1/initialization.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/larmorx-1/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.08
+     },
+     {
+      "label": "larmorx-fix",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsAI",
+       "-c",
+       "[10,1e-06,10]",
+       "-d",
+       "3",
+       "-x",
+       "<workspace>/oracles/templateflow/tpl-OASIS30ANTs/tpl-OASIS30ANTs_res-01_desc-BrainCerebellumExtraction_mask.nii.gz",
+       "-m",
+       "Mattes[<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz,<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-RS001_ses-1_T1w_noise_corrected_maths_corrected_regrid.nii.gz,32,Regular,0.25]",
+       "-o",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/larmorx-fix/initialization.mat",
+       "-p",
+       "0",
+       "-s",
+       "[15,0.1]",
+       "-g",
+       "[40.0,0x40x40]",
+       "-t",
+       "Affine[0.1]",
+       "-v",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "ANTS_RANDOM_SEED": "50495"
+      },
+      "exit": 0,
+      "seconds": 37.55
+     },
+     {
+      "label": "larmorx-fix-placed",
+      "argv": [
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_target/sub-RS001_ses-1_T1w_noise_corrected_maths_corrected_regrid.nii.gz",
+       "-r",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/res_tmpl/tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+       "-t",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/larmorx-fix/initialization.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "/tmp/claude-1000/-home-karelo-VScode-projects-super-fmriprep/7214b6a0-d66a-4953-afa8-24cf02d0691a/scratchpad/panel-ants/oracles/figures-cache/ants-ai/panel-fmriprep-init-aff-tumour/larmorx-fix/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.08
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "threads": {
+     "ants": [
+      1,
+      8
+     ],
+     "ants_crmath": 1,
+     "larmorx": [
+      8,
+      1
+     ]
+    },
+    "settings": "a data-panel case of antsAI: ANTs 2.6.5 at 1 thread (as built and with CORE-MATH) and at 8 threads; larmorx in reproduce mode at 8 and 1 threads, in its default mode at 8; each transform placed by ANTs' antsApplyTransforms (linear)"
+   },
+   {
+    "entry": "ants-ai/panel-affine-initializer-stroke",
+    "description": "Data panel: sMRIPrep's antsAffineInitializer on a brain with a stroke (data panel)",
+    "computed": "2026-10-26T23:21:01+00:00",
+    "larmorx_commit": "1fa019a08fbb895f0a491e7f9d0b12e86f32eed0",
+    "commands": [
+     {
+      "label": "ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAffineInitializer",
+       "3",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/fixed_masked.nii.gz",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/moving_masked.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/ants-1/transform.mat",
+       "15.000000",
+       "0.100000",
+       "0",
+       "10"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 352.53
+     },
+     {
+      "label": "ants-1-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/moving_masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/fixed_masked.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/ants-1/transform.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/ants-1/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 1.09
+     },
+     {
+      "label": "ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAffineInitializer",
+       "3",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/fixed_masked.nii.gz",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/moving_masked.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/ants-1-cr/transform.mat",
+       "15.000000",
+       "0.100000",
+       "0",
+       "10"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 333.98
+     },
+     {
+      "label": "ants-1-cr-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/moving_masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/fixed_masked.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/ants-1-cr/transform.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/ants-1-cr/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.96
+     },
+     {
+      "label": "ants-8",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsAffineInitializer",
+       "3",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/fixed_masked.nii.gz",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/moving_masked.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/ants-8/transform.mat",
+       "15.000000",
+       "0.100000",
+       "0",
+       "10"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8"
+      },
+      "exit": 0,
+      "seconds": 348.28
+     },
+     {
+      "label": "ants-8-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/moving_masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/fixed_masked.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/ants-8/transform.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/ants-8/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.93
+     },
+     {
+      "label": "larmorx",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsAffineInitializer",
+       "3",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/fixed_masked.nii.gz",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/moving_masked.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/larmorx/transform.mat",
+       "15.000000",
+       "0.100000",
+       "0",
+       "10"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 1213.91
+     },
+     {
+      "label": "larmorx-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/moving_masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/fixed_masked.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/larmorx/transform.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/larmorx/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.96
+     },
+     {
+      "label": "larmorx-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsAffineInitializer",
+       "3",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/fixed_masked.nii.gz",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/moving_masked.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/larmorx-1/transform.mat",
+       "15.000000",
+       "0.100000",
+       "0",
+       "10"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 1194.65
+     },
+     {
+      "label": "larmorx-1-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/moving_masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/fixed_masked.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/larmorx-1/transform.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/larmorx-1/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 1.02
+     },
+     {
+      "label": "larmorx-fix",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "antsAffineInitializer",
+       "3",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/fixed_masked.nii.gz",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/moving_masked.nii.gz",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/larmorx-fix/transform.mat",
+       "15.000000",
+       "0.100000",
+       "0",
+       "10"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 610.37
+     },
+     {
+      "label": "larmorx-fix-placed",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/antsApplyTransforms",
+       "-d",
+       "3",
+       "-i",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/moving_masked.nii.gz",
+       "-r",
+       "<workspace>/oracles/inputs/fmriprep-registration/ds004884-sub-M2079-noreconall/fixed_masked.nii.gz",
+       "-t",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/larmorx-fix/transform.mat",
+       "-n",
+       "Linear",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-ai/panel-affine-initializer-stroke/larmorx-fix/placed.nii.gz"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 0.93
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "threads": {
+     "ants": [
+      1,
+      8
+     ],
+     "ants_crmath": 1,
+     "larmorx": [
+      8,
+      1
+     ]
+    },
+    "settings": "a data-panel case of antsAffineInitializer: ANTs 2.6.5 at 1 thread (as built and with CORE-MATH) and at 8 threads; larmorx in reproduce mode at 8 and 1 threads, in its default mode at 8; each transform placed by ANTs' antsApplyTransforms (linear)"
    }
   ],
   "measurements": [
@@ -1581,10 +2265,10 @@
    "record": "docs/validation/ants-ai.md",
    "status": "validated",
    "summary": {
-    "cases": 131,
+    "cases": 171,
     "verdicts": {
-     "bit-identical": 74,
-     "identical-cr": 1,
+     "bit-identical": 112,
+     "identical-cr": 3,
      "both-reject": 52,
      "divergence": 4
     }
@@ -1630,6 +2314,20 @@
       "bit-identical": 20,
       "both-reject": 5
      }
+    },
+    {
+     "category": "panel-fmriprep",
+     "counts": {
+      "bit-identical": 35,
+      "identical-cr": 1
+     }
+    },
+    {
+     "category": "panel-images",
+     "counts": {
+      "bit-identical": 3,
+      "identical-cr": 1
+     }
     }
    ],
    "name": "ants-ai"
@@ -1641,9 +2339,9 @@
    "record": "docs/validation/ants-affine-initializer.md",
    "status": "validated",
    "summary": {
-    "cases": 41,
+    "cases": 55,
     "verdicts": {
-     "bit-identical": 26,
+     "bit-identical": 40,
      "both-reject": 13,
      "divergence": 2
     }
@@ -1667,6 +2365,12 @@
      "category": "real",
      "counts": {
       "bit-identical": 1
+     }
+    },
+    {
+     "category": "panel-fmriprep",
+     "counts": {
+      "bit-identical": 14
      }
     }
    ],
@@ -3513,6 +4217,566 @@
    }
   },
   {
+   "id": "antsAI/panel/fmriprep/ds000005-sub-01/anat_fit/brain_extraction/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds000005-sub-01 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds000005-sub-01/bold[task_mixedgamblestask_run_01]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_mixedgamblestask_run_01]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds000005-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds000005-sub-01/bold[task_mixedgamblestask_run_02]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_mixedgamblestask_run_02]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds000005-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds000005-sub-01/bold[task_mixedgamblestask_run_03]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_mixedgamblestask_run_03]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds000005-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds000228-sub-pixar008/anat_fit/brain_extraction/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds000228-sub-pixar008 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds000228-sub-pixar008/bold[task_pixar]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_pixar]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds000228-sub-pixar008 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds000256-sub-CTS203/anat_fit/brain_extraction/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds000256-sub-CTS203 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds000256-sub-CTS203/bold[task_restbaseline]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_restbaseline]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds000256-sub-CTS203 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds000256-sub-CTS203/bold[task_restfixationfixed]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_restfixationfixed]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds000256-sub-CTS203 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "12/12",
+     "reason": "differs from ANTs as built in initialization.mat; identical to ANTs with CORE-MATH preloaded"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds000256-sub-CTS203/bold[task_restfixationnofeedback]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_restfixationnofeedback]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds000256-sub-CTS203 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds001600-sub-1/anat_fit/brain_extraction/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds001600-sub-1 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds002422-sub-02/anat_fit/brain_extraction/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds002422-sub-02 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds002422-sub-02/bold[task_arithm_run_01]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_arithm_run_01]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds002422-sub-02 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds002422-sub-02/bold[task_arithm_run_02]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_arithm_run_02]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds002422-sub-02 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds002422-sub-02/bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds002422-sub-02 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds002603-sub-01/anat_fit/brain_extraction/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds002603-sub-01 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds002603-sub-01/bold[task_wm_acq_Mb4Mm3Tr550]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_wm_acq_Mb4Mm3Tr550]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds002603-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds002603-sub-01/bold[task_wm_acq_SeqMm3Tr2000]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_wm_acq_SeqMm3Tr2000]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds002603-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds003592-sub-280/anat_fit/brain_extraction/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds003592-sub-280 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds003592-sub-280/bold[ses_1_task_rest_echo_1]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_1_task_rest_echo_1]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds003592-sub-280 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds004173-sub-603309/anat_fit/brain_extraction/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds004173-sub-603309 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds004884-sub-M2079/anat_fit/brain_extraction/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds004884-sub-M2079 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds004884-sub-M2079/bold[ses_217_task_naming40_acq_epfid2_dir_AP_run_2]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_217_task_naming40_acq_epfid2_dir_AP_run_2]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds004884-sub-M2079 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds004884-sub-M2079/bold[ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds004884-sub-M2079 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds004958-sub-fsm64ps/anat_fit/brain_extraction/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds004958-sub-fsm64ps (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds004958-sub-fsm64ps/bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds004958-sub-fsm64ps (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds005003-sub-RS001/anat_fit/brain_extraction/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds005003-sub-RS001 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds005003-sub-RS001/bold[ses_1_task_motor]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_1_task_motor]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds005003-sub-RS001 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds005003-sub-RS001/bold[ses_1_task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_1_task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds005003-sub-RS001 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds005040-sub-002/anat_fit/brain_extraction/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds005040-sub-002 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds005040-sub-002/bold[task_clip_run_1]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_clip_run_1]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds005040-sub-002 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds005454-sub-16/anat_fit/brain_extraction/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds005454-sub-16 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds005454-sub-16/bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds005454-sub-16 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds005752-sub-ON01016/anat_fit/brain_extraction/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds005752-sub-ON01016 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds005752-sub-ON01016/bold[ses_01_task_rest_dir_forward]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_01_task_rest_dir_forward]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds005752-sub-ON01016 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/fmriprep/ds005752-sub-ON01016/bold[ses_01_task_rest_dir_reverse]/bold_fit/enhance_and_skullstrip_bold/init_aff",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_01_task_rest_dir_reverse]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds005752-sub-ON01016 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/images/brain-extraction/flair",
+   "category": "panel-images",
+   "description": "sMRIPrep's brain-extraction antsAI (OASIS30ANTs, Mattes, an Affine search, fMRIPrep's seed) on a FLAIR whose 44 slices of 3 mm cover part of the head (ds003592 sub-280: an 82-year-old's FLAIR (0.42 x 0.42 x 3 mm, 44 slices))",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/images/brain-extraction/tumour-t2w",
+   "category": "panel-images",
+   "description": "sMRIPrep's brain-extraction antsAI (OASIS30ANTs, Mattes, an Affine search, fMRIPrep's seed) on a T2w of 6 mm slices with a tumour (ds005003 sub-RS001: the tumour's T2w: 5 mm slices 6 mm apart (0.72 x 0.72 x 6 mm))",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/images/brain-extraction/t2w-older",
+   "category": "panel-images",
+   "description": "sMRIPrep's brain-extraction antsAI (OASIS30ANTs, Mattes, an Affine search, fMRIPrep's seed) on an older adult's T2w (T2 contrast against a T1 template) (ds004958 sub-fsm64ps: 3 T T2-SPACE of a 68-year-old (1 mm, defaced with MiDeFace))",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAI/panel/images/brain-extraction/7t-mp2rage",
+   "category": "panel-images",
+   "description": "sMRIPrep's brain-extraction antsAI (OASIS30ANTs, Mattes, an Affine search, fMRIPrep's seed) on the raw 7 T MP2RAGE, its noisy background as bright as the head (ds005454 sub-16: 7 T MP2RAGE uniform image as reconstructed (0.8 mm, 224 x 272 x 288, its noisy background kept), the panel's largest anatomical image)",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "11/11",
+     "reason": "differs from ANTs as built in initialization.mat; identical to ANTs with CORE-MATH preloaded"
+    }
+   }
+  },
+  {
    "id": "antsAffineInitializer/messages/no-arguments",
    "category": "messages",
    "description": "No arguments: the usage, exit 0",
@@ -4085,9 +5349,205 @@
      "reason": "exit status, standard output, standard error, every file"
     }
    }
+  },
+  {
+   "id": "antsAffineInitializer/panel/fmriprep/ds000005-sub-01/anat_fit/register_template[MNI152NLin2009cAsym]/registration/antsAffineInitializer",
+   "category": "panel-fmriprep",
+   "description": "sMRIPrep's antsAffineInitializer inside the template registration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of ds000005-sub-01 (nipype's AffineInitializer arguments; the masked template and T1w made again exactly from the node's inputs)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/panel/fmriprep/ds000228-sub-pixar008/anat_fit/register_template[MNI152NLin2009cAsym]/registration/antsAffineInitializer",
+   "category": "panel-fmriprep",
+   "description": "sMRIPrep's antsAffineInitializer inside the template registration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of ds000228-sub-pixar008 (nipype's AffineInitializer arguments; the masked template and T1w made again exactly from the node's inputs)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/panel/fmriprep/ds000256-sub-CTS203/anat_fit/register_template[MNI152NLin2009cAsym]/registration/antsAffineInitializer",
+   "category": "panel-fmriprep",
+   "description": "sMRIPrep's antsAffineInitializer inside the template registration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of ds000256-sub-CTS203 (nipype's AffineInitializer arguments; the masked template and T1w made again exactly from the node's inputs)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/panel/fmriprep/ds001600-sub-1/anat_fit/register_template[MNI152NLin2009cAsym]/registration/antsAffineInitializer",
+   "category": "panel-fmriprep",
+   "description": "sMRIPrep's antsAffineInitializer inside the template registration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of ds001600-sub-1 (nipype's AffineInitializer arguments; the masked template and T1w made again exactly from the node's inputs)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/panel/fmriprep/ds002422-sub-02/anat_fit/register_template[MNI152NLin2009cAsym]/registration/antsAffineInitializer",
+   "category": "panel-fmriprep",
+   "description": "sMRIPrep's antsAffineInitializer inside the template registration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of ds002422-sub-02 (nipype's AffineInitializer arguments; the masked template and T1w made again exactly from the node's inputs)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/panel/fmriprep/ds002603-sub-01/anat_fit/register_template[MNI152NLin2009cAsym]/registration/antsAffineInitializer",
+   "category": "panel-fmriprep",
+   "description": "sMRIPrep's antsAffineInitializer inside the template registration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of ds002603-sub-01 (nipype's AffineInitializer arguments; the masked template and T1w made again exactly from the node's inputs)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/panel/fmriprep/ds003592-sub-280/anat_fit/register_template[MNI152NLin2009cAsym]/registration/antsAffineInitializer",
+   "category": "panel-fmriprep",
+   "description": "sMRIPrep's antsAffineInitializer inside the template registration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of ds003592-sub-280 (nipype's AffineInitializer arguments; the masked template and T1w made again exactly from the node's inputs)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/panel/fmriprep/ds004173-sub-603309/anat_fit/register_template[MNI152NLin2009cAsym]/registration/antsAffineInitializer",
+   "category": "panel-fmriprep",
+   "description": "sMRIPrep's antsAffineInitializer inside the template registration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of ds004173-sub-603309 (nipype's AffineInitializer arguments; the masked template and T1w made again exactly from the node's inputs)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/panel/fmriprep/ds004884-sub-M2079/anat_fit/register_template[MNI152NLin2009cAsym]/registration/antsAffineInitializer",
+   "category": "panel-fmriprep",
+   "description": "sMRIPrep's antsAffineInitializer inside the template registration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of ds004884-sub-M2079 (nipype's AffineInitializer arguments; the masked template and T1w made again exactly from the node's inputs)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/panel/fmriprep/ds004958-sub-fsm64ps/anat_fit/register_template[MNI152NLin2009cAsym]/registration/antsAffineInitializer",
+   "category": "panel-fmriprep",
+   "description": "sMRIPrep's antsAffineInitializer inside the template registration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of ds004958-sub-fsm64ps (nipype's AffineInitializer arguments; the masked template and T1w made again exactly from the node's inputs)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/panel/fmriprep/ds005003-sub-RS001/anat_fit/register_template[MNI152NLin2009cAsym]/registration/antsAffineInitializer",
+   "category": "panel-fmriprep",
+   "description": "sMRIPrep's antsAffineInitializer inside the template registration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of ds005003-sub-RS001 (nipype's AffineInitializer arguments; the masked template and T1w made again exactly from the node's inputs)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/panel/fmriprep/ds005040-sub-002/anat_fit/register_template[MNI152NLin2009cAsym]/registration/antsAffineInitializer",
+   "category": "panel-fmriprep",
+   "description": "sMRIPrep's antsAffineInitializer inside the template registration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of ds005040-sub-002 (nipype's AffineInitializer arguments; the masked template and T1w made again exactly from the node's inputs)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/panel/fmriprep/ds005454-sub-16/anat_fit/register_template[MNI152NLin2009cAsym]/registration/antsAffineInitializer",
+   "category": "panel-fmriprep",
+   "description": "sMRIPrep's antsAffineInitializer inside the template registration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of ds005454-sub-16 (nipype's AffineInitializer arguments; the masked template and T1w made again exactly from the node's inputs)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
+   "id": "antsAffineInitializer/panel/fmriprep/ds005752-sub-ON01016/anat_fit/register_template[MNI152NLin2009cAsym]/registration/antsAffineInitializer",
+   "category": "panel-fmriprep",
+   "description": "sMRIPrep's antsAffineInitializer inside the template registration node `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of ds005752-sub-ON01016 (nipype's AffineInitializer arguments; the masked template and T1w made again exactly from the node's inputs)",
+   "command": "",
+   "results": {
+    "init": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
   }
  ],
- "cases_total": 172,
+ "cases_total": 226,
  "tables": [
   {
    "id": "ants-116",
@@ -4400,6 +5860,936 @@
     }
    ],
    "note": "From `validation/investigations/ants-116-blob-orientation/results.json` (measure.py: `lx.ants.blob_alignment` at 30 blobs in both modes; larmorx's default also corrects ANTS-110, -111, -112, -114 and ITK-60, reproduce mode is ANTs' result bit for bit). Identical pairs: the blobs found at the same voxel in both images whose patches fit in both; a pair is true when the moving blob lies within two voxels of where the known transform sends the fixed one; the distances are those of the brain's (or the phantom's) points from where the true transform sends them."
+  },
+  {
+   "id": "panel-nodes",
+   "title": "fMRIPrep's antsAI nodes in the fourteen oracle runs, and what the panel record compares of them",
+   "columns": [
+    {
+     "label": "Node (normalised path)"
+    },
+    {
+     "label": "Nodes",
+     "num": true
+    },
+    {
+     "label": "Runs",
+     "num": true
+    },
+    {
+     "label": "Compared",
+     "num": true
+    },
+    {
+     "label": "Same call as a compared one",
+     "num": true
+    },
+    {
+     "label": "Statuses",
+     "num": false
+    },
+    {
+     "label": "Not compared: why",
+     "num": false
+    }
+   ],
+   "rows": [
+    {
+     "head": "anat_fit_wf/brain_extraction_wf/init_aff",
+     "cells": [
+      {
+       "v": 14,
+       "fmt": "count"
+      },
+      {
+       "v": 14,
+       "fmt": "count"
+      },
+      {
+       "v": 14,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "text": "14 pass"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    },
+    {
+     "head": "bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff",
+     "cells": [
+      {
+       "v": 22,
+       "fmt": "count"
+      },
+      {
+       "v": 12,
+       "fmt": "count"
+      },
+      {
+       "v": 22,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "text": "22 pass"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    }
+   ],
+   "note": "From the panel record (docs/validation/ants-ai-panel.md): every node of the finished fMRIPrep 25.2.6 oracle runs that ran the program, grouped by its path with the subject, run, space and item removed; a call repeated word for word is compared once."
+  },
+  {
+   "id": "panel-init-aff-tumour-transforms",
+   "title": "Data panel: fMRIPrep's brain-extraction antsAI on a brain with a tumour: every run's transform",
+   "columns": [
+    {
+     "label": "Run"
+    },
+    {
+     "label": "Class"
+    },
+    {
+     "label": "p0",
+     "num": true
+    },
+    {
+     "label": "p1",
+     "num": true
+    },
+    {
+     "label": "p2",
+     "num": true
+    },
+    {
+     "label": "p3",
+     "num": true
+    },
+    {
+     "label": "p4",
+     "num": true
+    },
+    {
+     "label": "p5",
+     "num": true
+    },
+    {
+     "label": "p6",
+     "num": true
+    },
+    {
+     "label": "p7",
+     "num": true
+    },
+    {
+     "label": "p8",
+     "num": true
+    },
+    {
+     "label": "p9",
+     "num": true
+    },
+    {
+     "label": "p10",
+     "num": true
+    },
+    {
+     "label": "p11",
+     "num": true
+    },
+    {
+     "label": "Centre (fixed parameters)"
+    }
+   ],
+   "rows": [
+    {
+     "head": "ANTs 2.6.5, 1 thread (as built (GCC 14.3), glibc's maths)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 1.058772802806696,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.19171048733797263,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.04286202631986694,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.23766291149150995,
+       "fmt": "f64"
+      },
+      {
+       "v": 1.0482755470082927,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.10760740342084091,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.05963445644369763,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.19562887207164717,
+       "fmt": "f64"
+      },
+      {
+       "v": 1.019417726235834,
+       "fmt": "f64"
+      },
+      {
+       "v": -113.17549257498075,
+       "fmt": "f64"
+      },
+      {
+       "v": -167.87445482743215,
+       "fmt": "f64"
+      },
+      {
+       "v": 134.00819334183782,
+       "fmt": "f64"
+      },
+      {
+       "text": "109.387505 156.142776 -127.291084"
+      }
+     ]
+    },
+    {
+     "head": "ANTs 2.6.5, correctly rounded maths (1 thread, CORE-MATH preloaded)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 1.058772802806696,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.19171048733797263,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.04286202631986694,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.23766291149150995,
+       "fmt": "f64"
+      },
+      {
+       "v": 1.0482755470082927,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.10760740342084091,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.05963445644369763,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.19562887207164717,
+       "fmt": "f64"
+      },
+      {
+       "v": 1.019417726235834,
+       "fmt": "f64"
+      },
+      {
+       "v": -113.17549257498075,
+       "fmt": "f64"
+      },
+      {
+       "v": -167.87445482743215,
+       "fmt": "f64"
+      },
+      {
+       "v": 134.00819334183782,
+       "fmt": "f64"
+      },
+      {
+       "text": "109.387505 156.142776 -127.291084"
+      }
+     ]
+    },
+    {
+     "head": "ANTs 2.6.5, 8 threads (as built)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 1.0587728031698098,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.19171048736603305,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.042862026454130495,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.23766291160530092,
+       "fmt": "f64"
+      },
+      {
+       "v": 1.0482755471404714,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.10760740331901672,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.05963445650283639,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.19562887211169544,
+       "fmt": "f64"
+      },
+      {
+       "v": 1.0194177262495052,
+       "fmt": "f64"
+      },
+      {
+       "v": -113.17549258143282,
+       "fmt": "f64"
+      },
+      {
+       "v": -167.8744547821187,
+       "fmt": "f64"
+      },
+      {
+       "v": 134.00819334157342,
+       "fmt": "f64"
+      },
+      {
+       "text": "109.387505 156.142776 -127.291084"
+      }
+     ]
+    },
+    {
+     "head": "larmorx (port) (reproduce mode, 8 threads)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 1.058772802806696,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.19171048733797263,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.04286202631986694,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.23766291149150995,
+       "fmt": "f64"
+      },
+      {
+       "v": 1.0482755470082927,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.10760740342084091,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.05963445644369763,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.19562887207164717,
+       "fmt": "f64"
+      },
+      {
+       "v": 1.019417726235834,
+       "fmt": "f64"
+      },
+      {
+       "v": -113.17549257498075,
+       "fmt": "f64"
+      },
+      {
+       "v": -167.87445482743215,
+       "fmt": "f64"
+      },
+      {
+       "v": 134.00819334183782,
+       "fmt": "f64"
+      },
+      {
+       "text": "109.387505 156.142776 -127.291084"
+      }
+     ]
+    },
+    {
+     "head": "larmorx (port) (reproduce mode, 1 thread)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 1.058772802806696,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.19171048733797263,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.04286202631986694,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.23766291149150995,
+       "fmt": "f64"
+      },
+      {
+       "v": 1.0482755470082927,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.10760740342084091,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.05963445644369763,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.19562887207164717,
+       "fmt": "f64"
+      },
+      {
+       "v": 1.019417726235834,
+       "fmt": "f64"
+      },
+      {
+       "v": -113.17549257498075,
+       "fmt": "f64"
+      },
+      {
+       "v": -167.87445482743215,
+       "fmt": "f64"
+      },
+      {
+       "v": 134.00819334183782,
+       "fmt": "f64"
+      },
+      {
+       "text": "109.387505 156.142776 -127.291084"
+      }
+     ]
+    },
+    {
+     "head": "larmorx (port) (default mode, 8 threads)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 1.058772802806696,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.19171048733797263,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.04286202631986694,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.23766291149150995,
+       "fmt": "f64"
+      },
+      {
+       "v": 1.0482755470082927,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.10760740342084091,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.05963445644369763,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.19562887207164717,
+       "fmt": "f64"
+      },
+      {
+       "v": 1.019417726235834,
+       "fmt": "f64"
+      },
+      {
+       "v": -113.17549257498075,
+       "fmt": "f64"
+      },
+      {
+       "v": -167.87445482743215,
+       "fmt": "f64"
+      },
+      {
+       "v": 134.00819334183782,
+       "fmt": "f64"
+      },
+      {
+       "text": "109.387505 156.142776 -127.291084"
+      }
+     ]
+    }
+   ],
+   "note": "Every parameter as stored (the shortest float64 that reads back exactly)."
+  },
+  {
+   "id": "panel-init-stroke-transforms",
+   "title": "Data panel: sMRIPrep's antsAffineInitializer on a brain with a stroke: every run's transform",
+   "columns": [
+    {
+     "label": "Run"
+    },
+    {
+     "label": "Class"
+    },
+    {
+     "label": "p0",
+     "num": true
+    },
+    {
+     "label": "p1",
+     "num": true
+    },
+    {
+     "label": "p2",
+     "num": true
+    },
+    {
+     "label": "p3",
+     "num": true
+    },
+    {
+     "label": "p4",
+     "num": true
+    },
+    {
+     "label": "p5",
+     "num": true
+    },
+    {
+     "label": "p6",
+     "num": true
+    },
+    {
+     "label": "p7",
+     "num": true
+    },
+    {
+     "label": "p8",
+     "num": true
+    },
+    {
+     "label": "p9",
+     "num": true
+    },
+    {
+     "label": "p10",
+     "num": true
+    },
+    {
+     "label": "p11",
+     "num": true
+    },
+    {
+     "label": "Centre (fixed parameters)"
+    }
+   ],
+   "rows": [
+    {
+     "head": "ANTs 2.6.5, 1 thread (as built (GCC 14.3), glibc's maths)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.9025548923126273,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.0006826296622480044,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.04597836230940697,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.006683812437440711,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.9157783754644204,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.31659346904587743,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.03804590103957365,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.30211887586542135,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.824649006148793,
+       "fmt": "f64"
+      },
+      {
+       "v": -5.002696301399927,
+       "fmt": "f64"
+      },
+      {
+       "v": -23.985073977298526,
+       "fmt": "f64"
+      },
+      {
+       "v": -8.324490142004848,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.235927808 21.9994855 9.74520071"
+      }
+     ]
+    },
+    {
+     "head": "ANTs 2.6.5, correctly rounded maths (1 thread, CORE-MATH preloaded)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.9025548923126273,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.0006826296622480044,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.04597836230940697,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.006683812437440711,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.9157783754644204,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.31659346904587743,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.03804590103957365,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.30211887586542135,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.824649006148793,
+       "fmt": "f64"
+      },
+      {
+       "v": -5.002696301399927,
+       "fmt": "f64"
+      },
+      {
+       "v": -23.985073977298526,
+       "fmt": "f64"
+      },
+      {
+       "v": -8.324490142004848,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.235927808 21.9994855 9.74520071"
+      }
+     ]
+    },
+    {
+     "head": "ANTs 2.6.5, 8 threads (as built)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.9019691122125212,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.0016664619931065266,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.05036203985367964,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.002827277648917571,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.9218505073287167,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.28720929261967193,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.04284155617296085,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.2814682892393832,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.834196498218286,
+       "fmt": "f64"
+      },
+      {
+       "v": -5.09028804738991,
+       "fmt": "f64"
+      },
+      {
+       "v": -24.21276850861694,
+       "fmt": "f64"
+      },
+      {
+       "v": -8.144299851434546,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.235927808 21.9994855 9.74520071"
+      }
+     ]
+    },
+    {
+     "head": "larmorx (port) (reproduce mode, 8 threads)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.9025548923126273,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.0006826296622480044,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.04597836230940697,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.006683812437440711,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.9157783754644204,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.31659346904587743,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.03804590103957365,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.30211887586542135,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.824649006148793,
+       "fmt": "f64"
+      },
+      {
+       "v": -5.002696301399927,
+       "fmt": "f64"
+      },
+      {
+       "v": -23.985073977298526,
+       "fmt": "f64"
+      },
+      {
+       "v": -8.324490142004848,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.235927808 21.9994855 9.74520071"
+      }
+     ]
+    },
+    {
+     "head": "larmorx (port) (reproduce mode, 1 thread)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.9025548923126273,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.0006826296622480044,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.04597836230940697,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.006683812437440711,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.9157783754644204,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.31659346904587743,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.03804590103957365,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.30211887586542135,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.824649006148793,
+       "fmt": "f64"
+      },
+      {
+       "v": -5.002696301399927,
+       "fmt": "f64"
+      },
+      {
+       "v": -23.985073977298526,
+       "fmt": "f64"
+      },
+      {
+       "v": -8.324490142004848,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.235927808 21.9994855 9.74520071"
+      }
+     ]
+    },
+    {
+     "head": "larmorx (port) (default mode, 8 threads)",
+     "cells": [
+      {
+       "text": "AffineTransform_double_3_3"
+      },
+      {
+       "v": 0.9938226635705839,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.044954874548816075,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.005862704678142859,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.04282699045959686,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.9746871600685073,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.20974342635270107,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.0156843538637004,
+       "fmt": "f64"
+      },
+      {
+       "v": -0.20937777681634054,
+       "fmt": "f64"
+      },
+      {
+       "v": 0.9744147948752606,
+       "fmt": "f64"
+      },
+      {
+       "v": -6.355562493691748,
+       "fmt": "f64"
+      },
+      {
+       "v": -23.920909807336287,
+       "fmt": "f64"
+      },
+      {
+       "v": -8.844281197433586,
+       "fmt": "f64"
+      },
+      {
+       "text": "0.235927808 21.9994855 9.74520071"
+      }
+     ]
+    }
+   ],
+   "note": "Every parameter as stored (the shortest float64 that reads back exactly)."
   }
  ],
  "examples": [
@@ -8413,10 +10803,1118 @@
    "credits": [
     "openneuro-ds000005"
    ]
+  },
+  {
+   "id": "panel-init-aff-tumour",
+   "title": "Data panel: fMRIPrep's brain-extraction antsAI on a brain with a tumour",
+   "summary": "fMRIPrep 25.2.6's own call (sMRIPrep's init_aff: OASIS30ANTs regridded to 4 mm against the N4-corrected T1w regridded alike, Mattes, an Affine search from fMRIPrep's seed) on ds005003 sub-RS001: each run's transform places the T1w (4 mm) on the template's grid (ANTs' antsApplyTransforms, linear). A key dataset, shown as a whole volume; every run's parameters are in the table below it.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds005003, sub-RS001 (CC0-1.0); the whole field of view shown, only margins where every array is 0 left out"
+    },
+    {
+     "label": "Node",
+     "text": "`anat_fit/brain_extraction/init_aff` of the oracle run ds005003-sub-RS001-noreconall"
+    },
+    {
+     "label": "Command",
+     "text": "`antsAI -c [10,1e-06,10] -d 3 -x tpl-OASIS30ANTs_res-01_desc-BrainCerebellumExtraction_mask.nii.gz -m Mattes[tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz,sub-RS001_ses-1_T1w_noise_corrected_maths_corrected_regrid.nii.gz,32,Regular,0.25] -o initialization.mat -p 0 -s [15,0.1] -g [40.0,0x40x40] -t Affine[0.1] -v 1`"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; larmorx at commit `349d3f781431`"
+    },
+    {
+     "label": "Grid",
+     "text": "54 × 73 × 64 voxels of 4 × 4 × 4 mm; shown 54 × 73 × 64, every slice"
+    }
+   ],
+   "grid": {
+    "shape": [
+     54,
+     73,
+     64
+    ],
+    "spacing": [
+     4.0,
+     4.0,
+     4.0
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      4.0,
+      0.0,
+      0.0,
+      -215.0
+     ],
+     [
+      0.0,
+      4.0,
+      0.0,
+      -293.5
+     ],
+     [
+      0.0,
+      0.0,
+      4.0,
+      -255.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     54,
+     73,
+     64
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "b3252d710ce6f8453971988c.bin",
+    "dtype": "u1",
+    "bytes": 267
+   },
+   "outputs": [
+    {
+     "id": "placed",
+     "label": "T1w placed",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 537.0228779318525
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 692.8696977523822
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "template",
+     "role": "input",
+     "label": "OASIS30ANTs at 4 mm (fMRIPrep's res_tmpl)",
+     "sub": "tpl-OASIS30ANTs_res-01_T1w_regrid.nii.gz",
+     "arrays": {
+      "all": {
+       "blob": "094c1230ec1af3315607d966.bin",
+       "dtype": "f4",
+       "bytes": 528424
+      }
+     },
+     "window": [
+      0.0,
+      12.711753153800968
+     ]
+    },
+    {
+     "id": "ants-1",
+     "role": "original",
+     "label": "ANTs 2.6.5, 1 thread",
+     "sub": "as built (GCC 14.3), glibc's maths",
+     "arrays": {
+      "placed": {
+       "blob": "a91a981aff327fab730aa3ae.bin",
+       "dtype": "f8",
+       "bytes": 1012727
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       537.0228779318525
+      ]
+     }
+    },
+    {
+     "id": "ants-1-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, correctly rounded maths",
+     "sub": "1 thread, CORE-MATH preloaded",
+     "arrays": {
+      "placed": {
+       "same": "ants-1:placed",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       537.0228779318525
+      ]
+     }
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "reproduce mode, 8 threads",
+     "arrays": {
+      "placed": {
+       "same": "ants-1:placed",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       537.0228779318525
+      ]
+     }
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "default mode, 8 threads",
+     "arrays": {
+      "placed": {
+       "same": "ants-1:placed",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       537.0228779318525
+      ]
+     }
+    },
+    {
+     "id": "ants-8",
+     "role": "original",
+     "label": "ANTs 2.6.5, 8 threads",
+     "sub": "as built",
+     "arrays": {
+      "placed": {
+       "blob": "6a391bbf4472e51bb9770b3a.bin",
+       "dtype": "f8",
+       "xor": "ants-1-cr:placed",
+       "zero": false,
+       "bytes": 527037
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       537.0228799274369
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants",
+     "a": "larmorx",
+     "b": "ants-1",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 252288,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 692.8696977523822,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx gives the unmodified ANTs program's bytes."
+    },
+    {
+     "id": "lx-cr",
+     "a": "larmorx",
+     "b": "ants-1-cr",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 252288,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 692.8696977523822,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx gives ANTs' bytes with correctly rounded maths."
+    },
+    {
+     "id": "lx1-lx",
+     "a": "larmorx-1",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, 1 thread − 8 threads (reproduce)",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 252288,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 692.8696977523822,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx's result does not depend on its thread count."
+    },
+    {
+     "id": "fix-lx",
+     "a": "larmorx-fix",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 252288,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 692.8696977523822,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "No correction of the defect register changes this call."
+    },
+    {
+     "id": "ants8-ants1",
+     "a": "ants-8",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 8 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "placed": {
+       "identical": false,
+       "voxels": 252288,
+       "differ": 137974,
+       "share": 0.5468908548959919,
+       "max_abs": 1.1181841614416044e-05,
+       "at": [
+        44,
+        32,
+        11
+       ],
+       "a_at": 485.34870732222646,
+       "b_at": 485.3487185040681,
+       "rms": 7.945321629878518e-07,
+       "range": 692.8696977523822,
+       "max_rel_range": 1.613844803819406e-08,
+       "one_minus_ncc": 2.2032979700615984e-17,
+       "at_display": [
+        44,
+        32,
+        11
+       ]
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 1.1181841614416044e-05,
+       "at": [
+        44,
+        32,
+        11
+       ],
+       "a": 485.34870732222646,
+       "b": 485.3487185040681,
+       "differ": 137974
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "ANTs' own result moves with its thread count (placed): the yardstick for any difference above."
+    }
+   ],
+   "default": {
+    "output": "placed",
+    "plane": "axial",
+    "voxel": [
+     26,
+     36,
+     32
+    ],
+    "panels": [
+     "template",
+     "ants-1",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "lx-ants",
+     "lx-cr",
+     "fix-lx"
+    ],
+    "compare": {
+     "a": "ants-1",
+     "b": "larmorx"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 32,
+    "aspect": 0.73973,
+    "panels": {
+     "template": "ba204f6a51dc6e0e447105dd.webp",
+     "ants-1": "dc3f96dc3e2b9e99295db87d.webp",
+     "larmorx": "dc3f96dc3e2b9e99295db87d.webp",
+     "larmorx-fix": "dc3f96dc3e2b9e99295db87d.webp"
+    },
+    "diffs": {},
+    "ranges": {},
+    "caption": "Axial slice 33 of 64; the crosshair at the centre of the field of view."
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B over all 252,288 values of each output (the moving image placed on the fixed grid through each run's transform).",
+   "provenance": [
+    "Data: OpenNeuro ds005003, sub-RS001, CC0-1.0",
+    "Inputs: input 1 (sha256 8265828adf534c2e…)",
+    "Runs: figures cache entry `ants-ai/panel-fmriprep-init-aff-tumour`, computed 2026-10-26T21:59:46+00:00 with larmorx `349d3f781431`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds005003",
+    "templateflow-OASIS30ANTs"
+   ]
+  },
+  {
+   "id": "panel-init-stroke",
+   "title": "Data panel: sMRIPrep's antsAffineInitializer on a brain with a stroke",
+   "summary": "The antsAffineInitializer call niworkflows' SpatialNormalization makes inside fMRIPrep's template registration of ds004884 sub-M2079 (no node of its own): the masked 1 mm MNI template and the masked T1w, made again exactly from the node's inputs; each run's transform places the T1w on the template's grid. Shown as three slices.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds004884, sub-M2079 (CC0-1.0); the whole field of view shown, only margins where every array is 0 left out"
+    },
+    {
+     "label": "Node",
+     "text": "inside `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of the oracle run ds004884-sub-M2079-noreconall"
+    },
+    {
+     "label": "Command",
+     "text": "`antsAffineInitializer 3 fixed_masked.nii.gz moving_masked.nii.gz transform.mat 15.000000 0.100000 0 10`"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; larmorx at commit `1fa019a08fbb`"
+    },
+    {
+     "label": "Grid",
+     "text": "193 × 229 × 193 voxels of 1 × 1 × 1 mm; shown 193 × 229 × 193, three full-resolution slices"
+    }
+   ],
+   "grid": {
+    "shape": [
+     193,
+     229,
+     193
+    ],
+    "spacing": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      1.0,
+      0.0,
+      0.0,
+      -96.0
+     ],
+     [
+      0.0,
+      1.0,
+      0.0,
+      -132.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0,
+      -78.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     193,
+     229,
+     193
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "view": {
+    "kind": "slices",
+    "voxel": [
+     96,
+     114,
+     96
+    ],
+    "planes": {
+     "axial": {
+      "index": 96,
+      "box": [
+       0,
+       0,
+       193,
+       229
+      ],
+      "offset": 0,
+      "outside_mask": 1
+     },
+     "coronal": {
+      "index": 114,
+      "box": [
+       0,
+       0,
+       193,
+       193
+      ],
+      "offset": 44197,
+      "outside_mask": 1
+     },
+     "sagittal": {
+      "index": 96,
+      "box": [
+       0,
+       0,
+       229,
+       193
+      ],
+      "offset": 81446,
+      "outside_mask": 1
+     }
+    },
+    "per_volume": 125643
+   },
+   "mask": {
+    "blob": "34f76c35827c34261955eedc.bin",
+    "dtype": "u1",
+    "bytes": 144
+   },
+   "outputs": [
+    {
+     "id": "placed",
+     "label": "T1w placed",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 989.0722672523259
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 1200.0607506707322
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "template",
+     "role": "input",
+     "label": "MNI152NLin2009cAsym 1 mm, masked (niworkflows')",
+     "sub": "fixed_masked.nii.gz",
+     "arrays": {
+      "all": {
+       "blob": "e52ca1fe4cf3562a7f2aaa26.bin",
+       "dtype": "i2",
+       "bytes": 97582,
+       "scale": 0.15027084946632385,
+       "inter": 4924.0751953125
+      }
+     },
+     "window": [
+      0.0,
+      9107.01456105709
+     ]
+    },
+    {
+     "id": "ants-1",
+     "role": "original",
+     "label": "ANTs 2.6.5, 1 thread",
+     "sub": "as built (GCC 14.3), glibc's maths",
+     "arrays": {
+      "placed": {
+       "blob": "de6fe1fde25db0e2c461f8e6.bin",
+       "dtype": "f8",
+       "bytes": 369935
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       989.0722672523259
+      ]
+     }
+    },
+    {
+     "id": "ants-1-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, correctly rounded maths",
+     "sub": "1 thread, CORE-MATH preloaded",
+     "arrays": {
+      "placed": {
+       "same": "ants-1:placed",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       989.0722672523259
+      ]
+     }
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "reproduce mode, 8 threads",
+     "arrays": {
+      "placed": {
+       "same": "ants-1:placed",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       989.0722672523259
+      ]
+     }
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "default mode, 8 threads",
+     "arrays": {
+      "placed": {
+       "blob": "21802393eebb56e4bd33c606.bin",
+       "dtype": "f8",
+       "bytes": 314490
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       983.0924249433396
+      ]
+     }
+    },
+    {
+     "id": "ants-8",
+     "role": "original",
+     "label": "ANTs 2.6.5, 8 threads",
+     "sub": "as built",
+     "arrays": {
+      "placed": {
+       "blob": "0ca1d547d8ed7b3aecc6594e.bin",
+       "dtype": "f8",
+       "bytes": 368914
+      }
+     },
+     "own": {
+      "placed": [
+       0.0,
+       988.9570620680444
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants",
+     "a": "larmorx",
+     "b": "ants-1",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 8530021,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1200.0607506707322,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        96
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx gives the unmodified ANTs program's bytes."
+    },
+    {
+     "id": "lx-cr",
+     "a": "larmorx",
+     "b": "ants-1-cr",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 8530021,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1200.0607506707322,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        96
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx gives ANTs' bytes with correctly rounded maths."
+    },
+    {
+     "id": "lx1-lx",
+     "a": "larmorx-1",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, 1 thread − 8 threads (reproduce)",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "placed": {
+       "identical": true,
+       "voxels": 8530021,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1200.0607506707322,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx's result does not depend on its thread count."
+    },
+    {
+     "id": "fix-lx",
+     "a": "larmorx-fix",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "placed": {
+       "identical": false,
+       "voxels": 8530021,
+       "differ": 2048939,
+       "share": 0.24020327734245905,
+       "max_abs": 1200.0607506707322,
+       "at": [
+        90,
+        145,
+        55
+       ],
+       "a_at": 0.0,
+       "b_at": 1200.0607506707322,
+       "rms": 177.18724804216413,
+       "range": 1200.0607506707322,
+       "max_rel_range": 1.0,
+       "one_minus_ncc": 0.15438364135153754,
+       "at_display": [
+        90,
+        145,
+        55
+       ]
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 1065.49970155732,
+       "at": [
+        120,
+        114,
+        48
+       ],
+       "a": 0.0,
+       "b": 1065.49970155732,
+       "differ": 54609,
+       "plane": "coronal"
+      }
+     },
+     "links": [],
+     "verdict": "d13",
+     "reason": "larmorx's default corrects ANTS-54, ITK-21 ([register](repo:docs/findings/upstream-defects.md)); reproduce mode gives ANTs' result. Changed: placed."
+    },
+    {
+     "id": "ants8-ants1",
+     "a": "ants-8",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 8 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "placed": {
+       "identical": false,
+       "voxels": 8530021,
+       "differ": 2062593,
+       "share": 0.2418039768014639,
+       "max_abs": 1048.3320808697174,
+       "at": [
+        63,
+        80,
+        148
+       ],
+       "a_at": 1131.3484551282997,
+       "b_at": 83.01637425858233,
+       "rms": 50.055562019697305,
+       "range": 1200.0607506707322,
+       "max_rel_range": 0.8735658426323739,
+       "one_minus_ncc": 0.01204528753793252,
+       "at_display": [
+        63,
+        80,
+        148
+       ]
+      }
+     },
+     "display": {
+      "placed": {
+       "max_abs": 762.7939415987302,
+       "at": [
+        72,
+        114,
+        31
+       ],
+       "a": 0.0,
+       "b": 762.7939415987302,
+       "differ": 54847,
+       "plane": "coronal"
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "ANTs' own result moves with its thread count (placed): the yardstick for any difference above."
+    }
+   ],
+   "default": {
+    "output": "placed",
+    "plane": "axial",
+    "voxel": [
+     96,
+     114,
+     96
+    ],
+    "panels": [
+     "template",
+     "ants-1",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "lx-ants",
+     "lx-cr",
+     "fix-lx"
+    ],
+    "compare": {
+     "a": "ants-1",
+     "b": "larmorx"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 96,
+    "aspect": 0.84279,
+    "panels": {
+     "template": "d636f0970bf46c1e1a1c825b.webp",
+     "ants-1": "7c74d7d116e82b0d4147da0e.webp",
+     "larmorx": "7c74d7d116e82b0d4147da0e.webp",
+     "larmorx-fix": "4fcb551bf6fa3cf2c899fdb8.webp"
+    },
+    "diffs": {
+     "fix-lx": "7668800084609d333defe828.webp"
+    },
+    "ranges": {
+     "fix-lx": 1065.49970155732
+    },
+    "caption": "Axial slice 97 of 193; the crosshair at the centre of the field of view; the three slices through it are stored at full resolution."
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B over all 8,530,021 values of each output (the moving image placed on the fixed grid through each run's transform).",
+   "provenance": [
+    "Data: OpenNeuro ds004884, sub-M2079, CC0-1.0",
+    "Inputs: input 1 (sha256 da7037c3cb139408…)",
+    "Runs: figures cache entry `ants-ai/panel-affine-initializer-stroke`, computed 2026-10-26T23:21:01+00:00 with larmorx `1fa019a08fbb`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds004884",
+    "templateflow-MNI152NLin2009cAsym"
+   ]
   }
  ],
  "cases_credits": [
   "openneuro-ds000005",
+  "openneuro-ds005003",
+  "openneuro-ds004884",
+  "openneuro-ds000228",
+  "openneuro-ds000256",
+  "openneuro-ds001600",
+  "openneuro-ds002422",
+  "openneuro-ds002603",
+  "openneuro-ds003592",
+  "openneuro-ds004173",
+  "openneuro-ds004958",
+  "openneuro-ds005040",
+  "openneuro-ds005454",
+  "openneuro-ds005752",
   "templateflow-MNI152NLin2009cAsym",
   "templateflow-OASIS30ANTs"
  ],
@@ -8435,6 +11933,201 @@
    "attribution": false,
    "share_alike": false,
    "text": "Mixed-gambles task (OpenNeuro ds000005, version 00001), Open Data Commons Public Domain Dedication and Licence 1.0."
+  },
+  "openneuro-ds000228": {
+   "id": "openneuro-ds000228",
+   "title": "Children and adults watching a short film",
+   "source": "OpenNeuro ds000228",
+   "version": "1.1.1",
+   "doi": "10.18112/openneuro.ds000228.v1.1.1",
+   "url": "https://openneuro.org/datasets/ds000228/versions/1.1.1",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Richardson H, Lisandrelli G, Riobueno-Naylor A, Saxe R (2018). Development of the social brain from age three to twelve years. Nature Communications 9:1027. doi:10.1038/s41467-018-03399-2. Dataset: OpenNeuro ds000228 v1.1.1, doi:10.18112/openneuro.ds000228.v1.1.1",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Children and adults watching a short film (OpenNeuro ds000228, version 1.1.1, doi:10.18112/openneuro.ds000228.v1.1.1), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds000256": {
+   "id": "openneuro-ds000256",
+   "title": "Behavioral interventions for reducing head motion in children",
+   "source": "OpenNeuro ds000256",
+   "version": "00002",
+   "doi": "",
+   "url": "https://openneuro.org/datasets/ds000256/versions/00002",
+   "licence": "PDDL-1.0",
+   "licence_name": "Open Data Commons Public Domain Dedication and Licence 1.0",
+   "licence_url": "https://opendatacommons.org/licenses/pddl/1-0/",
+   "citation": "Greene DJ, Koller JM, Hampton JM, Wesevich V, Van AN, Nguyen AL, Hoyt CR, McIntyre L, Earl EA, Klein RL, Shimony JS, Petersen SE, Schlaggar BL, Fair DA, Dosenbach NUF (2018). Behavioral interventions for reducing head motion during MRI scans in children. NeuroImage 171:234-245, https://www.sciencedirect.com/science/article/pii/S1053811918300235. Dataset: OpenNeuro ds000256 v00002",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Behavioral interventions for reducing head motion in children (OpenNeuro ds000256, version 00002), Open Data Commons Public Domain Dedication and Licence 1.0."
+  },
+  "openneuro-ds001600": {
+   "id": "openneuro-ds001600",
+   "title": "Example fieldmaps",
+   "source": "OpenNeuro ds001600",
+   "version": "1.0.0",
+   "doi": "",
+   "url": "https://openneuro.org/datasets/ds001600/versions/1.0.0",
+   "licence": "CC-BY-SA",
+   "licence_name": "Creative Commons Attribution-ShareAlike (CC BY-SA; the dataset gives no version)",
+   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "citation": "Cieslak M., Elliott M., Satterthwaite T. Example Fieldmaps. OpenNeuro ds001600, version 1.0.0 (Siemens Prisma, University of Pennsylvania).",
+   "attribution": true,
+   "share_alike": true,
+   "text": "Example fieldmaps (OpenNeuro ds001600, version 1.0.0), Creative Commons Attribution-ShareAlike (CC BY-SA; the dataset gives no version). Attribution: Cieslak M., Elliott M., Satterthwaite T. Example Fieldmaps. OpenNeuro ds001600, version 1.0.0 (Siemens Prisma, University of Pennsylvania). The images shown here are adapted from it: reoriented to RAS, cropped to the region shown, masked outside it, and shown as the outputs of the programs compared. Under its share-alike condition the images adapted from this dataset are shared under the same licence, CC BY-SA."
+  },
+  "openneuro-ds002422": {
+   "id": "openneuro-ds002422",
+   "title": "fMRI: resting state and arithmetic task",
+   "source": "OpenNeuro ds002422",
+   "version": "1.1.0",
+   "doi": "10.18112/openneuro.ds002422.v1.1.0",
+   "url": "https://openneuro.org/datasets/ds002422/versions/1.1.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Panikratova Y, Tomyshev A, Pechenkova E, Vlasova R. fMRI: resting state and arithmetic task. OpenNeuro ds002422 v1.1.0, doi:10.18112/openneuro.ds002422.v1.1.0 (\"This dataset was provided by Ya. Panikratova, A. Tomyshev, E. Pechenkova, and R. Vlasova\")",
+   "attribution": false,
+   "share_alike": false,
+   "text": "fMRI: resting state and arithmetic task (OpenNeuro ds002422, version 1.1.0, doi:10.18112/openneuro.ds002422.v1.1.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds002603": {
+   "id": "openneuro-ds002603",
+   "title": "MB-EPI-comparison",
+   "source": "OpenNeuro ds002603",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds002603.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds002603/versions/1.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Snoek L, Beemsterboer T, Scholte HS. MB-EPI-comparison. OpenNeuro ds002603 v1.0.0, doi:10.18112/openneuro.ds002603.v1.0.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "MB-EPI-comparison (OpenNeuro ds002603, version 1.0.0, doi:10.18112/openneuro.ds002603.v1.0.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds003592": {
+   "id": "openneuro-ds003592",
+   "title": "Neurocognitive aging data release",
+   "source": "OpenNeuro ds003592",
+   "version": "1.0.13",
+   "doi": "10.18112/openneuro.ds003592.v1.0.13",
+   "url": "https://openneuro.org/datasets/ds003592/versions/1.0.13",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Spreng RN, Setton R, Alter U, Cassidy BN, Darboh B, DuPre E, Kantarovich K, Lockrow AW, Mwilambwe-Tshilobo L, Luh W-M, Kundu P, Turner GR. Neurocognitive aging data release with behavioral, structural, and multi-echo functional MRI measures. OpenNeuro ds003592 v1.0.13, doi:10.18112/openneuro.ds003592.v1.0.13",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Neurocognitive aging data release (OpenNeuro ds003592, version 1.0.13, doi:10.18112/openneuro.ds003592.v1.0.13), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds004173": {
+   "id": "openneuro-ds004173",
+   "title": "Movement-related artefacts (MR-ART)",
+   "source": "OpenNeuro ds004173",
+   "version": "1.0.2",
+   "doi": "10.18112/openneuro.ds004173.v1.0.2",
+   "url": "https://openneuro.org/datasets/ds004173/versions/1.0.2",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Nárai Á, Hermann P, Auer T, Kemenczky P, Szalma J, Homolya I, Somogyi E, Vakli P, Weiss B, Vidnyánszky Z (2022). Movement-related artefacts (MR-ART) dataset of matched motion-corrupted and clean structural MRI brain scans. Scientific Data 9:630, doi:10.1038/s41597-022-01694-8. Dataset: OpenNeuro ds004173 v1.0.2, doi:10.18112/openneuro.ds004173.v1.0.2",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Movement-related artefacts (MR-ART) (OpenNeuro ds004173, version 1.0.2, doi:10.18112/openneuro.ds004173.v1.0.2), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds004884": {
+   "id": "openneuro-ds004884",
+   "title": "Aphasia Recovery Cohort",
+   "source": "OpenNeuro ds004884",
+   "version": "1.0.2",
+   "doi": "10.18112/openneuro.ds004884.v1.0.2",
+   "url": "https://openneuro.org/datasets/ds004884/versions/1.0.2",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Gibson M, Newman-Norlund R, Bonilha L, Fridriksson J, Hickok G, Hillis AE, den Ouden DB, Rorden C (2024). The Aphasia Recovery Cohort, an open-source chronic stroke repository. Scientific Data 11:981. doi:10.1038/s41597-024-03819-7. Dataset: OpenNeuro ds004884 v1.0.2, doi:10.18112/openneuro.ds004884.v1.0.2",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Aphasia Recovery Cohort (OpenNeuro ds004884, version 1.0.2, doi:10.18112/openneuro.ds004884.v1.0.2), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds004958": {
+   "id": "openneuro-ds004958",
+   "title": "The FreeSurfer Maintenance Dataset",
+   "source": "OpenNeuro ds004958",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds004958.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds004958/versions/1.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Greve DN, Fischl B. The FreeSurfer Maintenance Dataset. OpenNeuro ds004958 v1.0.0, doi:10.18112/openneuro.ds004958.v1.0.0 (FreeSurfer Maintenance grant R01EB023281; https://surfer.nmr.mgh.harvard.edu/fswiki/FsmData)",
+   "attribution": false,
+   "share_alike": false,
+   "text": "The FreeSurfer Maintenance Dataset (OpenNeuro ds004958, version 1.0.0, doi:10.18112/openneuro.ds004958.v1.0.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds005003": {
+   "id": "openneuro-ds005003",
+   "title": "Retrospective Task/Rest fMRI Data from Tumor Patients",
+   "source": "OpenNeuro ds005003",
+   "version": "2.0.0",
+   "doi": "10.18112/openneuro.ds005003.v2.0.0",
+   "url": "https://openneuro.org/datasets/ds005003/versions/2.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Leuthardt EC, Shimony JS, Snyder AZ, Dierker D, Park KY. Retrospective Task/Rest fMRI Data from Tumor Patients. OpenNeuro ds005003 v2.0.0, doi:10.18112/openneuro.ds005003.v2.0.0. The authors ask to cite doi:10.1016/j.nic.2017.06.011 and doi:10.1371/journal.pone.0236423 and to acknowledge accession ds005003.",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Retrospective Task/Rest fMRI Data from Tumor Patients (OpenNeuro ds005003, version 2.0.0, doi:10.18112/openneuro.ds005003.v2.0.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds005040": {
+   "id": "openneuro-ds005040",
+   "title": "Political Moralization",
+   "source": "OpenNeuro ds005040",
+   "version": "1.2.0",
+   "doi": "10.18112/openneuro.ds005040.v1.2.0",
+   "url": "https://openneuro.org/datasets/ds005040/versions/1.2.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Cohen MS, Cao Q, Decety J. Political Moralization (PMM). OpenNeuro ds005040 v1.2.0, doi:10.18112/openneuro.ds005040.v1.2.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Political Moralization (OpenNeuro ds005040, version 1.2.0, doi:10.18112/openneuro.ds005040.v1.2.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds005454": {
+   "id": "openneuro-ds005454",
+   "title": "fMRIPrep boot camp 7T training dataset",
+   "source": "OpenNeuro ds005454",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds005454.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds005454/versions/1.0.0",
+   "licence": "CC-BY-4.0",
+   "licence_name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+   "citation": "Sleight EC, Esteban O, Grouiller F. fMRIPrep boot camp -- 7T training dataset. OpenNeuro ds005454, version 1.0.0. doi:10.18112/openneuro.ds005454.v1.0.0",
+   "attribution": true,
+   "share_alike": false,
+   "text": "fMRIPrep boot camp 7T training dataset (OpenNeuro ds005454, version 1.0.0, doi:10.18112/openneuro.ds005454.v1.0.0), Creative Commons Attribution 4.0 (CC BY 4.0). Attribution: Sleight EC, Esteban O, Grouiller F. fMRIPrep boot camp -- 7T training dataset. OpenNeuro ds005454, version 1.0.0. doi:10.18112/openneuro.ds005454.v1.0.0 The images shown here are adapted from it: reoriented to RAS, cropped to the region shown, masked outside it, and shown as the outputs of the programs compared."
+  },
+  "openneuro-ds005752": {
+   "id": "openneuro-ds005752",
+   "title": "NIMH Healthy Research Volunteer Dataset",
+   "source": "OpenNeuro ds005752",
+   "version": "2.1.0",
+   "doi": "10.18112/openneuro.ds005752.v2.1.0",
+   "url": "https://openneuro.org/datasets/ds005752/versions/2.1.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Nugent AC, Thomas AG, Mahoney M, Gibbons A, Smith JT, Charles AJ, Shaw JS, Stout JD, Namyst AM, Basavaraj A, Earl E, Riddle T, Snow J, Japee S, Pavletic AJ, Sinclair S, Roopchansingh V, Bandettini PA, Chung J (2022). The NIMH intramural healthy volunteer dataset: A comprehensive MEG, MRI, and behavioral resource. Scientific Data 9:518. doi:10.1038/s41597-022-01623-9. Dataset: OpenNeuro ds005752 v2.1.0, doi:10.18112/openneuro.ds005752.v2.1.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "NIMH Healthy Research Volunteer Dataset (OpenNeuro ds005752, version 2.1.0, doi:10.18112/openneuro.ds005752.v2.1.0), CC0 1.0 public-domain dedication."
   },
   "templateflow-MNI152NLin2009cAsym": {
    "id": "templateflow-MNI152NLin2009cAsym",

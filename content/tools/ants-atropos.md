@@ -11,6 +11,7 @@ wide: true
 <dt>Implementation</dt><dd>port of ANTs' and ITK's source, in <code>larmorx</code></dd>
 <dt>Status</dt><dd><span class="status-tag eco-ants">validated</span></dd>
 <dt>Record</dt><dd><a href="{{ repo('docs/validation/ants-atropos.md') }}">ants-atropos</a> · full tier <a href="{{ repo('docs/validation/ants-atropos-full.md') }}">ants-atropos-full</a> · API <a href="{{ repo('docs/api/ants-atropos.md') }}">ants-atropos</a> · findings <a href="{{ repo('docs/findings/ants-atropos.md') }}">ants-atropos</a></dd>
+<dt>Data panel</dt><dd><a href="{{ repo('docs/validation/ants-atropos-panel.md') }}">ants-atropos-panel</a></dd>
 </dl>
 
 ## What it is
@@ -57,6 +58,20 @@ With `--use-partial-volume-likelihoods 1`, Atropos adds a class for each pair of
 {{ ev.example('ants-atropos', 'pv-phantom') }}
 
 {{ ev.table('ants-atropos', 'ants-106') }}
+
+## On the data panel {#data-panel}
+
+The [data panel](/data-panel/) is the fixed set of fourteen OpenNeuro subjects every tool of LARMORX is validated on: 1.5, 3 and 7 T; Siemens, GE and Philips; single-band, multiband and multi-echo BOLD; a 3.5-year-old to an 82-year-old; a tumour, a stroke with its lesion mask, strong motion. Each record of the panel tier replays every call fMRIPrep 25.2.6 made of the program in its fourteen oracle runs, the node's own `command.txt` with its inputs from the run's working directory (calls repeated word for word are compared once), and runs the program on panel images fMRIPrep never gives it. ANTs runs at one thread, as built and with correctly rounded maths, and at 2 and 3 threads for its own variability where it has any; LARMORX in reproduce mode, and in its default mode for the corrections. The panel's cases are in the case explorers below (categories `panel-fmriprep` and `panel-images`).
+
+**17 of 17 bit-identical to ANTs with correctly rounded maths, the classes identical in all 17**: sMRIPrep's segmentation in the brain extraction of all fourteen runs, and three calls fMRIPrep never makes (the stroke outside its manual lesion mask, a child's T1w and T2w as two channels, a FLAIR of 3 mm slices). Against fMRIPrep's own files (ANTs 2.6.2 with glibc's maths) the segmentation is the same in every run, the posteriors differ in their last bits in 0 to 4,175 voxels. The panel also found a check the port lacked: an input on another grid (a mask written from the image's affine, its spacing 2.9e-6 mm off) makes ITK throw, and now LARMORX too (one more case, rejected by both).
+
+{{ ev.table('ants-atropos', 'panel-nodes') }}
+
+Images on a small grid (a BOLD reference, a template at 2 mm) are shown as whole volumes; the panel's large anatomical images (up to 17.5 million voxels) as three full-resolution slices through the voxel where LARMORX and ANTs as built differ most (the centre of the field of view where they agree), the whole field of view shown, defaced heads included (the data panel's defacing check).
+
+{{ ev.example('ants-atropos', 'panel-tumour') }}
+
+{{ ev.example('ants-atropos', 'panel-stroke') }}
 
 ## Every case {#cases}
 

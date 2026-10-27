@@ -15,6 +15,7 @@ wide: true
 <dt>Implementation</dt><dd>ports of ANTs' and ITK's source (Apache-2.0), in <code>larmorx</code></dd>
 <dt>Status</dt><dd><span class="status-tag eco-ants">validated</span> (each)</dd>
 <dt>Records</dt><dd><a href="{{ repo('docs/validation/ants-ai.md') }}">ants-ai</a> (<a href="{{ repo('docs/validation/ants-ai-full.md') }}">full</a>) · <a href="{{ repo('docs/validation/ants-affine-initializer.md') }}">ants-affine-initializer</a> (<a href="{{ repo('docs/validation/ants-affine-initializer-full.md') }}">full</a>) · API <a href="{{ repo('docs/api/ants-ai.md') }}">ants-ai</a>, <a href="{{ repo('docs/api/ants-affine-initializer.md') }}">ants-affine-initializer</a></dd>
+<dt>Data panel</dt><dd><a href="{{ repo('docs/validation/ants-ai-panel.md') }}">antsAI</a> · <a href="{{ repo('docs/validation/ants-affine-initializer-panel.md') }}">antsAffineInitializer</a></dd>
 </dl>
 
 ## What they are
@@ -64,6 +65,24 @@ The second is the T1w rotated by 8 degrees (in millimetres) and shifted: no pair
 {{ ev.table('ants-ai', 'ants-116') }}
 
 Between subjects, or to a template, the patch matching rarely pairs the same anatomy: on the five oracle runs' T1w against MNI152NLin2009cAsym (2 mm), neither keeps a landmark with 30 blobs (the [full tier](repo:docs/validation/ants-ai-full.md)'s `real/*/blobs-mni-rigid` cases). The blob alignment is a rough initialiser for images of one subject.
+
+## On the data panel {#data-panel}
+
+The [data panel](/data-panel/) is the fixed set of fourteen OpenNeuro subjects every tool of LARMORX is validated on: 1.5, 3 and 7 T; Siemens, GE and Philips; single-band, multiband and multi-echo BOLD; a 3.5-year-old to an 82-year-old; a tumour, a stroke with its lesion mask, strong motion. Each record of the panel tier replays every call fMRIPrep 25.2.6 made of the program in its fourteen oracle runs, the node's own `command.txt` with its inputs from the run's working directory (calls repeated word for word are compared once), and runs the program on panel images fMRIPrep never gives it. ANTs runs at one thread, as built and with correctly rounded maths, and at 2 and 3 threads for its own variability where it has any; LARMORX in reproduce mode, and in its default mode for the corrections. The panel's cases are in the case explorers below (categories `panel-fmriprep` and `panel-images`).
+
+**antsAI: 40 of 40 identical to ANTs at one thread** (38 as built, 2 with correctly rounded maths): all 36 calls of the fourteen runs (the brain extraction's initial transform in every run, the BOLD reference's in 22) with fMRIPrep's seed, and four images fMRIPrep never gives it. **antsAffineInitializer: 14 of 14 identical to ANTs as built**, niworkflows' call inside every run's template registration, on its inputs remade exactly. Against fMRIPrep's own transforms (ANTs 2.6.2 at 6 or 8 threads), 31 of the 36 antsAI calls are within 1e-8 in a parameter; five are further, up to 6.8 mm over a 100 mm cube. They are ANTs' own spread above one thread: fMRIPrep's ANTs at one thread gives exactly LARMORX's transform, and at fMRIPrep's thread count both ANTs builds land, run to run, on fMRIPrep's file, on the one-thread result or elsewhere.
+
+{{ ev.table('ants-ai', 'panel-nodes') }}
+
+Images on a small grid (a BOLD reference, a template at 2 mm) are shown as whole volumes; the panel's large anatomical images (up to 17.5 million voxels) as three full-resolution slices through the voxel where LARMORX and ANTs as built differ most (the centre of the field of view where they agree), the whole field of view shown, defaced heads included (the data panel's defacing check).
+
+{{ ev.example('ants-ai', 'panel-init-aff-tumour') }}
+
+{{ ev.table('ants-ai', 'panel-init-aff-tumour-transforms') }}
+
+{{ ev.example('ants-ai', 'panel-init-stroke') }}
+
+{{ ev.table('ants-ai', 'panel-init-stroke-transforms') }}
 
 ## Every case {#cases}
 

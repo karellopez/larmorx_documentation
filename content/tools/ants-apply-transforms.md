@@ -11,6 +11,7 @@ wide: true
 <dt>Implementation</dt><dd>port of ANTs' and ITK's source (Apache-2.0), in <code>larmorx</code></dd>
 <dt>Status</dt><dd><span class="status-tag eco-ants">validated</span></dd>
 <dt>Record</dt><dd><a href="{{ repo('docs/validation/ants-apply-transforms.md') }}">ants-apply-transforms</a> · benchmark <a href="{{ repo('docs/benchmarks/ants-apply-transforms.md') }}">ants-apply-transforms</a> · API <a href="{{ repo('docs/api/ants-apply-transforms.md') }}">ants-apply-transforms</a></dd>
+<dt>Data panel</dt><dd><a href="{{ repo('docs/validation/ants-apply-transforms-panel.md') }}">ants-apply-transforms-panel</a></dd>
 </dl>
 
 ## What it is
@@ -54,6 +55,22 @@ The output of antsRegistration's `BSpline` stage: a cubic B-spline transform, he
 Why 104 mm and not antsRegistrationSyN.sh's 26 mm: the mesh doubles at each level, to about a million parameters at the last one, and ANTs computes every parameter's Jacobian at every voxel. With 26 mm ANTs had not finished after almost four hours at 4 threads; LARMORX, which computes only the 64 control points around each voxel, ran the same registration in 38 s at one thread ([findings](repo:docs/findings/ants-bspline.md)).
 
 {{ ev.example('ants-apply-transforms', 'bspline-transform') }}
+
+## On the data panel {#data-panel}
+
+The [data panel](/data-panel/) is the fixed set of fourteen OpenNeuro subjects every tool of LARMORX is validated on: 1.5, 3 and 7 T; Siemens, GE and Philips; single-band, multiband and multi-echo BOLD; a 3.5-year-old to an 82-year-old; a tumour, a stroke with its lesion mask, strong motion. Each record of the panel tier replays every call fMRIPrep 25.2.6 made of the program in its fourteen oracle runs, the node's own `command.txt` with its inputs from the run's working directory (calls repeated word for word are compared once), and runs the program on panel images fMRIPrep never gives it. ANTs runs at one thread, as built and with correctly rounded maths, and at 2 and 3 threads for its own variability where it has any; LARMORX in reproduce mode, and in its default mode for the corrections. The panel's cases are in the case explorers below (categories `panel-fmriprep` and `panel-images`).
+
+**425 of 425 bit-identical to ANTs with correctly rounded maths, 329 to ANTs as built**: every antsApplyTransforms node of the fourteen runs (421 calls; 179 through fMRIPrep's `.h5` composites, 166 with `--float 1`; Gaussian, MultiLabel, windowed sinc, linear and nearest-neighbour interpolation) and four calls fMRIPrep never makes (the 600-volume multiband-8 series onto the T1w, the raw 7 T MP2RAGE and the stroke's lesion mask to MNI, the 82-year-old's FLAIR onto its T1w). The others differ only where ITK calls glibc's `exp`, `log`, `sin` or `cos`.
+
+{{ ev.table('ants-apply-transforms', 'panel-nodes') }}
+
+Images on a small grid (a BOLD reference, a template at 2 mm) are shown as whole volumes; the panel's large anatomical images (up to 17.5 million voxels) as three full-resolution slices through the voxel where LARMORX and ANTs as built differ most (the centre of the field of view where they agree), the whole field of view shown, defaced heads included (the data panel's defacing check).
+
+{{ ev.example('ants-apply-transforms', 'panel-7t-to-mni') }}
+
+{{ ev.example('ants-apply-transforms', 'panel-lesion-to-mni') }}
+
+{{ ev.example('ants-apply-transforms', 'panel-flair-to-t1w') }}
 
 ## Every case {#cases}
 

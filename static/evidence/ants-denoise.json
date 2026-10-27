@@ -3,7 +3,7 @@
  "tool": "ants-denoise",
  "title": "DenoiseImage",
  "provenance": {
-  "exporter": "f82992b55fd6ca5b48682b959a546aedc5331326",
+  "exporter": "8f0505aab20895ade1e823d7b832106e25a22c53-dirty",
   "records": [
    {
     "path": "docs/validation/ants-denoise.json",
@@ -16,6 +16,18 @@
     "sha256": "fadbe67a4a5a97c2ec13c96285f0e071d023a0085576d9300753509eb2487bc1",
     "generated": "2026-10-24",
     "larmorx_commit": "6bf2860fb745"
+   },
+   {
+    "path": "docs/validation/ants-denoise-panel.json",
+    "sha256": "70ac71cd7629cb87d9afec520f7ba3874da8db9dca88abb72c5db9e608edae32",
+    "generated": "2026-10-26",
+    "larmorx_commit": "b7ba0d395cee"
+   },
+   {
+    "path": "docs/validation/ants-denoise-panel.md",
+    "sha256": "0e51fe9248cd3493b08908872b9baf84ae776161711aad7d61e8c2ccb8fbd31a",
+    "generated": "2026-10-26",
+    "larmorx_commit": "b7ba0d395cee"
    }
   ],
   "benchmarks": [
@@ -571,6 +583,672 @@
      "larmorx": 6
     },
     "settings": "DenoiseImage -n Rician with fMRIPrep 25.2.6's brain mask on its preprocessed T1w of ds000005 sub-01 (no fMRIPrep node: fMRIPrep denoises without a mask)"
+   },
+   {
+    "entry": "ants-denoise/panel-rician-7t-mp2rage",
+    "description": "Data panel: sMRIPrep's denoising of the raw 7 T MP2RAGE (data panel)",
+    "computed": "2026-10-26T23:46:09+00:00",
+    "larmorx_commit": "042d70d5a17c8438706b96f9df65869801ddd2ef",
+    "commands": [
+     {
+      "label": "ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds005454/sub-16/anat/sub-16_acq-mp2rage_T1w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-7t-mp2rage/ants-1/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-7t-mp2rage/ants-1/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 288.27
+     },
+     {
+      "label": "ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds005454/sub-16/anat/sub-16_acq-mp2rage_T1w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-7t-mp2rage/ants-1-cr/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-7t-mp2rage/ants-1-cr/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 280.05
+     },
+     {
+      "label": "ants-8",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds005454/sub-16/anat/sub-16_acq-mp2rage_T1w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-7t-mp2rage/ants-8/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-7t-mp2rage/ants-8/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8"
+      },
+      "exit": 0,
+      "seconds": 271.62
+     },
+     {
+      "label": "larmorx",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds005454/sub-16/anat/sub-16_acq-mp2rage_T1w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-7t-mp2rage/larmorx/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-7t-mp2rage/larmorx/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 36.96
+     },
+     {
+      "label": "larmorx-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds005454/sub-16/anat/sub-16_acq-mp2rage_T1w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-7t-mp2rage/larmorx-1/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-7t-mp2rage/larmorx-1/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 35.86
+     },
+     {
+      "label": "larmorx-fix",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds005454/sub-16/anat/sub-16_acq-mp2rage_T1w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-7t-mp2rage/larmorx-fix/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-7t-mp2rage/larmorx-fix/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 35.51
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "threads": {
+     "ants": [
+      1,
+      8
+     ],
+     "ants_crmath": 1,
+     "larmorx": [
+      8,
+      1
+     ]
+    },
+    "settings": "a data-panel case of DenoiseImage: ANTs 2.6.5 at 1 thread (as built and with CORE-MATH) and at 8 threads; larmorx in reproduce mode at 8 and 1 threads, in its default mode at 8"
+   },
+   {
+    "entry": "ants-denoise/panel-fmriprep-motion",
+    "description": "Data panel: fMRIPrep's denoising of a T1w with strong head motion (data panel)",
+    "computed": "2026-10-27T00:12:13+00:00",
+    "larmorx_commit": "042d70d5a17c8438706b96f9df65869801ddd2ef",
+    "commands": [
+     {
+      "label": "ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/DenoiseImage",
+       "-i",
+       "<workspace>/oracles/bids-views/ds004173/sub-603309/anat/sub-603309_acq-headmotion2_T1w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-fmriprep-motion/ants-1/sub-603309_acq-headmotion2_T1w_noise_corrected.nii.gz",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 399.2
+     },
+     {
+      "label": "ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/DenoiseImage",
+       "-i",
+       "<workspace>/oracles/bids-views/ds004173/sub-603309/anat/sub-603309_acq-headmotion2_T1w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-fmriprep-motion/ants-1-cr/sub-603309_acq-headmotion2_T1w_noise_corrected.nii.gz",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 405.46
+     },
+     {
+      "label": "ants-8",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/DenoiseImage",
+       "-i",
+       "<workspace>/oracles/bids-views/ds004173/sub-603309/anat/sub-603309_acq-headmotion2_T1w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-fmriprep-motion/ants-8/sub-603309_acq-headmotion2_T1w_noise_corrected.nii.gz",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8"
+      },
+      "exit": 0,
+      "seconds": 432.29
+     },
+     {
+      "label": "larmorx",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "DenoiseImage",
+       "-i",
+       "<workspace>/oracles/bids-views/ds004173/sub-603309/anat/sub-603309_acq-headmotion2_T1w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-fmriprep-motion/larmorx/sub-603309_acq-headmotion2_T1w_noise_corrected.nii.gz",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 36.81
+     },
+     {
+      "label": "larmorx-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "DenoiseImage",
+       "-i",
+       "<workspace>/oracles/bids-views/ds004173/sub-603309/anat/sub-603309_acq-headmotion2_T1w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-fmriprep-motion/larmorx-1/sub-603309_acq-headmotion2_T1w_noise_corrected.nii.gz",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 40.84
+     },
+     {
+      "label": "larmorx-fix",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "DenoiseImage",
+       "-i",
+       "<workspace>/oracles/bids-views/ds004173/sub-603309/anat/sub-603309_acq-headmotion2_T1w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-fmriprep-motion/larmorx-fix/sub-603309_acq-headmotion2_T1w_noise_corrected.nii.gz",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 37.15
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "threads": {
+     "ants": [
+      1,
+      8
+     ],
+     "ants_crmath": 1,
+     "larmorx": [
+      8,
+      1
+     ]
+    },
+    "settings": "a data-panel case of DenoiseImage: ANTs 2.6.5 at 1 thread (as built and with CORE-MATH) and at 8 threads; larmorx in reproduce mode at 8 and 1 threads, in its default mode at 8"
+   },
+   {
+    "entry": "ants-denoise/panel-rician-flair",
+    "description": "Data panel: denoising a FLAIR of 3 mm slices (data panel)",
+    "computed": "2026-10-27T00:31:00+00:00",
+    "larmorx_commit": "042d70d5a17c8438706b96f9df65869801ddd2ef",
+    "commands": [
+     {
+      "label": "ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds003592/sub-280/ses-1/anat/sub-280_ses-1_FLAIR.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-flair/ants-1/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-flair/ants-1/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 354.49
+     },
+     {
+      "label": "ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds003592/sub-280/ses-1/anat/sub-280_ses-1_FLAIR.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-flair/ants-1-cr/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-flair/ants-1-cr/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 307.08
+     },
+     {
+      "label": "ants-8",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds003592/sub-280/ses-1/anat/sub-280_ses-1_FLAIR.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-flair/ants-8/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-flair/ants-8/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8"
+      },
+      "exit": 0,
+      "seconds": 304.52
+     },
+     {
+      "label": "larmorx",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds003592/sub-280/ses-1/anat/sub-280_ses-1_FLAIR.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-flair/larmorx/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-flair/larmorx/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 26.0
+     },
+     {
+      "label": "larmorx-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds003592/sub-280/ses-1/anat/sub-280_ses-1_FLAIR.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-flair/larmorx-1/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-flair/larmorx-1/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 25.68
+     },
+     {
+      "label": "larmorx-fix",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds003592/sub-280/ses-1/anat/sub-280_ses-1_FLAIR.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-flair/larmorx-fix/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-flair/larmorx-fix/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 25.82
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "threads": {
+     "ants": [
+      1,
+      8
+     ],
+     "ants_crmath": 1,
+     "larmorx": [
+      8,
+      1
+     ]
+    },
+    "settings": "a data-panel case of DenoiseImage: ANTs 2.6.5 at 1 thread (as built and with CORE-MATH) and at 8 threads; larmorx in reproduce mode at 8 and 1 threads, in its default mode at 8"
+   },
+   {
+    "entry": "ants-denoise/panel-rician-child-t2w",
+    "description": "Data panel: denoising a child's T2w (data panel)",
+    "computed": "2026-10-27T00:57:52+00:00",
+    "larmorx_commit": "042d70d5a17c8438706b96f9df65869801ddd2ef",
+    "commands": [
+     {
+      "label": "ants-1",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds000256/sub-CTS203/anat/sub-CTS203_T2w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-child-t2w/ants-1/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-child-t2w/ants-1/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 476.08
+     },
+     {
+      "label": "ants-1-cr",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds000256/sub-CTS203/anat/sub-CTS203_T2w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-child-t2w/ants-1-cr/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-child-t2w/ants-1-cr/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LD_PRELOAD": "<workspace>/oracles/core-math-preload/libcrmath.so"
+      },
+      "exit": 0,
+      "seconds": 502.96
+     },
+     {
+      "label": "ants-8",
+      "argv": [
+       "<workspace>/oracles/ants-2.6.5/bin/DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds000256/sub-CTS203/anat/sub-CTS203_T2w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-child-t2w/ants-8/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-child-t2w/ants-8/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8"
+      },
+      "exit": 0,
+      "seconds": 481.25
+     },
+     {
+      "label": "larmorx",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds000256/sub-CTS203/anat/sub-CTS203_T2w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-child-t2w/larmorx/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-child-t2w/larmorx/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 43.03
+     },
+     {
+      "label": "larmorx-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds000256/sub-CTS203/anat/sub-CTS203_T2w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-child-t2w/larmorx-1/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-child-t2w/larmorx-1/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce"
+      },
+      "exit": 0,
+      "seconds": 42.13
+     },
+     {
+      "label": "larmorx-fix",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "ants",
+       "DenoiseImage",
+       "-i",
+       "<testdata-cache>/openneuro/ds000256/sub-CTS203/anat/sub-CTS203_T2w.nii.gz",
+       "-n",
+       "Rician",
+       "-o",
+       "[",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-child-t2w/larmorx-fix/denoised.nii.gz,",
+       "<workspace>/oracles/figures-cache/ants-denoise/panel-rician-child-t2w/larmorx-fix/noise.nii.gz",
+       "]",
+       "-s",
+       "1"
+      ],
+      "env": {
+       "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "8",
+       "LARMORX_UPSTREAM_DEFECTS": "fix"
+      },
+      "exit": 0,
+      "seconds": 43.24
+     }
+    ],
+    "versions": {
+     "ants": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0"
+    },
+    "threads": {
+     "ants": [
+      1,
+      8
+     ],
+     "ants_crmath": 1,
+     "larmorx": [
+      8,
+      1
+     ]
+    },
+    "settings": "a data-panel case of DenoiseImage: ANTs 2.6.5 at 1 thread (as built and with CORE-MATH) and at 8 threads; larmorx in reproduce mode at 8 and 1 threads, in its default mode at 8"
    }
   ],
   "command": "python -m larmorx_validation evidence ants-denoise --site <site>"
@@ -583,9 +1261,9 @@
    "record": "docs/validation/ants-denoise.md",
    "status": "validated",
    "summary": {
-    "cases": 51,
+    "cases": 72,
     "verdicts": {
-     "identical-cr": 33,
+     "identical-cr": 54,
      "bit-identical": 9,
      "both-reject": 9
     }
@@ -616,6 +1294,18 @@
      "counts": {
       "bit-identical": 1,
       "both-reject": 9
+     }
+    },
+    {
+     "category": "panel-fmriprep",
+     "counts": {
+      "identical-cr": 17
+     }
+    },
+    {
+     "category": "panel-images",
+     "counts": {
+      "identical-cr": 4
      }
     }
    ]
@@ -1336,9 +2026,303 @@
      "reason": "ANTs exit 1: ''; larmorx exit 1: ''"
     }
    }
+  },
+  {
+   "id": "panel/fmriprep/ds000005-sub-01/anat_fit/anat_template/denoise[0]",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's DenoiseImage node `anat_fit/anat_template/denoise[0]` of the oracle run ds000005-sub-01 (anat_fit_wf/anat_template_wf/denoise): its command.txt replayed, its inputs from the run's working directory",
+   "command": "DenoiseImage -i openneuro/ds000005/sub-01/anat/sub-01_T1w.nii.gz -n Rician -o sub-01_T1w_noise_corrected.nii.gz -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "12/12",
+     "reason": "denoised: as built, 5522 of 5898240 differ; max |diff| 0.000198, max rel 8.3e-05, 1 - NCC 6.4e-18 (÷ ANTs' thread band: 1.2e-06 max |Δ|, 2.8e-13 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds000228-sub-pixar008/anat_fit/anat_template/denoise[0]",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's DenoiseImage node `anat_fit/anat_template/denoise[0]` of the oracle run ds000228-sub-pixar008 (anat_fit_wf/anat_template_wf/denoise): its command.txt replayed, its inputs from the run's working directory",
+   "command": "DenoiseImage -i /home/karelo/VScode_projects/super_fmriprep/oracles/bids-views/ds000228/sub-pixar008/anat/sub-pixar008_T1w.nii.gz -n Rician -o sub-pixar008_T1w_noise_corrected.nii.gz -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "denoised: as built, 3530 of 6488064 differ; max |diff| 0.000132, max rel 2.9e-05, 1 - NCC 5.6e-18 (÷ ANTs' thread band: – max |Δ|, – 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds000256-sub-CTS203/anat_fit/anat_template/denoise[0]",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's DenoiseImage node `anat_fit/anat_template/denoise[0]` of the oracle run ds000256-sub-CTS203 (anat_fit_wf/anat_template_wf/denoise): its command.txt replayed, its inputs from the run's working directory",
+   "command": "DenoiseImage -i /home/karelo/VScode_projects/super_fmriprep/oracles/bids-views/ds000256/sub-CTS203/anat/sub-CTS203_T1w.nii.gz -n Rician -o sub-CTS203_T1w_noise_corrected.nii.gz -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "denoised: as built, 11766 of 14680064 differ; max |diff| 9.92e-05, max rel 9.2e-06, 1 - NCC 8e-18 (÷ ANTs' thread band: – max |Δ|, – 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds001600-sub-1/anat_fit/anat_template/denoise[0]",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's DenoiseImage node `anat_fit/anat_template/denoise[0]` of the oracle run ds001600-sub-1 (anat_fit_wf/anat_template_wf/denoise): its command.txt replayed, its inputs from the run's working directory",
+   "command": "DenoiseImage -i openneuro/ds001600/sub-1/anat/sub-1_T1w.nii.gz -n Rician -o sub-1_T1w_noise_corrected.nii.gz -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "denoised: as built, 5374 of 11534336 differ; max |diff| 0.000366, max rel 0.00045, 1 - NCC 5.8e-18 (÷ ANTs' thread band: – max |Δ|, – 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002422-sub-02/anat_fit/anat_template/denoise[0]",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's DenoiseImage node `anat_fit/anat_template/denoise[0]` of the oracle run ds002422-sub-02 (anat_fit_wf/anat_template_wf/denoise): its command.txt replayed, its inputs from the run's working directory",
+   "command": "DenoiseImage -i /home/karelo/VScode_projects/super_fmriprep/oracles/bids-views/ds002422/sub-02/anat/sub-02_T1w.nii -n Rician -o sub-02_T1w_noise_corrected.nii -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "denoised: as built, 9076 of 11534336 differ; max |diff| 0.000793, max rel 0.00026, 1 - NCC 9.2e-18 (÷ ANTs' thread band: – max |Δ|, – 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds002603-sub-01/anat_fit/anat_template/denoise[0]",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's DenoiseImage node `anat_fit/anat_template/denoise[0]` of the oracle run ds002603-sub-01 (anat_fit_wf/anat_template_wf/denoise): its command.txt replayed, its inputs from the run's working directory",
+   "command": "DenoiseImage -i /home/karelo/VScode_projects/super_fmriprep/oracles/bids-views/ds002603/sub-01/anat/sub-01_acq-SaggitalNsig1Mm1_T1w.nii.gz -n Rician -o sub-01_acq-SaggitalNsig1Mm1_T1w_noise_corrected.nii.gz -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "denoised: as built, 4179 of 16384000 differ; max |diff| 0.0288, max rel 2.1e-05, 1 - NCC 5.6e-18 (÷ ANTs' thread band: – max |Δ|, – 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds003592-sub-280/anat_fit/anat_template/denoise[0]",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's DenoiseImage node `anat_fit/anat_template/denoise[0]` of the oracle run ds003592-sub-280 (anat_fit_wf/anat_template_wf/denoise): its command.txt replayed, its inputs from the run's working directory",
+   "command": "DenoiseImage -i /home/karelo/VScode_projects/super_fmriprep/oracles/bids-views/ds003592/sub-280/ses-1/anat/sub-280_ses-1_T1w.nii.gz -n Rician -o sub-280_ses-1_T1w_noise_corrected.nii.gz -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "denoised: as built, 9087 of 12582912 differ; max |diff| 0.000118, max rel 0.001, 1 - NCC 5.6e-18 (÷ ANTs' thread band: – max |Δ|, – 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds004173-sub-603309/anat_fit/anat_template/denoise[0]",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's DenoiseImage node `anat_fit/anat_template/denoise[0]` of the oracle run ds004173-sub-603309 (anat_fit_wf/anat_template_wf/denoise): its command.txt replayed, its inputs from the run's working directory",
+   "command": "DenoiseImage -i /home/karelo/VScode_projects/super_fmriprep/oracles/bids-views/ds004173/sub-603309/anat/sub-603309_acq-headmotion1_T1w.nii.gz -n Rician -o sub-603309_acq-headmotion1_T1w_noise_corrected.nii.gz -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "denoised: as built, 9363 of 12582912 differ; max |diff| 0.000595, max rel 0.043, 1 - NCC 6.1e-18 (÷ ANTs' thread band: – max |Δ|, – 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds004173-sub-603309/anat_fit/anat_template/denoise[1]",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's DenoiseImage node `anat_fit/anat_template/denoise[1]` of the oracle run ds004173-sub-603309 (anat_fit_wf/anat_template_wf/denoise): its command.txt replayed, its inputs from the run's working directory",
+   "command": "DenoiseImage -i /home/karelo/VScode_projects/super_fmriprep/oracles/bids-views/ds004173/sub-603309/anat/sub-603309_acq-headmotion2_T1w.nii.gz -n Rician -o sub-603309_acq-headmotion2_T1w_noise_corrected.nii.gz -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "denoised: as built, 9043 of 12582912 differ; max |diff| 0.000645, max rel 0.00038, 1 - NCC 6.6e-18 (÷ ANTs' thread band: – max |Δ|, – 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds004173-sub-603309/anat_fit/anat_template/denoise[2]",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's DenoiseImage node `anat_fit/anat_template/denoise[2]` of the oracle run ds004173-sub-603309 (anat_fit_wf/anat_template_wf/denoise): its command.txt replayed, its inputs from the run's working directory",
+   "command": "DenoiseImage -i /home/karelo/VScode_projects/super_fmriprep/oracles/bids-views/ds004173/sub-603309/anat/sub-603309_acq-standard_T1w.nii.gz -n Rician -o sub-603309_acq-standard_T1w_noise_corrected.nii.gz -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "denoised: as built, 9224 of 12582912 differ; max |diff| 0.000294, max rel 9.7e-05, 1 - NCC 5.6e-18 (÷ ANTs' thread band: – max |Δ|, – 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds004884-sub-M2079/anat_fit/anat_template/denoise[0]",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's DenoiseImage node `anat_fit/anat_template/denoise[0]` of the oracle run ds004884-sub-M2079 (anat_fit_wf/anat_template_wf/denoise): its command.txt replayed, its inputs from the run's working directory",
+   "command": "DenoiseImage -i /home/karelo/VScode_projects/super_fmriprep/oracles/bids-views/ds004884/sub-M2079/ses-217/anat/sub-M2079_ses-217_acq-tfl3p2_run-3_T1w.nii.gz -n Rician -o sub-M2079_ses-217_acq-tfl3p2_run-3_T1w_noise_corrected.nii.gz -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "denoised: as built, 2260 of 12582912 differ; max |diff| 0.000496, max rel 4.6e-05, 1 - NCC 5.8e-18 (÷ ANTs' thread band: – max |Δ|, – 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds004958-sub-fsm64ps/anat_fit/anat_template/denoise[0]",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's DenoiseImage node `anat_fit/anat_template/denoise[0]` of the oracle run ds004958-sub-fsm64ps (anat_fit_wf/anat_template_wf/denoise): its command.txt replayed, its inputs from the run's working directory",
+   "command": "DenoiseImage -i /home/karelo/VScode_projects/super_fmriprep/oracles/bids-views/ds004958/sub-fsm64ps/anat/sub-fsm64ps_acq-mprageVnav_echo-1_part-mag_T1w.nii.gz -n Rician -o sub-fsm64ps_acq-mprageVnav_echo-1_part-mag_T1w_noise_corrected.nii.gz -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "denoised: as built, 11755 of 11534336 differ; max |diff| 0.000801, max rel 0.00033, 1 - NCC 8e-18 (÷ ANTs' thread band: – max |Δ|, – 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005003-sub-RS001/anat_fit/anat_template/denoise[0]",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's DenoiseImage node `anat_fit/anat_template/denoise[0]` of the oracle run ds005003-sub-RS001 (anat_fit_wf/anat_template_wf/denoise): its command.txt replayed, its inputs from the run's working directory",
+   "command": "DenoiseImage -i /home/karelo/VScode_projects/super_fmriprep/oracles/bids-views/ds005003/sub-RS001/ses-1/anat/sub-RS001_ses-1_T1w.nii.gz -n Rician -o sub-RS001_ses-1_T1w_noise_corrected.nii.gz -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "denoised: as built, 7785 of 9437184 differ; max |diff| 0.00109, max rel 0.0011, 1 - NCC 9.7e-18 (÷ ANTs' thread band: – max |Δ|, – 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005040-sub-002/anat_fit/anat_template/denoise[0]",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's DenoiseImage node `anat_fit/anat_template/denoise[0]` of the oracle run ds005040-sub-002 (anat_fit_wf/anat_template_wf/denoise): its command.txt replayed, its inputs from the run's working directory",
+   "command": "DenoiseImage -i openneuro/ds005040/sub-002/anat/sub-002_T1w.nii.gz -n Rician -o sub-002_T1w_noise_corrected.nii.gz -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "denoised: as built, 5205 of 15842304 differ; max |diff| 0.0159, max rel 9.6e-05, 1 - NCC 5e-18 (÷ ANTs' thread band: – max |Δ|, – 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005454-sub-16/anat_fit/anat_template/denoise[0]",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's DenoiseImage node `anat_fit/anat_template/denoise[0]` of the oracle run ds005454-sub-16 (anat_fit_wf/anat_template_wf/denoise): its command.txt replayed, its inputs from the run's working directory",
+   "command": "DenoiseImage -i openneuro/ds005454/sub-16/anat/sub-16_acq-denoised_T1w.nii.gz -n Rician -o sub-16_acq-denoised_T1w_noise_corrected.nii.gz -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "denoised: as built, 8446 of 17547264 differ; max |diff| 0.00394, max rel 0.00026, 1 - NCC 6.3e-18 (÷ ANTs' thread band: – max |Δ|, – 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005454-sub-16/anat_fit/anat_template/denoise[1]",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's DenoiseImage node `anat_fit/anat_template/denoise[1]` of the oracle run ds005454-sub-16 (anat_fit_wf/anat_template_wf/denoise): its command.txt replayed, its inputs from the run's working directory",
+   "command": "DenoiseImage -i openneuro/ds005454/sub-16/anat/sub-16_acq-mp2rage_T1w.nii.gz -n Rician -o sub-16_acq-mp2rage_T1w_noise_corrected.nii.gz -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "denoised: as built, 10951 of 17547264 differ; max |diff| 0.0015, max rel 4.8e-05, 1 - NCC 1.6e-17 (÷ ANTs' thread band: – max |Δ|, – 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/fmriprep/ds005752-sub-ON01016/anat_fit/anat_template/denoise[0]",
+   "category": "panel-fmriprep",
+   "description": "fMRIPrep 25.2.6's DenoiseImage node `anat_fit/anat_template/denoise[0]` of the oracle run ds005752-sub-ON01016 (anat_fit_wf/anat_template_wf/denoise): its command.txt replayed, its inputs from the run's working directory",
+   "command": "DenoiseImage -i openneuro/ds005752/sub-ON01016/ses-01/anat/sub-ON01016_ses-01_acq-FSPGR_rec-SCIC_T1w.nii.gz -n Rician -o sub-ON01016_ses-01_acq-FSPGR_rec-SCIC_T1w_noise_corrected.nii.gz -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "10/10",
+     "reason": "denoised: as built, 4286 of 12845056 differ; max |diff| 0.000397, max rel 0.00066, 1 - NCC 5.9e-18 (÷ ANTs' thread band: – max |Δ|, – 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/images/rician/7t-mp2rage",
+   "category": "panel-images",
+   "description": "sMRIPrep's command (-n Rician -s 1, the noise saved) on the raw 7 T MP2RAGE: the panel's largest anatomical image, its noisy background (ds005454 sub-16: 7 T MP2RAGE uniform image as reconstructed (0.8 mm, 224 x 272 x 288, its noisy background kept), the panel's largest anatomical image)",
+   "command": "DenoiseImage -i openneuro/ds005454/sub-16/anat/sub-16_acq-mp2rage_T1w.nii.gz -n Rician -o [ out.nii.gz, noise.nii.gz ] -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "20/20",
+     "reason": "denoised: as built, 10951 of 17547264 differ; max |diff| 0.0015, max rel 4.8e-05, 1 - NCC 1.6e-17 (÷ ANTs' thread band: 2.4e-06 max |Δ|, 3e-12 1 − NCC); noise: as built, 11205 of 17547264 differ; max |diff| 0.0015, max rel 0.013, 1 - NCC 2.2e-16 (÷ ANTs' thread band: 2.4e-06 max |Δ|, 2.9e-12 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/images/rician/flair",
+   "category": "panel-images",
+   "description": "the same on a FLAIR of 0.42 x 0.42 x 3 mm voxels (384 x 512 x 44) (ds003592 sub-280: an 82-year-old's FLAIR (0.42 x 0.42 x 3 mm, 44 slices))",
+   "command": "DenoiseImage -i openneuro/ds003592/sub-280/ses-1/anat/sub-280_ses-1_FLAIR.nii.gz -n Rician -o [ out.nii.gz, noise.nii.gz ] -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "20/20",
+     "reason": "denoised: as built, 7787 of 8650752 differ; max |diff| 0.000318, max rel 0.0069, 1 - NCC 1.1e-17 (÷ ANTs' thread band: 1.5e-06 max |Δ|, 5.1e-14 1 − NCC); noise: as built, 7913 of 8650752 differ; max |diff| 0.000318, max rel 0.0088, 1 - NCC 1.8e-15 (÷ ANTs' thread band: 1.5e-06 max |Δ|, 5.1e-14 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/images/rician/child-t2w",
+   "category": "panel-images",
+   "description": "the same on a child's 0.8 mm T2w (ds000256 sub-CTS203: a 7.5-year-old's 0.8 mm T2w)",
+   "command": "DenoiseImage -i openneuro/ds000256/sub-CTS203/anat/sub-CTS203_T2w.nii.gz -n Rician -o [ out.nii.gz, noise.nii.gz ] -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "20/20",
+     "reason": "denoised: as built, 10119 of 14680064 differ; max |diff| 7.15e-05, max rel 0.0011, 1 - NCC 9.1e-18 (÷ ANTs' thread band: 3e-06 max |Δ|, 1.5e-12 1 − NCC); noise: as built, 10285 of 14680064 differ; max |diff| 7.15e-05, max rel 0.0029, 1 - NCC 4.4e-16 (÷ ANTs' thread band: 3e-06 max |Δ|, 1.5e-12 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
+  },
+  {
+   "id": "panel/images/gaussian/1.5t-float32",
+   "category": "panel-images",
+   "description": "-n Gaussian on a float32 1.5 T MPRAGE stored uncompressed (ds002422 sub-02: 1.5 T MPRAGE of a 75-year-old (float32, PSR storage, uncompressed))",
+   "command": "DenoiseImage -i openneuro/ds002422/sub-02/anat/sub-02_T1w.nii -n Gaussian -o [ out.nii.gz, noise.nii.gz ] -s 1",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "20/20",
+     "reason": "denoised: as built, 8150 of 11534336 differ; max |diff| 0.000122, max rel 3.3e-07, 1 - NCC 7.7e-18 (÷ ANTs' thread band: 0.33 max |Δ|, 0.0065 1 − NCC); noise: as built, 8370 of 11534336 differ; max |diff| 0.000122, max rel 0.0013, 1 - NCC 6.6e-16 (÷ ANTs' thread band: 0.33 max |Δ|, 0.0065 1 − NCC); bit-identical with correctly rounded maths"
+    }
+   }
   }
  ],
- "cases_total": 51,
+ "cases_total": 72,
  "band": {
   "title": "The 32 cases that differ from ANTs as built: larmorx's difference divided by ANTs' own difference between thread counts (log scale)",
   "axis": [
@@ -3892,12 +4876,3103 @@
    "credits": [
     "openneuro-ds000005"
    ]
+  },
+  {
+   "id": "panel-7t",
+   "title": "Data panel: sMRIPrep's denoising of the raw 7 T MP2RAGE",
+   "summary": "sMRIPrep's DenoiseImage command (-n Rician -s 1, the noise saved) on the raw 7 T MP2RAGE of ds005454 sub-16, the panel's largest anatomical image (17.5 million voxels, a noisy background).",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds005454, sub-16 (CC-BY-4.0); the whole field of view shown, only margins where every array is 0 left out"
+    },
+    {
+     "label": "Command",
+     "text": "`DenoiseImage -i openneurosub-16_acq-mp2rage_T1w.nii.gz -n Rician -o [ denoised.nii.gz, noise.nii.gz ] -s 1`"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; larmorx at commit `042d70d5a17c`"
+    },
+    {
+     "label": "Grid",
+     "text": "224 × 272 × 288 voxels of 0.8 × 0.799 × 0.799 mm; shown 224 × 272 × 288, three full-resolution slices"
+    }
+   ],
+   "grid": {
+    "shape": [
+     224,
+     272,
+     288
+    ],
+    "spacing": [
+     0.8,
+     0.798611,
+     0.798611
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      0.798919,
+      -0.024708,
+      0.033349,
+      -93.033752
+     ],
+     [
+      0.02463,
+      0.798225,
+      0.003396,
+      -100.137245
+     ],
+     [
+      -0.033496,
+      -0.002365,
+      0.797907,
+      -141.869385
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     224,
+     272,
+     288
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "view": {
+    "kind": "slices",
+    "voxel": [
+     164,
+     163,
+     170
+    ],
+    "planes": {
+     "axial": {
+      "index": 170,
+      "box": [
+       0,
+       0,
+       224,
+       272
+      ],
+      "offset": 0,
+      "outside_mask": 1
+     },
+     "coronal": {
+      "index": 163,
+      "box": [
+       0,
+       0,
+       224,
+       288
+      ],
+      "offset": 60928,
+      "outside_mask": 1
+     },
+     "sagittal": {
+      "index": 164,
+      "box": [
+       0,
+       0,
+       272,
+       288
+      ],
+      "offset": 125440,
+      "outside_mask": 1
+     }
+    },
+    "per_volume": 203776
+   },
+   "mask": {
+    "blob": "712a38ce9536e4667570b57b.bin",
+    "dtype": "u1",
+    "bytes": 220
+   },
+   "outputs": [
+    {
+     "id": "denoised",
+     "label": "denoised",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 3978.660544433589
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -0.0089263916015625,
+       "hi": 4094.865966796875
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "noise",
+     "label": "noise",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -1016.9193560791016,
+       "hi": 1025.78466796875
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -2243.715087890625,
+       "hi": 1917.2861328125
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "input",
+     "role": "input",
+     "label": "ds005454 sub-16",
+     "sub": "sub-16_acq-mp2rage_T1w.nii.gz",
+     "arrays": {
+      "all": {
+       "blob": "f4fa4acea54c0b82252b8844.bin",
+       "dtype": "i2",
+       "bytes": 308620,
+       "scale": 0.062485694885253906,
+       "inter": 2047.53125
+      }
+     },
+     "window": [
+      0.0,
+      4066.006651878357
+     ]
+    },
+    {
+     "id": "ants-1",
+     "role": "original",
+     "label": "ANTs 2.6.5, 1 thread",
+     "sub": "as built (GCC 14.3), glibc's maths",
+     "arrays": {
+      "denoised": {
+       "blob": "40e21b811c50bebddaf3bea7.bin",
+       "dtype": "f4",
+       "bytes": 495982
+      },
+      "noise": {
+       "blob": "10f0ba6f6b9a2f9103f2d39c.bin",
+       "dtype": "f4",
+       "bytes": 525912
+      }
+     },
+     "own": {
+      "denoised": [
+       0.0,
+       3978.660544433589
+      ],
+      "noise": [
+       -1016.9193560791016,
+       1025.78466796875
+      ]
+     }
+    },
+    {
+     "id": "ants-1-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, correctly rounded maths",
+     "sub": "1 thread, CORE-MATH preloaded",
+     "arrays": {
+      "denoised": {
+       "blob": "0c38b8b481582c15a1cf1380.bin",
+       "dtype": "f4",
+       "xor": "ants-1:denoised",
+       "zero": false,
+       "bytes": 1158
+      },
+      "noise": {
+       "blob": "a2bfbe5ef62fe071caa2d365.bin",
+       "dtype": "f4",
+       "xor": "ants-1:noise",
+       "zero": false,
+       "bytes": 1255
+      }
+     },
+     "own": {
+      "denoised": [
+       0.0,
+       3978.660544433589
+      ],
+      "noise": [
+       -1016.9193560791016,
+       1025.78466796875
+      ]
+     }
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "reproduce mode, 8 threads",
+     "arrays": {
+      "denoised": {
+       "same": "ants-1-cr:denoised",
+       "dtype": "f4"
+      },
+      "noise": {
+       "same": "ants-1-cr:noise",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "denoised": [
+       0.0,
+       3978.660544433589
+      ],
+      "noise": [
+       -1016.9193560791016,
+       1025.78466796875
+      ]
+     }
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "default mode, 8 threads",
+     "arrays": {
+      "denoised": {
+       "blob": "c9e02b2c14af30f6d49c3c35.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:denoised",
+       "zero": false,
+       "bytes": 94891
+      },
+      "noise": {
+       "blob": "b0e085e1cf239dff02aefb78.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:noise",
+       "zero": false,
+       "bytes": 113735
+      }
+     },
+     "own": {
+      "denoised": [
+       0.0,
+       3974.397384033203
+      ],
+      "noise": [
+       -1016.9159698486328,
+       1025.78466796875
+      ]
+     }
+    },
+    {
+     "id": "ants-8",
+     "role": "original",
+     "label": "ANTs 2.6.5, 8 threads",
+     "sub": "as built",
+     "arrays": {
+      "denoised": {
+       "blob": "14d38a4a9ee552e124d6f557.bin",
+       "dtype": "f4",
+       "xor": "ants-1:denoised",
+       "zero": false,
+       "bytes": 311696
+      },
+      "noise": {
+       "blob": "f48164d8e5286c91e600dccc.bin",
+       "dtype": "f4",
+       "xor": "ants-1:noise",
+       "zero": false,
+       "bytes": 355575
+      }
+     },
+     "own": {
+      "denoised": [
+       0.0,
+       3978.397641601561
+      ],
+      "noise": [
+       -1016.6152838134766,
+       1025.8542547607417
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants",
+     "a": "larmorx",
+     "b": "ants-1",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "denoised": {
+       "identical": false,
+       "voxels": 17547264,
+       "differ": 10951,
+       "share": 0.0006240858973797852,
+       "max_abs": 0.001495361328125,
+       "at": [
+        164,
+        163,
+        170
+       ],
+       "a_at": 178.2399139404297,
+       "b_at": 178.2414093017578,
+       "rms": 6.3699035029984104e-06,
+       "range": 4094.8748931884766,
+       "max_rel_range": 3.651787581135687e-07,
+       "one_minus_ncc": 1.5875069325569207e-17,
+       "at_display": [
+        164,
+        163,
+        170
+       ]
+      },
+      "noise": {
+       "identical": false,
+       "voxels": 17547264,
+       "differ": 11205,
+       "share": 0.0006385610884978992,
+       "max_abs": 0.001495361328125,
+       "at": [
+        164,
+        163,
+        170
+       ],
+       "a_at": -85.26119995117188,
+       "b_at": -85.2626953125,
+       "rms": 6.293424921760986e-06,
+       "range": 4161.001220703125,
+       "max_rel_range": 3.593753639592334e-07,
+       "one_minus_ncc": 2.2029522406623232e-16,
+       "at_display": [
+        164,
+        163,
+        170
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 0.001495361328125,
+       "at": [
+        164,
+        163,
+        170
+       ],
+       "a": 178.2399139404297,
+       "b": 178.2414093017578,
+       "differ": 118,
+       "plane": "axial"
+      },
+      "noise": {
+       "max_abs": 0.001495361328125,
+       "at": [
+        164,
+        163,
+        170
+       ],
+       "a": -85.26119995117188,
+       "b": -85.2626953125,
+       "differ": 119,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "identical-cr",
+     "reason": "Only where glibc's maths is not correctly rounded (denoised, noise): with CORE-MATH preloaded, ANTs gives larmorx's bytes."
+    },
+    {
+     "id": "lx-cr",
+     "a": "larmorx",
+     "b": "ants-1-cr",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "denoised": {
+       "identical": true,
+       "voxels": 17547264,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 4094.8748931884766,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        0,
+        0,
+        0
+       ]
+      },
+      "noise": {
+       "identical": true,
+       "voxels": 17547264,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 4161.001220703125,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        170
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      },
+      "noise": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        170
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx gives ANTs' bytes with correctly rounded maths."
+    },
+    {
+     "id": "lx1-lx",
+     "a": "larmorx-1",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, 1 thread − 8 threads (reproduce)",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "denoised": {
+       "identical": true,
+       "voxels": 17547264,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 4094.8748931884766,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      },
+      "noise": {
+       "identical": true,
+       "voxels": 17547264,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 4161.001220703125,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx's result does not depend on its thread count."
+    },
+    {
+     "id": "fix-lx",
+     "a": "larmorx-fix",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "denoised": {
+       "identical": false,
+       "voxels": 17547264,
+       "differ": 1858030,
+       "share": 0.10588716280783146,
+       "max_abs": 34.43115234375,
+       "at": [
+        158,
+        47,
+        106
+       ],
+       "a_at": 1508.3736572265625,
+       "b_at": 1542.8048095703125,
+       "rms": 2.0235097582209822,
+       "range": 4094.8748931884766,
+       "max_rel_range": 0.008408352694980668,
+       "one_minus_ncc": 1.3753105180060777e-06,
+       "at_display": [
+        158,
+        47,
+        106
+       ]
+      },
+      "noise": {
+       "identical": false,
+       "voxels": 17547264,
+       "differ": 1891826,
+       "share": 0.10781316107172036,
+       "max_abs": 34.43115234375,
+       "at": [
+        158,
+        47,
+        106
+       ],
+       "a_at": -319.3958740234375,
+       "b_at": -353.8270263671875,
+       "rms": 2.0235097582807318,
+       "range": 4161.001220703125,
+       "max_rel_range": 0.008274727768027868,
+       "one_minus_ncc": 2.1184763164745638e-05,
+       "at_display": [
+        158,
+        47,
+        106
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 20.0582275390625,
+       "at": [
+        164,
+        122,
+        57
+       ],
+       "a": 1800.136474609375,
+       "b": 1820.1947021484375,
+       "differ": 32410,
+       "plane": "sagittal"
+      },
+      "noise": {
+       "max_abs": 20.0582275390625,
+       "at": [
+        164,
+        122,
+        57
+       ],
+       "a": -229.12109375,
+       "b": -249.1793212890625,
+       "differ": 32929,
+       "plane": "sagittal"
+      }
+     },
+     "links": [],
+     "verdict": "d13",
+     "reason": "larmorx's default corrects ANTS-43 ([register](repo:docs/findings/upstream-defects.md)); reproduce mode gives ANTs' result. Changed: denoised, noise."
+    },
+    {
+     "id": "ants8-ants1",
+     "a": "ants-8",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 8 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "denoised": {
+       "identical": false,
+       "voxels": 17547264,
+       "differ": 10655570,
+       "share": 0.6072496544190593,
+       "max_abs": 633.9461975097656,
+       "at": [
+        144,
+        211,
+        52
+       ],
+       "a_at": 148.23123168945312,
+       "b_at": 782.1774291992188,
+       "rms": 6.7577797607025545,
+       "range": 4094.8748931884766,
+       "max_rel_range": 0.1548145459985331,
+       "one_minus_ncc": 1.7869375623183895e-05,
+       "at_display": [
+        144,
+        211,
+        52
+       ]
+      },
+      "noise": {
+       "identical": false,
+       "voxels": 17547264,
+       "differ": 10676569,
+       "share": 0.6084463651997257,
+       "max_abs": 633.9461975097656,
+       "at": [
+        144,
+        211,
+        52
+       ],
+       "a_at": -148.23123168945312,
+       "b_at": -782.1774291992188,
+       "rms": 6.757779762320129,
+       "range": 4161.001220703125,
+       "max_rel_range": 0.15235424453988541,
+       "one_minus_ncc": 0.000254049059434683,
+       "at_display": [
+        144,
+        211,
+        52
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 446.0253601074219,
+       "at": [
+        141,
+        163,
+        144
+       ],
+       "a": 0.0,
+       "b": 446.0253601074219,
+       "differ": 130157,
+       "plane": "coronal"
+      },
+      "noise": {
+       "max_abs": 446.0253601074219,
+       "at": [
+        141,
+        163,
+        144
+       ],
+       "a": 47.989013671875,
+       "b": -398.0363464355469,
+       "differ": 130475,
+       "plane": "coronal"
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "ANTs' own result moves with its thread count (denoised, noise): the yardstick for any difference above."
+    }
+   ],
+   "default": {
+    "output": "denoised",
+    "plane": "axial",
+    "voxel": [
+     164,
+     163,
+     170
+    ],
+    "panels": [
+     "input",
+     "ants-1",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "lx-ants",
+     "lx-cr",
+     "fix-lx"
+    ],
+    "compare": {
+     "a": "ants-1",
+     "b": "larmorx"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 170,
+    "aspect": 0.82496,
+    "panels": {
+     "input": "574b553cf78b1aae0fc2f652.webp",
+     "ants-1": "d6366f3a38d9b73b18abb10f.webp",
+     "larmorx": "d6366f3a38d9b73b18abb10f.webp",
+     "larmorx-fix": "7f3140f7b6645367310fb08c.webp"
+    },
+    "diffs": {
+     "lx-ants": "0874d3d4660ad5d1c775e1f7.webp",
+     "fix-lx": "334555299ec32ad89f6d08ac.webp"
+    },
+    "ranges": {
+     "lx-ants": 20.0582275390625,
+     "fix-lx": 20.0582275390625
+    },
+    "caption": "Axial slice 171 of 288; the crosshair where larmorx differs most from ANTs as built; the three slices through it are stored at full resolution."
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B over all 17,547,264 values of each output.",
+   "provenance": [
+    "Data: OpenNeuro ds005454, sub-16, CC-BY-4.0",
+    "Inputs: input 1 (sha256 971678c9fb76ae12…)",
+    "Runs: figures cache entry `ants-denoise/panel-rician-7t-mp2rage`, computed 2026-10-26T23:46:09+00:00 with larmorx `042d70d5a17c`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds005454"
+   ]
+  },
+  {
+   "id": "panel-motion",
+   "title": "Data panel: fMRIPrep's denoising of a T1w with strong head motion",
+   "summary": "fMRIPrep 25.2.6's own call (sMRIPrep's denoise of each T1w) on ds004173 sub-603309's MPRAGE acquired with strong instructed head motion (rated 3): its command.txt and input from the oracle run.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds004173, sub-603309 (CC0-1.0); the whole field of view shown, only margins where every array is 0 left out"
+    },
+    {
+     "label": "Node",
+     "text": "`anat_fit/anat_template/denoise[1]` of the oracle run ds004173-sub-603309-noreconall"
+    },
+    {
+     "label": "Command",
+     "text": "`DenoiseImage -i sub-603309_acq-headmotion2_T1w.nii.gz -n Rician -o sub-603309_acq-headmotion2_T1w_noise_corrected.nii.gz -s 1`"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; larmorx at commit `042d70d5a17c`"
+    },
+    {
+     "label": "Grid",
+     "text": "192 × 256 × 256 voxels of 1 × 1 × 1 mm; shown 192 × 256 × 256, three full-resolution slices"
+    }
+   ],
+   "grid": {
+    "shape": [
+     192,
+     256,
+     256
+    ],
+    "spacing": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      0.993096,
+      0.02729,
+      0.11408,
+      -107.531982
+     ],
+     [
+      -0.018715,
+      0.996964,
+      -0.075575,
+      -89.739517
+     ],
+     [
+      -0.115796,
+      0.072918,
+      0.990593,
+      -153.534668
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     192,
+     256,
+     256
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "view": {
+    "kind": "slices",
+    "voxel": [
+     95,
+     24,
+     82
+    ],
+    "planes": {
+     "axial": {
+      "index": 82,
+      "box": [
+       0,
+       0,
+       192,
+       256
+      ],
+      "offset": 0,
+      "outside_mask": 1
+     },
+     "coronal": {
+      "index": 24,
+      "box": [
+       0,
+       0,
+       192,
+       256
+      ],
+      "offset": 49152,
+      "outside_mask": 1
+     },
+     "sagittal": {
+      "index": 95,
+      "box": [
+       0,
+       0,
+       256,
+       256
+      ],
+      "offset": 98304,
+      "outside_mask": 1
+     }
+    },
+    "per_volume": 163840
+   },
+   "mask": {
+    "blob": "cd33ff78bccda13862959814.bin",
+    "dtype": "u1",
+    "bytes": 182
+   },
+   "outputs": [
+    {
+     "id": "denoised",
+     "label": "denoised",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -3.8099851406059316e-06,
+       "hi": 659.2455648803711
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -0.0008392333984375,
+       "hi": 1205.6673583984375
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "input",
+     "role": "input",
+     "label": "ds004173 sub-603309, MPRAGE with strong motion",
+     "sub": "sub-603309_acq-headmotion2_T1w.nii.gz",
+     "arrays": {
+      "all": {
+       "blob": "1db6d9632241143e13d2304b.bin",
+       "dtype": "i2",
+       "bytes": 186743,
+       "scale": 0.019790951162576675,
+       "inter": 648.5098876953125
+      }
+     },
+     "window": [
+      0.0,
+      675.9995188601315
+     ]
+    },
+    {
+     "id": "ants-1",
+     "role": "original",
+     "label": "ANTs 2.6.5, 1 thread",
+     "sub": "as built (GCC 14.3), glibc's maths",
+     "arrays": {
+      "denoised": {
+       "blob": "e5694decd849cbb6873bc5d8.bin",
+       "dtype": "f4",
+       "bytes": 406585
+      }
+     },
+     "own": {
+      "denoised": [
+       -3.8099851406059316e-06,
+       659.2455648803711
+      ]
+     }
+    },
+    {
+     "id": "ants-1-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, correctly rounded maths",
+     "sub": "1 thread, CORE-MATH preloaded",
+     "arrays": {
+      "denoised": {
+       "blob": "1fb7d699bcc22be64e3a7d1a.bin",
+       "dtype": "f4",
+       "xor": "ants-1:denoised",
+       "zero": false,
+       "bytes": 1039
+      }
+     },
+     "own": {
+      "denoised": [
+       -3.8099851406059316e-06,
+       659.2455648803711
+      ]
+     }
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "reproduce mode, 8 threads",
+     "arrays": {
+      "denoised": {
+       "same": "ants-1-cr:denoised",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "denoised": [
+       -3.8099851406059316e-06,
+       659.2455648803711
+      ]
+     }
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "default mode, 8 threads",
+     "arrays": {
+      "denoised": {
+       "blob": "b3d8a2d98e96b08a17eb9c17.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:denoised",
+       "zero": false,
+       "bytes": 34445
+      }
+     },
+     "own": {
+      "denoised": [
+       -3.8099851406059316e-06,
+       658.5840997314453
+      ]
+     }
+    },
+    {
+     "id": "ants-8",
+     "role": "original",
+     "label": "ANTs 2.6.5, 8 threads",
+     "sub": "as built",
+     "arrays": {
+      "denoised": {
+       "blob": "7faca8eac5c7636071e62583.bin",
+       "dtype": "f4",
+       "xor": "ants-1:denoised",
+       "zero": false,
+       "bytes": 283178
+      }
+     },
+     "own": {
+      "denoised": [
+       -3.814697265625e-06,
+       659.1871347045903
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants",
+     "a": "larmorx",
+     "b": "ants-1",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "denoised": {
+       "identical": false,
+       "voxels": 12582912,
+       "differ": 9043,
+       "share": 0.0007186730702718099,
+       "max_abs": 0.000644683837890625,
+       "at": [
+        95,
+        24,
+        82
+       ],
+       "a_at": 1.7022590637207031,
+       "b_at": 1.7016143798828125,
+       "rms": 5.6065743212369e-07,
+       "range": 1205.668197631836,
+       "max_rel_range": 5.347108260439381e-07,
+       "one_minus_ncc": 6.640073125921123e-18,
+       "at_display": [
+        95,
+        24,
+        82
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 0.000644683837890625,
+       "at": [
+        95,
+        24,
+        82
+       ],
+       "a": 1.7022590637207031,
+       "b": 1.7016143798828125,
+       "differ": 122,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "identical-cr",
+     "reason": "Only where glibc's maths is not correctly rounded (denoised): with CORE-MATH preloaded, ANTs gives larmorx's bytes."
+    },
+    {
+     "id": "lx-cr",
+     "a": "larmorx",
+     "b": "ants-1-cr",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "denoised": {
+       "identical": true,
+       "voxels": 12582912,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1205.668197631836,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        82
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx gives ANTs' bytes with correctly rounded maths."
+    },
+    {
+     "id": "lx1-lx",
+     "a": "larmorx-1",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, 1 thread − 8 threads (reproduce)",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "denoised": {
+       "identical": true,
+       "voxels": 12582912,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1205.668197631836,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx's result does not depend on its thread count."
+    },
+    {
+     "id": "fix-lx",
+     "a": "larmorx-fix",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "denoised": {
+       "identical": false,
+       "voxels": 12582912,
+       "differ": 1037637,
+       "share": 0.08246397972106934,
+       "max_abs": 4.923583984375,
+       "at": [
+        147,
+        70,
+        21
+       ],
+       "a_at": 1078.1883544921875,
+       "b_at": 1083.1119384765625,
+       "rms": 0.3050498416437148,
+       "range": 1205.668197631836,
+       "max_rel_range": 0.004083697317426026,
+       "one_minus_ncc": 1.2643754958724637e-06,
+       "at_display": [
+        147,
+        70,
+        21
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 4.109375,
+       "at": [
+        95,
+        56,
+        25
+       ],
+       "a": 1014.0023803710938,
+       "b": 1018.1117553710938,
+       "differ": 10788,
+       "plane": "sagittal"
+      }
+     },
+     "links": [],
+     "verdict": "d13",
+     "reason": "larmorx's default corrects ANTS-43 ([register](repo:docs/findings/upstream-defects.md)); reproduce mode gives ANTs' result. Changed: denoised."
+    },
+    {
+     "id": "ants8-ants1",
+     "a": "ants-8",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 8 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "denoised": {
+       "identical": false,
+       "voxels": 12582912,
+       "differ": 8207227,
+       "share": 0.6522517999013265,
+       "max_abs": 75.739013671875,
+       "at": [
+        151,
+        153,
+        167
+       ],
+       "a_at": 75.739013671875,
+       "b_at": 0.0,
+       "rms": 0.6887057786984802,
+       "range": 1205.668197631836,
+       "max_rel_range": 0.06281911874315088,
+       "one_minus_ncc": 1.0010362562474396e-05,
+       "at_display": [
+        151,
+        153,
+        167
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 46.89201354980469,
+       "at": [
+        95,
+        108,
+        207
+       ],
+       "a": 0.0,
+       "b": 46.89201354980469,
+       "differ": 113171,
+       "plane": "sagittal"
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "ANTs' own result moves with its thread count (denoised): the yardstick for any difference above."
+    }
+   ],
+   "default": {
+    "output": "denoised",
+    "plane": "axial",
+    "voxel": [
+     95,
+     24,
+     82
+    ],
+    "panels": [
+     "input",
+     "ants-1",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "lx-ants",
+     "lx-cr",
+     "fix-lx"
+    ],
+    "compare": {
+     "a": "ants-1",
+     "b": "larmorx"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 82,
+    "aspect": 0.75,
+    "panels": {
+     "input": "a6d863a3e965a3d79a525d37.webp",
+     "ants-1": "83c1e484152876fba9d6dfe2.webp",
+     "larmorx": "83c1e484152876fba9d6dfe2.webp",
+     "larmorx-fix": "7d497fdbd34425adfda572de.webp"
+    },
+    "diffs": {
+     "lx-ants": "c708ed2f762019dad20a85d3.webp",
+     "fix-lx": "e7decf786fd5c7a353065a81.webp"
+    },
+    "ranges": {
+     "lx-ants": 4.109375,
+     "fix-lx": 4.109375
+    },
+    "caption": "Axial slice 83 of 256; the crosshair where larmorx differs most from ANTs as built; the three slices through it are stored at full resolution."
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B over all 12,582,912 values of each output.",
+   "provenance": [
+    "Data: OpenNeuro ds004173, sub-603309, CC0-1.0",
+    "Inputs: input 1 (sha256 c57cecdd8d2701da…)",
+    "Runs: figures cache entry `ants-denoise/panel-fmriprep-motion`, computed 2026-10-27T00:12:13+00:00 with larmorx `042d70d5a17c`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds004173"
+   ]
+  },
+  {
+   "id": "panel-flair",
+   "title": "Data panel: denoising a FLAIR of 3 mm slices",
+   "summary": "The same command on an 82-year-old's FLAIR (ds003592 sub-280: 384 × 512 × 44 voxels of 0.42 × 0.42 × 3 mm).",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds003592, sub-280 (CC0-1.0); the whole field of view shown, only margins where every array is 0 left out"
+    },
+    {
+     "label": "Command",
+     "text": "`DenoiseImage -i openneurosub-280_ses-1_FLAIR.nii.gz -n Rician -o [ denoised.nii.gz, noise.nii.gz ] -s 1`"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; larmorx at commit `042d70d5a17c`"
+    },
+    {
+     "label": "Grid",
+     "text": "384 × 512 × 44 voxels of 0.422 × 0.422 × 3 mm; shown 384 × 512 × 44, three full-resolution slices"
+    }
+   ],
+   "grid": {
+    "shape": [
+     384,
+     512,
+     44
+    ],
+    "spacing": [
+     0.421875,
+     0.421875,
+     3.0
+    ],
+    "to_file": [
+     [
+      -1,
+      0,
+      0,
+      383
+     ],
+     [
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      0.420794,
+      0.030015,
+      0.022422,
+      -83.071229
+     ],
+     [
+      -0.0287,
+      0.411593,
+      -0.625856,
+      -67.616029
+     ],
+     [
+      -0.009338,
+      0.087571,
+      2.933903,
+      -83.444014
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     384,
+     512,
+     44
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "view": {
+    "kind": "slices",
+    "voxel": [
+     179,
+     40,
+     23
+    ],
+    "planes": {
+     "axial": {
+      "index": 23,
+      "box": [
+       0,
+       0,
+       384,
+       511
+      ],
+      "offset": 0,
+      "outside_mask": 1
+     },
+     "coronal": {
+      "index": 40,
+      "box": [
+       0,
+       0,
+       384,
+       44
+      ],
+      "offset": 196224,
+      "outside_mask": 1
+     },
+     "sagittal": {
+      "index": 179,
+      "box": [
+       0,
+       0,
+       511,
+       44
+      ],
+      "offset": 213120,
+      "outside_mask": 1
+     }
+    },
+    "per_volume": 235604
+   },
+   "mask": {
+    "blob": "4bfc79848e1ef9c2f9b1332b.bin",
+    "dtype": "u1",
+    "bytes": 252
+   },
+   "outputs": [
+    {
+     "id": "denoised",
+     "label": "denoised",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -2.384185791015625e-05,
+       "hi": 369.51857711791985
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -0.0010528564453125,
+       "hi": 976.8902587890625
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "noise",
+     "label": "noise",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -21.095059318542482,
+       "hi": 32.999996185302734
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -165.30181884765625,
+       "hi": 257.0
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "input",
+     "role": "input",
+     "label": "ds003592 sub-280",
+     "sub": "sub-280_ses-1_FLAIR.nii.gz",
+     "arrays": {
+      "all": {
+       "blob": "5dd999fd486ecd193a1b2513.bin",
+       "dtype": "i2",
+       "bytes": 206787
+      }
+     },
+     "window": [
+      0.0,
+      379.0
+     ]
+    },
+    {
+     "id": "ants-1",
+     "role": "original",
+     "label": "ANTs 2.6.5, 1 thread",
+     "sub": "as built (GCC 14.3), glibc's maths",
+     "arrays": {
+      "denoised": {
+       "blob": "18cd943be90e89f2e69ff1de.bin",
+       "dtype": "f4",
+       "bytes": 703354
+      },
+      "noise": {
+       "blob": "e8d9e6901595b3258a5f29fb.bin",
+       "dtype": "f4",
+       "bytes": 739036
+      }
+     },
+     "own": {
+      "denoised": [
+       -2.384185791015625e-05,
+       369.51857711791985
+      ],
+      "noise": [
+       -21.095059318542482,
+       32.999996185302734
+      ]
+     }
+    },
+    {
+     "id": "ants-1-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, correctly rounded maths",
+     "sub": "1 thread, CORE-MATH preloaded",
+     "arrays": {
+      "denoised": {
+       "blob": "c1b10e7e1eb228f6e5bb1aec.bin",
+       "dtype": "f4",
+       "xor": "ants-1:denoised",
+       "zero": false,
+       "bytes": 1587
+      },
+      "noise": {
+       "blob": "6c090dfadec73b29f676975e.bin",
+       "dtype": "f4",
+       "xor": "ants-1:noise",
+       "zero": false,
+       "bytes": 1720
+      }
+     },
+     "own": {
+      "denoised": [
+       -2.384185791015625e-05,
+       369.51857711791985
+      ],
+      "noise": [
+       -21.095059318542482,
+       32.999996185302734
+      ]
+     }
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "reproduce mode, 8 threads",
+     "arrays": {
+      "denoised": {
+       "same": "ants-1-cr:denoised",
+       "dtype": "f4"
+      },
+      "noise": {
+       "same": "ants-1-cr:noise",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "denoised": [
+       -2.384185791015625e-05,
+       369.51857711791985
+      ],
+      "noise": [
+       -21.095059318542482,
+       32.999996185302734
+      ]
+     }
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "default mode, 8 threads",
+     "arrays": {
+      "denoised": {
+       "blob": "dbab8daaa00962482a4bc74b.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:denoised",
+       "zero": false,
+       "bytes": 126216
+      },
+      "noise": {
+       "blob": "c2042c765d43bd97bb75c4e3.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:noise",
+       "zero": false,
+       "bytes": 153524
+      }
+     },
+     "own": {
+      "denoised": [
+       -2.384185791015625e-05,
+       369.11711349487217
+      ],
+      "noise": [
+       -21.037958154678346,
+       33.0
+      ]
+     }
+    },
+    {
+     "id": "ants-8",
+     "role": "original",
+     "label": "ANTs 2.6.5, 8 threads",
+     "sub": "as built",
+     "arrays": {
+      "denoised": {
+       "blob": "5e5583c99fcd35119a918560.bin",
+       "dtype": "f4",
+       "xor": "ants-1:denoised",
+       "zero": false,
+       "bytes": 521632
+      },
+      "noise": {
+       "blob": "0080d0b5cae9e8ff7c7ae5b4.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:noise",
+       "zero": false,
+       "bytes": 593330
+      }
+     },
+     "own": {
+      "denoised": [
+       -2.288818359375e-05,
+       369.1441241455061
+      ],
+      "noise": [
+       -20.807958183288573,
+       32.02520175933837
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants",
+     "a": "larmorx",
+     "b": "ants-1",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "denoised": {
+       "identical": false,
+       "voxels": 8650752,
+       "differ": 7787,
+       "share": 0.0009001529578006629,
+       "max_abs": 0.00031757354736328125,
+       "at": [
+        204,
+        40,
+        23
+       ],
+       "a_at": 0.04815959930419922,
+       "b_at": 0.04784202575683594,
+       "rms": 4.561672106704238e-07,
+       "range": 976.8913116455078,
+       "max_rel_range": 3.250858550767024e-07,
+       "one_minus_ncc": 1.051402157733625e-17,
+       "at_display": [
+        179,
+        40,
+        23
+       ]
+      },
+      "noise": {
+       "identical": false,
+       "voxels": 8650752,
+       "differ": 7913,
+       "share": 0.0009147181655421401,
+       "max_abs": 0.00031757354736328125,
+       "at": [
+        204,
+        40,
+        23
+       ],
+       "a_at": 8.9518404006958,
+       "b_at": 8.952157974243164,
+       "rms": 4.5503280355432723e-07,
+       "range": 422.30181884765625,
+       "max_rel_range": 7.520061084033471e-07,
+       "one_minus_ncc": 1.8461372104137467e-15,
+       "at_display": [
+        179,
+        40,
+        23
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 0.00031757354736328125,
+       "at": [
+        179,
+        40,
+        23
+       ],
+       "a": 0.04815959930419922,
+       "b": 0.04784202575683594,
+       "differ": 217,
+       "plane": "axial"
+      },
+      "noise": {
+       "max_abs": 0.00031757354736328125,
+       "at": [
+        179,
+        40,
+        23
+       ],
+       "a": 8.9518404006958,
+       "b": 8.952157974243164,
+       "differ": 220,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "identical-cr",
+     "reason": "Only where glibc's maths is not correctly rounded (denoised, noise): with CORE-MATH preloaded, ANTs gives larmorx's bytes."
+    },
+    {
+     "id": "lx-cr",
+     "a": "larmorx",
+     "b": "ants-1-cr",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "denoised": {
+       "identical": true,
+       "voxels": 8650752,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 976.8913116455078,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        383,
+        0,
+        0
+       ]
+      },
+      "noise": {
+       "identical": true,
+       "voxels": 8650752,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 422.30181884765625,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        383,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        23
+       ],
+       "a": 2.760955810546875,
+       "b": 2.760955810546875,
+       "differ": 0,
+       "plane": "axial"
+      },
+      "noise": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        23
+       ],
+       "a": 0.23904424905776978,
+       "b": 0.23904424905776978,
+       "differ": 0,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx gives ANTs' bytes with correctly rounded maths."
+    },
+    {
+     "id": "lx1-lx",
+     "a": "larmorx-1",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, 1 thread − 8 threads (reproduce)",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "denoised": {
+       "identical": true,
+       "voxels": 8650752,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 976.8913116455078,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      },
+      "noise": {
+       "identical": true,
+       "voxels": 8650752,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 422.30181884765625,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx's result does not depend on its thread count."
+    },
+    {
+     "id": "fix-lx",
+     "a": "larmorx-fix",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "denoised": {
+       "identical": false,
+       "voxels": 8650752,
+       "differ": 1050951,
+       "share": 0.12148666381835938,
+       "max_abs": 2.2208251953125,
+       "at": [
+        171,
+        335,
+        0
+       ],
+       "a_at": 398.9996337890625,
+       "b_at": 401.220458984375,
+       "rms": 0.24081359891123327,
+       "range": 976.8913116455078,
+       "max_rel_range": 0.0022733595527343457,
+       "one_minus_ncc": 1.9827109361265484e-06,
+       "at_display": [
+        212,
+        335,
+        0
+       ]
+      },
+      "noise": {
+       "identical": false,
+       "voxels": 8650752,
+       "differ": 1076478,
+       "share": 0.12443750554865057,
+       "max_abs": 2.220823287963867,
+       "at": [
+        171,
+        335,
+        0
+       ],
+       "a_at": 26.000368118286133,
+       "b_at": 23.779544830322266,
+       "rms": 0.24081359757519924,
+       "range": 422.30181884765625,
+       "max_rel_range": 0.005258853239192466,
+       "one_minus_ncc": 0.0004627646999428154,
+       "at_display": [
+        212,
+        335,
+        0
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 1.996551513671875,
+       "at": [
+        179,
+        338,
+        0
+       ],
+       "a": 403.22344970703125,
+       "b": 405.2200012207031,
+       "differ": 45163,
+       "plane": "sagittal"
+      },
+      "noise": {
+       "max_abs": 1.9965513944625854,
+       "at": [
+        179,
+        338,
+        0
+       ],
+       "a": 3.776550054550171,
+       "b": 1.7799986600875854,
+       "differ": 45663,
+       "plane": "sagittal"
+      }
+     },
+     "links": [],
+     "verdict": "d13",
+     "reason": "larmorx's default corrects ANTS-43 ([register](repo:docs/findings/upstream-defects.md)); reproduce mode gives ANTs' result. Changed: denoised, noise."
+    },
+    {
+     "id": "ants8-ants1",
+     "a": "ants-8",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 8 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "denoised": {
+       "identical": false,
+       "voxels": 8650752,
+       "differ": 7390295,
+       "share": 0.8542950948079427,
+       "max_abs": 213.38079833984375,
+       "at": [
+        1,
+        281,
+        7
+       ],
+       "a_at": 0.000701904296875,
+       "b_at": 213.38150024414062,
+       "rms": 2.2006141285091445,
+       "range": 976.8913116455078,
+       "max_rel_range": 0.21842839197783234,
+       "one_minus_ncc": 0.00024471802924414795,
+       "at_display": [
+        382,
+        281,
+        7
+       ]
+      },
+      "noise": {
+       "identical": false,
+       "voxels": 8650752,
+       "differ": 7406011,
+       "share": 0.8561118154814749,
+       "max_abs": 213.38079598546028,
+       "at": [
+        1,
+        281,
+        7
+       ],
+       "a_at": 212.99929809570312,
+       "b_at": -0.38149788975715637,
+       "rms": 2.200614126577235,
+       "range": 422.30181884765625,
+       "max_rel_range": 0.505280314841449,
+       "one_minus_ncc": 0.0437365948423849,
+       "at_display": [
+        382,
+        281,
+        7
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 52.642822265625,
+       "at": [
+        161,
+        328,
+        23
+       ],
+       "a": 52.64277648925781,
+       "b": -4.57763671875e-05,
+       "differ": 197093,
+       "plane": "axial"
+      },
+      "noise": {
+       "max_abs": 52.64282035827637,
+       "at": [
+        161,
+        328,
+        23
+       ],
+       "a": 10.35722541809082,
+       "b": 63.00004577636719,
+       "differ": 197463,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "ANTs' own result moves with its thread count (denoised, noise): the yardstick for any difference above."
+    }
+   ],
+   "default": {
+    "output": "denoised",
+    "plane": "axial",
+    "voxel": [
+     179,
+     40,
+     23
+    ],
+    "panels": [
+     "input",
+     "ants-1",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "lx-ants",
+     "lx-cr",
+     "fix-lx"
+    ],
+    "compare": {
+     "a": "ants-1",
+     "b": "larmorx"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 23,
+    "aspect": 0.75,
+    "panels": {
+     "input": "ce9f9f2e27a6fc6431ed192a.webp",
+     "ants-1": "72bcecf5d8c0e607f143cb72.webp",
+     "larmorx": "72bcecf5d8c0e607f143cb72.webp",
+     "larmorx-fix": "b2a3a4a7a16434ef390c30ee.webp"
+    },
+    "diffs": {
+     "lx-ants": "f6c69d9ca9a784961613b419.webp",
+     "fix-lx": "e383e7d6bdacf09d5e4690d2.webp"
+    },
+    "ranges": {
+     "lx-ants": 1.996551513671875,
+     "fix-lx": 1.996551513671875
+    },
+    "caption": "Axial slice 24 of 44; the crosshair where larmorx differs most from ANTs as built; the three slices through it are stored at full resolution."
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B over all 8,650,752 values of each output.",
+   "provenance": [
+    "Data: OpenNeuro ds003592, sub-280, CC0-1.0",
+    "Inputs: input 1 (sha256 08c1cf34701df2fd…)",
+    "Runs: figures cache entry `ants-denoise/panel-rician-flair`, computed 2026-10-27T00:31:00+00:00 with larmorx `042d70d5a17c`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds003592"
+   ]
+  },
+  {
+   "id": "panel-child-t2w",
+   "title": "Data panel: denoising a child's T2w",
+   "summary": "The same command on a 7.5-year-old's 0.8 mm T2w (ds000256 sub-CTS203).",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds000256, sub-CTS203 (PDDL-1.0); the whole field of view shown, only margins where every array is 0 left out"
+    },
+    {
+     "label": "Command",
+     "text": "`DenoiseImage -i openneurosub-CTS203_T2w.nii.gz -n Rician -o [ denoised.nii.gz, noise.nii.gz ] -s 1`"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; larmorx at commit `042d70d5a17c`"
+    },
+    {
+     "label": "Grid",
+     "text": "224 × 256 × 256 voxels of 0.8 × 0.801 × 0.801 mm; shown 224 × 256 × 256, three full-resolution slices"
+    }
+   ],
+   "grid": {
+    "shape": [
+     224,
+     256,
+     256
+    ],
+    "spacing": [
+     0.799998,
+     0.800781,
+     0.800781
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      0.797333,
+      0.065305,
+      4e-06,
+      -96.417252
+     ],
+     [
+      -0.059124,
+      0.723254,
+      0.338602,
+      -119.106903
+     ],
+     [
+      0.027583,
+      -0.337474,
+      0.725672,
+      -20.288734
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     224,
+     256,
+     256
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "view": {
+    "kind": "slices",
+    "voxel": [
+     110,
+     192,
+     221
+    ],
+    "planes": {
+     "axial": {
+      "index": 221,
+      "box": [
+       0,
+       0,
+       224,
+       256
+      ],
+      "offset": 0,
+      "outside_mask": 1
+     },
+     "coronal": {
+      "index": 192,
+      "box": [
+       0,
+       0,
+       224,
+       256
+      ],
+      "offset": 57344,
+      "outside_mask": 1
+     },
+     "sagittal": {
+      "index": 110,
+      "box": [
+       0,
+       0,
+       256,
+       256
+      ],
+      "offset": 114688,
+      "outside_mask": 1
+     }
+    },
+    "per_volume": 180224
+   },
+   "mask": {
+    "blob": "c2a86b807c2aa562cba34669.bin",
+    "dtype": "u1",
+    "bytes": 198
+   },
+   "outputs": [
+    {
+     "id": "denoised",
+     "label": "denoised",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -1.542541858725599e-05,
+       "hi": 157.69762100219754
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -0.0004596710205078125,
+       "hi": 328.07098388671875
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "noise",
+     "label": "noise",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -22.148657064437867,
+       "hi": 25.235315456390403
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -125.3779296875,
+       "hi": 121.87673950195312
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "input",
+     "role": "input",
+     "label": "ds000256 sub-CTS203",
+     "sub": "sub-CTS203_T2w.nii.gz",
+     "arrays": {
+      "all": {
+       "blob": "7a541d8fbb03bc1bb697f027.bin",
+       "dtype": "i2",
+       "bytes": 232166,
+       "scale": 0.0061799040995538235,
+       "inter": 202.5030975341797
+      }
+     },
+     "window": [
+      0.0,
+      170.00298187462613
+     ]
+    },
+    {
+     "id": "ants-1",
+     "role": "original",
+     "label": "ANTs 2.6.5, 1 thread",
+     "sub": "as built (GCC 14.3), glibc's maths",
+     "arrays": {
+      "denoised": {
+       "blob": "f1a756bc19674746a3eab312.bin",
+       "dtype": "f4",
+       "bytes": 500883
+      },
+      "noise": {
+       "blob": "bbdb9530685d3587d0ef826a.bin",
+       "dtype": "f4",
+       "bytes": 527255
+      }
+     },
+     "own": {
+      "denoised": [
+       -1.542541858725599e-05,
+       157.69762100219754
+      ],
+      "noise": [
+       -22.148657064437867,
+       25.235315456390403
+      ]
+     }
+    },
+    {
+     "id": "ants-1-cr",
+     "role": "reference",
+     "label": "ANTs 2.6.5, correctly rounded maths",
+     "sub": "1 thread, CORE-MATH preloaded",
+     "arrays": {
+      "denoised": {
+       "blob": "4247f7ef309db465a172185c.bin",
+       "dtype": "f4",
+       "xor": "ants-1:denoised",
+       "zero": false,
+       "bytes": 1135
+      },
+      "noise": {
+       "blob": "acbc68c1ecf2472985f87456.bin",
+       "dtype": "f4",
+       "xor": "ants-1:noise",
+       "zero": false,
+       "bytes": 1217
+      }
+     },
+     "own": {
+      "denoised": [
+       -1.542541858725599e-05,
+       157.69762100219754
+      ],
+      "noise": [
+       -22.148657064437867,
+       25.235315456390403
+      ]
+     }
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "reproduce mode, 8 threads",
+     "arrays": {
+      "denoised": {
+       "same": "ants-1-cr:denoised",
+       "dtype": "f4"
+      },
+      "noise": {
+       "same": "ants-1-cr:noise",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "denoised": [
+       -1.542541858725599e-05,
+       157.69762100219754
+      ],
+      "noise": [
+       -22.148657064437867,
+       25.235315456390403
+      ]
+     }
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "larmorx (port)",
+     "sub": "default mode, 8 threads",
+     "arrays": {
+      "denoised": {
+       "blob": "502df95d281bdd5ff6f89f9f.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:denoised",
+       "zero": false,
+       "bytes": 19196
+      },
+      "noise": {
+       "blob": "077b6c28efd8eddb8e322b65.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:noise",
+       "zero": false,
+       "bytes": 22212
+      }
+     },
+     "own": {
+      "denoised": [
+       -1.542541858725599e-05,
+       157.66035232543953
+      ],
+      "noise": [
+       -22.14760802268982,
+       25.239042005539023
+      ]
+     }
+    },
+    {
+     "id": "ants-8",
+     "role": "original",
+     "label": "ANTs 2.6.5, 8 threads",
+     "sub": "as built",
+     "arrays": {
+      "denoised": {
+       "blob": "3a882f31a49f958485e246ff.bin",
+       "dtype": "f4",
+       "xor": "ants-1:denoised",
+       "zero": false,
+       "bytes": 363953
+      },
+      "noise": {
+       "blob": "22623b8561c14326a4eb19bf.bin",
+       "dtype": "f4",
+       "xor": "ants-1-cr:noise",
+       "zero": false,
+       "bytes": 392036
+      }
+     },
+     "own": {
+      "denoised": [
+       -1.5665813843952492e-05,
+       157.6937586212159
+      ],
+      "noise": [
+       -22.145415058135985,
+       25.259041366577236
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants",
+     "a": "larmorx",
+     "b": "ants-1",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "denoised": {
+       "identical": false,
+       "voxels": 14680064,
+       "differ": 10119,
+       "share": 0.0006893021719796317,
+       "max_abs": 7.152557373046875e-05,
+       "at": [
+        110,
+        192,
+        221
+       ],
+       "a_at": 0.9699192047119141,
+       "b_at": 0.9698476791381836,
+       "rms": 1.9189654989231357e-07,
+       "range": 328.07144355773926,
+       "max_rel_range": 2.1801828575756712e-07,
+       "one_minus_ncc": 9.079648973110436e-18,
+       "at_display": [
+        110,
+        192,
+        221
+       ]
+      },
+      "noise": {
+       "identical": false,
+       "voxels": 14680064,
+       "differ": 10285,
+       "share": 0.0007006100245884486,
+       "max_abs": 7.152557373046875e-05,
+       "at": [
+        110,
+        192,
+        221
+       ],
+       "a_at": 8.028020858764648,
+       "b_at": 8.028092384338379,
+       "rms": 1.9094943072043633e-07,
+       "range": 247.25466918945312,
+       "max_rel_range": 2.8927896069644673e-07,
+       "one_minus_ncc": 4.4177418075163004e-16,
+       "at_display": [
+        110,
+        192,
+        221
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 7.152557373046875e-05,
+       "at": [
+        110,
+        192,
+        221
+       ],
+       "a": 0.9699192047119141,
+       "b": 0.9698476791381836,
+       "differ": 132,
+       "plane": "axial"
+      },
+      "noise": {
+       "max_abs": 7.152557373046875e-05,
+       "at": [
+        110,
+        192,
+        221
+       ],
+       "a": 8.028020858764648,
+       "b": 8.028092384338379,
+       "differ": 133,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "identical-cr",
+     "reason": "Only where glibc's maths is not correctly rounded (denoised, noise): with CORE-MATH preloaded, ANTs gives larmorx's bytes."
+    },
+    {
+     "id": "lx-cr",
+     "a": "larmorx",
+     "b": "ants-1-cr",
+     "kind": "main",
+     "label": "larmorx − ANTs 2.6.5, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "denoised": {
+       "identical": true,
+       "voxels": 14680064,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 328.07144355773926,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        0,
+        0,
+        0
+       ]
+      },
+      "noise": {
+       "identical": true,
+       "voxels": 14680064,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 247.25466918945312,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        221
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      },
+      "noise": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        221
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx gives ANTs' bytes with correctly rounded maths."
+    },
+    {
+     "id": "lx1-lx",
+     "a": "larmorx-1",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, 1 thread − 8 threads (reproduce)",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "denoised": {
+       "identical": true,
+       "voxels": 14680064,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 328.07144355773926,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      },
+      "noise": {
+       "identical": true,
+       "voxels": 14680064,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 247.25466918945312,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "larmorx's result does not depend on its thread count."
+    },
+    {
+     "id": "fix-lx",
+     "a": "larmorx-fix",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "larmorx, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "denoised": {
+       "identical": false,
+       "voxels": 14680064,
+       "differ": 439971,
+       "share": 0.029970645904541016,
+       "max_abs": 1.414581298828125,
+       "at": [
+        110,
+        106,
+        93
+       ],
+       "a_at": 280.2581787109375,
+       "b_at": 281.6727600097656,
+       "rms": 0.07931576252614703,
+       "range": 328.07144355773926,
+       "max_rel_range": 0.004311808682547417,
+       "one_minus_ncc": 1.3640018480608863e-06,
+       "at_display": [
+        110,
+        106,
+        93
+       ]
+      },
+      "noise": {
+       "identical": false,
+       "voxels": 14680064,
+       "differ": 450361,
+       "share": 0.030678408486502513,
+       "max_abs": 1.414581298828125,
+       "at": [
+        110,
+        106,
+        93
+       ],
+       "a_at": -15.257720947265625,
+       "b_at": -16.67230224609375,
+       "rms": 0.07931576249883937,
+       "range": 247.25466918945312,
+       "max_rel_range": 0.005721151003802622,
+       "one_minus_ncc": 7.404762873192169e-05,
+       "at_display": [
+        110,
+        106,
+        93
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 1.414581298828125,
+       "at": [
+        110,
+        106,
+        93
+       ],
+       "a": 280.2581787109375,
+       "b": 281.6727600097656,
+       "differ": 4960,
+       "plane": "sagittal"
+      },
+      "noise": {
+       "max_abs": 1.414581298828125,
+       "at": [
+        110,
+        106,
+        93
+       ],
+       "a": -15.257720947265625,
+       "b": -16.67230224609375,
+       "differ": 5066,
+       "plane": "sagittal"
+      }
+     },
+     "links": [],
+     "verdict": "d13",
+     "reason": "larmorx's default corrects ANTS-43 ([register](repo:docs/findings/upstream-defects.md)); reproduce mode gives ANTs' result. Changed: denoised, noise."
+    },
+    {
+     "id": "ants8-ants1",
+     "a": "ants-8",
+     "b": "ants-1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5, 8 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "denoised": {
+       "identical": false,
+       "voxels": 14680064,
+       "differ": 9734714,
+       "share": 0.6631247656685966,
+       "max_abs": 33.73271179199219,
+       "at": [
+        144,
+        138,
+        97
+       ],
+       "a_at": 0.0,
+       "b_at": 33.73271179199219,
+       "rms": 0.29056984599646096,
+       "range": 328.07144355773926,
+       "max_rel_range": 0.10282123742981417,
+       "one_minus_ncc": 2.0792451564237913e-05,
+       "at_display": [
+        144,
+        138,
+        97
+       ]
+      },
+      "noise": {
+       "identical": false,
+       "voxels": 14680064,
+       "differ": 9739457,
+       "share": 0.6634478569030762,
+       "max_abs": 33.73271179199219,
+       "at": [
+        144,
+        138,
+        97
+       ],
+       "a_at": 50.00160217285156,
+       "b_at": 16.268890380859375,
+       "rms": 0.29056984622544924,
+       "range": 247.25466918945312,
+       "max_rel_range": 0.13642901831773005,
+       "one_minus_ncc": 0.0010219461880736115,
+       "at_display": [
+        144,
+        138,
+        97
+       ]
+      }
+     },
+     "display": {
+      "denoised": {
+       "max_abs": 17.903717041015625,
+       "at": [
+        110,
+        110,
+        230
+       ],
+       "a": 17.903717041015625,
+       "b": 0.0,
+       "differ": 130910,
+       "plane": "sagittal"
+      },
+      "noise": {
+       "max_abs": 17.903717041015625,
+       "at": [
+        110,
+        110,
+        230
+       ],
+       "a": 14.095827102661133,
+       "b": 31.999544143676758,
+       "differ": 130953,
+       "plane": "sagittal"
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "ANTs' own result moves with its thread count (denoised, noise): the yardstick for any difference above."
+    }
+   ],
+   "default": {
+    "output": "denoised",
+    "plane": "axial",
+    "voxel": [
+     110,
+     192,
+     221
+    ],
+    "panels": [
+     "input",
+     "ants-1",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "lx-ants",
+     "lx-cr",
+     "fix-lx"
+    ],
+    "compare": {
+     "a": "ants-1",
+     "b": "larmorx"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 221,
+    "aspect": 0.87414,
+    "panels": {
+     "input": "43572ca8ec7157486ac5cc6e.webp",
+     "ants-1": "6031734f514885668b28913a.webp",
+     "larmorx": "6031734f514885668b28913a.webp",
+     "larmorx-fix": "6031734f514885668b28913a.webp"
+    },
+    "diffs": {
+     "lx-ants": "c89bbdb20074354f9bab1b78.webp",
+     "fix-lx": "b4571e791988edeef0d8ca0e.webp"
+    },
+    "ranges": {
+     "lx-ants": 1.414581298828125,
+     "fix-lx": 1.414581298828125
+    },
+    "caption": "Axial slice 222 of 256; the crosshair where larmorx differs most from ANTs as built; the three slices through it are stored at full resolution."
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B over all 14,680,064 values of each output.",
+   "provenance": [
+    "Data: OpenNeuro ds000256, sub-CTS203, PDDL-1.0",
+    "Inputs: input 1 (sha256 ecc1c76bc4c2f1fd…)",
+    "Runs: figures cache entry `ants-denoise/panel-rician-child-t2w`, computed 2026-10-27T00:57:52+00:00 with larmorx `042d70d5a17c`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds000256"
+   ]
+  }
+ ],
+ "tables": [
+  {
+   "id": "panel-nodes",
+   "title": "fMRIPrep's DenoiseImage nodes in the fourteen oracle runs, and what the panel record compares of them",
+   "columns": [
+    {
+     "label": "Node (normalised path)"
+    },
+    {
+     "label": "Nodes",
+     "num": true
+    },
+    {
+     "label": "Runs",
+     "num": true
+    },
+    {
+     "label": "Compared",
+     "num": true
+    },
+    {
+     "label": "Same call as a compared one",
+     "num": true
+    },
+    {
+     "label": "Statuses",
+     "num": false
+    },
+    {
+     "label": "Not compared: why",
+     "num": false
+    }
+   ],
+   "rows": [
+    {
+     "head": "anat_fit_wf/anat_template_wf/denoise",
+     "cells": [
+      {
+       "v": 17,
+       "fmt": "count"
+      },
+      {
+       "v": 14,
+       "fmt": "count"
+      },
+      {
+       "v": 17,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "text": "17 pass"
+      },
+      {
+       "text": "–"
+      }
+     ]
+    }
+   ],
+   "note": "From the panel record (docs/validation/ants-denoise-panel.md): every node of the finished fMRIPrep 25.2.6 oracle runs that ran the program, grouped by its path with the subject, run, space and item removed; a call repeated word for word is compared once."
   }
  ],
  "cases_credits": [
   "openneuro-ds000005",
+  "openneuro-ds005454",
+  "openneuro-ds004173",
+  "openneuro-ds003592",
+  "openneuro-ds000256",
   "openneuro-ds000210",
   "openneuro-ds003012",
+  "openneuro-ds000228",
+  "openneuro-ds001600",
+  "openneuro-ds002422",
+  "openneuro-ds002603",
+  "openneuro-ds004884",
+  "openneuro-ds004958",
+  "openneuro-ds005003",
+  "openneuro-ds005040",
+  "openneuro-ds005752",
   "templateflow-MNI152NLin2009cAsym"
  ],
  "credits": {
@@ -3931,6 +8006,81 @@
    "share_alike": false,
    "text": "Multi-echo fMRI replication sample (OpenNeuro ds000210, version 00002), Open Data Commons Public Domain Dedication and Licence 1.0."
   },
+  "openneuro-ds000228": {
+   "id": "openneuro-ds000228",
+   "title": "Children and adults watching a short film",
+   "source": "OpenNeuro ds000228",
+   "version": "1.1.1",
+   "doi": "10.18112/openneuro.ds000228.v1.1.1",
+   "url": "https://openneuro.org/datasets/ds000228/versions/1.1.1",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Richardson H, Lisandrelli G, Riobueno-Naylor A, Saxe R (2018). Development of the social brain from age three to twelve years. Nature Communications 9:1027. doi:10.1038/s41467-018-03399-2. Dataset: OpenNeuro ds000228 v1.1.1, doi:10.18112/openneuro.ds000228.v1.1.1",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Children and adults watching a short film (OpenNeuro ds000228, version 1.1.1, doi:10.18112/openneuro.ds000228.v1.1.1), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds000256": {
+   "id": "openneuro-ds000256",
+   "title": "Behavioral interventions for reducing head motion in children",
+   "source": "OpenNeuro ds000256",
+   "version": "00002",
+   "doi": "",
+   "url": "https://openneuro.org/datasets/ds000256/versions/00002",
+   "licence": "PDDL-1.0",
+   "licence_name": "Open Data Commons Public Domain Dedication and Licence 1.0",
+   "licence_url": "https://opendatacommons.org/licenses/pddl/1-0/",
+   "citation": "Greene DJ, Koller JM, Hampton JM, Wesevich V, Van AN, Nguyen AL, Hoyt CR, McIntyre L, Earl EA, Klein RL, Shimony JS, Petersen SE, Schlaggar BL, Fair DA, Dosenbach NUF (2018). Behavioral interventions for reducing head motion during MRI scans in children. NeuroImage 171:234-245, https://www.sciencedirect.com/science/article/pii/S1053811918300235. Dataset: OpenNeuro ds000256 v00002",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Behavioral interventions for reducing head motion in children (OpenNeuro ds000256, version 00002), Open Data Commons Public Domain Dedication and Licence 1.0."
+  },
+  "openneuro-ds001600": {
+   "id": "openneuro-ds001600",
+   "title": "Example fieldmaps",
+   "source": "OpenNeuro ds001600",
+   "version": "1.0.0",
+   "doi": "",
+   "url": "https://openneuro.org/datasets/ds001600/versions/1.0.0",
+   "licence": "CC-BY-SA",
+   "licence_name": "Creative Commons Attribution-ShareAlike (CC BY-SA; the dataset gives no version)",
+   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "citation": "Cieslak M., Elliott M., Satterthwaite T. Example Fieldmaps. OpenNeuro ds001600, version 1.0.0 (Siemens Prisma, University of Pennsylvania).",
+   "attribution": true,
+   "share_alike": true,
+   "text": "Example fieldmaps (OpenNeuro ds001600, version 1.0.0), Creative Commons Attribution-ShareAlike (CC BY-SA; the dataset gives no version). Attribution: Cieslak M., Elliott M., Satterthwaite T. Example Fieldmaps. OpenNeuro ds001600, version 1.0.0 (Siemens Prisma, University of Pennsylvania). The images shown here are adapted from it: reoriented to RAS, cropped to the region shown, masked outside it, and shown as the outputs of the programs compared. Under its share-alike condition the images adapted from this dataset are shared under the same licence, CC BY-SA."
+  },
+  "openneuro-ds002422": {
+   "id": "openneuro-ds002422",
+   "title": "fMRI: resting state and arithmetic task",
+   "source": "OpenNeuro ds002422",
+   "version": "1.1.0",
+   "doi": "10.18112/openneuro.ds002422.v1.1.0",
+   "url": "https://openneuro.org/datasets/ds002422/versions/1.1.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Panikratova Y, Tomyshev A, Pechenkova E, Vlasova R. fMRI: resting state and arithmetic task. OpenNeuro ds002422 v1.1.0, doi:10.18112/openneuro.ds002422.v1.1.0 (\"This dataset was provided by Ya. Panikratova, A. Tomyshev, E. Pechenkova, and R. Vlasova\")",
+   "attribution": false,
+   "share_alike": false,
+   "text": "fMRI: resting state and arithmetic task (OpenNeuro ds002422, version 1.1.0, doi:10.18112/openneuro.ds002422.v1.1.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds002603": {
+   "id": "openneuro-ds002603",
+   "title": "MB-EPI-comparison",
+   "source": "OpenNeuro ds002603",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds002603.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds002603/versions/1.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Snoek L, Beemsterboer T, Scholte HS. MB-EPI-comparison. OpenNeuro ds002603 v1.0.0, doi:10.18112/openneuro.ds002603.v1.0.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "MB-EPI-comparison (OpenNeuro ds002603, version 1.0.0, doi:10.18112/openneuro.ds002603.v1.0.0), CC0 1.0 public-domain dedication."
+  },
   "openneuro-ds003012": {
    "id": "openneuro-ds003012",
    "title": "Action in auctions",
@@ -3945,6 +8095,126 @@
    "attribution": false,
    "share_alike": false,
    "text": "Action in auctions (OpenNeuro ds003012, version 1.0.4), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds003592": {
+   "id": "openneuro-ds003592",
+   "title": "Neurocognitive aging data release",
+   "source": "OpenNeuro ds003592",
+   "version": "1.0.13",
+   "doi": "10.18112/openneuro.ds003592.v1.0.13",
+   "url": "https://openneuro.org/datasets/ds003592/versions/1.0.13",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Spreng RN, Setton R, Alter U, Cassidy BN, Darboh B, DuPre E, Kantarovich K, Lockrow AW, Mwilambwe-Tshilobo L, Luh W-M, Kundu P, Turner GR. Neurocognitive aging data release with behavioral, structural, and multi-echo functional MRI measures. OpenNeuro ds003592 v1.0.13, doi:10.18112/openneuro.ds003592.v1.0.13",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Neurocognitive aging data release (OpenNeuro ds003592, version 1.0.13, doi:10.18112/openneuro.ds003592.v1.0.13), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds004173": {
+   "id": "openneuro-ds004173",
+   "title": "Movement-related artefacts (MR-ART)",
+   "source": "OpenNeuro ds004173",
+   "version": "1.0.2",
+   "doi": "10.18112/openneuro.ds004173.v1.0.2",
+   "url": "https://openneuro.org/datasets/ds004173/versions/1.0.2",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Nárai Á, Hermann P, Auer T, Kemenczky P, Szalma J, Homolya I, Somogyi E, Vakli P, Weiss B, Vidnyánszky Z (2022). Movement-related artefacts (MR-ART) dataset of matched motion-corrupted and clean structural MRI brain scans. Scientific Data 9:630, doi:10.1038/s41597-022-01694-8. Dataset: OpenNeuro ds004173 v1.0.2, doi:10.18112/openneuro.ds004173.v1.0.2",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Movement-related artefacts (MR-ART) (OpenNeuro ds004173, version 1.0.2, doi:10.18112/openneuro.ds004173.v1.0.2), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds004884": {
+   "id": "openneuro-ds004884",
+   "title": "Aphasia Recovery Cohort",
+   "source": "OpenNeuro ds004884",
+   "version": "1.0.2",
+   "doi": "10.18112/openneuro.ds004884.v1.0.2",
+   "url": "https://openneuro.org/datasets/ds004884/versions/1.0.2",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Gibson M, Newman-Norlund R, Bonilha L, Fridriksson J, Hickok G, Hillis AE, den Ouden DB, Rorden C (2024). The Aphasia Recovery Cohort, an open-source chronic stroke repository. Scientific Data 11:981. doi:10.1038/s41597-024-03819-7. Dataset: OpenNeuro ds004884 v1.0.2, doi:10.18112/openneuro.ds004884.v1.0.2",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Aphasia Recovery Cohort (OpenNeuro ds004884, version 1.0.2, doi:10.18112/openneuro.ds004884.v1.0.2), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds004958": {
+   "id": "openneuro-ds004958",
+   "title": "The FreeSurfer Maintenance Dataset",
+   "source": "OpenNeuro ds004958",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds004958.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds004958/versions/1.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Greve DN, Fischl B. The FreeSurfer Maintenance Dataset. OpenNeuro ds004958 v1.0.0, doi:10.18112/openneuro.ds004958.v1.0.0 (FreeSurfer Maintenance grant R01EB023281; https://surfer.nmr.mgh.harvard.edu/fswiki/FsmData)",
+   "attribution": false,
+   "share_alike": false,
+   "text": "The FreeSurfer Maintenance Dataset (OpenNeuro ds004958, version 1.0.0, doi:10.18112/openneuro.ds004958.v1.0.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds005003": {
+   "id": "openneuro-ds005003",
+   "title": "Retrospective Task/Rest fMRI Data from Tumor Patients",
+   "source": "OpenNeuro ds005003",
+   "version": "2.0.0",
+   "doi": "10.18112/openneuro.ds005003.v2.0.0",
+   "url": "https://openneuro.org/datasets/ds005003/versions/2.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Leuthardt EC, Shimony JS, Snyder AZ, Dierker D, Park KY. Retrospective Task/Rest fMRI Data from Tumor Patients. OpenNeuro ds005003 v2.0.0, doi:10.18112/openneuro.ds005003.v2.0.0. The authors ask to cite doi:10.1016/j.nic.2017.06.011 and doi:10.1371/journal.pone.0236423 and to acknowledge accession ds005003.",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Retrospective Task/Rest fMRI Data from Tumor Patients (OpenNeuro ds005003, version 2.0.0, doi:10.18112/openneuro.ds005003.v2.0.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds005040": {
+   "id": "openneuro-ds005040",
+   "title": "Political Moralization",
+   "source": "OpenNeuro ds005040",
+   "version": "1.2.0",
+   "doi": "10.18112/openneuro.ds005040.v1.2.0",
+   "url": "https://openneuro.org/datasets/ds005040/versions/1.2.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Cohen MS, Cao Q, Decety J. Political Moralization (PMM). OpenNeuro ds005040 v1.2.0, doi:10.18112/openneuro.ds005040.v1.2.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Political Moralization (OpenNeuro ds005040, version 1.2.0, doi:10.18112/openneuro.ds005040.v1.2.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds005454": {
+   "id": "openneuro-ds005454",
+   "title": "fMRIPrep boot camp 7T training dataset",
+   "source": "OpenNeuro ds005454",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds005454.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds005454/versions/1.0.0",
+   "licence": "CC-BY-4.0",
+   "licence_name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+   "citation": "Sleight EC, Esteban O, Grouiller F. fMRIPrep boot camp -- 7T training dataset. OpenNeuro ds005454, version 1.0.0. doi:10.18112/openneuro.ds005454.v1.0.0",
+   "attribution": true,
+   "share_alike": false,
+   "text": "fMRIPrep boot camp 7T training dataset (OpenNeuro ds005454, version 1.0.0, doi:10.18112/openneuro.ds005454.v1.0.0), Creative Commons Attribution 4.0 (CC BY 4.0). Attribution: Sleight EC, Esteban O, Grouiller F. fMRIPrep boot camp -- 7T training dataset. OpenNeuro ds005454, version 1.0.0. doi:10.18112/openneuro.ds005454.v1.0.0 The images shown here are adapted from it: reoriented to RAS, cropped to the region shown, masked outside it, and shown as the outputs of the programs compared."
+  },
+  "openneuro-ds005752": {
+   "id": "openneuro-ds005752",
+   "title": "NIMH Healthy Research Volunteer Dataset",
+   "source": "OpenNeuro ds005752",
+   "version": "2.1.0",
+   "doi": "10.18112/openneuro.ds005752.v2.1.0",
+   "url": "https://openneuro.org/datasets/ds005752/versions/2.1.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Nugent AC, Thomas AG, Mahoney M, Gibbons A, Smith JT, Charles AJ, Shaw JS, Stout JD, Namyst AM, Basavaraj A, Earl E, Riddle T, Snow J, Japee S, Pavletic AJ, Sinclair S, Roopchansingh V, Bandettini PA, Chung J (2022). The NIMH intramural healthy volunteer dataset: A comprehensive MEG, MRI, and behavioral resource. Scientific Data 9:518. doi:10.1038/s41597-022-01623-9. Dataset: OpenNeuro ds005752 v2.1.0, doi:10.18112/openneuro.ds005752.v2.1.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "NIMH Healthy Research Volunteer Dataset (OpenNeuro ds005752, version 2.1.0, doi:10.18112/openneuro.ds005752.v2.1.0), CC0 1.0 public-domain dedication."
   },
   "templateflow-MNI152NLin2009cAsym": {
    "id": "templateflow-MNI152NLin2009cAsym",
