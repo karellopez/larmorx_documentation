@@ -74,7 +74,7 @@ The data panel's youngest subject (ds000228, aged 3.5: a small head, an oblique 
 
 ## Every case {#cases}
 
-Each case of the record, with what it tests, its command line, its verdict and the reason. Search, filter (or select a segment of the chart above), sort; `#case=<name>` links to one.
+Each case of the two records (the full tier against FSL 6.0.7.17, the standard tier against FSL 6.0.7.23: a column each), with what it tests, its command line, its verdict and the reason. Search, filter (or select a segment of the chart above), sort; `#case=<name>` links to one.
 
 {{ ev.cases('fsl-bet') }}
 
