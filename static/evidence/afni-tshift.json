@@ -3,31 +3,31 @@
  "tool": "afni-tshift",
  "title": "3dTshift",
  "provenance": {
-  "exporter": "f82992b55fd6ca5b48682b959a546aedc5331326",
+  "exporter": "31d3a349d3bb30e10186a4a73accf47de84e0604",
   "records": [
    {
     "path": "docs/validation/afni-tshift-replica.json",
-    "sha256": "a59136a4a1a1b8360cf6a06919217ed2a21baff381aa943316849bc8643b8232",
-    "generated": "2026-10-24",
-    "larmorx_commit": "bd2ca21ddea8"
+    "sha256": "6d7ae43a18403412dd0a20a9c59dbbb07abcc4d1f8381cb4d4fb9d8fdcb540cb",
+    "generated": "2026-10-29",
+    "larmorx_commit": "62a8a8fc6705"
    },
    {
     "path": "docs/validation/afni-tshift-replica.md",
-    "sha256": "de7279a7768a0e9ff7f4116e892beb9d1d675137986f82b9759ba6b36422f6fc",
-    "generated": "2026-10-24",
-    "larmorx_commit": "bd2ca21ddea8"
+    "sha256": "f6cf0d0465d89d286d6731b8ac636ef528a049eecd9ebc43a977707ce9d4b061",
+    "generated": "2026-10-29",
+    "larmorx_commit": "62a8a8fc6705"
    },
    {
     "path": "docs/validation/afni-tshift.json",
-    "sha256": "45e360fd761a212e201c3e865b3465fbb20f45df758df79adccbf9abc215d297",
-    "generated": "2026-10-24",
-    "larmorx_commit": "bd2ca21ddea8"
+    "sha256": "498265213d461cc2a0f2fecb7f394da11740f937e71ee725390eeda67054b397",
+    "generated": "2026-10-29",
+    "larmorx_commit": "e82f16ee2f72"
    },
    {
     "path": "docs/validation/afni-tshift.md",
-    "sha256": "995afb736e5edd37bf7da5d24629d7134513b271467a287c7bb694db984b37c2",
-    "generated": "2026-10-24",
-    "larmorx_commit": "bd2ca21ddea8"
+    "sha256": "2e7cee392b860f846e77b5a66459da816723823aa5d7a253eeec9b00ce109c02",
+    "generated": "2026-10-29",
+    "larmorx_commit": "e82f16ee2f72"
    }
   ],
   "benchmarks": [
@@ -399,9 +399,9 @@
    "record": "docs/validation/afni-tshift-replica.md",
    "status": "validated",
    "summary": {
-    "cases": 314,
+    "cases": 315,
     "verdicts": {
-     "bit-identical": 279,
+     "bit-identical": 280,
      "both-reject": 32,
      "divergence": 3
     }
@@ -487,6 +487,12 @@
      "counts": {
       "bit-identical": 20
      }
+    },
+    {
+     "category": "difftest",
+     "counts": {
+      "bit-identical": 1
+     }
     }
    ]
   },
@@ -498,10 +504,10 @@
    "record": "docs/validation/afni-tshift.md",
    "status": "validated",
    "summary": {
-    "cases": 314,
+    "cases": 315,
     "verdicts": {
      "open": 103,
-     "bit-identical": 176,
+     "bit-identical": 177,
      "both-reject": 32,
      "divergence": 3
     }
@@ -594,6 +600,12 @@
      "counts": {
       "bit-identical": 9,
       "open": 11
+     }
+    },
+    {
+     "category": "difftest",
+     "counts": {
+      "bit-identical": 1
      }
     }
    ]
@@ -6879,9 +6891,37 @@
      "reason": ""
     }
    }
+  },
+  {
+   "id": "difftest/metre-oblique-default-steps",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "difftest/header-milliseconds-toffset",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": ""
+    }
+   }
   }
  ],
- "cases_total": 314,
+ "cases_total": 316,
  "speed": {
   "title": "Seconds for the whole command (read, shift, write), median of repeated runs, log scale; the factor is the clean-room original's speed-up over AFNI at one thread",
   "axis": [

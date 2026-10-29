@@ -3,19 +3,19 @@
  "tool": "mri-hmc",
  "title": "Head-motion correction",
  "provenance": {
-  "exporter": "51b22fb9ec504a539a598f35c734f6de6b4cfa43",
+  "exporter": "31d3a349d3bb30e10186a4a73accf47de84e0604",
   "records": [
    {
     "path": "docs/validation/mri-hmc.json",
-    "sha256": "1470310a73fcc7ef0853ded0731d2e753875532e6e98907f3785be1c8195b8df",
-    "generated": "2026-10-21",
-    "larmorx_commit": "1dfe56c0dc60"
+    "sha256": "3a3527511e6eb3b9e11c1b920b2681846f8b84955c71cf9112e2f4a123459627",
+    "generated": "2026-10-29",
+    "larmorx_commit": "e82f16ee2f72"
    },
    {
     "path": "docs/validation/mri-hmc.md",
-    "sha256": "0c107279c3c4d2d8bfb4a442ddc7ddd96c6abb6623554eafbbfaaf87e1e63f33",
-    "generated": "2026-10-21",
-    "larmorx_commit": "1dfe56c0dc60"
+    "sha256": "b4c13c5fcbf4182f13a31d4287ea98d80c0170bb2c8a2cb163d77e0a9d3e27c2",
+    "generated": "2026-10-29",
+    "larmorx_commit": "e82f16ee2f72"
    },
    {
     "path": "docs/validation/fsl-mcflirt-replica.json",
@@ -254,12 +254,12 @@
    "record": "docs/validation/mri-hmc.md",
    "status": "experimental",
    "summary": {
-    "cases": 134,
+    "cases": 136,
     "verdicts": {
      "within-variability": 30,
      "open": 92,
      "both-reject": 11,
-     "divergence": 1
+     "divergence": 3
     }
    },
    "agreement": [
@@ -319,6 +319,12 @@
      "category": "synthetic/orientation",
      "counts": {
       "open": 6
+     }
+    },
+    {
+     "category": "difftest",
+     "counts": {
+      "divergence": 2
      }
     }
    ]
@@ -3088,6 +3094,34 @@
    }
   },
   {
+   "id": "difftest/normmi-aligns-worse",
+   "category": "difftest",
+   "description": "Head-motion correction with -cost normmi: the subset that aligns worse, left open (item 13, 2026-10-29)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "7/13",
+     "reason": "-cost normmi: larmorx aligns this phantom worse than mcflirt (temporal SD 1.38 of mcflirt's); over the night's 91 normmi findings the median ratio is 1.033; cause open (the spec describes the histogram costs in outline only; docs/findings/mri-hmc-original.md)"
+    }
+   }
+  },
+  {
+   "id": "difftest/phantom-several-minima",
+   "category": "difftest",
+   "description": "Head-motion correction on a random phantom with large motion: an explained divergence (item 13, 2026-10-29)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "15/16",
+     "reason": "A small phantom moved by up to 15 degrees: the normalised correlation has several minima, and larmorx's estimates end in other ones than mcflirt's beyond the record's thresholds, aligning the series as well (temporal SD 0.999 of mcflirt's here; over the night…"
+    }
+   }
+  },
+  {
    "id": "real/ds000005/opt-sinc_final",
    "category": "options (ds000005)",
    "description": "6/6",
@@ -3997,7 +4031,7 @@
    "note": "From the case explorer below: each case's reason gives its numbers."
   }
  ],
- "cases_total": 194,
+ "cases_total": 196,
  "speed": {
   "title": "Seconds for the whole command, median of repeated runs, log scale; the factor is the clean-room original's speed-up at one thread",
   "axis": [
@@ -10639,7 +10673,13 @@
   "openneuro-ds006010",
   "openneuro-ds006736",
   "openneuro-ds000228",
+  "openneuro-ds000256",
+  "openneuro-ds002422",
+  "openneuro-ds002603",
   "openneuro-ds003592",
+  "openneuro-ds004884",
+  "openneuro-ds004958",
+  "openneuro-ds005003",
   "openneuro-ds005454",
   "openneuro-ds005752"
  ],
@@ -10719,6 +10759,21 @@
    "share_alike": false,
    "text": "Children and adults watching a short film (OpenNeuro ds000228, version 1.1.1, doi:10.18112/openneuro.ds000228.v1.1.1), CC0 1.0 public-domain dedication."
   },
+  "openneuro-ds000256": {
+   "id": "openneuro-ds000256",
+   "title": "Behavioral interventions for reducing head motion in children",
+   "source": "OpenNeuro ds000256",
+   "version": "00002",
+   "doi": "",
+   "url": "https://openneuro.org/datasets/ds000256/versions/00002",
+   "licence": "PDDL-1.0",
+   "licence_name": "Open Data Commons Public Domain Dedication and Licence 1.0",
+   "licence_url": "https://opendatacommons.org/licenses/pddl/1-0/",
+   "citation": "Greene DJ, Koller JM, Hampton JM, Wesevich V, Van AN, Nguyen AL, Hoyt CR, McIntyre L, Earl EA, Klein RL, Shimony JS, Petersen SE, Schlaggar BL, Fair DA, Dosenbach NUF (2018). Behavioral interventions for reducing head motion during MRI scans in children. NeuroImage 171:234-245, https://www.sciencedirect.com/science/article/pii/S1053811918300235. Dataset: OpenNeuro ds000256 v00002",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Behavioral interventions for reducing head motion in children (OpenNeuro ds000256, version 00002), Open Data Commons Public Domain Dedication and Licence 1.0."
+  },
   "openneuro-ds000258": {
    "id": "openneuro-ds000258",
    "title": "Multi-echo Cambridge",
@@ -10733,6 +10788,36 @@
    "attribution": false,
    "share_alike": false,
    "text": "Multi-echo Cambridge (OpenNeuro ds000258, version 1.0.1, doi:10.18112/openneuro.ds000258.v1.0.1), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds002422": {
+   "id": "openneuro-ds002422",
+   "title": "fMRI: resting state and arithmetic task",
+   "source": "OpenNeuro ds002422",
+   "version": "1.1.0",
+   "doi": "10.18112/openneuro.ds002422.v1.1.0",
+   "url": "https://openneuro.org/datasets/ds002422/versions/1.1.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Panikratova Y, Tomyshev A, Pechenkova E, Vlasova R. fMRI: resting state and arithmetic task. OpenNeuro ds002422 v1.1.0, doi:10.18112/openneuro.ds002422.v1.1.0 (\"This dataset was provided by Ya. Panikratova, A. Tomyshev, E. Pechenkova, and R. Vlasova\")",
+   "attribution": false,
+   "share_alike": false,
+   "text": "fMRI: resting state and arithmetic task (OpenNeuro ds002422, version 1.1.0, doi:10.18112/openneuro.ds002422.v1.1.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds002603": {
+   "id": "openneuro-ds002603",
+   "title": "MB-EPI-comparison",
+   "source": "OpenNeuro ds002603",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds002603.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds002603/versions/1.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Snoek L, Beemsterboer T, Scholte HS. MB-EPI-comparison. OpenNeuro ds002603 v1.0.0, doi:10.18112/openneuro.ds002603.v1.0.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "MB-EPI-comparison (OpenNeuro ds002603, version 1.0.0, doi:10.18112/openneuro.ds002603.v1.0.0), CC0 1.0 public-domain dedication."
   },
   "openneuro-ds003345": {
    "id": "openneuro-ds003345",
@@ -10778,6 +10863,51 @@
    "attribution": false,
    "share_alike": false,
    "text": "Interoception during aging (OpenNeuro ds003763, version 1.0.5, doi:10.18112/openneuro.ds003763.v1.0.5), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds004884": {
+   "id": "openneuro-ds004884",
+   "title": "Aphasia Recovery Cohort",
+   "source": "OpenNeuro ds004884",
+   "version": "1.0.2",
+   "doi": "10.18112/openneuro.ds004884.v1.0.2",
+   "url": "https://openneuro.org/datasets/ds004884/versions/1.0.2",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Gibson M, Newman-Norlund R, Bonilha L, Fridriksson J, Hickok G, Hillis AE, den Ouden DB, Rorden C (2024). The Aphasia Recovery Cohort, an open-source chronic stroke repository. Scientific Data 11:981. doi:10.1038/s41597-024-03819-7. Dataset: OpenNeuro ds004884 v1.0.2, doi:10.18112/openneuro.ds004884.v1.0.2",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Aphasia Recovery Cohort (OpenNeuro ds004884, version 1.0.2, doi:10.18112/openneuro.ds004884.v1.0.2), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds004958": {
+   "id": "openneuro-ds004958",
+   "title": "The FreeSurfer Maintenance Dataset",
+   "source": "OpenNeuro ds004958",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds004958.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds004958/versions/1.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Greve DN, Fischl B. The FreeSurfer Maintenance Dataset. OpenNeuro ds004958 v1.0.0, doi:10.18112/openneuro.ds004958.v1.0.0 (FreeSurfer Maintenance grant R01EB023281; https://surfer.nmr.mgh.harvard.edu/fswiki/FsmData)",
+   "attribution": false,
+   "share_alike": false,
+   "text": "The FreeSurfer Maintenance Dataset (OpenNeuro ds004958, version 1.0.0, doi:10.18112/openneuro.ds004958.v1.0.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds005003": {
+   "id": "openneuro-ds005003",
+   "title": "Retrospective Task/Rest fMRI Data from Tumor Patients",
+   "source": "OpenNeuro ds005003",
+   "version": "2.0.0",
+   "doi": "10.18112/openneuro.ds005003.v2.0.0",
+   "url": "https://openneuro.org/datasets/ds005003/versions/2.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Leuthardt EC, Shimony JS, Snyder AZ, Dierker D, Park KY. Retrospective Task/Rest fMRI Data from Tumor Patients. OpenNeuro ds005003 v2.0.0, doi:10.18112/openneuro.ds005003.v2.0.0. The authors ask to cite doi:10.1016/j.nic.2017.06.011 and doi:10.1371/journal.pone.0236423 and to acknowledge accession ds005003.",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Retrospective Task/Rest fMRI Data from Tumor Patients (OpenNeuro ds005003, version 2.0.0, doi:10.18112/openneuro.ds005003.v2.0.0), CC0 1.0 public-domain dedication."
   },
   "openneuro-ds005040": {
    "id": "openneuro-ds005040",

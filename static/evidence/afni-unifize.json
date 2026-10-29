@@ -3,31 +3,31 @@
  "tool": "afni-unifize",
  "title": "3dUnifize",
  "provenance": {
-  "exporter": "f82992b55fd6ca5b48682b959a546aedc5331326",
+  "exporter": "31d3a349d3bb30e10186a4a73accf47de84e0604",
   "records": [
    {
     "path": "docs/validation/afni-unifize.json",
-    "sha256": "6e6c50f4aa861c5da5b4194d784ca54683098d4c3eaaa4b151316075d1cc4c78",
-    "generated": "2026-10-24",
-    "larmorx_commit": "bd2ca21ddea8"
+    "sha256": "db1ab06a993090a8c4342c26030b70eb255dfdc23b51452863c1674400b7ce84",
+    "generated": "2026-10-29",
+    "larmorx_commit": "e82f16ee2f72"
    },
    {
     "path": "docs/validation/afni-unifize.md",
-    "sha256": "edc128d1b118d609d50efe8f7209e94b5cc9d6e8e01866da93246dc08694d4c0",
-    "generated": "2026-10-24",
-    "larmorx_commit": "bd2ca21ddea8"
+    "sha256": "9abd984534dc4f61f8383a2cadd612d8c2b04ff417c0ea1a253bda025581e32b",
+    "generated": "2026-10-29",
+    "larmorx_commit": "e82f16ee2f72"
    },
    {
     "path": "docs/validation/afni-unifize-replica.json",
-    "sha256": "79ebcb4c507edbc3ff9a65c323e67461becb052c6e6de3b2ca52fccfa802766e",
-    "generated": "2026-10-24",
-    "larmorx_commit": "bd2ca21ddea8"
+    "sha256": "ca60b19f0da3b969ba8ee29fb23cca5f2a50023a58b45a15b5e1f9328cfb9b23",
+    "generated": "2026-10-29",
+    "larmorx_commit": "62a8a8fc6705"
    },
    {
     "path": "docs/validation/afni-unifize-replica.md",
-    "sha256": "0da7c002b3781fa5707ea3a93b9fe2fc0be17f5fbf7e8e8863d664c45b557661",
-    "generated": "2026-10-24",
-    "larmorx_commit": "bd2ca21ddea8"
+    "sha256": "97a0aad58408add7c85c47718c4e074838b6f8c6d66ec3408725daea3416b78f",
+    "generated": "2026-10-29",
+    "larmorx_commit": "62a8a8fc6705"
    }
   ],
   "benchmarks": [
@@ -787,10 +787,10 @@
    "record": "docs/validation/afni-unifize.md",
    "status": "validated",
    "summary": {
-    "cases": 99,
+    "cases": 117,
     "verdicts": {
-     "identical-cr": 40,
-     "bit-identical": 34,
+     "identical-cr": 55,
+     "bit-identical": 37,
      "d13": 2,
      "divergence": 4,
      "both-reject": 19
@@ -858,7 +858,7 @@
      "category": "fmriprep",
      "counts": {
       "bit-identical": 1,
-      "identical-cr": 6
+      "identical-cr": 21
      }
     },
     {
@@ -866,6 +866,12 @@
      "counts": {
       "bit-identical": 1,
       "identical-cr": 1
+     }
+    },
+    {
+     "category": "difftest",
+     "counts": {
+      "bit-identical": 3
      }
     }
    ]
@@ -877,9 +883,9 @@
    "record": "docs/validation/afni-unifize-replica.md",
    "status": "validated",
    "summary": {
-    "cases": 99,
+    "cases": 115,
     "verdicts": {
-     "bit-identical": 74,
+     "bit-identical": 90,
      "d13": 2,
      "divergence": 4,
      "both-reject": 19
@@ -941,13 +947,19 @@
     {
      "category": "fmriprep",
      "counts": {
-      "bit-identical": 7
+      "bit-identical": 22
      }
     },
     {
      "category": "real",
      "counts": {
       "bit-identical": 2
+     }
+    },
+    {
+     "category": "difftest",
+     "counts": {
+      "bit-identical": 1
      }
     }
    ]
@@ -2815,6 +2827,306 @@
    }
   },
   {
+   "id": "fmriprep/ds000228-task_pixar",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds000228-task_pixar)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds000228-task_pixar: masked BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 4 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 4 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds000256-task_restbaseline",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds000256-task_restbaseline)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds000256-task_restbaseline: masked BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 1 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds000256-task_restfixationfixed",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds000256-task_restfixationfixed)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds000256-task_restfixationfixed: masked BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 2 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 2 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds000256-task_restfixationnofeedback",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds000256-task_restfixationnofeedback)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds000256-task_restfixationnofeedback: masked BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 4 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 4 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds002422-task_arithm_run_01",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds002422-task_arithm_run_01)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds002422-task_arithm_run_01: masked BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 13 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 13 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds002422-task_arithm_run_02",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds002422-task_arithm_run_02)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds002422-task_arithm_run_02: masked BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 7 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 7 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds002422-task_rest",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds002422-task_rest)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds002422-task_rest: masked BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 4 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 4 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds002603-task_wm_acq_Mb4Mm3Tr550",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds002603-task_wm_acq_Mb4Mm3Tr550)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds002603-task_wm_acq_Mb4Mm3Tr550: masked BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 7 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 7 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds002603-task_wm_acq_SeqMm3Tr2000",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds002603-task_wm_acq_SeqMm3Tr2000)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds002603-task_wm_acq_SeqMm3Tr2000: masked BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 10 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 10 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds003592-ses_1_task_rest_echo_1",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds003592-ses_1_task_rest_echo_1)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds003592-ses_1_task_rest_echo_1: masked BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 6 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 6 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds004884-ses_217_task_naming40_acq_epfid2_dir_AP_run_2",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds004884-ses_217_task_naming40_acq_epfid2_dir_AP_run_2)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds004884-ses_217_task_naming40_acq_epfid2_dir_AP_run_2: masked BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 2 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 2 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds004884-ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds004884-ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds004884-ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9: masked BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 2 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 2 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds004958-task_rest",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds004958-task_rest)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds004958-task_rest: masked BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 1 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 1 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds005003-ses_1_task_motor",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds005003-ses_1_task_motor)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds005003-ses_1_task_motor: masked BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 3 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 3 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds005003-ses_1_task_rest",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on its BOLD reference's input (ds005003-ses_1_task_rest)",
+   "command": "3dUnifize -clfrac 0.2 -rbt 18.3 65.0 90.0 -prefix uni.nii.gz -T2 -input <fMRIPrep ds005003-ses_1_task_rest: masked BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "identical-cr",
+     "checks": "14/14",
+     "reason": "uni.nii.gz: 8 values differ from AFNI's in their last bits (AFNI's squash calls glibc's tanhf, which is not correctly rounded on some arguments; the original's is correctly rounded); with CORE-MATH's correctly rounded functions preloaded into AFNI, every value is the original's; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, 8 values differ (fMRIPrep's output is AFNI's oracle output bit for bit: the same last-bit differences)"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
    "id": "fmriprep/ds005040-task_clip_run_1",
    "category": "fmriprep",
    "description": "fMRIPrep's call on its BOLD reference's input (ds005040-task_clip_run_1)",
@@ -2935,9 +3247,65 @@
      "reason": "AFNI at 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes"
     }
    }
+  },
+  {
+   "id": "difftest/epi-slice-code-2-fix-notice",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "difftest/epi-slice-code-2-reproduce-notices",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "difftest/tiny-oblique-header",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "difftest/epi-ball-beyond-any-machine",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": ""
+    }
+   }
   }
  ],
- "cases_total": 99,
+ "cases_total": 118,
  "speed": {
   "title": "3dUnifize: wall time of the whole program (informal timings, 2026-10-24)",
   "axis": [
@@ -5582,6 +5950,14 @@
  "cases_credits": [
   "openneuro-ds005040",
   "openneuro-ds000005",
+  "openneuro-ds000228",
+  "openneuro-ds000256",
+  "openneuro-ds002422",
+  "openneuro-ds002603",
+  "openneuro-ds003592",
+  "openneuro-ds004884",
+  "openneuro-ds004958",
+  "openneuro-ds005003",
   "openneuro-ds005454",
   "openneuro-ds005752"
  ],
@@ -5600,6 +5976,126 @@
    "attribution": false,
    "share_alike": false,
    "text": "Mixed-gambles task (OpenNeuro ds000005, version 00001), Open Data Commons Public Domain Dedication and Licence 1.0."
+  },
+  "openneuro-ds000228": {
+   "id": "openneuro-ds000228",
+   "title": "Children and adults watching a short film",
+   "source": "OpenNeuro ds000228",
+   "version": "1.1.1",
+   "doi": "10.18112/openneuro.ds000228.v1.1.1",
+   "url": "https://openneuro.org/datasets/ds000228/versions/1.1.1",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Richardson H, Lisandrelli G, Riobueno-Naylor A, Saxe R (2018). Development of the social brain from age three to twelve years. Nature Communications 9:1027. doi:10.1038/s41467-018-03399-2. Dataset: OpenNeuro ds000228 v1.1.1, doi:10.18112/openneuro.ds000228.v1.1.1",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Children and adults watching a short film (OpenNeuro ds000228, version 1.1.1, doi:10.18112/openneuro.ds000228.v1.1.1), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds000256": {
+   "id": "openneuro-ds000256",
+   "title": "Behavioral interventions for reducing head motion in children",
+   "source": "OpenNeuro ds000256",
+   "version": "00002",
+   "doi": "",
+   "url": "https://openneuro.org/datasets/ds000256/versions/00002",
+   "licence": "PDDL-1.0",
+   "licence_name": "Open Data Commons Public Domain Dedication and Licence 1.0",
+   "licence_url": "https://opendatacommons.org/licenses/pddl/1-0/",
+   "citation": "Greene DJ, Koller JM, Hampton JM, Wesevich V, Van AN, Nguyen AL, Hoyt CR, McIntyre L, Earl EA, Klein RL, Shimony JS, Petersen SE, Schlaggar BL, Fair DA, Dosenbach NUF (2018). Behavioral interventions for reducing head motion during MRI scans in children. NeuroImage 171:234-245, https://www.sciencedirect.com/science/article/pii/S1053811918300235. Dataset: OpenNeuro ds000256 v00002",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Behavioral interventions for reducing head motion in children (OpenNeuro ds000256, version 00002), Open Data Commons Public Domain Dedication and Licence 1.0."
+  },
+  "openneuro-ds002422": {
+   "id": "openneuro-ds002422",
+   "title": "fMRI: resting state and arithmetic task",
+   "source": "OpenNeuro ds002422",
+   "version": "1.1.0",
+   "doi": "10.18112/openneuro.ds002422.v1.1.0",
+   "url": "https://openneuro.org/datasets/ds002422/versions/1.1.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Panikratova Y, Tomyshev A, Pechenkova E, Vlasova R. fMRI: resting state and arithmetic task. OpenNeuro ds002422 v1.1.0, doi:10.18112/openneuro.ds002422.v1.1.0 (\"This dataset was provided by Ya. Panikratova, A. Tomyshev, E. Pechenkova, and R. Vlasova\")",
+   "attribution": false,
+   "share_alike": false,
+   "text": "fMRI: resting state and arithmetic task (OpenNeuro ds002422, version 1.1.0, doi:10.18112/openneuro.ds002422.v1.1.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds002603": {
+   "id": "openneuro-ds002603",
+   "title": "MB-EPI-comparison",
+   "source": "OpenNeuro ds002603",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds002603.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds002603/versions/1.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Snoek L, Beemsterboer T, Scholte HS. MB-EPI-comparison. OpenNeuro ds002603 v1.0.0, doi:10.18112/openneuro.ds002603.v1.0.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "MB-EPI-comparison (OpenNeuro ds002603, version 1.0.0, doi:10.18112/openneuro.ds002603.v1.0.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds003592": {
+   "id": "openneuro-ds003592",
+   "title": "Neurocognitive aging data release",
+   "source": "OpenNeuro ds003592",
+   "version": "1.0.13",
+   "doi": "10.18112/openneuro.ds003592.v1.0.13",
+   "url": "https://openneuro.org/datasets/ds003592/versions/1.0.13",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Spreng RN, Setton R, Alter U, Cassidy BN, Darboh B, DuPre E, Kantarovich K, Lockrow AW, Mwilambwe-Tshilobo L, Luh W-M, Kundu P, Turner GR. Neurocognitive aging data release with behavioral, structural, and multi-echo functional MRI measures. OpenNeuro ds003592 v1.0.13, doi:10.18112/openneuro.ds003592.v1.0.13",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Neurocognitive aging data release (OpenNeuro ds003592, version 1.0.13, doi:10.18112/openneuro.ds003592.v1.0.13), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds004884": {
+   "id": "openneuro-ds004884",
+   "title": "Aphasia Recovery Cohort",
+   "source": "OpenNeuro ds004884",
+   "version": "1.0.2",
+   "doi": "10.18112/openneuro.ds004884.v1.0.2",
+   "url": "https://openneuro.org/datasets/ds004884/versions/1.0.2",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Gibson M, Newman-Norlund R, Bonilha L, Fridriksson J, Hickok G, Hillis AE, den Ouden DB, Rorden C (2024). The Aphasia Recovery Cohort, an open-source chronic stroke repository. Scientific Data 11:981. doi:10.1038/s41597-024-03819-7. Dataset: OpenNeuro ds004884 v1.0.2, doi:10.18112/openneuro.ds004884.v1.0.2",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Aphasia Recovery Cohort (OpenNeuro ds004884, version 1.0.2, doi:10.18112/openneuro.ds004884.v1.0.2), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds004958": {
+   "id": "openneuro-ds004958",
+   "title": "The FreeSurfer Maintenance Dataset",
+   "source": "OpenNeuro ds004958",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds004958.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds004958/versions/1.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Greve DN, Fischl B. The FreeSurfer Maintenance Dataset. OpenNeuro ds004958 v1.0.0, doi:10.18112/openneuro.ds004958.v1.0.0 (FreeSurfer Maintenance grant R01EB023281; https://surfer.nmr.mgh.harvard.edu/fswiki/FsmData)",
+   "attribution": false,
+   "share_alike": false,
+   "text": "The FreeSurfer Maintenance Dataset (OpenNeuro ds004958, version 1.0.0, doi:10.18112/openneuro.ds004958.v1.0.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds005003": {
+   "id": "openneuro-ds005003",
+   "title": "Retrospective Task/Rest fMRI Data from Tumor Patients",
+   "source": "OpenNeuro ds005003",
+   "version": "2.0.0",
+   "doi": "10.18112/openneuro.ds005003.v2.0.0",
+   "url": "https://openneuro.org/datasets/ds005003/versions/2.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Leuthardt EC, Shimony JS, Snyder AZ, Dierker D, Park KY. Retrospective Task/Rest fMRI Data from Tumor Patients. OpenNeuro ds005003 v2.0.0, doi:10.18112/openneuro.ds005003.v2.0.0. The authors ask to cite doi:10.1016/j.nic.2017.06.011 and doi:10.1371/journal.pone.0236423 and to acknowledge accession ds005003.",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Retrospective Task/Rest fMRI Data from Tumor Patients (OpenNeuro ds005003, version 2.0.0, doi:10.18112/openneuro.ds005003.v2.0.0), CC0 1.0 public-domain dedication."
   },
   "openneuro-ds005040": {
    "id": "openneuro-ds005040",

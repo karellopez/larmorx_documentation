@@ -3,31 +3,31 @@
  "tool": "afni-automask",
  "title": "3dAutomask",
  "provenance": {
-  "exporter": "f82992b55fd6ca5b48682b959a546aedc5331326",
+  "exporter": "31d3a349d3bb30e10186a4a73accf47de84e0604",
   "records": [
    {
     "path": "docs/validation/afni-automask.json",
-    "sha256": "833edd068527355ae082ec1a8ba04dd248ea3f390e4c928020afac3c221725f3",
-    "generated": "2026-10-24",
-    "larmorx_commit": "bd2ca21ddea8"
+    "sha256": "c567f3d6af1f5743c84c6cee9e74df63e1d504c1e287b1d12fe619c21745d596",
+    "generated": "2026-10-29",
+    "larmorx_commit": "5130e08c6b18"
    },
    {
     "path": "docs/validation/afni-automask.md",
-    "sha256": "fabd817da703bb2c9fc604948715a52fc2f0bd3c6b734dd25b3dcf4f38af8846",
-    "generated": "2026-10-24",
-    "larmorx_commit": "bd2ca21ddea8"
+    "sha256": "a077e10cd7ec0d262d15382070ea929c6fba2e557c92859744aabe29da5eae22",
+    "generated": "2026-10-29",
+    "larmorx_commit": "5130e08c6b18"
    },
    {
     "path": "docs/validation/afni-automask-replica.json",
-    "sha256": "0ca1e3aa08dfbbcdd96da928a5ddb234c7298d7ed2bf77e9bcbd4fdd6454286f",
-    "generated": "2026-10-24",
-    "larmorx_commit": "bd2ca21ddea8"
+    "sha256": "5bd972f7804a7fb47c5822933d680297bd7335e5a3999541bd8ec2664255755a",
+    "generated": "2026-10-29",
+    "larmorx_commit": "62a8a8fc6705"
    },
    {
     "path": "docs/validation/afni-automask-replica.md",
-    "sha256": "1f3c357e40177e6a3037af95173217462eabd667b30bdbba3b61d0fe5276d60e",
-    "generated": "2026-10-24",
-    "larmorx_commit": "bd2ca21ddea8"
+    "sha256": "e5ad02e890dccb7460d845cbf7e4e7b8a475f3ca389067cf247534c3f213591e",
+    "generated": "2026-10-29",
+    "larmorx_commit": "62a8a8fc6705"
    }
   ],
   "benchmarks": [
@@ -539,10 +539,10 @@
    "record": "docs/validation/afni-automask.md",
    "status": "validated",
    "summary": {
-    "cases": 109,
+    "cases": 130,
     "verdicts": {
-     "bit-identical": 81,
-     "d13": 6,
+     "bit-identical": 89,
+     "d13": 19,
      "both-reject": 15,
      "divergence": 7
     }
@@ -602,14 +602,20 @@
     {
      "category": "fmriprep",
      "counts": {
-      "bit-identical": 6,
-      "d13": 1
+      "bit-identical": 8,
+      "d13": 14
      }
     },
     {
      "category": "real",
      "counts": {
       "bit-identical": 3
+     }
+    },
+    {
+     "category": "difftest",
+     "counts": {
+      "bit-identical": 6
      }
     }
    ]
@@ -621,9 +627,9 @@
    "record": "docs/validation/afni-automask-replica.md",
    "status": "validated",
    "summary": {
-    "cases": 109,
+    "cases": 124,
     "verdicts": {
-     "bit-identical": 82,
+     "bit-identical": 97,
      "d13": 5,
      "both-reject": 15,
      "divergence": 7
@@ -684,7 +690,7 @@
     {
      "category": "fmriprep",
      "counts": {
-      "bit-identical": 7
+      "bit-identical": 22
      }
     },
     {
@@ -2738,6 +2744,306 @@
    }
   },
   {
+   "id": "fmriprep/ds000228-task_pixar",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on the input of its BOLD reference's second skull strip (ds000228-task_pixar)",
+   "command": "3dAutomask -apply_prefix uni_xform_masked.nii.gz -dilate 1 -prefix uni_xform_mask.nii.gz <fMRIPrep ds000228-task_pixar: unifized BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "13/13",
+     "reason": "messages, uni_xform_mask.nii.gz, uni_xform_masked.nii.gz: the data are AFNI's, bit for bit; the header differs where AFNI reads the geometry from its own header extension of this AFNI-written input (7 significant digits; AFNI-10, which the clean-room original ignores, as 3dTshift's does): AFNI run on the input without its extension writes the original's header byte for byte; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds000256-task_restbaseline",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on the input of its BOLD reference's second skull strip (ds000256-task_restbaseline)",
+   "command": "3dAutomask -apply_prefix uni_xform_masked.nii.gz -dilate 1 -prefix uni_xform_mask.nii.gz <fMRIPrep ds000256-task_restbaseline: unifized BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "13/13",
+     "reason": "uni_xform_mask.nii.gz, uni_xform_masked.nii.gz: the data are AFNI's, bit for bit; the header differs where AFNI reads the geometry from its own header extension of this AFNI-written input (7 significant digits; AFNI-10, which the clean-room original ignores, as 3dTshift's does): AFNI run on the input without its extension writes the original's header byte for byte; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds000256-task_restfixationfixed",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on the input of its BOLD reference's second skull strip (ds000256-task_restfixationfixed)",
+   "command": "3dAutomask -apply_prefix uni_xform_masked.nii.gz -dilate 1 -prefix uni_xform_mask.nii.gz <fMRIPrep ds000256-task_restfixationfixed: unifized BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "13/13",
+     "reason": "uni_xform_mask.nii.gz, uni_xform_masked.nii.gz: the data are AFNI's, bit for bit; the header differs where AFNI reads the geometry from its own header extension of this AFNI-written input (7 significant digits; AFNI-10, which the clean-room original ignores, as 3dTshift's does): AFNI run on the input without its extension writes the original's header byte for byte; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds000256-task_restfixationnofeedback",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on the input of its BOLD reference's second skull strip (ds000256-task_restfixationnofeedback)",
+   "command": "3dAutomask -apply_prefix uni_xform_masked.nii.gz -dilate 1 -prefix uni_xform_mask.nii.gz <fMRIPrep ds000256-task_restfixationnofeedback: unifized BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "13/13",
+     "reason": "uni_xform_mask.nii.gz, uni_xform_masked.nii.gz: the data are AFNI's, bit for bit; the header differs where AFNI reads the geometry from its own header extension of this AFNI-written input (7 significant digits; AFNI-10, which the clean-room original ignores, as 3dTshift's does): AFNI run on the input without its extension writes the original's header byte for byte; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds002422-task_arithm_run_01",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on the input of its BOLD reference's second skull strip (ds002422-task_arithm_run_01)",
+   "command": "3dAutomask -apply_prefix uni_xform_masked.nii.gz -dilate 1 -prefix uni_xform_mask.nii.gz <fMRIPrep ds002422-task_arithm_run_01: unifized BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "13/13",
+     "reason": "messages, uni_xform_mask.nii.gz, uni_xform_masked.nii.gz: the data are AFNI's, bit for bit; the header differs where AFNI reads the geometry from its own header extension of this AFNI-written input (7 significant digits; AFNI-10, which the clean-room original ignores, as 3dTshift's does): AFNI run on the input without its extension writes the original's header byte for byte; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds002422-task_arithm_run_02",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on the input of its BOLD reference's second skull strip (ds002422-task_arithm_run_02)",
+   "command": "3dAutomask -apply_prefix uni_xform_masked.nii.gz -dilate 1 -prefix uni_xform_mask.nii.gz <fMRIPrep ds002422-task_arithm_run_02: unifized BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "13/13",
+     "reason": "messages, uni_xform_mask.nii.gz, uni_xform_masked.nii.gz: the data are AFNI's, bit for bit; the header differs where AFNI reads the geometry from its own header extension of this AFNI-written input (7 significant digits; AFNI-10, which the clean-room original ignores, as 3dTshift's does): AFNI run on the input without its extension writes the original's header byte for byte; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds002422-task_rest",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on the input of its BOLD reference's second skull strip (ds002422-task_rest)",
+   "command": "3dAutomask -apply_prefix uni_xform_masked.nii.gz -dilate 1 -prefix uni_xform_mask.nii.gz <fMRIPrep ds002422-task_rest: unifized BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "13/13",
+     "reason": "uni_xform_mask.nii.gz, uni_xform_masked.nii.gz: the data are AFNI's, bit for bit; the header differs where AFNI reads the geometry from its own header extension of this AFNI-written input (7 significant digits; AFNI-10, which the clean-room original ignores, as 3dTshift's does): AFNI run on the input without its extension writes the original's header byte for byte; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds002603-task_wm_acq_Mb4Mm3Tr550",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on the input of its BOLD reference's second skull strip (ds002603-task_wm_acq_Mb4Mm3Tr550)",
+   "command": "3dAutomask -apply_prefix uni_xform_masked.nii.gz -dilate 1 -prefix uni_xform_mask.nii.gz <fMRIPrep ds002603-task_wm_acq_Mb4Mm3Tr550: unifized BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "13/13",
+     "reason": "uni_xform_mask.nii.gz, uni_xform_masked.nii.gz: the data are AFNI's, bit for bit; the header differs where AFNI reads the geometry from its own header extension of this AFNI-written input (7 significant digits; AFNI-10, which the clean-room original ignores, as 3dTshift's does): AFNI run on the input without its extension writes the original's header byte for byte; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds002603-task_wm_acq_SeqMm3Tr2000",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on the input of its BOLD reference's second skull strip (ds002603-task_wm_acq_SeqMm3Tr2000)",
+   "command": "3dAutomask -apply_prefix uni_xform_masked.nii.gz -dilate 1 -prefix uni_xform_mask.nii.gz <fMRIPrep ds002603-task_wm_acq_SeqMm3Tr2000: unifized BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "13/13",
+     "reason": "uni_xform_mask.nii.gz, uni_xform_masked.nii.gz: the data are AFNI's, bit for bit; the header differs where AFNI reads the geometry from its own header extension of this AFNI-written input (7 significant digits; AFNI-10, which the clean-room original ignores, as 3dTshift's does): AFNI run on the input without its extension writes the original's header byte for byte; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds003592-ses_1_task_rest_echo_1",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on the input of its BOLD reference's second skull strip (ds003592-ses_1_task_rest_echo_1)",
+   "command": "3dAutomask -apply_prefix uni_xform_masked.nii.gz -dilate 1 -prefix uni_xform_mask.nii.gz <fMRIPrep ds003592-ses_1_task_rest_echo_1: unifized BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "13/13",
+     "reason": "messages, uni_xform_mask.nii.gz, uni_xform_masked.nii.gz: the data are AFNI's, bit for bit; the header differs where AFNI reads the geometry from its own header extension of this AFNI-written input (7 significant digits; AFNI-10, which the clean-room original ignores, as 3dTshift's does): AFNI run on the input without its extension writes the original's header byte for byte; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds004884-ses_217_task_naming40_acq_epfid2_dir_AP_run_2",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on the input of its BOLD reference's second skull strip (ds004884-ses_217_task_naming40_acq_epfid2_dir_AP_run_2)",
+   "command": "3dAutomask -apply_prefix uni_xform_masked.nii.gz -dilate 1 -prefix uni_xform_mask.nii.gz <fMRIPrep ds004884-ses_217_task_naming40_acq_epfid2_dir_AP_run_2: unifized BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "13/13",
+     "reason": "uni_xform_mask.nii.gz, uni_xform_masked.nii.gz: the data are AFNI's, bit for bit; the header differs where AFNI reads the geometry from its own header extension of this AFNI-written input (7 significant digits; AFNI-10, which the clean-room original ignores, as 3dTshift's does): AFNI run on the input without its extension writes the original's header byte for byte; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds004884-ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on the input of its BOLD reference's second skull strip (ds004884-ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9)",
+   "command": "3dAutomask -apply_prefix uni_xform_masked.nii.gz -dilate 1 -prefix uni_xform_mask.nii.gz <fMRIPrep ds004884-ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9: unifized BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "13/13",
+     "reason": "uni_xform_mask.nii.gz, uni_xform_masked.nii.gz: the data are AFNI's, bit for bit; the header differs where AFNI reads the geometry from its own header extension of this AFNI-written input (7 significant digits; AFNI-10, which the clean-room original ignores, as 3dTshift's does): AFNI run on the input without its extension writes the original's header byte for byte; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds004958-task_rest",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on the input of its BOLD reference's second skull strip (ds004958-task_rest)",
+   "command": "3dAutomask -apply_prefix uni_xform_masked.nii.gz -dilate 1 -prefix uni_xform_mask.nii.gz <fMRIPrep ds004958-task_rest: unifized BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "13/13",
+     "reason": "messages, uni_xform_mask.nii.gz, uni_xform_masked.nii.gz: the data are AFNI's, bit for bit; the header differs where AFNI reads the geometry from its own header extension of this AFNI-written input (7 significant digits; AFNI-10, which the clean-room original ignores, as 3dTshift's does): AFNI run on the input without its extension writes the original's header byte for byte; AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds005003-ses_1_task_motor",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on the input of its BOLD reference's second skull strip (ds005003-ses_1_task_motor)",
+   "command": "3dAutomask -apply_prefix uni_xform_masked.nii.gz -dilate 1 -prefix uni_xform_mask.nii.gz <fMRIPrep ds005003-ses_1_task_motor: unifized BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds005003-ses_1_task_rest",
+   "category": "fmriprep",
+   "description": "fMRIPrep's call on the input of its BOLD reference's second skull strip (ds005003-ses_1_task_rest)",
+   "command": "3dAutomask -apply_prefix uni_xform_masked.nii.gz -dilate 1 -prefix uni_xform_mask.nii.gz <fMRIPrep ds005003-ses_1_task_rest: unifized BOLD reference>",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni_xform_mask.nii.gz: fMRIPrep's own output, the same bytes"
+    }
+   }
+  },
+  {
    "id": "fmriprep/ds005040-task_clip_run_1",
    "category": "fmriprep",
    "description": "fMRIPrep's call on the input of its BOLD reference's second skull strip (ds005040-task_clip_run_1)",
@@ -2877,9 +3183,93 @@
      "reason": "AFNI at 1 thread and fMRIPrep 25.2.6's AFNI give the oracle's bytes"
     }
    }
+  },
+  {
+   "id": "difftest/float64-negative-zero",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "difftest/oblique-orientation-letters",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "difftest/peels-0-clustering-messages",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "difftest/plane-oblique-si-orientation",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "difftest/slice-code-2-masked-notices",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "difftest/tiny-oblique-quaternion-residue",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": ""
+    }
+   }
   }
  ],
- "cases_total": 109,
+ "cases_total": 130,
  "speed": {
   "title": "3dAutomask: wall time of the whole program (informal timings, 2026-10-24)",
   "axis": [
@@ -6320,6 +6710,14 @@
  "cases_credits": [
   "openneuro-ds005040",
   "openneuro-ds000005",
+  "openneuro-ds000228",
+  "openneuro-ds000256",
+  "openneuro-ds002422",
+  "openneuro-ds002603",
+  "openneuro-ds003592",
+  "openneuro-ds004884",
+  "openneuro-ds004958",
+  "openneuro-ds005003",
   "openneuro-ds005454",
   "openneuro-ds005752",
   "openneuro-ds001600"
@@ -6339,6 +6737,21 @@
    "attribution": false,
    "share_alike": false,
    "text": "Mixed-gambles task (OpenNeuro ds000005, version 00001), Open Data Commons Public Domain Dedication and Licence 1.0."
+  },
+  "openneuro-ds000228": {
+   "id": "openneuro-ds000228",
+   "title": "Children and adults watching a short film",
+   "source": "OpenNeuro ds000228",
+   "version": "1.1.1",
+   "doi": "10.18112/openneuro.ds000228.v1.1.1",
+   "url": "https://openneuro.org/datasets/ds000228/versions/1.1.1",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Richardson H, Lisandrelli G, Riobueno-Naylor A, Saxe R (2018). Development of the social brain from age three to twelve years. Nature Communications 9:1027. doi:10.1038/s41467-018-03399-2. Dataset: OpenNeuro ds000228 v1.1.1, doi:10.18112/openneuro.ds000228.v1.1.1",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Children and adults watching a short film (OpenNeuro ds000228, version 1.1.1, doi:10.18112/openneuro.ds000228.v1.1.1), CC0 1.0 public-domain dedication."
   },
   "openneuro-ds000256": {
    "id": "openneuro-ds000256",
@@ -6369,6 +6782,96 @@
    "attribution": true,
    "share_alike": true,
    "text": "Example fieldmaps (OpenNeuro ds001600, version 1.0.0), Creative Commons Attribution-ShareAlike (CC BY-SA; the dataset gives no version). Attribution: Cieslak M., Elliott M., Satterthwaite T. Example Fieldmaps. OpenNeuro ds001600, version 1.0.0 (Siemens Prisma, University of Pennsylvania). The images shown here are adapted from it: reoriented to RAS, cropped to the region shown, masked outside it, and shown as the outputs of the programs compared. Under its share-alike condition the images adapted from this dataset are shared under the same licence, CC BY-SA."
+  },
+  "openneuro-ds002422": {
+   "id": "openneuro-ds002422",
+   "title": "fMRI: resting state and arithmetic task",
+   "source": "OpenNeuro ds002422",
+   "version": "1.1.0",
+   "doi": "10.18112/openneuro.ds002422.v1.1.0",
+   "url": "https://openneuro.org/datasets/ds002422/versions/1.1.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Panikratova Y, Tomyshev A, Pechenkova E, Vlasova R. fMRI: resting state and arithmetic task. OpenNeuro ds002422 v1.1.0, doi:10.18112/openneuro.ds002422.v1.1.0 (\"This dataset was provided by Ya. Panikratova, A. Tomyshev, E. Pechenkova, and R. Vlasova\")",
+   "attribution": false,
+   "share_alike": false,
+   "text": "fMRI: resting state and arithmetic task (OpenNeuro ds002422, version 1.1.0, doi:10.18112/openneuro.ds002422.v1.1.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds002603": {
+   "id": "openneuro-ds002603",
+   "title": "MB-EPI-comparison",
+   "source": "OpenNeuro ds002603",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds002603.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds002603/versions/1.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Snoek L, Beemsterboer T, Scholte HS. MB-EPI-comparison. OpenNeuro ds002603 v1.0.0, doi:10.18112/openneuro.ds002603.v1.0.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "MB-EPI-comparison (OpenNeuro ds002603, version 1.0.0, doi:10.18112/openneuro.ds002603.v1.0.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds003592": {
+   "id": "openneuro-ds003592",
+   "title": "Neurocognitive aging data release",
+   "source": "OpenNeuro ds003592",
+   "version": "1.0.13",
+   "doi": "10.18112/openneuro.ds003592.v1.0.13",
+   "url": "https://openneuro.org/datasets/ds003592/versions/1.0.13",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Spreng RN, Setton R, Alter U, Cassidy BN, Darboh B, DuPre E, Kantarovich K, Lockrow AW, Mwilambwe-Tshilobo L, Luh W-M, Kundu P, Turner GR. Neurocognitive aging data release with behavioral, structural, and multi-echo functional MRI measures. OpenNeuro ds003592 v1.0.13, doi:10.18112/openneuro.ds003592.v1.0.13",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Neurocognitive aging data release (OpenNeuro ds003592, version 1.0.13, doi:10.18112/openneuro.ds003592.v1.0.13), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds004884": {
+   "id": "openneuro-ds004884",
+   "title": "Aphasia Recovery Cohort",
+   "source": "OpenNeuro ds004884",
+   "version": "1.0.2",
+   "doi": "10.18112/openneuro.ds004884.v1.0.2",
+   "url": "https://openneuro.org/datasets/ds004884/versions/1.0.2",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Gibson M, Newman-Norlund R, Bonilha L, Fridriksson J, Hickok G, Hillis AE, den Ouden DB, Rorden C (2024). The Aphasia Recovery Cohort, an open-source chronic stroke repository. Scientific Data 11:981. doi:10.1038/s41597-024-03819-7. Dataset: OpenNeuro ds004884 v1.0.2, doi:10.18112/openneuro.ds004884.v1.0.2",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Aphasia Recovery Cohort (OpenNeuro ds004884, version 1.0.2, doi:10.18112/openneuro.ds004884.v1.0.2), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds004958": {
+   "id": "openneuro-ds004958",
+   "title": "The FreeSurfer Maintenance Dataset",
+   "source": "OpenNeuro ds004958",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds004958.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds004958/versions/1.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Greve DN, Fischl B. The FreeSurfer Maintenance Dataset. OpenNeuro ds004958 v1.0.0, doi:10.18112/openneuro.ds004958.v1.0.0 (FreeSurfer Maintenance grant R01EB023281; https://surfer.nmr.mgh.harvard.edu/fswiki/FsmData)",
+   "attribution": false,
+   "share_alike": false,
+   "text": "The FreeSurfer Maintenance Dataset (OpenNeuro ds004958, version 1.0.0, doi:10.18112/openneuro.ds004958.v1.0.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds005003": {
+   "id": "openneuro-ds005003",
+   "title": "Retrospective Task/Rest fMRI Data from Tumor Patients",
+   "source": "OpenNeuro ds005003",
+   "version": "2.0.0",
+   "doi": "10.18112/openneuro.ds005003.v2.0.0",
+   "url": "https://openneuro.org/datasets/ds005003/versions/2.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Leuthardt EC, Shimony JS, Snyder AZ, Dierker D, Park KY. Retrospective Task/Rest fMRI Data from Tumor Patients. OpenNeuro ds005003 v2.0.0, doi:10.18112/openneuro.ds005003.v2.0.0. The authors ask to cite doi:10.1016/j.nic.2017.06.011 and doi:10.1371/journal.pone.0236423 and to acknowledge accession ds005003.",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Retrospective Task/Rest fMRI Data from Tumor Patients (OpenNeuro ds005003, version 2.0.0, doi:10.18112/openneuro.ds005003.v2.0.0), CC0 1.0 public-domain dedication."
   },
   "openneuro-ds005040": {
    "id": "openneuro-ds005040",

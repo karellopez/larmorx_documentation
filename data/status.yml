@@ -83,19 +83,19 @@ implemented:
     page: /tools/afni-tshift/
     use: ["larmorx afni 3dTshift", "lx.afni.tshift"]
     how: "clean-room original; exact replica in `larmorx-gpl`"
-    validation: "original: [279 of 279](repo:docs/validation/afni-tshift.md) compared agree, 176 bit-identical, [2–6× faster](repo:docs/benchmarks/afni-tshift.md); replica: [279 of 279](repo:docs/validation/afni-tshift-replica.md) bit-identical"
+    validation: "original: [280 of 280](repo:docs/validation/afni-tshift.md) compared agree, 177 bit-identical, [2–6× faster](repo:docs/benchmarks/afni-tshift.md); replica: [280 of 280](repo:docs/validation/afni-tshift-replica.md) bit-identical"
   - eco: afni
     tool: "3dAutomask (brain mask)"
     page: /tools/afni-automask/
     use: ["larmorx afni 3dAutomask", "lx.afni.automask"]
     how: "clean-room original; exact replica in `larmorx-gpl`"
-    validation: "original: [109 cases](repo:docs/validation/afni-automask.md), 84 of 85 compared cases that write outputs bit-identical to AFNI (the other: AFNI-10's header, its data bit-identical), fMRIPrep's call on every oracle run's BOLD reference included; replica: [85 of 85](repo:docs/validation/afni-automask-replica.md) bit-identical"
+    validation: "original: [130 cases](repo:docs/validation/afni-automask.md), 92 of 106 compared cases that write outputs bit-identical to AFNI (the other 14: inputs carrying AFNI's own header extension, AFNI-10: the data bit-identical, the header and messages AFNI's for the input without it), fMRIPrep's call on every oracle run's BOLD reference included, the data panel's too; replica: [100 of 100](repo:docs/validation/afni-automask-replica.md) compared cases that write outputs bit-identical"
   - eco: afni
     tool: "3dUnifize (intensity uniformization)"
     page: /tools/afni-unifize/
     use: ["larmorx afni 3dUnifize", "lx.afni.unifize"]
     how: "clean-room original; exact replica in `larmorx-gpl`"
-    validation: "original: [99 cases](repo:docs/validation/afni-unifize.md), none failing: 34 of 74 compared cases that write outputs bit-identical to AFNI, the other 40 within 1e-5 (at most 8.7e-8 of the largest value) and bit-identical to AFNI run with correctly rounded maths (glibc's `tanhf` in AFNI's squash), fMRIPrep's call on every oracle run included; 4 to 25 times faster than AFNI (informal timings); replica: [74 of 74](repo:docs/validation/afni-unifize-replica.md) bit-identical at 1, 2 and 6 threads"
+    validation: "original: [117 cases](repo:docs/validation/afni-unifize.md), none failing: 37 of 92 compared cases that write outputs bit-identical to AFNI, the other 55 within 1e-5 (at most 8.7e-8 of the largest value) and bit-identical to AFNI run with correctly rounded maths (glibc's `tanhf` in AFNI's squash), fMRIPrep's call on every oracle run included; 4 to 25 times faster than AFNI (informal timings); replica: [89 of 89](repo:docs/validation/afni-unifize-replica.md) compared cases that write outputs bit-identical at 1, 2 and 6 threads"
   - eco: fsl
     tool: "Head-motion correction (mcflirt)"
     page: /tools/mri-hmc/

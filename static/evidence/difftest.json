@@ -50,8 +50,9 @@
        ],
        "cases": 6,
        "reproducer": "afni-automask:20261025:230",
-       "status": "open",
-       "explanation": "the clean-room original: -peels 0's default changes the clustering messages (405 against 406 voxels) without naming AFNI-43 (the replica now names it); for its agent: `afni-automask:20261025:118`"
+       "status": "fixed",
+       "explanation": "AFNI-43 named where only the clustering messages differ and are shown (not with `-q`: the trial of 2026-10-29, `afni-automask:20261029:3425`), in the replica's words; a negative `-peels` peels once in both modes, as the replica's default (2026-10-29)",
+       "link": "validation/difftest/cases/afni-automask/peels-0-clustering-messages.json"
       },
       {
        "implementation": "original",
@@ -61,8 +62,9 @@
        ],
        "cases": 11,
        "reproducer": "afni-automask:20261025:184",
-       "status": "open",
-       "explanation": "the clean-room original: AFNI-03 not named where the default keeps a slice code 2's times; the message '++ first 0 y-planes are zero [from ?]' where AFNI prints '[from S]' on an oblique series; reported for the clean-room agent"
+       "status": "fixed",
+       "explanation": "AFNI-03 named in both modes and AFNI-08 in `reproduce`, in the replica's words; the orientation letters by the NIfTI library's closest-orientation method, in double (observed on 1,604 matrices; `-SI` follows) (2026-10-29)",
+       "link": "validation/difftest/cases/afni-automask/slice-code-2-masked-notices.json"
       },
       {
        "implementation": "original",
@@ -72,8 +74,9 @@
        ],
        "cases": 1,
        "reproducer": "afni-automask:20261025:13",
-       "status": "open",
-       "explanation": "the clean-room original on a one-slice oblique constant image: its mask and its 'first 0 x-planes are zero [from ?]' (AFNI names the side); for its agent"
+       "status": "fixed",
+       "explanation": "the orientation letters by the NIfTI library's closest-orientation method, in double (observed on 1,604 matrices; `-SI` follows) (2026-10-29)",
+       "link": "validation/difftest/cases/afni-automask/plane-oblique-si-orientation.json"
       },
       {
        "implementation": "original",
@@ -82,8 +85,9 @@
        ],
        "cases": 1,
        "reproducer": "afni-automask:20261025:1428",
-       "status": "open",
-       "explanation": "the clean-room original's header bytes on a tiny oblique image; for its agent"
+       "status": "fixed",
+       "explanation": "the quaternion's polar decomposition: AFNI takes `1/det` in x87 extended precision (observed on 1,200 matrices through NIfTI-2 outputs); fixed in the clean-room original (2026-10-29)",
+       "link": "validation/difftest/cases/afni-automask/tiny-oblique-quaternion-residue.json"
       },
       {
        "implementation": "original",
@@ -92,8 +96,9 @@
        ],
        "cases": 4,
        "reproducer": "afni-automask:20261025:242",
-       "status": "open",
-       "explanation": "the clean-room original's header bytes on a tiny oblique constant image; for its agent"
+       "status": "fixed",
+       "explanation": "the quaternion's polar decomposition: AFNI takes `1/det` in x87 extended precision (observed on 1,200 matrices through NIfTI-2 outputs); fixed in the clean-room original (2026-10-29)",
+       "link": "validation/difftest/cases/afni-automask/tiny-oblique-quaternion-residue.json"
       },
       {
        "implementation": "original",
@@ -102,8 +107,9 @@
        ],
        "cases": 1,
        "reproducer": "afni-automask:20261025:1305",
-       "status": "open",
-       "explanation": "the clean-room original's -apply_prefix output writes +0 where AFNI keeps the input's -0 (one value of 294, equal as numbers; `afni-automask:20261025:1305`); for its agent"
+       "status": "fixed",
+       "explanation": "int8, uint16, int32, uint32 and float64 data without a usable slope are only converted, so a float64 -0 stays -0 (2026-10-29)",
+       "link": "validation/difftest/cases/afni-automask/float64-negative-zero.json"
       },
       {
        "implementation": "original",
@@ -112,8 +118,9 @@
        ],
        "cases": 28,
        "reproducer": "afni-automask:20261025:170",
-       "status": "open",
-       "explanation": "the clean-room original prints 'first 0 x-planes are zero [from ?]' where AFNI names the side ([from L], [from R], [from S]); for its agent"
+       "status": "fixed",
+       "explanation": "the orientation letters by the NIfTI library's closest-orientation method, in double (observed on 1,604 matrices; `-SI` follows) (2026-10-29)",
+       "link": "validation/difftest/cases/afni-automask/oblique-orientation-letters.json"
       },
       {
        "implementation": "replica",
@@ -171,8 +178,9 @@
        ],
        "cases": 1,
        "reproducer": "afni-tshift:20261025:1690",
-       "status": "open",
-       "explanation": "the clean-room original's toffset differs from AFNI's in its last bits (0.35999995 against 0.36000001); for its agent"
+       "status": "fixed",
+       "explanation": "header slice times in milliseconds or microseconds: the step in seconds stays a double and each time is a float32 running sum of it (observed: `-slice k` reads every time back); both findings replay as agree (2026-10-29)",
+       "link": "validation/difftest/cases/afni-tshift/header-milliseconds-toffset.json"
       },
       {
        "implementation": "original",
@@ -181,8 +189,9 @@
        ],
        "cases": 1,
        "reproducer": "afni-tshift:20261025:320",
-       "status": "open",
-       "explanation": "the clean-room original's toffset differs from AFNI's in its last bits (0.35999995 against 0.36000001); for its agent"
+       "status": "fixed",
+       "explanation": "header slice times in milliseconds or microseconds: the step in seconds stays a double and each time is a float32 running sum of it (observed: `-slice k` reads every time back); both findings replay as agree (2026-10-29)",
+       "link": "validation/difftest/cases/afni-tshift/header-milliseconds-toffset.json"
       },
       {
        "implementation": "replica",
@@ -191,8 +200,9 @@
        ],
        "cases": 83,
        "reproducer": "afni-tshift:20261025:33",
-       "status": "open",
-       "explanation": "the clean-room original's default (AFNI-07 corrected) writes a sheared metre sform's pixdim and qform 5.5e-05 to 1.2e-04 away from the replica's default; for its agent",
+       "status": "fixed",
+       "explanation": "the clean-room original's AFNI-07 default now writes the replica's steps (the file matrix's column lengths, then converted) and, for a qform, the qform matrix computed with millimetre voxel sizes and offsets, rounded once; the AFNI-07 and AFNI-16 notices in the replica's words; all 83 findings replay as agree (2026-10-29)",
+       "link": "validation/difftest/cases/afni-tshift/metre-oblique-default-steps.json",
        "defect": "AFNI-07"
       },
       {
@@ -203,8 +213,9 @@
        ],
        "cases": 1,
        "reproducer": "afni-tshift:20261025:1690",
-       "status": "open",
-       "explanation": "the clean-room original's default (AFNI-07 corrected) writes a sheared metre sform's pixdim and qform 5.5e-05 to 1.2e-04 away from the replica's default; for its agent",
+       "status": "fixed",
+       "explanation": "the clean-room original's AFNI-07 default now writes the replica's steps (the file matrix's column lengths, then converted) and, for a qform, the qform matrix computed with millimetre voxel sizes and offsets, rounded once; the AFNI-07 and AFNI-16 notices in the replica's words; all 83 findings replay as agree (2026-10-29)",
+       "link": "validation/difftest/cases/afni-tshift/metre-oblique-default-steps.json",
        "defect": "AFNI-07"
       }
      ],
@@ -265,8 +276,9 @@
        ],
        "cases": 7,
        "reproducer": "afni-unifize:20261025:90",
-       "status": "open",
-       "explanation": "the clean-room original's default changes the header without a notice and names AFNI-08 in reproduce only; for its agent",
+       "status": "fixed",
+       "explanation": "AFNI-03 named in both modes and AFNI-08 in `reproduce`, in the replica's words (2026-10-29)",
+       "link": "validation/difftest/cases/afni-unifize/epi-slice-code-2-reproduce-notices.json",
        "defect": "AFNI-08"
       },
       {
@@ -277,8 +289,9 @@
        ],
        "cases": 1,
        "reproducer": "afni-unifize:20261025:392",
-       "status": "open",
-       "explanation": "the clean-room original's header bytes on a tiny oblique image (the output and the -amsave file); for its agent"
+       "status": "fixed",
+       "explanation": "the quaternion's polar decomposition: AFNI takes `1/det` in x87 extended precision (observed on 1,200 matrices through NIfTI-2 outputs); fixed in the clean-room original (2026-10-29)",
+       "link": "validation/difftest/cases/afni-unifize/tiny-oblique-header.json"
       },
       {
        "implementation": "original",
@@ -287,8 +300,9 @@
        ],
        "cases": 1,
        "reproducer": "afni-unifize:20261025:163",
-       "status": "open",
-       "explanation": "the clean-room original's header bytes on a tiny oblique constant image; for its agent"
+       "status": "fixed",
+       "explanation": "the quaternion's polar decomposition: AFNI takes `1/det` in x87 extended precision (observed on 1,200 matrices through NIfTI-2 outputs); fixed in the clean-room original (2026-10-29)",
+       "link": "validation/difftest/cases/afni-unifize/tiny-oblique-header.json"
       }
      ],
      "notices": [
@@ -1676,7 +1690,8 @@
        "cases": 782,
        "reproducer": "mri-hmc:20261025:3",
        "status": "open",
-       "explanation": "small random phantoms of 4 to 8 volumes, beyond the record's thresholds: the clean-room original's motion estimates leave mcflirt's on images where the cost function has several minima; reported for the clean-room agent with the reproducers"
+       "explanation": "measured on all 782 findings of the first night (2026-10-29, `validation/investigations/cleanroom-fixes/hmc_alignment.py`, the corrected series' temporal standard deviation, larmorx over mcflirt): every cost but `-cost normmi` explained (691 findings: median ratio 1.000, better in 150, within 1 % in 441, worse in 100; large motions on small phantoms, a cost with several minima; permanent case `mri-hmc/phantom-several-minima`, an expected divergence); with `-cost normmi` larmorx aligns worse (91 findings: median 1.033, worse in 62, 26 above 1.10) and the cause is open: the spec writer describes `normmi` exactly, then a clean-room fix (`docs/findings/mri-hmc-original.md`; permanent case `mri-hmc/normmi-aligns-worse`)",
+       "link": "docs/findings/mri-hmc-original.md"
       }
      ],
      "notices": [],
@@ -1789,6 +1804,6 @@
  "triage": "validation/difftest/triage.toml",
  "provenance": {
   "summary": "oracles/difftest/2026-10-25/summary.json",
-  "exporter": "9256643f8a96345e9163480c85fcde8cd9b3505d"
+  "exporter": "31d3a349d3bb30e10186a4a73accf47de84e0604"
  }
 }
