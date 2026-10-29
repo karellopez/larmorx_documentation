@@ -3,7 +3,7 @@
  "tool": "afni-unifize",
  "title": "3dUnifize",
  "provenance": {
-  "exporter": "31d3a349d3bb30e10186a4a73accf47de84e0604",
+  "exporter": "0ac49d5ee8319623304947e3cb13b2dd12c9300e-dirty",
   "records": [
    {
     "path": "docs/validation/afni-unifize.json",
@@ -19,15 +19,15 @@
    },
    {
     "path": "docs/validation/afni-unifize-replica.json",
-    "sha256": "ca60b19f0da3b969ba8ee29fb23cca5f2a50023a58b45a15b5e1f9328cfb9b23",
+    "sha256": "c10536326d8276c2c3fc3c9f18e43af64a40d9525ad6675a95615d37a8b0ab95",
     "generated": "2026-10-29",
-    "larmorx_commit": "62a8a8fc6705"
+    "larmorx_commit": "bd39a5d04bbe"
    },
    {
     "path": "docs/validation/afni-unifize-replica.md",
-    "sha256": "97a0aad58408add7c85c47718c4e074838b6f8c6d66ec3408725daea3416b78f",
+    "sha256": "1c8d7d8313be63f98a2e6fb9b7457317e4123682b871032da2ba567ffebb3ede",
     "generated": "2026-10-29",
-    "larmorx_commit": "62a8a8fc6705"
+    "larmorx_commit": "bd39a5d04bbe"
    }
   ],
   "benchmarks": [
@@ -263,13 +263,66 @@
       },
       "exit": 0,
       "seconds": 5.49
+     },
+     {
+      "label": "afni26-1",
+      "argv": [
+       "<workspace>/oracles/afni-26.3.05/bin/3dUnifize",
+       "-clfrac",
+       "0.2",
+       "-rbt",
+       "18.3",
+       "65.0",
+       "90.0",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/afni26-1.nii.gz",
+       "-T2",
+       "-input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/first_mask/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_masked.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/.home",
+       "OMP_NUM_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 76.39
+     },
+     {
+      "label": "t2up100-afni26",
+      "argv": [
+       "<workspace>/oracles/afni-26.3.05/bin/3dUnifize",
+       "-clfrac",
+       "0.2",
+       "-rbt",
+       "18.3",
+       "65.0",
+       "90.0",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/t2up100-afni26.nii.gz",
+       "-T2",
+       "-T2up",
+       "100",
+       "-input",
+       "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/first_mask/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_masked.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/fmriprep-ds005040-clip-1/.home",
+       "OMP_NUM_THREADS": "6"
+      },
+      "exit": 0,
+      "seconds": 3.0
      }
     ],
     "versions": {
      "afni": "AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
      "afni_in_fmriprep_image": "AFNI_25.2.09 (Aug 24 2025) [64-bit]",
      "larmorx-gpl": "larmorx-gpl 0.0.1",
-     "fmriprep_image": "7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10"
+     "fmriprep_image": "7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10",
+     "afni_26": "AFNI_26.3.05"
     },
     "threads": {
      "afni": [
@@ -429,13 +482,34 @@
       "env": {},
       "exit": 0,
       "seconds": 21.25
+     },
+     {
+      "label": "afni26-1",
+      "argv": [
+       "<workspace>/oracles/afni-26.3.05/bin/3dUnifize",
+       "-ssave",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/afni26-1-scale.nii.gz",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/afni26-1.nii.gz",
+       "-input",
+       "<testdata-cache>/openneuro/ds000005/sub-01/anat/sub-01_T1w.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-unifize/ds000005-t1w/.home",
+       "OMP_NUM_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 42.39
      }
     ],
     "versions": {
      "afni": "AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
      "afni_in_fmriprep_image": "AFNI_25.2.09 (Aug 24 2025) [64-bit]",
      "larmorx-gpl": "larmorx-gpl 0.0.1",
-     "fmriprep_image": "7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10"
+     "fmriprep_image": "7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10",
+     "afni_26": "AFNI_26.3.05"
     },
     "threads": {
      "afni": [
@@ -883,9 +957,9 @@
    "record": "docs/validation/afni-unifize-replica.md",
    "status": "validated",
    "summary": {
-    "cases": 115,
+    "cases": 116,
     "verdicts": {
-     "bit-identical": 90,
+     "bit-identical": 91,
      "d13": 2,
      "divergence": 4,
      "both-reject": 19
@@ -959,7 +1033,7 @@
     {
      "category": "difftest",
      "counts": {
-      "bit-identical": 1
+      "bit-identical": 2
      }
     }
    ]
@@ -981,7 +1055,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "7/7",
+     "checks": "8/8",
      "reason": ""
     }
    }
@@ -1001,7 +1075,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "7/7",
+     "checks": "8/8",
      "reason": ""
     }
    }
@@ -1021,7 +1095,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "7/7",
+     "checks": "8/8",
      "reason": ""
     }
    }
@@ -1041,7 +1115,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1061,7 +1135,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1081,7 +1155,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "7/7",
+     "checks": "8/8",
      "reason": ""
     }
    }
@@ -1101,7 +1175,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1121,7 +1195,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1141,7 +1215,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1161,7 +1235,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1181,7 +1255,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1201,7 +1275,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "7/7",
+     "checks": "8/8",
      "reason": ""
     }
    }
@@ -1221,7 +1295,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "7/7",
+     "checks": "8/8",
      "reason": ""
     }
    }
@@ -1241,7 +1315,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "d13",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": "Refused by default (AFNI-48, decided 2026-10-23, rule B: the input makes no sense and AFNI silently does something arbitrary): the help documents -T2 once and twice; given a third time it neither inverts the output back nor clips its edges, so AFNI writes an inverted image. The replica's default stops with a fatal error naming the entry (exit status 1); its reproduce mode gives AFNI's output, whi…"
     }
    }
@@ -1261,7 +1335,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "d13",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": "Refused by default (AFNI-48, decided 2026-10-23, rule B: the input makes no sense and AFNI silently does something arbitrary): the help documents -T2 once and twice; given a third time it neither inverts the output back nor clips its edges, so AFNI writes an inverted image. The replica's default stops with a fatal error naming the entry (exit status 1); its reproduce mode gives AFNI's output, whi…"
     }
    }
@@ -1281,7 +1355,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1301,7 +1375,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "7/7",
+     "checks": "8/8",
      "reason": ""
     }
    }
@@ -1321,7 +1395,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "7/7",
+     "checks": "8/8",
      "reason": ""
     }
    }
@@ -1341,7 +1415,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1361,7 +1435,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "7/7",
+     "checks": "8/8",
      "reason": ""
     }
    }
@@ -1381,7 +1455,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1401,7 +1475,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": ""
     }
    }
@@ -1421,7 +1495,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1441,7 +1515,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1461,7 +1535,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1481,7 +1555,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1501,7 +1575,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1521,7 +1595,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1541,7 +1615,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1561,7 +1635,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "7/7",
+     "checks": "8/8",
      "reason": ""
     }
    }
@@ -1581,7 +1655,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "8/8",
+     "checks": "9/9",
      "reason": ""
     }
    }
@@ -1601,7 +1675,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "7/7",
+     "checks": "8/8",
      "reason": ""
     }
    }
@@ -1621,7 +1695,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1641,7 +1715,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1661,7 +1735,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -1681,7 +1755,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "8/8",
+     "checks": "9/9",
      "reason": ""
     }
    }
@@ -1701,7 +1775,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "8/8",
+     "checks": "9/9",
      "reason": ""
     }
    }
@@ -1721,7 +1795,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "8/8",
+     "checks": "9/9",
      "reason": ""
     }
    }
@@ -1741,7 +1815,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "8/8",
+     "checks": "9/9",
      "reason": ""
     }
    }
@@ -1761,7 +1835,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "8/8",
+     "checks": "9/9",
      "reason": ""
     }
    }
@@ -1781,7 +1855,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "8/8",
+     "checks": "9/9",
      "reason": ""
     }
    }
@@ -1801,7 +1875,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "8/8",
+     "checks": "9/9",
      "reason": ""
     }
    }
@@ -1821,7 +1895,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "8/8",
+     "checks": "9/9",
      "reason": ""
     }
    }
@@ -1841,7 +1915,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "8/8",
+     "checks": "9/9",
      "reason": ""
     }
    }
@@ -1861,7 +1935,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "8/8",
+     "checks": "9/9",
      "reason": ""
     }
    }
@@ -1881,7 +1955,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": "in its default mode the replica corrects AFNI-02 and names it: 55,249 values change (the record's D13 section)"
     }
    }
@@ -1901,7 +1975,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": "in its default mode the replica corrects AFNI-07 and names it: the header or the messages change (the record's D13 section)"
     }
    }
@@ -1921,7 +1995,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": "in its default mode the replica corrects AFNI-16 and names it: the header or the messages change (the record's D13 section)"
     }
    }
@@ -1941,7 +2015,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": "in its default mode the replica corrects AFNI-23 and names it: 58,184 values change (the record's D13 section)"
     }
    }
@@ -1961,7 +2035,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "7/7",
+     "checks": "8/8",
      "reason": "in its default mode the replica corrects AFNI-45 and names it: 53,571 values change (the record's D13 section)"
     }
    }
@@ -1981,7 +2055,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": "in its default mode the replica corrects AFNI-45 and names it: 2,569 values change (the record's D13 section)"
     }
    }
@@ -2001,7 +2075,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": "in its default mode the replica corrects AFNI-01 and names it: 337,232 values change (the record's D13 section)"
     }
    }
@@ -2041,7 +2115,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -2061,7 +2135,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -2081,7 +2155,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -2101,7 +2175,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -2121,7 +2195,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -2141,7 +2215,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -2161,7 +2235,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
-     "checks": "3/3",
+     "checks": "4/4",
      "reason": "AFNI exit 1: ** FATAL ERROR: Can't compute Unifize-d dataset for some reason :-(; larmorx exit 1: ** FATAL ERROR: Can't compute Unifize-d dataset for some reason :-( (the same messages)"
     }
    }
@@ -2181,7 +2255,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "divergence",
-     "checks": "2/2",
+     "checks": "3/3",
      "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: the automask of a 2D image smaller than 16 x 16 is empty (NULL): AFNI crashes inverting the contrast with it (AFNI-46)), after the same messages"
     }
    }
@@ -2201,7 +2275,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
-     "checks": "3/3",
+     "checks": "4/4",
      "reason": "AFNI exit 1: ** FATAL ERROR: Illegal value 3.000000 after option -Urad; larmorx exit 1: ** FATAL ERROR: Illegal value 3.000000 after option -Urad (the same messages)"
     }
    }
@@ -2221,7 +2295,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
-     "checks": "3/3",
+     "checks": "4/4",
      "reason": "AFNI exit 1: ** FATAL ERROR: Illegal value 120.000000 after option -Urad; larmorx exit 1: ** FATAL ERROR: Illegal value 120.000000 after option -Urad (the same messages)"
     }
    }
@@ -2241,7 +2315,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
-     "checks": "3/3",
+     "checks": "4/4",
      "reason": "AFNI exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt'; larmorx exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt' (the same messages)"
     }
    }
@@ -2261,7 +2335,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
-     "checks": "3/3",
+     "checks": "4/4",
      "reason": "AFNI exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt'; larmorx exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt' (the same messages)"
     }
    }
@@ -2281,7 +2355,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
-     "checks": "3/3",
+     "checks": "4/4",
      "reason": "AFNI exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt'; larmorx exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt' (the same messages)"
     }
    }
@@ -2301,7 +2375,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
-     "checks": "3/3",
+     "checks": "4/4",
      "reason": "AFNI exit 1: ** FATAL ERROR: Need 3 arguments (R pb pt) after '-rbt'; larmorx exit 1: ** FATAL ERROR: Need 3 arguments (R pb pt) after '-rbt' (the same messages)"
     }
    }
@@ -2321,7 +2395,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
-     "checks": "3/3",
+     "checks": "4/4",
      "reason": "AFNI exit 1: ** FATAL ERROR: -clfrac value 0.050000 is illegal!; larmorx exit 1: ** FATAL ERROR: -clfrac value 0.050000 is illegal! (the same messages)"
     }
    }
@@ -2341,7 +2415,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
-     "checks": "3/3",
+     "checks": "4/4",
      "reason": "AFNI exit 1: ** FATAL ERROR: Need argument after '-clfrac'; larmorx exit 1: ** FATAL ERROR: Need argument after '-clfrac' (the same messages)"
     }
    }
@@ -2361,7 +2435,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
-     "checks": "3/3",
+     "checks": "4/4",
      "reason": "AFNI exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-(; larmorx exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-( (the same messages)"
     }
    }
@@ -2381,7 +2455,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
-     "checks": "3/3",
+     "checks": "4/4",
      "reason": "AFNI exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-(; larmorx exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-( (the same messages)"
     }
    }
@@ -2401,7 +2475,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "divergence",
-     "checks": "2/2",
+     "checks": "3/3",
      "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: -T2up needs a value: AFNI crashes (Fatal Signal 11) when an option's value is missing (AFNI-40)), after the same messages"
     }
    }
@@ -2421,7 +2495,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
-     "checks": "3/3",
+     "checks": "4/4",
      "reason": "AFNI exit 1: ** FATAL ERROR: Need argument after '-prefix'; larmorx exit 1: ** FATAL ERROR: Need argument after '-prefix' (the same messages)"
     }
    }
@@ -2441,7 +2515,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
-     "checks": "3/3",
+     "checks": "4/4",
      "reason": "AFNI exit 1: ** FATAL ERROR: Need argument after '-ssave'; larmorx exit 1: ** FATAL ERROR: Need argument after '-ssave' (the same messages)"
     }
    }
@@ -2461,7 +2535,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
-     "checks": "3/3",
+     "checks": "4/4",
      "reason": "AFNI exit 1: ** FATAL ERROR: Can't use '-input' twice; larmorx exit 1: ** FATAL ERROR: Can't use '-input' twice (the same messages)"
     }
    }
@@ -2481,7 +2555,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
-     "checks": "3/3",
+     "checks": "4/4",
      "reason": "AFNI exit 1: ** FATAL ERROR: Unknown option: -bogus; larmorx exit 1: ** FATAL ERROR: Unknown option: -bogus (the same messages)"
     }
    }
@@ -2501,7 +2575,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
-     "checks": "3/3",
+     "checks": "4/4",
      "reason": "AFNI exit 1: ** FATAL ERROR: No dataset name on command line?; larmorx exit 1: ** FATAL ERROR: No dataset name on command line? (the same messages)"
     }
    }
@@ -2521,7 +2595,7 @@
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
-     "checks": "3/3",
+     "checks": "4/4",
      "reason": "AFNI exit 1: ** FATAL ERROR: Can't open dataset '/nonexistent/x.nii'; larmorx exit 1: ** FATAL ERROR: Can't open dataset '/nonexistent/x.nii' (the same messages)"
     }
    }
@@ -2541,7 +2615,7 @@
     "replica": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
-     "checks": "1/1",
+     "checks": "2/2",
      "reason": "AFNI's default prefix 'Unifized' is its own dataset format, which larmorx-gpl does not write: it refuses (NIfTI only)."
     }
    }
@@ -2561,7 +2635,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "4/4",
+     "checks": "5/5",
      "reason": "Neither writes an output; the exit status (0) and the messages are AFNI's. The default mode refuses instead (exit 1) and names AFNI-11 (the record's D13 section)."
     }
    }
@@ -2581,7 +2655,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -2601,7 +2675,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -2621,7 +2695,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": "in its default mode the replica corrects AFNI-11 and names it: the header or the messages change (the record's D13 section)"
     }
    }
@@ -2641,7 +2715,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -2661,7 +2735,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -2681,7 +2755,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -2701,7 +2775,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
+     "checks": "7/7",
      "reason": ""
     }
    }
@@ -2721,7 +2795,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "both-reject",
-     "checks": "4/4",
+     "checks": "5/5",
      "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names AFNI-12 (the record's D13 section)."
     }
    }
@@ -2741,7 +2815,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "both-reject",
-     "checks": "4/4",
+     "checks": "5/5",
      "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names AFNI-18 (the record's D13 section)."
     }
    }
@@ -2761,7 +2835,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "4/4",
+     "checks": "5/5",
      "reason": "Neither writes an output; the exit status (0) and the messages are AFNI's. The default mode refuses instead (exit 1) and names AFNI-26 (the record's D13 section)."
     }
    }
@@ -2781,7 +2855,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -2801,7 +2875,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -2821,7 +2895,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -2841,7 +2915,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -2861,7 +2935,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -2881,7 +2955,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -2901,7 +2975,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -2921,7 +2995,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -2941,7 +3015,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -2961,7 +3035,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -2981,7 +3055,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -3001,7 +3075,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -3021,7 +3095,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -3041,7 +3115,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -3061,7 +3135,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -3081,7 +3155,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -3101,7 +3175,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -3121,7 +3195,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -3141,7 +3215,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    },
@@ -3162,7 +3236,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -3182,7 +3256,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -3202,7 +3276,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "11/11",
+     "checks": "12/12",
      "reason": "AFNI at 1 and 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes; uni.nii.gz: fMRIPrep's own output, the same bytes"
     }
    }
@@ -3222,7 +3296,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "10/10",
+     "checks": "11/11",
      "reason": "AFNI at 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes"
     }
    },
@@ -3243,7 +3317,7 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "8/8",
+     "checks": "9/9",
      "reason": "AFNI at 6 threads and fMRIPrep 25.2.6's AFNI give the oracle's bytes"
     }
    }
@@ -3303,9 +3377,23 @@
      "reason": ""
     }
    }
+  },
+  {
+   "id": "difftest/epi-slice-code-2-afni26",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    }
+   }
   }
  ],
- "cases_total": 118,
+ "cases_total": 119,
  "speed": {
   "title": "3dUnifize: wall time of the whole program (informal timings, 2026-10-24)",
   "axis": [
@@ -3409,7 +3497,7 @@
   {
    "id": "fmriprep-unifize",
    "title": "fMRIPrep's uniformization of a real BOLD reference",
-   "summary": "The 3dUnifize node fMRIPrep 25.2.6 ran on the BOLD reference of OpenNeuro ds005040 sub-002 (task clip, run 1), N4-corrected and skull-stripped once: its arguments (-T2: the contrast inverted, unifized, inverted back) given to AFNI 25.2.09 at 1 and 6 OpenMP threads, to the larmorx-gpl replica and to LARMORX's clean-room original at 1 and 6 threads in both modes. fMRIPrep's own output is the panel it produced in its run.",
+   "summary": "The 3dUnifize node fMRIPrep 25.2.6 ran on the BOLD reference of OpenNeuro ds005040 sub-002 (task clip, run 1), N4-corrected and skull-stripped once: its arguments (-T2: the contrast inverted, unifized, inverted back) given to AFNI 25.2.09 at 1 and 6 OpenMP threads, to AFNI 26.3.05 at 1 (the replica's reference since 2026-10-29), to the larmorx-gpl replica and to LARMORX's clean-room original at 1 and 6 threads in both modes. fMRIPrep's own output is the panel it produced in its run.",
    "facts": [
     {
      "label": "Data",
@@ -3434,6 +3522,10 @@
     {
      "label": "Grid",
      "text": "64 × 64 × 40 voxels of 3 × 3 × 3.3 mm; shown: 53 × 62 × 40 around the brain"
+    },
+    {
+     "label": "AFNI versions",
+     "text": "AFNI 26.3.05 (the GPL replica's reference since 2026-10-29) on the same arguments as AFNI 25.2.09: the same bytes in every output of fMRIPrep's call. What changed between the two releases in these programs (header slice code 2, AFNI-03; `-no_detrend`, AFNI-05; both corrected by LARMORX before AFNI fixed them) does not meet this call."
     }
    ],
    "grid": {
@@ -3694,6 +3786,24 @@
      "arrays": {
       "uni": {
        "same": "original-1:uni",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1388.5496502685546
+      ]
+     }
+    },
+    {
+     "id": "afni26-1",
+     "role": "original",
+     "label": "AFNI 26.3.05, 3dUnifize",
+     "sub": "the repository's build, 1 thread; the replica's reference",
+     "arrays": {
+      "uni": {
+       "same": "afni-1:uni",
        "dtype": "f4"
       }
      },
@@ -4229,6 +4339,96 @@
      "links": [],
      "verdict": "bit-identical",
      "reason": "No correction of the register applies to this input: both modes give the same bytes."
+    },
+    {
+     "id": "replica-afni26",
+     "a": "replica-1",
+     "b": "afni26-1",
+     "kind": "main",
+     "label": "replica − AFNI 26.3.05, 1 thread each",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 163840,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1499.4674072265625,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same values, every one."
+    },
+    {
+     "id": "afni26-afni",
+     "a": "afni26-1",
+     "b": "afni-1",
+     "kind": "variability",
+     "label": "AFNI 26.3.05 − AFNI 25.2.09, 1 thread each",
+     "role_label": "the original against itself: the version step",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 163840,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1499.4674072265625,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "AFNI 26.3.05 gives AFNI 25.2.09's bytes on this call: the version step changes nothing here (its two changes, AFNI-03 and AFNI-05, need header slice code 2 or 3dTshift's -no_detrend)."
     }
    ],
    "default": {
@@ -4279,7 +4479,7 @@
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: BOLD reference, masked (sha256 76db33db4206571d…); fMRIPrep's output (sha256 d6d86af0e97d73b7…)",
-    "Runs: figures cache entry `afni-unifize/fmriprep-ds005040-clip-1`, computed 2026-10-23T11:06:34+00:00 with larmorx `ef4d5685a291`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `afni-unifize/fmriprep-ds005040-clip-1`, computed 2026-10-23T11:06:34+00:00 with larmorx `ef4d5685a291`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; AFNI_26.3.05; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs of the clean-room original: figures cache entry `afni-unifize/fmriprep-ds005040-clip-1-original`, computed 2026-10-23T23:46:10+00:00 with larmorx `ca2145f7951e` (default mode at 1 and 6 threads, reproduce mode at 1)"
    ],
    "credits": [
@@ -4306,6 +4506,10 @@
     {
      "label": "Grid",
      "text": "160 × 192 × 192 voxels of 1 × 1.33 × 1.33 mm; shown: 151 × 125 × 111 around the brain"
+    },
+    {
+     "label": "AFNI versions",
+     "text": "AFNI 26.3.05 (the GPL replica's reference since 2026-10-29) on the same arguments as AFNI 25.2.09: the same bytes in every output of the call. What changed between the two releases in these programs (header slice code 2, AFNI-03; `-no_detrend`, AFNI-05; both corrected by LARMORX before AFNI fixed them) does not meet this call."
     }
    ],
    "grid": {
@@ -4648,6 +4852,32 @@
      "arrays": {
       "uni": {
        "same": "original-1:uni",
+       "dtype": "f4"
+      },
+      "scale": {
+       "same": "afni-1:scale",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       1371.0411523437488
+      ],
+      "scale": [
+       2.6771628856658936,
+       7.176488327980034
+      ]
+     }
+    },
+    {
+     "id": "afni26-1",
+     "role": "original",
+     "label": "AFNI 26.3.05, 3dUnifize",
+     "sub": "the repository's build, 1 thread; the replica's reference",
+     "arrays": {
+      "uni": {
+       "same": "afni-1:uni",
        "dtype": "f4"
       },
       "scale": {
@@ -5365,6 +5595,156 @@
      "links": [],
      "verdict": "bit-identical",
      "reason": "No correction of the register applies to this input: both modes give the same bytes."
+    },
+    {
+     "id": "replica-afni26",
+     "a": "replica-1",
+     "b": "afni26-1",
+     "kind": "main",
+     "label": "replica − AFNI 26.3.05, 1 thread each",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1500.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "scale": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 470.5882263183594,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "scale": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same values, every one."
+    },
+    {
+     "id": "afni26-afni",
+     "a": "afni26-1",
+     "b": "afni-1",
+     "kind": "variability",
+     "label": "AFNI 26.3.05 − AFNI 25.2.09, 1 thread each",
+     "role_label": "the original against itself: the version step",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1500.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "scale": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 470.5882263183594,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "scale": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "AFNI 26.3.05 gives AFNI 25.2.09's bytes on this call: the version step changes nothing here (its two changes, AFNI-03 and AFNI-05, need header slice code 2 or 3dTshift's -no_detrend)."
     }
    ],
    "default": {
@@ -5415,7 +5795,7 @@
    "provenance": [
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: T1w (sha256 75c615d7cce397be…)",
-    "Runs: figures cache entry `afni-unifize/ds000005-t1w`, computed 2026-10-23T11:09:11+00:00 with larmorx `ef4d5685a291`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `afni-unifize/ds000005-t1w`, computed 2026-10-23T11:09:11+00:00 with larmorx `ef4d5685a291`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; AFNI_26.3.05; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs of the clean-room original: figures cache entry `afni-unifize/ds000005-t1w-original`, computed 2026-10-23T23:47:01+00:00 with larmorx `ca2145f7951e` (default mode at 1 and 6 threads, reproduce mode at 1)"
    ],
    "credits": [
@@ -5425,7 +5805,7 @@
   {
    "id": "afni-45",
    "title": "AFNI-45: -T2up 100 reads past the sorted values",
-   "summary": "With -T2, 3dUnifize inverts the contrast about an upper percentile of the masked values (-T2up, 98.5 by default, 90 to 100 allowed). At 100 the percentile's index is one past the end of the sorted values. fMRIPrep's call with -T2up 100 added, given to AFNI 25.2.09, to the replica and to the clean-room original in both modes, beside fMRIPrep's own call.",
+   "summary": "With -T2, 3dUnifize inverts the contrast about an upper percentile of the masked values (-T2up, 98.5 by default, 90 to 100 allowed). At 100 the percentile's index is one past the end of the sorted values. fMRIPrep's call with -T2up 100 added, given to AFNI 25.2.09, to AFNI 26.3.05, to the replica and to the clean-room original in both modes, beside fMRIPrep's own call.",
    "facts": [
     {
      "label": "Input",
@@ -5442,6 +5822,10 @@
     {
      "label": "AFNI's output",
      "text": "all 163,840 values 0"
+    },
+    {
+     "label": "AFNI versions",
+     "text": "AFNI 26.3.05 (the GPL replica's reference since 2026-10-29) on the same arguments as AFNI 25.2.09: the same bytes in every output of the call with -T2up 100. What changed between the two releases in these programs (header slice code 2, AFNI-03; `-no_detrend`, AFNI-05; both corrected by LARMORX before AFNI fixed them) does not meet this call."
     }
    ],
    "grid": {
@@ -5574,6 +5958,24 @@
        "blob": "ab998f7e36ce41faa671aad1.bin",
        "dtype": "f4",
        "bytes": 532
+      }
+     },
+     "own": {
+      "uni": [
+       0.0,
+       0.0
+      ]
+     }
+    },
+    {
+     "id": "afni26",
+     "role": "original",
+     "label": "AFNI 26.3.05, -T2up 100",
+     "sub": "the repository's build; the replica's reference",
+     "arrays": {
+      "uni": {
+       "same": "afni:uni",
+       "dtype": "f4"
       }
      },
      "own": {
@@ -5887,6 +6289,106 @@
      ],
      "verdict": "bit-identical",
      "reason": "reproduce mode gives AFNI's result: the read past the end filled with 0, as AFNI read it on this machine."
+    },
+    {
+     "id": "repro-afni26",
+     "a": "replica-reproduce",
+     "b": "afni26",
+     "kind": "main",
+     "label": "replica (reproduce) − AFNI 26.3.05, -T2up 100",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 163840,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [
+      {
+       "label": "AFNI-45",
+       "href": "docs/findings/upstream-defects.md#afni-45---t2up-near-100-reads-past-the-sorted-values--a"
+      }
+     ],
+     "verdict": "bit-identical",
+     "reason": "reproduce mode gives AFNI's result: the read past the end filled with 0, as AFNI read it on this machine."
+    },
+    {
+     "id": "afni26-afni",
+     "a": "afni26",
+     "b": "afni",
+     "kind": "variability",
+     "label": "AFNI 26.3.05 − AFNI 25.2.09, -T2up 100",
+     "role_label": "the original against itself: the version step",
+     "metrics": {
+      "uni": {
+       "identical": true,
+       "voxels": 163840,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 0.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "uni": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [
+      {
+       "label": "AFNI-45",
+       "href": "docs/findings/upstream-defects.md#afni-45---t2up-near-100-reads-past-the-sorted-values--a"
+      }
+     ],
+     "verdict": null,
+     "reason": "AFNI 26.3.05 gives AFNI 25.2.09's bytes on this call: the read one past the sorted values (AFNI-45) is in both releases, and both read 0 there on this machine."
     }
    ],
    "default": {
@@ -5939,7 +6441,7 @@
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: BOLD reference, masked (sha256 76db33db4206571d…); fMRIPrep's output (sha256 d6d86af0e97d73b7…)",
-    "Runs: figures cache entry `afni-unifize/fmriprep-ds005040-clip-1`, computed 2026-10-23T11:06:34+00:00 with larmorx `ef4d5685a291`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `afni-unifize/fmriprep-ds005040-clip-1`, computed 2026-10-23T11:06:34+00:00 with larmorx `ef4d5685a291`; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx-gpl 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; AFNI_26.3.05; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs of the clean-room original: figures cache entry `afni-unifize/fmriprep-ds005040-clip-1-original`, computed 2026-10-23T23:46:10+00:00 with larmorx `ca2145f7951e` (default mode at 1 and 6 threads, reproduce mode at 1)"
    ],
    "credits": [

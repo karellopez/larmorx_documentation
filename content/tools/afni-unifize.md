@@ -4,10 +4,11 @@ kicker: Tools · AFNI
 lede: >-
   AFNI's white-matter uniformization of a T1w (or, with -T2, a T2w or an EPI image), in two
   implementations: an exact replica of AFNI's source in the separate larmorx-gpl package,
-  bit-identical to AFNI 25.2.09 in every compared case, and a clean-room original in LARMORX
+  bit-identical to AFNI 26.3.05 (and, before it, 25.2.09) in every compared case, and a
+  clean-room original in LARMORX
   (Apache-2.0), written from a behavioural specification, whose outputs are AFNI's bytes with
   correctly rounded maths, fMRIPrep's own calls included.
-description: LARMORX's two implementations of AFNI's 3dUnifize, validated against AFNI 25.2.09 and fMRIPrep 25.2.6 — fMRIPrep's uniformization of a real BOLD reference, a real T1w and a deliberate correction to inspect, AFNI at 1 and 6 threads and with correctly rounded maths, and every parity case with its verdict.
+description: LARMORX's two implementations of AFNI's 3dUnifize, validated against AFNI 26.3.05 (the replica), AFNI 25.2.09 and fMRIPrep 25.2.6 — fMRIPrep's uniformization of a real BOLD reference, a real T1w and a deliberate correction to inspect, AFNI at 1 and 6 threads and with correctly rounded maths, and every parity case with its verdict.
 evidence: true
 wide: true
 ---
@@ -41,7 +42,9 @@ t1 = lx.afni.unifize("sub-01_T1w.nii.gz", save_scale=True)   # implementation="a
 
 {{ ev.agreement('afni-unifize', 'original') }}
 
-Both records run the same 99 cases against AFNI 25.2.09, with AFNI's exit status and messages in every case. The replica gives AFNI's bytes in every case that writes an output. The clean-room original gives them in 34 of the 74 compared cases that write outputs; in the other 40 its headers are AFNI's and a few squashed values (above 1300) differ in their last bit, at most 1,633 values of a T1w and 8.7 × 10<sup>−8</sup> of the largest value, against a threshold of 10<sup>−5</sup>: AFNI's squash calls glibc's `tanhf`, which is not correctly rounded on some arguments, the original's is. Run with CORE-MATH's correctly rounded functions preloaded, AFNI gives the original's bytes in all 40 (*identical with correctly rounded maths*). AFNI computes every voxel's local level independently in its OpenMP loop: its result does not depend on the thread count, and neither does either implementation's. Where AFNI crashes (AFNI-40, AFNI-46), both stop with an error instead; where AFNI reads past the end of its half-size scale image (AFNI-47, a volume of more than a million voxels only two slices thick), AFNI crashed in our runs and both define the result.
+The clean-room original's record runs 117 cases against AFNI 25.2.09, the replica's 116 against AFNI 26.3.05 (the version step below), with AFNI's exit status and messages in every case. The replica gives AFNI's bytes in every case that writes an output. The clean-room original gives them in 34 of the 74 compared cases that write outputs; in the other 40 its headers are AFNI's and a few squashed values (above 1300) differ in their last bit, at most 1,633 values of a T1w and 8.7 × 10<sup>−8</sup> of the largest value, against a threshold of 10<sup>−5</sup>: AFNI's squash calls glibc's `tanhf`, which is not correctly rounded on some arguments, the original's is. Run with CORE-MATH's correctly rounded functions preloaded, AFNI gives the original's bytes in all 40 (*identical with correctly rounded maths*). AFNI computes every voxel's local level independently in its OpenMP loop: its result does not depend on the thread count, and neither does either implementation's. Where AFNI crashes (AFNI-40, AFNI-46), both stop with an error instead; where AFNI reads past the end of its half-size scale image (AFNI-47, a volume of more than a million voxels only two slices thick), AFNI crashed in our runs and both define the result.
+
+Since 2026-10-29 the replica follows **AFNI 26.3.05**, AFNI's newest release, and its record runs against it, with AFNI 25.2.09 run beside it on every case (*AFNI's own step*); the clean-room original's record stays on AFNI 25.2.09 until it follows 26.3.05's two fixes. Between the two releases these programs changed in exactly two places, both corrections LARMORX already made by default: header slice code 2 read as NIfTI defines it (AFNI-03) and 3dTshift's `-no_detrend` de-meaning every voxel (AFNI-05). The examples below show both versions' outputs: on fMRIPrep's calls they are the same bytes.
 
 ## In fMRIPrep: a BOLD reference {#example}
 
