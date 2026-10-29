@@ -14,7 +14,7 @@ wide: true
 <dl class="facts">
 <dt>Implementation</dt><dd>ports of ANTs' and ITK's source (Apache-2.0), in <code>larmorx</code></dd>
 <dt>Status</dt><dd><span class="status-tag eco-ants">validated</span> (each)</dd>
-<dt>Records</dt><dd><a href="{{ repo('docs/validation/ants-ai.md') }}">ants-ai</a> (<a href="{{ repo('docs/validation/ants-ai-full.md') }}">full</a>) · <a href="{{ repo('docs/validation/ants-affine-initializer.md') }}">ants-affine-initializer</a> (<a href="{{ repo('docs/validation/ants-affine-initializer-full.md') }}">full</a>) · API <a href="{{ repo('docs/api/ants-ai.md') }}">ants-ai</a>, <a href="{{ repo('docs/api/ants-affine-initializer.md') }}">ants-affine-initializer</a></dd>
+<dt>Records</dt><dd><a href="{{ repo('docs/validation/ants-ai.md') }}">ants-ai</a> (<a href="{{ repo('docs/validation/ants-ai-full.md') }}">full</a>) · <a href="{{ repo('docs/validation/ants-affine-initializer.md') }}">ants-affine-initializer</a> (<a href="{{ repo('docs/validation/ants-affine-initializer-full.md') }}">full</a>) · benchmark <a href="{{ repo('docs/benchmarks/ants-ai.md') }}">ants-ai</a> · API <a href="{{ repo('docs/api/ants-ai.md') }}">ants-ai</a>, <a href="{{ repo('docs/api/ants-affine-initializer.md') }}">ants-affine-initializer</a></dd>
 <dt>Data panel</dt><dd><a href="{{ repo('docs/validation/ants-ai-panel.md') }}">antsAI</a> · <a href="{{ repo('docs/validation/ants-affine-initializer-panel.md') }}">antsAffineInitializer</a></dd>
 </dl>
 
@@ -98,7 +98,7 @@ Each case of the two records, with what it tests, its verdict and the reason. Se
 
 ## Speed {#speed}
 
-No benchmark report yet: the benchmark of antsAI and antsAffineInitializer is pending.
+antsAI takes about half of ANTs' time at one thread (17.5 s against 31.2 s on a 128 × 128 × 96 head, 79 s against 156 s on the 7 T MP2RAGE and the MNI template) and a sixth or less at eight threads, with ANTs' memory; antsAffineInitializer takes ANTs' time at one thread when it reproduces ANTs (its D13 check of ITK-21 searches twice), half of it in the default mode, and a quarter to a tenth at eight threads. Every transform is ANTs' byte for byte: <a href="{{ repo('docs/benchmarks/ants-ai.md') }}">the benchmark</a> (median of three runs; informal timings on a shared machine).
 
 ## Random testing {#random-testing}
 
