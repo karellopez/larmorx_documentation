@@ -3,7 +3,7 @@
  "tool": "mri-hmc",
  "title": "Head-motion correction",
  "provenance": {
-  "exporter": "07c413e70ff12cd013794ab6d0d03accfd891c64",
+  "exporter": "e5ba67204403d2ac092d67f0b6d136c6d61a227e",
   "records": [
    {
     "path": "docs/validation/mri-hmc.json",
@@ -31,15 +31,15 @@
    },
    {
     "path": "docs/validation/fsl-mcflirt-replica.json",
-    "sha256": "095c6b9922fb58288d476b67f9053646c71b6293484bdfe533da014c4ed4bc6c",
+    "sha256": "1eb3d1c6685990ea0754eabfb01303672804a9427278ec0045d8e2bd4f52bf96",
     "generated": "2026-10-29",
-    "larmorx_commit": "09dd455cac3f"
+    "larmorx_commit": "59243251aa28"
    },
    {
     "path": "docs/validation/fsl-mcflirt-replica.md",
-    "sha256": "58644f771bee89a66d052f6f116d02261f59cc3d1ba185f910b3978c8e5257d0",
+    "sha256": "a1598818c53cec8d7606eb248382ebe544e76867f496d50be6a11d296c1d1f88",
     "generated": "2026-10-29",
-    "larmorx_commit": "09dd455cac3f"
+    "larmorx_commit": "59243251aa28"
    }
   ],
   "benchmarks": [
@@ -574,9 +574,8 @@
    "summary": {
     "cases": 203,
     "verdicts": {
-     "bit-identical": 176,
-     "both-reject": 22,
-     "divergence": 5
+     "bit-identical": 181,
+     "both-reject": 22
     }
    },
    "agreement": [
@@ -590,8 +589,7 @@
     {
      "category": "options (ds000005)",
      "counts": {
-      "bit-identical": 23,
-      "divergence": 1,
+      "bit-identical": 24,
       "both-reject": 1
      }
     },
@@ -605,8 +603,7 @@
     {
      "category": "synthetic/content",
      "counts": {
-      "bit-identical": 4,
-      "divergence": 2
+      "bit-identical": 6
      }
     },
     {
@@ -624,8 +621,7 @@
     {
      "category": "synthetic/motion",
      "counts": {
-      "bit-identical": 29,
-      "divergence": 2,
+      "bit-identical": 31,
       "both-reject": 5
      }
     },
@@ -1380,10 +1376,10 @@
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     },
     "replica-23": {
-     "outcome": "expected-divergence",
-     "verdict": "divergence",
-     "checks": "6/7",
-     "reason": "out_mcf.nii.gz_rel.rms: numbers differ by at most 1e-12 mm or in a NaN's sign, from FSL 6.0.7.23's Armadillo 14.2.1 (4 x 4 inverses and solves through LAPACK); the replica keeps Armadillo 10.5.1's closed-form inverse (docs/findings/fsl-mcflirt.md)"
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2446,10 +2442,10 @@
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     },
     "replica-23": {
-     "outcome": "expected-divergence",
-     "verdict": "divergence",
-     "checks": "6/7",
-     "reason": "out_mcf.nii.gz.par: numbers differ by at most 1e-12 mm or in a NaN's sign, from FSL 6.0.7.23's Armadillo 14.2.1 (4 x 4 inverses and solves through LAPACK); the replica keeps Armadillo 10.5.1's closed-form inverse (docs/findings/fsl-mcflirt.md)"
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2472,10 +2468,10 @@
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     },
     "replica-23": {
-     "outcome": "expected-divergence",
-     "verdict": "divergence",
-     "checks": "6/7",
-     "reason": "out_mcf.nii.gz.par: numbers differ by at most 1e-12 mm or in a NaN's sign, from FSL 6.0.7.23's Armadillo 14.2.1 (4 x 4 inverses and solves through LAPACK); the replica keeps Armadillo 10.5.1's closed-form inverse (docs/findings/fsl-mcflirt.md)"
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3070,10 +3066,10 @@
      "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     },
     "replica-23": {
-     "outcome": "expected-divergence",
-     "verdict": "divergence",
-     "checks": "6/7",
-     "reason": "out_mcf.nii.gz_rel.rms: numbers differ by at most 1e-12 mm or in a NaN's sign, from FSL 6.0.7.23's Armadillo 14.2.1 (4 x 4 inverses and solves through LAPACK); the replica keeps Armadillo 10.5.1's closed-form inverse (docs/findings/fsl-mcflirt.md)"
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3122,10 +3118,10 @@
      "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
     },
     "replica-23": {
-     "outcome": "expected-divergence",
-     "verdict": "divergence",
-     "checks": "6/7",
-     "reason": "out_mcf.nii.gz_rel.rms, out_mcf.nii.gz_rel_mean.rms: numbers differ by at most 1e-12 mm or in a NaN's sign, from FSL 6.0.7.23's Armadillo 14.2.1 (4 x 4 inverses and solves through LAPACK); the replica keeps Armadillo 10.5.1's closed-form inverse (docs/findings/fsl-mcflirt.md)"
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
