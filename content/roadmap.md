@@ -13,7 +13,7 @@ wide: true
 
 | | Step | What it delivers | Status |
 |---|---|---|---|
-| 1 | **The AFNI replicas in the main package** | AFNI 26.3.05 releases the Medical College of Wisconsin's code under CC BY 4.0 ([inventory](repo:docs/findings/afni-relicensing-26.md)), so `pip install larmorx` will give AFNI's exact results without the separate GPL package | Next |
+| 1 | **The AFNI replicas in the main package** | AFNI 26.3.05 releases the Medical College of Wisconsin's code under CC BY 4.0 ([inventory](repo:docs/findings/afni-relicensing-26.md)), so `pip install larmorx` will give AFNI's exact results without the separate GPL package | Under way |
 | 2 | **BET's clean-room original** | BET (`bet`, `bet2`, `betsurf`) written from its behavioural specification, built for speed, beside the exact replica | Planned |
 | 3 | **Two specified clean-room additions** | mcflirt's FSL-20 and FSL-21 corrections and 3dUnifize's memory guard (AFNI-75) in the clean-room originals | Planned |
 | 4 | **FLIRT with BBR** | FSL's registration, which fMRIPrep uses to align BOLD to T1w: a replica and a clean-room original | Planned |
