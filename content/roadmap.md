@@ -13,18 +13,17 @@ wide: true
 
 | | Step | What it delivers | Status |
 |---|---|---|---|
-| 1 | **The clean-room originals follow the newest releases** | 3dTshift, 3dAutomask and 3dUnifize follow AFNI 26.3.05, and the head-motion correction follows mcflirt 6.0.7.23, as their replicas already do; the head-motion correction's `-cost normmi` corrected | Under way |
-| 2 | **SciPy, NumPy and OpenBLAS at their newest releases** | The one-shot BOLD resampler checked against SciPy 1.18, NumPy 2.5 and OpenBLAS 0.3.34; the FSL replicas follow FSL 6.0.7.23's matrix library (Armadillo 14.2.1), which changes the last digits of 5 mcflirt cases | Planned |
-| 3 | **The AFNI replicas in the main package** | AFNI 26.3.05 releases the Medical College of Wisconsin's code under CC BY 4.0 ([inventory](repo:docs/findings/afni-relicensing-26.md)), so `pip install larmorx` will give AFNI's exact results without the separate GPL package | Planned |
-| 4 | **BET's clean-room original** | BET (`bet`, `bet2`, `betsurf`) written from its behavioural specification, built for speed, beside the exact replica | Planned |
-| 5 | **Two specified clean-room additions** | mcflirt's FSL-20 and FSL-21 corrections and 3dUnifize's memory guard (AFNI-75) in the clean-room originals | Planned |
-| 6 | **FLIRT with BBR** | FSL's registration, which fMRIPrep uses to align BOLD to T1w: a replica and a clean-room original | Planned |
-| 7 | **FAST and topup** | FSL's tissue segmentation and field-map estimation, each a replica and a clean-room original; then BET's options that need them (`-S`, `-B`, `-A`, `-A2`) | Planned |
-| 8 | **Field maps** | sdcflows' field-map estimation: the B-spline fit, reversed phase encoding (PEPOLAR) and phase difference | Planned |
-| 9 | **FreeSurfer 8.2.0** | Every program complete, a replica (`larmorx-freesurfer`) and a clean-room original built for speed: first the reference runs on the [data panel](/data-panel/), then FreeSurfer's shared library, then the programs fMRIPrep runs, slowest first | Planned |
-| 10 | **Surfaces** | Surface tools compatible with Connectome Workbench and MSM | Planned |
-| 11 | **Confounds** | CompCor, DVARS, framewise displacement and fMRIPrep's other confounds | Planned |
-| 12 | **larmorprepx** | The pipeline: BIDS in, fMRIPrep-compatible derivatives and HTML reports out | Planned |
+| 1 | **SciPy, NumPy and OpenBLAS at their newest releases** | The one-shot BOLD resampler checked against SciPy 1.18, NumPy 2.5 and OpenBLAS 0.3.34; the FSL replicas follow FSL 6.0.7.23's matrix library (Armadillo 14.2.1), which changes the last digits of 5 mcflirt cases | Next |
+| 2 | **The AFNI replicas in the main package** | AFNI 26.3.05 releases the Medical College of Wisconsin's code under CC BY 4.0 ([inventory](repo:docs/findings/afni-relicensing-26.md)), so `pip install larmorx` will give AFNI's exact results without the separate GPL package | Planned |
+| 3 | **BET's clean-room original** | BET (`bet`, `bet2`, `betsurf`) written from its behavioural specification, built for speed, beside the exact replica | Planned |
+| 4 | **Two specified clean-room additions** | mcflirt's FSL-20 and FSL-21 corrections and 3dUnifize's memory guard (AFNI-75) in the clean-room originals | Planned |
+| 5 | **FLIRT with BBR** | FSL's registration, which fMRIPrep uses to align BOLD to T1w: a replica and a clean-room original | Planned |
+| 6 | **FAST and topup** | FSL's tissue segmentation and field-map estimation, each a replica and a clean-room original; then BET's options that need them (`-S`, `-B`, `-A`, `-A2`) | Planned |
+| 7 | **Field maps** | sdcflows' field-map estimation: the B-spline fit, reversed phase encoding (PEPOLAR) and phase difference | Planned |
+| 8 | **FreeSurfer 8.2.0** | Every program complete, a replica (`larmorx-freesurfer`) and a clean-room original built for speed: first the reference runs on the [data panel](/data-panel/), then FreeSurfer's shared library, then the programs fMRIPrep runs, slowest first | Planned |
+| 9 | **Surfaces** | Surface tools compatible with Connectome Workbench and MSM | Planned |
+| 10 | **Confounds** | CompCor, DVARS, framewise displacement and fMRIPrep's other confounds | Planned |
+| 11 | **larmorprepx** | The pipeline: BIDS in, fMRIPrep-compatible derivatives and HTML reports out | Planned |
 
 New releases of the originals are followed as they come out: a weekly check lists every newer release and the files it changes, and each update is a step of its own.
 
@@ -50,6 +49,7 @@ Newest first. The records of every tool are in the repository's [docs/validation
 
 | Completed | Step |
 |---|---|
+| 2026-10-29 | **The clean-room originals at the newest releases.** 3dTshift, 3dAutomask and 3dUnifize follow AFNI 26.3.05 and the head-motion correction mcflirt 6.0.7.23 (its zstd and bzip2 formats, FSL-59, FSL-60), as their replicas do; the head-motion correction's `-cost mutualinfo` and `normmi` computed exactly, as well aligned as mcflirt's on 169 random phantoms |
 | 2026-10-29 | **FSL 6.0.7.23.** The mcflirt and BET replicas follow FSL's newest release (FSL-59 to FSL-63 registered; FSL-41 fixed upstream); every example on their pages shows both releases |
 | 2026-10-29 | **AFNI 26.3.05.** The 3dTshift, 3dAutomask and 3dUnifize replicas follow AFNI's newest release; a weekly check for new releases of every original |
 | 2026-10-29 | **The clean-room fixes.** 12 of the 13 differences that random testing and the data panel found in the clean-room originals of 3dTshift, 3dAutomask, 3dUnifize and the head-motion correction fixed or explained |

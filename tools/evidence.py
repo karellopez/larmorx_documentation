@@ -962,6 +962,7 @@ class Evidence:
         "register": "a defect of the original, in the register",
         "open": "open (a clean-room original's difference, reported for its agent)",
         "harness": "the comparison's own mistake, corrected",
+        "explained": "an expected difference, measured and explained (no mistake, no defect)",
         "unclear": "not yet triaged",
     }
 
@@ -999,7 +1000,7 @@ class Evidence:
         cols = "".join(f'<th scope=col class=n title="{esc(m)}">{esc(lab)}</th>' for _, lab, m in self.DIFFTEST_COLUMNS)
         return (
             f"<tr><th scope=col>{esc(first)}</th><th scope=col class=n>Random cases</th>"
-            "<th scope=col class=n title=\"the cases drawn as the extreme share of the night (odd units, extreme voxel sizes); the others are realistic\">Extreme</th>"
+            "<th scope=col class=n title=\"the cases drawn as the extreme share of the run (odd units, extreme voxel sizes); the others are realistic\">Extreme</th>"
             f'<th scope=col class=n title="distinct options and option values drawn">Options covered</th>{cols}'
             '<th scope=col class=n title="timed out or crashed: for the orchestrator">Unclear</th></tr>'
         )
@@ -1040,7 +1041,7 @@ class Evidence:
         return f'<ul class="ev-dt-diffs">{"".join(items)}</ul>'
 
     def _difftest_heavy(self, tools: list[tuple[str, int, dict]]) -> str:
-        """The cases over the night's memory limit, and what became of them once run to their
+        """The cases over the run's memory limit, and what became of them once run to their
         end in the large box (``difftest --heavy``)."""
         items = []
         for pi, ti, t in tools:
@@ -1073,7 +1074,7 @@ class Evidence:
         )
 
     def random_testing(self, page: str) -> Markup:
-        """A tool page's panel: the latest night's random cases of the page's tools, their
+        """A tool page's panel: the latest long run's random cases of the page's tools, their
         outcomes, and what was done about each difference (``static/evidence/difftest.json``)."""
         d = self._difftest()
         tools = [(pi, ti, t) for pi, pg in enumerate(d["pages"]) if pg["page"] == page for ti, t in enumerate(pg["tools"])]
@@ -1082,13 +1083,13 @@ class Evidence:
             return Markup("")
         n = d["night"]
         title = (
-            f'Random testing, the night of {esc(n["date"])} (seed <code>{esc(n["seed"])}</code>, '
+            f'Random testing, the long run of {esc(n["date"])} (seed <code>{esc(n["seed"])}</code>, '
             f'{self.num("difftest", "/night/hours", fmt_sig(n["hours"]))} h for '
             f'{self.num("difftest", "/night/tools", fmt_count(n["tools"]))} tools): random valid inputs and '
             "option combinations through the original program and LARMORX"
         )
         note = (
-            f'Every case is drawn from its tool, the night\'s seed and its number, and replays anywhere: '
+            f'Every case is drawn from its tool, the run\'s seed and its number, and replays anywhere: '
             f'<a href="{self.href(d["how"])}">how random testing works</a>; each difference\'s triage: '
             f'<a href="{self.href(d["triage"])}">{esc(d["triage"])}</a>.'
         )
@@ -1102,14 +1103,14 @@ class Evidence:
         )
 
     def random_testing_summary(self) -> Markup:
-        """The Validation page's table: every tool's random cases of the latest night."""
+        """The Validation page's table: every tool's random cases of the latest long run."""
         d = self._difftest()
         tools = [(pi, ti, t) for pi, pg in enumerate(d["pages"]) for ti, t in enumerate(pg["tools"])]
         n = d["night"]
         total = self.num("difftest", "/night/cases", fmt_count(n["cases"]))
         return Markup(
             f'<figure class="ev-chart ev-tablefig ev-difftest" id="random-testing-summary"><div class="ev-table">'
-            f'<p class="ev-metrics-title">The night of {esc(n["date"])}: {total} random cases '
+            f'<p class="ev-metrics-title">The long run of {esc(n["date"])}: {total} random cases '
             f'({self.num("difftest", "/night/hours", fmt_sig(n["hours"]))} h, seed <code>{esc(n["seed"])}</code>)</p>'
             f'<div class="table-wrap"><table class="ev-ttable"><thead>{self._difftest_head("Tool")}</thead>'
             f"<tbody>{self._difftest_rows(tools, with_page=True)}</tbody></table></div>"
