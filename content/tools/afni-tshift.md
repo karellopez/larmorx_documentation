@@ -2,9 +2,8 @@
 title: 3dTshift
 kicker: Tools · AFNI
 lede: >-
-  Slice-timing correction in two implementations: an exact replica of AFNI's source in the
-  separate larmorx-gpl package, bit-identical to AFNI 26.3.05 (and, before it, 25.2.09) in
-  every compared case, and a
+  Slice-timing correction in two implementations, both in LARMORX: an exact replica of AFNI's
+  source, bit-identical to AFNI 26.3.05 (and, before it, 25.2.09) in every compared case, and a
   clean-room original in LARMORX (Apache-2.0), written from a behavioural specification, which
   differs from AFNI by the last bits of its Fourier shift.
 description: LARMORX's two implementations of AFNI's 3dTshift, validated against AFNI 26.3.05 (both implementations), AFNI 25.2.09 and fMRIPrep 25.2.6 — a real BOLD run and a deliberate correction to inspect, every parity case with its verdict, and speed.
@@ -13,7 +12,7 @@ wide: true
 ---
 
 <dl class="facts">
-<dt>Implementations</dt><dd>exact replica (<code>larmorx-gpl</code>, GPL-3.0-or-later, run as a separate program); clean-room original (<code>larmorx</code>, Apache-2.0, from <a href="{{ repo('specs/3dTshift.md') }}">specs/3dTshift.md</a>)</dd>
+<dt>Implementations</dt><dd>exact replica (<code>larmorx</code>, Apache-2.0 with CC BY 4.0's attribution for the Medical College of Wisconsin's code, in <code>pip install larmorx</code> since 2026-10-29; until then the separate GPL package <code>larmorx-gpl</code>); clean-room original (<code>larmorx</code>, Apache-2.0, from <a href="{{ repo('specs/3dTshift.md') }}">specs/3dTshift.md</a>)</dd>
 <dt>Status</dt><dd><span class="status-tag eco-afni">validated</span> (each)</dd>
 <dt>Records</dt><dd><a href="{{ repo('docs/validation/afni-tshift-replica.md') }}">replica</a> · <a href="{{ repo('docs/validation/afni-tshift.md') }}">original</a> · benchmark <a href="{{ repo('docs/benchmarks/afni-tshift.md') }}">afni-tshift</a> · API <a href="{{ repo('docs/api/afni-tshift.md') }}">afni-tshift</a></dd>
 </dl>
@@ -36,7 +35,7 @@ stc = lx.afni.tshift("sub-01_task-rest_bold.nii.gz", slice_times=times, tzero=t0
                      tr=meta["RepetitionTime"], n_threads=8)       # implementation="auto"
 ```
 
-`implementation="auto" | "replica" | "original"` chooses (on the command line `LARMORX_IMPLEMENTATION`); `auto` takes the replica when `larmorx-gpl` is installed. How to read what follows: [the validation guide](/validation/#reading).
+Since 2026-10-29 both are part of LARMORX itself (`pip install larmorx`): AFNI 26.3.05 releases the Medical College of Wisconsin's code, which these programs' results depend on, under CC BY 4.0, so the exact replica moved from the separate GPL package `larmorx-gpl` into LARMORX, under the Apache License with CC BY 4.0's attribution ([NOTICE](repo:NOTICE), [licensing](repo:docs/licensing.md)), and runs in the same process. `implementation="auto" | "replica" | "original"` chooses (on the command line `LARMORX_IMPLEMENTATION`); `auto` takes the replica (until 2026-10-29, when `larmorx-gpl` was installed). The examples below were computed with the replica as the separate program it was then; the same files come out of it in-process (its records, re-made in-process on 2026-10-29, agree case for case). How to read what follows: [the validation guide](/validation/#reading).
 
 ## The verdicts at a glance {#verdicts}
 

@@ -3,7 +3,7 @@
  "tool": "afni-unifize",
  "title": "3dUnifize",
  "provenance": {
-  "exporter": "07c413e70ff12cd013794ab6d0d03accfd891c64",
+  "exporter": "8035ad782ae6aa0fcc2d7008192b781adb9f3e15",
   "records": [
    {
     "path": "docs/validation/afni-unifize.json",
@@ -19,15 +19,15 @@
    },
    {
     "path": "docs/validation/afni-unifize-replica.json",
-    "sha256": "c10536326d8276c2c3fc3c9f18e43af64a40d9525ad6675a95615d37a8b0ab95",
-    "generated": "2026-10-29",
-    "larmorx_commit": "bd39a5d04bbe"
+    "sha256": "249dd14fb95230d0eb69449b3a01d33ad18c6b4b552a2f3e44428629ae9d5b6e",
+    "generated": "2026-10-30",
+    "larmorx_commit": "b6c7066c2dc2"
    },
    {
     "path": "docs/validation/afni-unifize-replica.md",
-    "sha256": "1c8d7d8313be63f98a2e6fb9b7457317e4123682b871032da2ba567ffebb3ede",
-    "generated": "2026-10-29",
-    "larmorx_commit": "bd39a5d04bbe"
+    "sha256": "c89c6261dc4d02aca6987e4cb4f9e47b5c439f13c2804b7ecb904326bda84971",
+    "generated": "2026-10-30",
+    "larmorx_commit": "b6c7066c2dc2"
    }
   ],
   "benchmarks": [
@@ -952,7 +952,7 @@
   },
   {
    "id": "replica",
-   "label": "larmorx-gpl replica",
+   "label": "larmorx replica",
    "short": "replica",
    "record": "docs/validation/afni-unifize-replica.md",
    "status": "validated",
@@ -2616,7 +2616,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "2/2",
-     "reason": "AFNI's default prefix 'Unifized' is its own dataset format, which larmorx-gpl does not write: it refuses (NIfTI only)."
+     "reason": "AFNI's default prefix 'Unifized' is its own dataset format, which larmorx does not write: it refuses (NIfTI only)."
     }
    }
   },
@@ -3497,7 +3497,7 @@
   {
    "id": "fmriprep-unifize",
    "title": "fMRIPrep's uniformization of a real BOLD reference",
-   "summary": "The 3dUnifize node fMRIPrep 25.2.6 ran on the BOLD reference of OpenNeuro ds005040 sub-002 (task clip, run 1), N4-corrected and skull-stripped once: its arguments (-T2: the contrast inverted, unifized, inverted back) given to AFNI 25.2.09 at 1 and 6 OpenMP threads, to AFNI 26.3.05 at 1 (both implementations' reference since 2026-10-29), to the larmorx-gpl replica and to LARMORX's clean-room original at 1 and 6 threads in both modes. fMRIPrep's own output is the panel it produced in its run.",
+   "summary": "The 3dUnifize node fMRIPrep 25.2.6 ran on the BOLD reference of OpenNeuro ds005040 sub-002 (task clip, run 1), N4-corrected and skull-stripped once: its arguments (-T2: the contrast inverted, unifized, inverted back) given to AFNI 25.2.09 at 1 and 6 OpenMP threads, to AFNI 26.3.05 at 1 (both implementations' reference since 2026-10-29), to the larmorx replica and to LARMORX's clean-room original at 1 and 6 threads in both modes. fMRIPrep's own output is the panel it produced in its run.",
    "facts": [
     {
      "label": "Data",
@@ -3513,7 +3513,7 @@
     },
     {
      "label": "Programs",
-     "text": "AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0 (the repository's oracle build; OpenMP); AFNI AFNI_25.2.09 (Aug 24 2025) [64-bit] in fMRIPrep's image; larmorx-gpl 0.0.1 (the replica, with a port of glibc 2.35's tanhf), from larmorx at commit `ef4d5685a291`; larmorx 0.0.1 (the clean-room original) at commit `ca2145f7951e` (a correctly rounded tanhf)"
+     "text": "AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0 (the repository's oracle build; OpenMP); AFNI AFNI_25.2.09 (Aug 24 2025) [64-bit] in fMRIPrep's image; larmorx-gpl 0.0.1 (the replica, with fdlibm's tanhf as glibc 2.35 runs it), from larmorx at commit `ef4d5685a291`; larmorx 0.0.1 (the clean-room original) at commit `ca2145f7951e` (a correctly rounded tanhf)"
     },
     {
      "label": "Output",
@@ -3706,7 +3706,7 @@
     {
      "id": "replica-1",
      "role": "larmorx",
-     "label": "larmorx-gpl replica",
+     "label": "larmorx replica",
      "sub": "default mode, 1 thread",
      "arrays": {
       "uni": {
@@ -3724,7 +3724,7 @@
     {
      "id": "replica-6",
      "role": "larmorx",
-     "label": "larmorx-gpl replica",
+     "label": "larmorx replica",
      "sub": "default mode, 6 threads",
      "arrays": {
       "uni": {
@@ -3742,7 +3742,7 @@
     {
      "id": "replica-reproduce",
      "role": "larmorx",
-     "label": "larmorx-gpl replica",
+     "label": "larmorx replica",
      "sub": "reproduce mode, 6 threads",
      "arrays": {
       "uni": {
@@ -4789,7 +4789,7 @@
     {
      "id": "replica-1",
      "role": "larmorx",
-     "label": "larmorx-gpl replica",
+     "label": "larmorx replica",
      "sub": "default mode, 1 thread",
      "arrays": {
       "uni": {
@@ -4815,7 +4815,7 @@
     {
      "id": "replica-6",
      "role": "larmorx",
-     "label": "larmorx-gpl replica",
+     "label": "larmorx replica",
      "sub": "default mode, 6 threads",
      "arrays": {
       "uni": {
@@ -4841,7 +4841,7 @@
     {
      "id": "replica-reproduce",
      "role": "larmorx",
-     "label": "larmorx-gpl replica",
+     "label": "larmorx replica",
      "sub": "reproduce mode, 6 threads",
      "arrays": {
       "uni": {
@@ -6112,7 +6112,7 @@
     {
      "id": "replica",
      "role": "larmorx",
-     "label": "larmorx-gpl replica, -T2up 100",
+     "label": "larmorx replica, -T2up 100",
      "sub": "default mode: corrected",
      "arrays": {
       "uni": {
@@ -6131,7 +6131,7 @@
     {
      "id": "replica-reproduce",
      "role": "larmorx",
-     "label": "larmorx-gpl replica, -T2up 100",
+     "label": "larmorx replica, -T2up 100",
      "sub": "reproduce mode",
      "arrays": {
       "uni": {

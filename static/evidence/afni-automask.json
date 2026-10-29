@@ -3,7 +3,7 @@
  "tool": "afni-automask",
  "title": "3dAutomask",
  "provenance": {
-  "exporter": "07c413e70ff12cd013794ab6d0d03accfd891c64",
+  "exporter": "8035ad782ae6aa0fcc2d7008192b781adb9f3e15",
   "records": [
    {
     "path": "docs/validation/afni-automask.json",
@@ -19,15 +19,15 @@
    },
    {
     "path": "docs/validation/afni-automask-replica.json",
-    "sha256": "36a1219698b8f884b6fd8f898700d6b9dbee90871983b5ca91bc92b053b504c6",
-    "generated": "2026-10-29",
-    "larmorx_commit": "bd39a5d04bbe"
+    "sha256": "822d9931cbda42fda0faa62dcaf48e3387d30e4b2fd78d4b6b1ed5114f30aab2",
+    "generated": "2026-10-30",
+    "larmorx_commit": "b6c7066c2dc2"
    },
    {
     "path": "docs/validation/afni-automask-replica.md",
-    "sha256": "ac73a9cf0da3f26f000c1a7c679fb9f297897aee33991134891d2e9f8af7d5c3",
-    "generated": "2026-10-29",
-    "larmorx_commit": "bd39a5d04bbe"
+    "sha256": "09a916659e96d9d988a583d85fddfdca4bc54a952baefcb15f77640a92fe84a3",
+    "generated": "2026-10-30",
+    "larmorx_commit": "b6c7066c2dc2"
    }
   ],
   "benchmarks": [
@@ -681,7 +681,7 @@
   },
   {
    "id": "replica",
-   "label": "larmorx-gpl replica",
+   "label": "larmorx replica",
    "short": "replica",
    "record": "docs/validation/afni-automask-replica.md",
    "status": "validated",
@@ -2484,7 +2484,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "2/2",
-     "reason": "AFNI's default prefix 'automask' is its own dataset format, which larmorx-gpl does not write: it refuses (NIfTI only)."
+     "reason": "AFNI's default prefix 'automask' is its own dataset format, which larmorx does not write: it refuses (NIfTI only)."
     }
    }
   },
@@ -3428,7 +3428,7 @@
   {
    "id": "fmriprep-automask",
    "title": "fMRIPrep's second skull strip of a real BOLD reference",
-   "summary": "The 3dAutomask node fMRIPrep 25.2.6 ran on the unifized BOLD reference of OpenNeuro ds005040 sub-002 (task clip, run 1): its arguments given to AFNI 25.2.09, to AFNI 26.3.05 (both implementations' reference since 2026-10-29), to fMRIPrep's own build of AFNI in its image, to the larmorx-gpl replica and to LARMORX's clean-room original (compared with AFNI 25.2.09, its reference until it follows 26.3.05), each in its default and reproduce modes. The masks are drawn over the input; choose *Masked input* for -apply_prefix's output.",
+   "summary": "The 3dAutomask node fMRIPrep 25.2.6 ran on the unifized BOLD reference of OpenNeuro ds005040 sub-002 (task clip, run 1): its arguments given to AFNI 25.2.09, to AFNI 26.3.05 (both implementations' reference since 2026-10-29), to fMRIPrep's own build of AFNI in its image, to the larmorx replica and to LARMORX's clean-room original (compared with AFNI 25.2.09, its reference until it follows 26.3.05), each in its default and reproduce modes. The masks are drawn over the input; choose *Masked input* for -apply_prefix's output.",
    "facts": [
     {
      "label": "Data",
@@ -3685,7 +3685,7 @@
     {
      "id": "replica",
      "role": "larmorx",
-     "label": "larmorx-gpl replica",
+     "label": "larmorx replica",
      "sub": "default mode",
      "arrays": {
       "mask": {
@@ -3720,7 +3720,7 @@
     {
      "id": "replica-reproduce",
      "role": "larmorx",
-     "label": "larmorx-gpl replica",
+     "label": "larmorx replica",
      "sub": "reproduce mode",
      "arrays": {
       "mask": {
@@ -4994,7 +4994,7 @@
     {
      "id": "replica",
      "role": "larmorx",
-     "label": "larmorx-gpl replica",
+     "label": "larmorx replica",
      "sub": "default mode",
      "arrays": {
       "mask": {
@@ -5021,7 +5021,7 @@
     {
      "id": "replica-reproduce",
      "role": "larmorx",
-     "label": "larmorx-gpl replica",
+     "label": "larmorx replica",
      "sub": "reproduce mode",
      "arrays": {
       "mask": {
@@ -5829,7 +5829,7 @@
     {
      "id": "replica",
      "role": "larmorx",
-     "label": "larmorx-gpl replica, -peels 0",
+     "label": "larmorx replica, -peels 0",
      "sub": "default mode: corrected",
      "arrays": {
       "mask": {
@@ -5870,7 +5870,7 @@
     {
      "id": "replica-reproduce",
      "role": "larmorx",
-     "label": "larmorx-gpl replica, -peels 0",
+     "label": "larmorx replica, -peels 0",
      "sub": "reproduce mode",
      "arrays": {
       "mask": {
@@ -6924,7 +6924,7 @@
     {
      "id": "replica",
      "role": "larmorx",
-     "label": "larmorx-gpl replica",
+     "label": "larmorx replica",
      "sub": "default mode",
      "arrays": {
       "mask": {
@@ -6951,7 +6951,7 @@
     {
      "id": "replica-reproduce",
      "role": "larmorx",
-     "label": "larmorx-gpl replica",
+     "label": "larmorx replica",
      "sub": "reproduce mode",
      "arrays": {
       "mask": {
