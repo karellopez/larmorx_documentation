@@ -3,7 +3,7 @@
  "tool": "fsl-bet",
  "title": "BET",
  "provenance": {
-  "exporter": "afa5a5ade59557b93a8cab462b0b094d55ad5d3e",
+  "exporter": "e5ba67204403d2ac092d67f0b6d136c6d61a227e",
   "records": [
    {
     "path": "docs/validation/fsl-bet-replica-full.json",
@@ -19,15 +19,15 @@
    },
    {
     "path": "docs/validation/fsl-bet-replica.json",
-    "sha256": "2c71e3a2e5b6439c73c64ab9b8e5ee64e32f415c03224cccef20eeeb4236ff83",
+    "sha256": "5abf43cd3fd046bab55d1da66e08c643cd76c561fe7ce66512f34160d0947c0c",
     "generated": "2026-10-29",
-    "larmorx_commit": "caefd642193a"
+    "larmorx_commit": "9b833a357520"
    },
    {
     "path": "docs/validation/fsl-bet-replica.md",
-    "sha256": "c7acf1eed10cf33afd9b30b86d15dc1cb2fdef09820e449696b44076f5c62eec",
+    "sha256": "d0e2761ea243ee774c548e23108fef28bf6e58388029b65f3ab6bbb9f97deed3",
     "generated": "2026-10-29",
-    "larmorx_commit": "caefd642193a"
+    "larmorx_commit": "9b833a357520"
    }
   ],
   "benchmarks": [],
@@ -876,9 +876,9 @@
    "record": "docs/validation/fsl-bet-replica.md",
    "status": "validated",
    "summary": {
-    "cases": 176,
+    "cases": 178,
     "verdicts": {
-     "bit-identical": 125,
+     "bit-identical": 127,
      "both-reject": 28,
      "divergence": 20,
      "d13": 3
@@ -939,7 +939,7 @@
     {
      "category": "difftest",
      "counts": {
-      "bit-identical": 5,
+      "bit-identical": 7,
       "divergence": 7,
       "both-reject": 1
      }
@@ -4497,6 +4497,20 @@
    }
   },
   {
+   "id": "difftest/bet-robust-cog-minus-zero",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
    "id": "difftest/bet-robust-crash-filled",
    "category": "difftest",
    "description": "",
@@ -4520,6 +4534,20 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "difftest/bet2-centre-neurological-solve",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -4567,7 +4595,7 @@
    }
   }
  ],
- "cases_total": 190,
+ "cases_total": 192,
  "speed": null,
  "examples": [
   {

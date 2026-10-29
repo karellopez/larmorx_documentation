@@ -1,8 +1,8 @@
 ---
 title: One-shot BOLD resampler
 kicker: Tools · fMRIPrep
-lede: fMRIPrep's one-shot resampling of a BOLD run (head motion, distortion correction and the registrations in one interpolation), ported with nitransforms' transform chains and SciPy's interpolation. Bit-identical in every compared case and on fMRIPrep's own run with its field map; fMRIPrep's Jacobian on other grids (PIPE-03) corrected by default.
-description: LARMORX's port of fMRIPrep's ResampleSeries, validated against fMRIPrep 25.2.6, nitransforms and SciPy — fMRIPrep's resampling of a real run with its field map to inspect, PIPE-03's Jacobian against the reference, every parity case with its verdict, and speed.
+lede: fMRIPrep's one-shot resampling of a BOLD run (head motion, distortion correction and the registrations in one interpolation), ported with nitransforms' transform chains and SciPy's interpolation, following SciPy 1.18.1 and numpy 2.5.4 since 2026-10-29. Bit-identical in every compared case and on fMRIPrep's own run with its field map; fMRIPrep's Jacobian on other grids (PIPE-03) corrected by default.
+description: LARMORX's port of fMRIPrep's ResampleSeries, validated against fMRIPrep 25.2.6, nitransforms, SciPy 1.18.1 and numpy 2.5.4 (with the step from SciPy 1.15.3 and numpy 2.3.5) — fMRIPrep's resampling of a real run with its field map to inspect, PIPE-03's Jacobian against the reference, every parity case with its verdict, and speed.
 evidence: true
 wide: true
 ---
@@ -39,7 +39,11 @@ How to read what follows: [the validation guide](/validation/#reading).
 
 The [record](repo:docs/validation/resample-series.md) runs its cases in-process against fMRIPrep's `ResampleSeries`, nitransforms and SciPy, with `upstream_defects="reproduce"`: every compared case is bit-identical to its reference. The expected divergence is a case of coordinates beyond the range of 64-bit integers, where SciPy's C code is undefined.
 
+Since the version update of 2026-10-29 the record runs against the newest releases, SciPy 1.18.1 and numpy 2.5.4 with OpenBLAS 0.3.34, kept in a Python environment of their own beside the one the other suites share (SciPy 1.15.3, numpy 2.3.5). Each case also runs its reference under the older releases and says what changed between them, and why: 122 of 136 compared cases give the same values; 14 change, every one through SciPy's own fix of the `reflect` boundary (SCI-03, [below](#corrections)): `map_coordinates` and the spline filters in modes `reflect`, `grid-mirror` and `nearest`, orders 2 to 5, where LARMORX follows SciPy 1.18.1. numpy's new release changes nothing LARMORX follows (its 4 × 4 products and inverses, checked on 18 million results).
+
 ## A worked example: fMRIPrep's resampling with a field map {#example}
+
+fMRIPrep's resampler also ran here on the node's inputs, once with the newest releases and once with the shared environment's (a panel each): on this call (mode `grid-constant`) the two give the same values, every one, and LARMORX's output is theirs.
 
 {{ ev.example('resample-series', 'fmriprep-native') }}
 
@@ -61,7 +65,7 @@ Each case of the record, with what it tests, its verdict and the reason. Search,
 
 ## Corrections by default {#corrections}
 
-PIPE-03 (fMRIPrep's Jacobian) and SCI-03 (SciPy's `reflect` and `grid-mirror` splines on short axes) are corrected by default; `upstream_defects="reproduce"` gives fMRIPrep's and SciPy's results bit for bit ([register](repo:docs/findings/upstream-defects.md)). A report of PIPE-03 for fMRIPrep is drafted, not yet filed.
+PIPE-03 (fMRIPrep's Jacobian) is corrected by default; `upstream_defects="reproduce"` gives fMRIPrep's result bit for bit ([register](repo:docs/findings/upstream-defects.md)). SCI-03 (SciPy's `reflect`, `grid-mirror` and `nearest` splines missing the samples on short axes, up to SciPy 1.17) was corrected by default from 2026-10-11; SciPy 1.18 fixed it, and LARMORX follows SciPy 1.18.1's fix in both modes since 2026-10-29. A report of PIPE-03 for fMRIPrep is drafted, not yet filed.
 
 ## Random testing {#random-testing}
 
