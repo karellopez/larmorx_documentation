@@ -13,7 +13,7 @@ wide: true
 
 | | Step | What it delivers | Status |
 |---|---|---|---|
-| 1 | **SciPy, NumPy and OpenBLAS at their newest releases** | The one-shot BOLD resampler checked against SciPy 1.18, NumPy 2.5 and OpenBLAS 0.3.34; the FSL replicas follow FSL 6.0.7.23's matrix library (Armadillo 14.2.1), which changes the last digits of 5 mcflirt cases | Next |
+| 1 | **SciPy, NumPy and OpenBLAS at their newest releases** | The one-shot BOLD resampler checked against SciPy 1.18, NumPy 2.5 and OpenBLAS 0.3.34; the FSL replicas follow FSL 6.0.7.23's matrix library (Armadillo 14.2.1), which changes the last digits of 5 mcflirt cases | Under way |
 | 2 | **The AFNI replicas in the main package** | AFNI 26.3.05 releases the Medical College of Wisconsin's code under CC BY 4.0 ([inventory](repo:docs/findings/afni-relicensing-26.md)), so `pip install larmorx` will give AFNI's exact results without the separate GPL package | Planned |
 | 3 | **BET's clean-room original** | BET (`bet`, `bet2`, `betsurf`) written from its behavioural specification, built for speed, beside the exact replica | Planned |
 | 4 | **Two specified clean-room additions** | mcflirt's FSL-20 and FSL-21 corrections and 3dUnifize's memory guard (AFNI-75) in the clean-room originals | Planned |
