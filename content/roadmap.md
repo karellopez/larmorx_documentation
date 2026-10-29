@@ -13,7 +13,7 @@ wide: true
 
 | | Step | What it delivers | Status |
 |---|---|---|---|
-| 1 | **The clean-room originals follow the newest releases** | 3dTshift, 3dAutomask and 3dUnifize follow AFNI 26.3.05, and the head-motion correction follows mcflirt 6.0.7.23, as their replicas already do; the head-motion correction's `-cost normmi` corrected | Next |
+| 1 | **The clean-room originals follow the newest releases** | 3dTshift, 3dAutomask and 3dUnifize follow AFNI 26.3.05, and the head-motion correction follows mcflirt 6.0.7.23, as their replicas already do; the head-motion correction's `-cost normmi` corrected | Under way |
 | 2 | **SciPy, NumPy and OpenBLAS at their newest releases** | The one-shot BOLD resampler checked against SciPy 1.18, NumPy 2.5 and OpenBLAS 0.3.34; the FSL replicas follow FSL 6.0.7.23's matrix library (Armadillo 14.2.1), which changes the last digits of 5 mcflirt cases | Planned |
 | 3 | **The AFNI replicas in the main package** | AFNI 26.3.05 releases the Medical College of Wisconsin's code under CC BY 4.0 ([inventory](repo:docs/findings/afni-relicensing-26.md)), so `pip install larmorx` will give AFNI's exact results without the separate GPL package | Planned |
 | 4 | **BET's clean-room original** | BET (`bet`, `bet2`, `betsurf`) written from its behavioural specification, built for speed, beside the exact replica | Planned |
