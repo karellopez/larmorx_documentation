@@ -56,8 +56,8 @@ computed once and kept by the content of its inputs, so a later comparison re-ru
 | **Parity, standard** | Does the tool reproduce its original, option by option? | Every option and code path; every data type, unusual header and size; the edge cases of every defect found; invalid inputs; fMRIPrep's, sMRIPrep's and sdcflows' own command lines on real data. This is the record each tool's page shows | Workstation, when a tool is ported or updated |
 | **Parity, full** | Does it hold on more and larger cases? | Whole real images, more option combinations and thread counts | Workstation |
 | **Data panel** | Does it hold on the hardest real data? | The fourteen datasets of the [Data panel](/data-panel/), with fMRIPrep's calls in its fourteen runs on them | Workstation |
-| **Random testing** | Does it agree on inputs nobody chose? | Random valid inputs generated from a seed (phantoms, small crops of real templates, every orientation, data type and value range; nine cases in ten realistic) with random option combinations; a short trial or a whole night ([below](#random-testing)) | Workstation |
-| **Heavy random cases** | Does it agree on random inputs too large for a night? | The random cases whose outputs need more memory than a night allows, each run to its end in a larger memory limit | Workstation, or a larger machine |
+| **Random testing** | Does it agree on inputs nobody chose? | Random valid inputs generated from a seed (phantoms, small crops of real templates, every orientation, data type and value range; nine cases in ten realistic) with random option combinations, several cases at a time, each limited to 3 GiB of memory; a 30-minute trial, or a *night*: a run of several hours, usually overnight ([below](#random-testing)) | Workstation |
+| **Heavy random cases** | Does it agree on random inputs that need more than a night's 3 GiB per case? | The random cases set aside because their outputs need more memory (some options make a small input produce a very large output), each run alone to its end with far more memory (tens of GiB, up to about 1 TiB) | Workstation, or a larger machine |
 | **The original's own variability** | What does "the same result" mean for this program? | The original at several thread counts, in another build or version, and with correctly rounded maths | Workstation, with each record |
 | **Memory and threads** | Does LARMORX need no more memory than the original, whatever the thread count? | Peak memory against the original's on the same call (at most 10 % above it, plus 8 MiB); every parallel path kept to the thread count it is given, its result independent of it | Workstation, under pytest |
 | **Speed** | How much faster is a clean-room original? | Benchmarks against the original and the replica ([benchmarks](repo:docs/benchmarks/)) | Workstation |
@@ -79,8 +79,8 @@ grows with the new evidence, and nothing it already shows is removed.
 | **Parity, standard** | The tool's record and page, with fMRIPrep's real calls on about three of its runs | Kept current with every update |
 | **Parity, full** | Where a tool has it (antsRegistration, antsAI, antsAffineInitializer, Atropos, the mcflirt and BET replicas) | Every tool |
 | **Data panel** | Only the panel runs whose fMRIPrep calls the record already uses | Every tool (the ANTs tools since 2026-10-27) |
-| **Random testing** | A 30-minute trial; every difference triaged: a LARMORX mistake fixed and kept as a permanent case, a defect of the original registered | Whole nights for every tool, repeated |
-| **Heavy random cases** | Not part of a tool's testing (the first night's run in the background) | Every tool, each case to its end |
+| **Random testing** | A 30-minute trial; every difference triaged: a LARMORX mistake fixed and kept as a permanent case, a defect of the original registered | Nights (runs of several hours) for every tool, repeated |
+| **Heavy random cases** | Not part of a tool's testing (the heavy cases of the first night, 2026-10-25, run in the background) | Every tool, each case to its end |
 | **The original's own variability** | With the record | Wider studies across thread counts |
 | **Memory and threads** | Each tool's calls added to the memory and thread checks | Speed and memory studies beyond the rule's check |
 | **Speed** | Each clean-room original | Speed and memory studies |
