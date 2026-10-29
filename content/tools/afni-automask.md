@@ -4,10 +4,9 @@ kicker: Tools · AFNI
 lede: >-
   AFNI's brain mask of an EPI series or a skull-stripped image, in two implementations: an
   exact replica of AFNI's source in the separate larmorx-gpl package, and a clean-room original
-  in LARMORX (Apache-2.0), written from a behavioural specification. Both give AFNI's (26.3.05
-  for the replica, 25.2.09 for the original)
+  in LARMORX (Apache-2.0), written from a behavioural specification. Both give AFNI 26.3.05's
   masks bit for bit in every compared case, fMRIPrep's own calls included.
-description: LARMORX's two implementations of AFNI's 3dAutomask, validated against AFNI 26.3.05 (the replica), AFNI 25.2.09 and fMRIPrep 25.2.6 — fMRIPrep's skull strip of a real BOLD reference, a raw BOLD series and a deliberate correction to inspect, and every parity case with its verdict.
+description: LARMORX's two implementations of AFNI's 3dAutomask, validated against AFNI 26.3.05 (both implementations), AFNI 25.2.09 and fMRIPrep 25.2.6 — fMRIPrep's skull strip of a real BOLD reference, a raw BOLD series and a deliberate correction to inspect, and every parity case with its verdict.
 evidence: true
 wide: true
 ---
@@ -41,7 +40,7 @@ r.mask, r.masked
 
 {{ ev.agreement('afni-automask', 'original') }}
 
-The clean-room original's record runs 130 cases against AFNI 25.2.09, the replica's 125 against AFNI 26.3.05. Since 2026-10-29 the replica follows **AFNI 26.3.05**, AFNI's newest release, and its record runs against it, with AFNI 25.2.09 run beside it on every case (*AFNI's own step*); the clean-room original's record stays on AFNI 25.2.09 until it follows 26.3.05's two fixes. Between the two releases these programs changed in exactly two places, both corrections LARMORX already made by default: header slice code 2 read as NIfTI defines it (AFNI-03) and 3dTshift's `-no_detrend` de-meaning every voxel (AFNI-05). The examples below show both versions' outputs: on fMRIPrep's calls they are the same bytes. The replica gives AFNI's bytes, data and NIfTI header, in every case that writes an output, and AFNI's exit status and messages in every case. So does the clean-room original, but in one case: fMRIPrep's call on the BOLD reference of ds005454, whose header differs where AFNI reads the input's geometry from its own header extension, in 7 significant digits (AFNI-10, the *deliberate correction*); its masks are AFNI's. Where AFNI crashes on a missing option value (AFNI-40), both stop with an error instead: the expected divergences. Each case is also run in the default mode, where LARMORX corrects AFNI's deterministic defects and names them.
+The clean-room original's record runs 130 cases against AFNI 26.3.05, the replica's 125. Since 2026-10-29 both implementations follow **AFNI 26.3.05**, AFNI's newest release, and their records run against it, with AFNI 25.2.09 run beside it on every case (*AFNI's own step*): the replica since the version update, the clean-room original since its alignment the same day. Between the two releases these programs changed in exactly two places, both corrections LARMORX already made by default: header slice code 2 read as NIfTI defines it (AFNI-03) and 3dTshift's `-no_detrend` de-meaning every voxel (AFNI-05); with `reproduce`, both implementations now give 26.3.05's result there and name neither. The examples below show both versions' outputs: on fMRIPrep's calls they are the same bytes. The replica gives AFNI's bytes, data and NIfTI header, in every case that writes an output, and AFNI's exit status and messages in every case. So does the clean-room original, but in one case: fMRIPrep's call on the BOLD reference of ds005454, whose header differs where AFNI reads the input's geometry from its own header extension, in 7 significant digits (AFNI-10, the *deliberate correction*); its masks are AFNI's. Where AFNI crashes on a missing option value (AFNI-40), both stop with an error instead: the expected divergences. Each case is also run in the default mode, where LARMORX corrects AFNI's deterministic defects and names them.
 
 ## In fMRIPrep: the BOLD reference's second skull strip {#example}
 
