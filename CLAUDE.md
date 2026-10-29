@@ -31,6 +31,10 @@ git, commits, usage limits and long runs.
   FAIR research."
 - **Status tables** come from `data/status.yml`; update it when a tool's record changes (the
   orchestrator does this at each merge in the main repository).
+- **The Roadmap page** (`content/roadmap.md`, user, 2026-10-29): updated whenever a step is
+  completed (the orchestrator, at each merge): the step moves to "Completed" with its date, the
+  next step's status changes, and "Last updated" changes. Planned steps stay sober: what each
+  delivers, never a promised date.
 
 ## Design language (in the style of the lab's `bids_manager_documentation`)
 - Printed matter: warm paper in both themes, one fixed grain layer; light and dark themes that
