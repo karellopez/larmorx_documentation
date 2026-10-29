@@ -3,7 +3,7 @@
  "tool": "fsl-bet",
  "title": "BET",
  "provenance": {
-  "exporter": "85597ba65bef49b707cfeb5acba0a858a59014f0",
+  "exporter": "afa5a5ade59557b93a8cab462b0b094d55ad5d3e",
   "records": [
    {
     "path": "docs/validation/fsl-bet-replica-full.json",
@@ -16,6 +16,18 @@
     "sha256": "5b7883dfa6ad90042843030e8d023b51570bf2558de076b2b06010214f432c94",
     "generated": "2026-10-26",
     "larmorx_commit": "8e0059a97a02"
+   },
+   {
+    "path": "docs/validation/fsl-bet-replica.json",
+    "sha256": "2c71e3a2e5b6439c73c64ab9b8e5ee64e32f415c03224cccef20eeeb4236ff83",
+    "generated": "2026-10-29",
+    "larmorx_commit": "caefd642193a"
+   },
+   {
+    "path": "docs/validation/fsl-bet-replica.md",
+    "sha256": "c7acf1eed10cf33afd9b30b86d15dc1cb2fdef09820e449696b44076f5c62eec",
+    "generated": "2026-10-29",
+    "larmorx_commit": "caefd642193a"
    }
   ],
   "benchmarks": [],
@@ -452,6 +464,329 @@
      "fmriprep_image": "7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10"
     },
     "settings": "fMRIPrep 25.2.6's BET node (skullstrip_first_pass) of the data panel's ds000228 sub-pixar008 (3.5 years), task pixar, its arguments from command.txt. FSL 6.0.7.17 (~/fsl, never on the PATH), fMRIPrep's FSL in its image and the larmorx-nc replica in both modes; FSL is single-threaded, the replica ran with OMP_NUM_THREADS=2"
+   },
+   {
+    "entry": "fsl-bet/fmriprep-ds000005-run-01-fsl-6.0.7.23",
+    "description": "FSL 6.0.7.23 and the replica on the calls of fmriprep-ds000005-run-01: fMRIPrep's BET call on the BOLD reference of ds000005 sub-01 run 1 and bet -R -m on the subject's T1w",
+    "computed": "2026-10-29T10:13:59+00:00",
+    "larmorx_commit": "caefd642193ac1d9d3b28c6eb379dd38592dc20e",
+    "commands": [
+     {
+      "label": "fsl23",
+      "argv": [
+       "~/fsl-6.0.7.23/bin/bet",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_mixedgamblestask_run_01_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-mixedgamblestask_run-01_desc-hmc_boldref_corrected.nii.gz",
+       "<workspace>/oracles/figures-cache/fsl-bet/fmriprep-ds000005-run-01-fsl-6.0.7.23/fsl23",
+       "-f",
+       "0.20",
+       "-m"
+      ],
+      "env": {
+       "HOME": "<workspace>/oracles/figures-cache/fsl-bet/fmriprep-ds000005-run-01-fsl-6.0.7.23/.home",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "LC_ALL": "C"
+      },
+      "exit": 0,
+      "seconds": 0.78
+     },
+     {
+      "label": "replica23",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "bet",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_mixedgamblestask_run_01_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-mixedgamblestask_run-01_desc-hmc_boldref_corrected.nii.gz",
+       "<workspace>/oracles/figures-cache/fsl-bet/fmriprep-ds000005-run-01-fsl-6.0.7.23/replica23",
+       "-f",
+       "0.20",
+       "-m"
+      ],
+      "env": {
+       "HOME": "<workspace>/oracles/figures-cache/fsl-bet/fmriprep-ds000005-run-01-fsl-6.0.7.23/.home",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "LC_ALL": "C",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "2"
+      },
+      "exit": 0,
+      "seconds": 0.47
+     },
+     {
+      "label": "replica23-reproduce",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "bet",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_mixedgamblestask_run_01_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-01_task-mixedgamblestask_run-01_desc-hmc_boldref_corrected.nii.gz",
+       "<workspace>/oracles/figures-cache/fsl-bet/fmriprep-ds000005-run-01-fsl-6.0.7.23/replica23-reproduce",
+       "-f",
+       "0.20",
+       "-m"
+      ],
+      "env": {
+       "HOME": "<workspace>/oracles/figures-cache/fsl-bet/fmriprep-ds000005-run-01-fsl-6.0.7.23/.home",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "LC_ALL": "C",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "2"
+      },
+      "exit": 0,
+      "seconds": 0.4
+     },
+     {
+      "label": "t1-fsl23",
+      "argv": [
+       "~/fsl-6.0.7.23/bin/bet",
+       "<testdata-cache>/openneuro/ds000005/sub-01/anat/sub-01_T1w.nii.gz",
+       "<workspace>/oracles/figures-cache/fsl-bet/fmriprep-ds000005-run-01-fsl-6.0.7.23/t1-fsl23",
+       "-R",
+       "-m"
+      ],
+      "env": {
+       "HOME": "<workspace>/oracles/figures-cache/fsl-bet/fmriprep-ds000005-run-01-fsl-6.0.7.23/.home",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "LC_ALL": "C"
+      },
+      "exit": 0,
+      "seconds": 3.54
+     },
+     {
+      "label": "t1-replica23",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "bet",
+       "<testdata-cache>/openneuro/ds000005/sub-01/anat/sub-01_T1w.nii.gz",
+       "<workspace>/oracles/figures-cache/fsl-bet/fmriprep-ds000005-run-01-fsl-6.0.7.23/t1-replica23",
+       "-R",
+       "-m"
+      ],
+      "env": {
+       "HOME": "<workspace>/oracles/figures-cache/fsl-bet/fmriprep-ds000005-run-01-fsl-6.0.7.23/.home",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "LC_ALL": "C",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "2"
+      },
+      "exit": 0,
+      "seconds": 1.49
+     },
+     {
+      "label": "t1-replica23-reproduce",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "bet",
+       "<testdata-cache>/openneuro/ds000005/sub-01/anat/sub-01_T1w.nii.gz",
+       "<workspace>/oracles/figures-cache/fsl-bet/fmriprep-ds000005-run-01-fsl-6.0.7.23/t1-replica23-reproduce",
+       "-R",
+       "-m"
+      ],
+      "env": {
+       "HOME": "<workspace>/oracles/figures-cache/fsl-bet/fmriprep-ds000005-run-01-fsl-6.0.7.23/.home",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "LC_ALL": "C",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "2"
+      },
+      "exit": 0,
+      "seconds": 1.57
+     }
+    ],
+    "versions": {
+     "fsl": "FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0)",
+     "fsl_in_fmriprep_image": "FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4)",
+     "larmorx-nc": "larmorx-nc 0.0.1",
+     "fmriprep_image": "7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10"
+    },
+    "settings": "FSL 6.0.7.23 (~/fsl-6.0.7.23, never on the PATH) and the larmorx-nc replica in both modes on the calls of the FSL 6.0.7.17 entry beside it: fMRIPrep 25.2.6's BET node (skullstrip_first_pass) of ds000005 sub-01 task-mixedgamblestask run-01, and bet -R -m on the subject's raw T1w; the replica ran with OMP_NUM_THREADS=2"
+   },
+   {
+    "entry": "fsl-bet/betsurf-synthetic-head-fsl-6.0.7.23",
+    "description": "betsurf -o -m -s with the T2 on the synthetic head: FSL 6.0.7.23 and the replica",
+    "computed": "2026-10-29T10:14:07+00:00",
+    "larmorx_commit": "caefd642193ac1d9d3b28c6eb379dd38592dc20e",
+    "commands": [
+     {
+      "label": "fsl23",
+      "argv": [
+       "~/fsl-6.0.7.23/bin/betsurf",
+       "-o",
+       "-m",
+       "-s",
+       "/tmp/lx-fsl-gen_96heuqma/phantoms/head.nii.gz",
+       "/tmp/lx-fsl-gen_96heuqma/phantoms/head-t2.nii.gz",
+       "/tmp/lx-fsl-gen_96heuqma/phantoms/mesh/head_mesh.vtk",
+       "/tmp/lx-fsl-gen_96heuqma/phantoms/head_to_std.mat",
+       "<workspace>/oracles/figures-cache/fsl-bet/betsurf-synthetic-head-fsl-6.0.7.23/fsl23"
+      ],
+      "env": {
+       "HOME": "<workspace>/oracles/figures-cache/fsl-bet/betsurf-synthetic-head-fsl-6.0.7.23/.home",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "LC_ALL": "C"
+      },
+      "exit": 0,
+      "seconds": 2.94
+     },
+     {
+      "label": "replica23",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "betsurf",
+       "-o",
+       "-m",
+       "-s",
+       "/tmp/lx-fsl-gen_96heuqma/phantoms/head.nii.gz",
+       "/tmp/lx-fsl-gen_96heuqma/phantoms/head-t2.nii.gz",
+       "/tmp/lx-fsl-gen_96heuqma/phantoms/mesh/head_mesh.vtk",
+       "/tmp/lx-fsl-gen_96heuqma/phantoms/head_to_std.mat",
+       "<workspace>/oracles/figures-cache/fsl-bet/betsurf-synthetic-head-fsl-6.0.7.23/replica23"
+      ],
+      "env": {
+       "HOME": "<workspace>/oracles/figures-cache/fsl-bet/betsurf-synthetic-head-fsl-6.0.7.23/.home",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "LC_ALL": "C",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "2"
+      },
+      "exit": 0,
+      "seconds": 2.02
+     },
+     {
+      "label": "replica23-reproduce",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "betsurf",
+       "-o",
+       "-m",
+       "-s",
+       "/tmp/lx-fsl-gen_96heuqma/phantoms/head.nii.gz",
+       "/tmp/lx-fsl-gen_96heuqma/phantoms/head-t2.nii.gz",
+       "/tmp/lx-fsl-gen_96heuqma/phantoms/mesh/head_mesh.vtk",
+       "/tmp/lx-fsl-gen_96heuqma/phantoms/head_to_std.mat",
+       "<workspace>/oracles/figures-cache/fsl-bet/betsurf-synthetic-head-fsl-6.0.7.23/replica23-reproduce"
+      ],
+      "env": {
+       "HOME": "<workspace>/oracles/figures-cache/fsl-bet/betsurf-synthetic-head-fsl-6.0.7.23/.home",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "LC_ALL": "C",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "2"
+      },
+      "exit": 0,
+      "seconds": 2.04
+     }
+    ],
+    "versions": {
+     "fsl": "FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0)",
+     "fsl_in_fmriprep_image": "FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4)",
+     "larmorx-nc": "larmorx-nc 0.0.1",
+     "fmriprep_image": "7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10"
+    },
+    "settings": "betsurf with the T2 on the synthetic head (the inputs of the FSL 6.0.7.17 entry beside it): FSL 6.0.7.23 and the replica in both modes"
+   },
+   {
+    "entry": "fsl-bet/panel-ds000228-pixar008-fsl-6.0.7.23",
+    "description": "FSL 6.0.7.23 and the replica on fMRIPrep's BET call on the BOLD reference of the data panel's ds000228 sub-pixar008 (3.5 years)",
+    "computed": "2026-10-29T10:14:09+00:00",
+    "larmorx_commit": "caefd642193ac1d9d3b28c6eb379dd38592dc20e",
+    "commands": [
+     {
+      "label": "fsl23",
+      "argv": [
+       "~/fsl-6.0.7.23/bin/bet",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000228-sub-pixar008-noreconall/work/fmriprep_25_2_wf/sub_pixar008_wf/bold_task_pixar_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-pixar008_task-pixar_desc-hmc_boldref_corrected.nii.gz",
+       "<workspace>/oracles/figures-cache/fsl-bet/panel-ds000228-pixar008-fsl-6.0.7.23/fsl23",
+       "-f",
+       "0.20",
+       "-m"
+      ],
+      "env": {
+       "HOME": "<workspace>/oracles/figures-cache/fsl-bet/panel-ds000228-pixar008-fsl-6.0.7.23/.home",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "LC_ALL": "C"
+      },
+      "exit": 0,
+      "seconds": 0.8
+     },
+     {
+      "label": "replica23",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "bet",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000228-sub-pixar008-noreconall/work/fmriprep_25_2_wf/sub_pixar008_wf/bold_task_pixar_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-pixar008_task-pixar_desc-hmc_boldref_corrected.nii.gz",
+       "<workspace>/oracles/figures-cache/fsl-bet/panel-ds000228-pixar008-fsl-6.0.7.23/replica23",
+       "-f",
+       "0.20",
+       "-m"
+      ],
+      "env": {
+       "HOME": "<workspace>/oracles/figures-cache/fsl-bet/panel-ds000228-pixar008-fsl-6.0.7.23/.home",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "LC_ALL": "C",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "2"
+      },
+      "exit": 0,
+      "seconds": 0.39
+     },
+     {
+      "label": "replica23-reproduce",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "bet",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000228-sub-pixar008-noreconall/work/fmriprep_25_2_wf/sub_pixar008_wf/bold_task_pixar_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct/sub-pixar008_task-pixar_desc-hmc_boldref_corrected.nii.gz",
+       "<workspace>/oracles/figures-cache/fsl-bet/panel-ds000228-pixar008-fsl-6.0.7.23/replica23-reproduce",
+       "-f",
+       "0.20",
+       "-m"
+      ],
+      "env": {
+       "HOME": "<workspace>/oracles/figures-cache/fsl-bet/panel-ds000228-pixar008-fsl-6.0.7.23/.home",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "LC_ALL": "C",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "2"
+      },
+      "exit": 0,
+      "seconds": 0.46
+     }
+    ],
+    "versions": {
+     "fsl": "FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0)",
+     "fsl_in_fmriprep_image": "FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4)",
+     "larmorx-nc": "larmorx-nc 0.0.1",
+     "fmriprep_image": "7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10"
+    },
+    "settings": "FSL 6.0.7.23 (~/fsl-6.0.7.23, never on the PATH) and the larmorx-nc replica in both modes on fMRIPrep 25.2.6's BET node of the data panel's ds000228 sub-pixar008, as the FSL 6.0.7.17 entry beside it; the replica ran with OMP_NUM_THREADS=2"
    }
   ],
   "command": "python -m larmorx_validation evidence fsl-bet --site <site>"
@@ -459,7 +794,7 @@
  "implementations": [
   {
    "id": "replica",
-   "label": "larmorx-nc replica",
+   "label": "larmorx-nc replica, against FSL 6.0.7.17 (full tier)",
    "short": "replica",
    "record": "docs/validation/fsl-bet-replica-full.md",
    "status": "validated",
@@ -533,6 +868,83 @@
      }
     }
    ]
+  },
+  {
+   "id": "replica-23",
+   "label": "larmorx-nc replica, against FSL 6.0.7.23 (standard tier)",
+   "short": "replica, 6.0.7.23",
+   "record": "docs/validation/fsl-bet-replica.md",
+   "status": "validated",
+   "summary": {
+    "cases": 176,
+    "verdicts": {
+     "bit-identical": 125,
+     "both-reject": 28,
+     "divergence": 20,
+     "d13": 3
+    }
+   },
+   "agreement": [
+    {
+     "category": "fmriprep",
+     "counts": {
+      "bit-identical": 29
+     }
+    },
+    {
+     "category": "bet2",
+     "counts": {
+      "bit-identical": 22,
+      "divergence": 4,
+      "both-reject": 10
+     }
+    },
+    {
+     "category": "defects",
+     "counts": {
+      "bit-identical": 8,
+      "d13": 3,
+      "divergence": 5,
+      "both-reject": 1
+     }
+    },
+    {
+     "category": "formats",
+     "counts": {
+      "bit-identical": 29,
+      "both-reject": 4
+     }
+    },
+    {
+     "category": "bet",
+     "counts": {
+      "bit-identical": 13,
+      "divergence": 4,
+      "both-reject": 6
+     }
+    },
+    {
+     "category": "betsurf",
+     "counts": {
+      "bit-identical": 8,
+      "both-reject": 6
+     }
+    },
+    {
+     "category": "real",
+     "counts": {
+      "bit-identical": 11
+     }
+    },
+    {
+     "category": "difftest",
+     "counts": {
+      "bit-identical": 5,
+      "divergence": 7,
+      "both-reject": 1
+     }
+    }
+   ]
   }
  ],
  "cases": [
@@ -546,6 +958,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "12/12",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    },
@@ -562,6 +980,12 @@
      "verdict": "bit-identical",
      "checks": "12/12",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -576,6 +1000,12 @@
      "verdict": "bit-identical",
      "checks": "12/12",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -589,6 +1019,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "12/12",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    },
@@ -605,6 +1041,12 @@
      "verdict": "bit-identical",
      "checks": "12/12",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -618,6 +1060,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "12/12",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
@@ -633,6 +1081,12 @@
      "verdict": "bit-identical",
      "checks": "12/12",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -646,6 +1100,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "12/12",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
@@ -661,6 +1121,12 @@
      "verdict": "bit-identical",
      "checks": "12/12",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -674,6 +1140,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "12/12",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
@@ -689,6 +1161,12 @@
      "verdict": "bit-identical",
      "checks": "12/12",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -702,6 +1180,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "12/12",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
@@ -717,6 +1201,12 @@
      "verdict": "bit-identical",
      "checks": "12/12",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -730,6 +1220,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "12/12",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
@@ -745,6 +1241,12 @@
      "verdict": "bit-identical",
      "checks": "12/12",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -758,6 +1260,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "12/12",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
@@ -773,6 +1281,12 @@
      "verdict": "bit-identical",
      "checks": "12/12",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -786,6 +1300,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "12/12",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
@@ -801,6 +1321,12 @@
      "verdict": "bit-identical",
      "checks": "12/12",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -814,6 +1340,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "12/12",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
@@ -829,6 +1361,12 @@
      "verdict": "bit-identical",
      "checks": "12/12",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -842,6 +1380,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "12/12",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
@@ -857,6 +1401,12 @@
      "verdict": "bit-identical",
      "checks": "12/12",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -870,6 +1420,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "12/12",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
@@ -885,6 +1441,12 @@
      "verdict": "bit-identical",
      "checks": "12/12",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -898,6 +1460,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "12/12",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
@@ -913,6 +1481,12 @@
      "verdict": "bit-identical",
      "checks": "12/12",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -926,6 +1500,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "12/12",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
@@ -941,6 +1521,12 @@
      "verdict": "bit-identical",
      "checks": "12/12",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; the values of fMRIPrep's own outputs of the node; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -954,6 +1540,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; FSL's mask against the phantom's known brain: Dice 0.9536, the replica's the same"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; FSL's mask against the phantom's known brain: Dice 0.9536, the replica's the same"
     }
    }
@@ -969,6 +1561,12 @@
      "verdict": "bit-identical",
      "checks": "15/15",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; FSL's mask against the phantom's known brain: Dice 0.9536, the replica's the same"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "16/16",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; FSL's mask against the phantom's known brain: Dice 0.9536, the replica's the same"
     }
    }
   },
@@ -982,6 +1580,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; FSL's mask against the phantom's known brain: Dice 0.9507, the replica's the same"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; FSL's mask against the phantom's known brain: Dice 0.9507, the replica's the same"
     }
    }
@@ -997,6 +1601,12 @@
      "verdict": "bit-identical",
      "checks": "8/8",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; FSL's mask against the phantom's known brain: Dice 0.9526, the replica's the same"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; FSL's mask against the phantom's known brain: Dice 0.9526, the replica's the same"
     }
    }
   },
@@ -1010,6 +1620,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; FSL's mask against the phantom's known brain: Dice 0.9567, the replica's the same"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; FSL's mask against the phantom's known brain: Dice 0.9567, the replica's the same"
     }
    }
@@ -1025,6 +1641,12 @@
      "verdict": "bit-identical",
      "checks": "8/8",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; FSL's mask against the phantom's known brain: Dice 0.5599, the replica's the same"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; FSL's mask against the phantom's known brain: Dice 0.5599, the replica's the same"
     }
    }
   },
@@ -1038,6 +1660,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1053,6 +1681,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1066,6 +1700,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1081,6 +1721,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1094,6 +1740,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1109,6 +1761,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1122,6 +1780,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1137,6 +1801,12 @@
      "verdict": "bit-identical",
      "checks": "5/5",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1150,6 +1820,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1165,6 +1841,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1178,6 +1860,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1193,6 +1881,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1206,6 +1900,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1221,6 +1921,12 @@
      "verdict": "bit-identical",
      "checks": "4/4",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1234,6 +1940,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
+     "reason": "both refuse (exit 1) with FSL's usage"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
      "reason": "both refuse (exit 1) with FSL's usage"
     }
    }
@@ -1249,6 +1961,12 @@
      "verdict": "both-reject",
      "checks": "4/4",
      "reason": "both refuse (exit 255) with error: not enough arguments, use bet -h for help"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "both refuse (exit 255) with error: not enough arguments, use bet -h for help"
     }
    }
   },
@@ -1262,6 +1980,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
+     "reason": "both refuse (exit 255) with error : two first arguments should be input and output names, see bet -h for help"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
      "reason": "both refuse (exit 255) with error : two first arguments should be input and output names, see bet -h for help"
     }
    }
@@ -1277,6 +2001,12 @@
      "verdict": "both-reject",
      "checks": "4/4",
      "reason": "both refuse (exit 1) with FSL's usage"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "both refuse (exit 1) with FSL's usage"
     }
    }
   },
@@ -1290,6 +2020,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
+     "reason": "both refuse (exit 1) with FSL's usage"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
      "reason": "both refuse (exit 1) with FSL's usage"
     }
    }
@@ -1305,6 +2041,12 @@
      "verdict": "both-reject",
      "checks": "4/4",
      "reason": "both refuse (exit 1) with FSL's usage"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "both refuse (exit 1) with FSL's usage"
     }
    }
   },
@@ -1318,6 +2060,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
+     "reason": "both refuse (exit 1) with FSL's usage"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
      "reason": "both refuse (exit 1) with FSL's usage"
     }
    }
@@ -1333,6 +2081,12 @@
      "verdict": "both-reject",
      "checks": "4/4",
      "reason": "both refuse (exit 1) with Fractional intensity threshold must be between 0 and 1!"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "both refuse (exit 1) with Fractional intensity threshold must be between 0 and 1!"
     }
    }
   },
@@ -1346,6 +2100,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
+     "reason": "both refuse (exit 1) with Vertical gradient must be between -1 and 1!"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
      "reason": "both refuse (exit 1) with Vertical gradient must be between -1 and 1!"
     }
    }
@@ -1361,6 +2121,12 @@
      "verdict": "both-reject",
      "checks": "4/4",
      "reason": "both refuse (exit 1) with FSL's usage"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "both refuse (exit 1) with FSL's usage"
     }
    }
   },
@@ -1374,6 +2140,12 @@
      "outcome": "both-error",
      "verdict": "divergence",
      "checks": "4/4",
+     "reason": "FSL aborts or crashes here; the replica prints FSL's messages before it and stops: bet2: stopped: FSL's bet2 aborts here with an uncaught std::runtime_error (Failed to read volume /nonexistent/in / Error : No image files match: /nonexistent/in) (larmorx)"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "divergence",
+     "checks": "5/5",
      "reason": "FSL aborts or crashes here; the replica prints FSL's messages before it and stops: bet2: stopped: FSL's bet2 aborts here with an uncaught std::runtime_error (Failed to read volume /nonexistent/in / Error : No image files match: /nonexistent/in) (larmorx)"
     }
    }
@@ -1389,6 +2161,12 @@
      "verdict": "divergence",
      "checks": "4/4",
      "reason": "FSL aborts or crashes here; the replica prints FSL's messages before it and stops: bet2: stopped: FSL's bet2 aborts here with an uncaught std::out_of_range (basic_string::erase: a name with .img but no .hdr, FSL-40) (larmorx)"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "divergence",
+     "checks": "5/5",
+     "reason": "FSL aborts or crashes here; the replica prints FSL's messages before it and stops: bet2: stopped: FSL's bet2 aborts here with an uncaught std::out_of_range (basic_string::erase: a name with .img but no .hdr, FSL-40) (larmorx)"
     }
    }
   },
@@ -1403,20 +2181,32 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-40 and names it (the record's D13 section)"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-40 and names it (the record's D13 section)"
     }
    }
   },
   {
    "id": "bet2/constant",
    "category": "bet2",
-   "description": "a constant image (FSL-41: FSL reads an empty list and crashes; reproduce fills the median with 0)",
+   "description": "a constant image: FSL 6.0.7.23 takes the robust maximum as the median (FSL-41, fixed upstream; 6.0.7.17 read an empty list and crashed), then crashes in the mask's fill from the surface's NaN centre (FSL-43); reproduce does not fill",
    "command": "FSLOUTPUTTYPE=NIFTI_GZ bet2 <generated: constant> out -m",
    "results": {
     "replica": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "6/6",
-     "reason": "FSL crashes here (status -11) on what it leaves undefined (FSL-41). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
+     "reason": "FSL crashes here (status -11) on what it leaves undefined (FSL-43). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
+    },
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "7/7",
+     "reason": "FSL crashes here (status -11) on what it leaves undefined (FSL-43). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
     }
    }
   },
@@ -1430,6 +2220,12 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "6/6",
+     "reason": "FSL crashes here (status -11) on what it leaves undefined (FSL-42). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
+    },
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "7/7",
      "reason": "FSL crashes here (status -11) on what it leaves undefined (FSL-42). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
     }
    }
@@ -1445,6 +2241,12 @@
      "verdict": "d13",
      "checks": "6/6",
      "reason": "Refused by default (FSL-42, rule B: the input makes no sense and FSL silently does something arbitrary): bet2 checks -f and -g against their ranges only (NaN passes) and the other numeric options not at all, and computes with them. The replica's default stops with an error naming the entry (exit status 1); its reproduce mode gives FSL's files, which the record compares byte for byte."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "7/7",
+     "reason": "Refused by default (FSL-42, rule B: the input makes no sense and FSL silently does something arbitrary): bet2 checks -f and -g against their ranges only (NaN passes) and the other numeric options not at all, and computes with them. The replica's default stops with an error naming the entry (exit status 1); its reproduce mode gives FSL's files, which the record compares byte for byte."
     }
    }
   },
@@ -1458,6 +2260,12 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "6/6",
+     "reason": "FSL crashes here (status -11) on what it leaves undefined (FSL-42). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
+    },
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "7/7",
      "reason": "FSL crashes here (status -11) on what it leaves undefined (FSL-42). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
     }
    }
@@ -1473,6 +2281,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1486,6 +2300,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1501,6 +2321,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1514,6 +2340,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1529,6 +2361,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1542,6 +2380,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1557,6 +2401,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1570,6 +2420,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1585,6 +2441,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1598,6 +2460,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1613,6 +2481,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1626,6 +2500,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1641,6 +2521,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1654,6 +2540,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1669,6 +2561,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1682,6 +2580,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1697,6 +2601,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1710,6 +2620,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "10/10",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1725,6 +2641,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1738,6 +2660,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1753,6 +2681,12 @@
      "verdict": "bit-identical",
      "checks": "10/10",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1767,6 +2701,12 @@
      "verdict": "both-reject",
      "checks": "4/4",
      "reason": "both refuse (exit 1) with Legal values are: NIFTI, NIFTI_PAIR, NIFTI_GZ, NIFTI_PAIR_GZ"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "both refuse (exit 1) with Legal values are: NIFTI, NIFTI_PAIR, NIFTI2, NIFTI2_PAIR, NIFTI_GZ, NIFTI_PAIR_GZ, NIFTI2_GZ, NIFTI2_PAIR_GZ, NIFTI_ZST, NIFTI_PAIR_ZST, NIFTI2_ZST, NIFTI2_PAIR_ZST, NIFTI_BZ2, NIFTI_PAIR_BZ2, NIFTI2_BZ2, NIFTI2_PAIR_BZ2"
     }
    }
   },
@@ -1781,6 +2721,12 @@
      "verdict": "both-reject",
      "checks": "4/4",
      "reason": "both refuse (exit 1) with Legal values are: NIFTI, NIFTI_PAIR, NIFTI_GZ, NIFTI_PAIR_GZ"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "both refuse (exit 1) with Legal values are: NIFTI, NIFTI_PAIR, NIFTI2, NIFTI2_PAIR, NIFTI_GZ, NIFTI_PAIR_GZ, NIFTI2_GZ, NIFTI2_PAIR_GZ, NIFTI_ZST, NIFTI_PAIR_ZST, NIFTI2_ZST, NIFTI2_PAIR_ZST, NIFTI_BZ2, NIFTI_PAIR_BZ2, NIFTI2_BZ2, NIFTI2_PAIR_BZ2"
     }
    }
   },
@@ -1794,6 +2740,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
+     "reason": "both refuse (exit 1) with e.g. tcsh or csh users add the line \"source ${FSLDIR}/etc/fslconf/fsl.csh\""
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
      "reason": "both refuse (exit 1) with e.g. tcsh or csh users add the line \"source ${FSLDIR}/etc/fslconf/fsl.csh\""
     }
    }
@@ -1809,6 +2761,12 @@
      "verdict": "both-reject",
      "checks": "4/4",
      "reason": "both refuse (exit 1) with Legal values are: NIFTI, NIFTI_PAIR, NIFTI_GZ, NIFTI_PAIR_GZ"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "both refuse (exit 1) with Legal values are: NIFTI, NIFTI_PAIR, NIFTI2, NIFTI2_PAIR, NIFTI_GZ, NIFTI_PAIR_GZ, NIFTI2_GZ, NIFTI2_PAIR_GZ, NIFTI_ZST, NIFTI_PAIR_ZST, NIFTI2_ZST, NIFTI2_PAIR_ZST, NIFTI_BZ2, NIFTI_PAIR_BZ2, NIFTI2_BZ2, NIFTI2_PAIR_BZ2"
     }
    }
   },
@@ -1822,6 +2780,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1837,6 +2801,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-43 and names it (the record's D13 section)"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-43 and names it (the record's D13 section)"
     }
    }
   },
@@ -1850,6 +2820,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-56 and names it (the record's D13 section)"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-56 and names it (the record's D13 section)"
     }
    }
@@ -1865,6 +2841,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1878,6 +2860,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "5/5",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1893,6 +2881,12 @@
      "verdict": "bit-identical",
      "checks": "9/9",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1906,6 +2900,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1921,6 +2921,12 @@
      "verdict": "bit-identical",
      "checks": "8/8",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1934,6 +2940,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1949,6 +2961,12 @@
      "verdict": "bit-identical",
      "checks": "5/5",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1962,6 +2980,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -1977,6 +3001,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -1990,6 +3020,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-45 and names it: 1,118,208 values change (the record's D13 section)"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-45 and names it: 1,118,208 values change (the record's D13 section)"
     }
    }
@@ -2005,6 +3041,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -2018,6 +3060,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -2033,6 +3081,12 @@
      "verdict": "bit-identical",
      "checks": "8/8",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -2043,6 +3097,12 @@
    "command": "FSLOUTPUTTYPE=NIFTI_GZ bet <generated: head> out -S",
    "results": {
     "replica": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "1/1",
+     "reason": "Pending: bet: -S (eye and optic nerve cleanup) runs FSL's FLIRT (standard_space_roi and flirt), which larmorx does not replicate yet; this option is pending (larmorx)"
+    },
+    "replica-23": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "1/1",
@@ -2061,6 +3121,12 @@
      "verdict": "divergence",
      "checks": "1/1",
      "reason": "Pending: bet: -B (bias field and neck cleanup) runs FSL's FLIRT (standard_space_roi) and FAST (the bias field), which larmorx does not replicate yet; this option is pending (larmorx)"
+    },
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "1/1",
+     "reason": "Pending: bet: -B (bias field and neck cleanup) runs FSL's FLIRT (standard_space_roi) and FAST (the bias field), which larmorx does not replicate yet; this option is pending (larmorx)"
     }
    }
   },
@@ -2071,6 +3137,12 @@
    "command": "FSLOUTPUTTYPE=NIFTI_GZ bet <generated: head> out -A",
    "results": {
     "replica": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "1/1",
+     "reason": "Pending: bet: -A (skull and scalp surfaces) runs FSL's FLIRT (the registration to MNI152), which larmorx does not replicate yet; this option is pending (larmorx)"
+    },
+    "replica-23": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "1/1",
@@ -2089,6 +3161,12 @@
      "verdict": "divergence",
      "checks": "1/1",
      "reason": "Pending: bet: -A2 (skull and scalp surfaces with a T2) runs FSL's FLIRT (the T2-to-T1 and MNI152 registrations), which larmorx does not replicate yet; this option is pending (larmorx)"
+    },
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "1/1",
+     "reason": "Pending: bet: -A2 (skull and scalp surfaces with a T2) runs FSL's FLIRT (the T2-to-T1 and MNI152 registrations), which larmorx does not replicate yet; this option is pending (larmorx)"
     }
    }
   },
@@ -2102,6 +3180,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
+     "reason": "both refuse (exit 1) with FSL's usage"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
      "reason": "both refuse (exit 1) with FSL's usage"
     }
    }
@@ -2117,6 +3201,12 @@
      "verdict": "both-reject",
      "checks": "4/4",
      "reason": "both refuse (exit 1) with Error: input image /nonexistent/in not valid"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "both refuse (exit 1) with Error: input image /nonexistent/in not valid"
     }
    }
   },
@@ -2130,6 +3220,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
+     "reason": "both refuse (exit 1) with FSL's usage"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
      "reason": "both refuse (exit 1) with FSL's usage"
     }
    }
@@ -2145,6 +3241,12 @@
      "verdict": "both-reject",
      "checks": "4/4",
      "reason": "both refuse (exit 1) with FSL's usage"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "both refuse (exit 1) with FSL's usage"
     }
    }
   },
@@ -2158,6 +3260,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
+     "reason": "both refuse (exit 1) with FSL's usage"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
      "reason": "both refuse (exit 1) with FSL's usage"
     }
    }
@@ -2173,6 +3281,12 @@
      "verdict": "both-reject",
      "checks": "4/4",
      "reason": "both refuse (exit 1) with bet failed during command:<generated>/phantoms/head.nii.gz out -f 2"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "both refuse (exit 1) with bet failed during command:<generated>/phantoms/head.nii.gz out -f 2"
     }
    }
   },
@@ -2186,6 +3300,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
+     "reason": "both refuse (exit 1) with FSL's usage"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
      "reason": "both refuse (exit 1) with FSL's usage"
     }
    }
@@ -2201,6 +3321,12 @@
      "verdict": "bit-identical",
      "checks": "5/5",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-44 and names it (the record's D13 section)"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-44 and names it (the record's D13 section)"
     }
    }
   },
@@ -2214,6 +3340,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-46 and names it (the record's D13 section)"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-46 and names it (the record's D13 section)"
     }
    }
@@ -2229,6 +3361,12 @@
      "verdict": "bit-identical",
      "checks": "16/16",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "17/17",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -2242,6 +3380,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "14/14",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "15/15",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    },
@@ -2258,6 +3402,12 @@
      "verdict": "bit-identical",
      "checks": "10/10",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -2271,6 +3421,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "10/10",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -2286,6 +3442,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -2299,6 +3461,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -2314,6 +3482,12 @@
      "verdict": "both-reject",
      "checks": "4/4",
      "reason": "both refuse (exit 255) with FSL's usage"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "both refuse (exit 255) with FSL's usage"
     }
    }
   },
@@ -2327,6 +3501,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-54 and names it (the record's D13 section)"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-54 and names it (the record's D13 section)"
     }
    }
@@ -2342,6 +3522,12 @@
      "verdict": "both-reject",
      "checks": "4/4",
      "reason": "both refuse (exit 255) with unable to open /nonexistent.mat"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "both refuse (exit 255) with unable to open /nonexistent.mat"
     }
    }
   },
@@ -2355,6 +3541,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-54 and names it (the record's D13 section)"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "5/5",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-54 and names it (the record's D13 section)"
     }
    }
@@ -2370,6 +3562,12 @@
      "verdict": "both-reject",
      "checks": "4/4",
      "reason": "both refuse (exit 255) with terminating."
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "both refuse (exit 255) with terminating."
     }
    }
   },
@@ -2383,6 +3581,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
+     "reason": "both refuse (exit 255) with FSL's usage"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
      "reason": "both refuse (exit 255) with FSL's usage"
     }
    }
@@ -2398,6 +3602,12 @@
      "verdict": "both-reject",
      "checks": "4/4",
      "reason": "both refuse (exit 1) with FSL's usage"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "both refuse (exit 1) with FSL's usage"
     }
    }
   },
@@ -2411,6 +3621,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
+     "reason": "both refuse (exit 1) with FSL's usage"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
      "reason": "both refuse (exit 1) with FSL's usage"
     }
    }
@@ -2426,6 +3642,12 @@
      "verdict": "d13",
      "checks": "10/10",
      "reason": "Refused by default (FSL-53, rule B: the input makes no sense and FSL silently does something arbitrary): betsurf computes with the matrix entries it could not read. The replica's default stops with an error naming the entry (exit status 1); its reproduce mode gives FSL's files, which the record compares byte for byte."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "11/11",
+     "reason": "Refused by default (FSL-53, rule B: the input makes no sense and FSL silently does something arbitrary): betsurf computes with the matrix entries it could not read. The replica's default stops with an error naming the entry (exit status 1); its reproduce mode gives FSL's files, which the record compares byte for byte."
     }
    }
   },
@@ -2439,6 +3661,12 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "6/6",
+     "reason": "FSL crashes here (status -11) on what it leaves undefined (FSL-52). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
+    },
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "7/7",
      "reason": "FSL crashes here (status -11) on what it leaves undefined (FSL-52). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
     }
    }
@@ -2454,6 +3682,12 @@
      "verdict": "divergence",
      "checks": "6/6",
      "reason": "FSL crashes here (status -11) on what it leaves undefined (FSL-52). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
+    },
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "7/7",
+     "reason": "FSL crashes here (status -11) on what it leaves undefined (FSL-52). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
     }
    }
   },
@@ -2467,6 +3701,12 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "6/6",
+     "reason": "FSL crashes here (status -11) on what it leaves undefined (FSL-52). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
+    },
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "7/7",
      "reason": "FSL crashes here (status -11) on what it leaves undefined (FSL-52). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
     }
    }
@@ -2482,6 +3722,12 @@
      "verdict": "d13",
      "checks": "10/10",
      "reason": "Refused by default (FSL-48, rule B: the input makes no sense and FSL silently does something arbitrary): betsurf samples a T2 on another grid at the T1's voxel coordinates. The replica's default stops with an error naming the entry (exit status 1); its reproduce mode gives FSL's files, which the record compares byte for byte."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "d13",
+     "checks": "11/11",
+     "reason": "Refused by default (FSL-48, rule B: the input makes no sense and FSL silently does something arbitrary): betsurf samples a T2 on another grid at the T1's voxel coordinates. The replica's default stops with an error naming the entry (exit status 1); its reproduce mode gives FSL's files, which the record compares byte for byte."
     }
    }
   },
@@ -2495,6 +3741,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "10/10",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -2510,6 +3762,12 @@
      "verdict": "bit-identical",
      "checks": "10/10",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -2523,6 +3781,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
@@ -2552,6 +3816,12 @@
      "verdict": "bit-identical",
      "checks": "8/8",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -2579,6 +3849,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
@@ -2609,6 +3885,12 @@
      "verdict": "bit-identical",
      "checks": "8/8",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -2636,6 +3918,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
@@ -2665,6 +3953,12 @@
      "verdict": "bit-identical",
      "checks": "8/8",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -2692,6 +3986,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
@@ -2721,6 +4021,12 @@
      "verdict": "bit-identical",
      "checks": "8/8",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
   },
@@ -2748,6 +4054,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; fMRIPrep's FSL gives the same values (its headers differ in the build string); FSL run again: the same bytes"
     }
    }
@@ -2847,6 +4159,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -2860,6 +4178,12 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
@@ -2875,6 +4199,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
   },
@@ -2888,6 +4218,12 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "5/5",
+     "reason": "FSL crashes here (status 1) on what it leaves undefined (None). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
+    },
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "6/6",
      "reason": "FSL crashes here (status 1) on what it leaves undefined (None). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
     }
    }
@@ -2903,6 +4239,12 @@
      "verdict": "divergence",
      "checks": "5/5",
      "reason": "FSL crashes here (status -11) on what it leaves undefined (None). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
+    },
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "6/6",
+     "reason": "FSL crashes here (status -11) on what it leaves undefined (None). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
     }
    }
   },
@@ -2916,6 +4258,12 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "6/6",
+     "reason": "FSL crashes here (status -11) on what it leaves undefined (None). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
+    },
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "7/7",
      "reason": "FSL crashes here (status -11) on what it leaves undefined (None). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
     }
    }
@@ -2931,6 +4279,12 @@
      "verdict": "divergence",
      "checks": "6/6",
      "reason": "FSL crashes here (status -11) on what it leaves undefined (None). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
+    },
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "7/7",
+     "reason": "FSL crashes here (status -11) on what it leaves undefined (None). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
     }
    }
   },
@@ -2945,6 +4299,12 @@
      "verdict": "both-reject",
      "checks": "5/5",
      "reason": "both refuse (exit 1) with Legal values are: NIFTI, NIFTI_PAIR, NIFTI_GZ, NIFTI_PAIR_GZ"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
+     "reason": "both refuse (exit 1) with Legal values are: NIFTI, NIFTI_PAIR, NIFTI2, NIFTI2_PAIR, NIFTI_GZ, NIFTI_PAIR_GZ, NIFTI2_GZ, NIFTI2_PAIR_GZ, NIFTI_ZST, NIFTI_PAIR_ZST, NIFTI2_ZST, NIFTI2_PAIR_ZST, NIFTI_BZ2, NIFTI_PAIR_BZ2, NIFTI2_BZ2, NIFTI2_PAIR_BZ2"
     }
    }
   },
@@ -2959,17 +4319,261 @@
      "verdict": "bit-identical",
      "checks": "5/5",
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "bet2/binary-mask",
+   "category": "bet2",
+   "description": "--binaryMask: the surface found on a brain mask, the brain, mask, outline, skull and thresholds from the input (FSL 6.0.7.23)",
+   "command": "FSLOUTPUTTYPE=NIFTI_GZ bet2 <generated: head> out --binaryMask={1} -m -o -s -t",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "bet2/binary-mask-verbose",
+   "category": "bet2",
+   "description": "--binaryMask -v: the parameters printed are the mask's",
+   "command": "FSLOUTPUTTYPE=NIFTI_GZ bet2 <generated: head> out --binaryMask={1} -v -e",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "defects/binary-mask-ct",
+   "category": "defects",
+   "description": "--ct --binaryMask: FSL cuts the brain image from the mask (FSL-62)",
+   "command": "FSLOUTPUTTYPE=NIFTI_GZ bet2 <generated: head-ct> out --binaryMask={1} --ct -m",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-62 and names it: 196,500 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "bet2/binary-mask-missing",
+   "category": "bet2",
+   "description": "--binaryMask naming no image (FSL aborts)",
+   "command": "FSLOUTPUTTYPE=NIFTI_GZ bet2 <generated: head> out --binaryMask=/nonexistent/mask",
+   "results": {
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "divergence",
+     "checks": "5/5",
+     "reason": "FSL aborts or crashes here; the replica prints FSL's messages before it and stops: bet2: stopped: FSL's bet2 aborts here with an uncaught std::runtime_error (Failed to read volume /nonexistent/mask / Error : No image files match: /nonexistent/mask) (larmorx)"
+    }
+   }
+  },
+  {
+   "id": "formats/head-zst",
+   "category": "formats",
+   "description": "head-zst: brain and mask",
+   "command": "FSLOUTPUTTYPE=NIFTI_GZ bet2 <generated: head-zst> out -m",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "formats/head-bz2",
+   "category": "formats",
+   "description": "head-bz2: brain and mask",
+   "command": "FSLOUTPUTTYPE=NIFTI_GZ bet2 <generated: head-bz2> out -m",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "formats/output-NIFTI_ZST",
+   "category": "formats",
+   "description": "FSLOUTPUTTYPE=NIFTI_ZST",
+   "command": "FSLOUTPUTTYPE=NIFTI_ZST bet2 <generated: head> out -m -s",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "formats/output-NIFTI2_PAIR_ZST",
+   "category": "formats",
+   "description": "FSLOUTPUTTYPE=NIFTI2_PAIR_ZST",
+   "command": "FSLOUTPUTTYPE=NIFTI2_PAIR_ZST bet2 <generated: head> out -m -s",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "formats/output-NIFTI_BZ2",
+   "category": "formats",
+   "description": "FSLOUTPUTTYPE=NIFTI_BZ2",
+   "command": "FSLOUTPUTTYPE=NIFTI_BZ2 bet2 <generated: head> out -m -s",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "formats/output-NIFTI_PAIR_BZ2",
+   "category": "formats",
+   "description": "FSLOUTPUTTYPE=NIFTI_PAIR_BZ2",
+   "command": "FSLOUTPUTTYPE=NIFTI_PAIR_BZ2 bet2 <generated: head> out -m -s",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "bet/zst-output",
+   "category": "bet",
+   "description": "FSLOUTPUTTYPE=NIFTI_ZST through the script (fslval, fslmaths on zstd files; FSL 6.0.7.23)",
+   "command": "FSLOUTPUTTYPE=NIFTI_ZST bet <generated: head-4d> out -m -F",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "difftest/bet-fill-by-index",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "difftest/bet-robust-crash-filled",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "7/7",
+     "reason": "FSL crashes here (status 1) on what it leaves undefined (None). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
+    }
+   }
+  },
+  {
+   "id": "difftest/bet-robust-mesh-echo",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "difftest/bet2-fill-by-index",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "difftest/bet2-fill-memory-beyond",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "6/6",
+     "reason": "FSL's fill of the mask starts outside the image and reads memory beyond the volume (FSL-43): its values there depend on that memory. The replica's reproduce does FSL's fill point by point inside the volume, reads that memory as not part of the mask and names the entry; its default starts the fill at the nearest voxel inside."
+    }
+   }
+  },
+  {
+   "id": "difftest/bet2-n-crash-nothing-asked",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "7/7",
+     "reason": "FSL crashes here (status -11) on what it leaves undefined (None). The replica's default refuses with the reason; with reproduce it keeps every part FSL defines, fills the rest deterministically, names the entry and writes its outputs (run twice: the same bytes; D13's rule for failure cases). FSL's messages before the crash are compared; it writes no output to compare."
     }
    }
   }
  ],
- "cases_total": 173,
+ "cases_total": 190,
  "speed": null,
  "examples": [
   {
    "id": "fmriprep-bet",
    "title": "fMRIPrep's skull strip of a real BOLD reference",
-   "summary": "The BET node fMRIPrep 25.2.6 ran on the N4-corrected BOLD reference of OpenNeuro ds000005 sub-01 (task mixed gambles, run 1): `bet <boldref> <out> -f 0.20 -m`, given to FSL 6.0.7.17, to fMRIPrep's own build of FSL in its image and to the larmorx-nc replica in its default and reproduce modes, beside the outputs fMRIPrep's node wrote. The masks are drawn over the input; choose *Brain* for the extracted brain.",
+   "summary": "The BET node fMRIPrep 25.2.6 ran on the N4-corrected BOLD reference of OpenNeuro ds000005 sub-01 (task mixed gambles, run 1): `bet <boldref> <out> -f 0.20 -m`, given to FSL 6.0.7.17, to fMRIPrep's own build of FSL in its image and to the larmorx-nc replica in its default and reproduce modes, beside the outputs fMRIPrep's node wrote. The masks are drawn over the input; choose *Brain* for the extracted brain. FSL 6.0.7.23's output, and the replica's run compared with it, are shown beside them (the replica's reference since the version update of 2026-10-29).",
    "facts": [
     {
      "label": "Data",
@@ -2994,6 +4598,10 @@
     {
      "label": "Grid",
      "text": "64 × 64 × 34 voxels of 3.12 × 3.12 × 4 mm; shown: 56 × 59 × 34 around the brain"
+    },
+    {
+     "label": "FSL versions",
+     "text": "FSL 6.0.7.17's panels as first computed; FSL 6.0.7.23 (the replica's reference since 2026-10-29) on the same arguments, with the replica's run compared with it: on this BOLD reference it gives 6.0.7.17's values (the headers' build string aside). The case explorer below shows the full-tier record (against FSL 6.0.7.17) and the standard record (against FSL 6.0.7.23) side by side."
     }
    ],
    "grid": {
@@ -3290,6 +4898,76 @@
      "role": "fmriprep",
      "label": "fMRIPrep 25.2.6's own output",
      "sub": "the node's brain and mask, as fMRIPrep wrote them",
+     "arrays": {
+      "mask": {
+       "same": "fsl:mask",
+       "dtype": "i2"
+      },
+      "brain": {
+       "same": "fsl:brain",
+       "dtype": "f4"
+      }
+     },
+     "overlay": {
+      "mask": {
+       "on": "boldref",
+       "window": [
+        0.0,
+        748.7716699218747
+       ]
+      }
+     },
+     "own": {
+      "mask": [
+       0.0,
+       1.0
+      ],
+      "brain": [
+       0.0,
+       748.6404742431639
+      ]
+     }
+    },
+    {
+     "id": "fsl23",
+     "role": "original",
+     "label": "FSL 6.0.7.23, bet",
+     "sub": "the conda installation, as run; the replica's reference since 2026-10-29",
+     "arrays": {
+      "mask": {
+       "same": "fsl:mask",
+       "dtype": "i2"
+      },
+      "brain": {
+       "same": "fsl:brain",
+       "dtype": "f4"
+      }
+     },
+     "overlay": {
+      "mask": {
+       "on": "boldref",
+       "window": [
+        0.0,
+        748.7716699218747
+       ]
+      }
+     },
+     "own": {
+      "mask": [
+       0.0,
+       1.0
+      ],
+      "brain": [
+       0.0,
+       748.6404742431639
+      ]
+     }
+    },
+    {
+     "id": "replica23",
+     "role": "larmorx",
+     "label": "larmorx-nc replica",
+     "sub": "default mode, following FSL 6.0.7.23",
      "arrays": {
       "mask": {
        "same": "fsl:mask",
@@ -3771,6 +5449,156 @@
      "links": [],
      "verdict": "bit-identical",
      "reason": "No correction of the register applies to this input: both modes give the same values."
+    },
+    {
+     "id": "replica23-fsl23",
+     "a": "replica23",
+     "b": "fsl23",
+     "kind": "main",
+     "label": "replica − FSL 6.0.7.23",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "mask": {
+       "identical": true,
+       "voxels": 139264,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "brain": {
+       "identical": true,
+       "voxels": 139264,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 873.5042724609375,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "mask": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "brain": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same values as FSL 6.0.7.23, every one. The NIfTI headers too, byte for byte."
+    },
+    {
+     "id": "fsl23-fsl",
+     "a": "fsl23",
+     "b": "fsl",
+     "kind": "variability",
+     "label": "FSL 6.0.7.23 − FSL 6.0.7.17",
+     "role_label": "the original against itself: the version step",
+     "metrics": {
+      "mask": {
+       "identical": true,
+       "voxels": 139264,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "brain": {
+       "identical": true,
+       "voxels": 139264,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 873.5042724609375,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "mask": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "brain": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "FSL 6.0.7.23 gives FSL 6.0.7.17's values on this BOLD reference: the version step changes nothing computed here. The images' headers differ in FSL's build string only (`descrip`: newimage 2601.0's `2601.0 2025-12-08T15:20:57Z`)."
     }
    ],
    "default": {
@@ -3817,7 +5645,9 @@
    "provenance": [
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: BOLD reference, N4-corrected (sha256 e2edb4ebea7836d2…); fMRIPrep's brain mask (sha256 548fdc1c1e375013…); T1w (sha256 75c615d7cce397be…)",
-    "Runs: figures cache entry `fsl-bet/fmriprep-ds000005-run-01`, computed 2026-10-25T22:38:13+00:00 with larmorx `ccbec9978309`; FSL 6.0.7.17 (fsl-bet2 2111.8, fsl-newimage 2203.12, fsl-meshclass 2111.0); FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4); larmorx-nc 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-bet/fmriprep-ds000005-run-01`, computed 2026-10-25T22:38:13+00:00 with larmorx `ccbec9978309`; FSL 6.0.7.17 (fsl-bet2 2111.8, fsl-newimage 2203.12, fsl-meshclass 2111.0); FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4); larmorx-nc 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Inputs: BOLD reference, N4-corrected (sha256 e2edb4ebea7836d2…); T1w (sha256 75c615d7cce397be…)",
+    "Runs: figures cache entry `fsl-bet/fmriprep-ds000005-run-01-fsl-6.0.7.23`, computed 2026-10-29T10:13:59+00:00 with larmorx `caefd642193a`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4); larmorx-nc 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
     "openneuro-ds000005"
@@ -3826,7 +5656,7 @@
   {
    "id": "t1w-robust",
    "title": "A real T1w: bet -R",
-   "summary": "BET's anatomical use with its robust centre estimation (`-R`: bet2 run again from the brain's centre until it moves less than a voxel), on the raw T1w of the same subject. The `bet` script itself is replicated: its options, its loop, the centre-of-gravity computation it asks of `fslstats -C`, its messages.",
+   "summary": "BET's anatomical use with its robust centre estimation (`-R`: bet2 run again from the brain's centre until it moves less than a voxel), on the raw T1w of the same subject. The `bet` script itself is replicated: its options, its loop, the centre-of-gravity computation it asks of `fslstats -C`, its messages. FSL 6.0.7.23's output, and the replica's run compared with it, are shown beside them (the replica's reference since the version update of 2026-10-29).",
    "facts": [
     {
      "label": "Data",
@@ -3847,6 +5677,10 @@
     {
      "label": "Grid",
      "text": "160 × 192 × 192 voxels of 1 × 1.33 × 1.33 mm; shown: 149 × 124 × 110 around the brain"
+    },
+    {
+     "label": "FSL versions",
+     "text": "FSL 6.0.7.17's panels as first computed; FSL 6.0.7.23 (the replica's reference since 2026-10-29) on the same arguments, with the replica's run compared with it: on this T1w it gives 6.0.7.17's values (the headers' build string aside). The case explorer below shows the full-tier record (against FSL 6.0.7.17) and the standard record (against FSL 6.0.7.23) side by side."
     }
    ],
    "grid": {
@@ -4071,6 +5905,76 @@
      "role": "larmorx",
      "label": "larmorx-nc replica",
      "sub": "reproduce mode",
+     "arrays": {
+      "mask": {
+       "same": "fsl:mask",
+       "dtype": "i2"
+      },
+      "brain": {
+       "same": "fsl:brain",
+       "dtype": "f4"
+      }
+     },
+     "overlay": {
+      "mask": {
+       "on": "t1",
+       "window": [
+        13.0,
+        427.0
+       ]
+      }
+     },
+     "own": {
+      "mask": [
+       0.0,
+       1.0
+      ],
+      "brain": [
+       0.0,
+       411.0
+      ]
+     }
+    },
+    {
+     "id": "fsl23",
+     "role": "original",
+     "label": "FSL 6.0.7.23, bet -R",
+     "sub": "the conda installation, as run; the replica's reference since 2026-10-29",
+     "arrays": {
+      "mask": {
+       "same": "fsl:mask",
+       "dtype": "i2"
+      },
+      "brain": {
+       "same": "fsl:brain",
+       "dtype": "f4"
+      }
+     },
+     "overlay": {
+      "mask": {
+       "on": "t1",
+       "window": [
+        13.0,
+        427.0
+       ]
+      }
+     },
+     "own": {
+      "mask": [
+       0.0,
+       1.0
+      ],
+      "brain": [
+       0.0,
+       411.0
+      ]
+     }
+    },
+    {
+     "id": "replica23",
+     "role": "larmorx",
+     "label": "larmorx-nc replica",
+     "sub": "default mode, following FSL 6.0.7.23",
      "arrays": {
       "mask": {
        "same": "fsl:mask",
@@ -4327,6 +6231,156 @@
      "links": [],
      "verdict": "bit-identical",
      "reason": "No correction of the register applies to this input: both modes give the same values."
+    },
+    {
+     "id": "replica23-fsl23",
+     "a": "replica23",
+     "b": "fsl23",
+     "kind": "main",
+     "label": "replica − FSL 6.0.7.23",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "mask": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "brain": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 971.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "mask": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "brain": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same values as FSL 6.0.7.23, every one. The NIfTI headers too, byte for byte."
+    },
+    {
+     "id": "fsl23-fsl",
+     "a": "fsl23",
+     "b": "fsl",
+     "kind": "variability",
+     "label": "FSL 6.0.7.23 − FSL 6.0.7.17",
+     "role_label": "the original against itself: the version step",
+     "metrics": {
+      "mask": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "brain": {
+       "identical": true,
+       "voxels": 5898240,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 971.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "mask": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "brain": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "FSL 6.0.7.23 gives FSL 6.0.7.17's values on this T1w: the version step changes nothing computed here. The images' headers differ in FSL's build string only (`descrip`: newimage 2601.0's `2601.0 2025-12-08T15:20:57Z`)."
     }
    ],
    "default": {
@@ -4372,7 +6426,9 @@
    "provenance": [
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: BOLD reference, N4-corrected (sha256 e2edb4ebea7836d2…); fMRIPrep's brain mask (sha256 548fdc1c1e375013…); T1w (sha256 75c615d7cce397be…)",
-    "Runs: figures cache entry `fsl-bet/fmriprep-ds000005-run-01`, computed 2026-10-25T22:38:13+00:00 with larmorx `ccbec9978309`; FSL 6.0.7.17 (fsl-bet2 2111.8, fsl-newimage 2203.12, fsl-meshclass 2111.0); FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4); larmorx-nc 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-bet/fmriprep-ds000005-run-01`, computed 2026-10-25T22:38:13+00:00 with larmorx `ccbec9978309`; FSL 6.0.7.17 (fsl-bet2 2111.8, fsl-newimage 2203.12, fsl-meshclass 2111.0); FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4); larmorx-nc 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Inputs: BOLD reference, N4-corrected (sha256 e2edb4ebea7836d2…); T1w (sha256 75c615d7cce397be…)",
+    "Runs: figures cache entry `fsl-bet/fmriprep-ds000005-run-01-fsl-6.0.7.23`, computed 2026-10-29T10:13:59+00:00 with larmorx `caefd642193a`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4); larmorx-nc 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
     "openneuro-ds000005"
@@ -4381,7 +6437,7 @@
   {
    "id": "betsurf-head",
    "title": "betsurf: the skull and the scalp",
-   "summary": "`betsurf` with a T2 (the call `bet -A2` makes, after FLIRT) on the parity suite's synthetic head, from FSL bet2's surface of it: profiles along the surface's normals through both images find the inner skull, the outer skull and the scalp; three surfaces are deformed onto them in turn. A synthetic head shows them whole: on a real head the scalp would show a face. FSL 6.0.7.17, fMRIPrep's FSL and the replica in both modes; choose the mask above the panels.",
+   "summary": "`betsurf` with a T2 (the call `bet -A2` makes, after FLIRT) on the parity suite's synthetic head, from FSL bet2's surface of it: profiles along the surface's normals through both images find the inner skull, the outer skull and the scalp; three surfaces are deformed onto them in turn. A synthetic head shows them whole: on a real head the scalp would show a face. FSL 6.0.7.17, fMRIPrep's FSL and the replica in both modes; choose the mask above the panels. FSL 6.0.7.23's output, and the replica's run compared with it, are shown beside them (the replica's reference since the version update of 2026-10-29).",
    "facts": [
     {
      "label": "Data",
@@ -4398,6 +6454,10 @@
     {
      "label": "Grid",
      "text": "96 × 112 × 84 voxels of 2 mm, shown whole"
+    },
+    {
+     "label": "FSL versions",
+     "text": "FSL 6.0.7.17's panels as first computed; FSL 6.0.7.23 (the replica's reference since 2026-10-29) on the same arguments, with the replica's run compared with it: on this head it gives 6.0.7.17's values (the headers' build string aside). The case explorer below shows the full-tier record (against FSL 6.0.7.17) and the standard record (against FSL 6.0.7.23) side by side."
     }
    ],
    "grid": {
@@ -4837,6 +6897,150 @@
      "role": "larmorx",
      "label": "larmorx-nc replica",
      "sub": "reproduce mode",
+     "arrays": {
+      "inskull": {
+       "same": "fsl:inskull",
+       "dtype": "i2"
+      },
+      "outskull": {
+       "same": "fsl:outskull",
+       "dtype": "i2"
+      },
+      "outskin": {
+       "same": "fsl:outskin",
+       "dtype": "i2"
+      },
+      "skull": {
+       "same": "fsl:skull",
+       "dtype": "i2"
+      }
+     },
+     "overlay": {
+      "inskull": {
+       "on": "t1",
+       "window": [
+        -10.479166984558105,
+        863.6666870117188
+       ]
+      },
+      "outskull": {
+       "on": "t1",
+       "window": [
+        -10.479166984558105,
+        863.6666870117188
+       ]
+      },
+      "outskin": {
+       "on": "t1",
+       "window": [
+        -10.479166984558105,
+        863.6666870117188
+       ]
+      },
+      "skull": {
+       "on": "t1",
+       "window": [
+        -10.479166984558105,
+        863.6666870117188
+       ]
+      }
+     },
+     "own": {
+      "inskull": [
+       0.0,
+       1.0
+      ],
+      "outskull": [
+       0.0,
+       1.0
+      ],
+      "outskin": [
+       0.0,
+       1.0
+      ],
+      "skull": [
+       0.0,
+       1.0
+      ]
+     }
+    },
+    {
+     "id": "fsl23",
+     "role": "original",
+     "label": "FSL 6.0.7.23, betsurf",
+     "sub": "the conda installation, as run; the replica's reference since 2026-10-29",
+     "arrays": {
+      "inskull": {
+       "same": "fsl:inskull",
+       "dtype": "i2"
+      },
+      "outskull": {
+       "same": "fsl:outskull",
+       "dtype": "i2"
+      },
+      "outskin": {
+       "same": "fsl:outskin",
+       "dtype": "i2"
+      },
+      "skull": {
+       "same": "fsl:skull",
+       "dtype": "i2"
+      }
+     },
+     "overlay": {
+      "inskull": {
+       "on": "t1",
+       "window": [
+        -10.479166984558105,
+        863.6666870117188
+       ]
+      },
+      "outskull": {
+       "on": "t1",
+       "window": [
+        -10.479166984558105,
+        863.6666870117188
+       ]
+      },
+      "outskin": {
+       "on": "t1",
+       "window": [
+        -10.479166984558105,
+        863.6666870117188
+       ]
+      },
+      "skull": {
+       "on": "t1",
+       "window": [
+        -10.479166984558105,
+        863.6666870117188
+       ]
+      }
+     },
+     "own": {
+      "inskull": [
+       0.0,
+       1.0
+      ],
+      "outskull": [
+       0.0,
+       1.0
+      ],
+      "outskin": [
+       0.0,
+       1.0
+      ],
+      "skull": [
+       0.0,
+       1.0
+      ]
+     }
+    },
+    {
+     "id": "replica23",
+     "role": "larmorx",
+     "label": "larmorx-nc replica",
+     "sub": "default mode, following FSL 6.0.7.23",
      "arrays": {
       "inskull": {
        "same": "fsl:inskull",
@@ -5660,6 +7864,308 @@
      "links": [],
      "verdict": "bit-identical",
      "reason": "No correction of the register applies to this input: both modes give the same values."
+    },
+    {
+     "id": "replica23-fsl23",
+     "a": "replica23",
+     "b": "fsl23",
+     "kind": "main",
+     "label": "replica − FSL 6.0.7.23",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "inskull": {
+       "identical": true,
+       "voxels": 903168,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        95,
+        0,
+        0
+       ]
+      },
+      "outskull": {
+       "identical": true,
+       "voxels": 903168,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        95,
+        0,
+        0
+       ]
+      },
+      "outskin": {
+       "identical": true,
+       "voxels": 903168,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        95,
+        0,
+        0
+       ]
+      },
+      "skull": {
+       "identical": true,
+       "voxels": 903168,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        95,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "inskull": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "outskull": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "outskin": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "skull": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same values as FSL 6.0.7.23, every one. The NIfTI headers too, byte for byte."
+    },
+    {
+     "id": "fsl23-fsl",
+     "a": "fsl23",
+     "b": "fsl",
+     "kind": "variability",
+     "label": "FSL 6.0.7.23 − FSL 6.0.7.17",
+     "role_label": "the original against itself: the version step",
+     "metrics": {
+      "inskull": {
+       "identical": true,
+       "voxels": 903168,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        95,
+        0,
+        0
+       ]
+      },
+      "outskull": {
+       "identical": true,
+       "voxels": 903168,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        95,
+        0,
+        0
+       ]
+      },
+      "outskin": {
+       "identical": true,
+       "voxels": 903168,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        95,
+        0,
+        0
+       ]
+      },
+      "skull": {
+       "identical": true,
+       "voxels": 903168,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": [
+        95,
+        0,
+        0
+       ]
+      }
+     },
+     "display": {
+      "inskull": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "outskull": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "outskin": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "skull": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "FSL 6.0.7.23 gives FSL 6.0.7.17's values on this head: the version step changes nothing computed here. The images' headers differ in FSL's build string only (`descrip`: newimage 2601.0's `2601.0 2025-12-08T15:20:57Z`)."
     }
    ],
    "default": {
@@ -5705,14 +8211,16 @@
    "provenance": [
     "Data: the parity suite's synthetic head (larmorx_validation.parity.fsl_bet: shells of brain, CSF, skull and scalp, 2 mm voxels, seeded noise), generated",
     "Inputs: synthetic head, T1-like (sha256 263003478288d934…); synthetic head, T2-like (sha256 0127039ce996f183…); FSL bet2's surface of it (sha256 bc4cfb4c522c5d37…); its matrix to MNI152 (sha256 da3e076989f8c9ca…); its known brain (sha256 353dc873a376fafa…)",
-    "Runs: figures cache entry `fsl-bet/betsurf-synthetic-head`, computed 2026-10-25T22:38:36+00:00 with larmorx `ccbec9978309`; FSL 6.0.7.17 (fsl-bet2 2111.8, fsl-newimage 2203.12, fsl-meshclass 2111.0); FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4); larmorx-nc 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-bet/betsurf-synthetic-head`, computed 2026-10-25T22:38:36+00:00 with larmorx `ccbec9978309`; FSL 6.0.7.17 (fsl-bet2 2111.8, fsl-newimage 2203.12, fsl-meshclass 2111.0); FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4); larmorx-nc 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Inputs: synthetic head, T1-like (sha256 263003478288d934…); synthetic head, T2-like (sha256 0127039ce996f183…); FSL bet2's surface of it (sha256 bc4cfb4c522c5d37…); its matrix to MNI152 (sha256 da3e076989f8c9ca…)",
+    "Runs: figures cache entry `fsl-bet/betsurf-synthetic-head-fsl-6.0.7.23`, computed 2026-10-29T10:14:07+00:00 with larmorx `caefd642193a`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4); larmorx-nc 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": []
   },
   {
    "id": "panel-ds000228-child",
    "title": "Data panel: a three-year-old's BOLD reference",
-   "summary": "The data panel's youngest subject: the BET node fMRIPrep 25.2.6 ran on the N4-corrected BOLD reference of OpenNeuro ds000228 sub-pixar008, aged 3.5 (a small head, an oblique field of view; task pixar), `bet <boldref> <out> -f 0.20 -m`, given to FSL 6.0.7.17, fMRIPrep's build of FSL and the replica in both modes, beside the outputs fMRIPrep's node wrote. As a panel case beside the examples above, it is stored as three full-resolution slices.",
+   "summary": "The data panel's youngest subject: the BET node fMRIPrep 25.2.6 ran on the N4-corrected BOLD reference of OpenNeuro ds000228 sub-pixar008, aged 3.5 (a small head, an oblique field of view; task pixar), `bet <boldref> <out> -f 0.20 -m`, given to FSL 6.0.7.17, fMRIPrep's build of FSL and the replica in both modes, beside the outputs fMRIPrep's node wrote. As a panel case beside the examples above, it is stored as three full-resolution slices. FSL 6.0.7.23's output, and the replica's run compared with it, are shown beside them (the replica's reference since the version update of 2026-10-29).",
    "facts": [
     {
      "label": "Data",
@@ -5737,6 +8245,10 @@
     {
      "label": "Grid",
      "text": "64 × 64 × 32 voxels of 3 × 3 × 3.3 mm; shown: 53 × 61 × 32 around the brain"
+    },
+    {
+     "label": "FSL versions",
+     "text": "FSL 6.0.7.17's panels as first computed; FSL 6.0.7.23 (the replica's reference since 2026-10-29) on the same arguments, with the replica's run compared with it: on this child's BOLD reference it gives 6.0.7.17's values (the headers' build string aside). The case explorer below shows the full-tier record (against FSL 6.0.7.17) and the standard record (against FSL 6.0.7.23) side by side."
     }
    ],
    "grid": {
@@ -6077,6 +8589,76 @@
      "role": "fmriprep",
      "label": "fMRIPrep 25.2.6's own output",
      "sub": "the node's brain and mask, as fMRIPrep wrote them",
+     "arrays": {
+      "mask": {
+       "same": "fsl:mask",
+       "dtype": "i2"
+      },
+      "brain": {
+       "same": "fsl:brain",
+       "dtype": "f4"
+      }
+     },
+     "overlay": {
+      "mask": {
+       "on": "boldref",
+       "window": [
+        30.25302778244019,
+        1888.2698828125
+       ]
+      }
+     },
+     "own": {
+      "mask": [
+       0.0,
+       1.0
+      ],
+      "brain": [
+       0.0,
+       1888.2698828125
+      ]
+     }
+    },
+    {
+     "id": "fsl23",
+     "role": "original",
+     "label": "FSL 6.0.7.23, bet",
+     "sub": "the conda installation, as run; the replica's reference since 2026-10-29",
+     "arrays": {
+      "mask": {
+       "same": "fsl:mask",
+       "dtype": "i2"
+      },
+      "brain": {
+       "same": "fsl:brain",
+       "dtype": "f4"
+      }
+     },
+     "overlay": {
+      "mask": {
+       "on": "boldref",
+       "window": [
+        30.25302778244019,
+        1888.2698828125
+       ]
+      }
+     },
+     "own": {
+      "mask": [
+       0.0,
+       1.0
+      ],
+      "brain": [
+       0.0,
+       1888.2698828125
+      ]
+     }
+    },
+    {
+     "id": "replica23",
+     "role": "larmorx",
+     "label": "larmorx-nc replica",
+     "sub": "default mode, following FSL 6.0.7.23",
      "arrays": {
       "mask": {
        "same": "fsl:mask",
@@ -6570,6 +9152,160 @@
      "links": [],
      "verdict": "bit-identical",
      "reason": "No correction of the register applies to this input: both modes give the same values."
+    },
+    {
+     "id": "replica23-fsl23",
+     "a": "replica23",
+     "b": "fsl23",
+     "kind": "main",
+     "label": "replica − FSL 6.0.7.23",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "mask": {
+       "identical": true,
+       "voxels": 131072,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "brain": {
+       "identical": true,
+       "voxels": 131072,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2600.259033203125,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "mask": {
+       "max_abs": 0.0,
+       "at": [
+        2,
+        2,
+        15
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      },
+      "brain": {
+       "max_abs": 0.0,
+       "at": [
+        2,
+        2,
+        15
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same values as FSL 6.0.7.23, every one. The NIfTI headers too, byte for byte."
+    },
+    {
+     "id": "fsl23-fsl",
+     "a": "fsl23",
+     "b": "fsl",
+     "kind": "variability",
+     "label": "FSL 6.0.7.23 − FSL 6.0.7.17",
+     "role_label": "the original against itself: the version step",
+     "metrics": {
+      "mask": {
+       "identical": true,
+       "voxels": 131072,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "brain": {
+       "identical": true,
+       "voxels": 131072,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 2600.259033203125,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "mask": {
+       "max_abs": 0.0,
+       "at": [
+        2,
+        2,
+        15
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      },
+      "brain": {
+       "max_abs": 0.0,
+       "at": [
+        2,
+        2,
+        15
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0,
+       "plane": "axial"
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "FSL 6.0.7.23 gives FSL 6.0.7.17's values on this child's BOLD reference: the version step changes nothing computed here. The images' headers differ in FSL's build string only (`descrip`: newimage 2601.0's `2601.0 2025-12-08T15:20:57Z`)."
     }
    ],
    "default": {
@@ -6616,7 +9352,9 @@
    "provenance": [
     "Data: OpenNeuro ds000228 (Richardson et al., 2018), version 1.1.1, sub-pixar008 (3.5 years), task pixar, CC0-1.0",
     "Inputs: BOLD reference, N4-corrected (sha256 4537975eac27fbce…); fMRIPrep's brain mask (sha256 bdbdc20428c94799…)",
-    "Runs: figures cache entry `fsl-bet/panel-ds000228-pixar008`, computed 2026-10-25T22:38:40+00:00 with larmorx `ccbec9978309`; FSL 6.0.7.17 (fsl-bet2 2111.8, fsl-newimage 2203.12, fsl-meshclass 2111.0); FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4); larmorx-nc 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-bet/panel-ds000228-pixar008`, computed 2026-10-25T22:38:40+00:00 with larmorx `ccbec9978309`; FSL 6.0.7.17 (fsl-bet2 2111.8, fsl-newimage 2203.12, fsl-meshclass 2111.0); FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4); larmorx-nc 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Inputs: BOLD reference, N4-corrected (sha256 4537975eac27fbce…)",
+    "Runs: figures cache entry `fsl-bet/panel-ds000228-pixar008-fsl-6.0.7.23`, computed 2026-10-29T10:14:09+00:00 with larmorx `caefd642193a`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4); larmorx-nc 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
     "openneuro-ds000228"

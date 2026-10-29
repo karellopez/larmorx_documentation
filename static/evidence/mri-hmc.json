@@ -3,7 +3,7 @@
  "tool": "mri-hmc",
  "title": "Head-motion correction",
  "provenance": {
-  "exporter": "31d3a349d3bb30e10186a4a73accf47de84e0604",
+  "exporter": "afa5a5ade59557b93a8cab462b0b094d55ad5d3e",
   "records": [
    {
     "path": "docs/validation/mri-hmc.json",
@@ -18,16 +18,28 @@
     "larmorx_commit": "e82f16ee2f72"
    },
    {
-    "path": "docs/validation/fsl-mcflirt-replica.json",
+    "path": "docs/validation/fsl-mcflirt-replica-full.json",
     "sha256": "899fd86285e8648f64c2db2d5ebe4a68b5a011dd2ed7c1f2205634d95e61c732",
     "generated": "2026-10-25",
     "larmorx_commit": "205bee40f36f"
    },
    {
-    "path": "docs/validation/fsl-mcflirt-replica.md",
+    "path": "docs/validation/fsl-mcflirt-replica-full.md",
     "sha256": "6d9dfa8b28626f5ad8f1598820962f8071813a6a4263b8659dae8e273b82669e",
     "generated": "2026-10-25",
     "larmorx_commit": "205bee40f36f"
+   },
+   {
+    "path": "docs/validation/fsl-mcflirt-replica.json",
+    "sha256": "095c6b9922fb58288d476b67f9053646c71b6293484bdfe533da014c4ed4bc6c",
+    "generated": "2026-10-29",
+    "larmorx_commit": "09dd455cac3f"
+   },
+   {
+    "path": "docs/validation/fsl-mcflirt-replica.md",
+    "sha256": "58644f771bee89a66d052f6f116d02261f59cc3d1ba185f910b3978c8e5257d0",
+    "generated": "2026-10-29",
+    "larmorx_commit": "09dd455cac3f"
    }
   ],
   "benchmarks": [
@@ -242,6 +254,148 @@
     },
     "seed": "the noise perturbations: larmorx_validation.parity.mri_hmc_band.SEED",
     "settings": "fMRIPrep 25.2.6's mcflirt node of ds000005 sub-01 run 1 (its command.txt and its HMC reference); mcflirt twice and on four perturbed copies of the series (uniform noise of ±0.5, three realisations; the volumes in reverse order); larmorx in reproduce mode (all CPUs and one) and in its default mode"
+   },
+   {
+    "entry": "mri-hmc/fmriprep-ds000005-run-01-replica",
+    "description": "fMRIPrep's head-motion correction of ds000005 sub-01 run 1 by the larmorx-nc replica",
+    "computed": "2026-10-24T19:03:54+00:00",
+    "larmorx_commit": "d6ba67e5ccc3e6e95b9ef84b13841dcb5754905a",
+    "commands": [
+     {
+      "label": "replica",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "mcflirt",
+       "-in",
+       "<testdata-cache>/openneuro/ds000005/sub-01/func/sub-01_task-mixedgamblestask_run-01_bold.nii.gz",
+       "-out",
+       "<workspace>/oracles/figures-cache/mri-hmc/fmriprep-ds000005-run-01-replica/replica/out_mcf.nii.gz",
+       "-reffile",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/func/sub-01_task-mixedgamblestask_run-01_desc-hmc_boldref.nii.gz",
+       "-mats"
+      ],
+      "env": {
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OMP_NUM_THREADS": "3"
+      },
+      "exit": 0,
+      "seconds": 16.89
+     },
+     {
+      "label": "replica-1",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "mcflirt",
+       "-in",
+       "<testdata-cache>/openneuro/ds000005/sub-01/func/sub-01_task-mixedgamblestask_run-01_bold.nii.gz",
+       "-out",
+       "<workspace>/oracles/figures-cache/mri-hmc/fmriprep-ds000005-run-01-replica/replica-1/out_mcf.nii.gz",
+       "-reffile",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/func/sub-01_task-mixedgamblestask_run-01_desc-hmc_boldref.nii.gz",
+       "-mats"
+      ],
+      "env": {
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OMP_NUM_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 33.96
+     },
+     {
+      "label": "replica-fix",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "mcflirt",
+       "-in",
+       "<testdata-cache>/openneuro/ds000005/sub-01/func/sub-01_task-mixedgamblestask_run-01_bold.nii.gz",
+       "-out",
+       "<workspace>/oracles/figures-cache/mri-hmc/fmriprep-ds000005-run-01-replica/replica-fix/out_mcf.nii.gz",
+       "-reffile",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/func/sub-01_task-mixedgamblestask_run-01_desc-hmc_boldref.nii.gz",
+       "-mats"
+      ],
+      "env": {
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OMP_NUM_THREADS": "3"
+      },
+      "exit": 0,
+      "seconds": 19.91
+     }
+    ],
+    "versions": {
+     "larmorx-nc": "larmorx-nc 0.0.1"
+    },
+    "threads": {
+     "larmorx-nc": [
+      3,
+      1
+     ]
+    },
+    "settings": "fMRIPrep 25.2.6's mcflirt node of ds000005 sub-01 run 1 (its command.txt and its HMC reference), by the larmorx-nc replica in reproduce mode (3 threads and 1) and in its default mode"
+   },
+   {
+    "entry": "mri-hmc/fmriprep-ds000005-run-01-fsl-6.0.7.23",
+    "description": "fMRIPrep's head-motion correction of ds000005 sub-01 run 1: FSL 6.0.7.23's mcflirt and the larmorx-nc replica",
+    "computed": "2026-10-29T10:14:47+00:00",
+    "larmorx_commit": "caefd642193ac1d9d3b28c6eb379dd38592dc20e",
+    "commands": [
+     {
+      "label": "mcflirt23",
+      "argv": [
+       "~/fsl-6.0.7.23/bin/mcflirt",
+       "-in",
+       "<testdata-cache>/openneuro/ds000005/sub-01/func/sub-01_task-mixedgamblestask_run-01_bold.nii.gz",
+       "-out",
+       "<workspace>/oracles/figures-cache/mri-hmc/fmriprep-ds000005-run-01-fsl-6.0.7.23/mcflirt23/out_mcf.nii.gz",
+       "-reffile",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/func/sub-01_task-mixedgamblestask_run-01_desc-hmc_boldref.nii.gz",
+       "-mats"
+      ],
+      "env": {
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ"
+      },
+      "exit": 0,
+      "seconds": 15.75
+     },
+     {
+      "label": "replica23",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "mcflirt",
+       "-in",
+       "<testdata-cache>/openneuro/ds000005/sub-01/func/sub-01_task-mixedgamblestask_run-01_bold.nii.gz",
+       "-out",
+       "<workspace>/oracles/figures-cache/mri-hmc/fmriprep-ds000005-run-01-fsl-6.0.7.23/replica23/out_mcf.nii.gz",
+       "-reffile",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000005-sub-01-noreconall/out/sub-01/func/sub-01_task-mixedgamblestask_run-01_desc-hmc_boldref.nii.gz",
+       "-mats"
+      ],
+      "env": {
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OMP_NUM_THREADS": "3"
+      },
+      "exit": 0,
+      "seconds": 9.39
+     }
+    ],
+    "versions": {
+     "fsl": "FSL 6.0.7.23 (mcflirt)",
+     "larmorx-nc": "larmorx-nc 0.0.1"
+    },
+    "threads": {
+     "mcflirt": 1,
+     "larmorx-nc": 3
+    },
+    "settings": "fMRIPrep 25.2.6's mcflirt node of ds000005 sub-01 run 1 (its command.txt and its HMC reference), as the FSL 6.0.7.17 entry ran it: FSL 6.0.7.23's mcflirt (~/fsl-6.0.7.23, never on the PATH) and the larmorx-nc replica in reproduce mode, 3 threads"
    }
   ],
   "command": "python -m larmorx_validation evidence mri-hmc --site <site>"
@@ -331,9 +485,9 @@
   },
   {
    "id": "replica",
-   "label": "larmorx-nc replica",
+   "label": "larmorx-nc replica, against FSL 6.0.7.17 (full tier)",
    "short": "replica",
-   "record": "docs/validation/fsl-mcflirt-replica.md",
+   "record": "docs/validation/fsl-mcflirt-replica-full.md",
    "status": "validated",
    "summary": {
     "cases": 194,
@@ -409,6 +563,98 @@
      }
     }
    ],
+   "name": "fsl-mcflirt-replica-full"
+  },
+  {
+   "id": "replica-23",
+   "label": "larmorx-nc replica, against FSL 6.0.7.23 (standard tier)",
+   "short": "replica, 6.0.7.23",
+   "record": "docs/validation/fsl-mcflirt-replica.md",
+   "status": "validated",
+   "summary": {
+    "cases": 203,
+    "verdicts": {
+     "bit-identical": 176,
+     "both-reject": 22,
+     "divergence": 5
+    }
+   },
+   "agreement": [
+    {
+     "category": "real",
+     "counts": {
+      "bit-identical": 29,
+      "both-reject": 1
+     }
+    },
+    {
+     "category": "options (ds000005)",
+     "counts": {
+      "bit-identical": 23,
+      "divergence": 1,
+      "both-reject": 1
+     }
+    },
+    {
+     "category": "synthetic/cli",
+     "counts": {
+      "bit-identical": 6,
+      "both-reject": 5
+     }
+    },
+    {
+     "category": "synthetic/content",
+     "counts": {
+      "bit-identical": 4,
+      "divergence": 2
+     }
+    },
+    {
+     "category": "synthetic/dtypes",
+     "counts": {
+      "bit-identical": 10
+     }
+    },
+    {
+     "category": "synthetic/geometry",
+     "counts": {
+      "bit-identical": 10
+     }
+    },
+    {
+     "category": "synthetic/motion",
+     "counts": {
+      "bit-identical": 29,
+      "divergence": 2,
+      "both-reject": 5
+     }
+    },
+    {
+     "category": "synthetic/orientation",
+     "counts": {
+      "bit-identical": 6
+     }
+    },
+    {
+     "category": "replica: edge cases",
+     "counts": {
+      "bit-identical": 32,
+      "both-reject": 10
+     }
+    },
+    {
+     "category": "replica: fMRIPrep's calls",
+     "counts": {
+      "bit-identical": 21
+     }
+    },
+    {
+     "category": "difftest",
+     "counts": {
+      "bit-identical": 6
+     }
+    }
+   ],
    "name": "fsl-mcflirt-replica"
   }
  ],
@@ -430,6 +676,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -450,6 +702,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -470,6 +728,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -490,6 +754,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -510,6 +780,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -530,6 +806,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -550,6 +832,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -570,6 +858,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -590,6 +884,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -610,6 +910,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -630,6 +936,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -650,6 +962,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -670,6 +988,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -690,6 +1014,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -710,6 +1040,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -730,6 +1066,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -750,6 +1092,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -769,6 +1117,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
     }
    }
@@ -790,6 +1144,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (247/247), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (247/247), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -810,6 +1170,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (247/247), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (247/247), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -830,6 +1196,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -850,6 +1222,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -870,6 +1248,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -890,6 +1274,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -910,6 +1300,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -930,6 +1326,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -950,6 +1352,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -970,6 +1378,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "6/7",
+     "reason": "out_mcf.nii.gz_rel.rms: numbers differ by at most 1e-12 mm or in a NaN's sign, from FSL 6.0.7.23's Armadillo 14.2.1 (4 x 4 inverses and solves through LAPACK); the replica keeps Armadillo 10.5.1's closed-form inverse (docs/findings/fsl-mcflirt.md)"
     }
    }
   },
@@ -990,6 +1404,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (246/246), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1010,6 +1430,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (249/249), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (249/249), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1030,6 +1456,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (214/214), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (214/214), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1050,6 +1482,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (209/209), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (209/209), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1070,6 +1508,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (214/214), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (214/214), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1090,6 +1534,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (264/264), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (264/264), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1110,6 +1560,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (259/259), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (259/259), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1130,6 +1586,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (264/264), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (264/264), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1150,6 +1612,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (210/210), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (210/210), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1170,6 +1638,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (205/205), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (205/205), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1190,6 +1664,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (210/210), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (210/210), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1210,6 +1690,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (245/245), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (245/245), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1230,6 +1716,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (240/240), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (240/240), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1250,6 +1742,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (245/245), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (245/245), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1270,6 +1768,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (222/222), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (222/222), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1290,6 +1794,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (217/217), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (217/217), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1310,6 +1820,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (222/222), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (222/222), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1329,6 +1845,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
     }
    }
@@ -1350,6 +1872,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (69/69), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (69/69), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1370,6 +1898,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (64/64), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (64/64), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1390,6 +1924,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (69/69), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (69/69), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1410,6 +1950,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (119/119), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (119/119), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1430,6 +1976,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (114/114), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (114/114), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1450,6 +2002,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (119/119), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (119/119), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1470,6 +2028,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (75/75), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (75/75), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1490,6 +2054,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (70/70), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (70/70), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1510,6 +2080,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (75/75), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (75/75), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1530,6 +2106,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (13/13), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (13/13), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1550,6 +2132,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1569,6 +2157,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [1]; the same from the replica."
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [1]; the same from the replica."
     }
    }
@@ -1590,6 +2184,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (0/0), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (0/0), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1609,6 +2209,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [1]; the same from the replica."
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [1]; the same from the replica."
     }
    }
@@ -1630,6 +2236,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1650,6 +2262,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1669,6 +2287,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
     }
    }
@@ -1690,6 +2314,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (4/4), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (4/4), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1709,6 +2339,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
     }
    }
@@ -1730,6 +2366,12 @@
      "verdict": "both-reject",
      "checks": "5/5",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [255]; the same from the replica."
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [255]; the same from the replica."
     }
    }
   },
@@ -1750,6 +2392,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1770,6 +2418,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1790,6 +2444,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "6/7",
+     "reason": "out_mcf.nii.gz.par: numbers differ by at most 1e-12 mm or in a NaN's sign, from FSL 6.0.7.23's Armadillo 14.2.1 (4 x 4 inverses and solves through LAPACK); the replica keeps Armadillo 10.5.1's closed-form inverse (docs/findings/fsl-mcflirt.md)"
     }
    }
   },
@@ -1810,6 +2470,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "6/7",
+     "reason": "out_mcf.nii.gz.par: numbers differ by at most 1e-12 mm or in a NaN's sign, from FSL 6.0.7.23's Armadillo 14.2.1 (4 x 4 inverses and solves through LAPACK); the replica keeps Armadillo 10.5.1's closed-form inverse (docs/findings/fsl-mcflirt.md)"
     }
    }
   },
@@ -1830,6 +2496,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (11/11), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (11/11), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1850,6 +2522,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (11/11), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (11/11), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1870,6 +2548,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1890,6 +2574,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1910,6 +2600,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1930,6 +2626,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1950,6 +2652,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1970,6 +2678,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -1990,6 +2704,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2010,6 +2730,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2030,6 +2756,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2050,6 +2782,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2070,6 +2808,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (7/7), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (7/7), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2090,6 +2834,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (7/7), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (7/7), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2110,6 +2860,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (7/7), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (7/7), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2130,6 +2886,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (7/7), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (7/7), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2150,6 +2912,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (14/14), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (14/14), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2170,6 +2938,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (14/14), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (14/14), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2190,6 +2964,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (14/14), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (14/14), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2210,6 +2990,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2230,6 +3016,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (8/8), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (8/8), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2250,6 +3042,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (8/8), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (8/8), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2270,6 +3068,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "6/7",
+     "reason": "out_mcf.nii.gz_rel.rms: numbers differ by at most 1e-12 mm or in a NaN's sign, from FSL 6.0.7.23's Armadillo 14.2.1 (4 x 4 inverses and solves through LAPACK); the replica keeps Armadillo 10.5.1's closed-form inverse (docs/findings/fsl-mcflirt.md)"
     }
    }
   },
@@ -2290,6 +3094,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2310,6 +3120,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "6/7",
+     "reason": "out_mcf.nii.gz_rel.rms, out_mcf.nii.gz_rel_mean.rms: numbers differ by at most 1e-12 mm or in a NaN's sign, from FSL 6.0.7.23's Armadillo 14.2.1 (4 x 4 inverses and solves through LAPACK); the replica keeps Armadillo 10.5.1's closed-form inverse (docs/findings/fsl-mcflirt.md)"
     }
    }
   },
@@ -2330,6 +3146,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2350,6 +3172,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2370,6 +3198,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2390,6 +3224,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2410,6 +3250,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2430,6 +3276,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2450,6 +3302,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2470,6 +3328,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2490,6 +3354,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2510,6 +3380,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2530,6 +3406,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (19/19), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (19/19), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2550,6 +3432,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2570,6 +3458,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2589,6 +3483,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [1]; the same from the replica."
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [1]; the same from the replica."
     }
    }
@@ -2610,6 +3510,12 @@
      "verdict": "both-reject",
      "checks": "5/5",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [2]; the same from the replica."
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [2]; the same from the replica."
     }
    }
   },
@@ -2630,6 +3536,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (14/14), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (14/14), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2650,6 +3562,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2670,6 +3588,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (30/30), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (30/30), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2690,6 +3614,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2710,6 +3640,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2729,6 +3665,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
     }
    }
@@ -2750,6 +3692,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2770,6 +3718,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2789,6 +3743,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica."
     }
    }
@@ -2810,6 +3770,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2830,6 +3796,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2850,6 +3822,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2870,6 +3848,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2890,6 +3874,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2910,6 +3900,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2930,6 +3926,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (21/21), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (21/21), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2950,6 +3952,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -2969,6 +3977,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [255]; the same from the replica."
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [255]; the same from the replica."
     }
    }
@@ -2990,6 +4004,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3010,6 +4030,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3030,6 +4056,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3050,6 +4082,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3070,6 +4108,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3090,6 +4134,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (18/18), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3174,6 +4224,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (3/3), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (3/3), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3188,6 +4244,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3202,6 +4264,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3215,6 +4283,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. double free or corruption (out)"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. double free or corruption (out)"
     }
    }
@@ -3230,6 +4304,12 @@
      "verdict": "both-reject",
      "checks": "5/5",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. Image Exception : #63 :: No image files match: nosuch Image Exception : #22 :: Failed to read volume nosuch Error : No image files match: nosuch terminate called after throwing an instance of 'std::ru"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. Image Exception : #63 :: No image files match: nosuch Image Exception : #22 :: Failed to read volume nosuch Error : No image files match: nosuch terminate called after throwing an instance of 'std::ru"
     }
    }
   },
@@ -3243,6 +4323,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. Could not open matrix file nosuch.mat terminate called after throwing an instance of 'std::logic_error' what(): matrix multiplication: incompatible matrix dimensions: 4x4 and 0x0"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. Could not open matrix file nosuch.mat terminate called after throwing an instance of 'std::logic_error' what(): matrix multiplication: incompatible matrix dimensions: 4x4 and 0x0"
     }
    }
@@ -3258,6 +4344,12 @@
      "verdict": "both-reject",
      "checks": "5/5",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. terminate called after throwing an instance of 'std::logic_error' what(): matrix multiplication: incompatible matrix dimensions: 4x4 and 1x3"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. terminate called after throwing an instance of 'std::logic_error' what(): matrix multiplication: incompatible matrix dimensions: 4x4 and 1x3"
     }
    }
   },
@@ -3271,6 +4363,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. terminate called after throwing an instance of 'std::logic_error' what(): matrix multiplication: incompatible matrix dimensions: 4x4 and 3x3"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. terminate called after throwing an instance of 'std::logic_error' what(): matrix multiplication: incompatible matrix dimensions: 4x4 and 3x3"
     }
    }
@@ -3286,6 +4384,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3300,6 +4404,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3314,6 +4424,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (0/0), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (0/0), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3327,6 +4443,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. Error! Could not create directory: <larmorx-testdata>/data/synthetic/hmc/motion/ro/out.mat. No write permission terminate called after throwing an instance of"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. Error! Could not create directory: <larmorx-testdata>/data/synthetic/hmc/motion/ro/out.mat. No write permission terminate called after throwing an instance of"
     }
    }
@@ -3342,6 +4464,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3356,6 +4484,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3370,6 +4504,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3384,6 +4524,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3398,6 +4544,12 @@
      "verdict": "both-reject",
      "checks": "5/5",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [1]; the same from the replica. ERROR:: Unrecognised value (ANALYZE) of environment variable FSLOUTPUTTYPE Legal values are: NIFTI, NIFTI_PAIR, NIFTI_GZ, NIFTI_PAIR_GZ"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [1]; the same from the replica. ERROR:: Unrecognised value (ANALYZE) of environment variable FSLOUTPUTTYPE Legal values are: NIFTI, NIFTI_PAIR, NIFTI2, NIFTI2_PAIR, NIFTI_GZ, NIFTI_PAIR_GZ, NIFTI2_GZ, NIFTI2_PAIR_GZ, NIFTI_ZST, NIFT"
     }
    }
   },
@@ -3412,6 +4564,12 @@
      "verdict": "both-reject",
      "checks": "5/5",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [1]; the same from the replica. ERROR:: Unrecognised value (BOGUS) of environment variable FSLOUTPUTTYPE Legal values are: NIFTI, NIFTI_PAIR, NIFTI_GZ, NIFTI_PAIR_GZ"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [1]; the same from the replica. ERROR:: Unrecognised value (BOGUS) of environment variable FSLOUTPUTTYPE Legal values are: NIFTI, NIFTI_PAIR, NIFTI2, NIFTI2_PAIR, NIFTI_GZ, NIFTI_PAIR_GZ, NIFTI2_GZ, NIFTI2_PAIR_GZ, NIFTI_ZST, NIFTI_"
     }
    }
   },
@@ -3426,6 +4584,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3440,6 +4604,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (3/3), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (3/3), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3454,6 +4624,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3468,6 +4644,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3482,6 +4664,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3496,6 +4684,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3509,6 +4703,12 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. Image Exception : #8 :: Fslread: DT 128 not supported terminate called after throwing an instance of 'std::runtime_error' what(): Fslread: DT 128 not supported"
+    },
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
      "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. Image Exception : #8 :: Fslread: DT 128 not supported terminate called after throwing an instance of 'std::runtime_error' what(): Fslread: DT 128 not supported"
     }
    }
@@ -3524,6 +4724,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3538,6 +4744,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (3/3), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (3/3), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3552,6 +4764,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (17/17), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (17/17), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3566,6 +4784,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3580,6 +4804,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3594,6 +4824,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3608,6 +4844,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3622,6 +4864,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3636,6 +4884,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3650,6 +4904,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3664,6 +4924,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3678,6 +4944,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3692,6 +4964,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (241/241), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3706,6 +4984,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (169/169), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (169/169), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3720,6 +5004,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (165/165), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (165/165), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3734,6 +5024,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (165/165), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (165/165), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3748,6 +5044,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (165/165), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (165/165), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3762,6 +5064,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (211/211), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (211/211), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3776,6 +5084,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (211/211), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (211/211), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3790,6 +5104,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (201/201), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (201/201), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3804,6 +5124,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (589/589), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (589/589), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3818,6 +5144,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (161/161), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (161/161), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3832,6 +5164,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (201/201), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (201/201), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3846,6 +5184,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (61/61), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (61/61), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3860,6 +5204,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (197/197), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (197/197), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3874,6 +5224,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (601/601), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (601/601), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3888,6 +5244,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (81/81), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (81/81), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3902,6 +5264,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (81/81), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (81/81), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3916,6 +5284,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (64/64), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (64/64), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3944,6 +5318,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (201/201), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (201/201), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   },
@@ -3958,6 +5338,194 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": "Every file mcflirt writes (11/11), its exit status and both streams identical to mcflirt's (FSL 6.0.7.17 as built), with the replica in reproduce mode."
+    },
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": "Every file mcflirt writes (11/11), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/fsloutputtype-zst",
+   "category": "replica: edge cases",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (4/4), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/fsloutputtype-pair-bz2",
+   "category": "replica: edge cases",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/fsloutputtype-nifti2-zst",
+   "category": "replica: edge cases",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/input-zst",
+   "category": "replica: edge cases",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/input-bz2-plain-name",
+   "category": "replica: edge cases",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "edge/img-in-directory",
+   "category": "replica: edge cases",
+   "description": "mcflirt exits [-6]; the same from the replica. Image Exception : #22 :: Failed to read volume a.img.d/in.nii.gz Error : Error: cant open file a.hdr.d/in.nii.gz…",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. Image Exception : #22 :: Failed to read volume a.img.d/in.nii.gz Error : Error: cant open file a.hdr.d/in.nii.gz terminate called after throwing an instance of 'std::runtime_error' what(): Failed to r"
+    }
+   }
+  },
+  {
+   "id": "edge/img-in-output-directory",
+   "category": "replica: edge cases",
+   "description": "7/7",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file mcflirt writes (13/13), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "difftest/atanf-default-call",
+   "category": "difftest",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "difftest/atanf-matrices-from-0",
+   "category": "difftest",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (11/11), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "difftest/atanf-matrices-from-4",
+   "category": "difftest",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (9/9), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "difftest/atanf-par-only",
+   "category": "difftest",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (12/12), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "difftest/atanf-printed-params",
+   "category": "difftest",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (1/1), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
+    }
+   }
+  },
+  {
+   "id": "difftest/meanvol-name-notice",
+   "category": "difftest",
+   "description": "6/6",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Every file mcflirt writes (2/2), its exit status and both streams identical to mcflirt's (FSL 6.0.7.23 as built), with the replica in reproduce mode."
     }
    }
   }
@@ -4031,7 +5599,7 @@
    "note": "From the case explorer below: each case's reason gives its numbers."
   }
  ],
- "cases_total": 196,
+ "cases_total": 209,
  "speed": {
   "title": "Seconds for the whole command, median of repeated runs, log scale; the factor is the clean-room original's speed-up at one thread",
   "axis": [
@@ -4107,7 +5675,7 @@
   {
    "id": "fmriprep-hmc",
    "title": "fMRIPrep's head-motion estimation of a real BOLD run, by mcflirt and larmorx",
-   "summary": "The mcflirt node fMRIPrep 25.2.6 ran on OpenNeuro ds000005 sub-01's first BOLD run (240 volumes, its own HMC reference): its command given to FSL 6.0.7's mcflirt, to the bit-exact replica (larmorx-nc) and to larmorx's clean-room original. fMRIPrep keeps only the matrices; the realigned series are shown at 6 of the 240 volumes (where larmorx deviates most, the largest motion, the ends).",
+   "summary": "The mcflirt node fMRIPrep 25.2.6 ran on OpenNeuro ds000005 sub-01's first BOLD run (240 volumes, its own HMC reference): its command given to FSL 6.0.7.17's mcflirt, to the bit-exact replica (larmorx-nc) and to larmorx's clean-room original, and to FSL 6.0.7.23's mcflirt with the replica compared with it (the replica's reference since the version update of 2026-10-29). fMRIPrep keeps only the matrices; the realigned series are shown at 6 of the 240 volumes (where larmorx deviates most, the largest motion, the ends).",
    "facts": [
     {
      "label": "Data",
@@ -4128,6 +5696,10 @@
     {
      "label": "Volumes",
      "text": "shown: file volumes 0, 19, 160, 166, 182, 239"
+    },
+    {
+     "label": "FSL versions",
+     "text": "FSL 6.0.7.17's panels as first computed; FSL 6.0.7.23 (the replica's reference since 2026-10-29) on the same arguments, with the replica's run compared with it: on fMRIPrep's command it gives 6.0.7.17's values (the headers' build string aside). FSL 6.0.7.23 (mcflirt) and larmorx-nc 0.0.1 at commit `caefd642193a`. The case explorer below shows the replica's full-tier record (against FSL 6.0.7.17) and its standard record (against FSL 6.0.7.23) side by side; the clean-room original's record runs against 6.0.7.17's recorded runs until it is aligned with 6.0.7.23."
     }
    ],
    "grid": {
@@ -4323,7 +5895,7 @@
     {
      "id": "mcflirt",
      "role": "original",
-     "label": "mcflirt, FSL 6.0.7",
+     "label": "mcflirt, FSL 6.0.7.17",
      "sub": "fMRIPrep's command",
      "arrays": {
       "series": {
@@ -4344,7 +5916,7 @@
     {
      "id": "mcflirt-2",
      "role": "original",
-     "label": "mcflirt, FSL 6.0.7",
+     "label": "mcflirt, FSL 6.0.7.17",
      "sub": "the same command again",
      "arrays": {
       "series": {
@@ -4362,7 +5934,7 @@
     {
      "id": "mcflirt-reverse",
      "role": "original",
-     "label": "mcflirt, FSL 6.0.7",
+     "label": "mcflirt, FSL 6.0.7.17",
      "sub": "the volumes in reverse order (put back)",
      "arrays": {
       "series": {
@@ -4428,6 +6000,42 @@
        "xor": "larmorx-fix:series",
        "zero": false,
        "bytes": 73538
+      }
+     },
+     "own": {
+      "series": [
+       0.0,
+       813.0
+      ]
+     }
+    },
+    {
+     "id": "mcflirt23",
+     "role": "original",
+     "label": "mcflirt, FSL 6.0.7.23",
+     "sub": "fMRIPrep's command; the replica's reference since 2026-10-29",
+     "arrays": {
+      "series": {
+       "same": "mcflirt:series",
+       "dtype": "i2"
+      }
+     },
+     "own": {
+      "series": [
+       0.0,
+       813.0
+      ]
+     }
+    },
+    {
+     "id": "replica23",
+     "role": "larmorx",
+     "label": "larmorx-nc replica",
+     "sub": "reproduce mode, 3 threads, following FSL 6.0.7.23",
+     "arrays": {
+      "series": {
+       "same": "mcflirt:series",
+       "dtype": "i2"
       }
      },
      "own": {
@@ -4703,7 +6311,7 @@
      "a": "replica",
      "b": "mcflirt",
      "kind": "main",
-     "label": "replica − mcflirt",
+     "label": "replica − mcflirt 6.0.7.17",
      "role_label": "larmorx against the original",
      "metrics": {
       "series": {
@@ -4742,11 +6350,11 @@
       }
      },
      "verdict": "bit-identical",
-     "reason": "The replica gives mcflirt's bytes: the realigned series and 240 of 240 matrices identical as text (larmorx-nc 0.0.1, a translation of FSL 6.0.7's source with glibc 2.35's float functions).",
+     "reason": "The replica gives mcflirt's bytes: the realigned series and 240 of 240 matrices identical as text (larmorx-nc 0.0.1 at the time, a translation of FSL 6.0.7.17's source with glibc 2.35's float functions).",
      "links": [
       {
        "label": "replica record",
-       "href": "docs/validation/fsl-mcflirt-replica.md"
+       "href": "docs/validation/fsl-mcflirt-replica-full.md"
       }
      ]
     },
@@ -4908,6 +6516,105 @@
      },
      "verdict": "within-variability",
      "reason": "Both implementations correct the same defects; their matrices differ as the original's differ from mcflirt's: 95th-percentile RMS deviation 0.0193 mm against mcflirt's own 0.0241 mm (0 of 240 matrices identical as text).",
+     "links": []
+    },
+    {
+     "id": "replica23-mcflirt23",
+     "a": "replica23",
+     "b": "mcflirt23",
+     "kind": "main",
+     "label": "replica − FSL 6.0.7.23",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "series": {
+       "identical": true,
+       "voxels": 835584,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1133.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": "bit-identical",
+     "reason": "The same values as FSL 6.0.7.23, every one. The realigned series and 240 of 240 matrices identical as text (larmorx-nc 0.0.1, following FSL 6.0.7.23's source).",
+     "links": [
+      {
+       "label": "replica record",
+       "href": "docs/validation/fsl-mcflirt-replica.md"
+      }
+     ]
+    },
+    {
+     "id": "mcflirt23-mcflirt",
+     "a": "mcflirt23",
+     "b": "mcflirt",
+     "kind": "variability",
+     "label": "FSL 6.0.7.23 − FSL 6.0.7.17",
+     "role_label": "the original against itself: the version step",
+     "metrics": {
+      "series": {
+       "identical": true,
+       "voxels": 835584,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 1133.0,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "verdict": null,
+     "reason": "FSL 6.0.7.23 gives FSL 6.0.7.17's values on fMRIPrep's command: the version step changes nothing computed here. 240 of 240 matrices identical as text.",
      "links": []
     }
    ],
@@ -5210,7 +6917,7 @@
      ],
      "key": [
       {
-       "label": "mcflirt, FSL 6.0.7",
+       "label": "mcflirt, FSL 6.0.7.17",
        "mark": "original"
       },
       {
@@ -10434,7 +12141,7 @@
         ]
        },
        {
-        "head": "fMRIPrep's own matrices − mcflirt 6.0.7",
+        "head": "fMRIPrep's own matrices − mcflirt 6.0.7.17",
         "sub": "identical as text",
         "class": "is-sep",
         "cells": [
@@ -10642,6 +12349,68 @@
           "fmt": "sig4"
          }
         ]
+       },
+       {
+        "head": "replica (reproduce) − mcflirt 6.0.7.23",
+        "sub": "240 of 240 matrices identical as text",
+        "class": "is-sep",
+        "cells": [
+         {
+          "v": 8.310863329810284e-15,
+          "fmt": "sig"
+         },
+         {
+          "v": 2.3244856018596125e-14,
+          "fmt": "sig"
+         },
+         {
+          "v": 2.8600131710003574e-14,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 1.0,
+          "fmt": "sig4"
+         }
+        ]
+       },
+       {
+        "head": "mcflirt 6.0.7.23 − 6.0.7.17",
+        "sub": "the version step; 240 of 240 matrices identical as text",
+        "class": "is-yardstick",
+        "cells": [
+         {
+          "v": 8.310863329810284e-15,
+          "fmt": "sig"
+         },
+         {
+          "v": 2.3244856018596125e-14,
+          "fmt": "sig"
+         },
+         {
+          "v": 2.8600131710003574e-14,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 1.0,
+          "fmt": "sig4"
+         }
+        ]
        }
       ],
       "note": "The record's thresholds: 95th percentile ≤ 0.1 mm, median parameter differences ≤ 0.05 mm and 0.05°, FD r ≥ 0.99 where FD reaches 0.5 mm, each widened to mcflirt's own variability where that is larger. The shaded rows are mcflirt's own variability: the worst of them is the band of the chart above."
@@ -10654,7 +12423,9 @@
     "Inputs: BOLD (sha256 609ae0a21822318f…); HMC reference (sha256 5030b453bcc3bbd4…)",
     "Runs: figures cache entry `mri-hmc/fmriprep-ds000005-run-01`, computed 2026-10-21T15:08:32+00:00 with larmorx `1dfe56c0dc60`; FSL 6.0.7.17 (mcflirt); every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Inputs: BOLD (sha256 609ae0a21822318f…); HMC reference (sha256 5030b453bcc3bbd4…)",
-    "Runs: figures cache entry `mri-hmc/fmriprep-ds000005-run-01-replica`, computed 2026-10-24T19:03:54+00:00 with larmorx `d6ba67e5ccc3`; larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `mri-hmc/fmriprep-ds000005-run-01-replica`, computed 2026-10-24T19:03:54+00:00 with larmorx `d6ba67e5ccc3`; larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Inputs: BOLD (sha256 609ae0a21822318f…); HMC reference (sha256 5030b453bcc3bbd4…)",
+    "Runs: figures cache entry `mri-hmc/fmriprep-ds000005-run-01-fsl-6.0.7.23`, computed 2026-10-29T10:14:47+00:00 with larmorx `caefd642193a`; FSL 6.0.7.23 (mcflirt); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
     "openneuro-ds000005"
