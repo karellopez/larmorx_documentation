@@ -3,19 +3,19 @@
  "tool": "mri-hmc",
  "title": "Head-motion correction",
  "provenance": {
-  "exporter": "afa5a5ade59557b93a8cab462b0b094d55ad5d3e",
+  "exporter": "07c413e70ff12cd013794ab6d0d03accfd891c64",
   "records": [
    {
     "path": "docs/validation/mri-hmc.json",
-    "sha256": "3a3527511e6eb3b9e11c1b920b2681846f8b84955c71cf9112e2f4a123459627",
+    "sha256": "a32398f46b51b882416126d2f791f2fd70a30eccfb6f6d50d789cae3d18ecddf",
     "generated": "2026-10-29",
-    "larmorx_commit": "e82f16ee2f72"
+    "larmorx_commit": "bb36e15a24bb"
    },
    {
     "path": "docs/validation/mri-hmc.md",
-    "sha256": "b4c13c5fcbf4182f13a31d4287ea98d80c0170bb2c8a2cb163d77e0a9d3e27c2",
+    "sha256": "27a7270cf0519ba81562254c31a9b26e3abd01258e864733e6ec34cd14591961",
     "generated": "2026-10-29",
-    "larmorx_commit": "e82f16ee2f72"
+    "larmorx_commit": "bb36e15a24bb"
    },
    {
     "path": "docs/validation/fsl-mcflirt-replica-full.json",
@@ -403,7 +403,7 @@
  "implementations": [
   {
    "id": "original",
-   "label": "larmorx clean-room original",
+   "label": "larmorx clean-room original, against FSL 6.0.7.23 (standard tier)",
    "short": "original",
    "record": "docs/validation/mri-hmc.md",
    "status": "experimental",
@@ -799,7 +799,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0143 mm, median Δ 0.0004 mm / 0°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0133 mm, median Δ 0.0004 mm / 0°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -903,7 +903,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0489 mm, median Δ 0.0069 mm / 0.0045°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0048 mm, median Δ 0.0001 mm / 0.0001°; 1/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -955,7 +955,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0653 mm, median Δ 0.0103 mm / 0.0083°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0108 mm, median Δ 0.0002 mm / 0.0002°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2905,7 +2905,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0347 mm, median Δ 0.0007 mm / 0°; 1/8 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0407 mm, median Δ 0.0013 mm / 0°; 1/8 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2931,7 +2931,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0347 mm, median Δ 0.0007 mm / 0°; 1/8 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0407 mm, median Δ 0.0013 mm / 0°; 1/8 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2957,7 +2957,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.055 mm, median Δ 0.0005 mm / 0°; 1/8 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0308 mm, median Δ 0 mm / 0°; 2/8 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3191,7 +3191,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0008 mm / 0°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.036 mm, median Δ 0.0009 mm / 0°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -4146,14 +4146,14 @@
   {
    "id": "difftest/normmi-aligns-worse",
    "category": "difftest",
-   "description": "Head-motion correction with -cost normmi: the subset that aligns worse, left open (item 13, 2026-10-29)",
+   "description": "Head-motion correction with -cost normmi on a random phantom with large motion: once the subset that aligned worse (ite…",
    "command": "",
    "results": {
     "original": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "7/13",
-     "reason": "-cost normmi: larmorx aligns this phantom worse than mcflirt (temporal SD 1.38 of mcflirt's); over the night's 91 normmi findings the median ratio is 1.033; cause open (the spec describes the histogram costs in outline only; docs/findings/mri-hmc-original.md)"
+     "reason": "-cost normmi, computed exactly as specs/mcflirt.md appendix B describes it since 2026-10-29: larmorx now aligns this phantom better than mcflirt 6.0.7.23 (temporal SD 0.93 of mcflirt's; 1.38 before), its estimates ending in other minima of a phantom moved by …"
     }
    }
   },
@@ -5699,7 +5699,7 @@
     },
     {
      "label": "FSL versions",
-     "text": "FSL 6.0.7.17's panels as first computed; FSL 6.0.7.23 (the replica's reference since 2026-10-29) on the same arguments, with the replica's run compared with it: on fMRIPrep's command it gives 6.0.7.17's values (the headers' build string aside). FSL 6.0.7.23 (mcflirt) and larmorx-nc 0.0.1 at commit `caefd642193a`. The case explorer below shows the replica's full-tier record (against FSL 6.0.7.17) and its standard record (against FSL 6.0.7.23) side by side; the clean-room original's record runs against 6.0.7.17's recorded runs until it is aligned with 6.0.7.23."
+     "text": "FSL 6.0.7.17's panels as first computed; FSL 6.0.7.23 (the replica's reference since 2026-10-29) on the same arguments, with the replica's run compared with it: on fMRIPrep's command it gives 6.0.7.17's values (the headers' build string aside). FSL 6.0.7.23 (mcflirt) and larmorx-nc 0.0.1 at commit `caefd642193a`. The case explorer below shows the replica's full-tier record (against FSL 6.0.7.17) and its standard record (against FSL 6.0.7.23) side by side; the clean-room original's record runs against 6.0.7.23's recorded runs since its alignment (2026-10-29)."
     }
    ],
    "grid": {
@@ -6616,6 +6616,63 @@
      "verdict": null,
      "reason": "FSL 6.0.7.23 gives FSL 6.0.7.17's values on fMRIPrep's command: the version step changes nothing computed here. 240 of 240 matrices identical as text.",
      "links": []
+    },
+    {
+     "id": "lx-mcflirt23",
+     "a": "larmorx",
+     "b": "mcflirt23",
+     "kind": "main",
+     "label": "clean-room original − mcflirt 6.0.7.23",
+     "role_label": "larmorx against the original (both implementations' reference)",
+     "metrics": {
+      "series": {
+       "identical": false,
+       "voxels": 835584,
+       "differ": 93448,
+       "share": 0.11183555453431372,
+       "max_abs": 7.0,
+       "at": [
+        39,
+        51,
+        1,
+        4
+       ],
+       "a_at": 344.0,
+       "b_at": 351.0,
+       "rms": 0.41458675884140056,
+       "range": 1133.0,
+       "max_rel_range": 0.00617828773168579,
+       "one_minus_ncc": 1.5973902934969807e-06,
+       "at_display": [
+        18,
+        49,
+        1,
+        4
+       ]
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 7.0,
+       "at": [
+        17,
+        48,
+        9,
+        4
+       ],
+       "a": 753.0,
+       "b": 760.0,
+       "differ": 65296
+      }
+     },
+     "verdict": "within-variability",
+     "reason": "FSL 6.0.7.23's mcflirt is the clean-room original's reference since 2026-10-29 (its record is against it). On fMRIPrep's command the original's matrices against it: 95th-percentile RMS deviation 0.0193 mm, against mcflirt's own 0.0241 mm under the perturbations; 0 of 240 matrices identical as text. The original's run is the one above: fMRIPrep's command meets none of the changes of the alignment (FSL-59's final interpolations, the zstd and bzip2 files, FSL-60's names, the histogram costs).",
+     "links": [
+      {
+       "label": "record",
+       "href": "docs/validation/mri-hmc.md"
+      }
+     ]
     }
    ],
    "default": {
@@ -12408,6 +12465,37 @@
          },
          {
           "v": 1.0,
+          "fmt": "sig4"
+         }
+        ]
+       },
+       {
+        "head": "clean-room original (reproduce) − mcflirt 6.0.7.23",
+        "sub": "its reference since 2026-10-29; 0 of 240 matrices identical as text",
+        "class": "is-sep",
+        "cells": [
+         {
+          "v": 0.010141490068062444,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.019328233042812688,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.02831089627068545,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0018179375000073605,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0012032123692000177,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.8918777352680963,
           "fmt": "sig4"
          }
         ]

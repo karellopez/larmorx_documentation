@@ -7,7 +7,7 @@ lede: >-
   every compared case, and a
   clean-room original in LARMORX (Apache-2.0), written from a behavioural specification, which
   differs from AFNI by the last bits of its Fourier shift.
-description: LARMORX's two implementations of AFNI's 3dTshift, validated against AFNI 26.3.05 (the replica), AFNI 25.2.09 and fMRIPrep 25.2.6 — a real BOLD run and a deliberate correction to inspect, every parity case with its verdict, and speed.
+description: LARMORX's two implementations of AFNI's 3dTshift, validated against AFNI 26.3.05 (both implementations), AFNI 25.2.09 and fMRIPrep 25.2.6 — a real BOLD run and a deliberate correction to inspect, every parity case with its verdict, and speed.
 evidence: true
 wide: true
 ---
@@ -44,7 +44,7 @@ stc = lx.afni.tshift("sub-01_task-rest_bold.nii.gz", slice_times=times, tzero=t0
 
 {{ ev.agreement('afni-tshift', 'original') }}
 
-The clean-room original's record runs 315 cases against AFNI 25.2.09, the replica's 315 against AFNI 26.3.05. Since 2026-10-29 the replica follows **AFNI 26.3.05**, AFNI's newest release, and its record runs against it, with AFNI 25.2.09 run beside it on every case (*AFNI's own step*); the clean-room original's record stays on AFNI 25.2.09 until it follows 26.3.05's two fixes. Between the two releases these programs changed in exactly two places, both corrections LARMORX already made by default: header slice code 2 read as NIfTI defines it (AFNI-03) and 3dTshift's `-no_detrend` de-meaning every voxel (AFNI-05). The examples below show both versions' outputs: on fMRIPrep's calls they are the same bytes. The replica gives AFNI's bytes in every case that produces an output, and AFNI's exit status and messages in the others. The clean-room original is bit-identical wherever it does not interpolate by Fourier, and within the record's thresholds where it does: AFNI computes the Fourier shift in float32 with its own FFT, the original in double precision, so float outputs differ in the last bits and integer outputs occasionally round the other way, by one. Those differences are marked *open*: explained, small, and still closable.
+The clean-room original's record and the replica's each run 315 cases against AFNI 26.3.05. Since 2026-10-29 both implementations follow **AFNI 26.3.05**, AFNI's newest release, and their records run against it, with AFNI 25.2.09 run beside it on every case (*AFNI's own step*): the replica since the version update, the clean-room original since its alignment the same day. Between the two releases these programs changed in exactly two places, both corrections LARMORX already made by default: header slice code 2 read as NIfTI defines it (AFNI-03) and 3dTshift's `-no_detrend` de-meaning every voxel (AFNI-05); with `reproduce`, both implementations now give 26.3.05's result there and name neither. The examples below show both versions' outputs: on fMRIPrep's calls they are the same bytes. The replica gives AFNI's bytes in every case that produces an output, and AFNI's exit status and messages in the others. The clean-room original is bit-identical wherever it does not interpolate by Fourier, and within the record's thresholds where it does: AFNI computes the Fourier shift in float32 with its own FFT, the original in double precision, so float outputs differ in the last bits and integer outputs occasionally round the other way, by one. Those differences are marked *open*: explained, small, and still closable.
 
 ## A real BOLD run, as fMRIPrep corrects it {#example}
 
@@ -68,7 +68,7 @@ Each case of the two records, with what it tests, its command line, the verdict 
 
 ## Corrections by default {#corrections}
 
-Both implementations correct AFNI's deterministic defects by default and warn: the records' fix passes meet AFNI-01, AFNI-02, AFNI-03, AFNI-05, AFNI-07, AFNI-08, AFNI-16, AFNI-19, AFNI-22 and AFNI-23, with `upstream_defects="reproduce"` giving AFNI's behaviour ([register](repo:docs/findings/upstream-defects.md)).
+Both implementations correct AFNI's deterministic defects by default and warn: the records' fix passes meet AFNI-01, AFNI-02, AFNI-07, AFNI-08, AFNI-16, AFNI-19, AFNI-22 and AFNI-23 (AFNI-03 and AFNI-05 were AFNI 25.2.09's: AFNI 26.3.05 behaves as LARMORX corrected them), with `upstream_defects="reproduce"` giving AFNI's behaviour ([register](repo:docs/findings/upstream-defects.md)).
 
 ## Random testing {#random-testing}
 
