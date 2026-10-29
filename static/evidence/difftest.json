@@ -1786,7 +1786,7 @@
        "cases": 3,
        "reproducer": "resample-series:20261025:462",
        "status": "open",
-       "explanation": "one voxel of a near-zero value (-7.8e-17, a cancellation) one float ulp from fMRIPrep's: the order of one sum to find (`validation/investigations/difftest/resample_pair.py`)"
+       "explanation": "one voxel of a near-zero value (-7.8e-17, a cancellation) one float ulp from fMRIPrep's: the order of one sum to find (`validation/investigations/difftest/resample_pair.py`); the version trial of 2026-10-29 (numpy 2.5.4, SciPy 1.18.1) found four more of the class (`resample-series:20261029:369`, 1243, 1700, 2144: mode grid-constant, orders 1, 3, 4, 3; 1 to 3 values of 13,104 to 24,000 differ, at most 5.7e-14 in absolute value), and 369 replays alike against numpy 2.3.5 and SciPy 1.15.3 (`--python shared`): not the update's"
       }
      ],
      "notices": [
@@ -1804,6 +1804,6 @@
  "triage": "validation/difftest/triage.toml",
  "provenance": {
   "summary": "oracles/difftest/2026-10-25/summary.json",
-  "exporter": "07c413e70ff12cd013794ab6d0d03accfd891c64"
+  "exporter": "e5ba67204403d2ac092d67f0b6d136c6d61a227e"
  }
 }
