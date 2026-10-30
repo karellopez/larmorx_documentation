@@ -2,9 +2,9 @@
 title: 3dAutomask
 kicker: Tools · AFNI
 lede: >-
-  AFNI's brain mask of an EPI series or a skull-stripped image, in two implementations: an
-  exact replica of AFNI's source in the separate larmorx-gpl package, and a clean-room original
-  in LARMORX (Apache-2.0), written from a behavioural specification. Both give AFNI 26.3.05's
+  AFNI's brain mask of an EPI series or a skull-stripped image, in two implementations, both in
+  LARMORX: an exact replica of AFNI's source, and a clean-room original (Apache-2.0), written
+  from a behavioural specification. Both give AFNI 26.3.05's
   masks bit for bit in every compared case, fMRIPrep's own calls included.
 description: LARMORX's two implementations of AFNI's 3dAutomask, validated against AFNI 26.3.05 (both implementations), AFNI 25.2.09 and fMRIPrep 25.2.6 — fMRIPrep's skull strip of a real BOLD reference, a raw BOLD series and a deliberate correction to inspect, and every parity case with its verdict.
 evidence: true
@@ -12,7 +12,7 @@ wide: true
 ---
 
 <dl class="facts">
-<dt>Implementations</dt><dd>exact replica (<code>larmorx-gpl</code>, GPL-3.0-or-later, run as a separate program); clean-room original (<code>larmorx</code>, Apache-2.0, from <a href="{{ repo('specs/3dAutomask.md') }}">specs/3dAutomask.md</a>)</dd>
+<dt>Implementations</dt><dd>exact replica (<code>larmorx</code>, Apache-2.0 with CC BY 4.0's attribution for the Medical College of Wisconsin's code, in <code>pip install larmorx</code> since 2026-10-29; until then the separate GPL package <code>larmorx-gpl</code>); clean-room original (<code>larmorx</code>, Apache-2.0, from <a href="{{ repo('specs/3dAutomask.md') }}">specs/3dAutomask.md</a>)</dd>
 <dt>Status</dt><dd><span class="status-tag eco-afni">validated</span> (each)</dd>
 <dt>Records</dt><dd><a href="{{ repo('docs/validation/afni-automask-replica.md') }}">replica</a> · <a href="{{ repo('docs/validation/afni-automask.md') }}">original</a> · API <a href="{{ repo('docs/api/afni-automask.md') }}">afni-automask</a></dd>
 </dl>
@@ -32,7 +32,7 @@ r = lx.afni.automask("uni_xform.nii.gz", dilate=1, apply=True)   # implementatio
 r.mask, r.masked
 ```
 
-3dAutomask's results depend on AFNI library routines copyrighted by the Medical College of Wisconsin (GPL-2), so LARMORX has two implementations. `implementation="auto" | "replica" | "original"` chooses (on the command line `LARMORX_IMPLEMENTATION`); `auto` takes the replica when `larmorx-gpl` is installed (`pip install "larmorx[exact]"`), and the clean-room original otherwise. The original decides each pass of its mask operations voxel by voxel in parallel, finds clusters by union-find over runs of voxels and replaces two of AFNI's repeated sweeps by breadth-first searches with the same result; its result does not depend on the thread count. How to read what follows: [the validation guide](/validation/#reading).
+3dAutomask's results depend on AFNI library routines copyrighted by the Medical College of Wisconsin, GPL-2 until AFNI 25.2.09, so LARMORX has two implementations. Since 2026-10-29 both are part of LARMORX itself (`pip install larmorx`): AFNI 26.3.05 releases the Medical College of Wisconsin's code, which these programs' results depend on, under CC BY 4.0, so the exact replica moved from the separate GPL package `larmorx-gpl` into LARMORX, under the Apache License with CC BY 4.0's attribution ([NOTICE](repo:NOTICE), [licensing](repo:docs/licensing.md)), and runs in the same process. `implementation="auto" | "replica" | "original"` chooses (on the command line `LARMORX_IMPLEMENTATION`); `auto` takes the replica (until 2026-10-29, when `larmorx-gpl` was installed, and the clean-room original otherwise). The examples below were computed with the replica as the separate program it was then; its records, re-made in-process on 2026-10-29, agree case for case. The original decides each pass of its mask operations voxel by voxel in parallel, finds clusters by union-find over runs of voxels and replaces two of AFNI's repeated sweeps by breadth-first searches with the same result; its result does not depend on the thread count. How to read what follows: [the validation guide](/validation/#reading).
 
 ## The verdicts at a glance {#verdicts}
 

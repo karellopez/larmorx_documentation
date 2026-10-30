@@ -3,9 +3,8 @@ title: 3dUnifize
 kicker: Tools · AFNI
 lede: >-
   AFNI's white-matter uniformization of a T1w (or, with -T2, a T2w or an EPI image), in two
-  implementations: an exact replica of AFNI's source in the separate larmorx-gpl package,
-  bit-identical to AFNI 26.3.05 (and, before it, 25.2.09) in every compared case, and a
-  clean-room original in LARMORX
+  implementations, both in LARMORX: an exact replica of AFNI's source, bit-identical to AFNI
+  26.3.05 (and, before it, 25.2.09) in every compared case, and a clean-room original
   (Apache-2.0), written from a behavioural specification, whose outputs are AFNI's bytes with
   correctly rounded maths, fMRIPrep's own calls included.
 description: LARMORX's two implementations of AFNI's 3dUnifize, validated against AFNI 26.3.05 (both implementations), AFNI 25.2.09 and fMRIPrep 25.2.6 — fMRIPrep's uniformization of a real BOLD reference, a real T1w and a deliberate correction to inspect, AFNI at 1 and 6 threads and with correctly rounded maths, and every parity case with its verdict.
@@ -14,7 +13,7 @@ wide: true
 ---
 
 <dl class="facts">
-<dt>Implementations</dt><dd>exact replica (<code>larmorx-gpl</code>, GPL-3.0-or-later, run as a separate program); clean-room original (<code>larmorx</code>, Apache-2.0, from <a href="{{ repo('specs/3dUnifize.md') }}">specs/3dUnifize.md</a>)</dd>
+<dt>Implementations</dt><dd>exact replica (<code>larmorx</code>, Apache-2.0 with CC BY 4.0's attribution for the Medical College of Wisconsin's code, in <code>pip install larmorx</code> since 2026-10-29; until then the separate GPL package <code>larmorx-gpl</code>); clean-room original (<code>larmorx</code>, Apache-2.0, from <a href="{{ repo('specs/3dUnifize.md') }}">specs/3dUnifize.md</a>)</dd>
 <dt>Status</dt><dd><span class="status-tag eco-afni">validated</span> (each)</dd>
 <dt>Records</dt><dd><a href="{{ repo('docs/validation/afni-unifize-replica.md') }}">replica</a> · <a href="{{ repo('docs/validation/afni-unifize.md') }}">original</a> · API <a href="{{ repo('docs/api/afni-unifize.md') }}">afni-unifize</a></dd>
 </dl>
@@ -34,7 +33,7 @@ uni = lx.afni.unifize("ref_brain.nii.gz", **lx.afni.fmriprep_unifize_options(), 
 t1 = lx.afni.unifize("sub-01_T1w.nii.gz", save_scale=True)   # implementation="auto"
 ```
 
-3dUnifize's results depend on AFNI library routines copyrighted by the Medical College of Wisconsin (GPL-2), so LARMORX has two implementations. `implementation="auto" | "replica" | "original"` chooses (on the command line `LARMORX_IMPLEMENTATION`); `auto` takes the replica when `larmorx-gpl` is installed (`pip install "larmorx[exact]"`), and the clean-room original otherwise. The squash calls `tanhf`: the replica carries a port of glibc 2.35's, checked against glibc on all 2<sup>32</sup> float inputs; the original uses a correctly rounded one (a port of CORE-MATH's), as every LARMORX function does. The original's ball percentiles are its speed: instead of gathering and sorting some 25,000 values at every voxel, it slides a window of counts per rank from voxel to voxel, changing only the ball's two surfaces, and reads the values between the two percentiles in ascending order, which gives the specification's sum exactly; planes run in parallel, with the same bytes at any thread count. How to read what follows: [the validation guide](/validation/#reading).
+3dUnifize's results depend on AFNI library routines copyrighted by the Medical College of Wisconsin, GPL-2 until AFNI 25.2.09, so LARMORX has two implementations. Since 2026-10-29 both are part of LARMORX itself (`pip install larmorx`): AFNI 26.3.05 releases the Medical College of Wisconsin's code, which these programs' results depend on, under CC BY 4.0, so the exact replica moved from the separate GPL package `larmorx-gpl` into LARMORX, under the Apache License with CC BY 4.0's attribution ([NOTICE](repo:NOTICE), [licensing](repo:docs/licensing.md)), and runs in the same process. `implementation="auto" | "replica" | "original"` chooses (on the command line `LARMORX_IMPLEMENTATION`); `auto` takes the replica (until 2026-10-29, when `larmorx-gpl` was installed, and the clean-room original otherwise). The examples below were computed with the replica as the separate program it was then; its records, re-made in-process on 2026-10-29, agree case for case. The squash calls `tanhf`: the replica carries fdlibm's, as glibc 2.35 runs it, checked against glibc on all 2<sup>32</sup> float inputs; `-EPI`'s radius calls `cbrtf`, whose glibc code is not part of LARMORX: the replica computes it correctly rounded and warns on the voxel sizes where the cube root's last bit could change the result (2,953 of the float voxel volumes between 1 and 100 mm³; on 80 of them glibc's last bit changes the ball of neighbours); the original uses a correctly rounded one (a port of CORE-MATH's), as every LARMORX function does. The original's ball percentiles are its speed: instead of gathering and sorting some 25,000 values at every voxel, it slides a window of counts per rank from voxel to voxel, changing only the ball's two surfaces, and reads the values between the two percentiles in ascending order, which gives the specification's sum exactly; planes run in parallel, with the same bytes at any thread count. How to read what follows: [the validation guide](/validation/#reading).
 
 ## The verdicts at a glance {#verdicts}
 
