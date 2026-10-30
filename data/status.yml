@@ -82,19 +82,19 @@ implemented:
     tool: "3dTshift (slice timing)"
     page: /tools/afni-tshift/
     use: ["larmorx afni 3dTshift", "lx.afni.tshift"]
-    how: "clean-room original; exact replica in `larmorx-gpl`"
+    how: "clean-room original and exact replica, both in larmorx (the replica with CC BY 4.0's attribution)"
     validation: "original: [280 of 280](repo:docs/validation/afni-tshift.md) compared agree, 178 bit-identical, [2–6× faster](repo:docs/benchmarks/afni-tshift.md); replica: [280 of 280](repo:docs/validation/afni-tshift-replica.md) bit-identical"
   - eco: afni
     tool: "3dAutomask (brain mask)"
     page: /tools/afni-automask/
     use: ["larmorx afni 3dAutomask", "lx.afni.automask"]
-    how: "clean-room original; exact replica in `larmorx-gpl`"
+    how: "clean-room original and exact replica, both in larmorx (the replica with CC BY 4.0's attribution)"
     validation: "original: [130 cases](repo:docs/validation/afni-automask.md), 92 of 106 compared cases that write outputs bit-identical to AFNI (the other 14: inputs carrying AFNI's own header extension, AFNI-10: the data bit-identical, the header and messages AFNI's for the input without it), fMRIPrep's call on every oracle run's BOLD reference included, the data panel's too; replica: [101 of 101](repo:docs/validation/afni-automask-replica.md) compared cases that write outputs bit-identical"
   - eco: afni
     tool: "3dUnifize (intensity uniformization)"
     page: /tools/afni-unifize/
     use: ["larmorx afni 3dUnifize", "lx.afni.unifize"]
-    how: "clean-room original; exact replica in `larmorx-gpl`"
+    how: "clean-room original and exact replica, both in larmorx (the replica with CC BY 4.0's attribution)"
     validation: "original: [117 cases](repo:docs/validation/afni-unifize.md), none failing: 37 of 92 compared cases that write outputs bit-identical to AFNI, the other 55 within 1e-5 (at most 8.7e-8 of the largest value) and bit-identical to AFNI run with correctly rounded maths (glibc's `tanhf` in AFNI's squash), fMRIPrep's call on every oracle run included; 4 to 25 times faster than AFNI (informal timings); replica: [90 of 90](repo:docs/validation/afni-unifize-replica.md) compared cases that write outputs bit-identical at 1, 2 and 6 threads"
   - eco: fsl
     tool: "Head-motion correction (mcflirt)"
