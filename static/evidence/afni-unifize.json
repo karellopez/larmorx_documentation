@@ -19,15 +19,15 @@
    },
    {
     "path": "docs/validation/afni-unifize-replica.json",
-    "sha256": "a8345c2db0e497095582dae770bb8102a2bceed04ec7b1e146ae94246bc464ab",
+    "sha256": "a812112e8c78ccf37082cf8c8a9ad6275e4a6a78b4d11197d2a9b18225bbf577",
     "generated": "2026-10-30",
-    "larmorx_commit": "1c4d4f683aee"
+    "larmorx_commit": "fb587fab4865"
    },
    {
     "path": "docs/validation/afni-unifize-replica.md",
-    "sha256": "252a75aa76575aefc8beb5d96fc6ea16c09c3392c1d5cafe6c55a9c7e13bb41c",
+    "sha256": "76271587b11d71e49ffb387fd71f6cf8c98e6377f0a396b64870205055cfea59",
     "generated": "2026-10-30",
-    "larmorx_commit": "1c4d4f683aee"
+    "larmorx_commit": "fb587fab4865"
    }
   ],
   "benchmarks": [
@@ -969,9 +969,9 @@
    "record": "docs/validation/afni-unifize-replica.md",
    "status": "validated",
    "summary": {
-    "cases": 116,
+    "cases": 127,
     "verdicts": {
-     "bit-identical": 91,
+     "bit-identical": 102,
      "d13": 2,
      "divergence": 4,
      "both-reject": 19
@@ -1040,6 +1040,18 @@
      "category": "real",
      "counts": {
       "bit-identical": 2
+     }
+    },
+    {
+     "category": "AFNI-75's guard",
+     "counts": {
+      "bit-identical": 6
+     }
+    },
+    {
+     "category": "GLIBC-05's cube root",
+     "counts": {
+      "bit-identical": 5
      }
     },
     {
@@ -3345,6 +3357,12 @@
      "verdict": "bit-identical",
      "checks": "3/3",
      "reason": ""
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": ""
     }
    }
   },
@@ -3355,6 +3373,12 @@
    "command": "",
    "results": {
     "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": ""
+    },
+    "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "3/3",
@@ -3373,6 +3397,12 @@
      "verdict": "bit-identical",
      "checks": "3/3",
      "reason": ""
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": ""
     }
    }
   },
@@ -3383,6 +3413,12 @@
    "command": "",
    "results": {
     "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": ""
+    },
+    "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "3/3",
@@ -3401,6 +3437,12 @@
      "verdict": "bit-identical",
      "checks": "7/7",
      "reason": ""
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
     }
    }
   },
@@ -3411,6 +3453,12 @@
    "command": "",
    "results": {
     "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    },
+    "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
@@ -3429,6 +3477,12 @@
      "verdict": "bit-identical",
      "checks": "11/11",
      "reason": "in its default mode the original corrects a defect of the register and names it: 6,321 values change (the record's D13 section)"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "in its default mode the replica corrects a defect of the register and names it: 6,321 values change (the record's D13 section)"
     }
    }
   },
@@ -3443,6 +3497,12 @@
      "verdict": "bit-identical",
      "checks": "10/10",
      "reason": "in its default mode the original corrects a defect of the register and names it: 1,865 values change (the record's D13 section)"
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "in its default mode the replica corrects a defect of the register and names it: 1,865 values change (the record's D13 section)"
     }
    }
   },
@@ -3453,6 +3513,12 @@
    "command": "",
    "results": {
     "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    },
+    "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "10/10",
@@ -3471,6 +3537,12 @@
      "verdict": "bit-identical",
      "checks": "10/10",
      "reason": ""
+    },
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
     }
    }
   },
@@ -3481,6 +3553,12 @@
    "command": "",
    "results": {
     "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    },
+    "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "10/10",
