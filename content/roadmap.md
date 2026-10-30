@@ -14,7 +14,7 @@ wide: true
 | | Step | What it delivers | Status |
 |---|---|---|---|
 | 1 | **BET's clean-room original** | BET (`bet`, `bet2`, `betsurf`) written from its behavioural specification, built for speed, beside the exact replica | Next |
-| 2 | **Two specified clean-room additions** | mcflirt's FSL-20, FSL-21, FSL-65 and FSL-66 corrections and 3dUnifize's memory guard (AFNI-75) in the clean-room originals | Specified (2026-10-30), ready for the clean-room implementer |
+| 2 | **Two specified clean-room additions** | mcflirt's FSL-20, FSL-21, FSL-65 and FSL-66 corrections and 3dUnifize's memory guard (AFNI-75) in the clean-room originals | Under way |
 | 3 | **FLIRT with BBR** | FSL's registration, which fMRIPrep uses to align BOLD to T1w: a replica and a clean-room original | Planned |
 | 4 | **FAST and topup** | FSL's tissue segmentation and field-map estimation, each a replica and a clean-room original; then BET's options that need them (`-S`, `-B`, `-A`, `-A2`) | Planned |
 | 5 | **Field maps** | sdcflows' field-map estimation: the B-spline fit, reversed phase encoding (PEPOLAR) and phase difference | Planned |
