@@ -13,14 +13,16 @@ wide: true
 
 | | Step | What it delivers | Status |
 |---|---|---|---|
-| 1 | **BET's clean-room original** | BET (`bet`, `bet2`, `betsurf`) written from its behavioural specification, built for speed, beside the exact replica | Next |
-| 2 | **FLIRT with BBR** | FSL's registration, which fMRIPrep uses to align BOLD to T1w: a replica and a clean-room original | Planned |
-| 3 | **FAST and topup** | FSL's tissue segmentation and field-map estimation, each a replica and a clean-room original; then BET's options that need them (`-S`, `-B`, `-A`, `-A2`) | Planned |
-| 4 | **Field maps** | sdcflows' field-map estimation: the B-spline fit, reversed phase encoding (PEPOLAR) and phase difference | Planned |
-| 5 | **FreeSurfer 8.2.0** | Every program complete, a replica (`larmorx-freesurfer`) and a clean-room original built for speed: first the reference runs on the [data panel](/data-panel/), then FreeSurfer's shared library, then the programs fMRIPrep runs, slowest first | Planned |
-| 6 | **Surfaces** | Surface tools compatible with Connectome Workbench and MSM | Planned |
-| 7 | **Confounds** | CompCor, DVARS, framewise displacement and fMRIPrep's other confounds | Planned |
-| 8 | **larmorprepx** | The pipeline: BIDS in, fMRIPrep-compatible derivatives and HTML reports out | Planned |
+| 1 | **A cube root with the C library's digits, for `reproduce`** | 3dUnifize `-EPI` keeps LARMORX's correctly rounded cube root by default and gives AFNI's exact result in `reproduce` mode, through a clean-room cube root with the C library's bits (its specification is written) | Next |
+| 2 | **BET's clean-room original** | BET (`bet`, `bet2`, `betsurf`) written from its behavioural specification, built for speed, beside the exact replica | Planned |
+| 3 | **FLIRT with BBR** | FSL's registration, which fMRIPrep uses to align BOLD to T1w: a replica and a clean-room original | Planned |
+| 4 | **FAST and topup** | FSL's tissue segmentation and field-map estimation, each a replica and a clean-room original; then BET's options that need them (`-S`, `-B`, `-A`, `-A2`) | Planned |
+| 5 | **fslmaths and fslstats** | FSL's image arithmetic and statistics, every operation, a replica and a clean-room original each: fMRIPrep calls them in every BOLD reference's skull strip and in the optional goodvoxels mask | Planned |
+| 6 | **Field maps** | sdcflows' field-map estimation: the B-spline fit, reversed phase encoding (PEPOLAR) and phase difference | Planned |
+| 7 | **FreeSurfer 8.2.0** | Every program complete, a replica (`larmorx-freesurfer`) and a clean-room original built for speed: first the reference runs on the [data panel](/data-panel/), then FreeSurfer's shared library, then the programs fMRIPrep runs, slowest first | Planned |
+| 8 | **Surfaces** | Surface tools compatible with Connectome Workbench and MSM | Planned |
+| 9 | **Confounds** | CompCor, DVARS, framewise displacement and fMRIPrep's other confounds | Planned |
+| 10 | **larmorprepx** | The pipeline: BIDS in, fMRIPrep-compatible derivatives and HTML reports out | Planned |
 
 New releases of the originals are followed as they come out: a weekly check lists every newer release and the files it changes, and each update is a step of its own.
 
