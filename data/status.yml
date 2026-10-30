@@ -95,7 +95,7 @@ implemented:
     page: /tools/afni-unifize/
     use: ["larmorx afni 3dUnifize", "lx.afni.unifize"]
     how: "clean-room original and exact replica, both in larmorx (the replica with CC BY 4.0's attribution)"
-    validation: "original: [124 cases](repo:docs/validation/afni-unifize.md), none failing: 39 of 94 compared cases that write outputs bit-identical to AFNI, the other 55 within 1e-5 (at most 8.7e-8 of the largest value) and bit-identical to AFNI run with correctly rounded maths (glibc's `tanhf` in AFNI's squash), fMRIPrep's call on every oracle run included; 4 to 25 times faster than AFNI (informal timings); replica: [90 of 90](repo:docs/validation/afni-unifize-replica.md) compared cases that write outputs bit-identical at 1, 2 and 6 threads"
+    validation: "original: [129 cases](repo:docs/validation/afni-unifize.md), none failing: 44 of 99 compared cases that write outputs bit-identical to AFNI, the other 55 within 1e-5 (at most 8.7e-8 of the largest value) and bit-identical to AFNI run with correctly rounded maths (glibc's `tanhf` in AFNI's squash), fMRIPrep's call on every oracle run included; 4 to 25 times faster than AFNI (informal timings); replica: [90 of 90](repo:docs/validation/afni-unifize-replica.md) compared cases that write outputs bit-identical at 1, 2 and 6 threads"
   - eco: fsl
     tool: "Head-motion correction (mcflirt)"
     page: /tools/mri-hmc/

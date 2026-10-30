@@ -13,7 +13,7 @@ wide: true
 
 | | Step | What it delivers | Status |
 |---|---|---|---|
-| 1 | **A cube root with the C library's digits, for `reproduce`** | 3dUnifize `-EPI` keeps LARMORX's correctly rounded cube root by default and gives AFNI's exact result in `reproduce` mode, through a clean-room cube root with the C library's bits (its specification is written) | Under way |
+| 1 | **A cube root with the C library's digits, for `reproduce`** | 3dUnifize `-EPI` keeps LARMORX's correctly rounded cube root by default and gives AFNI's exact result in `reproduce` mode, through a clean-room cube root with the C library's bits, proved on all 2^32 inputs | Clean-room half done (2026-10-30); the replica's half under way |
 | 2 | **BET's clean-room original** | BET (`bet`, `bet2`, `betsurf`) written from its behavioural specification, built for speed, beside the exact replica | Planned |
 | 3 | **FLIRT with BBR** | FSL's registration, which fMRIPrep uses to align BOLD to T1w: a replica and a clean-room original | Planned |
 | 4 | **FAST and topup** | FSL's tissue segmentation and field-map estimation, each a replica and a clean-room original; then BET's options that need them (`-S`, `-B`, `-A`, `-A2`) | Planned |

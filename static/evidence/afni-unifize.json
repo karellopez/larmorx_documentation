@@ -7,15 +7,15 @@
   "records": [
    {
     "path": "docs/validation/afni-unifize.json",
-    "sha256": "aadf6987ad87a3016ac3c33b912bbec45e66432f1148169b29de8280744c30bb",
+    "sha256": "93c7e8b4ee34b7ad291694f4b6e234199a71e6c0d7eafc8b227a74c5b8221410",
     "generated": "2026-10-30",
-    "larmorx_commit": "7c9df9d9c8b2"
+    "larmorx_commit": "930a42fefff1"
    },
    {
     "path": "docs/validation/afni-unifize.md",
-    "sha256": "550ba1daa19e90560255e11cde7b9578333b2cb024861d49a2a384055a531faa",
+    "sha256": "c83938eb0bc7a02f457cb036c7beaf04f78d6f007a893d43ac6845bf9a3ad33d",
     "generated": "2026-10-30",
-    "larmorx_commit": "7c9df9d9c8b2"
+    "larmorx_commit": "930a42fefff1"
    },
    {
     "path": "docs/validation/afni-unifize-replica.json",
@@ -861,10 +861,10 @@
    "record": "docs/validation/afni-unifize.md",
    "status": "validated",
    "summary": {
-    "cases": 124,
+    "cases": 129,
     "verdicts": {
      "identical-cr": 55,
-     "bit-identical": 44,
+     "bit-identical": 49,
      "d13": 2,
      "divergence": 4,
      "both-reject": 19
@@ -946,6 +946,12 @@
      "category": "AFNI-75's guard",
      "counts": {
       "bit-identical": 6
+     }
+    },
+    {
+     "category": "GLIBC-05's cube root",
+     "counts": {
+      "bit-identical": 5
      }
     },
     {
@@ -3413,6 +3419,76 @@
    }
   },
   {
+   "id": "glibc-05/epi-ball",
+   "category": "GLIBC-05's cube root",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": "in its default mode the original corrects a defect of the register and names it: 6,321 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "glibc-05/epi-ball-one",
+   "category": "GLIBC-05's cube root",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "in its default mode the original corrects a defect of the register and names it: 1,865 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "glibc-05/epi-printed",
+   "category": "GLIBC-05's cube root",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "glibc-05/epi-same-result",
+   "category": "GLIBC-05's cube root",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "glibc-05/epi-ordinary",
+   "category": "GLIBC-05's cube root",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
    "id": "difftest/epi-ball-beyond-any-machine-original",
    "category": "difftest",
    "description": "",
@@ -3497,7 +3573,7 @@
    }
   }
  ],
- "cases_total": 126,
+ "cases_total": 131,
  "speed": {
   "title": "3dUnifize: wall time of the whole program (informal timings, 2026-10-24)",
   "axis": [
