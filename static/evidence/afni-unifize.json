@@ -7,27 +7,27 @@
   "records": [
    {
     "path": "docs/validation/afni-unifize.json",
-    "sha256": "8be785827c6c8a23338818fcaaf0cfe219b280b5345ece60a6dc9ccad32567e6",
+    "sha256": "aadf6987ad87a3016ac3c33b912bbec45e66432f1148169b29de8280744c30bb",
     "generated": "2026-10-30",
-    "larmorx_commit": "058935773321"
+    "larmorx_commit": "7c9df9d9c8b2"
    },
    {
     "path": "docs/validation/afni-unifize.md",
-    "sha256": "296bde09fd731191412c16a004b238a94c71f89a5a244a29770992982a01e0d4",
+    "sha256": "550ba1daa19e90560255e11cde7b9578333b2cb024861d49a2a384055a531faa",
     "generated": "2026-10-30",
-    "larmorx_commit": "058935773321"
+    "larmorx_commit": "7c9df9d9c8b2"
    },
    {
     "path": "docs/validation/afni-unifize-replica.json",
-    "sha256": "249dd14fb95230d0eb69449b3a01d33ad18c6b4b552a2f3e44428629ae9d5b6e",
+    "sha256": "a8345c2db0e497095582dae770bb8102a2bceed04ec7b1e146ae94246bc464ab",
     "generated": "2026-10-30",
-    "larmorx_commit": "b6c7066c2dc2"
+    "larmorx_commit": "1c4d4f683aee"
    },
    {
     "path": "docs/validation/afni-unifize-replica.md",
-    "sha256": "c89c6261dc4d02aca6987e4cb4f9e47b5c439f13c2804b7ecb904326bda84971",
+    "sha256": "252a75aa76575aefc8beb5d96fc6ea16c09c3392c1d5cafe6c55a9c7e13bb41c",
     "generated": "2026-10-30",
-    "larmorx_commit": "b6c7066c2dc2"
+    "larmorx_commit": "1c4d4f683aee"
    }
   ],
   "benchmarks": [
@@ -861,10 +861,10 @@
    "record": "docs/validation/afni-unifize.md",
    "status": "validated",
    "summary": {
-    "cases": 117,
+    "cases": 124,
     "verdicts": {
      "identical-cr": 55,
-     "bit-identical": 37,
+     "bit-identical": 44,
      "d13": 2,
      "divergence": 4,
      "both-reject": 19
@@ -943,9 +943,15 @@
      }
     },
     {
+     "category": "AFNI-75's guard",
+     "counts": {
+      "bit-identical": 6
+     }
+    },
+    {
      "category": "difftest",
      "counts": {
-      "bit-identical": 3
+      "bit-identical": 4
      }
     }
    ]
@@ -3323,6 +3329,104 @@
    }
   },
   {
+   "id": "guard/epi-um3",
+   "category": "AFNI-75's guard",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "guard/epi-um1",
+   "category": "AFNI-75's guard",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "guard/epi-mm0.05",
+   "category": "AFNI-75's guard",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "guard/epi-um3-one",
+   "category": "AFNI-75's guard",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "3/3",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "guard/epi-mm0.3",
+   "category": "AFNI-75's guard",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "guard/epi-mm3",
+   "category": "AFNI-75's guard",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "difftest/epi-ball-beyond-any-machine-original",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "1/1",
+     "reason": ""
+    }
+   }
+  },
+  {
    "id": "difftest/epi-slice-code-2-fix-notice",
    "category": "difftest",
    "description": "",
@@ -3393,7 +3497,7 @@
    }
   }
  ],
- "cases_total": 119,
+ "cases_total": 126,
  "speed": {
   "title": "3dUnifize: wall time of the whole program (informal timings, 2026-10-24)",
   "axis": [

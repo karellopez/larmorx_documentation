@@ -3,19 +3,19 @@
  "tool": "mri-hmc",
  "title": "Head-motion correction",
  "provenance": {
-  "exporter": "e5ba67204403d2ac092d67f0b6d136c6d61a227e",
+  "exporter": "8035ad782ae6aa0fcc2d7008192b781adb9f3e15",
   "records": [
    {
     "path": "docs/validation/mri-hmc.json",
-    "sha256": "a32398f46b51b882416126d2f791f2fd70a30eccfb6f6d50d789cae3d18ecddf",
-    "generated": "2026-10-29",
-    "larmorx_commit": "bb36e15a24bb"
+    "sha256": "4acac2d6296b2708786d9c482c308a304488aaf9b4b58571c5351b518a2a6092",
+    "generated": "2026-10-30",
+    "larmorx_commit": "7c9df9d9c8b2"
    },
    {
     "path": "docs/validation/mri-hmc.md",
-    "sha256": "27a7270cf0519ba81562254c31a9b26e3abd01258e864733e6ec34cd14591961",
-    "generated": "2026-10-29",
-    "larmorx_commit": "bb36e15a24bb"
+    "sha256": "f22418e5969802ee3480db4cfe4cb59f86aa2ccfa5a9d1a216f237d22b81aa4e",
+    "generated": "2026-10-30",
+    "larmorx_commit": "7c9df9d9c8b2"
    },
    {
     "path": "docs/validation/fsl-mcflirt-replica-full.json",
@@ -408,11 +408,11 @@
    "record": "docs/validation/mri-hmc.md",
    "status": "experimental",
    "summary": {
-    "cases": 136,
+    "cases": 169,
     "verdicts": {
      "within-variability": 30,
-     "open": 92,
-     "both-reject": 11,
+     "open": 116,
+     "both-reject": 20,
      "divergence": 3
     }
    },
@@ -473,6 +473,13 @@
      "category": "synthetic/orientation",
      "counts": {
       "open": 6
+     }
+    },
+    {
+     "category": "failure cases (spec §14.1)",
+     "counts": {
+      "both-reject": 9,
+      "open": 24
      }
     },
     {
@@ -4140,6 +4147,468 @@
    }
   },
   {
+   "id": "failures/fsl20-mats",
+   "category": "failure cases (spec §14.1)",
+   "description": "-mats in a directory that does not exist (FSL-20)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "8/8",
+     "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    }
+   }
+  },
+  {
+   "id": "failures/fsl20-mats-plots",
+   "category": "failure cases (spec §14.1)",
+   "description": "-mats -plots in a directory that does not exist (FSL-20)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "8/8",
+     "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    }
+   }
+  },
+  {
+   "id": "failures/fsl20-reffile",
+   "category": "failure cases (spec §14.1)",
+   "description": "-mats with -reffile in a missing directory (FSL-20)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "8/8",
+     "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    }
+   }
+  },
+  {
+   "id": "failures/fsl20-file-parent",
+   "category": "failure cases (spec §14.1)",
+   "description": "-mats where the directory is a file (FSL-20)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "8/8",
+     "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    }
+   }
+  },
+  {
+   "id": "failures/fsl20-rmsrel",
+   "category": "failure cases (spec §14.1)",
+   "description": "-rmsrel without -mats in a missing directory (FSL-13, FSL-20)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "8/8",
+     "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    }
+   }
+  },
+  {
+   "id": "failures/fsl20-rmsabs-report",
+   "category": "failure cases (spec §14.1)",
+   "description": "-rmsabs -report without -mats in a missing directory (FSL-13, FSL-20)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "8/8",
+     "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    }
+   }
+  },
+  {
+   "id": "failures/fsl20-perm",
+   "category": "failure cases (spec §14.1)",
+   "description": "-mats in a read-only directory: mcflirt's permission message, then it aborts",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "7/7",
+     "reason": "mcflirt ends by signal 6 (Error! Could not create directory: <inputs>/<run>/ro/o.mat. No write permission); larmorx exits 1 (reproduce) and 1 (default) with its error"
+    }
+   }
+  },
+  {
+   "id": "failures/fsl20-plots-only",
+   "category": "failure cases (spec §14.1)",
+   "description": "-plots alone in a missing directory (FSL-65)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "8/8",
+     "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    }
+   }
+  },
+  {
+   "id": "failures/fsl20-none",
+   "category": "failure cases (spec §14.1)",
+   "description": "no output option, in a missing directory: the series cannot be written",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "7/7",
+     "reason": "mcflirt ends by signal 6 (terminate called after throwing an instance of 'NiftiIO::NiftiException'); larmorx exits 1 (reproduce) and 1 (default) with its error"
+    }
+   }
+  },
+  {
+   "id": "failures/par-dir-plots-mats",
+   "category": "failure cases (spec §14.1)",
+   "description": "a directory named o.par, with -mats -plots -rmsrel (FSL-65)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "9/9",
+     "reason": "95th-percentile RMS deviation 0.0529 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    }
+   }
+  },
+  {
+   "id": "failures/par-dir-plots",
+   "category": "failure cases (spec §14.1)",
+   "description": "a directory named o.par, -plots (FSL-65)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "8/8",
+     "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    }
+   }
+  },
+  {
+   "id": "failures/par-dir-plots-mats-ref0",
+   "category": "failure cases (spec §14.1)",
+   "description": "a directory named o.par, -mats -plots -refvol 0 (FSL-65)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "9/9",
+     "reason": "95th-percentile RMS deviation 0 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    }
+   }
+  },
+  {
+   "id": "failures/rms-dir",
+   "category": "failure cases (spec §14.1)",
+   "description": "directories named o_rel.rms and o_abs_mean.rms (FSL-65)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "9/9",
+     "reason": "95th-percentile RMS deviation 0.0475 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    }
+   }
+  },
+  {
+   "id": "failures/bins7-mutualinfo",
+   "category": "failure cases (spec §14.1)",
+   "description": "mutualinfo with -bins 7 (FSL-21)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "9/9",
+     "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    }
+   }
+  },
+  {
+   "id": "failures/bins4-mutualinfo-s2",
+   "category": "failure cases (spec §14.1)",
+   "description": "mutualinfo, -bins 4, two stages (FSL-21)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "9/9",
+     "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    }
+   }
+  },
+  {
+   "id": "failures/bins4-mutualinfo-s3-plots",
+   "category": "failure cases (spec §14.1)",
+   "description": "mutualinfo, -bins 4, three stages, -plots (FSL-21)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "9/9",
+     "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    }
+   }
+  },
+  {
+   "id": "failures/bins0-normmi",
+   "category": "failure cases (spec §14.1)",
+   "description": "normmi with -bins 0 (FSL-21)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "9/9",
+     "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    }
+   }
+  },
+  {
+   "id": "failures/bins1-woods",
+   "category": "failure cases (spec §14.1)",
+   "description": "woods with -bins 1 (FSL-21)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "9/9",
+     "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    }
+   }
+  },
+  {
+   "id": "failures/binsabc-mutualinfo",
+   "category": "failure cases (spec §14.1)",
+   "description": "-bins abc, read as 0 (FSL-07; FSL-21 reproduced)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "9/9",
+     "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    }
+   }
+  },
+  {
+   "id": "failures/bins2-corratio",
+   "category": "failure cases (spec §14.1)",
+   "description": "corratio with -bins 2: mcflirt aborts (FSL-21)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "8/8",
+     "reason": "mcflirt ends by signal 6 (double free or corruption (out)); larmorx exits 1 (reproduce) and 1 (default) with its error"
+    }
+   }
+  },
+  {
+   "id": "failures/bins2-corratio-smooth0",
+   "category": "failure cases (spec §14.1)",
+   "description": "corratio, -bins 2, -smooth 0 (FSL-21)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "8/8",
+     "reason": "mcflirt ends by signal 6 (double free or corruption (out)); larmorx exits 1 (reproduce) and 1 (default) with its error"
+    }
+   }
+  },
+  {
+   "id": "failures/bins2-corratio-report",
+   "category": "failure cases (spec §14.1)",
+   "description": "corratio, -bins 2, -report (FSL-21)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "8/8",
+     "reason": "mcflirt ends by signal 6 (Processed data will be saved as <run>/o); larmorx exits 1 (reproduce) and 1 (default) with its error"
+    }
+   }
+  },
+  {
+   "id": "failures/bins8-corratio",
+   "category": "failure cases (spec §14.1)",
+   "description": "corratio with -bins 8: one bin in stage 1",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "7/7",
+     "reason": "95th-percentile RMS deviation 0.0717 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    }
+   }
+  },
+  {
+   "id": "failures/bins8-mutualinfo-s3",
+   "category": "failure cases (spec §14.1)",
+   "description": "mutualinfo with -bins 8: one bin in stage 1 (a cost of rounding noise)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "7/7",
+     "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+    }
+   }
+  },
+  {
+   "id": "failures/bins2-normcorr",
+   "category": "failure cases (spec §14.1)",
+   "description": "normcorr with -bins 2 (it uses no bins)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "7/7",
+     "reason": "95th-percentile RMS deviation 0.0296 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    }
+   }
+  },
+  {
+   "id": "failures/bins2-leastsq",
+   "category": "failure cases (spec §14.1)",
+   "description": "leastsquares with -bins 2 (it uses no bins)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "7/7",
+     "reason": "95th-percentile RMS deviation 0.0118 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    }
+   }
+  },
+  {
+   "id": "failures/binsm1-normcorr",
+   "category": "failure cases (spec §14.1)",
+   "description": "normcorr with -bins -1: no bins anywhere (FSL-66)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "9/9",
+     "reason": "95th-percentile RMS deviation 0.0296 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    }
+   }
+  },
+  {
+   "id": "failures/bins4-mutualinfo-s0",
+   "category": "failure cases (spec §14.1)",
+   "description": "mutualinfo, -bins 4, -stages 0: no stage runs",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "7/7",
+     "reason": "95th-percentile RMS deviation 0 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    }
+   }
+  },
+  {
+   "id": "failures/bins4-mutualinfo-1vol",
+   "category": "failure cases (spec §14.1)",
+   "description": "mutualinfo, -bins 4, one volume: nothing is registered",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "9/9",
+     "reason": "95th-percentile RMS deviation 0 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+    }
+   }
+  },
+  {
+   "id": "failures/binsm4-normcorr-s2",
+   "category": "failure cases (spec §14.1)",
+   "description": "-bins -4, two stages: mcflirt is killed by SIGFPE (FSL-66)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "8/8",
+     "reason": "mcflirt ends by signal 8 (no message); larmorx exits 1 (reproduce) and 1 (default) with its error"
+    }
+   }
+  },
+  {
+   "id": "failures/binsm8-normcorr",
+   "category": "failure cases (spec §14.1)",
+   "description": "-bins -8: SIGFPE in stage 1 (FSL-66)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "8/8",
+     "reason": "mcflirt ends by signal 8 (no message); larmorx exits 1 (reproduce) and 1 (default) with its error"
+    }
+   }
+  },
+  {
+   "id": "failures/binsm16-normcorr",
+   "category": "failure cases (spec §14.1)",
+   "description": "-bins -16: std::bad_array_new_length (FSL-66)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "8/8",
+     "reason": "mcflirt ends by signal 6 (terminate called after throwing an instance of 'std::bad_array_new_length'); larmorx exits 1 (reproduce) and 1 (default) with its error"
+    }
+   }
+  },
+  {
+   "id": "failures/binsm16-mutualinfo",
+   "category": "failure cases (spec §14.1)",
+   "description": "mutualinfo, -bins -16 (FSL-66)",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "8/8",
+     "reason": "mcflirt ends by signal 6 (terminate called after throwing an instance of 'std::bad_array_new_length'); larmorx exits 1 (reproduce) and 1 (default) with its error"
+    }
+   }
+  },
+  {
    "id": "difftest/normmi-aligns-worse",
    "category": "difftest",
    "description": "Head-motion correction with -cost normmi on a random phantom with large motion: once the subset that aligned worse (ite…",
@@ -4163,7 +4632,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "15/16",
-     "reason": "A small phantom moved by up to 15 degrees: the normalised correlation has several minima, and larmorx's estimates end in other ones than mcflirt's beyond the record's thresholds, aligning the series as well (temporal SD 0.999 of mcflirt's here; over the night…"
+     "reason": "A small phantom moved by up to 15 degrees: the normalised correlation has several minima, and larmorx's estimates end in other ones than mcflirt's beyond the record's thresholds, aligning the series as well (temporal SD 0.999 of mcflirt's here; over the 782 f…"
     }
    }
   },
@@ -5571,7 +6040,7 @@
      "head": "within the record's thresholds; mcflirt's variability not measured for the run",
      "cells": [
       {
-       "v": 78,
+       "v": 87,
        "fmt": "count"
       },
       {
@@ -5583,7 +6052,7 @@
      "head": "within the record's thresholds; no matrices to set against it",
      "cells": [
       {
-       "v": 5,
+       "v": 20,
        "fmt": "count"
       },
       {
@@ -5595,7 +6064,7 @@
    "note": "From the case explorer below: each case's reason gives its numbers."
   }
  ],
- "cases_total": 209,
+ "cases_total": 242,
  "speed": {
   "title": "Seconds for the whole command, median of repeated runs, log scale; the factor is the clean-room original's speed-up at one thread",
   "axis": [
