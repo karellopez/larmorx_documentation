@@ -14,7 +14,7 @@ wide: true
 | | Step | What it delivers | Status |
 |---|---|---|---|
 | 1 | **BET's clean-room original** | BET (`bet`, `bet2`, `betsurf`) written from its behavioural specification, built for speed, beside the exact replica | Next |
-| 2 | **Two specified clean-room additions** | mcflirt's FSL-20 and FSL-21 corrections and 3dUnifize's memory guard (AFNI-75) in the clean-room originals | Planned |
+| 2 | **Two specified clean-room additions** | mcflirt's FSL-20, FSL-21, FSL-65 and FSL-66 corrections and 3dUnifize's memory guard (AFNI-75) in the clean-room originals | Specified (2026-10-30), ready for the clean-room implementer |
 | 3 | **FLIRT with BBR** | FSL's registration, which fMRIPrep uses to align BOLD to T1w: a replica and a clean-room original | Planned |
 | 4 | **FAST and topup** | FSL's tissue segmentation and field-map estimation, each a replica and a clean-room original; then BET's options that need them (`-S`, `-B`, `-A`, `-A2`) | Planned |
 | 5 | **Field maps** | sdcflows' field-map estimation: the B-spline fit, reversed phase encoding (PEPOLAR) and phase difference | Planned |
@@ -47,6 +47,7 @@ Newest first. The records of every tool are in the repository's [docs/validation
 
 | Completed | Step |
 |---|---|
+| 2026-10-30 | **3dUnifize's replica: memory as AFNI's.** Peak memory within the rule with `-T2` and `-EPI` (it held 1.5 and 2.8 times AFNI's); the specifications of FSL-20, FSL-21, FSL-65, FSL-66, AFNI-75 and a cube root with the C library's exact results written for the clean-room implementers |
 | 2026-10-30 | **The AFNI replicas in the main package.** AFNI 26.3.05 releases the Medical College of Wisconsin's code under CC BY 4.0, so the exact replicas of 3dTshift, 3dAutomask and 3dUnifize left the separate GPL package for LARMORX itself (`pip install larmorx`, Apache-2.0 with CC BY 4.0's attribution) and run in its process; the C library's sine and cosine they need come from Arm's MIT routines, proved equal to glibc's on every input; their records, re-made in-process, agree case for case |
 | 2026-10-29 | **SciPy, NumPy and OpenBLAS at their newest releases.** The one-shot BOLD resampler follows SciPy 1.18.1 (its fix of the `reflect` boundary, SCI-03) and is checked against numpy 2.5.4 with OpenBLAS 0.3.34 (nothing LARMORX follows changed); the FSL replicas follow FSL 6.0.7.23's matrix library (Armadillo 14.2.1 on OpenBLAS 0.3.33) bit for bit, so mcflirt's 5 expected divergences pass; FSL's own last digits depend on the computer's processor (FSL-64), and every record runs FSL on one set of kernels |
 | 2026-10-29 | **The clean-room originals at the newest releases.** 3dTshift, 3dAutomask and 3dUnifize follow AFNI 26.3.05 and the head-motion correction mcflirt 6.0.7.23 (its zstd and bzip2 formats, FSL-59, FSL-60), as their replicas do; the head-motion correction's `-cost mutualinfo` and `normmi` computed exactly, as well aligned as mcflirt's on 169 random phantoms |
