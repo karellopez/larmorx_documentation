@@ -13,7 +13,7 @@ wide: true
 
 | | Step | What it delivers | Status |
 |---|---|---|---|
-| 1 | **BET's clean-room original** | BET (`bet`, `bet2`, `betsurf`) written from its behavioural specification, built for speed, beside the exact replica | Part 1 done (2026-10-30): `bet2` and `bet`'s default, `-R`, `-F`, `-Z`, fMRIPrep's calls bit-identical to FSL, 2.6 to 3 times FSL's speed on one thread; part 2 next: `betsurf`, the reruns, the page |
+| 1 | **BET's clean-room original** | BET (`bet`, `bet2`, `betsurf`) written from its behavioural specification, built for speed, beside the exact replica | Parts 1 and 2a done (2026-10-30): `bet2` and `bet` (`-R`, `-F`, `-Z`), every standard test case in agreement with FSL 6.0.7.23, the surfaces that FSL reruns after a self-intersection included; fMRIPrep's calls bit-identical; about 3 times FSL's speed on one thread. Part 2b next: `betsurf` and the page |
 | 2 | **FLIRT with BBR** | FSL's registration, which fMRIPrep uses to align BOLD to T1w: a replica and a clean-room original | Planned |
 | 3 | **FAST and topup** | FSL's tissue segmentation and field-map estimation, each a replica and a clean-room original; then BET's options that need them (`-S`, `-B`, `-A`, `-A2`) | Planned |
 | 4 | **fslmaths and fslstats** | FSL's image arithmetic and statistics, every operation, a replica and a clean-room original each: fMRIPrep calls them in every BOLD reference's skull strip and in the optional goodvoxels mask | Planned |
