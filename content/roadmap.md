@@ -7,21 +7,20 @@ evidence: true
 wide: true
 ---
 
-**Last updated: 2026-10-30.** LARMORX advances one step at a time, and each step is finished before the next begins: its code, its tests against the original program, its validation record and its page on this site ([how each step is tested](/validation/#levels)). The working plan behind this page, with every follow-up, is in the repository's [next steps](repo:docs/next-steps.md).
+**Last updated: 2026-11-01.** LARMORX advances one step at a time, and each step is finished before the next begins: its code, its tests against the original program, its validation record and its page on this site ([how each step is tested](/validation/#levels)). The working plan behind this page, with every follow-up, is in the repository's [next steps](repo:docs/next-steps.md).
 
 ## Under way and next {#next}
 
 | | Step | What it delivers | Status |
 |---|---|---|---|
-| 1 | **BET's clean-room original** | BET (`bet`, `bet2`, `betsurf`) written from its behavioural specification, built for speed, beside the exact replica | Parts 1 and 2a done (2026-10-30): `bet2` and `bet` (`-R`, `-F`, `-Z`), every standard test case in agreement with FSL 6.0.7.23, the surfaces that FSL reruns after a self-intersection included; fMRIPrep's calls bit-identical; about 3 times FSL's speed on one thread. Part 2b next: `betsurf` and the page |
-| 2 | **FLIRT with BBR** | FSL's registration, which fMRIPrep uses to align BOLD to T1w: a replica and a clean-room original | Planned |
-| 3 | **FAST and topup** | FSL's tissue segmentation and field-map estimation, each a replica and a clean-room original; then BET's options that need them (`-S`, `-B`, `-A`, `-A2`) | Planned |
-| 4 | **fslmaths and fslstats** | FSL's image arithmetic and statistics, every operation, a replica and a clean-room original each: fMRIPrep calls them in every BOLD reference's skull strip and in the optional goodvoxels mask | Planned |
-| 5 | **Field maps** | sdcflows' field-map estimation: the B-spline fit, reversed phase encoding (PEPOLAR) and phase difference | Planned |
-| 6 | **FreeSurfer 8.2.0** | Every program complete, a replica (`larmorx-freesurfer`) and a clean-room original built for speed: first the reference runs on the [data panel](/data-panel/), then FreeSurfer's shared library, then the programs fMRIPrep runs, slowest first | Planned |
-| 7 | **Surfaces** | Surface tools compatible with Connectome Workbench and MSM | Planned |
-| 8 | **Confounds** | CompCor, DVARS, framewise displacement and fMRIPrep's other confounds | Planned |
-| 9 | **larmorprepx** | The pipeline: BIDS in, fMRIPrep-compatible derivatives and HTML reports out | Planned |
+| 1 | **FLIRT with BBR** | FSL's registration, which fMRIPrep uses to align BOLD to T1w: a replica and a clean-room original | Next |
+| 2 | **FAST and topup** | FSL's tissue segmentation and field-map estimation, each a replica and a clean-room original; then BET's options that need them (`-S`, `-B`, `-A`, `-A2`) | Planned |
+| 3 | **fslmaths and fslstats** | FSL's image arithmetic and statistics, every operation, a replica and a clean-room original each: fMRIPrep calls them in every BOLD reference's skull strip and in the optional goodvoxels mask | Planned |
+| 4 | **Field maps** | sdcflows' field-map estimation: the B-spline fit, reversed phase encoding (PEPOLAR) and phase difference | Planned |
+| 5 | **FreeSurfer 8.2.0** | Every program complete, a replica (`larmorx-freesurfer`) and a clean-room original built for speed: first the reference runs on the [data panel](/data-panel/), then FreeSurfer's shared library, then the programs fMRIPrep runs, slowest first | Planned |
+| 6 | **Surfaces** | Surface tools compatible with Connectome Workbench and MSM | Planned |
+| 7 | **Confounds** | CompCor, DVARS, framewise displacement and fMRIPrep's other confounds | Planned |
+| 8 | **larmorprepx** | The pipeline: BIDS in, fMRIPrep-compatible derivatives and HTML reports out | Planned |
 
 New releases of the originals are followed as they come out: a weekly check lists every newer release and the files it changes, and each update is a step of its own.
 
@@ -40,6 +39,7 @@ Once every tool is ported, the extensive testing runs for every tool at once, an
 - A check on clean machines, without compilers or runtimes installed (Windows, a minimal Linux).
 - The Windows runtime linked into the programs; smaller binaries.
 - A release workflow: the wheels for the six platforms, built, tested and uploaded on a version tag; the package names reserved on PyPI.
+- A page explaining why LARMORX is built in Rust with Python on top: why the original tools have no Windows version, what Rust gives and what the project's own rules add (its own maths functions, one fixed order for matrix arithmetic, the same digits on every platform), and the honest limits.
 
 ## Completed {#done}
 
@@ -47,6 +47,7 @@ Newest first. The records of every tool are in the repository's [docs/validation
 
 | Completed | Step |
 |---|---|
+| 2026-11-01 | **BET's clean-room original** (`bet`, `bet2`, `betsurf`), written from its behavioural specification and built for speed, beside the exact replica: every `bet2` and `bet` brain, mask and outline of the standard tests bit-identical to FSL 6.0.7.23's (fMRIPrep's calls included), `betsurf`'s profiles decided as FSL's and its masks within their thresholds on 4 of 5 real heads; 2.5 to 3.6 times FSL's speed on one thread, 6.5 to 13.5 times on 24. Open questions for its specification: a centre on neurologically stored images, `betsurf` where few profiles vote and on small images |
 | 2026-10-30 | **A cube root with the C library's digits, for `reproduce`.** 3dUnifize `-EPI`, in the clean-room original and the replica, keeps LARMORX's correctly rounded cube root by default (naming GLIBC-05 where the C library's last bit would change the result) and gives AFNI's exact result in `reproduce` mode, through a clean-room cube root with the C library's bits, proved on all 2^32 inputs; with it, mcflirt's replica handles FSL-65 and FSL-66 as the clean-room original does, and the parity tests run in parallel (the same outcome for every test) |
 | 2026-10-30 | **Two clean-room additions.** The clean-room head-motion correction now handles mcflirt's FSL-20, FSL-21, FSL-65 and FSL-66 as the specification says (outputs that cannot be written, impossible bin counts), and the clean-room 3dUnifize stops before an impossible `-EPI` neighbourhood (AFNI-75), with the same words as the replica |
 | 2026-10-30 | **3dUnifize's replica: memory as AFNI's.** Peak memory within the rule with `-T2` and `-EPI` (it held 1.5 and 2.8 times AFNI's); the specifications of FSL-20, FSL-21, FSL-65, FSL-66, AFNI-75 and a cube root with the C library's exact results written for the clean-room implementers |
