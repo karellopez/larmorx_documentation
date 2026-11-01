@@ -145,7 +145,7 @@ lx.save(t1w_n4, "t1w_n4.nii.gz")
 <thead><tr><th scope="col">Tool</th><th scope="col">How</th><th scope="col">Validation</th></tr></thead>
 <tbody>
 {%- for row in data.status.implemented %}
-<tr class="eco-{{ row.eco }}"><td><span class="tool-name"><span class="dot" title="{{ eco[row.eco].long }}"></span>{% if row.page %}<a href="{{ link(row.page) }}">{{ row.tool | md_inline }}</a>{% else %}<span>{{ row.tool | md_inline }}</span>{% endif %}</span><span class="tool-use">{% for u in row.use %}<code>{{ u }}</code>{% endfor %}</span></td><td class="how">{{ row.how | md_inline }}</td><td class="val">{{ row.validation | md_inline }}</td></tr>
+<tr class="eco-{{ row.eco }}"><td><span class="tool-name"><span class="dot" title="{{ eco[row.eco].long }}"></span>{% if row.page is defined %}<a href="{{ link(row.page) }}">{{ row.tool | md_inline }}</a>{% else %}<span>{{ row.tool | md_inline }}</span>{% endif %}</span><span class="tool-use">{% for u in row.use %}<code>{{ u }}</code>{% endfor %}</span></td><td class="how">{{ row.how | md_inline }}</td><td class="val">{{ row.validation | md_inline }}</td></tr>
 {%- endfor %}
 </tbody>
 </table>
