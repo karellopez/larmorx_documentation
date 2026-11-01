@@ -406,6 +406,25 @@
    ]
   },
   {
+   "page": "/tools/fsl-flirt/",
+   "title": "FLIRT",
+   "eco": "fsl",
+   "implementations": [
+    {
+     "label": "larmorx-nc replica",
+     "record": "docs/validation/fsl-flirt-replica.md",
+     "status": "experimental",
+     "cases": 217,
+     "verdicts": {
+      "bit-identical": 152,
+      "divergence": 4,
+      "both-reject": 61
+     },
+     "source": "evidence"
+    }
+   ]
+  },
+  {
    "page": "/tools/resample-series/",
    "title": "One-shot BOLD resampler",
    "eco": "larmorx",
@@ -458,6 +477,7 @@
   "ants-programs",
   "ants-registration",
   "fsl-bet",
+  "fsl-flirt",
   "itk-hdf5",
   "mri-hmc",
   "nifti-io",
