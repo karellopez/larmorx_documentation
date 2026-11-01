@@ -2,12 +2,13 @@
 title: FLIRT
 kicker: Tools · FSL
 lede: >-
-  FSL's linear registration (flirt) and its matrix tool (convert_xfm), with the boundary-based
-  registration fMRIPrep uses to align every BOLD run to the T1w: an exact replica of FSL
-  6.0.7.23's source in the separate larmorx-nc package (the FSL Licence's non-commercial terms),
-  experimental, which gives FSL's matrices and images bit for bit in every compared case of its
-  record, fMRIPrep's own calls included. The clean-room original is still to be written.
-description: LARMORX's FSL FLIRT (flirt, convert_xfm), an exact replica validated against FSL 6.0.7.23 — fMRIPrep's boundary-based registration of a real BOLD reference with the white-matter boundary it fits, a default 12-dof registration, -applyxfm on a raw BOLD series, two data-panel runs, the matrices as text with fMRIPrep's own, and every parity case of the record with its verdict.
+  FSL's linear registration (flirt), with the boundary-based registration fMRIPrep uses to align
+  every BOLD run to the T1w, and the programs around it (convert_xfm, avscale, img2imgcoord,
+  std2imgcoord, img2stdcoord, rmsdiff, makerot): an exact replica of FSL 6.0.7.23's source in the
+  separate larmorx-nc package (the FSL Licence's non-commercial terms), experimental, which gives
+  FSL's matrices, images and printed results bit for bit in every compared case of its record,
+  fMRIPrep's own calls included. The clean-room original is still to be written.
+description: LARMORX's FSL FLIRT (flirt, convert_xfm, avscale, the coordinate programs, rmsdiff, makerot), an exact replica validated against FSL 6.0.7.23 — fMRIPrep's boundary-based registration of a real BOLD reference with the white-matter boundary it fits, a default 12-dof registration, -applyxfm on a raw BOLD series, two data-panel runs, the matrices as text with fMRIPrep's own, and every parity case of the record with its verdict.
 evidence: true
 wide: true
 ---
@@ -28,6 +29,8 @@ fMRIPrep calls it once per BOLD run, in its boundary-based registration (`bold_r
 larmorx fsl flirt -in boldref.nii.gz -ref T1w_brain.nii.gz -dof 6 -cost bbr \
     -wmseg wm.nii.gz -init init.mat -schedule bbr.sch -omat bold2t1.mat -out bold_in_t1
 larmorx fsl convert_xfm -omat t12bold.mat -inverse bold2t1.mat
+larmorx fsl avscale --allparams bold2t1.mat boldref.nii.gz       # rotations, scales, skews
+larmorx fsl rmsdiff bold2t1.mat other.mat boldref.nii.gz         # the RMS deviation in mm
 ```
 
 ```python
@@ -48,7 +51,7 @@ The replica is a translation of FSL's source, so the question for it is whether 
 
 {{ ev.agreement('fsl-flirt', 'replica') }}
 
-The record runs 141 cases against FSL 6.0.7.23 ([the record](repo:docs/validation/fsl-flirt-replica.md)): 107 give FSL's files byte for byte, and in the other 34 FSL refuses the input and the replica refuses it alike, with the same message and exit status (*rejected by both*). They cover fMRIPrep's boundary-based calls on three oracle runs (a young adult, the data panel's 82-year-old and its three-year-old; the matrices also fMRIPrep's own, as text), every cost function with and without weights, the degrees of freedom, the search options, every interpolation and output data type, every schedule FSL ships and written ones that use every command of the schedule language, `-applyxfm` and `-applyisoxfm` on 3D and 4D images, the boundary-based options (its types, slope, given coordinates and normals, a field map), the 2D mode, and every error of the command line; `convert_xfm` with every option. Each case also runs the replica's default mode, where LARMORX corrects FSL's deterministic defects and names them; on these cases it changes nothing. Random testing's first trial (3,945 random calls on small synthetic images) found two kinds of difference, both fixed and kept as cases of the record; what it found beyond them is being worked through ([findings](repo:docs/validation/difftest.md)).
+The record runs 217 cases against FSL 6.0.7.23 ([the record](repo:docs/validation/fsl-flirt-replica.md)): 152 give FSL's files byte for byte, in 61 FSL refuses the input and the replica refuses it alike, with the same message and exit status (*rejected by both*), and in 4 FSL crashes or never finishes, where the replica goes on, or stops with the reason, as its register entry says (*expected divergences*: FSL-71, FSL-72, FSL-75). They cover fMRIPrep's boundary-based calls on three oracle runs (a young adult, the data panel's 82-year-old and its three-year-old; the matrices also fMRIPrep's own, as text), every cost function with and without weights, the degrees of freedom, the search options, every interpolation and output data type, every schedule FSL ships and written ones that use every command of the schedule language, `-applyxfm` and `-applyisoxfm` on 3D and 4D images, the boundary-based options (its types, slope, given coordinates and normals, a field map), the 2D mode, quaternion parameters (`-anglerep quaternion`), and every error of the command line; `convert_xfm` with every option; and each path of FLIRT's other programs (`avscale`, `img2imgcoord`, `std2imgcoord`, `img2stdcoord`, `rmsdiff`, `makerot`): their usage, every option, their printed results and messages. Each case also runs the replica's default mode, where LARMORX corrects FSL's deterministic defects and names them; on these cases it changes nothing. Random testing's first trial (3,945 random calls on small synthetic images) found two kinds of difference, both fixed and kept as cases of the record; the rest were settled next ([findings](repo:docs/findings/fsl-flirt.md)): FSL corrupting its heap on small images, traced to its background value (FSL-75, below), a base-scale quotient FLIRT takes in single precision (fixed), and two defects LARMORX's default had corrected without naming them (named now). Two shorter trials of the new paths (12,376 and 3,274 random calls: quaternions and the other programs) found one missing message, the background value's order of NaN voxels and makerot's notices, all fixed; every finding that fits a trial's memory budget agrees since, in its shrunk and drawn forms.
 
 ## In fMRIPrep: the boundary-based registration of a BOLD reference {#example}
 
@@ -76,6 +79,20 @@ fMRIPrep's boundary-based call on two runs of the data panel: the first echo of 
 
 {{ ev.example('fsl-flirt', 'panel-ds000228-child') }}
 
+## FLIRT's other programs {#programs}
+
+The programs FSL builds with FLIRT, each with FSL's command line in `larmorx fsl <program>` and a Python function: `avscale` decomposes a matrix into rotations, translations, scales and skews (and the half transforms); `img2imgcoord`, `std2imgcoord` and `img2stdcoord` map coordinates between images through a matrix; `rmsdiff` gives the RMS deviation between two matrices over a sphere of 80 mm, or the largest and RMS displacement over a mask; `makerot` writes a rotation about an axis through a centre. What they print is FSL's text, character for character, in the record's `programs/` cases below and in the probe calls behind them (avscale on 400 random matrices).
+
+```python
+import numpy as np
+
+m = np.loadtxt("bold2t1.mat")
+d = lx.fsl.avscale(m, "boldref.nii.gz", all_params=True)       # avscale --allparams
+xyz = lx.fsl.img2imgcoord([[10, 20, 30]], "boldref.nii.gz", "T1w.nii.gz", xfm=m)
+lx.fsl.rmsdiff(m, np.eye(4), "boldref.nii.gz")                   # mm
+r = lx.fsl.makerot(30, axis=(1, 2, 3), centre=(4, 5, 6))         # 30 degrees
+```
+
 ## Every case {#cases}
 
 Each case of the record, with what it tests, its command line, its verdict and the reason. Search, filter (or select a segment of the chart above), sort; `#case=<name>` links to one.
@@ -84,8 +101,8 @@ Each case of the record, with what it tests, its command line, its verdict and t
 
 ## Corrections by default {#corrections}
 
-The replica corrects FSL's deterministic defects by default and warns, with `upstream_defects="reproduce"` (`LARMORX_UPSTREAM_DEFECTS=reproduce`) giving FSL's behaviour byte for byte ([register](repo:docs/findings/upstream-defects.md)). FLIRT ends with exit status 0 after any error past its command line (an image or matrix it cannot read, a matrix of the wrong size, an unknown `-bbrtype`): the replica exits 1 with FLIRT's message, and 0 in `reproduce` mode (FSL-68). What FSL leaves undefined (a schedule's matrix name it cannot interpret, `setoption bbrstep` below 1, a matrix file with a word that is not a number, `-pedir` without a field map) the replica refuses in both modes, with the reason (FSL-70 to FSL-73). FLIRT shares with mcflirt the integer outputs' clamping (FSL-09) and the treatment of infinite voxels (FSL-14).
+The replica corrects FSL's deterministic defects by default and warns, with `upstream_defects="reproduce"` (`LARMORX_UPSTREAM_DEFECTS=reproduce`) giving FSL's behaviour byte for byte ([register](repo:docs/findings/upstream-defects.md)). FLIRT ends with exit status 0 after any error past its command line (an image or matrix it cannot read, a matrix of the wrong size, an unknown `-bbrtype`): the replica exits 1 with FLIRT's message, and 0 in `reproduce` mode (FSL-68). What FSL leaves undefined (a schedule's matrix name it cannot interpret, `setoption bbrstep` below 1, a matrix file with a word that is not a number, `-pedir` without a field map) the replica refuses in both modes, with the reason (FSL-70 to FSL-73). FSL's background value of a volume 3 voxels wide (a level of FLIRT's pyramid on a small image, or the padding of such an input) comes from a buffer too small for the border it writes: FSL corrupts its heap there, and then aborts, crashes or finishes; the replica takes the value over the whole border by default, the values that fit FSL's buffer with `reproduce` (FSL's result where it finishes), and names FSL-75 in both modes; a single-voxel volume, which has no border, is refused. FLIRT shares with mcflirt the integer outputs' clamping (FSL-09), the treatment of infinite voxels (FSL-14) and the order of NaN voxels in a background value (FSL-22). `makerot` divides its axis by the square root of its length, so a rotation about an axis that is not of unit length turns by the angle times that root: corrected by default (FSL-76); an axis or centre of other than three values, which FSL reads past, is refused (FSL-77). The boundary-based cost's normals are scaled by the reference level's voxel sizes, not the segmentation's (FSL-67): measured on fMRIPrep's three calls and an anisotropic segmentation, computing them in millimetres moves the results by 0.02 mm or less and brings no gain, so they stay FLIRT's in both modes.
 
 ## Known limits {#limits}
 
-The replica is experimental. The record's standard tier holds fMRIPrep's calls on three oracle runs; its full tier (fMRIPrep's 22 calls on every oracle run with BOLD runs) and the data panel's other images run in the final validation phase. `-anglerep quaternion`, `alignpaxes`, parameter subsets other than FLIRT's own and the shipped schedules', and `-debug`'s boundary-based volume are refused with a message until they are translated. FLIRT's other programs (avscale, img2imgcoord, img2stdcoord, std2imgcoord, applyxfm4D, rmsdiff, midtrans, makerot, pointflirt) follow, and then the clean-room original. The other five platforms are held to LARMORX's own Linux output by the [golden tests](repo:docs/validation/golden.md). There is no benchmark report yet: speed is measured with the clean-room original.
+The replica is experimental. The record's standard tier holds fMRIPrep's calls on three oracle runs; its full tier (fMRIPrep's 22 calls on every oracle run with BOLD runs) and the data panel's other images run in the final validation phase. The schedule command `alignpaxes`, parameter subsets other than FLIRT's own and the shipped schedules', `-debug`'s boundary-based volume and the coordinate programs' `-warp` are refused with a message until they are translated; `applyxfm4D`, `midtrans` and `pointflirt` follow; `makerot` prints `-nan` where FSL prints `nan` in some rows for a NaN or infinite angle or axis. Then the clean-room original. The other five platforms are held to LARMORX's own Linux output by the [golden tests](repo:docs/validation/golden.md). There is no benchmark report yet: speed is measured with the clean-room original.

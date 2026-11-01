@@ -3,19 +3,19 @@
  "tool": "fsl-flirt",
  "title": "FLIRT",
  "provenance": {
-  "exporter": "9b90b169292a9b450746f04ce05289fc8dcb2fff-dirty",
+  "exporter": "84e3f8a7670bccb0524294646129b4aa50a134e9",
   "records": [
    {
     "path": "docs/validation/fsl-flirt-replica.json",
-    "sha256": "177fd380b1bbff44071cb3ff6087c462ffccf3e01d98269d57b4d3d443458bfa",
+    "sha256": "751fc81d3f49fcd887e4e4447d36d15d7d66a3c7caa969a1cc6efe1cf365900b",
     "generated": "2026-11-01",
-    "larmorx_commit": "6913b97c3bb6"
+    "larmorx_commit": "b92c7ed2c691"
    },
    {
     "path": "docs/validation/fsl-flirt-replica.md",
-    "sha256": "027b6d9166a1c9e913f2c6f22baaaa87b4a0f64f408110e9563bb68aaa2eb559",
+    "sha256": "0e416502caefc858214dfcc14ea4d4d31ae5a69f1a76339fdc97612a78e764be",
     "generated": "2026-11-01",
-    "larmorx_commit": "6913b97c3bb6"
+    "larmorx_commit": "b92c7ed2c691"
    }
   ],
   "benchmarks": [],
@@ -844,10 +844,11 @@
    "record": "docs/validation/fsl-flirt-replica.md",
    "status": "experimental",
    "summary": {
-    "cases": 141,
+    "cases": 217,
     "verdicts": {
-     "bit-identical": 107,
-     "both-reject": 34
+     "bit-identical": 152,
+     "both-reject": 61,
+     "divergence": 4
     }
    },
    "agreement": [
@@ -860,7 +861,7 @@
     {
      "category": "real",
      "counts": {
-      "bit-identical": 55
+      "bit-identical": 58
      }
     },
     {
@@ -886,6 +887,7 @@
      "category": "edge",
      "counts": {
       "bit-identical": 9,
+      "divergence": 4,
       "both-reject": 19
      }
     },
@@ -897,9 +899,16 @@
      }
     },
     {
+     "category": "programs",
+     "counts": {
+      "bit-identical": 39,
+      "both-reject": 27
+     }
+    },
+    {
      "category": "difftest",
      "counts": {
-      "bit-identical": 2
+      "bit-identical": 5
      }
     }
    ]
@@ -950,6 +959,34 @@
     }
    },
    "example": "fmriprep-bbr"
+  },
+  {
+   "id": "real/anglerep-quaternion",
+   "category": "real",
+   "description": "-anglerep quaternion: the rotations as a quaternion's last three components (12 dof)",
+   "command": "flirt -in '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -anglerep quaternion -omat out.mat",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "real/anglerep-quaternion-dof6",
+   "category": "real",
+   "description": "-anglerep quaternion at 6 dof, -out, verbose (the parameters printed)",
+   "command": "flirt -in '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -anglerep quaternion -dof 6 -out out -omat out.mat -v",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
   },
   {
    "id": "real/default",
@@ -1672,6 +1709,20 @@
    "category": "real",
    "description": "0.6 mm voxels (the base scale from the voxel size)",
    "command": "flirt -in '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<t1_small.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -dof 6 -omat out.mat",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "real/basescale-small-init",
+   "category": "real",
+   "description": "0.6 mm voxels with -init (the initial matrix in the base scale's millimetres)",
+   "command": "flirt -in '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<t1_small.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -init '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' -dof 6 -nosearch -omat out.mat",
    "results": {
     "replica": {
      "outcome": "pass",
@@ -2844,6 +2895,62 @@
    }
   },
   {
+   "id": "edge/bbrstep-0",
+   "category": "edge",
+   "description": "setoption bbrstep 0 with BBR: FLIRT's loop over the boundary points never ends (FSL-71)",
+   "command": "flirt -in '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -cost bbr -wmseg '<wm.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -schedule s.sch -omat out.mat (with s.sch written first)",
+   "results": {
+    "replica": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "3/3",
+     "reason": "FLIRT never finishes (FSL-71: undefined behaviour); the replica refuses in both modes"
+    }
+   }
+  },
+  {
+   "id": "edge/read-not-numbers",
+   "category": "edge",
+   "description": "a schedule's read of a file holding a word that is not a number: FLIRT reads for ever, its memory growing (FSL-72)",
+   "command": "flirt -in '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -schedule s.sch -omat out.mat (with s.sch written first) (with bad.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "3/3",
+     "reason": "FLIRT never finishes (FSL-72: undefined behaviour); the replica refuses in both modes"
+    }
+   }
+  },
+  {
+   "id": "edge/background-overflow",
+   "category": "edge",
+   "description": "a 1-voxel input and an 8 x 1 x 1 reference: FLIRT's pyramid computes the background of a 3-voxel-wide level, writing past its buffer (FSL-75)",
+   "command": "flirt -in '<const:1x1x1:2.5x2.5x2.5:in.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<const:8x1x1:1x1.5x0.5:ref.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -omat out.mat",
+   "results": {
+    "replica": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "3/3",
+     "reason": "FSL crashes (FSL-75: undefined behaviour); the replica finishes in both modes and names FSL-75"
+    }
+   }
+  },
+  {
+   "id": "edge/background-empty",
+   "category": "edge",
+   "description": "-applyxfm of a 1-voxel input: its background value reads an empty buffer (FSL-75)",
+   "command": "flirt -in '<const:1x1x1:2x2x2:in.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<const:6x6x6:2x2x2:ref.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -applyxfm -init id.mat -out out (with id.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "3/3",
+     "reason": "FSL crashes (FSL-75: undefined behaviour); the replica refuses in both modes"
+    }
+   }
+  },
+  {
    "id": "convert_xfm/missing-concat",
    "category": "convert_xfm",
    "description": "-concat with a file that does not exist",
@@ -2858,7 +2965,973 @@
    }
   },
   {
+   "id": "programs/avscale-usage",
+   "category": "programs",
+   "description": "avscale without arguments (its usage, exit 255)",
+   "command": "avscale",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "avscale exits 255; the same from the replica. Usage: ~/fsl-6.0.7.23/bin/avscale [--allparams/--inverteddies] matrixfile [non-reference-volume]"
+    }
+   }
+  },
+  {
+   "id": "programs/avscale-default",
+   "category": "programs",
+   "description": "avscale of fMRIPrep's initial matrix",
+   "command": "avscale '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>'",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/avscale-allparams",
+   "category": "programs",
+   "description": "--allparams, the translations about a volume's centre",
+   "command": "avscale --allparams aff.mat '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' (with aff.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/avscale-inverteddies",
+   "category": "programs",
+   "description": "--inverteddies (the check and the inverted eddy matrix)",
+   "command": "avscale --inverteddies aff.mat (with aff.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/avscale-flip",
+   "category": "programs",
+   "description": "a matrix that swaps left and right (the half transforms of the swap)",
+   "command": "avscale flip.mat (with flip.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/avscale-singular",
+   "category": "programs",
+   "description": "a singular matrix: Armadillo's solve throws, avscale aborts",
+   "command": "avscale sing.mat (with sing.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "avscale exits -6; the same from the replica. matrix multiplication: problem with matrix inverse; suggest to use solve() instead terminate called after throwing an instance of 'std::runtime_error' what(): matrix multiplication: problem with matri"
+    }
+   }
+  },
+  {
+   "id": "programs/avscale-missing-matrix",
+   "category": "programs",
+   "description": "a matrix file that does not exist (exit 254)",
+   "command": "avscale none.mat",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "avscale exits 254; the same from the replica. Could not open matrix file none.mat"
+    }
+   }
+  },
+  {
+   "id": "programs/avscale-empty-volume",
+   "category": "programs",
+   "description": "an empty volume name: the centre of an empty volume",
+   "command": "avscale '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' ''",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/avscale-missing-volume",
+   "category": "programs",
+   "description": "a volume that does not exist: newimage's exception, abort",
+   "command": "avscale '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' none.nii.gz",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "avscale exits -6; the same from the replica. Image Exception : #63 :: No image files match: none Image Exception : #22 :: Failed to read volume none.nii.gz Error : No image files match: none Failed to read volume none.nii.gz Error : No image fil"
+    }
+   }
+  },
+  {
+   "id": "programs/img2imgcoord-usage",
+   "category": "programs",
+   "description": "img2imgcoord without arguments (its usage, exit 1)",
+   "command": "img2imgcoord",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "img2imgcoord exits 1; the same from the replica."
+    }
+   }
+  },
+  {
+   "id": "programs/img2imgcoord-xfm",
+   "category": "programs",
+   "description": "img2imgcoord through fMRIPrep's initial matrix",
+   "command": "img2imgcoord -src '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -dest '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -xfm '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/img2imgcoord-vox",
+   "category": "programs",
+   "description": "img2imgcoord -vox",
+   "command": "img2imgcoord -src '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -dest '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -xfm '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' -vox coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/img2imgcoord-mm",
+   "category": "programs",
+   "description": "img2imgcoord -mm",
+   "command": "img2imgcoord -src '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -dest '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -xfm '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' -mm coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/img2imgcoord-verbose",
+   "category": "programs",
+   "description": "img2imgcoord verbose (sizes, matrices; fixed notation after them)",
+   "command": "img2imgcoord -src '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -dest '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -xfm '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' -v coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/img2imgcoord-missing-coords",
+   "category": "programs",
+   "description": "img2imgcoord: a coordinate file that does not exist",
+   "command": "img2imgcoord -src '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -dest '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' none.txt",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "img2imgcoord exits 255; the same from the replica. Could not open matrix file none.txt"
+    }
+   }
+  },
+  {
+   "id": "programs/img2imgcoord-not-numbers",
+   "category": "programs",
+   "description": "img2imgcoord: coordinates that stop at a word",
+   "command": "img2imgcoord -src '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -dest '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' bad.txt (with bad.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/img2imgcoord-lacking",
+   "category": "programs",
+   "description": "img2imgcoord: an option lacking its argument (a message, the run goes on)",
+   "command": "img2imgcoord -src '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -dest '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' coords.txt -xfm (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/img2imgcoord-unknown",
+   "category": "programs",
+   "description": "img2imgcoord: an unknown option (exit 255)",
+   "command": "img2imgcoord -src '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -dest '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -frob x coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "img2imgcoord exits 255; the same from the replica. Unrecognised option -frob"
+    }
+   }
+  },
+  {
+   "id": "programs/img2imgcoord-missing-image",
+   "category": "programs",
+   "description": "img2imgcoord: an image that does not exist (abort)",
+   "command": "img2imgcoord -src none.nii -dest '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "img2imgcoord exits -6; the same from the replica. Image Exception : #63 :: No image files match: none Image Exception : #22 :: Failed to read volume none.nii Error : No image files match: none terminate called after throwing an instance of 'std::runt"
+    }
+   }
+  },
+  {
+   "id": "programs/std2imgcoord-usage",
+   "category": "programs",
+   "description": "std2imgcoord without arguments (its usage, exit 1)",
+   "command": "std2imgcoord",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "std2imgcoord exits 1; the same from the replica."
+    }
+   }
+  },
+  {
+   "id": "programs/std2imgcoord-xfm",
+   "category": "programs",
+   "description": "std2imgcoord through fMRIPrep's initial matrix",
+   "command": "std2imgcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -xfm '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/std2imgcoord-vox",
+   "category": "programs",
+   "description": "std2imgcoord -vox",
+   "command": "std2imgcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -xfm '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' -vox coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/std2imgcoord-mm",
+   "category": "programs",
+   "description": "std2imgcoord -mm",
+   "command": "std2imgcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -xfm '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' -mm coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/std2imgcoord-verbose",
+   "category": "programs",
+   "description": "std2imgcoord verbose (sizes, matrices; fixed notation after them)",
+   "command": "std2imgcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -xfm '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' -verbose coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/std2imgcoord-missing-coords",
+   "category": "programs",
+   "description": "std2imgcoord: a coordinate file that does not exist",
+   "command": "std2imgcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' none.txt",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "std2imgcoord exits 255; the same from the replica. Could not open matrix file none.txt"
+    }
+   }
+  },
+  {
+   "id": "programs/std2imgcoord-not-numbers",
+   "category": "programs",
+   "description": "std2imgcoord: coordinates that stop at a word",
+   "command": "std2imgcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' bad.txt (with bad.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/std2imgcoord-lacking",
+   "category": "programs",
+   "description": "std2imgcoord: an option lacking its argument (a message, the run goes on)",
+   "command": "std2imgcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' coords.txt -xfm (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/std2imgcoord-unknown",
+   "category": "programs",
+   "description": "std2imgcoord: an unknown option (exit 255)",
+   "command": "std2imgcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -frob x coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "std2imgcoord exits 255; the same from the replica. Unrecognised option -frob"
+    }
+   }
+  },
+  {
+   "id": "programs/std2imgcoord-missing-image",
+   "category": "programs",
+   "description": "std2imgcoord: an image that does not exist (abort)",
+   "command": "std2imgcoord -img none.nii -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "std2imgcoord exits -6; the same from the replica. Image Exception : #63 :: No image files match: none Image Exception : #22 :: Failed to read volume none.nii Error : No image files match: none terminate called after throwing an instance of 'std::runt"
+    }
+   }
+  },
+  {
+   "id": "programs/img2stdcoord-usage",
+   "category": "programs",
+   "description": "img2stdcoord without arguments (its usage, exit 1)",
+   "command": "img2stdcoord",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "img2stdcoord exits 1; the same from the replica."
+    }
+   }
+  },
+  {
+   "id": "programs/img2stdcoord-xfm",
+   "category": "programs",
+   "description": "img2stdcoord through fMRIPrep's initial matrix",
+   "command": "img2stdcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -xfm '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/img2stdcoord-vox",
+   "category": "programs",
+   "description": "img2stdcoord -vox",
+   "command": "img2stdcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -xfm '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' -vox coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/img2stdcoord-mm",
+   "category": "programs",
+   "description": "img2stdcoord -mm",
+   "command": "img2stdcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -xfm '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' -mm coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/img2stdcoord-verbose",
+   "category": "programs",
+   "description": "img2stdcoord verbose (sizes, matrices; fixed notation after them)",
+   "command": "img2stdcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -xfm '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' -verbose coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/img2stdcoord-missing-coords",
+   "category": "programs",
+   "description": "img2stdcoord: a coordinate file that does not exist",
+   "command": "img2stdcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' none.txt",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "img2stdcoord exits 255; the same from the replica. Could not open matrix file none.txt"
+    }
+   }
+  },
+  {
+   "id": "programs/img2stdcoord-not-numbers",
+   "category": "programs",
+   "description": "img2stdcoord: coordinates that stop at a word",
+   "command": "img2stdcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' bad.txt (with bad.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/img2stdcoord-lacking",
+   "category": "programs",
+   "description": "img2stdcoord: an option lacking its argument (a message, the run goes on)",
+   "command": "img2stdcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' coords.txt -xfm (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/img2stdcoord-unknown",
+   "category": "programs",
+   "description": "img2stdcoord: an unknown option (exit 255)",
+   "command": "img2stdcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -frob x coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "img2stdcoord exits 255; the same from the replica. Unrecognised option -frob"
+    }
+   }
+  },
+  {
+   "id": "programs/img2stdcoord-missing-image",
+   "category": "programs",
+   "description": "img2stdcoord: an image that does not exist (abort)",
+   "command": "img2stdcoord -img none.nii -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "img2stdcoord exits -6; the same from the replica. Image Exception : #63 :: No image files match: none Image Exception : #22 :: Failed to read volume none.nii Error : No image files match: none terminate called after throwing an instance of 'std::runt"
+    }
+   }
+  },
+  {
+   "id": "programs/img2imgcoord-flirt-premat",
+   "category": "programs",
+   "description": "img2imgcoord -flirt and -premat",
+   "command": "img2imgcoord -src '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -dest '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -flirt -premat '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/std2imgcoord-standard",
+   "category": "programs",
+   "description": "std2imgcoord from FSL's MNI152 2 mm",
+   "command": "std2imgcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<fsldata:MNI152_T1_2mm_brain_mask.nii.gz: derived from ds005040'\"'\"'s fMRIPrep run>' coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/std2imgcoord-no-std",
+   "category": "programs",
+   "description": "std2imgcoord without -std (its warning; 1 mm voxels)",
+   "command": "std2imgcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/std2imgcoord-singular",
+   "category": "programs",
+   "description": "std2imgcoord with a singular matrix: its inverse throws",
+   "command": "std2imgcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -xfm sing.mat coords.txt (with coords.txt written first) (with sing.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "std2imgcoord exits -6; the same from the replica. terminate called after throwing an instance of 'std::runtime_error' what(): inv(): matrix is singular"
+    }
+   }
+  },
+  {
+   "id": "programs/img2stdcoord-noform",
+   "category": "programs",
+   "description": "img2stdcoord to a standard image without sform or qform",
+   "command": "img2stdcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<noform:5x6x7:2x3x4:noform.nii: derived from ds005040'\"'\"'s fMRIPrep run>' coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/img2stdcoord-warp-missing",
+   "category": "programs",
+   "description": "img2stdcoord -warp of a file that does not exist",
+   "command": "img2stdcoord -img '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -std '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -warp none.nii.gz coords.txt (with coords.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "img2stdcoord exits 1; the same from the replica. Image Exception : #63 :: No image files match: none Image Exception : #22 :: Failed to read volume none.nii.gz Error : No image files match: none An error occured while reading file: none.nii.gz"
+    }
+   }
+  },
+  {
+   "id": "programs/rmsdiff-usage",
+   "category": "programs",
+   "description": "rmsdiff without arguments (its usage, exit 255)",
+   "command": "rmsdiff",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "rmsdiff exits 255; the same from the replica. Usage: ~/fsl-6.0.7.23/bin/rmsdiff matrixfile1 matrixfile2 refvol [mask] Outputs rms deviation between matrices (in mm)"
+    }
+   }
+  },
+  {
+   "id": "programs/rmsdiff-rms",
+   "category": "programs",
+   "description": "the RMS deviation over 80 mm about a volume's centre",
+   "command": "rmsdiff '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' id.mat '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' (with id.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/rmsdiff-mask",
+   "category": "programs",
+   "description": "the largest and the RMS displacement over a mask",
+   "command": "rmsdiff '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' aff.mat '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<wm.nii: derived from ds005040'\"'\"'s fMRIPrep run>' (with aff.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/rmsdiff-low-determinant",
+   "category": "programs",
+   "description": "a matrix of low determinant (its warning, the matrix on standard error)",
+   "command": "rmsdiff small.mat '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' (with small.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/rmsdiff-singular",
+   "category": "programs",
+   "description": "a singular second matrix: rms_deviation's message, exit 251",
+   "command": "rmsdiff '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' sing.mat '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' (with sing.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "rmsdiff exits 251; the same from the replica. WARNING:: matrix 2 has low determinant 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 RMS_DEVIATION ERR"
+    }
+   }
+  },
+  {
+   "id": "programs/rmsdiff-missing-matrix",
+   "category": "programs",
+   "description": "a matrix file that does not exist",
+   "command": "rmsdiff none.mat '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>'",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "rmsdiff exits 254; the same from the replica. Could not open matrix file none.mat Could not read matrix none.mat"
+    }
+   }
+  },
+  {
+   "id": "programs/rmsdiff-4d",
+   "category": "programs",
+   "description": "a 4D reference (its first volume, the warning)",
+   "command": "rmsdiff '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' aff.mat '<bold4.nii: derived from ds005040'\"'\"'s fMRIPrep run>' (with aff.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/makerot-usage",
+   "category": "programs",
+   "description": "makerot without arguments (the compulsory -t, its usage, exit 1)",
+   "command": "makerot",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "makerot exits 1; the same from the replica. *************************************************** The following COMPULSORY options have not been set: -t,--theta angle of rotation (in degrees) *************************************************** Pa"
+    }
+   }
+  },
+  {
+   "id": "programs/makerot-help",
+   "category": "programs",
+   "description": "makerot -h (its usage, exit 1)",
+   "command": "makerot -h",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "makerot exits 1; the same from the replica. Part of FSL (ID: 2412.6-dirty) makerot Copyright(c) 2003, University of Oxford (Mark Jenkinson) Usage: makerot [options] --theta=angle Compulsory arguments (You MUST set one or more of): -t,--theta an"
+    }
+   }
+  },
+  {
+   "id": "programs/makerot-default",
+   "category": "programs",
+   "description": "30 degrees about z through the origin",
+   "command": "makerot -t 30",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/makerot-axis-centre",
+   "category": "programs",
+   "description": "an axis that is not of unit length (FSL-76) through a centre",
+   "command": "makerot -t 30 -a 1,2,3 -c 4,5,6",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/makerot-long",
+   "category": "programs",
+   "description": "the long options with their values after =",
+   "command": "makerot --theta=-45.5 --axis=0,0,4 --centre=1:2:3",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/makerot-cov",
+   "category": "programs",
+   "description": "the centre of an image's volume (--cov)",
+   "command": "makerot -t 20 -a 0,1,1 --cov=@epi.nii",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/makerot-cov-missing",
+   "category": "programs",
+   "description": "--cov of a file that is not an image (FSL aborts)",
+   "command": "makerot -t 20 --cov=none.nii",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "makerot exits -6; the same from the replica. Image Exception : #63 :: No image files match: none Image Exception : #22 :: Failed to read volume none.nii Error : No image files match: none terminate called after throwing an instance of 'std::runt"
+    }
+   }
+  },
+  {
+   "id": "programs/makerot-zero-axis",
+   "category": "programs",
+   "description": "a zero axis (its error, exit 1)",
+   "command": "makerot -t 10 -a 0,0,0",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "makerot exits 1; the same from the replica. ERROR:: Axis cannot be zero"
+    }
+   }
+  },
+  {
+   "id": "programs/makerot-short-axis",
+   "category": "programs",
+   "description": "an axis of one value (FSL-77: the buffer's zeros)",
+   "command": "makerot -t 30 -a 5",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/makerot-stale-axis",
+   "category": "programs",
+   "description": "the axis given twice, the second of one value (FSL-77: the first's values)",
+   "command": "makerot -t 30 -a 1,2,3 -a 7",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/makerot-bad-theta",
+   "category": "programs",
+   "description": "a theta that is not a number (Couldn't set_value, exit 1)",
+   "command": "makerot -t abc",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "makerot exits 1; the same from the replica. Part of FSL (ID: 2412.6-dirty) makerot Copyright(c) 2003, University of Oxford (Mark Jenkinson) Usage: makerot [options] --theta=angle Compulsory arguments (You MUST set one or more of): -t,--theta an"
+    }
+   }
+  },
+  {
+   "id": "programs/makerot-out",
+   "category": "programs",
+   "description": "the matrix written to a file (-o)",
+   "command": "makerot -t 30 -a 1,1,0 -o out.mat",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/makerot-out-unwritable",
+   "category": "programs",
+   "description": "an output file that cannot be written (the message, exit 0)",
+   "command": "makerot -t 30 -o nodir/out.mat",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/makerot-token",
+   "category": "programs",
+   "description": "a word that is not an option (unrecognised token, exit 1)",
+   "command": "makerot -t 30 extra",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "makerot exits 1; the same from the replica. Part of FSL (ID: 2412.6-dirty) makerot Copyright(c) 2003, University of Oxford (Mark Jenkinson) Usage: makerot [options] --theta=angle Compulsory arguments (You MUST set one or more of): -t,--theta an"
+    }
+   }
+  },
+  {
    "id": "difftest/applyxfm-blur-extraslice",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "difftest/background-level-overflow-survives",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "difftest/background-nan-order",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "difftest/basescale-init-float",
    "category": "difftest",
    "description": "",
    "command": "",
@@ -2886,7 +3959,7 @@
    }
   }
  ],
- "cases_total": 141,
+ "cases_total": 217,
  "examples": [
   {
    "id": "fmriprep-bbr",
