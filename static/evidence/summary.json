@@ -411,13 +411,27 @@
    "eco": "fsl",
    "implementations": [
     {
+     "label": "clean-room original",
+     "record": "docs/validation/fsl-flirt.md",
+     "status": "experimental",
+     "cases": 305,
+     "verdicts": {
+      "bit-identical": 131,
+      "within-variability": 9,
+      "divergence": 6,
+      "both-reject": 85,
+      "open": 74
+     },
+     "source": "evidence"
+    },
+    {
      "label": "larmorx-nc replica",
      "record": "docs/validation/fsl-flirt-replica.md",
      "status": "experimental",
-     "cases": 296,
+     "cases": 302,
      "verdicts": {
-      "bit-identical": 205,
-      "divergence": 4,
+      "bit-identical": 209,
+      "divergence": 6,
       "both-reject": 87
      },
      "source": "evidence"
