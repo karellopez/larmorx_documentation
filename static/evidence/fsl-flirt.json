@@ -7,15 +7,15 @@
   "records": [
    {
     "path": "docs/validation/fsl-flirt-replica.json",
-    "sha256": "751fc81d3f49fcd887e4e4447d36d15d7d66a3c7caa969a1cc6efe1cf365900b",
-    "generated": "2026-11-01",
-    "larmorx_commit": "b92c7ed2c691"
+    "sha256": "809b73d68e66baffc5b96e4607b226e14c58bdc09bae9dda665dac2a0ed69b55",
+    "generated": "2026-11-02",
+    "larmorx_commit": "bc119ffde16b"
    },
    {
     "path": "docs/validation/fsl-flirt-replica.md",
-    "sha256": "0e416502caefc858214dfcc14ea4d4d31ae5a69f1a76339fdc97612a78e764be",
-    "generated": "2026-11-01",
-    "larmorx_commit": "b92c7ed2c691"
+    "sha256": "bb44ea9f7f86bc16136c85fd594da5d7c18c38b171416a11ed3b60c3e2b06178",
+    "generated": "2026-11-02",
+    "larmorx_commit": "bc119ffde16b"
    }
   ],
   "benchmarks": [],
@@ -844,10 +844,10 @@
    "record": "docs/validation/fsl-flirt-replica.md",
    "status": "experimental",
    "summary": {
-    "cases": 217,
+    "cases": 296,
     "verdicts": {
-     "bit-identical": 152,
-     "both-reject": 61,
+     "bit-identical": 205,
+     "both-reject": 87,
      "divergence": 4
     }
    },
@@ -867,20 +867,20 @@
     {
      "category": "bbr",
      "counts": {
-      "bit-identical": 10
+      "bit-identical": 11
      }
     },
     {
      "category": "schedule",
      "counts": {
-      "bit-identical": 15,
-      "both-reject": 6
+      "bit-identical": 22,
+      "both-reject": 7
      }
     },
     {
      "category": "verbose",
      "counts": {
-      "bit-identical": 6
+      "bit-identical": 8
      }
     },
     {
@@ -901,14 +901,15 @@
     {
      "category": "programs",
      "counts": {
-      "bit-identical": 39,
-      "both-reject": 27
+      "bit-identical": 79,
+      "both-reject": 50
      }
     },
     {
      "category": "difftest",
      "counts": {
-      "bit-identical": 5
+      "bit-identical": 8,
+      "both-reject": 2
      }
     }
    ]
@@ -1817,6 +1818,20 @@
    }
   },
   {
+   "id": "bbr/debug",
+   "category": "bbr",
+   "description": "-debug with -cost bbr (BBR's debug volume `debug`, part 3)",
+   "command": "flirt -in '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -init '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' -schedule /home/karelo/fsl-6.0.7.23/etc/flirtsch/bbr.sch -wmseg '<wm.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -dof 6 -omat out.mat -cost bbr -debug",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
    "id": "bbr/slope",
    "category": "bbr",
    "description": "-bbrslope -0.25",
@@ -2181,6 +2196,34 @@
    }
   },
   {
+   "id": "verbose/debug",
+   "category": "verbose",
+   "description": "-debug: the pyramid's volumes and weights saved (no weights: the one-voxel weight)",
+   "command": "flirt -in '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -debug -dof 6 -omat out.mat",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "verbose/debug-weights",
+   "category": "verbose",
+   "description": "-debug with -refweight and -inweight (the weights' levels saved)",
+   "command": "flirt -in '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -refweight '<refweight.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -inweight '<inweight.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -debug -dof 6 -omat out.mat",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
    "id": "schedule/every-command",
    "category": "schedule",
    "description": "a schedule using every command and option",
@@ -2289,6 +2332,118 @@
      "verdict": "both-reject",
      "checks": "5/5",
      "reason": "flirt exits -11; the same from the replica. Can only accept UA to UZ, not Uq"
+    }
+   }
+  },
+  {
+   "id": "schedule/alignpaxes",
+   "category": "schedule",
+   "description": "alignpaxes on real images",
+   "command": "flirt -in '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -schedule s.sch -omat out.mat (with s.sch written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "schedule/alignpaxes-constant",
+   "category": "schedule",
+   "description": "alignpaxes on constant images (zero moments, total 0)",
+   "command": "flirt -in '<const:12x10x8:2x2x2:c.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<const:12x10x8:2x2x2:c.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -schedule s.sch -omat out.mat (with s.sch written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "schedule/alignpaxes-nan",
+   "category": "schedule",
+   "description": "alignpaxes on an input with a NaN voxel (eig_sym fails: the exception)",
+   "command": "flirt -in '<nan:epi.nii:epi_nan.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -schedule s.sch -omat out.mat (with s.sch written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "schedule/alignpaxes-2d",
+   "category": "schedule",
+   "description": "alignpaxes in 2D mode (one slice: a zero third moment)",
+   "command": "flirt -in '<slice_in.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<slice_ref.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -2D -schedule s.sch -omat out.mat (with s.sch written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "schedule/alignpaxes-args",
+   "category": "schedule",
+   "description": "alignpaxes without its matrix",
+   "command": "flirt -in '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -schedule s.sch -omat out.mat (with s.sch written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "flirt exits 255; the same from the replica. Wrong number of args to ALIGNPAXES"
+    }
+   }
+  },
+  {
+   "id": "schedule/paramsubset-general",
+   "category": "schedule",
+   "description": "a parameter subset whose column has two ones in different rows of another (rz; tx+ty)",
+   "command": "flirt -in '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -schedule s.sch -omat out.mat (with s.sch written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "schedule/paramsubset-weighted",
+   "category": "schedule",
+   "description": "a parameter subset with weights other than 0 and 1 sharing rows (the SVD's QR path)",
+   "command": "flirt -in '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -schedule s.sch -omat out.mat (with s.sch written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "schedule/paramsubset-singular",
+   "category": "schedule",
+   "description": "a parameter subset reaching a singular matrix in a cost evaluation (the exception caught by FLIRT's main: FSL-68)",
+   "command": "flirt -in '<const:1x1x1:1x1x1:one.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -ref '<const:1x1x1:1x1x1:one.nii: derived from ds005040'\"'\"'s fMRIPrep run>' -schedule s.sch -omat out.mat (with s.sch written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-68 and names it"
     }
    }
   },
@@ -2961,6 +3116,888 @@
      "verdict": "both-reject",
      "checks": "5/5",
      "reason": "convert_xfm exits 253; the same from the replica. Could not open matrix file none.mat Cannot read concat-matrix"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-usage",
+   "category": "programs",
+   "description": "applyxfm4D without arguments (its usage, exit 255)",
+   "command": "applyxfm4D",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "applyxfm4D exits 255; the same from the replica. Usage: ~/fsl-6.0.7.23/bin/applyxfm4D <input volume> <ref volume> <output volume> <transformation matrix file/dir> --interp, -interp <nearestneighbour (or nn), trilinear, spline, sinc (defau"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-default",
+   "category": "programs",
+   "description": "a 4D int16 series, a matrix per volume (MAT_0000n), sinc",
+   "command": "applyxfm4D '<bold4.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz mats (with mats/MAT_00000 written first) (with mats/MAT_00001 written first) (with mats/MAT_00002 written first) (with mats/MAT_00003 written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-single-trilinear",
+   "category": "programs",
+   "description": "-singlematrix with trilinear interpolation, verbose",
+   "command": "applyxfm4D '<bold4.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz one.mat -singlematrix -interp trilinear -v (with one.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-fourdigit-nn",
+   "category": "programs",
+   "description": "--fourdigit (MAT_000n) with nearest neighbour (nn)",
+   "command": "applyxfm4D '<bold4.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz m4 --fourdigit --interp nn (with m4/MAT_0000 written first) (with m4/MAT_0001 written first) (with m4/MAT_0002 written first) (with m4/MAT_0003 written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-userprefix-spline",
+   "category": "programs",
+   "description": "-userprefix with spline on an integer series (FSL-79)",
+   "command": "applyxfm4D '<bold4.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz mu -userprefix vol -interp spline (with mu/vol0000 written first) (with mu/vol0001 written first) (with mu/vol0002 written first) (with mu/vol0003 written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-float-sinc",
+   "category": "programs",
+   "description": "a float input (one volume), -singlematrix, sinc",
+   "command": "applyxfm4D '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz one.mat -singlematrix (with one.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-3d",
+   "category": "programs",
+   "description": "-3D (the rectangular sinc of width 9) on a float volume",
+   "command": "applyxfm4D '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz one.mat -3D (with one.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-3d-spline-float",
+   "category": "programs",
+   "description": "-3D with spline on a float volume",
+   "command": "applyxfm4D '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz one.mat -3d -interp spline (with one.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-int8",
+   "category": "programs",
+   "description": "an int8 input (FSL-09: written as uint8), trilinear",
+   "command": "applyxfm4D '<int8:epi.nii:epi_i8.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz one.mat -singlematrix -interp trilinear (with one.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-09 and names it: 163,840 values change"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-double-sinc",
+   "category": "programs",
+   "description": "a double series (sinc sums in double precision; the background value kept in double precision where the mask sets it)",
+   "command": "applyxfm4D '<double:bold4.nii:bold4_f64.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz mats (with mats/MAT_00000 written first) (with mats/MAT_00001 written first) (with mats/MAT_00002 written first) (with mats/MAT_00003 written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-double-3d-spline",
+   "category": "programs",
+   "description": "-3D spline on a double volume (its coefficients in double precision)",
+   "command": "applyxfm4D '<double:epi.nii:epi_f64.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz one.mat -3D -interp spline (with one.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-double-nn",
+   "category": "programs",
+   "description": "a double volume, nearest neighbour (values through float)",
+   "command": "applyxfm4D '<double:epi.nii:epi_f64.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz one.mat -singlematrix -interp nn (with one.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-3d-spline-int",
+   "category": "programs",
+   "description": "-3D spline on an int16 volume (FSL-79: coefficients and values in the type)",
+   "command": "applyxfm4D '<bold4.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz one.mat -3D -interp spline (with one.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-nan-border",
+   "category": "programs",
+   "description": "NaN voxels in the input's border and an infinite one: the background value's NaN order (FSL-22), spline coefficients through them",
+   "command": "applyxfm4D '<nanedge:epi.nii:epi_nanedge.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz one.mat -singlematrix -interp spline (with one.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-nan-border-3d",
+   "category": "programs",
+   "description": "the same with -3D and sinc",
+   "command": "applyxfm4D '<nanedge:epi.nii:epi_nanedge.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz one.mat -3D (with one.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-metres",
+   "category": "programs",
+   "description": "an input whose header gives metres (a nonsense header): read as FSL reads it",
+   "command": "applyxfm4D '<metres:epi.nii:epi_m.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz one.mat -singlematrix -interp trilinear (with one.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-bad-interp",
+   "category": "programs",
+   "description": "an unknown interpolation (its message, exit 1)",
+   "command": "applyxfm4D '<bold4.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz one.mat -interp cubic (with one.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "applyxfm4D exits 1; the same from the replica. interpolation method: cubic is not a valid choice. Please choose from nearestneighbour, trilinear, sinc, or spline."
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-userprefix-last",
+   "category": "programs",
+   "description": "-userprefix as the last word (std::string of null)",
+   "command": "applyxfm4D '<bold4.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz mu -userprefix (with mu/vol0000 written first) (with mu/vol0001 written first) (with mu/vol0002 written first) (with mu/vol0003 written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "applyxfm4D exits -6; the same from the replica. terminate called after throwing an instance of 'std::logic_error' what(): basic_string: construction from null is not valid"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-missing-matrix",
+   "category": "programs",
+   "description": "a directory without the matrices (FSL aborts)",
+   "command": "applyxfm4D '<bold4.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz none",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "applyxfm4D exits -6; the same from the replica. Could not open matrix file none/MAT_00000 terminate called after throwing an instance of 'std::logic_error' what(): matrix multiplication: incompatible matrix dimensions: 0x0 and 4x4"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-missing-input",
+   "category": "programs",
+   "description": "an input that does not exist (FSL aborts)",
+   "command": "applyxfm4D none.nii.gz '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz one.mat (with one.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "applyxfm4D exits -6; the same from the replica. Image Exception : #63 :: No image files match: none terminate called after throwing an instance of 'std::runtime_error' what(): No image files match: none"
+    }
+   }
+  },
+  {
+   "id": "programs/aff2rigid-usage",
+   "category": "programs",
+   "description": "aff2rigid without arguments (its usage, exit 1)",
+   "command": "PATH=/home/karelo/fsl-6.0.7.23/bin:/usr/bin:/bin aff2rigid",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "aff2rigid exits 1; the same from the replica."
+    }
+   }
+  },
+  {
+   "id": "programs/aff2rigid-default",
+   "category": "programs",
+   "description": "aff2rigid of an affine standard-space matrix (numpy's arithmetic)",
+   "command": "PATH=/home/karelo/fsl-6.0.7.23/bin:/usr/bin:/bin aff2rigid aff.mat rigid.mat (with aff.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "aff2rigid exits 1; the same from the replica. Traceback (most recent call last): File \"~/fsl-6.0.7.23/bin/aff2rigid\", line 105, in <module> v41=mat(zeros((4,1))) ^^^ NameError: name 'mat' is not defined"
+    }
+   }
+  },
+  {
+   "id": "programs/aff2rigid-fmriprep",
+   "category": "programs",
+   "description": "aff2rigid of fMRIPrep's initial matrix",
+   "command": "PATH=/home/karelo/fsl-6.0.7.23/bin:/usr/bin:/bin aff2rigid '<init.mat: derived from ds005040'\"'\"'s fMRIPrep run>' rigid.mat",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "aff2rigid exits 1; the same from the replica. Traceback (most recent call last): File \"~/fsl-6.0.7.23/bin/aff2rigid\", line 105, in <module> v41=mat(zeros((4,1))) ^^^ NameError: name 'mat' is not defined"
+    }
+   }
+  },
+  {
+   "id": "programs/extracttxt-usage",
+   "category": "programs",
+   "description": "extracttxt with one argument (its usage, exit 255)",
+   "command": "extracttxt word",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "extracttxt exits 2; the same from the replica. ~/fsl-6.0.7.23/bin/extracttxt: 68: exit: Illegal number: -1"
+    }
+   }
+  },
+  {
+   "id": "programs/extracttxt-rest",
+   "category": "programs",
+   "description": "the lines from the first match to the end",
+   "command": "extracttxt value t.txt (with t.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/extracttxt-count",
+   "category": "programs",
+   "description": "three lines from the first match",
+   "command": "extracttxt e.4 t.txt 3 (with t.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/extracttxt-regex-start",
+   "category": "programs",
+   "description": "a regular expression, two lines, starting 2 lines after",
+   "command": "extracttxt ^line.[5-6] t.txt 2 2 (with t.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/extracttxt-before",
+   "category": "programs",
+   "description": "a negative relative start (lines before the match)",
+   "command": "extracttxt end$ t.txt 4 -3 (with t.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/extracttxt-zero-count",
+   "category": "programs",
+   "description": "zero trailing lines (sed's range ends before it starts)",
+   "command": "extracttxt line.7 t.txt 0 (with t.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/extracttxt-line0",
+   "category": "programs",
+   "description": "a relative start reaching line 0 (sed's error, exit 1)",
+   "command": "extracttxt ^line.1.v t.txt 2 -1 (with t.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "extracttxt exits 1; the same from the replica. sed: -e expression #1, char 4: invalid usage of line address 0"
+    }
+   }
+  },
+  {
+   "id": "programs/extracttxt-dc-negative",
+   "category": "programs",
+   "description": "a start before line 1: dc reads its own negative result as a subtraction (stack empty), sed the range as an option",
+   "command": "extracttxt e.2 t.txt 3 -4 (with t.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "extracttxt exits 1; the same from the replica. dc: stack empty sed: invalid option -- '2' Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]... -n, --quiet, --silent suppress automatic printing of pattern space --debug annotate p"
+    }
+   }
+  },
+  {
+   "id": "programs/extracttxt-sed-option",
+   "category": "programs",
+   "description": "a start on line 0 with no trailing line: the range -1,-1 (sed's unknown option)",
+   "command": "extracttxt e.4 t.txt 0 -4 (with t.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "extracttxt exits 1; the same from the replica. sed: invalid option -- '1' Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]... -n, --quiet, --silent suppress automatic printing of pattern space --debug annotate program execution"
+    }
+   }
+  },
+  {
+   "id": "programs/extracttxt-signed",
+   "category": "programs",
+   "description": "signed arguments (+2, -0): dc reads each sign as a command",
+   "command": "extracttxt e.4 t.txt -0 +2 (with t.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/extracttxt-nomatch",
+   "category": "programs",
+   "description": "a word that never matches (nothing printed, exit 0)",
+   "command": "extracttxt nothing t.txt (with t.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/extracttxt-missing",
+   "category": "programs",
+   "description": "a file that does not exist (grep's message, exit 0)",
+   "command": "extracttxt x none.txt",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/pairreg-usage",
+   "category": "programs",
+   "description": "pairreg with four arguments (its usage, exit 1)",
+   "command": "pairreg a b c d",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "pairreg exits 1; the same from the replica."
+    }
+   }
+  },
+  {
+   "id": "programs/pairreg-default",
+   "category": "programs",
+   "description": "pairreg of the T1w and its moved copy (brains and skulls the same)",
+   "command": "pairreg '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<t1_moved.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<t1.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<t1_moved.nii: derived from ds005040'\"'\"'s fMRIPrep run>' pair.mat -dof 6",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/pairreg-metres",
+   "category": "programs",
+   "description": "pairreg of images whose headers give metres (nonsense headers)",
+   "command": "pairreg '<metres:epi.nii:epi_m.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<metres:epi.nii:epi_m.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<metres:epi.nii:epi_m.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<metres:epi.nii:epi_m.nii: derived from ds005040'\"'\"'s fMRIPrep run>' pair.mat -dof 6",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/midtrans-usage",
+   "category": "programs",
+   "description": "midtrans without transforms (its message and usage, exit 1)",
+   "command": "midtrans",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "midtrans exits 1; the same from the replica. Must specify at least 2 transforms to find the mid-transform Part of FSL (ID: 2412.6-dirty) midtrans Copyright(c) 2010, University of Oxford (Mark Jenkinson) Usage: midtrans [options] transform1 trans"
+    }
+   }
+  },
+  {
+   "id": "programs/midtrans-help",
+   "category": "programs",
+   "description": "midtrans -h (its usage, exit 1)",
+   "command": "midtrans -h",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "midtrans exits 1; the same from the replica. Part of FSL (ID: 2412.6-dirty) midtrans Copyright(c) 2010, University of Oxford (Mark Jenkinson) Usage: midtrans [options] transform1 transform2 ... transformN e.g. midtrans -o temp2mid.mat A2temp.mat"
+    }
+   }
+  },
+  {
+   "id": "programs/midtrans-one",
+   "category": "programs",
+   "description": "one transform only (at least 2 needed, exit 1)",
+   "command": "midtrans a.mat (with a.mat written first) (with b.mat written first) (with c.mat written first) (with id.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "midtrans exits 1; the same from the replica. Must specify at least 2 transforms to find the mid-transform Part of FSL (ID: 2412.6-dirty) midtrans Copyright(c) 2010, University of Oxford (Mark Jenkinson) Usage: midtrans [options] transform1 trans"
+    }
+   }
+  },
+  {
+   "id": "programs/midtrans-default",
+   "category": "programs",
+   "description": "three transforms, printed (the MNI origin assumed)",
+   "command": "midtrans a.mat b.mat c.mat (with a.mat written first) (with b.mat written first) (with c.mat written first) (with id.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/midtrans-out-verbose",
+   "category": "programs",
+   "description": "-o with -v (every stage printed, the matrix written)",
+   "command": "midtrans -v -o mid.mat a.mat b.mat id.mat (with a.mat written first) (with b.mat written first) (with c.mat written first) (with id.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/midtrans-template-separate",
+   "category": "programs",
+   "description": "--template (its centre of gravity) and --separate",
+   "command": "midtrans --template=@epi.nii --separate=img2mid -o mid.mat a.mat b.mat c.mat (with a.mat written first) (with b.mat written first) (with c.mat written first) (with id.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/midtrans-template-50mm",
+   "category": "programs",
+   "description": "--template with voxels of 50 mm (a nonsense header: its centre of gravity far out)",
+   "command": "midtrans --template=@const:6x5x4:50x50x50:t50.nii a.mat b.mat (with a.mat written first) (with b.mat written first) (with c.mat written first) (with id.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/midtrans-debug",
+   "category": "programs",
+   "description": "--debug (the origin at 0 and the debug matrices)",
+   "command": "midtrans --debug a.mat c.mat (with a.mat written first) (with b.mat written first) (with c.mat written first) (with id.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/midtrans-singular",
+   "category": "programs",
+   "description": "a transform with a determinant below 1e-6 (its message, exit 1)",
+   "command": "midtrans a.mat sing.mat (with a.mat written first) (with b.mat written first) (with c.mat written first) (with id.mat written first) (with sing.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "midtrans exits 1; the same from the replica. Could not read matrix sing.mat"
+    }
+   }
+  },
+  {
+   "id": "programs/midtrans-token",
+   "category": "programs",
+   "description": "an option after the transforms (read as a file: an empty matrix, the size error caught)",
+   "command": "midtrans a.mat b.mat -v (with a.mat written first) (with b.mat written first) (with c.mat written first) (with id.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/midtrans-not-square",
+   "category": "programs",
+   "description": "a 3 x 4 matrix (the determinant's error, caught)",
+   "command": "midtrans a.mat r.mat (with a.mat written first) (with b.mat written first) (with c.mat written first) (with id.mat written first) (with r.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/midtrans-3x3",
+   "category": "programs",
+   "description": "a 3 x 3 matrix (the product's size error, caught)",
+   "command": "midtrans a.mat r.mat (with a.mat written first) (with b.mat written first) (with c.mat written first) (with id.mat written first) (with r.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/pointflirt-usage",
+   "category": "programs",
+   "description": "pointflirt without arguments (the compulsory options, exit 1)",
+   "command": "pointflirt",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "pointflirt exits 1; the same from the replica. *************************************************** The following COMPULSORY options have not been set: -i filename of input volume coordinates -r filename of reference volume coordinates ************"
+    }
+   }
+  },
+  {
+   "id": "programs/pointflirt-default",
+   "category": "programs",
+   "description": "eight points, the matrix printed",
+   "command": "pointflirt -i in.txt -r ref.txt (with in.txt written first) (with ref.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/pointflirt-out-verbose",
+   "category": "programs",
+   "description": "-v and -o (the coordinates printed, the matrix written)",
+   "command": "pointflirt -v -i in.txt -r ref.txt -o aff.mat (with in.txt written first) (with ref.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/pointflirt-vox",
+   "category": "programs",
+   "description": "--vox with --invol and --refvol (voxel coordinates scaled)",
+   "command": "pointflirt -i in.txt -r ref.txt --vox --invol=@epi.nii --refvol=@t1.nii (with in.txt written first) (with ref.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/pointflirt-vox-odd",
+   "category": "programs",
+   "description": "--vox with voxels of 0.01 mm and of 50 mm (nonsense headers)",
+   "command": "pointflirt -i in.txt -r ref.txt --vox --invol=@const:4x4x4:0.01x0.01x0.01:v001.nii --refvol=@const:4x4x4:50x50x50:v50.nii (with in.txt written first) (with ref.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/pointflirt-vox-missing",
+   "category": "programs",
+   "description": "--vox without the volumes (its error, exit 2)",
+   "command": "pointflirt -i in.txt -r ref.txt --vox (with in.txt written first) (with ref.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "pointflirt exits 2; the same from the replica. ERROR: need to specify --invol and --refvol to use --vox"
+    }
+   }
+  },
+  {
+   "id": "programs/pointflirt-nullspace",
+   "category": "programs",
+   "description": "four points (a nullspace: the warning, a non-unique solution)",
+   "command": "pointflirt -i in4.txt -r ref4.txt (with in4.txt written first) (with ref4.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/pointflirt-count",
+   "category": "programs",
+   "description": "files with different numbers of points (its error, exit 255)",
+   "command": "pointflirt -i in.txt -r ref4.txt (with in.txt written first) (with ref.txt written first) (with ref4.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "pointflirt exits 255; the same from the replica. ERROR: Different number of coordinates in the two files"
+    }
+   }
+  },
+  {
+   "id": "programs/pointflirt-many",
+   "category": "programs",
+   "description": "twenty points (x·xᵀ by BLAS dsyrk)",
+   "command": "pointflirt -i in20.txt -r ref20.txt (with in20.txt written first) (with ref20.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/pointflirt-missing",
+   "category": "programs",
+   "description": "a coordinate file that does not exist (FSL aborts)",
+   "command": "pointflirt -i none.txt -r ref.txt (with in.txt written first) (with ref.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "pointflirt exits 255; the same from the replica. Could not open matrix file none.txt ERROR: Different number of coordinates in the two files"
+    }
+   }
+  },
+  {
+   "id": "programs/pointflirt-three",
+   "category": "programs",
+   "description": "three points: a square file is read with points as columns",
+   "command": "pointflirt -i in3.txt -r ref3.txt (with in3.txt written first) (with ref3.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "programs/pointflirt-two",
+   "category": "programs",
+   "description": "two points (two rows of three: FSL reads past its rows, aborts)",
+   "command": "pointflirt -i in2.txt -r ref2.txt (with in2.txt written first) (with ref2.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "pointflirt exits -6; the same from the replica. terminate called after throwing an instance of 'std::logic_error' what(): copy into submatrix: incompatible matrix dimensions: 3x1 and 2x1"
+    }
+   }
+  },
+  {
+   "id": "programs/pointflirt-four-columns",
+   "category": "programs",
+   "description": "points of four coordinates (FSL's block sizes clash, aborts)",
+   "command": "pointflirt -i in4c.txt -r ref4c.txt (with in4c.txt written first) (with ref4c.txt written first)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "pointflirt exits -6; the same from the replica. terminate called after throwing an instance of 'std::logic_error' what(): copy into submatrix: incompatible matrix dimensions: 3x1 and 4x1"
     }
    }
   },
@@ -3903,6 +4940,48 @@
    }
   },
   {
+   "id": "difftest/applyxfm4d-double-padding",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
+   "id": "difftest/applyxfm4d-int-spline-small",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "2/2",
+     "reason": "applyxfm4D exits -11; the same from the replica."
+    }
+   }
+  },
+  {
+   "id": "difftest/applyxfm4d-nan-background",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
    "id": "difftest/background-level-overflow-survives",
    "category": "difftest",
    "description": "",
@@ -3957,9 +5036,37 @@
      "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
     }
    }
+  },
+  {
+   "id": "difftest/extracttxt-dc-negative",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "extracttxt exits 1; the same from the replica. dc: stack empty sed: invalid option -- '2' Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]... -n, --quiet, --silent suppress automatic printing of pattern space --debug annotate p"
+    }
+   }
+  },
+  {
+   "id": "difftest/paramsubset-singular-cost",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages"
+    }
+   }
   }
  ],
- "cases_total": 217,
+ "cases_total": 296,
  "examples": [
   {
    "id": "fmriprep-bbr",
