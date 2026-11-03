@@ -3,31 +3,31 @@
  "tool": "fsl-flirt",
  "title": "FLIRT",
  "provenance": {
-  "exporter": "6fce7a8f404cc8ea5491fcc2733c258344397884",
+  "exporter": "3c260e57bed0c5584f6c3bf156c1b1763dc9014b",
   "records": [
    {
     "path": "docs/validation/fsl-flirt-replica.json",
-    "sha256": "d6d9318acdb0e837f442868f3aff34299323f02273f31775cbfa054ffe858ea5",
-    "generated": "2026-11-02",
-    "larmorx_commit": "2c21ac663955"
+    "sha256": "0d09ea6dd4503e70e395584def03ace7bdabfc647f0006103972a5919fd2d55f",
+    "generated": "2026-11-03",
+    "larmorx_commit": "53796ce0a606"
    },
    {
     "path": "docs/validation/fsl-flirt-replica.md",
-    "sha256": "47d0a9df0f8d8e439e26aee6142ad12715bfb3ef5741a74f059faa729bee8efc",
-    "generated": "2026-11-02",
-    "larmorx_commit": "2c21ac663955"
+    "sha256": "64d2b93a829a5fbfe4eb3305d9d11f11343a4d14aa559dbb8fabc2519d1dc00e",
+    "generated": "2026-11-03",
+    "larmorx_commit": "53796ce0a606"
    },
    {
     "path": "docs/validation/fsl-flirt.json",
-    "sha256": "44f87d3290293d6e9bde1d57d1dfd7f9240eecd2fc2bd74a651cc35366b30150",
-    "generated": "2026-11-02",
-    "larmorx_commit": "f22179aa9118"
+    "sha256": "bc77b3bbad9e9d0dd4269efec1e8e23d09bda3f0a426ff45635a95281c4e14f4",
+    "generated": "2026-11-03",
+    "larmorx_commit": "f0dd88b671b6"
    },
    {
     "path": "docs/validation/fsl-flirt.md",
-    "sha256": "73e08170079988bc0b9f35bc89372f04abdc19fb694f24cc207de6c6446272d1",
-    "generated": "2026-11-02",
-    "larmorx_commit": "f22179aa9118"
+    "sha256": "8b87082b488bb1b5b84ffa20cae1fb685ef5ea19dedc16e0bc776ad8c7810f5c",
+    "generated": "2026-11-03",
+    "larmorx_commit": "f0dd88b671b6"
    }
   ],
   "benchmarks": [
@@ -1638,11 +1638,11 @@
    "record": "docs/validation/fsl-flirt-replica.md",
    "status": "experimental",
    "summary": {
-    "cases": 302,
+    "cases": 305,
     "verdicts": {
-     "bit-identical": 209,
+     "bit-identical": 211,
      "both-reject": 87,
-     "divergence": 6
+     "divergence": 7
     }
    },
    "agreement": [
@@ -1695,7 +1695,8 @@
     {
      "category": "programs",
      "counts": {
-      "bit-identical": 79,
+      "bit-identical": 81,
+      "divergence": 1,
       "both-reject": 50
      }
     },
@@ -5244,6 +5245,34 @@
    }
   },
   {
+   "id": "programs/applyxfm4D-uint8",
+   "category": "programs",
+   "description": "a uint8 input, trilinear (FSL-111: its values 128 to 255 read as signed bytes; read as stored by default)",
+   "command": "applyxfm4D '<uint8:epi.nii:epi_u8.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz one.mat -singlematrix -interp trilinear (with one.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-111 and names it: 63,871 values change"
+    }
+   }
+  },
+  {
+   "id": "programs/applyxfm4D-uint8-3d-spline",
+   "category": "programs",
+   "description": "-3D spline on a uint8 volume (FSL-111 with FSL-79's coefficients in the type)",
+   "command": "applyxfm4D '<uint8:epi.nii:epi_u8.nii: derived from ds005040'\"'\"'s fMRIPrep run>' '<epi.nii: derived from ds005040'\"'\"'s fMRIPrep run>' out.nii.gz one.mat -3D -interp spline (with one.mat written first)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes, byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-111 and names it: 84,973 values change"
+    }
+   }
+  },
+  {
    "id": "programs/applyxfm4D-double-sinc",
    "category": "programs",
    "description": "a double series (sinc sums in double precision; the background value kept in double precision where the mask sets it)",
@@ -6260,6 +6289,20 @@
      "verdict": "both-reject",
      "checks": "4/4",
      "reason": "pointflirt exits 255; the same from the original. Could not open matrix file none.txt ERROR: Different number of coordinates in the two files"
+    }
+   }
+  },
+  {
+   "id": "programs/pointflirt-no-points",
+   "category": "programs",
+   "description": "two coordinate files that do not exist (no points: FSL crashes, FSL-204; refused in both modes)",
+   "command": "pointflirt -i none1.txt -r none2.txt",
+   "results": {
+    "replica": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "3/3",
+     "reason": "FSL crashes (FSL-204: undefined behaviour); the replica refuses in both modes"
     }
    }
   },
@@ -7966,7 +8009,7 @@
    }
   }
  ],
- "cases_total": 315,
+ "cases_total": 318,
  "speed": {
   "title": "Seconds for the whole command (read, register, write), one run each, log scale; the factor is the clean-room original's speed-up over FSL at 14 threads",
   "axis": [
