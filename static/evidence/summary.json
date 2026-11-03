@@ -492,6 +492,43 @@
    ]
   },
   {
+   "page": "/tools/fsl-maths/",
+   "title": "fslmaths",
+   "eco": "fsl",
+   "implementations": [
+    {
+     "label": "larmorx-nc replica",
+     "record": "docs/validation/fsl-maths-replica.md",
+     "status": "experimental",
+     "cases": 421,
+     "verdicts": {
+      "bit-identical": 358,
+      "divergence": 2,
+      "both-reject": 61
+     },
+     "source": "evidence"
+    }
+   ]
+  },
+  {
+   "page": "/tools/fsl-stats/",
+   "title": "fslstats",
+   "eco": "fsl",
+   "implementations": [
+    {
+     "label": "larmorx-nc replica",
+     "record": "docs/validation/fsl-stats-replica.md",
+     "status": "experimental",
+     "cases": 208,
+     "verdicts": {
+      "bit-identical": 172,
+      "both-reject": 36
+     },
+     "source": "evidence"
+    }
+   ]
+  },
+  {
    "page": "/tools/resample-series/",
    "title": "One-shot BOLD resampler",
    "eco": "larmorx",
@@ -546,6 +583,8 @@
   "fsl-bet",
   "fsl-fast",
   "fsl-flirt",
+  "fsl-maths",
+  "fsl-stats",
   "fsl-topup",
   "itk-hdf5",
   "mri-hmc",
