@@ -473,6 +473,25 @@
    ]
   },
   {
+   "page": "/tools/fsl-topup/",
+   "title": "topup and applytopup",
+   "eco": "fsl",
+   "implementations": [
+    {
+     "label": "larmorx-nc replica",
+     "record": "docs/validation/fsl-topup-replica.md",
+     "status": "experimental",
+     "cases": 173,
+     "verdicts": {
+      "bit-identical": 104,
+      "divergence": 3,
+      "both-reject": 66
+     },
+     "source": "evidence"
+    }
+   ]
+  },
+  {
    "page": "/tools/resample-series/",
    "title": "One-shot BOLD resampler",
    "eco": "larmorx",
@@ -527,6 +546,7 @@
   "fsl-bet",
   "fsl-fast",
   "fsl-flirt",
+  "fsl-topup",
   "itk-hdf5",
   "mri-hmc",
   "nifti-io",

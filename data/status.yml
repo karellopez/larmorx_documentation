@@ -120,6 +120,12 @@ implemented:
     use: ["larmorx fsl fast", "lx.fsl.fast"]
     how: "clean-room original, `experimental` (2026-11-03: every option, message and failure case, one channel or any number of them, FSL's tissue priors registered by FLIRT's clean-room original in the same process; fMRIPrep's call 9 to 11 times FSL's speed on one thread, 47 to 67 times on 14, the same bits at any thread count); exact replica in `larmorx-nc` (FSL Licence, non-commercial), `experimental`"
     validation: "original: [60 of 61](repo:docs/validation/fsl-fast.md) compared cases within thresholds against FSL 6.0.7.23 (fMRIPrep's call on 3 oracle runs bit for bit what FSL computes with correctly rounded maths, every single-channel case FSL's values or FSL's with correctly rounded maths, several channels within FSL's own difference between the two but for a few partial volumes one fraction step away), 25 more rejected by both alike, 1 where FSL reads past the smaller of channels of different sizes (FSL-104, refused); the 1 it misses is in its record (five channels with nearly singular covariances, decided by the matrix arithmetic's last bits); replica: [59 of 59](repo:docs/validation/fsl-fast-replica.md) compared cases bit-identical to FSL 6.0.7.23 (every image written, the printed messages, the exit status): fMRIPrep's call on 3 oracle runs (an adult, a 3.5-year-old, a glioma), every option, one to eight channels, FSL's tissue priors registered by FLIRT's replica, the image types, 2D images; 26 more rejected by both alike; 1 where FSL reads and writes past the smaller of channels of different sizes (FSL-104, refused)"
+  - eco: fsl
+    tool: "topup and applytopup (the susceptibility field from reversed phase encodings, and its correction)"
+    page: /tools/fsl-topup/
+    use: ["larmorx fsl topup", "larmorx fsl applytopup", "lx.fsl.topup", "lx.fsl.applytopup"]
+    how: "exact replica in `larmorx-nc` (FSL Licence, non-commercial), `experimental` (2026-11-03: every option, message and failure case of both programs, applytopup's undocumented vb2D, vb3D and vb4D included); the clean-room original is to be written from `specs/topup.md`"
+    validation: "replica: [104 of 104](repo:docs/validation/fsl-topup-replica.md) compared cases bit-identical to FSL 6.0.7.23 (every file written, the printed messages, the exit status): fMRIPrep's call on 2 oracle runs, every option, FSL's configurations, applytopup's five methods; 66 more rejected by both alike; 3 refused where FSL needs more memory than any machine holds (a negative --warpres, FSL-124) or reads a field on another grid past its lines (FSL-134)"
 # END GENERATED: implemented tools
 
 planned:
@@ -128,7 +134,7 @@ planned:
     text: 3dQwarp, 3dSkullStrip, 3dcalc and an analysis track (3dTproject, 3dDespike, 3dReHo, 3dRSFC, 3dDeconvolve/3dREMLfit, 3dFWHMx/3dClustSim, ...).
   - eco: [fsl]
     title: FSL-compatible tools
-    text: BET's clean-room original, FAST, FLIRT with BBR, topup.
+    text: topup's clean-room original, `fslmaths` and `fslstats` (the mcflirt, BET, FLIRT, FAST and topup replicas and the clean-room originals of BET, FLIRT and FAST are done).
   - eco: [freesurfer, workbench]
     title: Field maps, FreeSurfer, surfaces
     text: sdcflows' field-map estimation, FreeSurfer (`larmorx-freesurfer`), Connectome Workbench- and MSM-compatible surface tools, the confounds.
