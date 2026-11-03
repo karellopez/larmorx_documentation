@@ -3,19 +3,19 @@
  "tool": "fsl-topup",
  "title": "topup and applytopup",
  "provenance": {
-  "exporter": "0e9fbc6679eecc2199b41c21159648fdf7e6d8d7",
+  "exporter": "a58ec8fc6a13fc22769dacb2f6b7ba3bad448fe2",
   "records": [
    {
     "path": "docs/validation/fsl-topup-replica.json",
-    "sha256": "7635ccf50cf83ed7dc2dbcdaaad0c8d9b04a90b3710c365af9eaa9ce52969d94",
+    "sha256": "1651ca33255cc2be24ef81fe8694d08e2252f005376dddb26d9b82f54a8efd63",
     "generated": "2026-11-03",
-    "larmorx_commit": "24cf764e6292"
+    "larmorx_commit": "53796ce0a606"
    },
    {
     "path": "docs/validation/fsl-topup-replica.md",
-    "sha256": "aae614e208a31889d5f7ca9a63311329882f7f814a184d34945ac826718636a5",
+    "sha256": "053003c7631a2ead2e027a0cb11d05a82fd622fb53839cbd816eb52341de5b24",
     "generated": "2026-11-03",
-    "larmorx_commit": "24cf764e6292"
+    "larmorx_commit": "53796ce0a606"
    },
    {
     "path": "docs/validation/fsl-topup.json",
@@ -43,7 +43,7 @@
     "entry": "fsl-topup/fmriprep-ds005040-sub-002-noreconall",
     "description": "fMRIPrep's topup call of ds005040-sub-002-noreconall: FSL 6.0.7.23 at one thread (the record's run, from the oracle cache) and four, and the replica, reproduce and default modes",
     "computed": "2026-11-03T06:22:09+00:00",
-    "larmorx_commit": "3b21e314e9a91619e5f5ee5bcfdb86aeccfe0de2",
+    "larmorx_commit": "3b65d4eeb6c75c678a07554682b9f50aefdf3cdb",
     "commands": [
      {
       "label": "fsl",
@@ -182,7 +182,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 30.57
+      "seconds": 32.35
      }
     ],
     "versions": {
@@ -195,7 +195,7 @@
     "entry": "fsl-topup/fmriprep-ds001600-sub-1-noreconall",
     "description": "fMRIPrep's topup call of ds001600-sub-1-noreconall: FSL 6.0.7.23 at one thread (the record's run, from the oracle cache) and four, and the replica, reproduce and default modes",
     "computed": "2026-11-03T06:24:18+00:00",
-    "larmorx_commit": "3b21e314e9a91619e5f5ee5bcfdb86aeccfe0de2",
+    "larmorx_commit": "3b65d4eeb6c75c678a07554682b9f50aefdf3cdb",
     "commands": [
      {
       "label": "fsl",
@@ -334,7 +334,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 71.57
+      "seconds": 82.52
      }
     ],
     "versions": {
@@ -347,7 +347,7 @@
     "entry": "fsl-topup/opt-membrane-lm",
     "description": "The record's case opt/membrane-lm: FSL 6.0.7.23 (from the oracle cache) and the replica",
     "computed": "2026-11-03T06:20:34+00:00",
-    "larmorx_commit": "3b21e314e9a91619e5f5ee5bcfdb86aeccfe0de2",
+    "larmorx_commit": "3b65d4eeb6c75c678a07554682b9f50aefdf3cdb",
     "commands": [
      {
       "label": "fsl",
@@ -437,10 +437,127 @@
     "settings": "The record's case opt/membrane-lm, its inputs from the suite's derived inputs (oracles/inputs/fsl-topup-replica/; applytopup's from FSL's topup of the record's case opt/levels, served from the oracle cache), by FSL 6.0.7.23 through the oracle-output cache (the record's own run) and by the larmorx-nc replica in its reproduce and default modes"
    },
    {
+    "entry": "fsl-topup/opt-levels",
+    "description": "The record's case opt/levels: FSL 6.0.7.23 (from the oracle cache) and the replica",
+    "computed": "2026-11-03T22:11:09+00:00",
+    "larmorx_commit": "3b65d4eeb6c75c678a07554682b9f50aefdf3cdb",
+    "commands": [
+     {
+      "label": "fsl",
+      "argv": [
+       "~/fsl-6.0.7.23/bin/topup",
+       "--imain=half.nii.gz",
+       "--datain=acq.txt",
+       "--out=o",
+       "--warpres=20,14",
+       "--subsamp=2,1",
+       "--fwhm=8,4",
+       "--miter=3,2",
+       "--lambda=0.005,0.0001",
+       "--estmov=1,0",
+       "--minmet=0,1",
+       "--iout=c",
+       "--fout=f",
+       "--dfout=d",
+       "--rbmout=r",
+       "--jacout=j",
+       "--featout=feat",
+       "-v"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "replica",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "topup",
+       "--imain=half.nii.gz",
+       "--datain=acq.txt",
+       "--out=o",
+       "--warpres=20,14",
+       "--subsamp=2,1",
+       "--fwhm=8,4",
+       "--miter=3,2",
+       "--lambda=0.005,0.0001",
+       "--estmov=1,0",
+       "--minmet=0,1",
+       "--iout=c",
+       "--fout=f",
+       "--dfout=d",
+       "--rbmout=r",
+       "--jacout=j",
+       "--featout=feat",
+       "-v"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "4"
+      },
+      "exit": 0,
+      "seconds": 0.28
+     },
+     {
+      "label": "replica-fix",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "topup",
+       "--imain=half.nii.gz",
+       "--datain=acq.txt",
+       "--out=o",
+       "--warpres=20,14",
+       "--subsamp=2,1",
+       "--fwhm=8,4",
+       "--miter=3,2",
+       "--lambda=0.005,0.0001",
+       "--estmov=1,0",
+       "--minmet=0,1",
+       "--iout=c",
+       "--fout=f",
+       "--dfout=d",
+       "--rbmout=r",
+       "--jacout=j",
+       "--featout=feat",
+       "-v"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "4"
+      },
+      "exit": 0,
+      "seconds": 0.27
+     }
+    ],
+    "versions": {
+     "fsl": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH)",
+     "larmorx-nc": "larmorx-nc 0.0.1"
+    },
+    "settings": "The record's case opt/levels, its inputs from the suite's derived inputs (oracles/inputs/fsl-topup-replica/; applytopup's from FSL's topup of the record's case opt/levels, served from the oracle cache), by FSL 6.0.7.23 through the oracle-output cache (the record's own run) and by the larmorx-nc replica in its reproduce and default modes"
+   },
+   {
     "entry": "fsl-topup/at-lsr-y",
     "description": "The record's case at/lsr-y: FSL 6.0.7.23 (from the oracle cache) and the replica",
     "computed": "2026-11-03T06:20:35+00:00",
-    "larmorx_commit": "3b21e314e9a91619e5f5ee5bcfdb86aeccfe0de2",
+    "larmorx_commit": "3b65d4eeb6c75c678a07554682b9f50aefdf3cdb",
     "commands": [
      {
       "label": "fsl",
@@ -508,7 +625,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.1
+      "seconds": 0.12
      }
     ],
     "versions": {
@@ -521,7 +638,7 @@
     "entry": "fsl-topup/at-jac-y",
     "description": "The record's case at/jac-y: FSL 6.0.7.23 (from the oracle cache) and the replica",
     "computed": "2026-11-03T06:20:35+00:00",
-    "larmorx_commit": "3b21e314e9a91619e5f5ee5bcfdb86aeccfe0de2",
+    "larmorx_commit": "3b65d4eeb6c75c678a07554682b9f50aefdf3cdb",
     "commands": [
      {
       "label": "fsl",
@@ -592,7 +709,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      }
     ],
     "versions": {
@@ -605,7 +722,7 @@
     "entry": "fsl-topup/at-vb3d-y",
     "description": "The record's case at/vb3d-y: FSL 6.0.7.23 (from the oracle cache) and the replica",
     "computed": "2026-11-03T06:20:43+00:00",
-    "larmorx_commit": "3b21e314e9a91619e5f5ee5bcfdb86aeccfe0de2",
+    "larmorx_commit": "3b65d4eeb6c75c678a07554682b9f50aefdf3cdb",
     "commands": [
      {
       "label": "fsl",
@@ -676,7 +793,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 4.18
+      "seconds": 4.6
      }
     ],
     "versions": {
@@ -688,8 +805,8 @@
    {
     "entry": "fsl-topup/cases-default-mode",
     "description": "The replica's default mode on every case of the record: its exit status and the entries it names",
-    "computed": "2026-11-03T06:24:46+00:00",
-    "larmorx_commit": "3b21e314e9a91619e5f5ee5bcfdb86aeccfe0de2",
+    "computed": "2026-11-03T22:06:28+00:00",
+    "larmorx_commit": "3b65d4eeb6c75c678a07554682b9f50aefdf3cdb",
     "commands": [
      {
       "label": "fmriprep-ds001600-sub-1-noreconall",
@@ -718,7 +835,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 74.29
+      "seconds": 79.22
      },
      {
       "label": "fmriprep-ds005040-sub-002-noreconall",
@@ -747,7 +864,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 30.56
+      "seconds": 29.91
      },
      {
       "label": "debug-one-level",
@@ -786,7 +903,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 1.18
+      "seconds": 1.19
      },
      {
       "label": "debug-movements",
@@ -819,7 +936,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 1.29
+      "seconds": 1.19
      },
      {
       "label": "debug-hessian",
@@ -845,7 +962,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.44
+      "seconds": 0.36
      },
      {
       "label": "debug-trace",
@@ -875,7 +992,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.27
+      "seconds": 0.33
      },
      {
       "label": "debug-profile",
@@ -905,7 +1022,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.27
+      "seconds": 0.26
      },
      {
       "label": "opt-defaults",
@@ -927,7 +1044,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.29
+      "seconds": 0.19
      },
      {
       "label": "opt-levels",
@@ -963,7 +1080,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.29
+      "seconds": 0.34
      },
      {
       "label": "opt-numprec-float",
@@ -991,7 +1108,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.45
+      "seconds": 0.36
      },
      {
       "label": "opt-interp-linear",
@@ -1019,7 +1136,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.44
+      "seconds": 0.27
      },
      {
       "label": "opt-membrane-lm",
@@ -1047,7 +1164,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.44
+      "seconds": 0.41
      },
      {
       "label": "opt-membrane-scg",
@@ -1105,7 +1222,66 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.36
+      "seconds": 0.21
+     },
+     {
+      "label": "opt-fsl145-short-axis",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "topup",
+       "--imain=half.nii.gz",
+       "--datain=acq.txt",
+       "--out=o",
+       "--warpres=80",
+       "--fwhm=8",
+       "--miter=3",
+       "--lambda=0.005",
+       "--estmov=0",
+       "--splineorder=2",
+       "--fout=f"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "4"
+      },
+      "exit": 0,
+      "seconds": 0.25
+     },
+     {
+      "label": "opt-fsl145-one-coefficient",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "topup",
+       "--imain=half.nii.gz",
+       "--datain=acq.txt",
+       "--out=o",
+       "--warpres=140",
+       "--subsamp=2",
+       "--fwhm=8",
+       "--miter=1",
+       "--lambda=0.005",
+       "--estmov=0",
+       "--splineorder=2",
+       "--fout=f"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "4"
+      },
+      "exit": 0,
+      "seconds": 0.08
      },
      {
       "label": "opt-scale",
@@ -1133,7 +1309,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.44
+      "seconds": 0.43
      },
      {
       "label": "opt-ssqlambda-0",
@@ -1160,7 +1336,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.52
+      "seconds": 0.36
      },
      {
       "label": "opt-regrid-0",
@@ -1191,7 +1367,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.26
+      "seconds": 0.25
      },
      {
       "label": "opt-scg",
@@ -1219,7 +1395,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.19
+      "seconds": 0.26
      },
      {
       "label": "opt-scg-movements",
@@ -1248,7 +1424,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.26
+      "seconds": 0.19
      },
      {
       "label": "opt-acqp",
@@ -1274,7 +1450,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.53
+      "seconds": 0.35
      },
      {
       "label": "opt-datain-transposed",
@@ -1300,7 +1476,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.45
+      "seconds": 0.42
      },
      {
       "label": "opt-x-phase-encoding",
@@ -1330,7 +1506,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.52
+      "seconds": 0.37
      },
      {
       "label": "opt-four-volumes",
@@ -1360,7 +1536,35 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 1.42
+      "seconds": 0.91
+     },
+     {
+      "label": "opt-fsl146-four-axes",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "topup",
+       "--imain=four.nii.gz",
+       "--datain=acq_four.txt",
+       "--out=o",
+       "--warpres=20",
+       "--fwhm=8",
+       "--miter=3",
+       "--lambda=0.005",
+       "--estmov=0",
+       "--fout=f"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "4"
+      },
+      "exit": 0,
+      "seconds": 0.77
      },
      {
       "label": "opt-oblique-phase-encoding",
@@ -1388,7 +1592,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.85
+      "seconds": 0.68
      },
      {
       "label": "opt-readout-times",
@@ -1415,7 +1619,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.52
+      "seconds": 0.43
      },
      {
       "label": "opt-zero-readout",
@@ -1443,7 +1647,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.44
+      "seconds": 0.36
      },
      {
       "label": "opt-same-direction",
@@ -1470,7 +1674,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.53
+      "seconds": 0.42
      },
      {
       "label": "opt-z-phase-encoding",
@@ -1523,7 +1727,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.44
+      "seconds": 0.35
      },
      {
       "label": "opt-one-volume",
@@ -1549,7 +1753,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 2.03
+      "seconds": 2.04
      },
      {
       "label": "opt-no-out",
@@ -1574,7 +1778,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.52
+      "seconds": 0.36
      },
      {
       "label": "opt-intent",
@@ -1602,7 +1806,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.44
+      "seconds": 0.43
      },
      {
       "label": "opt-nifti",
@@ -1629,7 +1833,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.51
+      "seconds": 0.36
      },
      {
       "label": "opt-nifti2",
@@ -1657,7 +1861,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.45
+      "seconds": 0.46
      },
      {
       "label": "opt-nifti-pair",
@@ -1684,7 +1888,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.52
+      "seconds": 0.4
      },
      {
       "label": "opt-iout-extension",
@@ -1711,7 +1915,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.44
+      "seconds": 0.41
      },
      {
       "label": "opt-nthr-0",
@@ -1738,7 +1942,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.51
+      "seconds": 0.47
      },
      {
       "label": "opt-warpres-0",
@@ -1764,7 +1968,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.15
+      "seconds": 0.19
      },
      {
       "label": "opt-lambda-negative",
@@ -1867,7 +2071,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.51
+      "seconds": 0.63
      },
      {
       "label": "cfg-b02b0_1",
@@ -1893,7 +2097,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 1.52
+      "seconds": 1.51
      },
      {
       "label": "cfg-b02b0_2",
@@ -1919,7 +2123,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.5
+      "seconds": 0.63
      },
      {
       "label": "cfg-b02b0_4",
@@ -1971,7 +2175,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.59
+      "seconds": 0.73
      },
      {
       "label": "cfg-test_acqp",
@@ -1997,7 +2201,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.19
+      "seconds": 0.12
      },
      {
       "label": "cfg-b02b0-extension",
@@ -2021,7 +2225,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.5
+      "seconds": 0.62
      },
      {
       "label": "cfg-local",
@@ -2045,7 +2249,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.27
+      "seconds": 0.26
      },
      {
       "label": "cfg-local-no-extension",
@@ -2069,7 +2273,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.34
+      "seconds": 0.27
      },
      {
       "label": "cfg-command-line-wins",
@@ -2094,7 +2298,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.24
+      "seconds": 0.3
      },
      {
       "label": "cfg-directory",
@@ -2118,7 +2322,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.22
+      "seconds": 0.19
      },
      {
       "label": "cfg-not-found",
@@ -2233,7 +2437,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.43
+      "seconds": 0.29
      },
      {
       "label": "err-no-arguments",
@@ -2750,7 +2954,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.11
+      "seconds": 0.1
      },
      {
       "label": "err-numprec",
@@ -2970,7 +3174,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 1,
-      "seconds": 0.44
+      "seconds": 0.42
      },
      {
       "label": "err-iout-no-directory",
@@ -2997,7 +3201,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 1,
-      "seconds": 0.52
+      "seconds": 0.35
      },
      {
       "label": "err-logout-no-directory",
@@ -3024,7 +3228,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.45
+      "seconds": 0.42
      },
      {
       "label": "err-rbmout-no-directory",
@@ -3051,7 +3255,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.52
+      "seconds": 0.35
      },
      {
       "label": "err-profile-no-directory",
@@ -3105,7 +3309,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 1,
-      "seconds": 0.45
+      "seconds": 0.35
      },
      {
       "label": "err-outputtype-unset",
@@ -3131,7 +3335,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 1,
-      "seconds": 0.52
+      "seconds": 0.42
      },
      {
       "label": "thr-nthr-4",
@@ -3163,7 +3367,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.21
+      "seconds": 0.2
      },
      {
       "label": "thr-fsl-num-threads",
@@ -3192,7 +3396,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.5
+      "seconds": 0.36
      },
      {
       "label": "thr-openblas",
@@ -3224,7 +3428,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.17
+      "seconds": 0.22
      },
      {
       "label": "at-lsr-y",
@@ -3369,7 +3573,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.09
+      "seconds": 0.1
      },
      {
       "label": "at-lsr-crop",
@@ -3417,7 +3621,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.11
+      "seconds": 0.08
      },
      {
       "label": "at-vb2d-y",
@@ -3442,7 +3646,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 7.43
+      "seconds": 7.53
      },
      {
       "label": "at-vb3d-y",
@@ -3467,7 +3671,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 4.16
+      "seconds": 4.22
      },
      {
       "label": "at-vb4d-y",
@@ -3492,7 +3696,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 4.14
+      "seconds": 4.15
      },
      {
       "label": "at-lsr-long",
@@ -3517,7 +3721,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.18
+      "seconds": 0.19
      },
      {
       "label": "at-vb2d-long",
@@ -3542,7 +3746,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 21.69
+      "seconds": 22.29
      },
      {
       "label": "at-vb3d-long",
@@ -3567,7 +3771,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 12.6
+      "seconds": 12.28
      },
      {
       "label": "at-vb4d-long",
@@ -3592,7 +3796,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 12.17
+      "seconds": 12.24
      },
      {
       "label": "at-vb3d-4d",
@@ -3618,7 +3822,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 8.24
+      "seconds": 8.17
      },
      {
       "label": "at-vb4d-4d",
@@ -3644,7 +3848,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 4.42
+      "seconds": 4.38
      },
      {
       "label": "at-vb2d-x",
@@ -3669,7 +3873,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 7.46
+      "seconds": 7.52
      },
      {
       "label": "at-vb3d-x",
@@ -3694,7 +3898,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 4.18
+      "seconds": 4.29
      },
      {
       "label": "at-vb3d-aniso",
@@ -3719,7 +3923,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 4.06
+      "seconds": 4.12
      },
      {
       "label": "at-vb2d-aniso",
@@ -3744,7 +3948,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 7.44
+      "seconds": 7.61
      },
      {
       "label": "at-vb4d-four",
@@ -3769,7 +3973,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 8.21
+      "seconds": 8.48
      },
      {
       "label": "at-vb3d-three",
@@ -3794,7 +3998,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 4.03
+      "seconds": 4.25
      },
      {
       "label": "at-vb2d-three",
@@ -3819,7 +4023,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 7.4
+      "seconds": 7.55
      },
      {
       "label": "at-vb-one-direction",
@@ -3919,7 +4123,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.01
      },
      {
       "label": "at-jac-pair",
@@ -3944,7 +4148,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.03
+      "seconds": 0.02
      },
      {
       "label": "at-jac-4d",
@@ -3969,7 +4173,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.06
+      "seconds": 0.02
      },
      {
       "label": "at-jac-trilinear",
@@ -3996,7 +4200,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.01
      },
      {
       "label": "at-jac-x",
@@ -4170,8 +4374,8 @@
        "LARMORX_UPSTREAM_DEFECTS": "fix",
        "OMP_NUM_THREADS": "4"
       },
-      "exit": 0,
-      "seconds": 0.01
+      "exit": 1,
+      "seconds": 0.0
      },
      {
       "label": "at-datatype-preserve",
@@ -4327,7 +4531,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "at-datatype-preserve-int16",
@@ -4412,7 +4616,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.12
+      "seconds": 0.1
      },
      {
       "label": "at-nifti",
@@ -5350,6 +5554,121 @@
     "settings": "The record's case opt/membrane-lm, its inputs as the records prepare them: LARMORX's clean-room original as its record runs it (reproduce mode at 14 threads and at one, the default mode at 14); FSL 6.0.7.23 and the replica are the replica entry's runs of the same call (FSL through the oracle-output cache)"
    },
    {
+    "entry": "fsl-topup/original-opt-levels",
+    "description": "opt/levels: LARMORX's clean-room original, reproduce mode at 14 threads and at one, the default mode",
+    "computed": "2026-11-03T22:11:10+00:00",
+    "larmorx_commit": "3b65d4eeb6c75c678a07554682b9f50aefdf3cdb",
+    "commands": [
+     {
+      "label": "original",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "topup",
+       "--imain=half.nii.gz",
+       "--datain=acq.txt",
+       "--out=o",
+       "--warpres=20,14",
+       "--subsamp=2,1",
+       "--fwhm=8,4",
+       "--miter=3,2",
+       "--lambda=0.005,0.0001",
+       "--estmov=1,0",
+       "--minmet=0,1",
+       "--iout=c",
+       "--fout=f",
+       "--dfout=d",
+       "--rbmout=r",
+       "--jacout=j",
+       "--featout=feat",
+       "-v"
+      ],
+      "env": {
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.06
+     },
+     {
+      "label": "original-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "topup",
+       "--imain=half.nii.gz",
+       "--datain=acq.txt",
+       "--out=o",
+       "--warpres=20,14",
+       "--subsamp=2,1",
+       "--fwhm=8,4",
+       "--miter=3,2",
+       "--lambda=0.005,0.0001",
+       "--estmov=1,0",
+       "--minmet=0,1",
+       "--iout=c",
+       "--fout=f",
+       "--dfout=d",
+       "--rbmout=r",
+       "--jacout=j",
+       "--featout=feat",
+       "-v"
+      ],
+      "env": {
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.09
+     },
+     {
+      "label": "original-fix",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "topup",
+       "--imain=half.nii.gz",
+       "--datain=acq.txt",
+       "--out=o",
+       "--warpres=20,14",
+       "--subsamp=2,1",
+       "--fwhm=8,4",
+       "--miter=3,2",
+       "--lambda=0.005,0.0001",
+       "--estmov=1,0",
+       "--minmet=0,1",
+       "--iout=c",
+       "--fout=f",
+       "--dfout=d",
+       "--rbmout=r",
+       "--jacout=j",
+       "--featout=feat",
+       "-v"
+      ],
+      "env": {
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.06
+     }
+    ],
+    "versions": {
+     "fsl": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH)",
+     "larmorx": "larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0)"
+    },
+    "settings": "The record's case opt/levels, its inputs as the records prepare them: LARMORX's clean-room original as its record runs it (reproduce mode at 14 threads and at one, the default mode at 14); FSL 6.0.7.23 and the replica are the replica entry's runs of the same call (FSL through the oracle-output cache)"
+   },
+   {
     "entry": "fsl-topup/original-at-lsr-y",
     "description": "at/lsr-y: LARMORX's clean-room original, reproduce mode at 14 threads and at one, the default mode",
     "computed": "2026-11-03T14:29:52+00:00",
@@ -5625,10 +5944,10 @@
    "record": "docs/validation/fsl-topup-replica.md",
    "status": "experimental",
    "summary": {
-    "cases": 173,
+    "cases": 176,
     "verdicts": {
-     "bit-identical": 104,
-     "both-reject": 66,
+     "bit-identical": 106,
+     "both-reject": 67,
      "divergence": 3
     }
    },
@@ -5648,9 +5967,9 @@
     {
      "category": "opt",
      "counts": {
-      "bit-identical": 32,
+      "bit-identical": 34,
       "divergence": 1,
-      "both-reject": 1
+      "both-reject": 2
      }
     },
     {
@@ -5838,7 +6157,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (29/29) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (29/29) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 779,994 values change"
     },
     "original": {
      "outcome": "pass",
@@ -5878,7 +6197,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 4,698 values change"
     },
     "original": {
      "outcome": "pass",
@@ -5898,7 +6217,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; the profile's durations (the clock's) masked before comparing"
+     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; its default mode names FSL-201, with the same values; the profile's durations (the clock's) masked before comparing"
     },
     "original": {
      "outcome": "pass",
@@ -5918,7 +6237,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages; its default mode names FSL-201, with the same values"
     },
     "original": {
      "outcome": "pass",
@@ -5938,7 +6257,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (16/16) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (16/16) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 202,926 values change"
     },
     "original": {
      "outcome": "expected-divergence",
@@ -5946,7 +6265,8 @@
      "checks": "46/47",
      "reason": "the movements estimated, not converged: FSL's rotation derivatives are not its cost's (findings 14). Outside the thresholds: c: relative difference inside the brain, 99th percentile 0.001247 (threshold 0.001)"
     }
-   }
+   },
+   "example": "movements"
   },
   {
    "id": "opt/numprec-float",
@@ -5958,7 +6278,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 22,005 values change"
     },
     "original": {
      "outcome": "pass",
@@ -5978,7 +6298,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 56,519 values change"
     },
     "original": {
      "outcome": "pass",
@@ -5998,7 +6318,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-117 and names it: 22,006 values change"
+     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-117, FSL-201 and names it: 22,006 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6039,13 +6359,41 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 22,006 values change"
     },
     "original": {
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
      "reason": "Within the record's thresholds (specs/topup.md §12): o_movpar.txt: rotations 3.48e-05 (§12: 0.001); _fieldcoef (its field, Hz): |d| inside the brain, mean 0.00247 (§12: 0.1); --fout (Hz): |d| inside the brain, mean 0.00247 (§12: 0.1). 3 of 4 files differ in their values (most: `f.nii.gz`: 20,480 of 20,480 values, at most 0.0101): the clean-room original computes in its own order of operations (written from the specification, not from FSL's code). FSL's own band is not measured on this case (its thread band is, on fMRIPrep's calls)."
+    }
+   }
+  },
+  {
+   "id": "opt/fsl145-short-axis",
+   "category": "opt",
+   "description": "--splineorder=2 with z shorter than two knot spacings (FSL-145: 2 coefficients)",
+   "command": "topup --imain=<half.nii.gz: derived from ds005040's fMRIPrep pair> --datain=<acq.txt: acquisition parameters written by the suite> --out=o --warpres=80 --fwhm=8 --miter=3 --lambda=0.005 --estmov=0 --splineorder=2 --fout=f",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-145 and names it: 20,580 values change"
+    }
+   }
+  },
+  {
+   "id": "opt/fsl145-one-coefficient",
+   "category": "opt",
+   "description": "--splineorder=2 at --subsamp=2 with z shorter than one knot spacing (FSL-145: one coefficient, whose refit stops FSL; the default runs)",
+   "command": "topup --imain=<half.nii.gz: derived from ds005040's fMRIPrep pair> --datain=<acq.txt: acquisition parameters written by the suite> --out=o --warpres=140 --subsamp=2 --fwhm=8 --miter=1 --lambda=0.005 --estmov=0 --splineorder=2 --fout=f",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "6/6",
+     "reason": "topup exits 1; the same from the replica. Error occurred when preparing to run topup Exception thrown with message: Mat::operator(): index out of bounds The replica's default mode finishes instead (exit status 0), naming FSL-145."
     }
    }
   },
@@ -6059,7 +6407,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 56,423 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6079,7 +6427,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 22,006 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6099,7 +6447,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 25,176 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6139,7 +6487,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 1,538 values change"
     },
     "original": {
      "outcome": "expected-divergence",
@@ -6159,7 +6507,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 1,526 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6179,7 +6527,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 1,526 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6199,7 +6547,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (13/13) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (13/13) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 138,202 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6219,13 +6567,27 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (19/19) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (19/19) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-146, FSL-201 and names it: 249,766 values change"
     },
     "original": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "41/50",
      "reason": "the movements estimated, not converged: FSL's rotation derivatives are not its cost's (findings 14). Outside the thresholds: c: relative difference inside the brain, 99th percentile 0.03348 (threshold 0.001); c: mean |d| / mean intensity inside the brain 0.00…"
+    }
+   }
+  },
+  {
+   "id": "opt/fsl146-four-axes",
+   "category": "opt",
+   "description": "four volumes along y and x without the movements (FSL-146: each axis' Jacobian term of the gradient over the volumes encoded along it only)",
+   "command": "topup --imain=<four.nii.gz: derived from ds005040's fMRIPrep pair> --datain=<acq_four.txt: acquisition parameters written by the suite> --out=o --warpres=20 --fwhm=8 --miter=3 --lambda=0.005 --estmov=0 --fout=f",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-146 and names it: 22,001 values change"
     }
    }
   },
@@ -6239,7 +6601,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (9/9) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (9/9) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 123,477 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6259,7 +6621,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 22,004 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6279,7 +6641,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 76,720 values change"
     },
     "original": {
      "outcome": "expected-divergence",
@@ -6299,7 +6661,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 22,007 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6339,7 +6701,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 56,470 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6379,7 +6741,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 1,526 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6399,7 +6761,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages; its default mode names FSL-119, with the same values"
+     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-119, FSL-201 and names it: 62,909 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6419,7 +6781,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 22,002 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6439,7 +6801,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 76,879 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6459,7 +6821,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 43,999 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6479,7 +6841,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 56,403 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6499,7 +6861,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 1,526 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6599,7 +6961,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 95,986 values change"
     },
     "original": {
      "outcome": "expected-divergence",
@@ -6619,7 +6981,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 95,901 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6639,7 +7001,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 95,986 values change"
     },
     "original": {
      "outcome": "expected-divergence",
@@ -6659,7 +7021,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 95,978 values change"
     },
     "original": {
      "outcome": "expected-divergence",
@@ -6679,7 +7041,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 96,000 values change"
     },
     "original": {
      "outcome": "expected-divergence",
@@ -6719,7 +7081,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 20,485 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6739,7 +7101,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 25,178 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6759,7 +7121,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 25,178 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6779,7 +7141,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 22,006 values change"
     },
     "original": {
      "outcome": "pass",
@@ -6799,7 +7161,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages; its default mode names FSL-201, with the same values"
     },
     "original": {
      "outcome": "pass",
@@ -6899,7 +7261,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-122 and names it: 25,178 values change"
+     "reason": "every file FSL writes (7/7) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-122, FSL-201 and names it: 25,178 values change"
     },
     "original": {
      "outcome": "pass",
@@ -7379,7 +7741,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "6/6",
-     "reason": "topup exits 1; the same from the replica. Error occurred when preparing to run level 2 of topup Exception thrown with message: Topup::TopupScan::SubSample: invalid subsampling factor The replica's default mode finishes instead (exit status 0), naming FSL-118."
+     "reason": "topup exits 1; the same from the replica. Error occurred when preparing to run level 2 of topup Exception thrown with message: Topup::TopupScan::SubSample: invalid subsampling factor The replica's default mode finishes instead (exit status 0), naming FSL-118, FSL-201."
     },
     "original": {
      "outcome": "both-error",
@@ -7559,7 +7921,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "topup exits 1; the same from the replica. Error occured while writing output from topup Exception thrown with message: Error: cant open file nodir/o_fieldcoef.nii.gz"
+     "reason": "topup exits 1; the same from the replica. Error occured while writing output from topup Exception thrown with message: Error: cant open file nodir/o_fieldcoef.nii.gz The replica's default mode ends with exit status 1, naming FSL-201."
     },
     "original": {
      "outcome": "both-error",
@@ -7579,7 +7941,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "topup exits 1; the same from the replica. Error occured while writing output from topup Exception thrown with message: Error: cant open file nodir/c.nii.gz"
+     "reason": "topup exits 1; the same from the replica. Error occured while writing output from topup Exception thrown with message: Error: cant open file nodir/c.nii.gz The replica's default mode ends with exit status 1, naming FSL-201."
     },
     "original": {
      "outcome": "both-error",
@@ -7599,7 +7961,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (4/4) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (4/4) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 1,526 values change"
     },
     "original": {
      "outcome": "pass",
@@ -7619,7 +7981,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages"
+     "reason": "every file FSL writes (5/5) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-201 and names it: 1,526 values change"
     },
     "original": {
      "outcome": "pass",
@@ -7659,7 +8021,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "topup exits 1; the same from the replica. ERROR:: Unrecognised value (BOGUS) of environment variable FSLOUTPUTTYPE Legal values are: NIFTI, NIFTI_PAIR, NIFTI2, NIFTI2_PAIR, NIFTI_GZ, NIFTI_PAIR_GZ, NIFTI2_GZ, NIFTI2_PAIR_GZ, NIFTI_ZST, NIFTI_"
+     "reason": "topup exits 1; the same from the replica. ERROR:: Unrecognised value (BOGUS) of environment variable FSLOUTPUTTYPE Legal values are: NIFTI, NIFTI_PAIR, NIFTI2, NIFTI2_PAIR, NIFTI_GZ, NIFTI_PAIR_GZ, NIFTI2_GZ, NIFTI2_PAIR_GZ, NIFTI_ZST, NIFTI_ The replica's default mode ends with exit status 1, naming FSL-201."
     },
     "original": {
      "outcome": "both-error",
@@ -7679,7 +8041,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "topup exits 1; the same from the replica. ERROR:: Environment variable FSLOUTPUTTYPE is not set! Please make sure that the appropriate configuration file is sourced by your shell (e.g. by putting it in .profile). e.g. bash or sh users add the"
+     "reason": "topup exits 1; the same from the replica. ERROR:: Environment variable FSLOUTPUTTYPE is not set! Please make sure that the appropriate configuration file is sourced by your shell (e.g. by putting it in .profile). e.g. bash or sh users add the The replica's default mode ends with exit status 1, naming FSL-201."
     },
     "original": {
      "outcome": "both-error",
@@ -7699,7 +8061,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages; the replica at four threads gives FSL's one-thread result; FSL's own run at four threads keeps 2/7 files the same (its thread band, FSL-116)"
+     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages; the replica at four threads gives FSL's one-thread result; FSL's own run at four threads keeps 2/7 files the same (its thread band, FSL-116); its default mode names FSL-201, with the same values"
     },
     "original": {
      "outcome": "pass",
@@ -7719,7 +8081,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages; the replica at four threads gives FSL's one-thread result; FSL's own run at four threads keeps 2/7 files the same (its thread band, FSL-116)"
+     "reason": "every file FSL writes (8/8) byte for byte, with FSL's exit status and messages; the replica at four threads gives FSL's one-thread result; FSL's own run at four threads keeps 2/7 files the same (its thread band, FSL-116); its default mode names FSL-201, with the same values"
     },
     "original": {
      "outcome": "pass",
@@ -8495,14 +8857,14 @@
   {
    "id": "at/jac-z",
    "category": "at",
-   "description": "phase encoding along z",
+   "description": "phase encoding along z (FSL-144: FSL leaves the z component out silently; the default refuses)",
    "command": "applytopup --imain=<half_up.nii.gz: derived from ds005040's fMRIPrep pair> --inindex=1 --datain=<acq_z.txt: acquisition parameters written by the suite> --topup=tu --out=hifi --method=jac (tu_*: FSL's topup outputs of the case opt/levels)",
    "results": {
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-132 and names it: 8,945 values change"
+     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; its default mode refuses the call (exit 1), naming FSL-144"
     },
     "original": {
      "outcome": "pass",
@@ -9331,7 +9693,7 @@
    }
   }
  ],
- "cases_total": 180,
+ "cases_total": 183,
  "speed": {
   "title": "Seconds for the whole call (read the images, estimate or restore, write every output), one run each, log scale; the factor is the clean-room original's speed-up over FSL, both at one thread",
   "axis": [
@@ -9684,7 +10046,7 @@
    ],
    "rows": [
     {
-     "head": "explained: FSL's movement derivatives are not its cost's (findings 14; the record's expected divergences), in cases that estimate the movements",
+     "head": "explained: FSL's movement derivatives are not its cost's (findings 14; the record's expected divergences), in cases that estimate the movements; registered since 2026-11-03 as FSL-201 (rule A), the exact derivatives the default of both implementations, the original's reproduce mode to follow FSL's",
      "cells": [
       {
        "v": 4462,
@@ -9709,7 +10071,7 @@
      "verdict": "d13"
     },
     {
-     "head": "explained: FSL-133, applytopup's lines whose length does not divide 2^32 (FSL's wrap, not reproduced)",
+     "head": "explained: FSL-133, applytopup's lines whose length does not divide 2^32 (FSL's wrap, not reproduced; the specification states it since 2026-11-03)",
      "cells": [
       {
        "v": 484,
@@ -9781,7 +10143,7 @@
      ]
     },
     {
-     "head": "open: the quadratic splines' regulariser Hessian at an even knot spacing (a question for the specification)",
+     "head": "open: the quadratic splines' regulariser Hessian at an even knot spacing (the specification's answer of 2026-11-03, §4.6, for the original's next part)",
      "cells": [
       {
        "v": 47,
@@ -9818,7 +10180,7 @@
      ]
     },
     {
-     "head": "open: applytopup --method=lsr on lines whose length divides 2^32 (99th percentile 1.4e-3 to 0.13; a question for the specification)",
+     "head": "open: applytopup --method=lsr on lines whose length divides 2^32 (99th percentile 1.4e-3 to 0.13; the specification's answer of 2026-11-03, §7.4, for the original's next part)",
      "cells": [
       {
        "v": 8,
@@ -9882,7 +10244,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it; at --nthr=4 run through it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b21e314e9a9`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `9d5c0319b689`"
+     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it; at --nthr=4 run through it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b65d4eeb6c7`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `9d5c0319b689`"
     },
     {
      "label": "Displacements",
@@ -14214,7 +14576,7 @@
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: merged reversed-phase-encoding pair (sha256 69ae4ec0347584a3…); b02b0.cnf (sha256 034f7c42027e500d…); brain mask (sha256 6f66568a84cafa3c…)",
-    "Runs: figures cache entry `fsl-topup/fmriprep-ds005040-sub-002-noreconall`, computed 2026-11-03T06:22:09+00:00 with larmorx `3b21e314e9a9`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `fsl-topup/fmriprep-ds005040-sub-002-noreconall`, computed 2026-11-03T06:22:09+00:00 with larmorx `3b65d4eeb6c7`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs: figures cache entry `fsl-topup/original-fmriprep-ds005040-sub-002-noreconall`, computed 2026-11-03T14:29:36+00:00 with larmorx `9d5c0319b689`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
@@ -14244,7 +14606,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it; at --nthr=4 run through it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b21e314e9a9`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `9d5c0319b689`"
+     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it; at --nthr=4 run through it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b65d4eeb6c7`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `9d5c0319b689`"
     },
     {
      "label": "Displacements",
@@ -18570,7 +18932,7 @@
    "provenance": [
     "Data: OpenNeuro ds001600, sub-1, CC-BY-SA",
     "Inputs: merged reversed-phase-encoding pair (sha256 f573a275b924eebd…); b02b0.cnf (sha256 034f7c42027e500d…); brain mask (sha256 aa9f5a88e712a0ff…)",
-    "Runs: figures cache entry `fsl-topup/fmriprep-ds001600-sub-1-noreconall`, computed 2026-11-03T06:24:18+00:00 with larmorx `3b21e314e9a9`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `fsl-topup/fmriprep-ds001600-sub-1-noreconall`, computed 2026-11-03T06:24:18+00:00 with larmorx `3b65d4eeb6c7`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs: figures cache entry `fsl-topup/original-fmriprep-ds001600-sub-1-noreconall`, computed 2026-11-03T14:29:51+00:00 with larmorx `9d5c0319b689`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
@@ -18596,7 +18958,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b21e314e9a9`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `9d5c0319b689`"
+     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b65d4eeb6c7`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `9d5c0319b689`"
     },
     {
      "label": "Grid",
@@ -18786,15 +19148,15 @@
      "sub": "default mode (D13 corrections)",
      "arrays": {
       "field": {
-       "blob": "e2c18f18b5b156609f94cf2e.bin",
+       "blob": "d70b548e61268d84d1d6b98b.bin",
        "dtype": "f4",
-       "bytes": 27307
+       "bytes": 27315
       }
      },
      "own": {
       "field": [
-       -0.02132633225992322,
-       0.027921917568892243
+       -0.021346654929220676,
+       0.027911830646917227
       ]
      }
     },
@@ -18844,11 +19206,11 @@
      "sub": "default mode (D13 corrections), 14 threads",
      "arrays": {
       "field": {
-       "blob": "961d6ddcb255e4ef51bba17a.bin",
+       "blob": "5340805d73574f9b59c541e0.bin",
        "dtype": "f4",
        "xor": "replica-fix:field",
        "zero": false,
-       "bytes": 21200
+       "bytes": 10414
       }
      },
      "own": {
@@ -18918,18 +19280,18 @@
        "voxels": 20480,
        "differ": 20480,
        "share": 1.0,
-       "max_abs": 0.01934865675866604,
+       "max_abs": 0.019374128431081772,
        "at": [
         18,
         18,
         3
        ],
-       "a_at": 0.026128849014639854,
+       "a_at": 0.02610337734222412,
        "b_at": 0.04547750577330589,
-       "rms": 0.004877477816750859,
+       "rms": 0.004880069417428231,
        "range": 0.08784840255975723,
-       "max_rel_range": 0.22025052470936482,
-       "one_minus_ncc": 0.006600496884962997,
+       "max_rel_range": 0.2205404750291604,
+       "one_minus_ncc": 0.006586741845837765,
        "at_display": [
         11,
         18,
@@ -18939,13 +19301,13 @@
      },
      "display": {
       "field": {
-       "max_abs": 0.01934865675866604,
+       "max_abs": 0.019374128431081772,
        "at": [
         11,
         18,
         3
        ],
-       "a": 0.026128849014639854,
+       "a": 0.02610337734222412,
        "b": 0.04547750577330589,
        "differ": 7366
       }
@@ -18954,10 +19316,14 @@
       {
        "label": "FSL-117",
        "href": "docs/findings/upstream-defects.md"
+      },
+      {
+       "label": "FSL-201",
+       "href": "docs/findings/upstream-defects.md"
       }
      ],
      "verdict": "d13",
-     "reason": "FSL-117, corrected by default with a notice: with membrane energy, Levenberg-Marquardt's Hessian of the regularisation divides each derivative by the voxel size in mm while the cost and its gradient count in voxels; the default takes the Hessian in the cost's units, so the steps follow the cost they minimise (the final cost is never higher: −0.00 to −1.66 % on the measured cases). The reproduce mode gives FSL's bytes."
+     "reason": "FSL-117, corrected by default with a notice: with membrane energy, Levenberg-Marquardt's Hessian of the regularisation divides each derivative by the voxel size in mm while the cost and its gradient count in voxels; the default takes the Hessian in the cost's units, so the steps follow the cost they minimise (the final cost is never higher: −0.00 to −1.66 % on the measured cases). The reproduce mode gives FSL's bytes. FSL-201, corrected by default with a notice (since 2026-11-03): with the movements estimated, FSL's derivatives of the cost with respect to the rotations are forward differences (steps of 10⁻⁵ rad) of rotation matrices built from a single-precision angle, cosine and sine, so the rounding divided by the step makes its gradient and its Gauss-Newton Hessian of the movements other than the cost's (their rotation entries 0.25 to 39 % off on ds005040's pair at half resolution) and the minimisers end elsewhere than the cost's minimum; the default computes the exact derivatives. Measured on 22 runs that estimate the movements, the default's final cost was lower or equal in 18 (the other four, runs cut short, 0.004 to 0.13 % higher), lower in all 8 random cases whose volumes moved (by 0.01 to 44 %), and 38 % lower after 60 iterations of scaled conjugate gradients on the half-resolution pair, where FSL's stall; fMRIPrep's calls estimate no movements and stay the same. The reproduce mode gives FSL's bytes."
     },
     {
      "id": "original-fsl",
@@ -19147,13 +19513,13 @@
      "in2": "80900bc94139b6c220b59b27.webp",
      "fsl": "2392602eeb191b27f8a8f6c5.webp",
      "original": "e71ef99ce1d89d2bcdde11ae.webp",
-     "replica-fix": "b275d288fcdb4f041dd4faf3.webp"
+     "replica-fix": "61baba3c4b63e55a1fd12441.webp"
     },
     "diffs": {
-     "fix-replica": "09558bd317126a5b0b236cf1.webp"
+     "fix-replica": "3e7fbae15daae24a1dc43889.webp"
     },
     "ranges": {
-     "fix-replica": 0.01934865675866604
+     "fix-replica": 0.019374128431081772
     },
     "caption": "Axial slice 10 of 20; the crosshair where the default mode differs most from the reproduce mode (FSL's bytes) in this slice."
    },
@@ -19296,8 +19662,3385 @@
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: half.nii.gz (sha256 33b8882c4fc51ed3…)",
-    "Runs: figures cache entry `fsl-topup/opt-membrane-lm`, computed 2026-11-03T06:20:34+00:00 with larmorx `3b21e314e9a9`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `fsl-topup/opt-membrane-lm`, computed 2026-11-03T06:20:34+00:00 with larmorx `3b65d4eeb6c7`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs: figures cache entry `fsl-topup/original-opt-membrane-lm`, computed 2026-11-03T14:29:52+00:00 with larmorx `9d5c0319b689`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds005040"
+   ]
+  },
+  {
+   "id": "movements",
+   "title": "Movements estimated, and a correction by default",
+   "summary": "The record's case `opt/levels`: two levels on the half-resolution pair of ds005040, the first at subsampling 2 by Levenberg-Marquardt with the movements estimated (the second volume's rigid-body movement against the first; fMRIPrep's configuration estimates none, FSL's own b02b0.cnf does in its first five levels), the second at full resolution by scaled conjugate gradients; every output written. FSL 6.0.7.23 and the replica's reproduce mode give the same bytes; since 2026-11-03 the replica's default corrects FSL-201 (FSL's rotation derivatives are not its cost's) and so takes other steps: the difference *replica, default − reproduce mode* shows what that changes, and the movement table below the viewer the movements each run estimated. The clean-room original computes the cost's own derivatives in both modes, so its record holds this case as an expected divergence from FSL. LARMORX's clean-room original runs the same call in its reproduce mode (at 14 threads and at one) and its default mode, the same derivatives in both.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds005040, sub-002 (CC0-1.0): the record's inputs derived from fMRIPrep's merged pair (every second voxel; oracles/inputs/fsl-topup-replica/); shown inside sdcflows' brain mask of the corrected reference at the same resolution, dilated by one voxel"
+    },
+    {
+     "label": "Case",
+     "text": "`opt/levels` of the records (`fsl-topup-replica`, `fsl-topup`)"
+    },
+    {
+     "label": "Command",
+     "text": "`topup --imain=<half.nii.gz: derived from ds005040's fMRIPrep pair> --datain=<acq.txt: acquisition parameters written by the suite> --out=o --warpres=20,14 --subsamp=2,1 --fwhm=8,4 --miter=3,2 --lambda=0.005,0.0001 --estmov=1,0 --minmet=0,1 --iout=c --fout=f --dfout=d --rbmout=r --jacout=j --featout=feat -v`"
+    },
+    {
+     "label": "Programs",
+     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b65d4eeb6c7`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `3b65d4eeb6c7`"
+    },
+    {
+     "label": "Grid",
+     "text": "32 × 32 × 20 × 2 voxels of 6 × 6 × 6.6 mm; shown: 28 × 32 × 20 around the brain"
+    }
+   ],
+   "grid": {
+    "shape": [
+     28,
+     32,
+     20
+    ],
+    "spacing": [
+     6.0,
+     6.0,
+     6.599998
+    ],
+    "to_file": [
+     [
+      -1,
+      0,
+      0,
+      29
+     ],
+     [
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      6.0,
+      0.0,
+      0.0,
+      -81.94632
+     ],
+     [
+      0.0,
+      6.0,
+      0.0,
+      -85.079597
+     ],
+     [
+      0.0,
+      0.0,
+      6.599998,
+      -17.595531
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     32,
+     32,
+     20
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "9a97e8faf39fd028f5fa9b88.bin",
+    "dtype": "u1",
+    "bytes": 475
+   },
+   "outputs": [
+    {
+     "id": "corrected-1",
+     "label": "Corrected: volume 1 (+y)",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 103065.02304687507
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -3173.4306640625,
+       "hi": 111332.0546875
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "corrected-2",
+     "label": "Corrected: volume 2 (−y)",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -808.8317810058593,
+       "hi": 101279.36054687503
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -5650.228515625,
+       "hi": 116648.4296875
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "corrected-mean",
+     "label": "Corrected: mean of the volumes",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 343.08868026733404,
+       "hi": 103325.00703125005
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -1959.295166015625,
+       "hi": 112376.9921875
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "field",
+     "label": "Field (Hz)",
+     "unit": "Hz",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -22.259123468399046,
+       "hi": 26.932273387908953
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -25.138578414916992,
+       "hi": 32.09833526611328
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "jac-1",
+     "label": "Jacobian: volume 1 (+y)",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.9514662817120552,
+       "hi": 1.0656627327203751
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.9250654578208923,
+       "hi": 1.1095707416534424
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "jac-2",
+     "label": "Jacobian: volume 2 (−y)",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.934337267279625,
+       "hi": 1.0485337287187577
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.8904292583465576,
+       "hi": 1.0749346017837524
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "warp-1",
+     "label": "Displacement along y: volume 1 (+y)",
+     "unit": "mm",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -1.8424009829759598,
+       "hi": 2.2292004823684706
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -2.080735206604004,
+       "hi": 2.6567986011505127
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "warp-2",
+     "label": "Displacement along y: volume 2 (−y)",
+     "unit": "mm",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -2.2292004823684692,
+       "hi": 1.842400982975961
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -2.6567986011505127,
+       "hi": 2.080735206604004
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "feat-mag",
+     "label": "--featout: magnitude",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 343.08868026733404,
+       "hi": 103325.00703125005
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -1959.295166015625,
+       "hi": 112376.9921875
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "feat-rads",
+     "label": "--featout: field (rad/s)",
+     "unit": "rad/s",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -139.85820121765136,
+       "hi": 169.22046813964855
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -157.95034790039062,
+       "hi": 201.67979431152344
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "in1",
+     "role": "input",
+     "label": "ds005040 pair, half resolution, volume 1",
+     "sub": "phase encoding +y; derived from fMRIPrep's merged pair (every second voxel: 6 × 6 × 6.6 mm)",
+     "arrays": {
+      "all": {
+       "blob": "4873c9f97387536308c8a989.bin",
+       "dtype": "f4",
+       "bytes": 26737
+      }
+     },
+     "window": [
+      766.4393371582031,
+      109167.28125
+     ]
+    },
+    {
+     "id": "in2",
+     "role": "input",
+     "label": "ds005040 pair, half resolution, volume 2",
+     "sub": "phase encoding −y; derived from fMRIPrep's merged pair (every second voxel: 6 × 6 × 6.6 mm)",
+     "arrays": {
+      "all": {
+       "blob": "3813836711ccac64245ae38b.bin",
+       "dtype": "f4",
+       "xor": "in1:all",
+       "zero": false,
+       "bytes": 25994
+      }
+     },
+     "window": [
+      302.57282867431644,
+      108469.51621093754
+     ]
+    },
+    {
+     "id": "fsl",
+     "role": "original",
+     "label": "FSL 6.0.7.23, topup",
+     "sub": "the conda installation, as built, one thread, the record's run",
+     "arrays": {
+      "corrected-1": {
+       "blob": "f43085ba147f469630172767.bin",
+       "dtype": "f4",
+       "xor": "in1:all",
+       "zero": false,
+       "bytes": 25595
+      },
+      "corrected-2": {
+       "blob": "fb62a222a5a4ed017f7db885.bin",
+       "dtype": "f4",
+       "xor": "in2:all",
+       "zero": false,
+       "bytes": 25754
+      },
+      "corrected-mean": {
+       "blob": "444c36bed8d13f07c495291b.bin",
+       "dtype": "f4",
+       "xor": "in1:all",
+       "zero": false,
+       "bytes": 25644
+      },
+      "field": {
+       "blob": "967ab8f4dce1d72586109c49.bin",
+       "dtype": "f4",
+       "bytes": 27845
+      },
+      "jac-1": {
+       "blob": "498c5c45dd19c8d958ae6b82.bin",
+       "dtype": "f4",
+       "bytes": 21364
+      },
+      "jac-2": {
+       "blob": "7cb1a4e791ddb1e46ec4b48e.bin",
+       "dtype": "f4",
+       "bytes": 21708
+      },
+      "warp-1": {
+       "blob": "fd0e9248b44d67fa24965d1f.bin",
+       "dtype": "f4",
+       "bytes": 27773
+      },
+      "warp-2": {
+       "blob": "929d949f3f2d59284adf963f.bin",
+       "dtype": "f4",
+       "bytes": 27774
+      },
+      "feat-mag": {
+       "blob": "444c36bed8d13f07c495291b.bin",
+       "dtype": "f4",
+       "xor": "in1:all",
+       "zero": false,
+       "bytes": 25644
+      },
+      "feat-rads": {
+       "blob": "55090b6794bfcca0cc0b0b9f.bin",
+       "dtype": "f4",
+       "bytes": 27796
+      }
+     },
+     "own": {
+      "corrected-1": [
+       0.0,
+       103065.02304687507
+      ],
+      "corrected-2": [
+       -808.8317810058593,
+       101279.36054687503
+      ],
+      "corrected-mean": [
+       343.08868026733404,
+       103325.00703125005
+      ],
+      "field": [
+       -22.259123468399046,
+       26.932273387908953
+      ],
+      "jac-1": [
+       0.9514662817120552,
+       1.0656627327203751
+      ],
+      "jac-2": [
+       0.934337267279625,
+       1.0485337287187577
+      ],
+      "warp-1": [
+       -1.8424009829759598,
+       2.2292004823684706
+      ],
+      "warp-2": [
+       -2.2292004823684692,
+       1.842400982975961
+      ],
+      "feat-mag": [
+       343.08868026733404,
+       103325.00703125005
+      ],
+      "feat-rads": [
+       -139.85820121765136,
+       169.22046813964855
+      ]
+     }
+    },
+    {
+     "id": "replica",
+     "role": "larmorx",
+     "label": "larmorx-nc replica",
+     "sub": "reproduce mode",
+     "arrays": {
+      "corrected-1": {
+       "same": "fsl:corrected-1",
+       "dtype": "f4"
+      },
+      "corrected-2": {
+       "same": "fsl:corrected-2",
+       "dtype": "f4"
+      },
+      "corrected-mean": {
+       "same": "fsl:corrected-mean",
+       "dtype": "f4"
+      },
+      "field": {
+       "same": "fsl:field",
+       "dtype": "f4"
+      },
+      "jac-1": {
+       "same": "fsl:jac-1",
+       "dtype": "f4"
+      },
+      "jac-2": {
+       "same": "fsl:jac-2",
+       "dtype": "f4"
+      },
+      "warp-1": {
+       "same": "fsl:warp-1",
+       "dtype": "f4"
+      },
+      "warp-2": {
+       "same": "fsl:warp-2",
+       "dtype": "f4"
+      },
+      "feat-mag": {
+       "same": "fsl:feat-mag",
+       "dtype": "f4"
+      },
+      "feat-rads": {
+       "same": "fsl:feat-rads",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "corrected-1": [
+       0.0,
+       103065.02304687507
+      ],
+      "corrected-2": [
+       -808.8317810058593,
+       101279.36054687503
+      ],
+      "corrected-mean": [
+       343.08868026733404,
+       103325.00703125005
+      ],
+      "field": [
+       -22.259123468399046,
+       26.932273387908953
+      ],
+      "jac-1": [
+       0.9514662817120552,
+       1.0656627327203751
+      ],
+      "jac-2": [
+       0.934337267279625,
+       1.0485337287187577
+      ],
+      "warp-1": [
+       -1.8424009829759598,
+       2.2292004823684706
+      ],
+      "warp-2": [
+       -2.2292004823684692,
+       1.842400982975961
+      ],
+      "feat-mag": [
+       343.08868026733404,
+       103325.00703125005
+      ],
+      "feat-rads": [
+       -139.85820121765136,
+       169.22046813964855
+      ]
+     }
+    },
+    {
+     "id": "replica-fix",
+     "role": "larmorx",
+     "label": "larmorx-nc replica",
+     "sub": "default mode (D13 corrections)",
+     "arrays": {
+      "corrected-1": {
+       "blob": "fb080945cbc0ce82daaf99a6.bin",
+       "dtype": "f4",
+       "xor": "fsl:corrected-1",
+       "zero": false,
+       "bytes": 13709
+      },
+      "corrected-2": {
+       "blob": "57ec9f34d9772b6c646c4e51.bin",
+       "dtype": "f4",
+       "xor": "fsl:corrected-2",
+       "zero": false,
+       "bytes": 16372
+      },
+      "corrected-mean": {
+       "blob": "4224f4fc0b8f14096bd2a560.bin",
+       "dtype": "f4",
+       "xor": "fsl:corrected-mean",
+       "zero": false,
+       "bytes": 15822
+      },
+      "field": {
+       "blob": "aea3f034c6e84784516dcd32.bin",
+       "dtype": "f4",
+       "xor": "fsl:field",
+       "zero": false,
+       "bytes": 19427
+      },
+      "jac-1": {
+       "blob": "a3c9f24aa3b700aea9f90172.bin",
+       "dtype": "f4",
+       "xor": "fsl:jac-1",
+       "zero": false,
+       "bytes": 12225
+      },
+      "jac-2": {
+       "blob": "0528ac1f9218b7044af6b9ee.bin",
+       "dtype": "f4",
+       "xor": "fsl:jac-2",
+       "zero": false,
+       "bytes": 12751
+      },
+      "warp-1": {
+       "blob": "cdcb4b716dd80cfbd600cb86.bin",
+       "dtype": "f4",
+       "xor": "fsl:warp-1",
+       "zero": false,
+       "bytes": 19432
+      },
+      "warp-2": {
+       "blob": "cdcb4b716dd80cfbd600cb86.bin",
+       "dtype": "f4",
+       "xor": "fsl:warp-2",
+       "zero": false,
+       "bytes": 19432
+      },
+      "feat-mag": {
+       "blob": "4224f4fc0b8f14096bd2a560.bin",
+       "dtype": "f4",
+       "xor": "fsl:corrected-mean",
+       "zero": false,
+       "bytes": 15822
+      },
+      "feat-rads": {
+       "blob": "755b180bbd65a7a83f0148c0.bin",
+       "dtype": "f4",
+       "xor": "fsl:feat-rads",
+       "zero": false,
+       "bytes": 19364
+      }
+     },
+     "own": {
+      "corrected-1": [
+       0.0,
+       103066.09746093756
+      ],
+      "corrected-2": [
+       -808.2749084472656,
+       101273.03574218754
+      ],
+      "corrected-mean": [
+       343.36168518066415,
+       103324.90820312504
+      ],
+      "field": [
+       -22.257364416122435,
+       26.9322858810425
+      ],
+      "jac-1": [
+       0.9514642104506492,
+       1.0656963050365449
+      ],
+      "jac-2": [
+       0.9343036562204361,
+       1.048535779118538
+      ],
+      "warp-1": [
+       -1.8422554671764373,
+       2.2292015016078968
+      ],
+      "warp-2": [
+       -2.229201501607895,
+       1.8422554671764388
+      ],
+      "feat-mag": [
+       343.36168518066415,
+       103324.90820312504
+      ],
+      "feat-rads": [
+       -139.84714469909667,
+       169.22054557800305
+      ]
+     }
+    },
+    {
+     "id": "original",
+     "role": "larmorx",
+     "label": "LARMORX clean-room original",
+     "sub": "reproduce mode, 14 threads",
+     "arrays": {
+      "corrected-1": {
+       "blob": "91b71cf2695eb9612e16d158.bin",
+       "dtype": "f4",
+       "xor": "replica-fix:corrected-1",
+       "zero": false,
+       "bytes": 8243
+      },
+      "corrected-2": {
+       "blob": "d3e75a4a04c07985a241b4b4.bin",
+       "dtype": "f4",
+       "xor": "replica-fix:corrected-2",
+       "zero": false,
+       "bytes": 8422
+      },
+      "corrected-mean": {
+       "blob": "e905032f1791774970d3e5a9.bin",
+       "dtype": "f4",
+       "xor": "replica-fix:corrected-mean",
+       "zero": false,
+       "bytes": 7877
+      },
+      "field": {
+       "blob": "a1de3659ffecb1035aab50f8.bin",
+       "dtype": "f4",
+       "xor": "replica-fix:field",
+       "zero": false,
+       "bytes": 13567
+      },
+      "jac-1": {
+       "blob": "b7f0c027f8e5f2659bacd3f0.bin",
+       "dtype": "f4",
+       "xor": "replica-fix:jac-1",
+       "zero": false,
+       "bytes": 6735
+      },
+      "jac-2": {
+       "blob": "5876334d9bb7fb24b536f702.bin",
+       "dtype": "f4",
+       "xor": "replica-fix:jac-2",
+       "zero": false,
+       "bytes": 7103
+      },
+      "warp-1": {
+       "blob": "74fa2e00b68d5589ecc5293a.bin",
+       "dtype": "f4",
+       "xor": "replica-fix:warp-1",
+       "zero": false,
+       "bytes": 13542
+      },
+      "warp-2": {
+       "blob": "74fa2e00b68d5589ecc5293a.bin",
+       "dtype": "f4",
+       "xor": "replica-fix:warp-2",
+       "zero": false,
+       "bytes": 13542
+      },
+      "feat-mag": {
+       "blob": "e905032f1791774970d3e5a9.bin",
+       "dtype": "f4",
+       "xor": "replica-fix:corrected-mean",
+       "zero": false,
+       "bytes": 7877
+      },
+      "feat-rads": {
+       "blob": "1400efd4a332842c0daf868a.bin",
+       "dtype": "f4",
+       "xor": "replica-fix:feat-rads",
+       "zero": false,
+       "bytes": 13500
+      }
+     },
+     "own": {
+      "corrected-1": [
+       0.0,
+       103066.12910156256
+      ],
+      "corrected-2": [
+       -808.2258316040038,
+       101273.02089843753
+      ],
+      "corrected-mean": [
+       343.34954910278327,
+       103324.96523437505
+      ],
+      "field": [
+       -22.25720343589783,
+       26.932379293441794
+      ],
+      "jac-1": [
+       0.951464332640171,
+       1.0656966626644135
+      ],
+      "jac-2": [
+       0.9343032777309418,
+       1.048535618185997
+      ],
+      "warp-1": [
+       -1.8422419726848602,
+       2.229209285974504
+      ],
+      "warp-2": [
+       -2.2292092859745027,
+       1.8422419726848616
+      ],
+      "feat-mag": [
+       343.34954910278327,
+       103324.96523437505
+      ],
+      "feat-rads": [
+       -139.84613456726075,
+       169.2211292266847
+      ]
+     }
+    },
+    {
+     "id": "original-1",
+     "role": "larmorx",
+     "label": "LARMORX clean-room original",
+     "sub": "reproduce mode, 1 thread",
+     "arrays": {
+      "corrected-1": {
+       "same": "original:corrected-1",
+       "dtype": "f4"
+      },
+      "corrected-2": {
+       "same": "original:corrected-2",
+       "dtype": "f4"
+      },
+      "corrected-mean": {
+       "same": "original:corrected-mean",
+       "dtype": "f4"
+      },
+      "field": {
+       "same": "original:field",
+       "dtype": "f4"
+      },
+      "jac-1": {
+       "same": "original:jac-1",
+       "dtype": "f4"
+      },
+      "jac-2": {
+       "same": "original:jac-2",
+       "dtype": "f4"
+      },
+      "warp-1": {
+       "same": "original:warp-1",
+       "dtype": "f4"
+      },
+      "warp-2": {
+       "same": "original:warp-2",
+       "dtype": "f4"
+      },
+      "feat-mag": {
+       "same": "original:feat-mag",
+       "dtype": "f4"
+      },
+      "feat-rads": {
+       "same": "original:feat-rads",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "corrected-1": [
+       0.0,
+       103066.12910156256
+      ],
+      "corrected-2": [
+       -808.2258316040038,
+       101273.02089843753
+      ],
+      "corrected-mean": [
+       343.34954910278327,
+       103324.96523437505
+      ],
+      "field": [
+       -22.25720343589783,
+       26.932379293441794
+      ],
+      "jac-1": [
+       0.951464332640171,
+       1.0656966626644135
+      ],
+      "jac-2": [
+       0.9343032777309418,
+       1.048535618185997
+      ],
+      "warp-1": [
+       -1.8422419726848602,
+       2.229209285974504
+      ],
+      "warp-2": [
+       -2.2292092859745027,
+       1.8422419726848616
+      ],
+      "feat-mag": [
+       343.34954910278327,
+       103324.96523437505
+      ],
+      "feat-rads": [
+       -139.84613456726075,
+       169.2211292266847
+      ]
+     }
+    },
+    {
+     "id": "original-fix",
+     "role": "larmorx",
+     "label": "LARMORX clean-room original",
+     "sub": "default mode (D13 corrections), 14 threads",
+     "arrays": {
+      "corrected-1": {
+       "same": "original:corrected-1",
+       "dtype": "f4"
+      },
+      "corrected-2": {
+       "same": "original:corrected-2",
+       "dtype": "f4"
+      },
+      "corrected-mean": {
+       "same": "original:corrected-mean",
+       "dtype": "f4"
+      },
+      "field": {
+       "same": "original:field",
+       "dtype": "f4"
+      },
+      "jac-1": {
+       "same": "original:jac-1",
+       "dtype": "f4"
+      },
+      "jac-2": {
+       "same": "original:jac-2",
+       "dtype": "f4"
+      },
+      "warp-1": {
+       "same": "original:warp-1",
+       "dtype": "f4"
+      },
+      "warp-2": {
+       "same": "original:warp-2",
+       "dtype": "f4"
+      },
+      "feat-mag": {
+       "same": "original:feat-mag",
+       "dtype": "f4"
+      },
+      "feat-rads": {
+       "same": "original:feat-rads",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "corrected-1": [
+       0.0,
+       103066.12910156256
+      ],
+      "corrected-2": [
+       -808.2258316040038,
+       101273.02089843753
+      ],
+      "corrected-mean": [
+       343.34954910278327,
+       103324.96523437505
+      ],
+      "field": [
+       -22.25720343589783,
+       26.932379293441794
+      ],
+      "jac-1": [
+       0.951464332640171,
+       1.0656966626644135
+      ],
+      "jac-2": [
+       0.9343032777309418,
+       1.048535618185997
+      ],
+      "warp-1": [
+       -1.8422419726848602,
+       2.229209285974504
+      ],
+      "warp-2": [
+       -2.2292092859745027,
+       1.8422419726848616
+      ],
+      "feat-mag": [
+       343.34954910278327,
+       103324.96523437505
+      ],
+      "feat-rads": [
+       -139.84613456726075,
+       169.2211292266847
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "replica-fsl",
+     "a": "replica",
+     "b": "fsl",
+     "kind": "main",
+     "label": "replica − FSL 6.0.7.23",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "corrected-1": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 115976.15966796875,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "corrected-2": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 127115.400390625,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "corrected-mean": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 46.29578399658203,
+       "b_at": 46.29578399658203,
+       "rms": 0.0,
+       "range": 119356.4453125,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "field": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": -1.341272234916687,
+       "b_at": -1.341272234916687,
+       "rms": 0.0,
+       "range": 103.13913345336914,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "jac-1": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.9996213316917419,
+       "b_at": 0.9996213316917419,
+       "rms": 0.0,
+       "range": 0.6335832178592682,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "jac-2": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 1.0003786087036133,
+       "b_at": 1.0003786087036133,
+       "rms": 0.0,
+       "range": 0.633583128452301,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "warp-1": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": -0.11101790517568588,
+       "b_at": -0.11101790517568588,
+       "rms": 0.0,
+       "range": 8.536888122558594,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "warp-2": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.11101790517568588,
+       "b_at": 0.11101790517568588,
+       "rms": 0.0,
+       "range": 8.536888122558594,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "feat-mag": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 46.29578399658203,
+       "b_at": 46.29578399658203,
+       "rms": 0.0,
+       "range": 119356.4453125,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "feat-rads": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": -8.427462577819824,
+       "b_at": -8.427462577819824,
+       "rms": 0.0,
+       "range": 648.0422973632812,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "corrected-1": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "corrected-2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "corrected-mean": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "field": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "jac-1": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "jac-2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "warp-1": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "warp-2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "feat-mag": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "feat-rads": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same values, every one, in every image topup writes (the record compares every file, the messages and the exit status too)."
+    },
+    {
+     "id": "fix-replica",
+     "a": "replica-fix",
+     "b": "replica",
+     "kind": "check",
+     "label": "replica, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "corrected-1": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 17255,
+       "share": 0.842529296875,
+       "max_abs": 16.671875,
+       "at": [
+        14,
+        18,
+        18
+       ],
+       "a_at": 51534.91796875,
+       "b_at": 51518.24609375,
+       "rms": 1.2498182656792232,
+       "range": 115976.15966796875,
+       "max_rel_range": 0.00014375260439499252,
+       "one_minus_ncc": 9.876662479324693e-10,
+       "at_display": [
+        15,
+        18,
+        18
+       ]
+      },
+      "corrected-2": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 17278,
+       "share": 0.84365234375,
+       "max_abs": 74.7421875,
+       "at": [
+        15,
+        15,
+        18
+       ],
+       "a_at": 65614.671875,
+       "b_at": 65689.4140625,
+       "rms": 5.864895402340741,
+       "range": 127115.400390625,
+       "max_rel_range": 0.0005879868786183076,
+       "one_minus_ncc": 2.155303717716673e-08,
+       "at_display": [
+        14,
+        15,
+        18
+       ]
+      },
+      "corrected-mean": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 20463,
+       "share": 0.999169921875,
+       "max_abs": 40.515625,
+       "at": [
+        15,
+        15,
+        18
+       ],
+       "a_at": 68656.71875,
+       "b_at": 68697.234375,
+       "rms": 3.1099194734019715,
+       "range": 119356.4453125,
+       "max_rel_range": 0.00033945066723394505,
+       "one_minus_ncc": 6.083092369872815e-09,
+       "at_display": [
+        14,
+        15,
+        18
+       ]
+      },
+      "field": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 20480,
+       "share": 1.0,
+       "max_abs": 0.03289794921875,
+       "at": [
+        18,
+        24,
+        0
+       ],
+       "a_at": 30.699373245239258,
+       "b_at": 30.732271194458008,
+       "rms": 0.009156650541633247,
+       "range": 103.13913345336914,
+       "max_rel_range": 0.0003189667017478258,
+       "one_minus_ncc": 2.9095685360642013e-07,
+       "at_display": [
+        11,
+        24,
+        0
+       ]
+      },
+      "jac-1": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 20418,
+       "share": 0.99697265625,
+       "max_abs": 0.000141143798828125,
+       "at": [
+        11,
+        2,
+        1
+       ],
+       "a_at": 0.9628874063491821,
+       "b_at": 0.962746262550354,
+       "rms": 2.2887504972744432e-05,
+       "range": 0.6335832178592682,
+       "max_rel_range": 0.00022277073452958146,
+       "one_minus_ncc": 1.252856254291897e-07,
+       "at_display": [
+        18,
+        2,
+        1
+       ]
+      },
+      "jac-2": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 20419,
+       "share": 0.997021484375,
+       "max_abs": 0.000141143798828125,
+       "at": [
+        11,
+        2,
+        1
+       ],
+       "a_at": 1.0371125936508179,
+       "b_at": 1.037253737449646,
+       "rms": 2.288721040236067e-05,
+       "range": 0.633583128452301,
+       "max_rel_range": 0.00022277076596548126,
+       "one_minus_ncc": 1.2528232845187055e-07,
+       "at_display": [
+        18,
+        2,
+        1
+       ]
+      },
+      "warp-1": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 20480,
+       "share": 1.0,
+       "max_abs": 0.0027229785919189453,
+       "at": [
+        18,
+        24,
+        0
+       ],
+       "a_at": 2.5410056114196777,
+       "b_at": 2.5437285900115967,
+       "rms": 0.00075790146411938,
+       "range": 8.536888122558594,
+       "max_rel_range": 0.0003189661798101251,
+       "one_minus_ncc": 2.9095676157273515e-07,
+       "at_display": [
+        11,
+        24,
+        0
+       ]
+      },
+      "warp-2": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 20480,
+       "share": 1.0,
+       "max_abs": 0.0027229785919189453,
+       "at": [
+        18,
+        24,
+        0
+       ],
+       "a_at": -2.5410056114196777,
+       "b_at": -2.5437285900115967,
+       "rms": 0.00075790146411938,
+       "range": 8.536888122558594,
+       "max_rel_range": 0.0003189661798101251,
+       "one_minus_ncc": 2.9095676157273515e-07,
+       "at_display": [
+        11,
+        24,
+        0
+       ]
+      },
+      "feat-mag": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 20463,
+       "share": 0.999169921875,
+       "max_abs": 40.515625,
+       "at": [
+        15,
+        15,
+        18
+       ],
+       "a_at": 68656.71875,
+       "b_at": 68697.234375,
+       "rms": 3.1099194734019715,
+       "range": 119356.4453125,
+       "max_rel_range": 0.00033945066723394505,
+       "one_minus_ncc": 6.083092369872815e-09,
+       "at_display": [
+        14,
+        15,
+        18
+       ]
+      },
+      "feat-rads": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 20480,
+       "share": 1.0,
+       "max_abs": 0.206695556640625,
+       "at": [
+        18,
+        24,
+        0
+       ],
+       "a_at": 192.88986206054688,
+       "b_at": 193.0965576171875,
+       "rms": 0.05753289764078443,
+       "range": 648.0422973632812,
+       "max_rel_range": 0.0003189538051476215,
+       "one_minus_ncc": 2.9095667714995296e-07,
+       "at_display": [
+        11,
+        24,
+        0
+       ]
+      }
+     },
+     "display": {
+      "corrected-1": {
+       "max_abs": 16.671875,
+       "at": [
+        15,
+        18,
+        18
+       ],
+       "a": 51534.91796875,
+       "b": 51518.24609375,
+       "differ": 7193
+      },
+      "corrected-2": {
+       "max_abs": 74.7421875,
+       "at": [
+        14,
+        15,
+        18
+       ],
+       "a": 65614.671875,
+       "b": 65689.4140625,
+       "differ": 7210
+      },
+      "corrected-mean": {
+       "max_abs": 40.515625,
+       "at": [
+        14,
+        15,
+        18
+       ],
+       "a": 68656.71875,
+       "b": 68697.234375,
+       "differ": 7357
+      },
+      "field": {
+       "max_abs": 0.025699615478515625,
+       "at": [
+        11,
+        24,
+        7
+       ],
+       "a": 9.170294761657715,
+       "b": 9.1445951461792,
+       "differ": 7366
+      },
+      "jac-1": {
+       "max_abs": 0.00011670589447021484,
+       "at": [
+        19,
+        7,
+        1
+       ],
+       "a": 1.0292389392852783,
+       "b": 1.0293556451797485,
+       "differ": 7338
+      },
+      "jac-2": {
+       "max_abs": 0.00011658668518066406,
+       "at": [
+        19,
+        7,
+        1
+       ],
+       "a": 0.9707610011100769,
+       "b": 0.9706444144248962,
+       "differ": 7343
+      },
+      "warp-1": {
+       "max_abs": 0.0021271705627441406,
+       "at": [
+        11,
+        24,
+        7
+       ],
+       "a": 0.759030818939209,
+       "b": 0.7569036483764648,
+       "differ": 7366
+      },
+      "warp-2": {
+       "max_abs": 0.0021271705627441406,
+       "at": [
+        11,
+        24,
+        7
+       ],
+       "a": -0.759030818939209,
+       "b": -0.7569036483764648,
+       "differ": 7366
+      },
+      "feat-mag": {
+       "max_abs": 40.515625,
+       "at": [
+        14,
+        15,
+        18
+       ],
+       "a": 68656.71875,
+       "b": 68697.234375,
+       "differ": 7357
+      },
+      "feat-rads": {
+       "max_abs": 0.16147613525390625,
+       "at": [
+        11,
+        24,
+        7
+       ],
+       "a": 57.6186637878418,
+       "b": 57.45718765258789,
+       "differ": 7366
+      }
+     },
+     "links": [
+      {
+       "label": "FSL-201",
+       "href": "docs/findings/upstream-defects.md"
+      }
+     ],
+     "verdict": "d13",
+     "reason": "FSL-201, corrected by default with a notice (since 2026-11-03): with the movements estimated, FSL's derivatives of the cost with respect to the rotations are forward differences (steps of 10⁻⁵ rad) of rotation matrices built from a single-precision angle, cosine and sine, so the rounding divided by the step makes its gradient and its Gauss-Newton Hessian of the movements other than the cost's (their rotation entries 0.25 to 39 % off on ds005040's pair at half resolution) and the minimisers end elsewhere than the cost's minimum; the default computes the exact derivatives. Measured on 22 runs that estimate the movements, the default's final cost was lower or equal in 18 (the other four, runs cut short, 0.004 to 0.13 % higher), lower in all 8 random cases whose volumes moved (by 0.01 to 44 %), and 38 % lower after 60 iterations of scaled conjugate gradients on the half-resolution pair, where FSL's stall; fMRIPrep's calls estimate no movements and stay the same. The reproduce mode gives FSL's bytes."
+    },
+    {
+     "id": "original-fsl",
+     "a": "original",
+     "b": "fsl",
+     "kind": "main",
+     "label": "clean-room original − FSL 6.0.7.23",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "corrected-1": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 17261,
+       "share": 0.842822265625,
+       "max_abs": 16.6328125,
+       "at": [
+        14,
+        18,
+        18
+       ],
+       "a_at": 51534.87890625,
+       "b_at": 51518.24609375,
+       "rms": 1.255519946893013,
+       "range": 115976.15966796875,
+       "max_rel_range": 0.00014341578948310173,
+       "one_minus_ncc": 9.968901419719585e-10,
+       "at_display": [
+        15,
+        18,
+        18
+       ]
+      },
+      "corrected-2": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 17275,
+       "share": 0.843505859375,
+       "max_abs": 74.6796875,
+       "at": [
+        15,
+        15,
+        18
+       ],
+       "a_at": 65614.734375,
+       "b_at": 65689.4140625,
+       "rms": 5.871810505275444,
+       "range": 127115.400390625,
+       "max_rel_range": 0.0005874951994054984,
+       "one_minus_ncc": 2.160502591102319e-08,
+       "at_display": [
+        14,
+        15,
+        18
+       ]
+      },
+      "corrected-mean": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 20471,
+       "share": 0.999560546875,
+       "max_abs": 40.4140625,
+       "at": [
+        15,
+        15,
+        18
+       ],
+       "a_at": 68656.8203125,
+       "b_at": 68697.234375,
+       "rms": 3.113256508214573,
+       "range": 119356.4453125,
+       "max_rel_range": 0.00033859974963385995,
+       "one_minus_ncc": 6.096806797330028e-09,
+       "at_display": [
+        14,
+        15,
+        18
+       ]
+      },
+      "field": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 20479,
+       "share": 0.999951171875,
+       "max_abs": 0.0331878662109375,
+       "at": [
+        18,
+        24,
+        0
+       ],
+       "a_at": 30.69908332824707,
+       "b_at": 30.732271194458008,
+       "rms": 0.009206934453383124,
+       "range": 103.13913345336914,
+       "max_rel_range": 0.00032177763279291337,
+       "one_minus_ncc": 2.9430665288942803e-07,
+       "at_display": [
+        11,
+        24,
+        0
+       ]
+      },
+      "jac-1": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 20438,
+       "share": 0.99794921875,
+       "max_abs": 0.00014251470565795898,
+       "at": [
+        11,
+        2,
+        1
+       ],
+       "a_at": 0.962888777256012,
+       "b_at": 0.962746262550354,
+       "rms": 2.3002762462564027e-05,
+       "range": 0.6335832178592682,
+       "max_rel_range": 0.0002249344705490833,
+       "one_minus_ncc": 1.2663885444775334e-07,
+       "at_display": [
+        18,
+        2,
+        1
+       ]
+      },
+      "jac-2": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 20447,
+       "share": 0.998388671875,
+       "max_abs": 0.00014257431030273438,
+       "at": [
+        11,
+        2,
+        1
+       ],
+       "a_at": 1.0371111631393433,
+       "b_at": 1.037253737449646,
+       "rms": 2.3002948031369615e-05,
+       "range": 0.633583128452301,
+       "max_rel_range": 0.00022502857778269896,
+       "one_minus_ncc": 1.2664165628151383e-07,
+       "at_display": [
+        18,
+        2,
+        1
+       ]
+      },
+      "warp-1": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 20479,
+       "share": 0.999951171875,
+       "max_abs": 0.002747058868408203,
+       "at": [
+        18,
+        24,
+        0
+       ],
+       "a_at": 2.5409815311431885,
+       "b_at": 2.5437285900115967,
+       "rms": 0.0007620637449484889,
+       "range": 8.536888122558594,
+       "max_rel_range": 0.0003217869121593784,
+       "one_minus_ncc": 2.9430592892465154e-07,
+       "at_display": [
+        11,
+        24,
+        0
+       ]
+      },
+      "warp-2": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 20479,
+       "share": 0.999951171875,
+       "max_abs": 0.002747058868408203,
+       "at": [
+        18,
+        24,
+        0
+       ],
+       "a_at": -2.5409815311431885,
+       "b_at": -2.5437285900115967,
+       "rms": 0.0007620637449484889,
+       "range": 8.536888122558594,
+       "max_rel_range": 0.0003217869121593784,
+       "one_minus_ncc": 2.9430592892465154e-07,
+       "at_display": [
+        11,
+        24,
+        0
+       ]
+      },
+      "feat-mag": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 20471,
+       "share": 0.999560546875,
+       "max_abs": 40.4140625,
+       "at": [
+        15,
+        15,
+        18
+       ],
+       "a_at": 68656.8203125,
+       "b_at": 68697.234375,
+       "rms": 3.113256508214573,
+       "range": 119356.4453125,
+       "max_rel_range": 0.00033859974963385995,
+       "one_minus_ncc": 6.096806797330028e-09,
+       "at_display": [
+        14,
+        15,
+        18
+       ]
+      },
+      "feat-rads": {
+       "identical": false,
+       "voxels": 20480,
+       "differ": 20478,
+       "share": 0.99990234375,
+       "max_abs": 0.208526611328125,
+       "at": [
+        18,
+        24,
+        0
+       ],
+       "a_at": 192.88803100585938,
+       "b_at": 193.0965576171875,
+       "rms": 0.05784903131022526,
+       "range": 648.0422973632812,
+       "max_rel_range": 0.0003217793223938724,
+       "one_minus_ncc": 2.9430622057925946e-07,
+       "at_display": [
+        11,
+        24,
+        0
+       ]
+      }
+     },
+     "display": {
+      "corrected-1": {
+       "max_abs": 16.6328125,
+       "at": [
+        15,
+        18,
+        18
+       ],
+       "a": 51534.87890625,
+       "b": 51518.24609375,
+       "differ": 7199
+      },
+      "corrected-2": {
+       "max_abs": 74.6796875,
+       "at": [
+        14,
+        15,
+        18
+       ],
+       "a": 65614.734375,
+       "b": 65689.4140625,
+       "differ": 7207
+      },
+      "corrected-mean": {
+       "max_abs": 40.4140625,
+       "at": [
+        14,
+        15,
+        18
+       ],
+       "a": 68656.8203125,
+       "b": 68697.234375,
+       "differ": 7359
+      },
+      "field": {
+       "max_abs": 0.02580547332763672,
+       "at": [
+        11,
+        24,
+        7
+       ],
+       "a": 9.170400619506836,
+       "b": 9.1445951461792,
+       "differ": 7366
+      },
+      "jac-1": {
+       "max_abs": 0.00011813640594482422,
+       "at": [
+        19,
+        7,
+        1
+       ],
+       "a": 1.0292375087738037,
+       "b": 1.0293556451797485,
+       "differ": 7347
+      },
+      "jac-2": {
+       "max_abs": 0.00011813640594482422,
+       "at": [
+        19,
+        7,
+        1
+       ],
+       "a": 0.9707625508308411,
+       "b": 0.9706444144248962,
+       "differ": 7353
+      },
+      "warp-1": {
+       "max_abs": 0.0021358728408813477,
+       "at": [
+        11,
+        24,
+        7
+       ],
+       "a": 0.7590395212173462,
+       "b": 0.7569036483764648,
+       "differ": 7366
+      },
+      "warp-2": {
+       "max_abs": 0.0021358728408813477,
+       "at": [
+        11,
+        24,
+        7
+       ],
+       "a": -0.7590395212173462,
+       "b": -0.7569036483764648,
+       "differ": 7366
+      },
+      "feat-mag": {
+       "max_abs": 40.4140625,
+       "at": [
+        14,
+        15,
+        18
+       ],
+       "a": 68656.8203125,
+       "b": 68697.234375,
+       "differ": 7359
+      },
+      "feat-rads": {
+       "max_abs": 0.16213607788085938,
+       "at": [
+        11,
+        24,
+        7
+       ],
+       "a": 57.61932373046875,
+       "b": 57.45718765258789,
+       "differ": 7365
+      }
+     },
+     "links": [
+      {
+       "label": "record",
+       "href": "docs/validation/fsl-topup.md"
+      },
+      {
+       "label": "findings",
+       "href": "docs/findings/fsl-topup-original.md"
+      }
+     ],
+     "verdict": "divergence",
+     "reason": "the movements estimated, not converged: FSL's rotation derivatives are not its cost's (findings 14). Outside the thresholds: c: relative difference inside the brain, 99th percentile 0.001247 (threshold 0.001). Since 2026-11-03 the specification states what FSL computes (FSL-201, specs/topup.md §4.6): the original's derivatives are the cost's, as the replica's default mode now computes them; its reproduce mode is to follow FSL's."
+    },
+    {
+     "id": "original1-original",
+     "a": "original-1",
+     "b": "original",
+     "kind": "check",
+     "label": "clean-room original, 1 thread − 14 threads",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "corrected-1": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 115974.75341796875,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "corrected-2": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 127107.2294921875,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "corrected-mean": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 46.29475402832031,
+       "b_at": 46.29475402832031,
+       "rms": 0.0,
+       "range": 119355.76123046875,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "field": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": -1.3504544496536255,
+       "b_at": -1.3504544496536255,
+       "rms": 0.0,
+       "range": 103.15253448486328,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "jac-1": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.999606728553772,
+       "b_at": 0.999606728553772,
+       "rms": 0.0,
+       "range": 0.6335402429103851,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "jac-2": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 1.000393271446228,
+       "b_at": 1.000393271446228,
+       "rms": 0.0,
+       "range": 0.6335403323173523,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "warp-1": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": -0.11177792400121689,
+       "b_at": -0.11177792400121689,
+       "rms": 0.0,
+       "range": 8.537997007369995,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "warp-2": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.11177792400121689,
+       "b_at": 0.11177792400121689,
+       "rms": 0.0,
+       "range": 8.537997007369995,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "feat-mag": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 46.29475402832031,
+       "b_at": 46.29475402832031,
+       "rms": 0.0,
+       "range": 119355.76123046875,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "feat-rads": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": -8.48515510559082,
+       "b_at": -8.48515510559082,
+       "rms": 0.0,
+       "range": 648.1264953613281,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "corrected-1": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "corrected-2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "corrected-mean": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "field": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "jac-1": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "jac-2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "warp-1": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "warp-2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "feat-mag": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "feat-rads": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The thread count changes nothing: the clean-room original's parallel loops (fixed blocks of lines, planes and coefficients, sums in a fixed order) give its one-thread result bit for bit at 14 threads."
+    },
+    {
+     "id": "ofix-original",
+     "a": "original-fix",
+     "b": "original",
+     "kind": "check",
+     "label": "clean-room original, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "corrected-1": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 115974.75341796875,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "corrected-2": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 127107.2294921875,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "corrected-mean": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 46.29475402832031,
+       "b_at": 46.29475402832031,
+       "rms": 0.0,
+       "range": 119355.76123046875,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "field": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": -1.3504544496536255,
+       "b_at": -1.3504544496536255,
+       "rms": 0.0,
+       "range": 103.15253448486328,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "jac-1": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.999606728553772,
+       "b_at": 0.999606728553772,
+       "rms": 0.0,
+       "range": 0.6335402429103851,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "jac-2": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 1.000393271446228,
+       "b_at": 1.000393271446228,
+       "rms": 0.0,
+       "range": 0.6335403323173523,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "warp-1": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": -0.11177792400121689,
+       "b_at": -0.11177792400121689,
+       "rms": 0.0,
+       "range": 8.537997007369995,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "warp-2": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.11177792400121689,
+       "b_at": 0.11177792400121689,
+       "rms": 0.0,
+       "range": 8.537997007369995,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "feat-mag": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 46.29475402832031,
+       "b_at": 46.29475402832031,
+       "rms": 0.0,
+       "range": 119355.76123046875,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "feat-rads": {
+       "identical": true,
+       "voxels": 20480,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": -8.48515510559082,
+       "b_at": -8.48515510559082,
+       "rms": 0.0,
+       "range": 648.1264953613281,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "corrected-1": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "corrected-2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "corrected-mean": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "field": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "jac-1": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "jac-2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "warp-1": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "warp-2": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "feat-mag": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "feat-rads": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "No correction of the register applies to this call: both modes give the same values."
+    }
+   ],
+   "default": {
+    "output": "corrected-1",
+    "plane": "axial",
+    "voxel": [
+     12,
+     27,
+     9
+    ],
+    "panels": [
+     "in1",
+     "in2",
+     "fsl",
+     "original",
+     "replica-fix"
+    ],
+    "diffs": [
+     "replica-fsl",
+     "fix-replica"
+    ],
+    "compare": {
+     "a": "replica-fix",
+     "b": "replica"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 9,
+    "aspect": 0.875,
+    "panels": {
+     "in1": "a662b9ef5fcb563577f30da6.webp",
+     "in2": "80900bc94139b6c220b59b27.webp",
+     "fsl": "4c74ec84beca870881e3d09c.webp",
+     "original": "c3b4d01bac1539c683cc704f.webp",
+     "replica-fix": "c3b4d01bac1539c683cc704f.webp"
+    },
+    "diffs": {
+     "fix-replica": "3af44f8e266a494c1861e0da.webp"
+    },
+    "ranges": {
+     "fix-replica": 16.671875
+    },
+    "caption": "Axial slice 10 of 20; the crosshair where the default mode differs most from the reproduce mode (FSL's bytes) in this slice."
+   },
+   "chain": null,
+   "groups": [
+    [
+     "main",
+     "LARMORX against FSL"
+    ],
+    [
+     "check",
+     "LARMORX against itself: threads and modes"
+    ]
+   ],
+   "tables": [
+    {
+     "id": "movements-files",
+     "title": "Every file written, against FSL 6.0.7.23's at one thread",
+     "columns": [
+      {
+       "label": "File"
+      },
+      {
+       "label": "Type"
+      },
+      {
+       "label": "Size"
+      },
+      {
+       "label": "replica (reproduce)"
+      },
+      {
+       "label": "replica (default)"
+      },
+      {
+       "label": "original (reproduce)"
+      },
+      {
+       "label": "original (default)"
+      }
+     ],
+     "rows": [
+      {
+       "head": "`c.nii.gz`",
+       "cells": [
+        {
+         "text": "float32"
+        },
+        {
+         "text": "32 × 32 × 20 × 2"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "differs"
+        },
+        {
+         "text": "34,536 of 40,960 values differ"
+        },
+        {
+         "text": "34,536 of 40,960 values differ"
+        }
+       ]
+      },
+      {
+       "head": "`c_mean.nii.gz`",
+       "cells": [
+        {
+         "text": "float32"
+        },
+        {
+         "text": "32 × 32 × 20"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "differs"
+        },
+        {
+         "text": "20,471 of 20,480 values differ"
+        },
+        {
+         "text": "20,471 of 20,480 values differ"
+        }
+       ]
+      },
+      {
+       "head": "`d_01.nii.gz`",
+       "cells": [
+        {
+         "text": "float32"
+        },
+        {
+         "text": "32 × 32 × 20 × 3"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "differs"
+        },
+        {
+         "text": "20,479 of 61,440 values differ"
+        },
+        {
+         "text": "20,479 of 61,440 values differ"
+        }
+       ]
+      },
+      {
+       "head": "`d_02.nii.gz`",
+       "cells": [
+        {
+         "text": "float32"
+        },
+        {
+         "text": "32 × 32 × 20 × 3"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "differs"
+        },
+        {
+         "text": "20,479 of 61,440 values differ"
+        },
+        {
+         "text": "20,479 of 61,440 values differ"
+        }
+       ]
+      },
+      {
+       "head": "`f.nii.gz`",
+       "cells": [
+        {
+         "text": "float32"
+        },
+        {
+         "text": "32 × 32 × 20"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "differs"
+        },
+        {
+         "text": "20,479 of 20,480 values differ"
+        },
+        {
+         "text": "20,479 of 20,480 values differ"
+        }
+       ]
+      },
+      {
+       "head": "`feat_fieldmap_mag.nii.gz`",
+       "cells": [
+        {
+         "text": "float32"
+        },
+        {
+         "text": "32 × 32 × 20"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "differs"
+        },
+        {
+         "text": "20,471 of 20,480 values differ"
+        },
+        {
+         "text": "20,471 of 20,480 values differ"
+        }
+       ]
+      },
+      {
+       "head": "`feat_fieldmap_rads.nii.gz`",
+       "cells": [
+        {
+         "text": "float32"
+        },
+        {
+         "text": "32 × 32 × 20"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "differs"
+        },
+        {
+         "text": "20,478 of 20,480 values differ"
+        },
+        {
+         "text": "20,478 of 20,480 values differ"
+        }
+       ]
+      },
+      {
+       "head": "`half.topup_log`",
+       "cells": [
+        {
+         "text": "text"
+        },
+        {
+         "text": "44 lines"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "identical"
+        }
+       ]
+      },
+      {
+       "head": "`j_01.nii.gz`",
+       "cells": [
+        {
+         "text": "float32"
+        },
+        {
+         "text": "32 × 32 × 20"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "differs"
+        },
+        {
+         "text": "20,438 of 20,480 values differ"
+        },
+        {
+         "text": "20,438 of 20,480 values differ"
+        }
+       ]
+      },
+      {
+       "head": "`j_02.nii.gz`",
+       "cells": [
+        {
+         "text": "float32"
+        },
+        {
+         "text": "32 × 32 × 20"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "differs"
+        },
+        {
+         "text": "20,447 of 20,480 values differ"
+        },
+        {
+         "text": "20,447 of 20,480 values differ"
+        }
+       ]
+      },
+      {
+       "head": "`o_fieldcoef.nii.gz`",
+       "cells": [
+        {
+         "text": "float32"
+        },
+        {
+         "text": "19 × 19 × 13"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "differs"
+        },
+        {
+         "text": "4,693 of 4,693 values differ"
+        },
+        {
+         "text": "4,693 of 4,693 values differ"
+        }
+       ]
+      },
+      {
+       "head": "`o_movpar.txt`",
+       "cells": [
+        {
+         "text": "text"
+        },
+        {
+         "text": "2 lines"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "differs"
+        },
+        {
+         "text": "differs"
+        },
+        {
+         "text": "differs"
+        }
+       ]
+      },
+      {
+       "head": "`r_01.mat`",
+       "cells": [
+        {
+         "text": "text"
+        },
+        {
+         "text": "4 lines"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "identical"
+        }
+       ]
+      },
+      {
+       "head": "`r_02.mat`",
+       "cells": [
+        {
+         "text": "text"
+        },
+        {
+         "text": "4 lines"
+        },
+        {
+         "text": "identical"
+        },
+        {
+         "text": "differs"
+        },
+        {
+         "text": "differs"
+        },
+        {
+         "text": "differs"
+        }
+       ]
+      }
+     ],
+     "note": "Each image decompressed and compared byte for byte with FSL's: *identical*, the header (its `descrip`, FSL's build string, aside) and every value; *data identical*, every value but not the header; *differs*, values that differ (see the comparisons above); text files byte for byte; – where the run keeps no such file.  For the clean-room original, where the values are not the same, how many of the file's values differ from FSL's (its record holds it to specs/topup.md §12's thresholds; the comparisons above give the sizes)."
+    },
+    {
+     "id": "movements-movements",
+     "title": "The movements estimated: the moving volume against the first",
+     "columns": [
+      {
+       "label": "Run"
+      },
+      {
+       "label": "x (mm)",
+       "num": true
+      },
+      {
+       "label": "y (mm)",
+       "num": true
+      },
+      {
+       "label": "z (mm)",
+       "num": true
+      },
+      {
+       "label": "rotation x (rad)",
+       "num": true
+      },
+      {
+       "label": "rotation y (rad)",
+       "num": true
+      },
+      {
+       "label": "rotation z (rad)",
+       "num": true
+      },
+      {
+       "label": "|Δ| translation vs FSL",
+       "num": true
+      },
+      {
+       "label": "|Δ| rotation vs FSL",
+       "num": true
+      },
+      {
+       "label": "|Δ| translation vs the replica's default",
+       "num": true
+      },
+      {
+       "label": "|Δ| rotation vs the replica's default",
+       "num": true
+      }
+     ],
+     "rows": [
+      {
+       "head": "FSL 6.0.7.23",
+       "cells": [
+        {
+         "v": -0.5832533547,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": -0.2924769203,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.009187291018,
+         "fmt": "sig6"
+        },
+        {
+         "v": -0.001637463069,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0006750558722,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.00030700830000007784,
+         "fmt": "sig"
+        },
+        {
+         "v": 8.427790800000006e-05,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "replica (reproduce)",
+       "cells": [
+        {
+         "v": -0.5832533547,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": -0.2924769203,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.009187291018,
+         "fmt": "sig6"
+        },
+        {
+         "v": -0.001637463069,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0006750558722,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.00030700830000007784,
+         "fmt": "sig"
+        },
+        {
+         "v": 8.427790800000006e-05,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "replica (default)",
+       "cells": [
+        {
+         "v": -0.583560363,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": -0.2925326143,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.009140276007,
+         "fmt": "sig6"
+        },
+        {
+         "v": -0.001553185161,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0006967443191,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.00030700830000007784,
+         "fmt": "sig"
+        },
+        {
+         "v": 8.427790800000006e-05,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "original (reproduce)",
+       "cells": [
+        {
+         "v": -0.5835590933,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": -0.2925363499,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.009140090565,
+         "fmt": "sig6"
+        },
+        {
+         "v": -0.001553172576,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0006967625972,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0003057386000000495,
+         "fmt": "sig"
+        },
+        {
+         "v": 8.429049299999987e-05,
+         "fmt": "sig"
+        },
+        {
+         "v": 3.73559999999884e-06,
+         "fmt": "sig"
+        },
+        {
+         "v": 1.8544200000060462e-07,
+         "fmt": "sig"
+        }
+       ]
+      },
+      {
+       "head": "original (default)",
+       "cells": [
+        {
+         "v": -0.5835590933,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0,
+         "fmt": "sig6"
+        },
+        {
+         "v": -0.2925363499,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.009140090565,
+         "fmt": "sig6"
+        },
+        {
+         "v": -0.001553172576,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0006967625972,
+         "fmt": "sig6"
+        },
+        {
+         "v": 0.0003057386000000495,
+         "fmt": "sig"
+        },
+        {
+         "v": 8.429049299999987e-05,
+         "fmt": "sig"
+        },
+        {
+         "v": 3.73559999999884e-06,
+         "fmt": "sig"
+        },
+        {
+         "v": 1.8544200000060462e-07,
+         "fmt": "sig"
+        }
+       ]
+      }
+     ],
+     "note": "Each run's `--out` movement file (`_movpar.txt`: one line per volume, the first volume the reference), as written; the last four columns the largest difference of the translations (mm) and of the rotations (rad) from FSL's and from the replica's default's."
+    }
+   ],
+   "metrics_note": "Δ is A − B, computed in float64 over all 20,480 voxels of the outputs, not only those shown. The record's threshold: every file FSL writes bit-identical (images decompressed, `descrip` left out), with FSL's exit status and messages. The clean-room original's record (fsl-topup) holds it to specs/topup.md §12's thresholds instead: FSL's exit status, files and messages (numbers to 4 significant digits), the headers and the log identical; inside the record's brain the field within 0.5 Hz at the 99th percentile and 0.1 Hz on average (correlation at least 0.999), the corrected images within 1e-3 relative at the 99th percentile and 1e-3 of the mean intensity on average, the movements within 0.05 mm and 0.001 rad, the Jacobians and displacements within the field's bounds times the read-out time; a metric beyond its threshold passes within FSL's own band where the record measures it.",
+   "provenance": [
+    "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
+    "Inputs: half.nii.gz (sha256 33b8882c4fc51ed3…)",
+    "Runs: figures cache entry `fsl-topup/opt-levels`, computed 2026-11-03T22:11:09+00:00 with larmorx `3b65d4eeb6c7`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `fsl-topup/original-opt-levels`, computed 2026-11-03T22:11:10+00:00 with larmorx `3b65d4eeb6c7`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
     "openneuro-ds005040"
@@ -19322,7 +23065,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b21e314e9a9`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `9d5c0319b689`"
+     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b65d4eeb6c7`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `9d5c0319b689`"
     },
     {
      "label": "Grid",
@@ -19964,7 +23707,7 @@
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: half_up.nii.gz (sha256 1ae5fd56967afd07…); half_dn.nii.gz (sha256 8e49385dc2270b50…); tu_field.nii.gz (sha256 d055f946cfb0adc9…); tu_fieldcoef.nii.gz (sha256 698a5839514d8d17…); tu_movpar.txt (sha256 9d69af8d9e2fd149…)",
-    "Runs: figures cache entry `fsl-topup/at-lsr-y`, computed 2026-11-03T06:20:35+00:00 with larmorx `3b21e314e9a9`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `fsl-topup/at-lsr-y`, computed 2026-11-03T06:20:35+00:00 with larmorx `3b65d4eeb6c7`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs: figures cache entry `fsl-topup/original-at-lsr-y`, computed 2026-11-03T14:29:52+00:00 with larmorx `9d5c0319b689`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
@@ -19990,7 +23733,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b21e314e9a9`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `9d5c0319b689`"
+     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b65d4eeb6c7`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `9d5c0319b689`"
     },
     {
      "label": "Grid",
@@ -20623,7 +24366,7 @@
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: half_up.nii.gz (sha256 1ae5fd56967afd07…); tu_field.nii.gz (sha256 d055f946cfb0adc9…); tu_fieldcoef.nii.gz (sha256 698a5839514d8d17…); tu_movpar.txt (sha256 9d69af8d9e2fd149…)",
-    "Runs: figures cache entry `fsl-topup/at-jac-y`, computed 2026-11-03T06:20:35+00:00 with larmorx `3b21e314e9a9`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `fsl-topup/at-jac-y`, computed 2026-11-03T06:20:35+00:00 with larmorx `3b65d4eeb6c7`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs: figures cache entry `fsl-topup/original-at-jac-y`, computed 2026-11-03T14:29:52+00:00 with larmorx `9d5c0319b689`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
@@ -20649,7 +24392,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b21e314e9a9`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `9d5c0319b689`"
+     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b65d4eeb6c7`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `9d5c0319b689`"
     },
     {
      "label": "Grid",
@@ -21305,7 +25048,7 @@
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: half_up.nii.gz (sha256 1ae5fd56967afd07…); half_dn.nii.gz (sha256 8e49385dc2270b50…); tu_field.nii.gz (sha256 d055f946cfb0adc9…); tu_fieldcoef.nii.gz (sha256 698a5839514d8d17…); tu_movpar.txt (sha256 9d69af8d9e2fd149…)",
-    "Runs: figures cache entry `fsl-topup/at-vb3d-y`, computed 2026-11-03T06:20:43+00:00 with larmorx `3b21e314e9a9`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `fsl-topup/at-vb3d-y`, computed 2026-11-03T06:20:43+00:00 with larmorx `3b65d4eeb6c7`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs: figures cache entry `fsl-topup/original-at-vb3d-y`, computed 2026-11-03T14:29:52+00:00 with larmorx `9d5c0319b689`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
