@@ -497,6 +497,19 @@
    "eco": "fsl",
    "implementations": [
     {
+     "label": "clean-room original",
+     "record": "docs/validation/fsl-maths.md",
+     "status": "experimental",
+     "cases": 442,
+     "verdicts": {
+      "bit-identical": 358,
+      "divergence": 6,
+      "both-reject": 63,
+      "open": 15
+     },
+     "source": "evidence"
+    },
+    {
      "label": "larmorx-nc replica",
      "record": "docs/validation/fsl-maths-replica.md",
      "status": "experimental",
@@ -515,6 +528,18 @@
    "title": "fslstats",
    "eco": "fsl",
    "implementations": [
+    {
+     "label": "clean-room original",
+     "record": "docs/validation/fsl-stats.md",
+     "status": "experimental",
+     "cases": 162,
+     "verdicts": {
+      "bit-identical": 125,
+      "both-reject": 36,
+      "open": 1
+     },
+     "source": "evidence"
+    },
     {
      "label": "larmorx-nc replica",
      "record": "docs/validation/fsl-stats-replica.md",
