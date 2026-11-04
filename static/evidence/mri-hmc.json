@@ -3,19 +3,19 @@
  "tool": "mri-hmc",
  "title": "Head-motion correction",
  "provenance": {
-  "exporter": "8035ad782ae6aa0fcc2d7008192b781adb9f3e15",
+  "exporter": "c2ef0e7819ba6a78845200b0787c9d05fb3c53f5",
   "records": [
    {
     "path": "docs/validation/mri-hmc.json",
-    "sha256": "4acac2d6296b2708786d9c482c308a304488aaf9b4b58571c5351b518a2a6092",
-    "generated": "2026-10-30",
-    "larmorx_commit": "7c9df9d9c8b2"
+    "sha256": "88b3eea170c315dabb9223bf70a634cbe90f9ab504a80eed7da6673c7019954b",
+    "generated": "2026-11-04",
+    "larmorx_commit": "be3db916dce3"
    },
    {
     "path": "docs/validation/mri-hmc.md",
-    "sha256": "f22418e5969802ee3480db4cfe4cb59f86aa2ccfa5a9d1a216f237d22b81aa4e",
-    "generated": "2026-10-30",
-    "larmorx_commit": "7c9df9d9c8b2"
+    "sha256": "6cc7ff7224b126f430240699bbe0d84820700d2e152d57e9ab0c361d9f8bc4fe",
+    "generated": "2026-11-04",
+    "larmorx_commit": "be3db916dce3"
    },
    {
     "path": "docs/validation/fsl-mcflirt-replica-full.json",
@@ -31,15 +31,15 @@
    },
    {
     "path": "docs/validation/fsl-mcflirt-replica.json",
-    "sha256": "df927ef6b2f7da663d5adc815a3e905cfc95d02a0aa63cc319727ce400954252",
-    "generated": "2026-10-30",
-    "larmorx_commit": "7582eaeb4519"
+    "sha256": "eee26f0e812e2ab318988c721d8adfc52ab8ac1879a79f4b2f9d1f78525c0dc9",
+    "generated": "2026-11-02",
+    "larmorx_commit": "68ad3fd66f95"
    },
    {
     "path": "docs/validation/fsl-mcflirt-replica.md",
-    "sha256": "958507fa954fe7abbb61a85bcc697eb2b2d446b99ba257c50b9beaf4421074fb",
-    "generated": "2026-10-30",
-    "larmorx_commit": "7582eaeb4519"
+    "sha256": "03863b7c16adc186c335a0d73c694b0d59fe9205c8f076a80e78f24a371f103e",
+    "generated": "2026-11-02",
+    "larmorx_commit": "68ad3fd66f95"
    }
   ],
   "benchmarks": [
@@ -579,10 +579,10 @@
    "record": "docs/validation/fsl-mcflirt-replica.md",
    "status": "validated",
    "summary": {
-    "cases": 236,
+    "cases": 237,
     "verdicts": {
      "bit-identical": 205,
-     "both-reject": 31
+     "both-reject": 32
     }
    },
    "agreement": [
@@ -649,7 +649,7 @@
      "category": "replica: edge cases",
      "counts": {
       "bit-identical": 32,
-      "both-reject": 10
+      "both-reject": 11
      }
     },
     {
@@ -861,7 +861,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0662 mm, median Δ 0.003 mm / 0.0056°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0284 mm, median Δ 0.002 mm / 0.0029°; 1/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -913,7 +913,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0048 mm, median Δ 0.0001 mm / 0.0001°; 1/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0047 mm, median Δ 0.0001 mm / 0.0001°; 1/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -965,7 +965,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0108 mm, median Δ 0.0002 mm / 0.0002°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0126 mm, median Δ 0.0005 mm / 0.0007°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -4603,7 +4603,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "7/7",
-     "reason": "95th-percentile RMS deviation 0.0717 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0416 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica-23": {
      "outcome": "pass",
@@ -6018,6 +6018,20 @@
    }
   },
   {
+   "id": "edge/fsl75-narrow",
+   "category": "replica: edge cases",
+   "description": "mcflirt exits [-6]; the same from the replica. double free or corruption (out)",
+   "command": "",
+   "results": {
+    "replica-23": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "3/3",
+     "reason": "mcflirt and the replica fail alike, with the same messages and status: mcflirt exits [-6]; the same from the replica. double free or corruption (out)"
+    }
+   }
+  },
+  {
    "id": "edge/fsloutputtype-zst",
    "category": "replica: edge cases",
    "description": "7/7",
@@ -6269,7 +6283,7 @@
    "note": "From the case explorer below: each case's reason gives its numbers."
   }
  ],
- "cases_total": 242,
+ "cases_total": 243,
  "speed": {
   "title": "Seconds for the whole command, median of repeated runs, log scale; the factor is the clean-room original's speed-up at one thread",
   "axis": [
