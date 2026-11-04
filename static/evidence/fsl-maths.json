@@ -3,19 +3,19 @@
  "tool": "fsl-maths",
  "title": "fslmaths",
  "provenance": {
-  "exporter": "c2ef0e7819ba6a78845200b0787c9d05fb3c53f5",
+  "exporter": "0e5a78911fbdb76f485cacabd6c8c7f69db47484",
   "records": [
    {
     "path": "docs/validation/fsl-maths-replica.json",
-    "sha256": "ac83423f08970981fe85e7a147d34bd05b8f0a8745051e41091327b0c5210a44",
-    "generated": "2026-11-03",
-    "larmorx_commit": "a51517a323eb"
+    "sha256": "8ff2fe9ef37b13fd4f98a0f251c06c0b1db1e303fec300781a031c1829e73338",
+    "generated": "2026-11-04",
+    "larmorx_commit": "8f6b2f567c5b"
    },
    {
     "path": "docs/validation/fsl-maths-replica.md",
-    "sha256": "bd8117ad2c81d96b93facce972be78663bb482e4fd07518400a6eb5904731a9a",
-    "generated": "2026-11-03",
-    "larmorx_commit": "a51517a323eb"
+    "sha256": "c21594b5a9b24b9135085c21d092880b545e30363ae07602a3ec498f0d56437e",
+    "generated": "2026-11-04",
+    "larmorx_commit": "8f6b2f567c5b"
    },
    {
     "path": "docs/validation/fsl-maths.json",
@@ -40,8 +40,8 @@
    {
     "entry": "fsl-maths/fmriprep-combine-masks",
     "description": "fMRIPrep's combine_masks call of ds005040-sub-002-noreconall: FSL 6.0.7.23 (from the oracle cache) and the replica, reproduce and default modes",
-    "computed": "2026-11-03T14:54:15+00:00",
-    "larmorx_commit": "b4b23e2a55b711429a60c81d7afde03756267b3b",
+    "computed": "2026-11-04T20:40:54+00:00",
+    "larmorx_commit": "73451f78a4007d83df55f74ce2fd7a46226f2288-dirty",
     "commands": [
      {
       "label": "fsl",
@@ -118,8 +118,8 @@
    {
     "entry": "fsl-maths/fmriprep-goodvoxels",
     "description": "fMRIPrep's goodvoxels mask on ds005040-sub-002-noreconall: its fourteen fslmaths calls by FSL 6.0.7.23 (from the oracle cache) and the replica, reproduce and default modes",
-    "computed": "2026-11-03T14:54:17+00:00",
-    "larmorx_commit": "b4b23e2a55b711429a60c81d7afde03756267b3b",
+    "computed": "2026-11-04T20:40:56+00:00",
+    "larmorx_commit": "73451f78a4007d83df55f74ce2fd7a46226f2288-dirty",
     "commands": [
      {
       "label": "fsl-stdev_volume",
@@ -159,7 +159,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.16
+      "seconds": 0.17
      },
      {
       "label": "replica-fix-stdev_volume",
@@ -181,7 +181,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.16
+      "seconds": 0.23
      },
      {
       "label": "fsl-mean_volume",
@@ -221,7 +221,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.15
+      "seconds": 0.13
      },
      {
       "label": "replica-fix-mean_volume",
@@ -554,7 +554,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.28
+      "seconds": 0.35
      },
      {
       "label": "replica-fix-cov_ribbon_norm_smooth",
@@ -580,7 +580,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.36
+      "seconds": 0.28
      },
      {
       "label": "fsl-cov_norm",
@@ -815,7 +815,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.0
      },
      {
       "label": "replica-fix-bin_mean_volume",
@@ -1053,8 +1053,8 @@
    {
     "entry": "fsl-maths/families",
     "description": "One fslmaths call per operation family on ds005040-sub-002-noreconall's BOLD series: FSL 6.0.7.23 (through the oracle cache) and the replica, reproduce and default modes",
-    "computed": "2026-11-03T14:54:30+00:00",
-    "larmorx_commit": "b4b23e2a55b711429a60c81d7afde03756267b3b",
+    "computed": "2026-11-04T20:41:05+00:00",
+    "larmorx_commit": "73451f78a4007d83df55f74ce2fd7a46226f2288-dirty",
     "commands": [
      {
       "label": "fsl-tsnr",
@@ -1075,7 +1075,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.05
+      "seconds": 0.0
      },
      {
       "label": "replica-tsnr",
@@ -1145,7 +1145,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.05
+      "seconds": 0.0
      },
      {
       "label": "replica-thrp",
@@ -1212,7 +1212,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.06
+      "seconds": 0.0
      },
      {
       "label": "replica-sqrt",
@@ -1276,7 +1276,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.54
+      "seconds": 0.0
      },
      {
       "label": "replica-tmedian",
@@ -1298,7 +1298,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.28
+      "seconds": 0.35
      },
      {
       "label": "replica-fix-tmedian",
@@ -1338,7 +1338,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.38
+      "seconds": 0.0
      },
      {
       "label": "replica-tar1",
@@ -1382,7 +1382,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.15
+      "seconds": 0.21
      },
      {
       "label": "fsl-ero",
@@ -1403,7 +1403,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.18
+      "seconds": 0.0
      },
      {
       "label": "replica-ero",
@@ -1475,7 +1475,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.09
+      "seconds": 0.0
      },
      {
       "label": "replica-dilm",
@@ -1546,7 +1546,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.11
+      "seconds": 0.0
      },
      {
       "label": "replica-smooth",
@@ -1613,7 +1613,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.98
+      "seconds": 0.0
      },
      {
       "label": "replica-fmean-fft",
@@ -1638,7 +1638,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.47
+      "seconds": 0.5
      },
      {
       "label": "replica-fix-fmean-fft",
@@ -1683,7 +1683,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.13
+      "seconds": 0.0
      },
      {
       "label": "replica-fmedian",
@@ -1731,7 +1731,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.06
+      "seconds": 0.07
      },
      {
       "label": "fsl-edge",
@@ -1749,7 +1749,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.03
+      "seconds": 0.0
      },
      {
       "label": "replica-edge",
@@ -1814,7 +1814,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.06
+      "seconds": 0.0
      },
      {
       "label": "replica-inm",
@@ -1885,7 +1885,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.91
+      "seconds": 0.0
      },
      {
       "label": "replica-bptf",
@@ -1910,7 +1910,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 2.96
+      "seconds": 2.79
      },
      {
       "label": "replica-fix-bptf",
@@ -1935,7 +1935,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 2.76
+      "seconds": 2.81
      },
      {
       "label": "fsl-roi",
@@ -1961,7 +1961,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.0
      },
      {
       "label": "replica-roi",
@@ -2046,7 +2046,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.14
+      "seconds": 0.0
      },
      {
       "label": "replica-tfce",
@@ -2075,7 +2075,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.08
+      "seconds": 0.04
      },
      {
       "label": "replica-fix-tfce",
@@ -2116,8 +2116,8 @@
    {
     "entry": "fsl-maths/glibc-double",
     "description": "fslmaths' double-precision functions on a real image: FSL 6.0.7.23 (glibc 2.35) and the replica, reproduce and default modes",
-    "computed": "2026-11-03T14:54:31+00:00",
-    "larmorx_commit": "b4b23e2a55b711429a60c81d7afde03756267b3b",
+    "computed": "2026-11-04T20:41:06+00:00",
+    "larmorx_commit": "73451f78a4007d83df55f74ce2fd7a46226f2288-dirty",
     "commands": [
      {
       "label": "fsl-sin",
@@ -2141,7 +2141,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.09
+      "seconds": 0.0
      },
      {
       "label": "replica-sin",
@@ -2221,7 +2221,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.11
+      "seconds": 0.0
      },
      {
       "label": "replica-cos",
@@ -2277,7 +2277,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.03
      },
      {
       "label": "fsl-tan",
@@ -2301,7 +2301,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.11
+      "seconds": 0.0
      },
      {
       "label": "replica-tan",
@@ -2329,7 +2329,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.03
      },
      {
       "label": "replica-fix-tan",
@@ -2381,7 +2381,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.1
+      "seconds": 0.0
      },
      {
       "label": "replica-asin",
@@ -2461,7 +2461,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.07
+      "seconds": 0.0
      },
      {
       "label": "replica-acos",
@@ -2489,7 +2489,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.03
+      "seconds": 0.02
      },
      {
       "label": "replica-fix-acos",
@@ -2517,7 +2517,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.08
+      "seconds": 0.02
      },
      {
       "label": "fsl-atan",
@@ -2541,7 +2541,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.07
+      "seconds": 0.0
      },
      {
       "label": "replica-atan",
@@ -2621,7 +2621,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.05
+      "seconds": 0.0
      },
      {
       "label": "replica-exp",
@@ -2649,7 +2649,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.03
+      "seconds": 0.07
      },
      {
       "label": "replica-fix-exp",
@@ -2677,7 +2677,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.04
      },
      {
       "label": "fsl-log",
@@ -2702,7 +2702,7 @@
        "OPENBLAS_CORETYPE": "Haswell"
       },
       "exit": 0,
-      "seconds": 0.05
+      "seconds": 0.0
      },
      {
       "label": "replica-log",
@@ -2731,7 +2731,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.03
+      "seconds": 0.02
      },
      {
       "label": "replica-fix-log",
@@ -2772,8 +2772,8 @@
    {
     "entry": "fsl-maths/cases-default-mode",
     "description": "The replica's default mode on every case of the record: its exit status and the entries it names",
-    "computed": "2026-11-03T14:54:33+00:00",
-    "larmorx_commit": "b4b23e2a55b711429a60c81d7afde03756267b3b",
+    "computed": "2026-11-04T20:41:08+00:00",
+    "larmorx_commit": "73451f78a4007d83df55f74ce2fd7a46226f2288-dirty",
     "commands": [
      {
       "label": "fmriprep-ds000005-sub-01-noreconall-sub_01_wf-enhance_and_skullstrip_bold_wf",
@@ -2909,7 +2909,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.2
+      "seconds": 0.12
      },
      {
       "label": "fmriprep-goodvoxels-ds005040-sub-002-noreconall-cov_volume",
@@ -3028,7 +3028,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.29
+      "seconds": 0.36
      },
      {
       "label": "fmriprep-goodvoxels-ds005040-sub-002-noreconall-cov_norm",
@@ -7642,7 +7642,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.0
      },
      {
       "label": "conv-fmeanu-gauss",
@@ -7667,7 +7667,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.0
      },
      {
       "label": "conv-fmeanu-char",
@@ -7696,7 +7696,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.0
      },
      {
       "label": "conv-fmean-int",
@@ -7723,7 +7723,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.0
      },
      {
       "label": "conv-fft-sphere",
@@ -7748,7 +7748,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.0
      },
      {
       "label": "conv-fft-box",
@@ -7773,7 +7773,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.0
      },
      {
       "label": "conv-fft-even",
@@ -7798,7 +7798,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.0
      },
      {
       "label": "conv-fft-odd",
@@ -7823,7 +7823,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.0
      },
      {
       "label": "conv-fft-double",
@@ -7873,7 +7873,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.0
      },
      {
       "label": "conv-fft-int",
@@ -10282,7 +10282,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.01
      },
      {
       "label": "stat-ztop-double",
@@ -10308,7 +10308,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.01
      },
      {
       "label": "stat-ptoz",
@@ -10330,7 +10330,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.01
      },
      {
       "label": "stat-ztop-ptoz",
@@ -10375,7 +10375,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.01
      },
      {
       "label": "stat-ranknorm",
@@ -10397,7 +10397,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.01
      },
      {
       "label": "stat-rank-short",
@@ -10423,7 +10423,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.01
      },
      {
       "label": "stat-rank-3d",
@@ -10445,7 +10445,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.01
      },
      {
       "label": "stat-ranknorm-double",
@@ -12706,6 +12706,30 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 1,
+      "seconds": 0.0
+     },
+     {
+      "label": "difftest-dilall-nan-order",
+      "argv": [
+       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "fsl",
+       "fslmaths",
+       "img.nii",
+       "-dilall",
+       "out",
+       "-odt",
+       "double"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "1"
+      },
+      "exit": 0,
       "seconds": 0.0
      },
      {
@@ -16068,11 +16092,11 @@
    "record": "docs/validation/fsl-maths-replica.md",
    "status": "experimental",
    "summary": {
-    "cases": 421,
+    "cases": 422,
     "verdicts": {
-     "bit-identical": 358,
+     "bit-identical": 360,
      "both-reject": 61,
-     "divergence": 2
+     "divergence": 1
     }
    },
    "agreement": [
@@ -16238,8 +16262,7 @@
     {
      "category": "difftest",
      "counts": {
-      "bit-identical": 2,
-      "divergence": 1,
+      "bit-identical": 4,
       "both-reject": 1
      }
     }
@@ -24801,6 +24824,20 @@
    }
   },
   {
+   "id": "difftest/dilall-nan-order",
+   "category": "difftest",
+   "description": "random testing (2026-11-04): -dilall of a 7 x 13 x 3 float image holding NaN, inf and -inf, written as double: 42 of 273 voxels NaN of the other sign; FSL's build adds each neighbour with the neighbour's value as the destination register, so of a NaN neighbour and the default NaN of an earlier inf + -inf it passes on the neighbour's; the replica added the sum first; fixed (filters::dilall takes the neighbour first)",
+   "command": "FSLOUTPUTTYPE=NIFTI_GZ fslmaths <random testing's input case/fsl-mat> -dilall out -odt double",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    }
+   }
+  },
+  {
    "id": "difftest/dt-input-uint8-dog-edge",
    "category": "difftest",
    "description": "random testing (2026-11-03): -dt input on a uint8 image, -mul and -dog_edge: the default's unsigned template (FSL-154) holds no negative difference of Gaussians where FSL's signed char does; FSL-154 is now named for every image the unsigned template reads",
@@ -24831,14 +24868,14 @@
   {
    "id": "difftest/fft-twiddles-glibc-sincos",
    "category": "difftest",
-   "description": "random testing (2026-11-03): -recip, -kernel gauss 2.25 and -fmeanu of a 30 x 1 x 3 float image (an FFT convolution: a 60-point transform along x); 1 of 90 voxels one unit in the last place from FSL's: two of the 60-point transform's twiddle factors are glibc's sincos values, one bit from the correctly rounded ones (GLIBC-07)",
+   "description": "random testing (2026-11-03): -recip, -kernel gauss 2.25 and -fmeanu of a 30 x 1 x 3 float image (an FFT convolution: a 60-point transform along x); 1 of 90 voxels one unit in the last place from FSL's then: two of the 60-point transform's twiddle factors are glibc's sincos values, one bit from the correctly rounded ones (GLIBC-07). Since 2026-11-04 the replica's reproduce mode takes glibc's sincos (larmorx_core::math::sincos_glibc): FSL's output bit for bit; the default keeps the correctly rounded factors and names nothing (a filter)",
    "command": "FSLOUTPUTTYPE=NIFTI_GZ fslmaths <random testing's input case/fsl-mat> -recip -kernel gauss 2.25 -fmeanu out",
    "results": {
     "replica": {
-     "outcome": "expected-divergence",
-     "verdict": "divergence",
-     "checks": "4/5",
-     "reason": "GLIBC-07, from random testing: fslmaths convolves this kernel by the FFT, whose twiddle factors FSL's library takes from glibc's sincos (IBM's code, LGPL, not always correctly rounded: 0.148 % of the angles), while the replica computes them correctly rounded, in both modes: 1 of 90 float voxels one unit in the last place. Given FSL's own factors the replica's output is FSL's bit for bit (the FFT probe: every length from 1 to 256, and this case). Never met on fMRIPrep's calls (they convolve by separable sums). LARMORX's own implementation of glibc's sincos (2026-11-04, from a behavioural specification) can give the replica FSL's factors: a follow-up."
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects a register entry and names it: 1 values change"
     }
    }
   },
@@ -25347,7 +25384,7 @@
    }
   }
  ],
- "cases_total": 456,
+ "cases_total": 457,
  "speed": {
   "title": "Seconds for the whole call (read the images, compute, write every output), one run each, log scale; the factor is the clean-room original's speed-up over FSL, both on one thread",
   "axis": [
@@ -25610,7 +25647,7 @@
      ]
     }
    ],
-   "note": "Differential random testing's trial of this part (seed `fsl-maths-trial`, larmorx `0427fad149ac`): chains of one to four operations drawn for the current image (every family), on six kinds of images (scan-like, series, masks, z and p maps, tensors) on grids of 6 to 32 voxels per axis, with `-dt`, `-odt`, the output's name and FSLOUTPUTTYPE. Every case in a memory box of 1.5 GiB (peaks below 1.05 GiB), FSL through the oracle cache (`use` mode). Its one difference (a convolution by the FFT of a 30 × 1 × 3 image: 1 of 90 voxels one unit in the last place) is GLIBC-07, the twiddle factors FSL takes from glibc's sincos: a permanent case of the record, an expected divergence. The notices without a visible change name a correction of an intermediate result that a later operation removes (a threshold, -bin, -restart, a reduction). The check run before the trial found three mistakes of the replica's, fixed with permanent cases."
+   "note": "Differential random testing's trial of this part (seed `fsl-maths-trial`, larmorx `0427fad149ac`): chains of one to four operations drawn for the current image (every family), on six kinds of images (scan-like, series, masks, z and p maps, tensors) on grids of 6 to 32 voxels per axis, with `-dt`, `-odt`, the output's name and FSLOUTPUTTYPE. Every case in a memory box of 1.5 GiB (peaks below 1.05 GiB), FSL through the oracle cache (`use` mode). Its one difference (a convolution by the FFT of a 30 × 1 × 3 image: 1 of 90 voxels one unit in the last place) is GLIBC-07, the twiddle factors FSL takes from glibc's sincos: a permanent case of the record, an expected divergence until 2026-11-04 and FSL's bit for bit since (the replica's reproduce mode takes glibc's sincos from LARMORX's clean-room implementation of its behavioural specification). The notices without a visible change name a correction of an intermediate result that a later operation removes (a threshold, -bin, -restart, a reduction). The check run before the trial found three mistakes of the replica's, fixed with permanent cases."
   },
   {
    "id": "glibc-double",
@@ -25652,25 +25689,25 @@
        "fmt": "count"
       },
       {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
        "v": 211,
        "fmt": "count"
       },
       {
-       "v": 1,
-       "fmt": "count"
+       "text": "GLIBC-07"
       },
       {
-       "v": 211,
-       "fmt": "count"
-      },
-      {
-       "text": "–"
-      },
-      {
-       "text": "correctly rounded in both modes (IBM's code in glibc, LGPL, never translated)"
+       "text": "glibc's bits with reproduce (LARMORX's implementation of glibc's sin and cos, since 2026-11-04), correctly rounded by default (GLIBC-07 named)"
       }
      ],
-     "verdict": "divergence"
+     "verdict": "bit-identical"
     },
     {
      "head": "`cos`",
@@ -25681,25 +25718,25 @@
        "fmt": "count"
       },
       {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
        "v": 84,
        "fmt": "count"
       },
       {
-       "v": 1,
-       "fmt": "count"
+       "text": "GLIBC-07"
       },
       {
-       "v": 84,
-       "fmt": "count"
-      },
-      {
-       "text": "–"
-      },
-      {
-       "text": "correctly rounded in both modes (IBM's code in glibc, LGPL, never translated)"
+       "text": "glibc's bits with reproduce (LARMORX's implementation of glibc's sin and cos, since 2026-11-04), correctly rounded by default (GLIBC-07 named)"
       }
      ],
-     "verdict": "divergence"
+     "verdict": "bit-identical"
     },
     {
      "head": "`tan`",
@@ -25876,7 +25913,7 @@
      "verdict": "bit-identical"
     }
    ],
-   "note": "fslmaths with `-dt double` and `-odt double` on FSL's mean of ds005040's BOLD series in T1w space, scaled into each function's range; every finite value of the output compared bit for bit with FSL 6.0.7.23's (through the oracle cache: glibc 2.35's functions as FSL's build calls them, the FMA builds this CPU selects). Where glibc's result is not correctly rounded and the replica's is, they differ by one unit in the last place: GLIBC-07, an expected divergence for IBM's six functions (no permissive code gives glibc's bits), a correction by default for exp and log, whose glibc bits the reproduce mode gives. Float results (fslmaths' default type) are the same: no float differs after rounding."
+   "note": "fslmaths with `-dt double` and `-odt double` on FSL's mean of ds005040's BOLD series in T1w space, scaled into each function's range; every finite value of the output compared bit for bit with FSL 6.0.7.23's (through the oracle cache: glibc 2.35's functions as FSL's build calls them, the FMA builds this CPU selects). Where glibc's result is not correctly rounded and the replica's is, they differ by one unit in the last place: GLIBC-07, an expected divergence for tan, asin, acos and atan (IBM's code in glibc: no permissive code gives their bits, and they stay correctly rounded in both modes, the user's decision of 2026-11-04), a correction by default for exp, log, sin and cos, whose glibc bits the reproduce mode gives (sin and cos since 2026-11-04, from LARMORX's implementation of glibc's code written from its behavioural specification). Float results (fslmaths' default type) are the same: no float differs after rounding."
   },
   {
    "id": "glibc-double-original",
@@ -26956,7 +26993,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `b4b23e2a55b7`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `f092d74debaa`"
+     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `73451f78a400`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `f092d74debaa`"
     },
     {
      "label": "Grid",
@@ -27864,7 +27901,7 @@
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: BET's first-pass mask (sha256 da8a28916643c2c6…); the template's mask, on the reference (sha256 e07b0a17f73c28dc…); the BOLD reference after N4 (sha256 54b587437b15bd28…)",
-    "Runs: figures cache entry `fsl-maths/fmriprep-combine-masks`, computed 2026-11-03T14:54:15+00:00 with larmorx `b4b23e2a55b7`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `fsl-maths/fmriprep-combine-masks`, computed 2026-11-04T20:40:54+00:00 with larmorx `73451f78a400`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs: figures cache entry `fsl-maths/original-fmriprep-combine-masks`, computed 2026-11-03T23:55:40+00:00 with larmorx `f092d74debaa`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
@@ -27896,7 +27933,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `b4b23e2a55b7`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `3c0951127188`"
+     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `73451f78a400`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `3c0951127188`"
     },
     {
      "label": "Grid",
@@ -31726,7 +31763,7 @@
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: BOLD series in T1w space (sha256 ebfbc7b1648ca221…); the ribbon's stand-in (sha256 788750569ea12c93…)",
-    "Runs: figures cache entry `fsl-maths/fmriprep-goodvoxels`, computed 2026-11-03T14:54:17+00:00 with larmorx `b4b23e2a55b7`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `fsl-maths/fmriprep-goodvoxels`, computed 2026-11-04T20:40:56+00:00 with larmorx `73451f78a400`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs: figures cache entry `fsl-maths/original-fmriprep-goodvoxels`, computed 2026-11-04T12:57:11+00:00 with larmorx `3c0951127188`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
@@ -31744,7 +31781,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (through the oracle cache (0 of 15 runs served, the others run for this page)); larmorx-nc 0.0.1 (the replica), from larmorx at commit `b4b23e2a55b7`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `3c0951127188`"
+     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `73451f78a400`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `3c0951127188`"
     },
     {
      "label": "Grid",
@@ -36346,7 +36383,7 @@
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: bold (sha256 ebfbc7b1648ca221…); mean (sha256 1470ac106d7dc916…); std (sha256 c02ef2250ee40f00…); mask (sha256 07f29647b79803b1…)",
-    "Runs: figures cache entry `fsl-maths/families`, computed 2026-11-03T14:54:30+00:00 with larmorx `b4b23e2a55b7`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `fsl-maths/families`, computed 2026-11-04T20:41:05+00:00 with larmorx `73451f78a400`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs: figures cache entry `fsl-maths/original-families`, computed 2026-11-04T12:57:14+00:00 with larmorx `3c0951127188`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
