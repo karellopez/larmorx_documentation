@@ -3,7 +3,7 @@
  "tool": "fsl-maths",
  "title": "fslmaths",
  "provenance": {
-  "exporter": "640d4fe35a4d3c0d827ed9ef83d586c278050ad4",
+  "exporter": "8f6da93da7ecabb3d59d10b33f4013104c1ac373",
   "records": [
    {
     "path": "docs/validation/fsl-maths-replica.json",
@@ -19,21 +19,21 @@
    },
    {
     "path": "docs/validation/fsl-maths.json",
-    "sha256": "d0281519e89af556170cc53b5569dd20d9d6d44ba9fe92ec23fd60f2709f5ac1",
-    "generated": "2026-11-03",
-    "larmorx_commit": "8ce1c6adf070"
+    "sha256": "be0f4bb579a2c028aeb8f679a57c553da98c838088a1438b7b5ea3a4fa165dd8",
+    "generated": "2026-11-04",
+    "larmorx_commit": "4182e89066bc"
    },
    {
     "path": "docs/validation/fsl-maths.md",
-    "sha256": "2347dc5798f6aa61aab6e254c678dfe98da32a0ceaec9da7134f7e3993b6ded8",
-    "generated": "2026-11-03",
-    "larmorx_commit": "8ce1c6adf070"
+    "sha256": "1af2cea4f902e042796ba861328f4165c7a89c02998e355fd17f2ba8a7411221",
+    "generated": "2026-11-04",
+    "larmorx_commit": "4182e89066bc"
    }
   ],
   "benchmarks": [
    {
     "path": "docs/benchmarks/fsl-maths.md",
-    "sha256": "39de8d54f20816924cd579af17121aa4159bdb214a9ebe740b41a11c6b512795"
+    "sha256": "b0b2b498fc2e0b8a480748fb3f48660778c769be6de0dcdeb6fcfb121091f1d6"
    }
   ],
   "cache": [
@@ -13936,8 +13936,8 @@
    {
     "entry": "fsl-maths/original-families",
     "description": "The calls of fsl-maths/families: LARMORX's clean-room original, reproduce mode at 14 threads and at one, the default mode",
-    "computed": "2026-11-03T23:55:43+00:00",
-    "larmorx_commit": "f092d74debaa8c405e91e6f05294cc4b763673fd",
+    "computed": "2026-11-04T00:58:56+00:00",
+    "larmorx_commit": "da76711ef0f911e99ee6656dacbb5f4ad4cab2e1",
     "commands": [
      {
       "label": "original-tsnr",
@@ -14231,7 +14231,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.18
+      "seconds": 0.11
      },
      {
       "label": "original-tar1",
@@ -14254,7 +14254,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.1
+      "seconds": 0.17
      },
      {
       "label": "original-1-tar1",
@@ -14277,7 +14277,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.17
+      "seconds": 0.16
      },
      {
       "label": "original-fix-tar1",
@@ -14583,7 +14583,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.06
+      "seconds": 0.07
      },
      {
       "label": "original-fix-fmean-fft",
@@ -14883,7 +14883,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.37
+      "seconds": 0.38
      },
      {
       "label": "original-fix-bptf",
@@ -14909,7 +14909,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.11
+      "seconds": 0.12
      },
      {
       "label": "original-roi",
@@ -15816,8 +15816,8 @@
    {
     "entry": "fsl-maths/original-cases-default-mode",
     "description": "LARMORX's clean-room fslmaths in its default mode on every case of its record: its exit status and the entries it names",
-    "computed": "2026-11-03T23:55:48+00:00",
-    "larmorx_commit": "f092d74debaa8c405e91e6f05294cc4b763673fd",
+    "computed": "2026-11-04T00:58:54+00:00",
+    "larmorx_commit": "da76711ef0f911e99ee6656dacbb5f4ad4cab2e1",
     "commands": [],
     "versions": {
      "fsl": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH)",
@@ -16034,8 +16034,8 @@
     "verdicts": {
      "bit-identical": 358,
      "both-reject": 63,
-     "divergence": 8,
-     "open": 13
+     "divergence": 6,
+     "open": 15
     }
    },
    "agreement": [
@@ -16111,9 +16111,9 @@
      "category": "conv",
      "counts": {
       "bit-identical": 21,
-      "divergence": 4,
+      "divergence": 2,
       "both-reject": 2,
-      "open": 2
+      "open": 4
      }
     },
     {
@@ -20491,10 +20491,10 @@
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
     },
     "original": {
-     "outcome": "expected-divergence",
-     "verdict": "divergence",
-     "checks": "7/8",
-     "reason": "FSL's FFT convolution against the original's direct sum: the FFT's rounding is relative to the image's largest values, not to each voxel's own last place (findings 8; spec question 14). Inside the bound: max |diff| 1.2e-06 of max |FSL| (bound 1e-05). Outside the threshold: out.nii.gz: the sums' share of voxels within 4 ulp 30.0% (threshold >= 99%, max 26 ulp) Findings 31 (2026-11-04): on the fslmaths page's real call FSL's FFT proved the more accurate (1.5e-7 of the largest value from the exact result, the original's single-precision direct sum 1.4e-5); on this case's input that is not measured."
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "8/8",
+     "reason": "Within the record's thresholds, not bit for bit (out.nii.gz: values within the sums' bound: 9.57e-08): FSL convolves this kernel by its FFT in single precision, whose rounding is relative to the image's largest values; the original by a direct sum whose products it adds in double precision, the sum rounded once to single precision (findings 8 and 31; spec question 14)."
     }
    }
   },
@@ -20514,7 +20514,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "8/8",
-     "reason": "Within the record's thresholds, not bit for bit (out.nii.gz: values within the sums' bound: 9.71e-08): FSL convolves this kernel by its FFT, the original by a direct sum in single precision (§10.2's arithmetic of FSL's direct path): their roundings differ (findings 8 and 31; spec question 14)."
+     "reason": "Within the record's thresholds, not bit for bit (out.nii.gz: values within the sums' bound: 4.86e-08): FSL convolves this kernel by its FFT in single precision, whose rounding is relative to the image's largest values; the original by a direct sum whose products it adds in double precision, the sum rounded once to single precision (findings 8 and 31; spec question 14)."
     }
    }
   },
@@ -20534,7 +20534,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "8/8",
-     "reason": "Within the record's thresholds, not bit for bit (out.nii.gz: values within the sums' bound: 2.42e-07): FSL convolves this kernel by its FFT, the original by a direct sum in single precision (§10.2's arithmetic of FSL's direct path): their roundings differ (findings 8 and 31; spec question 14); in its default mode the clean-room original corrects FSL-192 and names it: 60 values change."
+     "reason": "Within the record's thresholds, not bit for bit (out.nii.gz: values within the sums' bound: 8.08e-08): FSL convolves this kernel by its FFT in single precision, whose rounding is relative to the image's largest values; the original by a direct sum whose products it adds in double precision, the sum rounded once to single precision (findings 8 and 31; spec question 14); in its default mode the clean-room original corrects FSL-192 and names it: 60 values change."
     }
    }
   },
@@ -20551,10 +20551,10 @@
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
     },
     "original": {
-     "outcome": "expected-divergence",
-     "verdict": "divergence",
-     "checks": "7/8",
-     "reason": "FSL's FFT convolution against the original's direct sum: the FFT's rounding is relative to the image's largest values, not to each voxel's own last place (findings 8; spec question 14). Inside the bound: max |diff| 2.55e-06 of max |FSL| (bound 1e-05). Outside the threshold: out.nii.gz: the sums' share of voxels within 4 ulp 18.1% (threshold >= 99%, max 33 ulp) Findings 31 (2026-11-04): on the fslmaths page's real call FSL's FFT proved the more accurate (1.5e-7 of the largest value from the exact result, the original's single-precision direct sum 1.4e-5); on this case's input that is not measured."
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "8/8",
+     "reason": "Within the record's thresholds, not bit for bit (out.nii.gz: values within the sums' bound: 2.04e-07): FSL convolves this kernel by its FFT in single precision, whose rounding is relative to the image's largest values; the original by a direct sum whose products it adds in double precision, the sum rounded once to single precision (findings 8 and 31; spec question 14)."
     }
    }
   },
@@ -20574,7 +20574,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "7/8",
-     "reason": "FSL's FFT convolution against the original's direct sum: the FFT's rounding is relative to the image's largest values, not to each voxel's own last place (findings 8; spec question 14). Inside the bound: max |diff| 1.43e-06 of max |FSL| (bound 1e-05). Outside the threshold: out.nii.gz: the sums' share of voxels within 4 ulp 0.5% (threshold >= 99%, max 12883830698 ulp) Findings 31 (2026-11-04): on the fslmaths page's real call FSL's FFT proved the more accurate (1.5e-7 of the largest value from the exact result, the original's single-precision direct sum 1.4e-5); on this case's input that is not measured."
+     "reason": "FSL's single-precision FFT convolution against the original's direct sum (where FSL takes its FFT, its products added in double precision and rounded once): the FFT's rounding is relative to the image's largest values, not to each voxel's own last place; against the exact result (float64) FSL's FFT lies within 6.9e-8 to 1.0e-7 of the largest value on these cases, the original within 4.1e-8 to 6.3e-8 (findings 8 and 31; spec question 14). Inside the bound: max |diff| 1.13e-07 of max |FSL| (bound 1e-05). Outside the threshold: out.nii.gz: the sums' share … Findings 31: against the exact result FSL's FFT lies within 8e-08 of the largest value, the original's direct sum (its products in double precision, rounded once) within 6.3e-08: the difference is FSL's single-precision FFT's."
     }
    }
   },
@@ -20594,7 +20594,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "7/8",
-     "reason": "FSL's FFT convolution against the original's direct sum: the FFT's rounding is relative to the image's largest values, not to each voxel's own last place (findings 8; spec question 14). Inside the bound: max |diff| 3.01e-07 of max |FSL| (bound 1e-05). Outside the threshold: out.nii.gz: the sums' share of voxels within 4 ulp 68.9% (threshold >= 99%, max 280 ulp) Findings 31 (2026-11-04): on the fslmaths page's real call FSL's FFT proved the more accurate (1.5e-7 of the largest value from the exact result, the original's single-precision direct sum 1.4e-5); on this case's input that is not measured."
+     "reason": "FSL's single-precision FFT convolution against the original's direct sum (where FSL takes its FFT, its products added in double precision and rounded once): the FFT's rounding is relative to the image's largest values, not to each voxel's own last place; against the exact result (float64) FSL's FFT lies within 6.9e-8 to 1.0e-7 of the largest value on these cases, the original within 4.1e-8 to 6.3e-8 (findings 8 and 31; spec question 14). Inside the bound: max |diff| 8.6e-08 of max |FSL| (bound 1e-05). Outside the threshold: out.nii.gz: the sums' share o… Findings 31: against the exact result FSL's FFT lies within 6.9e-08 of the largest value, the original's direct sum (its products in double precision, rounded once) within 4.1e-08: the difference is FSL's single-precision FFT's."
     }
    }
   },
@@ -24644,7 +24644,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "7/8",
-     "reason": "FSL's FFT convolution against the original's direct sum: the FFT's rounding is relative to the image's largest values, not to each voxel's own last place (findings 8; spec question 14). Inside the bound: max |diff| 1e-06 of max |FSL| (bound 1e-05). Outside the threshold: out.nii.gz: the sums' share of voxels within 4 ulp 70.5% (threshold >= 99%, max 19 ulp) Findings 31 (2026-11-04): on the fslmaths page's real call FSL's FFT proved the more accurate (1.5e-7 of the largest value from the exact result, the original's single-precision direct sum 1.4e-5); on this case's input that is not measured."
+     "reason": "FSL's single-precision FFT convolution against the original's direct sum (where FSL takes its FFT, its products added in double precision and rounded once): the FFT's rounding is relative to the image's largest values, not to each voxel's own last place; against the exact result (float64) FSL's FFT lies within 6.9e-8 to 1.0e-7 of the largest value on these cases, the original within 4.1e-8 to 6.3e-8 (findings 8 and 31; spec question 14). Inside the bound: max |diff| 1e-07 of max |FSL| (bound 1e-05). Outside the threshold: out.nii.gz: the sums' share of … Findings 31: against the exact result FSL's FFT lies within 1e-07 of the largest value, the original's direct sum (its products in double precision, rounded once) within 5e-08: the difference is FSL's single-precision FFT's."
     }
    }
   },
@@ -25120,10 +25120,10 @@
     "seconds": {
      "FSL 6.0.7.23|1 thread": 28.73,
      "replica (larmorx-nc)|1 thread": 16.12,
-     "original (larmorx)|1 thread": 2.98,
-     "original (larmorx)|14 threads": 0.43
+     "original (larmorx)|1 thread": 3.86,
+     "original (larmorx)|14 threads": 0.51
     },
-    "speedup": 9.640939597315436
+    "speedup": 7.443005181347151
    },
    {
     "label": "T1w -s 5",
@@ -25153,10 +25153,10 @@
     "seconds": {
      "FSL 6.0.7.23|1 thread": 227.71,
      "replica (larmorx-nc)|1 thread": 195.74,
-     "original (larmorx)|1 thread": 5.41,
-     "original (larmorx)|14 threads": 0.64
+     "original (larmorx)|1 thread": 8.14,
+     "original (larmorx)|14 threads": 0.85
     },
-    "speedup": 42.090573012939004
+    "speedup": 27.97420147420147
    }
   ],
   "note": "From the benchmark report `docs/benchmarks/fsl-maths.md` (the main machine: AMD, 16 cores and 32 threads, 124 GiB,\nUbuntu 22.04; informal, one run each, while another agent worked beside it). FSL and the replica are single-threaded; the original's outputs are the same bits at 1 and 14 threads."
@@ -26473,13 +26473,13 @@
        "text": "16.12 s (95 MiB)"
       },
       {
-       "text": "2.98 s (42 MiB)"
+       "text": "3.86 s (42 MiB)"
       },
       {
-       "text": "0.43 s (89 MiB)"
+       "text": "0.51 s (80 MiB)"
       },
       {
-       "text": "1 = 14 threads; max |d| 2.8e-6 of FSL's largest value"
+       "text": "1 = 14 threads; max |d| 1.0e-7 of FSL's largest value since relay 7b's double sum (before: 2.98 s and 0.43 s, 2.8e-6)"
       }
      ]
     },
@@ -26533,13 +26533,13 @@
        "text": "195.74 s (3159 MiB)"
       },
       {
-       "text": "5.41 s (188 MiB)"
+       "text": "8.14 s (188 MiB)"
       },
       {
-       "text": "0.64 s (187 MiB)"
+       "text": "0.85 s (187 MiB)"
       },
       {
-       "text": "1 = 14 threads; max |d| 8.4e-6 of FSL's largest value"
+       "text": "1 = 14 threads; max |d| 1.9e-7 of FSL's largest value since relay 7b's double sum (before: 5.41 s and 0.64 s, 8.4e-6)"
       }
      ]
     }
@@ -31355,7 +31355,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (through the oracle cache (0 of 15 runs served, the others run for this page)); larmorx-nc 0.0.1 (the replica), from larmorx at commit `b4b23e2a55b7`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `f092d74debaa`"
+     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (through the oracle cache (0 of 15 runs served, the others run for this page)); larmorx-nc 0.0.1 (the replica), from larmorx at commit `b4b23e2a55b7`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `da76711ef0f9`"
     },
     {
      "label": "Grid",
@@ -32064,14 +32064,14 @@
       }
      },
      "overlay": {
-      "thrp": {
+      "ero": {
        "on": "mean",
        "window": [
         -2624.327392578125,
         107605.5703125
        ]
       },
-      "ero": {
+      "thrp": {
        "on": "mean",
        "window": [
         -2624.327392578125,
@@ -32210,14 +32210,14 @@
       }
      },
      "overlay": {
-      "thrp": {
+      "ero": {
        "on": "mean",
        "window": [
         -2624.327392578125,
         107605.5703125
        ]
       },
-      "ero": {
+      "thrp": {
        "on": "mean",
        "window": [
         -2624.327392578125,
@@ -32356,14 +32356,14 @@
       }
      },
      "overlay": {
-      "thrp": {
+      "ero": {
        "on": "mean",
        "window": [
         -2624.327392578125,
         107605.5703125
        ]
       },
-      "ero": {
+      "thrp": {
        "on": "mean",
        "window": [
         -2624.327392578125,
@@ -32473,11 +32473,11 @@
        "dtype": "f4"
       },
       "fmean-fft": {
-       "blob": "dae0c2dc45a1df53bec737c8.bin",
+       "blob": "619de7ce962508b9c1ff3012.bin",
        "dtype": "f4",
        "xor": "fsl:fmean-fft",
        "zero": false,
-       "bytes": 94276
+       "bytes": 32207
       },
       "fmedian": {
        "same": "fsl:fmedian",
@@ -32505,14 +32505,14 @@
       }
      },
      "overlay": {
-      "thrp": {
+      "ero": {
        "on": "mean",
        "window": [
         -2624.327392578125,
         107605.5703125
        ]
       },
-      "ero": {
+      "thrp": {
        "on": "mean",
        "window": [
         -2624.327392578125,
@@ -32554,8 +32554,8 @@
        90615.193828125
       ],
       "fmean-fft": [
-       13987.14306640625,
-       76618.936015625
+       13987.320395507813,
+       76619.9674609375
       ],
       "fmedian": [
        71.85700225830078,
@@ -32651,14 +32651,14 @@
       }
      },
      "overlay": {
-      "thrp": {
+      "ero": {
        "on": "mean",
        "window": [
         -2624.327392578125,
         107605.5703125
        ]
       },
-      "ero": {
+      "thrp": {
        "on": "mean",
        "window": [
         -2624.327392578125,
@@ -32700,8 +32700,8 @@
        90615.193828125
       ],
       "fmean-fft": [
-       13987.14306640625,
-       76618.936015625
+       13987.320395507813,
+       76619.9674609375
       ],
       "fmedian": [
        71.85700225830078,
@@ -32797,14 +32797,14 @@
       }
      },
      "overlay": {
-      "thrp": {
+      "ero": {
        "on": "mean",
        "window": [
         -2624.327392578125,
         107605.5703125
        ]
       },
-      "ero": {
+      "thrp": {
        "on": "mean",
        "window": [
         -2624.327392578125,
@@ -32846,8 +32846,8 @@
        90615.193828125
       ],
       "fmean-fft": [
-       13987.14306640625,
-       76618.936015625
+       13987.320395507813,
+       76619.9674609375
       ],
       "fmedian": [
        71.85700225830078,
@@ -33505,24 +33505,24 @@
       "fmean-fft": {
        "identical": false,
        "voxels": 136400,
-       "differ": 136372,
-       "share": 0.9997947214076246,
-       "max_abs": 1.109375,
+       "differ": 107214,
+       "share": 0.7860263929618768,
+       "max_abs": 0.015625,
        "at": [
-        25,
-        28,
-        11
+        15,
+        38,
+        15
        ],
-       "a_at": 77517.1171875,
-       "b_at": 77518.2265625,
-       "rms": 0.43085550608203066,
+       "a_at": 65538.5625,
+       "b_at": 65538.546875,
+       "rms": 0.003626527168988206,
        "range": 79619.42519770516,
-       "max_rel_range": 1.393347160250505e-05,
-       "one_minus_ncc": 4.193715153354879e-13,
+       "max_rel_range": 1.9624607890852186e-07,
+       "one_minus_ncc": 4.943010852732848e-15,
        "at_display": [
-        25,
-        28,
-        10
+        15,
+        38,
+        14
        ]
       },
       "fmedian": {
@@ -33730,15 +33730,15 @@
        "differ": 0
       },
       "fmean-fft": {
-       "max_abs": 1.109375,
+       "max_abs": 0.015625,
        "at": [
-        25,
-        28,
-        10
+        15,
+        38,
+        14
        ],
-       "a": 77517.1171875,
-       "b": 77518.2265625,
-       "differ": 64640
+       "a": 65538.5625,
+       "b": 65538.546875,
+       "differ": 44321
       },
       "fmedian": {
        "max_abs": 0.0,
@@ -33813,8 +33813,8 @@
        "href": "docs/findings/fsl-maths-original.md"
       }
      ],
-     "verdict": "open",
-     "reason": "14 of 15 outputs FSL's bit for bit; `mean.nii.gz -kernel sphere 21 -fmean`: max |Δ| 1.4e-05 of FSL's largest value (§21: at most 1e-5), 0.2% of the voxels within 4 units in the last place (§21: at least 99 %): beyond §21's thresholds, as FSL convolves this kernel by its FFT, the original by a direct sum in single precision (§10.2's arithmetic of FSL's direct path): their roundings differ (findings 8 and 31; spec question 14); against the exact result (computed in float64 from §10.2's definition; 15 × 15 × 13 kernel of 1313 voxels) FSL's FFT lies within 1.5e-07 of the largest value (median 1.6e-08), the original's single-precision direct sum within 1.4e-05 (median 2.3e-06): on this call the original is the less accurate of the two (findings 31: a follow-up, its sums in double where FSL takes its FFT)."
+     "verdict": "divergence",
+     "reason": "14 of 15 outputs FSL's bit for bit; `mean.nii.gz -kernel sphere 21 -fmean`: max |Δ| 2e-07 of FSL's largest value (§21: at most 1e-5), 75.7% of the voxels within 4 units in the last place (§21: at least 99 %): within §21's bound and below its share of voxels within 4 units in the last place, an expected divergence as the record's on FSL's FFT path: FSL convolves this kernel by its FFT in single precision, whose rounding is relative to the image's largest values; the original by a direct sum whose products it adds in double precision, the sum rounded once to single precision (findings 8 and 31; spec question 14); against the exact result (computed in float64 from §10.2's definition; 15 × 15 × 13 kernel of 1313 voxels) FSL's FFT lies within 1.5e-07 of the largest value (median 1.6e-08), the original's direct sum (its products in double precision, rounded once) within 7.9e-08 (median 3.4e-09): the original is the closer of the two (findings 31)."
     },
     {
      "id": "fix-replica",
@@ -34452,10 +34452,10 @@
         0,
         0
        ],
-       "a_at": 0.4323474168777466,
-       "b_at": 0.4323474168777466,
+       "a_at": 0.43234682083129883,
+       "b_at": 0.43234682083129883,
        "rms": 0.0,
-       "range": 79618.37109298864,
+       "range": 79619.43359298445,
        "max_rel_range": 0.0,
        "one_minus_ncc": 0.0,
        "at_display": null
@@ -34917,10 +34917,10 @@
         0,
         0
        ],
-       "a_at": 0.4323474168777466,
-       "b_at": 0.4323474168777466,
+       "a_at": 0.43234682083129883,
+       "b_at": 0.43234682083129883,
        "rms": 0.0,
-       "range": 79618.37109298864,
+       "range": 79619.43359298445,
        "max_rel_range": 0.0,
        "one_minus_ncc": 0.0,
        "at_display": null
@@ -35788,22 +35788,22 @@
          "fmt": "count"
         },
         {
-         "v": 136372,
+         "v": 107214,
          "fmt": "count"
         },
         {
-         "v": 1.109375,
+         "v": 0.015625,
          "fmt": "sig"
         },
         {
-         "v": 1.3933470816786928e-05,
+         "v": 1.9624606784206941e-07,
          "fmt": "sig"
         },
         {
-         "text": "0.2%"
+         "text": "75.7%"
         }
        ],
-       "verdict": "open"
+       "verdict": "divergence"
       },
       {
        "head": "filters: order statistics",
@@ -35950,7 +35950,7 @@
        "verdict": "bit-identical"
       }
      ],
-     "note": "Each call's output by the clean-room original (reproduce mode, 14 threads; the same bits at one thread) against FSL's, every voxel of the files; where a value differs, specs/fslmaths.md §21's metric of the sums over every voxel (the non-finite voxels identical). FSL convolves the 15 × 15 × 13 spherical kernel by its FFT, the original by a direct sum in single precision; against the exact result (computed in float64 from §10.2's definition; 15 × 15 × 13 kernel of 1313 voxels) FSL's FFT lies within 1.5e-07 of the largest value (median 1.6e-08), the original's single-precision direct sum within 1.4e-05 (median 2.3e-06): on this call the original is the less accurate of the two (findings 31: a follow-up, its sums in double where FSL takes its FFT)."
+     "note": "Each call's output by the clean-room original (reproduce mode, 14 threads; the same bits at one thread) against FSL's, every voxel of the files; where a value differs, specs/fslmaths.md §21's metric of the sums over every voxel (the non-finite voxels identical). FSL convolves the 15 × 15 × 13 spherical kernel by its FFT in single precision, the original by a direct sum whose products it adds in double precision and rounds once; against the exact result (computed in float64 from §10.2's definition; 15 × 15 × 13 kernel of 1313 voxels) FSL's FFT lies within 1.5e-07 of the largest value (median 1.6e-08), the original's direct sum (its products in double precision, rounded once) within 7.9e-08 (median 3.4e-09): the original is the closer of the two (findings 31)."
     }
    ],
    "metrics_note": "Δ is A − B, computed in float64 over all 136,400 voxels of the outputs, not only those shown. The record's threshold: every file fslmaths writes bit-identical (images decompressed, `descrip` left out), with FSL's exit status and messages. The clean-room original's record (fsl-maths) holds it to specs/fslmaths.md §21: FSL's exit status, messages, file names and headers identical, the values bit for bit (double-precision functions within one unit in the last place per function, GLIBC-07), the sums (-s, -fmean, -fmeanu, the means and standard deviations, -bptf, ...) within 1e-5 of FSL's largest value with 99 % of the voxels within 4 units in the last place.",
@@ -35958,7 +35958,7 @@
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: bold (sha256 ebfbc7b1648ca221…); mean (sha256 1470ac106d7dc916…); std (sha256 c02ef2250ee40f00…); mask (sha256 07f29647b79803b1…)",
     "Runs: figures cache entry `fsl-maths/families`, computed 2026-11-03T14:54:30+00:00 with larmorx `b4b23e2a55b7`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
-    "Runs: figures cache entry `fsl-maths/original-families`, computed 2026-11-03T23:55:43+00:00 with larmorx `f092d74debaa`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-maths/original-families`, computed 2026-11-04T00:58:56+00:00 with larmorx `da76711ef0f9`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
     "openneuro-ds005040"
