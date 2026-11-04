@@ -3,7 +3,7 @@
  "tool": "fsl-stats",
  "title": "fslstats",
  "provenance": {
-  "exporter": "f3ba2e74135d28d541da1dadac292c3bfa0d7df0",
+  "exporter": "640d4fe35a4d3c0d827ed9ef83d586c278050ad4",
   "records": [
    {
     "path": "docs/validation/fsl-stats-replica.json",
@@ -16,9 +16,26 @@
     "sha256": "a08aa37814a467b14cb0ac4a2b2b125dee39a1ddb8313881ed41405f9a21cd52",
     "generated": "2026-11-03",
     "larmorx_commit": "6342d2742e0e"
+   },
+   {
+    "path": "docs/validation/fsl-stats.json",
+    "sha256": "d86821eba98edee50faf92c69dca51758789cb12120360ae6d9aa15d9d2d145b",
+    "generated": "2026-11-03",
+    "larmorx_commit": "8ce1c6adf070"
+   },
+   {
+    "path": "docs/validation/fsl-stats.md",
+    "sha256": "3418e980b812364f567348cab3d20b0a403c79dddb92177fcf76310c86f8707b",
+    "generated": "2026-11-03",
+    "larmorx_commit": "8ce1c6adf070"
    }
   ],
-  "benchmarks": [],
+  "benchmarks": [
+   {
+    "path": "docs/benchmarks/fsl-maths.md",
+    "sha256": "39de8d54f20816924cd579af17121aa4159bdb214a9ebe740b41a11c6b512795"
+   }
+  ],
   "cache": [
    {
     "entry": "fsl-stats/fmriprep-goodvoxels",
@@ -6961,11 +6978,2395 @@
      "larmorx-nc": "larmorx-nc 0.0.1"
     },
     "settings": "The larmorx-nc replica's fslstats in its default mode on every case of the record, in a fresh directory with the case's inputs: its exit status and the register entries its notices name (no FSL run; the record's fix pass checks that a name appears exactly when the default's outputs differ)"
+   },
+   {
+    "entry": "fsl-stats/original-fmriprep-goodvoxels",
+    "description": "The calls of fsl-stats/fmriprep-goodvoxels: LARMORX's clean-room original, reproduce mode at 14 threads and at one, the default mode",
+    "computed": "2026-11-03T23:55:44+00:00",
+    "larmorx_commit": "f092d74debaa8c405e91e6f05294cc4b763673fd",
+    "commands": [
+     {
+      "label": "original-cov_ribbon_mean",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "cov_ribbon.nii.gz",
+       "-M"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-cov_ribbon_mean",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "cov_ribbon.nii.gz",
+       "-M"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-cov_ribbon_mean",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "cov_ribbon.nii.gz",
+       "-M"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-cov_ribbon_std",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "cov_ribbon.nii.gz",
+       "-S"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-cov_ribbon_std",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "cov_ribbon.nii.gz",
+       "-S"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-cov_ribbon_std",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "cov_ribbon.nii.gz",
+       "-S"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-mod_ribbon_mean",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "cov_norm_modulate_ribbon.nii.gz",
+       "-M"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-mod_ribbon_mean",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "cov_norm_modulate_ribbon.nii.gz",
+       "-M"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-mod_ribbon_mean",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "cov_norm_modulate_ribbon.nii.gz",
+       "-M"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-mod_ribbon_std",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "cov_norm_modulate_ribbon.nii.gz",
+       "-S"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-mod_ribbon_std",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "cov_norm_modulate_ribbon.nii.gz",
+       "-S"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-mod_ribbon_std",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "cov_norm_modulate_ribbon.nii.gz",
+       "-S"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     }
+    ],
+    "versions": {
+     "fsl": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH)",
+     "larmorx": "larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0)"
+    },
+    "settings": "fMRIPrep 25.2.6's goodvoxels workflow's four fslstats nodes on FSL's outputs of the nodes before them (the replica record's chain on ds005040, the ribbon a stand-in): LARMORX's clean-room original in its reproduce mode at 14 threads and at one and in its default mode; FSL 6.0.7.23 and the replica are the entry fsl-stats/fmriprep-goodvoxels's runs"
+   },
+   {
+    "entry": "fsl-stats/original-options-real",
+    "description": "The calls of fsl-stats/options-real: LARMORX's clean-room original, reproduce mode at 14 threads and at one, the default mode",
+    "computed": "2026-11-03T23:55:47+00:00",
+    "larmorx_commit": "f092d74debaa8c405e91e6f05294cc4b763673fd",
+    "commands": [
+     {
+      "label": "original-r",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-r"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-r",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-r"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-r",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-r"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-R",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-R"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-R",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-R"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-R",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-R"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-e",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-e"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-e",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-e"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-e",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-e"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-E",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-E"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-1-E",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-E"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-E",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-E"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-v",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-v"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-v",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-v"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-v",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-v"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-V",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-V"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-V",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-V"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-V",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-V"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-m",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-m"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-m",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-m"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-m",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-m"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-M",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-M"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-M",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-M"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-M",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-M"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-s",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-s"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-s",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-s"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-s",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-s"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-S",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-S"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-S",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-S"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-S",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-S"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-w",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-w"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-w",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-w"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-fix-w",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-w"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-x",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-x"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-x",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-x"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-x",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-x"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-X",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-X"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-X",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-X"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-X",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-X"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-c",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-c"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-1-c",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-c"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-fix-c",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-c"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-C",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-C"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-1-C",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-C"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-fix-C",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-C"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-p",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-p",
+       "2",
+       "-p",
+       "50",
+       "-p",
+       "98"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-p",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-p",
+       "2",
+       "-p",
+       "50",
+       "-p",
+       "98"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-p",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-p",
+       "2",
+       "-p",
+       "50",
+       "-p",
+       "98"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-P",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-P",
+       "2",
+       "-P",
+       "50",
+       "-P",
+       "98"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-1-P",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-P",
+       "2",
+       "-P",
+       "50",
+       "-P",
+       "98"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-fix-P",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-P",
+       "2",
+       "-P",
+       "50",
+       "-P",
+       "98"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-h",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-h",
+       "10"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-h",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-h",
+       "10"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-h",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-h",
+       "10"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-H",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-H",
+       "10",
+       "0",
+       "100000"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-H",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-H",
+       "10",
+       "0",
+       "100000"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-H",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-H",
+       "10",
+       "0",
+       "100000"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-lu",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-l",
+       "20000",
+       "-u",
+       "150000",
+       "-M",
+       "-S",
+       "-V"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-1-lu",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-l",
+       "20000",
+       "-u",
+       "150000",
+       "-M",
+       "-S",
+       "-V"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-lu",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-l",
+       "20000",
+       "-u",
+       "150000",
+       "-M",
+       "-S",
+       "-V"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-k",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-k",
+       "mask.nii.gz",
+       "-M",
+       "-S",
+       "-V",
+       "-r",
+       "-p",
+       "50"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-1-k",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-k",
+       "mask.nii.gz",
+       "-M",
+       "-S",
+       "-V",
+       "-r",
+       "-p",
+       "50"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-fix-k",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-k",
+       "mask.nii.gz",
+       "-M",
+       "-S",
+       "-V",
+       "-r",
+       "-p",
+       "50"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-d",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-d",
+       "std.nii.gz",
+       "-M",
+       "-S"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-1-d",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-d",
+       "std.nii.gz",
+       "-M",
+       "-S"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-fix-d",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-d",
+       "std.nii.gz",
+       "-M",
+       "-S"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-a",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-a",
+       "-M",
+       "-R"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-a",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-a",
+       "-M",
+       "-R"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-a",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-a",
+       "-M",
+       "-R"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-n",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-n",
+       "-M"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-1-n",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-n",
+       "-M"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-fix-n",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "mean.nii.gz",
+       "-n",
+       "-M"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.0
+     },
+     {
+      "label": "original-t",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "-t",
+       "bold.nii.gz",
+       "-M",
+       "-S"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.13
+     },
+     {
+      "label": "original-1-t",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "-t",
+       "bold.nii.gz",
+       "-M",
+       "-S"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.13
+     },
+     {
+      "label": "original-fix-t",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "-t",
+       "bold.nii.gz",
+       "-M",
+       "-S"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.22
+     },
+     {
+      "label": "original-K",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "-K",
+       "labels.nii.gz",
+       "mean.nii.gz",
+       "-M",
+       "-S",
+       "-V"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-1-K",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "-K",
+       "labels.nii.gz",
+       "mean.nii.gz",
+       "-M",
+       "-S",
+       "-V"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-fix-K",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "-K",
+       "labels.nii.gz",
+       "mean.nii.gz",
+       "-M",
+       "-S",
+       "-V"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-tK",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "-t",
+       "-K",
+       "labels.nii.gz",
+       "bold.nii.gz",
+       "-M"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.19
+     },
+     {
+      "label": "original-1-tK",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "-t",
+       "-K",
+       "labels.nii.gz",
+       "bold.nii.gz",
+       "-M"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.17
+     },
+     {
+      "label": "original-fix-tK",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "-t",
+       "-K",
+       "labels.nii.gz",
+       "bold.nii.gz",
+       "-M"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.19
+     },
+     {
+      "label": "original-json",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "-json",
+       "mean.nii.gz",
+       "-k",
+       "mask.nii.gz",
+       "-M",
+       "-S",
+       "-r",
+       "-R",
+       "-V",
+       "-p",
+       "50",
+       "-w"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-1-json",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "-json",
+       "mean.nii.gz",
+       "-k",
+       "mask.nii.gz",
+       "-M",
+       "-S",
+       "-r",
+       "-R",
+       "-V",
+       "-p",
+       "50",
+       "-w"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-fix-json",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "-json",
+       "mean.nii.gz",
+       "-k",
+       "mask.nii.gz",
+       "-M",
+       "-S",
+       "-r",
+       "-R",
+       "-V",
+       "-p",
+       "50",
+       "-w"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
+      "label": "original-bet",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "t1w.nii.gz",
+       "-l",
+       "0.001",
+       "-C"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.36
+     },
+     {
+      "label": "original-1-bet",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "t1w.nii.gz",
+       "-l",
+       "0.001",
+       "-C"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.37
+     },
+     {
+      "label": "original-fix-bet",
+      "argv": [
+       "<larmorx>/target/release/larmorx",
+       "fsl",
+       "fslstats",
+       "t1w.nii.gz",
+       "-l",
+       "0.001",
+       "-C"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.29
+     }
+    ],
+    "versions": {
+     "fsl": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH)",
+     "larmorx": "larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0)"
+    },
+    "settings": "fslstats' options on the real images of the entry fsl-stats/options-real (FSL's -Tmean and -Tstd of ds005040's BOLD series in T1w space, the series, fMRIPrep's brain mask, a label image of its segmentation, fMRIPrep's preprocessed T1w): LARMORX's clean-room original in its reproduce mode at 14 threads and at one and in its default mode; FSL 6.0.7.23 and the replica are that entry's runs of the same calls"
+   },
+   {
+    "entry": "fsl-stats/original-cases-default-mode",
+    "description": "LARMORX's clean-room fslstats in its default mode on every case of its record: its exit status and the entries it names",
+    "computed": "2026-11-03T23:55:48+00:00",
+    "larmorx_commit": "f092d74debaa8c405e91e6f05294cc4b763673fd",
+    "commands": [],
+    "versions": {
+     "fsl": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH)",
+     "larmorx": "larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0)"
+    },
+    "settings": "LARMORX's clean-room fslstats in its default mode on every case of its record, at one thread, in a fresh directory with the case's inputs: its exit status and the register entries it names (no FSL run; the record's fix pass checks that a name appears exactly when the default's outputs differ)"
    }
   ],
   "difftest": {
    "trial": "oracles/difftest/2026-11-03-fsl-maths-replica/summary.json",
    "sha256": "3706b3160efcd1df9da29b7cce3570d41736ea54a4f88c5a2a958667e69aeb86"
+  },
+  "difftest_original": {
+   "trial": "oracles/difftest/2026-11-03-fsl-maths-original/summary.json",
+   "sha256": "ce1453aea1bd4d8309f76125f54364602f60dd9789c3bd30a97875fdf635ff36",
+   "triage": "validation/investigations/cleanroom-maths/trial_triage.json",
+   "triage_sha256": "10a15d514b43a728e1f8de61dee870bbe55a26da86881a224b8b51cf0963d948"
   },
   "command": "python -m larmorx_validation evidence fsl-stats --site <site>"
  },
@@ -7048,6 +9449,86 @@
      }
     }
    ]
+  },
+  {
+   "id": "original",
+   "label": "LARMORX clean-room original, against FSL 6.0.7.23 (standard tier)",
+   "short": "original",
+   "record": "docs/validation/fsl-stats.md",
+   "status": "experimental",
+   "summary": {
+    "cases": 162,
+    "verdicts": {
+     "bit-identical": 125,
+     "open": 1,
+     "both-reject": 36
+    }
+   },
+   "agreement": [
+    {
+     "category": "fmriprep",
+     "counts": {
+      "bit-identical": 4
+     }
+    },
+    {
+     "category": "bet",
+     "counts": {
+      "open": 1
+     }
+    },
+    {
+     "category": "cli",
+     "counts": {
+      "bit-identical": 4,
+      "both-reject": 28
+     }
+    },
+    {
+     "category": "opt",
+     "counts": {
+      "bit-identical": 49
+     }
+    },
+    {
+     "category": "order",
+     "counts": {
+      "bit-identical": 13
+     }
+    },
+    {
+     "category": "ts",
+     "counts": {
+      "bit-identical": 9
+     }
+    },
+    {
+     "category": "types",
+     "counts": {
+      "bit-identical": 5
+     }
+    },
+    {
+     "category": "d13",
+     "counts": {
+      "bit-identical": 29,
+      "both-reject": 7
+     }
+    },
+    {
+     "category": "orig",
+     "counts": {
+      "bit-identical": 8,
+      "both-reject": 1
+     }
+    },
+    {
+     "category": "difftest",
+     "counts": {
+      "bit-identical": 4
+     }
+    }
+   ]
   }
  ],
  "cases": [
@@ -7062,6 +9543,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7076,6 +9563,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7090,6 +9583,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7104,6 +9603,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7118,6 +9623,12 @@
      "verdict": "bit-identical",
      "checks": "5/5",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "4/4",
+     "reason": "Within the record's thresholds, not bit for bit (standard output: 6.13e-08): BET's call: the x of the centre of gravity 6.1e-8 relative from FSL's (97.862248 against 97.862242), within §10's 1e-6: the mapping of the sums back to millimetres in a neurological image, whose arithmetic in FSL is not known (findings 21; spec question 24)."
     }
    }
   },
@@ -7132,6 +9643,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 1; the same from the replica."
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 1; the same from the original."
     }
    }
   },
@@ -7146,6 +9663,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 1; the same from the replica."
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 1; the same from the original."
     }
    }
   },
@@ -7160,6 +9683,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 1; the same from the replica."
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 1; the same from the original."
     }
    }
   },
@@ -7174,6 +9703,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 1; the same from the replica."
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 1; the same from the original."
     }
    }
   },
@@ -7188,6 +9723,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 255; the same from the replica. Image Exception : #63 :: No image files match: missing Image Exception : #22 :: Failed to read volume missing.nii.gz Error : No image files match: missing Failed to read volume missing.nii.gz Error :"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 255; the same from the original. Image Exception : #63 :: No image files match: missing Image Exception : #22 :: Failed to read volume missing.nii.gz Error : No image files match: missing Faile"
     }
    }
   },
@@ -7202,6 +9743,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 3; the same from the replica. Unrecognised option: -q"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 3; the same from the original. Unrecognised option: -q"
     }
    }
   },
@@ -7216,6 +9763,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 2; the same from the replica. Must specify an argument to -l"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 2; the same from the original. Must specify an argument to -l"
     }
    }
   },
@@ -7230,6 +9783,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 2; the same from the replica. Must specify an argument to -u"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 2; the same from the original. Must specify an argument to -u"
     }
    }
   },
@@ -7244,6 +9803,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 2; the same from the replica. Must specify an argument to -k"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 2; the same from the original. Must specify an argument to -k"
     }
    }
   },
@@ -7258,6 +9823,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 2; the same from the replica. Must specify an argument to -d"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 2; the same from the original. Must specify an argument to -d"
     }
    }
   },
@@ -7272,6 +9843,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 2; the same from the replica. Must specify an argument to -p"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 2; the same from the original. Must specify an argument to -p"
     }
    }
   },
@@ -7286,6 +9863,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 2; the same from the replica. Must specify an argument to -P"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 2; the same from the original. Must specify an argument to -P"
     }
    }
   },
@@ -7300,6 +9883,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 2; the same from the replica. Must specify the number of bins"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 2; the same from the original. Must specify the number of bins"
     }
    }
   },
@@ -7314,6 +9903,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 2; the same from the replica. Must specify the number of bins"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 2; the same from the original. Must specify the number of bins"
     }
    }
   },
@@ -7328,6 +9923,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 2; the same from the replica. Must specify the histogram minimum intensity"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 2; the same from the original. Must specify the histogram minimum intensity"
     }
    }
   },
@@ -7342,6 +9943,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 2; the same from the replica. Must specify the histogram maximum intensity"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 2; the same from the original. Must specify the histogram maximum intensity"
     }
    }
   },
@@ -7356,6 +9963,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 1; the same from the replica. Percentile must be between 0 and 100"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 1; the same from the original. Percentile must be between 0 and 100"
     }
    }
   },
@@ -7370,6 +9983,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 1; the same from the replica. Percentile must be between 0 and 100"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 1; the same from the original. Percentile must be between 0 and 100"
     }
    }
   },
@@ -7384,6 +10003,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 1; the same from the replica. Must specify at least 1 bin"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 1; the same from the original. Must specify at least 1 bin"
     }
    }
   },
@@ -7398,6 +10023,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 1; the same from the replica. Must specify at least 1 bin"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 1; the same from the original. Must specify at least 1 bin"
     }
    }
   },
@@ -7412,6 +10043,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 1; the same from the replica. Must specify at least 1 bin"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 1; the same from the original. Must specify at least 1 bin"
     }
    }
   },
@@ -7426,6 +10063,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 3; the same from the replica. Index mask must be 3D"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 3; the same from the original. Index mask must be 3D"
     }
    }
   },
@@ -7440,6 +10083,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 255; the same from the replica. Image Exception : #3 :: Attempted to multiply images of different sizes Attempted to multiply images of different sizes"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 255; the same from the original. Image Exception : #3 :: Attempted to multiply images of different sizes Attempted to multiply images of different sizes"
     }
    }
   },
@@ -7454,6 +10103,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7468,6 +10123,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 3; the same from the replica. Mask and image must be the same size"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 3; the same from the original. Mask and image must be the same size"
     }
    }
   },
@@ -7482,6 +10143,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 3; the same from the replica. Mask and image must be the same size"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 3; the same from the original. Mask and image must be the same size"
     }
    }
   },
@@ -7496,6 +10163,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 255; the same from the replica. Image Exception : #63 :: No image files match: nomask Image Exception : #22 :: Failed to read volume nomask.nii.gz Error : No image files match: nomask Failed to read volume nomask.nii.gz Error : No i"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 255; the same from the original. Image Exception : #63 :: No image files match: nomask Image Exception : #22 :: Failed to read volume nomask.nii.gz Error : No image files match: nomask Failed t"
     }
    }
   },
@@ -7510,6 +10183,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 3; the same from the replica. Image used with -d must be the same size as the base image"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 3; the same from the original. Image used with -d must be the same size as the base image"
     }
    }
   },
@@ -7524,6 +10203,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 3; the same from the replica. Image must be the same size as the base image"
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 3; the same from the original. Image must be the same size as the base image"
     }
    }
   },
@@ -7538,6 +10223,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7552,6 +10243,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7566,6 +10263,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7580,6 +10283,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7594,6 +10303,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7608,6 +10323,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7622,6 +10343,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7636,6 +10363,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7650,6 +10383,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7664,6 +10403,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7678,6 +10423,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7692,6 +10443,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7706,6 +10463,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7720,6 +10483,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7734,6 +10503,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7748,6 +10523,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7762,6 +10543,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7776,6 +10563,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7790,6 +10583,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7804,6 +10603,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7818,6 +10623,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7832,6 +10643,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7846,6 +10663,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-182, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-182, with the same values."
     }
    }
   },
@@ -7860,6 +10683,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7874,6 +10703,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7888,6 +10723,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7902,6 +10743,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7916,6 +10763,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7930,6 +10783,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7944,6 +10803,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7958,6 +10823,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7972,6 +10843,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -7986,6 +10863,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8000,6 +10883,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8014,6 +10903,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8028,6 +10923,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8042,6 +10943,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8056,6 +10963,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8070,6 +10983,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8084,6 +11003,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8098,6 +11023,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8112,6 +11043,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8126,6 +11063,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8140,6 +11083,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8154,6 +11103,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8168,6 +11123,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8182,6 +11143,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8196,6 +11163,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8210,6 +11183,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8224,6 +11203,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8238,6 +11223,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8252,6 +11243,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8266,6 +11263,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8280,6 +11283,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8294,6 +11303,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8308,6 +11323,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8322,6 +11343,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8336,6 +11363,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8350,6 +11383,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8364,6 +11403,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8378,6 +11423,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8392,6 +11443,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8406,6 +11463,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8420,6 +11483,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8434,6 +11503,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8448,6 +11523,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8462,6 +11543,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8476,6 +11563,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8490,6 +11583,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8504,6 +11603,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8518,6 +11623,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8532,6 +11643,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8546,6 +11663,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8560,6 +11683,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8574,6 +11703,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8588,6 +11723,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8602,6 +11743,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8616,6 +11763,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8630,6 +11783,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8644,6 +11803,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
     }
    }
   },
@@ -8658,6 +11823,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
     }
    }
   },
@@ -8672,6 +11843,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
     }
    }
   },
@@ -8686,6 +11863,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-153, with the same values."
     }
    }
   },
@@ -8700,6 +11883,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
     }
    }
   },
@@ -8714,6 +11903,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
     }
    }
   },
@@ -8728,6 +11923,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8742,6 +11943,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8756,6 +11963,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
     }
    }
   },
@@ -8770,6 +11983,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8784,6 +12003,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
     }
    }
   },
@@ -8798,6 +12023,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
     }
    }
   },
@@ -8812,6 +12043,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
     }
    }
   },
@@ -8826,6 +12063,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-153, with the same values."
     }
    }
   },
@@ -8840,6 +12083,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8854,6 +12103,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
     }
    }
   },
@@ -8868,6 +12123,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-182, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-182, with the same values."
     }
    }
   },
@@ -8882,6 +12143,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-182, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-182, with the same values."
     }
    }
   },
@@ -8896,6 +12163,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -8910,6 +12183,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 3; the same from the replica. Mask and image must be the same size The replica's default mode finishes instead (exit status 0), naming FSL-183."
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 3; the same from the original. Mask and image must be the same size The clean-room original's default mode finishes instead (exit status 0), naming FSL-183."
     }
    }
   },
@@ -8924,6 +12203,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 255; the same from the replica. Image Exception : #61 :: Invalid t index in [] operator Invalid t index in [] operator The replica's default mode finishes instead (exit status 0), naming FSL-183."
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 255; the same from the original. Image Exception : #61 :: Invalid t index in [] operator Invalid t index in [] operator The clean-room original's default mode finishes instead (exit status 0), naming FSL-183."
     }
    }
   },
@@ -8938,6 +12223,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits 3; the same from the replica. Image must be the same size as the base image The replica's default mode finishes instead (exit status 0), naming FSL-183."
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits 3; the same from the original. Image must be the same size as the base image The clean-room original's default mode finishes instead (exit status 0), naming FSL-183."
     }
    }
   },
@@ -8952,6 +12243,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits -11; the same from the replica. calculateExtrema: mask is empty The replica's default mode ends with exit status 1, naming FSL-184."
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits -11; the same from the original. calculateExtrema: mask is empty The clean-room original's default mode ends with exit status 1, naming FSL-184."
     }
    }
   },
@@ -8966,6 +12263,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits -11; the same from the replica. calculateExtrema: mask is empty The replica's default mode ends with exit status 1, naming FSL-184."
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits -11; the same from the original. calculateExtrema: mask is empty The clean-room original's default mode ends with exit status 1, naming FSL-184."
     }
    }
   },
@@ -8980,6 +12283,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits -8; the same from the replica. The replica's default mode finishes instead (exit status 0), naming FSL-185."
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits -8; the same from the original. The clean-room original's default mode finishes instead (exit status 0), naming FSL-185."
     }
    }
   },
@@ -8994,6 +12303,12 @@
      "verdict": "both-reject",
      "checks": "6/6",
      "reason": "fslstats exits -8; the same from the replica. The replica's default mode finishes instead (exit status 0), naming FSL-185."
+    },
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits -8; the same from the original. The clean-room original's default mode finishes instead (exit status 0), naming FSL-185."
     }
    }
   },
@@ -9008,6 +12323,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -9022,6 +12343,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode refuses the call (exit 1), naming FSL-186"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode refuses the call (exit 1), naming FSL-186."
     }
    }
   },
@@ -9036,6 +12363,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode refuses the call (exit 1), naming FSL-186"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode refuses the call (exit 1), naming FSL-186."
     }
    }
   },
@@ -9050,6 +12383,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-187, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-187, with the same values."
     }
    }
   },
@@ -9064,6 +12403,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-187, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-187, with the same values."
     }
    }
   },
@@ -9078,6 +12423,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-188, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-188, with the same values."
     }
    }
   },
@@ -9092,6 +12443,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -9106,6 +12463,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-189, with the same values"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-189, with the same values."
     }
    }
   },
@@ -9120,6 +12483,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -9134,6 +12503,12 @@
      "verdict": "bit-identical",
      "checks": "6/6",
      "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages"
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
     }
    }
   },
@@ -9962,9 +13337,255 @@
      "reason": "fslstats exits -8; the same from the replica. findHistogram: mask is empty The replica's default mode ends with exit status 1, naming FSL-184, FSL-185."
     }
    }
+  },
+  {
+   "id": "orig/P-makes-masks",
+   "category": "orig",
+   "description": "-P makes the masks from the thresholds and multiplies the image by them (+inf becomes NaN for the later -D)",
+   "command": "fslstats <rampinf: a synthetic input of the original's suite> -P 50 -D",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
+    }
+   }
+  },
+  {
+   "id": "orig/w-makes-masks",
+   "category": "orig",
+   "description": "-w makes the masks likewise",
+   "command": "fslstats <rampinf: a synthetic input of the original's suite> -w -D",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
+    }
+   }
+  },
+  {
+   "id": "orig/e-makes-masks",
+   "category": "orig",
+   "description": "-e makes the masks likewise",
+   "command": "fslstats <rampinf: a synthetic input of the original's suite> -e -D",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
+    }
+   }
+  },
+  {
+   "id": "orig/zeros-M",
+   "category": "orig",
+   "description": "-M without nonzero values (0, no message)",
+   "command": "fslstats <zeros3: a synthetic input> -M",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
+    }
+   }
+  },
+  {
+   "id": "orig/zeros-sS",
+   "category": "orig",
+   "description": "-m, -s, -S, -V without nonzero values",
+   "command": "fslstats <zeros3: a synthetic input> -m -s -S -V",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
+    }
+   }
+  },
+  {
+   "id": "orig/json-K-none",
+   "category": "orig",
+   "description": "-json -K without a positive label: an empty list of indices",
+   "command": "fslstats -json -K <labneg: a synthetic input> <a: a synthetic input> -m",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
+    }
+   }
+  },
+  {
+   "id": "orig/e-empty-mask",
+   "category": "orig",
+   "description": "-l 100 -e -E: the histogram's message, then FSL-185 (FSL crashes)",
+   "command": "fslstats <a: a synthetic input> -l 100 -e -E",
+   "results": {
+    "original": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "4/4",
+     "reason": "fslstats exits -8; the same from the original. findHistogram: mask is empty The clean-room original's default mode finishes instead (exit status 0), naming FSL-185."
+    }
+   }
+  },
+  {
+   "id": "orig/p-nan",
+   "category": "orig",
+   "description": "-p nan -P nan: the smallest value",
+   "command": "fslstats <a: a synthetic input> -p nan -P nan",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
+    }
+   }
+  },
+  {
+   "id": "orig/t-3d",
+   "category": "orig",
+   "description": "-t on a 3D image: one pass",
+   "command": "fslstats -t <a: a synthetic input> -m",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
+    }
+   }
+  },
+  {
+   "id": "difftest/histogram-empty-mask-and-range",
+   "category": "difftest",
+   "description": "-h with an empty mask and an empty range: no histogram (findings 28)",
+   "command": "fslstats <the case's img> -k <the case's i1> -h 10 -m -H 10 0 100",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
+    }
+   }
+  },
+  {
+   "id": "difftest/histogram-empty-mask",
+   "category": "difftest",
+   "description": "-H with an empty mask: the message, then the histogram of zeros (findings 28)",
+   "command": "fslstats <the case's img> -k <the case's i1> -H 20 -50 50",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
+    }
+   }
+  },
+  {
+   "id": "difftest/json-histogram-empty-mask",
+   "category": "difftest",
+   "description": "-json -H with an empty mask: the zeros (findings 28)",
+   "command": "fslstats -json <the case's img> -k <the case's i1> -H 5 10 20",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
+    }
+   }
+  },
+  {
+   "id": "difftest/json-no-histogram",
+   "category": "difftest",
+   "description": "-json -h of a constant image: an empty list (findings 28)",
+   "command": "fslstats -json <the case's img> -h 32",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages."
+    }
+   }
   }
  ],
- "cases_total": 208,
+ "cases_total": 221,
+ "speed": {
+  "title": "Seconds for the whole call (read the images, compute, write every output), one run each, log scale; the factor is the clean-room original's speed-up over FSL, both on one thread",
+  "axis": [
+   0.1,
+   1.0
+  ],
+  "ticks": [
+   [
+    0.1,
+    "0.1 s"
+   ],
+   [
+    1.0,
+    "1 s"
+   ]
+  ],
+  "series": [
+   {
+    "id": "FSL 6.0.7.23|1 thread",
+    "label": "FSL 6.0.7.23 (single-threaded)",
+    "mark": "original"
+   },
+   {
+    "id": "replica (larmorx-nc)|1 thread",
+    "label": "replica (single-threaded)",
+    "mark": "replica"
+   },
+   {
+    "id": "original (larmorx)|1 thread",
+    "label": "clean-room original, 1 thread",
+    "mark": "larmorx"
+   },
+   {
+    "id": "original (larmorx)|14 threads",
+    "label": "clean-room original, 14 threads",
+    "mark": "larmorx-open"
+   }
+  ],
+  "rows": [
+   {
+    "label": "BET's fslstats <T1w> -l 0.001 -C",
+    "input": "BET's `fslstats <T1w> -l 0.001 -C`",
+    "seconds": {
+     "FSL 6.0.7.23|1 thread": 0.58,
+     "replica (larmorx-nc)|1 thread": 0.34,
+     "original (larmorx)|1 thread": 0.45,
+     "original (larmorx)|14 threads": 0.29
+    },
+    "speedup": 1.2888888888888888
+   },
+   {
+    "label": "fslstats -t <BOLD> -M -S -r",
+    "input": "`fslstats -t <BOLD> -M -S -r`",
+    "seconds": {
+     "FSL 6.0.7.23|1 thread": 0.23,
+     "replica (larmorx-nc)|1 thread": 0.23,
+     "original (larmorx)|1 thread": 0.22,
+     "original (larmorx)|14 threads": 0.23
+    },
+    "speedup": 1.0454545454545454
+   }
+  ],
+  "note": "From the benchmark report `docs/benchmarks/fsl-maths.md` (the main machine: AMD, 16 cores and 32 threads, 124 GiB,\nUbuntu 22.04; informal, one run each, while another agent worked beside it). FSL and the replica are single-threaded; the original's outputs are the same bits at 1 and 14 threads."
+ },
  "tables": [
   {
    "id": "goodvoxels",
@@ -9981,6 +13602,12 @@
     },
     {
      "label": "Replica (default)"
+    },
+    {
+     "label": "Clean-room original (reproduce)"
+    },
+    {
+     "label": "Clean-room original (default)"
     }
    ],
    "rows": [
@@ -9988,6 +13615,12 @@
      "head": "cov_ribbon_mean",
      "sub": "`fslstats <cov_ribbon> -M`",
      "cells": [
+      {
+       "text": "0.010577"
+      },
+      {
+       "text": "0.010577"
+      },
       {
        "text": "0.010577"
       },
@@ -10012,6 +13645,12 @@
       },
       {
        "text": "0.999039"
+      },
+      {
+       "text": "0.999039"
+      },
+      {
+       "text": "0.999039"
       }
      ],
      "verdict": "bit-identical"
@@ -10028,6 +13667,12 @@
       },
       {
        "text": "0.952080"
+      },
+      {
+       "text": "0.952080"
+      },
+      {
+       "text": "0.952080"
       }
      ],
      "verdict": "bit-identical"
@@ -10036,6 +13681,12 @@
      "head": "mod_ribbon_std",
      "sub": "`fslstats <cov_norm_modulate_ribbon> -S`",
      "cells": [
+      {
+       "text": "3.684200"
+      },
+      {
+       "text": "3.684200"
+      },
       {
        "text": "3.684200"
       },
@@ -10070,6 +13721,15 @@
     },
     {
      "label": "Replica (default)"
+    },
+    {
+     "label": "Clean-room original (reproduce)"
+    },
+    {
+     "label": "Clean-room original (default)"
+    },
+    {
+     "label": "Original, 1 thread against 14"
     }
    ],
    "rows": [
@@ -10083,6 +13743,15 @@
       {
        "v": 1,
        "fmt": "count"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       },
       {
        "text": "identical"
@@ -10109,6 +13778,15 @@
       },
       {
        "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       }
      ],
      "verdict": "bit-identical"
@@ -10123,6 +13801,15 @@
       {
        "v": 1,
        "fmt": "count"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       },
       {
        "text": "identical"
@@ -10149,6 +13836,15 @@
       },
       {
        "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       }
      ],
      "verdict": "bit-identical"
@@ -10163,6 +13859,15 @@
       {
        "v": 1,
        "fmt": "count"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       },
       {
        "text": "identical"
@@ -10189,6 +13894,15 @@
       },
       {
        "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       }
      ],
      "verdict": "bit-identical"
@@ -10203,6 +13917,15 @@
       {
        "v": 1,
        "fmt": "count"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       },
       {
        "text": "identical"
@@ -10229,6 +13952,15 @@
       },
       {
        "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       }
      ],
      "verdict": "bit-identical"
@@ -10243,6 +13975,15 @@
       {
        "v": 1,
        "fmt": "count"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       },
       {
        "text": "identical"
@@ -10269,6 +14010,15 @@
       },
       {
        "text": "differs (FSL-182)"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "differs (FSL-182: 6.7e-11 relative)"
+      },
+      {
+       "text": "identical"
       }
      ],
      "verdict": "bit-identical"
@@ -10283,6 +14033,15 @@
       {
        "v": 1,
        "fmt": "count"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       },
       {
        "text": "identical"
@@ -10309,6 +14068,15 @@
       },
       {
        "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       }
      ],
      "verdict": "bit-identical"
@@ -10323,6 +14091,15 @@
       {
        "v": 1,
        "fmt": "count"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       },
       {
        "text": "identical"
@@ -10349,6 +14126,15 @@
       },
       {
        "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       }
      ],
      "verdict": "bit-identical"
@@ -10363,6 +14149,15 @@
       {
        "v": 1,
        "fmt": "count"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       },
       {
        "text": "identical"
@@ -10389,6 +14184,15 @@
       },
       {
        "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       }
      ],
      "verdict": "bit-identical"
@@ -10403,6 +14207,15 @@
       {
        "v": 1,
        "fmt": "count"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       },
       {
        "text": "identical"
@@ -10429,6 +14242,15 @@
       },
       {
        "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       }
      ],
      "verdict": "bit-identical"
@@ -10443,6 +14265,15 @@
       {
        "v": 11,
        "fmt": "count"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       },
       {
        "text": "identical"
@@ -10469,6 +14300,15 @@
       },
       {
        "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       }
      ],
      "verdict": "bit-identical"
@@ -10483,6 +14323,15 @@
       {
        "v": 1,
        "fmt": "count"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       },
       {
        "text": "identical"
@@ -10509,6 +14358,15 @@
       },
       {
        "text": "differs (FSL-182)"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "differs (FSL-182: 3.39e-11 relative)"
+      },
+      {
+       "text": "identical"
       }
      ],
      "verdict": "bit-identical"
@@ -10523,6 +14381,15 @@
       {
        "v": 1,
        "fmt": "count"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       },
       {
        "text": "identical"
@@ -10549,6 +14416,15 @@
       },
       {
        "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       }
      ],
      "verdict": "bit-identical"
@@ -10569,6 +14445,15 @@
       },
       {
        "text": "differs (FSL-182)"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "differs (FSL-182: 3.02e-10 relative)"
+      },
+      {
+       "text": "identical"
       }
      ],
      "verdict": "bit-identical"
@@ -10583,6 +14468,15 @@
       {
        "v": 3,
        "fmt": "count"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       },
       {
        "text": "identical"
@@ -10609,6 +14503,15 @@
       },
       {
        "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       }
      ],
      "verdict": "bit-identical"
@@ -10623,6 +14526,15 @@
       {
        "v": 35,
        "fmt": "count"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
+      },
+      {
+       "text": "identical"
       },
       {
        "text": "identical"
@@ -10649,12 +14561,21 @@
       },
       {
        "text": "identical"
+      },
+      {
+       "text": "within §10's bound (6.13e-08 relative)"
+      },
+      {
+       "text": "within §10's bound (6.13e-08 relative)"
+      },
+      {
+       "text": "identical"
       }
      ],
-     "verdict": "bit-identical"
+     "verdict": "open"
     }
    ],
-   "note": "`mean.nii.gz` and `std.nii.gz` are FSL's -Tmean and -Tstd of ds005040's BOLD series in T1w space (fMRIPrep's output, `bold.nii.gz`: 63 volumes), `mask.nii.gz` fMRIPrep's brain mask of it, `labels.nii.gz` fMRIPrep's segmentation at each BOLD voxel (1 grey matter, 2 white matter, 3 CSF), `t1w.nii.gz` fMRIPrep's preprocessed T1w. Each printed text compared byte for byte with FSL's (through the oracle cache): *identical*, every character of every line."
+   "note": "`mean.nii.gz` and `std.nii.gz` are FSL's -Tmean and -Tstd of ds005040's BOLD series in T1w space (fMRIPrep's output, `bold.nii.gz`: 63 volumes), `mask.nii.gz` fMRIPrep's brain mask of it, `labels.nii.gz` fMRIPrep's segmentation at each BOLD voxel (1 grey matter, 2 white matter, 3 CSF), `t1w.nii.gz` fMRIPrep's preprocessed T1w. Each printed text compared byte for byte with FSL's (through the oracle cache): *identical*, every character of every line. The clean-room original (14 threads, and at one: the same text) is held to specs/fslstats.md §10: counts, extremes, coordinates, the robust range, percentiles, histograms, -w and the masked means and standard deviations identical, the other numbers (the unmasked means and standard deviations, -D, the entropies, the centres of gravity) within 1e-6 relative."
   },
   {
    "id": "trial",
@@ -10733,6 +14654,218 @@
     }
    ],
    "note": "Differential random testing's trial of this part (seed `fsl-maths-trial`, larmorx `0427fad149ac`): one to five options (or fMRIPrep's and BET's forms) with `-t`, `-K` and `-json`, on the same kinds of images and masks. Every case in a memory box of 1.5 GiB (peaks below 1.05 GiB), FSL through the oracle cache (`use` mode). Its nine differences were mistakes of the replica's, fixed with permanent cases: the sign of NaN in -c and -C with NaN and infinities in the image (FSL's build adds each block's partial sums in its own order), and -json's notices before an error."
+  },
+  {
+   "id": "trial-original",
+   "title": "Random testing of the clean-room original: the trial of 2026-11-03",
+   "columns": [
+    {
+     "label": ""
+    },
+    {
+     "label": "Cases",
+     "num": true
+    }
+   ],
+   "rows": [
+    {
+     "head": "Random cases of fslstats, each compared with FSL 6.0.7.23",
+     "cells": [
+      {
+       "v": 150000,
+       "fmt": "count"
+      }
+     ]
+    },
+    {
+     "head": "within the record's thresholds, every exact check passed",
+     "cells": [
+      {
+       "v": 149214,
+       "fmt": "count"
+      }
+     ]
+    },
+    {
+     "head": "differing only by a correction the default mode names",
+     "cells": [
+      {
+       "v": 7,
+       "fmt": "count"
+      }
+     ]
+    },
+    {
+     "head": "differing at the trial (each one triaged below)",
+     "cells": [
+      {
+       "v": 779,
+       "fmt": "count"
+      }
+     ]
+    },
+    {
+     "head": "distinct options and settings drawn",
+     "cells": [
+      {
+       "v": 31,
+       "fmt": "count"
+      }
+     ]
+    },
+    {
+     "head": "-t (per volume), -K (per label), -json",
+     "cells": [
+      {
+       "text": "17,133 / 18,109 / 17,890"
+      }
+     ]
+    },
+    {
+     "head": "length (minutes; 13 jobs at one thread each, both programs)",
+     "cells": [
+      {
+       "v": 19.8,
+       "fmt": "sig"
+      }
+     ]
+    }
+   ],
+   "note": "Differential random testing's trial of the clean-room originals (seed `fsl-maths-trial`, larmorx `a09928ecb344`, both programs at once): the replica trial's streams drawn again, so the replica trial's runs of FSL were served by the oracle cache and the rest stored there; realistic cases only, each compared as the record compares. Every case in a memory box of 1.5 GiB (peaks below 0.92 GiB). The differing cases were re-run with the part's final build and each put in one category (below)."
+  },
+  {
+   "id": "trial-original-triage",
+   "title": "The trial's differing cases, each in one category",
+   "columns": [
+    {
+     "label": "Category"
+    },
+    {
+     "label": "Cases",
+     "num": true
+    },
+    {
+     "label": "Reproducer"
+    }
+   ],
+   "rows": [
+    {
+     "head": "a LARMORX mistake, fixed: fslstats' histograms without a histogram (the output and the JSON of -h and -H when no histogram is made)",
+     "cells": [
+      {
+       "v": 545,
+       "fmt": "count"
+      },
+      {
+       "text": "fsl-maths-trial-00163-original"
+      }
+     ]
+    },
+    {
+     "head": "explained: -c and -C of images holding NaN and infinities: the NaN's sign (spec question 34)",
+     "cells": [
+      {
+       "v": 129,
+       "fmt": "count"
+      },
+      {
+       "text": "fsl-maths-trial-02539-original"
+      }
+     ]
+    },
+    {
+     "head": "the suite's own mistake, fixed: §10's bound over a histogram's lines and an output cut short",
+     "cells": [
+      {
+       "v": 74,
+       "fmt": "count"
+      },
+      {
+       "text": "fsl-maths-trial-02265-original"
+      }
+     ]
+    },
+    {
+     "head": "explained: the last printed digit at §10's bound",
+     "cells": [
+      {
+       "v": 31,
+       "fmt": "count"
+      },
+      {
+       "text": "fsl-maths-trial-10889-original"
+      }
+     ]
+    }
+   ],
+   "note": "Every differing case of the trial re-run with the part's final build and put in one category by its recipe and its first failed check (`validation/investigations/cleanroom-maths/triage_counts.py`, its output `validation/investigations/cleanroom-maths/trial_triage.json`), each category's cause established by probes and replays (`docs/findings/fsl-maths-original.md`, findings 24 to 30); LARMORX's mistakes and the suite's are fixed, with 17 permanent cases of fslmaths and 4 of fslstats in the records; the reproducer is a finding of the trial (`difftest --replay`)."
+  },
+  {
+   "id": "benchmark",
+   "title": "The benchmark: seconds and peak memory",
+   "columns": [
+    {
+     "label": "Call"
+    },
+    {
+     "label": "FSL 6.0.7.23"
+    },
+    {
+     "label": "Replica"
+    },
+    {
+     "label": "Original, 1 thread"
+    },
+    {
+     "label": "Original, 14 threads"
+    },
+    {
+     "label": "Against FSL"
+    }
+   ],
+   "rows": [
+    {
+     "head": "BET's fslstats <T1w> -l 0.001 -C",
+     "cells": [
+      {
+       "text": "0.58 s (315 MiB)"
+      },
+      {
+       "text": "0.34 s (245 MiB)"
+      },
+      {
+       "text": "0.45 s (278 MiB)"
+      },
+      {
+       "text": "0.29 s (277 MiB)"
+      },
+      {
+       "text": "1 = 14 threads; 1 of 3 numbers differs, 6.1e-8 relative (findings 21)"
+      }
+     ]
+    },
+    {
+     "head": "fslstats -t <BOLD> -M -S -r",
+     "cells": [
+      {
+       "text": "0.23 s (47 MiB)"
+      },
+      {
+       "text": "0.23 s (37 MiB)"
+      },
+      {
+       "text": "0.22 s (41 MiB)"
+      },
+      {
+       "text": "0.23 s (43 MiB)"
+      },
+      {
+       "text": "1 = 14 threads; identical with the final build (relay 7's check, below; at relay 5 54 of 252 numbers differed: -S's last digits, at most 3.0e-10 relative)"
+      }
+     ]
+    }
+   ],
+   "note": "The benchmark report `docs/benchmarks/fsl-maths.md`: wall-clock seconds of the whole program and its peak resident memory (MiB), one run each on the main machine with another agent's work beside it (informal). The memory rule (at most 10 % above FSL's peak plus 8 MiB) is checked at one thread by tests/parity/test_memory_peak.py; on 14 threads a .nii.gz output adds about 3 MiB per worker (the shared parallel gzip writer)."
   }
  ],
  "examples": [],
