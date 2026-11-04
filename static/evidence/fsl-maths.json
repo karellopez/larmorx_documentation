@@ -3,7 +3,7 @@
  "tool": "fsl-maths",
  "title": "fslmaths",
  "provenance": {
-  "exporter": "ae80b513d999edf2205b1cca96e01f7f05020ea6",
+  "exporter": "c2ef0e7819ba6a78845200b0787c9d05fb3c53f5",
   "records": [
    {
     "path": "docs/validation/fsl-maths-replica.json",
@@ -19,15 +19,15 @@
    },
    {
     "path": "docs/validation/fsl-maths.json",
-    "sha256": "be0f4bb579a2c028aeb8f679a57c553da98c838088a1438b7b5ea3a4fa165dd8",
+    "sha256": "05ccddfe63f8d525a136425a48feebe439f8e6960472874e561caf7bb8503906",
     "generated": "2026-11-04",
-    "larmorx_commit": "4182e89066bc"
+    "larmorx_commit": "be3db916dce3"
    },
    {
     "path": "docs/validation/fsl-maths.md",
-    "sha256": "1af2cea4f902e042796ba861328f4165c7a89c02998e355fd17f2ba8a7411221",
+    "sha256": "608ce6e540ae37c54a6b2896e014b8b75e8d7a3f386ae6eb2520e0bd06fdc78e",
     "generated": "2026-11-04",
-    "larmorx_commit": "4182e89066bc"
+    "larmorx_commit": "be3db916dce3"
    }
   ],
   "benchmarks": [
@@ -12903,13 +12903,15 @@
    {
     "entry": "fsl-maths/original-fmriprep-goodvoxels",
     "description": "The calls of fsl-maths/fmriprep-goodvoxels: LARMORX's clean-room original, reproduce mode at 14 threads and at one, the default mode",
-    "computed": "2026-11-03T23:55:41+00:00",
-    "larmorx_commit": "f092d74debaa8c405e91e6f05294cc4b763673fd",
+    "computed": "2026-11-04T12:57:11+00:00",
+    "larmorx_commit": "3c0951127188c572a3fe7eb17a342daf974f750b",
     "commands": [
      {
       "label": "original-stdev_volume",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "bold.nii.gz",
@@ -12927,1344 +12929,19 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.1
+      "seconds": 0.11
      },
      {
       "label": "original-1-stdev_volume",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "bold.nii.gz",
        "-Tstd",
        "stdev_volume.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.14
-     },
-     {
-      "label": "original-fix-stdev_volume",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "bold.nii.gz",
-       "-Tstd",
-       "stdev_volume.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.1
-     },
-     {
-      "label": "original-mean_volume",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "bold.nii.gz",
-       "-Tmean",
-       "mean_volume.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.1
-     },
-     {
-      "label": "original-1-mean_volume",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "bold.nii.gz",
-       "-Tmean",
-       "mean_volume.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.12
-     },
-     {
-      "label": "original-fix-mean_volume",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "bold.nii.gz",
-       "-Tmean",
-       "mean_volume.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.17
-     },
-     {
-      "label": "original-cov_volume",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "stdev_volume.nii.gz",
-       "-div",
-       "mean_volume.nii.gz",
-       "cov_volume.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-1-cov_volume",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "stdev_volume.nii.gz",
-       "-div",
-       "mean_volume.nii.gz",
-       "cov_volume.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-fix-cov_volume",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "stdev_volume.nii.gz",
-       "-div",
-       "mean_volume.nii.gz",
-       "cov_volume.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-cov_ribbon",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_volume.nii.gz",
-       "-mas",
-       "ribbon.nii.gz",
-       "cov_ribbon.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-1-cov_ribbon",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_volume.nii.gz",
-       "-mas",
-       "ribbon.nii.gz",
-       "cov_ribbon.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-fix-cov_ribbon",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_volume.nii.gz",
-       "-mas",
-       "ribbon.nii.gz",
-       "cov_ribbon.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-cov_ribbon_norm",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_ribbon.nii.gz",
-       "-div",
-       "0.01057700",
-       "cov_ribbon_norm.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.0
-     },
-     {
-      "label": "original-1-cov_ribbon_norm",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_ribbon.nii.gz",
-       "-div",
-       "0.01057700",
-       "cov_ribbon_norm.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.0
-     },
-     {
-      "label": "original-fix-cov_ribbon_norm",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_ribbon.nii.gz",
-       "-div",
-       "0.01057700",
-       "cov_ribbon_norm.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.0
-     },
-     {
-      "label": "original-smooth_norm",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_ribbon_norm.nii.gz",
-       "-bin",
-       "-s",
-       "5",
-       "smooth_norm.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-1-smooth_norm",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_ribbon_norm.nii.gz",
-       "-bin",
-       "-s",
-       "5",
-       "smooth_norm.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-fix-smooth_norm",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_ribbon_norm.nii.gz",
-       "-bin",
-       "-s",
-       "5",
-       "smooth_norm.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-cov_ribbon_norm_smooth",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_ribbon_norm.nii.gz",
-       "-s",
-       "5",
-       "-div",
-       "smooth_norm.nii.gz",
-       "-dilD",
-       "cov_ribbon_norm_smooth.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-1-cov_ribbon_norm_smooth",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_ribbon_norm.nii.gz",
-       "-s",
-       "5",
-       "-div",
-       "smooth_norm.nii.gz",
-       "-dilD",
-       "cov_ribbon_norm_smooth.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.02
-     },
-     {
-      "label": "original-fix-cov_ribbon_norm_smooth",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_ribbon_norm.nii.gz",
-       "-s",
-       "5",
-       "-div",
-       "smooth_norm.nii.gz",
-       "-dilD",
-       "cov_ribbon_norm_smooth.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-cov_norm",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_volume.nii.gz",
-       "-div",
-       "0.01057700",
-       "cov_norm.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-1-cov_norm",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_volume.nii.gz",
-       "-div",
-       "0.01057700",
-       "cov_norm.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-fix-cov_norm",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_volume.nii.gz",
-       "-div",
-       "0.01057700",
-       "cov_norm.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-cov_norm_modulate",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_norm.nii.gz",
-       "-div",
-       "cov_ribbon_norm_smooth.nii.gz",
-       "cov_norm_modulate.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-1-cov_norm_modulate",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_norm.nii.gz",
-       "-div",
-       "cov_ribbon_norm_smooth.nii.gz",
-       "cov_norm_modulate.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-fix-cov_norm_modulate",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_norm.nii.gz",
-       "-div",
-       "cov_ribbon_norm_smooth.nii.gz",
-       "cov_norm_modulate.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-cov_norm_modulate_ribbon",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_norm_modulate.nii.gz",
-       "-mas",
-       "ribbon.nii.gz",
-       "cov_norm_modulate_ribbon.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-1-cov_norm_modulate_ribbon",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_norm_modulate.nii.gz",
-       "-mas",
-       "ribbon.nii.gz",
-       "cov_norm_modulate_ribbon.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-fix-cov_norm_modulate_ribbon",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_norm_modulate.nii.gz",
-       "-mas",
-       "ribbon.nii.gz",
-       "cov_norm_modulate_ribbon.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-bin_mean_volume",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean_volume.nii.gz",
-       "-bin",
-       "bin_mean_volume.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.0
-     },
-     {
-      "label": "original-1-bin_mean_volume",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean_volume.nii.gz",
-       "-bin",
-       "bin_mean_volume.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.0
-     },
-     {
-      "label": "original-fix-bin_mean_volume",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean_volume.nii.gz",
-       "-bin",
-       "bin_mean_volume.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.0
-     },
-     {
-      "label": "original-goodvoxels_thr",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_norm_modulate.nii.gz",
-       "-thr",
-       "2.7941800000",
-       "goodvoxels_thr.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-1-goodvoxels_thr",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_norm_modulate.nii.gz",
-       "-thr",
-       "2.7941800000",
-       "goodvoxels_thr.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-fix-goodvoxels_thr",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "cov_norm_modulate.nii.gz",
-       "-thr",
-       "2.7941800000",
-       "goodvoxels_thr.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-goodvoxels_mask",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "goodvoxels_thr.nii.gz",
-       "-bin",
-       "-sub",
-       "bin_mean_volume.nii.gz",
-       "-mul",
-       "-1",
-       "goodvoxels_mask.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-1-goodvoxels_mask",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "goodvoxels_thr.nii.gz",
-       "-bin",
-       "-sub",
-       "bin_mean_volume.nii.gz",
-       "-mul",
-       "-1",
-       "goodvoxels_mask.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.0
-     },
-     {
-      "label": "original-fix-goodvoxels_mask",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "goodvoxels_thr.nii.gz",
-       "-bin",
-       "-sub",
-       "bin_mean_volume.nii.gz",
-       "-mul",
-       "-1",
-       "goodvoxels_mask.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.0
-     },
-     {
-      "label": "original-goodvoxels_ribbon_mask",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "goodvoxels_mask.nii.gz",
-       "-mas",
-       "ribbon.nii.gz",
-       "goodvoxels_ribbon_mask.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.0
-     },
-     {
-      "label": "original-1-goodvoxels_ribbon_mask",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "goodvoxels_mask.nii.gz",
-       "-mas",
-       "ribbon.nii.gz",
-       "goodvoxels_ribbon_mask.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.0
-     },
-     {
-      "label": "original-fix-goodvoxels_ribbon_mask",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "goodvoxels_mask.nii.gz",
-       "-mas",
-       "ribbon.nii.gz",
-       "goodvoxels_ribbon_mask.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.0
-     }
-    ],
-    "versions": {
-     "fsl": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH)",
-     "larmorx": "larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0)"
-    },
-    "settings": "fMRIPrep 25.2.6's goodvoxels workflow's fourteen fslmaths calls on ds005040's BOLD series in T1w space, each on FSL's outputs of the calls before it (the replica record's chain; the ribbon a stand-in: the segmentation's grey matter): LARMORX's clean-room original in its reproduce mode at 14 threads and at one and in its default mode; FSL 6.0.7.23 and the replica are the entry fsl-maths/fmriprep-goodvoxels's runs of the same calls"
-   },
-   {
-    "entry": "fsl-maths/original-families",
-    "description": "The calls of fsl-maths/families: LARMORX's clean-room original, reproduce mode at 14 threads and at one, the default mode",
-    "computed": "2026-11-04T00:58:56+00:00",
-    "larmorx_commit": "da76711ef0f911e99ee6656dacbb5f4ad4cab2e1",
-    "commands": [
-     {
-      "label": "original-tsnr",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean.nii.gz",
-       "-div",
-       "std.nii.gz",
-       "-mas",
-       "mask.nii.gz",
-       "tsnr.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-1-tsnr",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean.nii.gz",
-       "-div",
-       "std.nii.gz",
-       "-mas",
-       "mask.nii.gz",
-       "tsnr.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-fix-tsnr",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean.nii.gz",
-       "-div",
-       "std.nii.gz",
-       "-mas",
-       "mask.nii.gz",
-       "tsnr.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-thrp",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean.nii.gz",
-       "-thrP",
-       "30",
-       "-bin",
-       "thrp.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-1-thrp",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean.nii.gz",
-       "-thrP",
-       "30",
-       "-bin",
-       "thrp.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-fix-thrp",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean.nii.gz",
-       "-thrP",
-       "30",
-       "-bin",
-       "thrp.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-sqrt",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean.nii.gz",
-       "-abs",
-       "-sqrt",
-       "sqrt.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-1-sqrt",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean.nii.gz",
-       "-abs",
-       "-sqrt",
-       "sqrt.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-fix-sqrt",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean.nii.gz",
-       "-abs",
-       "-sqrt",
-       "sqrt.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-tmedian",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "bold.nii.gz",
-       "-Tmedian",
-       "tmedian.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.11
-     },
-     {
-      "label": "original-1-tmedian",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "bold.nii.gz",
-       "-Tmedian",
-       "tmedian.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.27
-     },
-     {
-      "label": "original-fix-tmedian",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "bold.nii.gz",
-       "-Tmedian",
-       "tmedian.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.11
-     },
-     {
-      "label": "original-tar1",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "bold.nii.gz",
-       "-Tar1",
-       "tar1.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.17
-     },
-     {
-      "label": "original-1-tar1",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "bold.nii.gz",
-       "-Tar1",
-       "tar1.nii.gz"
       ],
       "env": {
        "HOME": "~",
@@ -14280,9 +12957,1446 @@
       "seconds": 0.16
      },
      {
+      "label": "original-fix-stdev_volume",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "bold.nii.gz",
+       "-Tstd",
+       "stdev_volume.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.12
+     },
+     {
+      "label": "original-mean_volume",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "bold.nii.gz",
+       "-Tmean",
+       "mean_volume.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.17
+     },
+     {
+      "label": "original-1-mean_volume",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "bold.nii.gz",
+       "-Tmean",
+       "mean_volume.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.14
+     },
+     {
+      "label": "original-fix-mean_volume",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "bold.nii.gz",
+       "-Tmean",
+       "mean_volume.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.11
+     },
+     {
+      "label": "original-cov_volume",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "stdev_volume.nii.gz",
+       "-div",
+       "mean_volume.nii.gz",
+       "cov_volume.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-1-cov_volume",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "stdev_volume.nii.gz",
+       "-div",
+       "mean_volume.nii.gz",
+       "cov_volume.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-fix-cov_volume",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "stdev_volume.nii.gz",
+       "-div",
+       "mean_volume.nii.gz",
+       "cov_volume.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-cov_ribbon",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_volume.nii.gz",
+       "-mas",
+       "ribbon.nii.gz",
+       "cov_ribbon.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-1-cov_ribbon",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_volume.nii.gz",
+       "-mas",
+       "ribbon.nii.gz",
+       "cov_ribbon.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-fix-cov_ribbon",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_volume.nii.gz",
+       "-mas",
+       "ribbon.nii.gz",
+       "cov_ribbon.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-cov_ribbon_norm",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_ribbon.nii.gz",
+       "-div",
+       "0.01057700",
+       "cov_ribbon_norm.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-1-cov_ribbon_norm",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_ribbon.nii.gz",
+       "-div",
+       "0.01057700",
+       "cov_ribbon_norm.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-fix-cov_ribbon_norm",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_ribbon.nii.gz",
+       "-div",
+       "0.01057700",
+       "cov_ribbon_norm.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-smooth_norm",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_ribbon_norm.nii.gz",
+       "-bin",
+       "-s",
+       "5",
+       "smooth_norm.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-1-smooth_norm",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_ribbon_norm.nii.gz",
+       "-bin",
+       "-s",
+       "5",
+       "smooth_norm.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-fix-smooth_norm",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_ribbon_norm.nii.gz",
+       "-bin",
+       "-s",
+       "5",
+       "smooth_norm.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-cov_ribbon_norm_smooth",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_ribbon_norm.nii.gz",
+       "-s",
+       "5",
+       "-div",
+       "smooth_norm.nii.gz",
+       "-dilD",
+       "cov_ribbon_norm_smooth.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-1-cov_ribbon_norm_smooth",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_ribbon_norm.nii.gz",
+       "-s",
+       "5",
+       "-div",
+       "smooth_norm.nii.gz",
+       "-dilD",
+       "cov_ribbon_norm_smooth.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-fix-cov_ribbon_norm_smooth",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_ribbon_norm.nii.gz",
+       "-s",
+       "5",
+       "-div",
+       "smooth_norm.nii.gz",
+       "-dilD",
+       "cov_ribbon_norm_smooth.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-cov_norm",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_volume.nii.gz",
+       "-div",
+       "0.01057700",
+       "cov_norm.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-1-cov_norm",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_volume.nii.gz",
+       "-div",
+       "0.01057700",
+       "cov_norm.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-fix-cov_norm",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_volume.nii.gz",
+       "-div",
+       "0.01057700",
+       "cov_norm.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-cov_norm_modulate",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_norm.nii.gz",
+       "-div",
+       "cov_ribbon_norm_smooth.nii.gz",
+       "cov_norm_modulate.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.08
+     },
+     {
+      "label": "original-1-cov_norm_modulate",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_norm.nii.gz",
+       "-div",
+       "cov_ribbon_norm_smooth.nii.gz",
+       "cov_norm_modulate.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.04
+     },
+     {
+      "label": "original-fix-cov_norm_modulate",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_norm.nii.gz",
+       "-div",
+       "cov_ribbon_norm_smooth.nii.gz",
+       "cov_norm_modulate.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-cov_norm_modulate_ribbon",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_norm_modulate.nii.gz",
+       "-mas",
+       "ribbon.nii.gz",
+       "cov_norm_modulate_ribbon.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-1-cov_norm_modulate_ribbon",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_norm_modulate.nii.gz",
+       "-mas",
+       "ribbon.nii.gz",
+       "cov_norm_modulate_ribbon.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-fix-cov_norm_modulate_ribbon",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_norm_modulate.nii.gz",
+       "-mas",
+       "ribbon.nii.gz",
+       "cov_norm_modulate_ribbon.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-bin_mean_volume",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean_volume.nii.gz",
+       "-bin",
+       "bin_mean_volume.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-1-bin_mean_volume",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean_volume.nii.gz",
+       "-bin",
+       "bin_mean_volume.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-fix-bin_mean_volume",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean_volume.nii.gz",
+       "-bin",
+       "bin_mean_volume.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-goodvoxels_thr",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_norm_modulate.nii.gz",
+       "-thr",
+       "2.7941800000",
+       "goodvoxels_thr.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-1-goodvoxels_thr",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_norm_modulate.nii.gz",
+       "-thr",
+       "2.7941800000",
+       "goodvoxels_thr.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-fix-goodvoxels_thr",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "cov_norm_modulate.nii.gz",
+       "-thr",
+       "2.7941800000",
+       "goodvoxels_thr.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-goodvoxels_mask",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "goodvoxels_thr.nii.gz",
+       "-bin",
+       "-sub",
+       "bin_mean_volume.nii.gz",
+       "-mul",
+       "-1",
+       "goodvoxels_mask.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-1-goodvoxels_mask",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "goodvoxels_thr.nii.gz",
+       "-bin",
+       "-sub",
+       "bin_mean_volume.nii.gz",
+       "-mul",
+       "-1",
+       "goodvoxels_mask.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-fix-goodvoxels_mask",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "goodvoxels_thr.nii.gz",
+       "-bin",
+       "-sub",
+       "bin_mean_volume.nii.gz",
+       "-mul",
+       "-1",
+       "goodvoxels_mask.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-goodvoxels_ribbon_mask",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "goodvoxels_mask.nii.gz",
+       "-mas",
+       "ribbon.nii.gz",
+       "goodvoxels_ribbon_mask.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-1-goodvoxels_ribbon_mask",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "goodvoxels_mask.nii.gz",
+       "-mas",
+       "ribbon.nii.gz",
+       "goodvoxels_ribbon_mask.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-fix-goodvoxels_ribbon_mask",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "goodvoxels_mask.nii.gz",
+       "-mas",
+       "ribbon.nii.gz",
+       "goodvoxels_ribbon_mask.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     }
+    ],
+    "versions": {
+     "fsl": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH)",
+     "larmorx": "larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0)"
+    },
+    "settings": "fMRIPrep 25.2.6's goodvoxels workflow's fourteen fslmaths calls on ds005040's BOLD series in T1w space, each on FSL's outputs of the calls before it (the replica record's chain; the ribbon a stand-in: the segmentation's grey matter): LARMORX's clean-room original in its reproduce mode at 14 threads and at one and in its default mode; FSL 6.0.7.23 and the replica are the entry fsl-maths/fmriprep-goodvoxels's runs of the same calls"
+   },
+   {
+    "entry": "fsl-maths/original-families",
+    "description": "The calls of fsl-maths/families: LARMORX's clean-room original, reproduce mode at 14 threads and at one, the default mode",
+    "computed": "2026-11-04T12:57:14+00:00",
+    "larmorx_commit": "3c0951127188c572a3fe7eb17a342daf974f750b",
+    "commands": [
+     {
+      "label": "original-tsnr",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean.nii.gz",
+       "-div",
+       "std.nii.gz",
+       "-mas",
+       "mask.nii.gz",
+       "tsnr.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-1-tsnr",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean.nii.gz",
+       "-div",
+       "std.nii.gz",
+       "-mas",
+       "mask.nii.gz",
+       "tsnr.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-fix-tsnr",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean.nii.gz",
+       "-div",
+       "std.nii.gz",
+       "-mas",
+       "mask.nii.gz",
+       "tsnr.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-thrp",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean.nii.gz",
+       "-thrP",
+       "30",
+       "-bin",
+       "thrp.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-1-thrp",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean.nii.gz",
+       "-thrP",
+       "30",
+       "-bin",
+       "thrp.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-fix-thrp",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean.nii.gz",
+       "-thrP",
+       "30",
+       "-bin",
+       "thrp.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-sqrt",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean.nii.gz",
+       "-abs",
+       "-sqrt",
+       "sqrt.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-1-sqrt",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean.nii.gz",
+       "-abs",
+       "-sqrt",
+       "sqrt.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-fix-sqrt",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean.nii.gz",
+       "-abs",
+       "-sqrt",
+       "sqrt.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-tmedian",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "bold.nii.gz",
+       "-Tmedian",
+       "tmedian.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.13
+     },
+     {
+      "label": "original-1-tmedian",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "bold.nii.gz",
+       "-Tmedian",
+       "tmedian.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.37
+     },
+     {
+      "label": "original-fix-tmedian",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "bold.nii.gz",
+       "-Tmedian",
+       "tmedian.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.13
+     },
+     {
+      "label": "original-tar1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "bold.nii.gz",
+       "-Tar1",
+       "tar1.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.12
+     },
+     {
+      "label": "original-1-tar1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "bold.nii.gz",
+       "-Tar1",
+       "tar1.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.19
+     },
+     {
       "label": "original-fix-tar1",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "bold.nii.gz",
@@ -14300,12 +14414,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.1
+      "seconds": 0.12
      },
      {
       "label": "original-ero",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mask.nii.gz",
@@ -14326,12 +14442,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1-ero",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mask.nii.gz",
@@ -14352,12 +14470,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-fix-ero",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mask.nii.gz",
@@ -14375,220 +14495,238 @@
        "OPENBLAS_CORETYPE": "Haswell",
        "LARMORX_UPSTREAM_DEFECTS": "fix",
        "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.0
-     },
-     {
-      "label": "original-dilm",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean.nii.gz",
-       "-mas",
-       "mask.nii.gz",
-       "-kernel",
-       "3D",
-       "-dilM",
-       "dilm.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-1-dilm",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean.nii.gz",
-       "-mas",
-       "mask.nii.gz",
-       "-kernel",
-       "3D",
-       "-dilM",
-       "dilm.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-fix-dilm",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean.nii.gz",
-       "-mas",
-       "mask.nii.gz",
-       "-kernel",
-       "3D",
-       "-dilM",
-       "dilm.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-smooth",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean.nii.gz",
-       "-s",
-       "3",
-       "smooth.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-1-smooth",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean.nii.gz",
-       "-s",
-       "3",
-       "smooth.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-fix-smooth",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean.nii.gz",
-       "-s",
-       "3",
-       "smooth.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-fmean-fft",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean.nii.gz",
-       "-kernel",
-       "sphere",
-       "21",
-       "-fmean",
-       "fmean-fft.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-1-fmean-fft",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslmaths",
-       "mean.nii.gz",
-       "-kernel",
-       "sphere",
-       "21",
-       "-fmean",
-       "fmean-fft.nii.gz"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
       "seconds": 0.07
      },
      {
+      "label": "original-dilm",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean.nii.gz",
+       "-mas",
+       "mask.nii.gz",
+       "-kernel",
+       "3D",
+       "-dilM",
+       "dilm.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.05
+     },
+     {
+      "label": "original-1-dilm",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean.nii.gz",
+       "-mas",
+       "mask.nii.gz",
+       "-kernel",
+       "3D",
+       "-dilM",
+       "dilm.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-fix-dilm",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean.nii.gz",
+       "-mas",
+       "mask.nii.gz",
+       "-kernel",
+       "3D",
+       "-dilM",
+       "dilm.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-smooth",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean.nii.gz",
+       "-s",
+       "3",
+       "smooth.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-1-smooth",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean.nii.gz",
+       "-s",
+       "3",
+       "smooth.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-fix-smooth",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean.nii.gz",
+       "-s",
+       "3",
+       "smooth.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-fmean-fft",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean.nii.gz",
+       "-kernel",
+       "sphere",
+       "21",
+       "-fmean",
+       "fmean-fft.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.03
+     },
+     {
+      "label": "original-1-fmean-fft",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslmaths",
+       "mean.nii.gz",
+       "-kernel",
+       "sphere",
+       "21",
+       "-fmean",
+       "fmean-fft.nii.gz"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.09
+     },
+     {
       "label": "original-fix-fmean-fft",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mean.nii.gz",
@@ -14609,12 +14747,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-fmedian",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mean.nii.gz",
@@ -14634,12 +14774,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-1-fmedian",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mean.nii.gz",
@@ -14659,12 +14801,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.04
+      "seconds": 0.05
      },
      {
       "label": "original-fix-fmedian",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mean.nii.gz",
@@ -14684,12 +14828,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-edge",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mean.nii.gz",
@@ -14707,12 +14853,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-1-edge",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mean.nii.gz",
@@ -14730,12 +14878,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-fix-edge",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mean.nii.gz",
@@ -14753,12 +14903,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-inm",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mean.nii.gz",
@@ -14779,12 +14931,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-1-inm",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mean.nii.gz",
@@ -14805,12 +14959,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-fix-inm",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mean.nii.gz",
@@ -14831,12 +14987,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-bptf",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "bold.nii.gz",
@@ -14857,12 +15015,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.12
+      "seconds": 0.13
      },
      {
       "label": "original-1-bptf",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "bold.nii.gz",
@@ -14883,12 +15043,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.38
+      "seconds": 0.4
      },
      {
       "label": "original-fix-bptf",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "bold.nii.gz",
@@ -14909,12 +15071,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.12
+      "seconds": 0.14
      },
      {
       "label": "original-roi",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mean.nii.gz",
@@ -14940,12 +15104,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-1-roi",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mean.nii.gz",
@@ -14971,12 +15137,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-fix-roi",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mean.nii.gz",
@@ -15002,12 +15170,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-tfce",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mean.nii.gz",
@@ -15032,12 +15202,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.04
+      "seconds": 0.05
      },
      {
       "label": "original-1-tfce",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mean.nii.gz",
@@ -15062,12 +15234,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.04
+      "seconds": 0.05
      },
      {
       "label": "original-fix-tfce",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "mean.nii.gz",
@@ -15092,7 +15266,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.04
+      "seconds": 0.05
      }
     ],
     "versions": {
@@ -15104,13 +15278,15 @@
    {
     "entry": "fsl-maths/original-glibc-double",
     "description": "The calls of fsl-maths/glibc-double: LARMORX's clean-room original, reproduce mode at 14 threads and at one, the default mode",
-    "computed": "2026-11-03T23:55:44+00:00",
-    "larmorx_commit": "f092d74debaa8c405e91e6f05294cc4b763673fd",
+    "computed": "2026-11-04T12:57:15+00:00",
+    "larmorx_commit": "3c0951127188c572a3fe7eb17a342daf974f750b",
     "commands": [
      {
       "label": "original-sin",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15134,12 +15310,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-1-sin",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15163,12 +15341,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.04
      },
      {
       "label": "original-fix-sin",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15192,12 +15372,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-cos",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15221,12 +15403,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-1-cos",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15250,12 +15434,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.04
      },
      {
       "label": "original-fix-cos",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15279,12 +15465,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-tan",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15308,12 +15496,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-1-tan",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15337,12 +15527,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.04
      },
      {
       "label": "original-fix-tan",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15366,12 +15558,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-asin",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15395,12 +15589,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.04
      },
      {
       "label": "original-1-asin",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15424,12 +15620,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.1
      },
      {
       "label": "original-fix-asin",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15453,12 +15651,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-acos",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15482,12 +15682,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-1-acos",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15511,12 +15713,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.04
      },
      {
       "label": "original-fix-acos",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15540,12 +15744,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-atan",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15569,12 +15775,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-1-atan",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15598,12 +15806,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.04
      },
      {
       "label": "original-fix-atan",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15627,12 +15837,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-exp",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15661,7 +15873,9 @@
      {
       "label": "original-1-exp",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15685,12 +15899,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.07
+      "seconds": 0.04
      },
      {
       "label": "original-fix-exp",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15714,12 +15930,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-log",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15744,12 +15962,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-1-log",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15774,12 +15994,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.04
      },
      {
       "label": "original-fix-log",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "-dt",
@@ -15804,7 +16026,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      }
     ],
     "versions": {
@@ -15816,8 +16038,8 @@
    {
     "entry": "fsl-maths/original-cases-default-mode",
     "description": "LARMORX's clean-room fslmaths in its default mode on every case of its record: its exit status and the entries it names",
-    "computed": "2026-11-04T00:58:54+00:00",
-    "larmorx_commit": "da76711ef0f911e99ee6656dacbb5f4ad4cab2e1",
+    "computed": "2026-11-04T12:57:21+00:00",
+    "larmorx_commit": "3c0951127188c572a3fe7eb17a342daf974f750b",
     "commands": [],
     "versions": {
      "fsl": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH)",
@@ -16030,9 +16252,9 @@
    "record": "docs/validation/fsl-maths.md",
    "status": "experimental",
    "summary": {
-    "cases": 442,
+    "cases": 452,
     "verdicts": {
-     "bit-identical": 358,
+     "bit-identical": 368,
      "both-reject": 63,
      "divergence": 6,
      "open": 15
@@ -16207,7 +16429,7 @@
     {
      "category": "orig",
      "counts": {
-      "bit-identical": 7,
+      "bit-identical": 17,
       "divergence": 1
      }
     },
@@ -18808,13 +19030,13 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "4/5",
-     "reason": "GLIBC-07: with -dt double, glibc 2.35's tan (IBM's code in glibc, LGPL) is not always correctly rounded and the replica's is, in both modes: here 3 of 210 double values one unit in the last place from FSL's (tan differs on 0.21 % of image intensities). No permissive code gives glibc's bits; an exact reproduction is planned by a clean-room implementation of glibc's behaviour."
+     "reason": "GLIBC-07: with -dt double, glibc 2.35's tan (IBM's code in glibc, LGPL) is not always correctly rounded and the replica's is, in both modes: here 3 of 210 double values one unit in the last place from FSL's (tan differs on 0.21 % of image intensities). No permissive code gives glibc's tan, and tan, asin, acos and atan stay correctly rounded in both modes (the user's decision of 2026-11-04)."
     },
     "original": {
      "outcome": "pass",
      "verdict": "divergence",
      "checks": "7/7",
-     "reason": "GLIBC-07: with -dt double, glibc 2.35's tan (IBM's code in glibc, LGPL) is not always correctly rounded, and the clean-room original's is (CORE-MATH's, in both modes): one unit in the last place on a few of the 210 double values, within §21's one unit per function. No permissive code gives glibc's bits; an exact reproduction is planned by a clean-room implementation of glibc's behaviour."
+     "reason": "GLIBC-07: with -dt double, glibc 2.35's tan (IBM's code in glibc, LGPL) is not always correctly rounded, and the clean-room original's is (CORE-MATH's, in both modes): one unit in the last place on a few of the 210 double values, within §21's one unit per function. Since 2026-11-04 the reproduce mode gives glibc's bits for sin, cos, exp, log and pow (LARMORX's glibc functions; sin and cos written from a behavioural specification of glibc's code); tan, asin, acos and atan stay correctly rounded in both modes (the user's decision of 2026-11-04)."
     }
    }
   },
@@ -24616,7 +24838,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "4/5",
-     "reason": "GLIBC-07, from random testing: fslmaths convolves this kernel by the FFT, whose twiddle factors FSL's library takes from glibc's sincos (IBM's code, LGPL, not always correctly rounded: 0.148 % of the angles), while the replica computes them correctly rounded, in both modes: 1 of 90 float voxels one unit in the last place. Given FSL's own factors the replica's output is FSL's bit for bit (the FFT probe: every length from 1 to 256, and this case). Never met on fMRIPrep's calls (they convolve by separable sums)."
+     "reason": "GLIBC-07, from random testing: fslmaths convolves this kernel by the FFT, whose twiddle factors FSL's library takes from glibc's sincos (IBM's code, LGPL, not always correctly rounded: 0.148 % of the angles), while the replica computes them correctly rounded, in both modes: 1 of 90 float voxels one unit in the last place. Given FSL's own factors the replica's output is FSL's bit for bit (the FFT probe: every length from 1 to 256, and this case). Never met on fMRIPrep's calls (they convolve by separable sums). LARMORX's own implementation of glibc's sincos (2026-11-04, from a behavioural specification) can give the replica FSL's factors: a follow-up."
     }
    }
   },
@@ -24729,6 +24951,146 @@
      "verdict": "bit-identical",
      "checks": "8/8",
      "reason": "Every file fslmaths writes with FSL's values (the record measures every value), with FSL's exit status and messages."
+    }
+   }
+  },
+  {
+   "id": "orig/glibc-double-sin",
+   "category": "orig",
+   "description": "-sin of a 32³ double image in double (-dt double -odt double): glibc's sin where it is not correctly rounded (GLIBC-07)",
+   "command": "fslmaths -dt double <dbl32: a synthetic input of the original's suite> -sin out -odt double",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file fslmaths writes with FSL's values (the record measures every value), with FSL's exit status and messages; in its default mode the clean-room original corrects GLIBC-07 and names it: 49 values change."
+    }
+   }
+  },
+  {
+   "id": "orig/glibc-double-cos",
+   "category": "orig",
+   "description": "-cos of a 32³ double image in double (-dt double -odt double): glibc's cos where it is not correctly rounded (GLIBC-07)",
+   "command": "fslmaths -dt double <dbl32: a synthetic input of the original's suite> -cos out -odt double",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file fslmaths writes with FSL's values (the record measures every value), with FSL's exit status and messages; in its default mode the clean-room original corrects GLIBC-07 and names it: 40 values change."
+    }
+   }
+  },
+  {
+   "id": "orig/glibc-double-exp",
+   "category": "orig",
+   "description": "-exp of a 32³ double image in double (-dt double -odt double): glibc's exp where it is not correctly rounded (GLIBC-07)",
+   "command": "fslmaths -dt double <dbl32: a synthetic input of the original's suite> -exp out -odt double",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file fslmaths writes with FSL's values (the record measures every value), with FSL's exit status and messages; in its default mode the clean-room original corrects GLIBC-07 and names it: 34 values change."
+    }
+   }
+  },
+  {
+   "id": "orig/glibc-double-log",
+   "category": "orig",
+   "description": "-log of a 32³ double image in double (-dt double -odt double): glibc's log where it is not correctly rounded (GLIBC-07)",
+   "command": "fslmaths -dt double <dblpos32: a synthetic input of the original's suite> -log out -odt double",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file fslmaths writes with FSL's values (the record measures every value), with FSL's exit status and messages; in its default mode the clean-room original corrects GLIBC-07 and names it: 3 values change."
+    }
+   }
+  },
+  {
+   "id": "orig/glibc-double-pow",
+   "category": "orig",
+   "description": "-pow 1.7 of a 32³ double image in double (-dt double -odt double): glibc's pow where it is not correctly rounded (GLIBC-07)",
+   "command": "fslmaths -dt double <dblpos32: a synthetic input of the original's suite> -pow 1.7 out -odt double",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file fslmaths writes with FSL's values (the record measures every value), with FSL's exit status and messages; in its default mode the clean-room original corrects GLIBC-07 and names it: 29 values change."
+    }
+   }
+  },
+  {
+   "id": "orig/edge-double",
+   "category": "orig",
+   "description": "-edge of a 32³ double image in double (-dt double -odt double): FSL's squares are exact products (§10.4's pow(x, 2), as FSL is compiled: no glibc pow) and its terms are added from z to x (observed)",
+   "command": "fslmaths -dt double <dbl32: a synthetic input of the original's suite> -edge out -odt double",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file fslmaths writes with FSL's values (the record measures every value), with FSL's exit status and messages."
+    }
+   }
+  },
+  {
+   "id": "orig/glibc-s",
+   "category": "orig",
+   "description": "-s 3.95 of a 24³ float image: a Gaussian tap whose expf differs between glibc's and the correctly rounded one (GLIBC-07; the default names nothing)",
+   "command": "fslmaths <flt24: a synthetic input of the original's suite> -s 3.95 out",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file fslmaths writes with FSL's values (the record measures every value), with FSL's exit status and messages; in its default mode 1,217 values change, from the filters' expf, exp, pow, powf and logf (-s and -kernel gauss, -bptf, -tfce, -roc, -dog_edge) computed correctly rounded where reproduce computes them as glibc 2.35 does (GLIBC-07, not named: the user's decision of 2026-11-04 for the iterative programs)."
+    }
+   }
+  },
+  {
+   "id": "orig/glibc-kernel-gauss",
+   "category": "orig",
+   "description": "-kernel gauss 4.8 -fmean: the same for -kernel gauss (another tap)",
+   "command": "fslmaths <flt24: a synthetic input of the original's suite> -kernel gauss 4.8 -fmean out",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file fslmaths writes with FSL's values (the record measures every value), with FSL's exit status and messages; in its default mode 32 values change, from the filters' expf, exp, pow, powf and logf (-s and -kernel gauss, -bptf, -tfce, -roc, -dog_edge) computed correctly rounded where reproduce computes them as glibc 2.35 does (GLIBC-07, not named: the user's decision of 2026-11-04 for the iterative programs)."
+    }
+   }
+  },
+  {
+   "id": "orig/glibc-bptf",
+   "category": "orig",
+   "description": "-bptf 1.73 -1 of a double 4D image (-dt double -odt double): a high-pass weight exp(-1/(2·1.73²)) whose glibc exp differs (GLIBC-07; the default names nothing)",
+   "command": "fslmaths -dt double <dbl4d: a synthetic input of the original's suite> -bptf 1.73 -1 out -odt double",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file fslmaths writes with FSL's values (the record measures every value), with FSL's exit status and messages; in its default mode 11,785 values change, from the filters' expf, exp, pow, powf and logf (-s and -kernel gauss, -bptf, -tfce, -roc, -dog_edge) computed correctly rounded where reproduce computes them as glibc 2.35 does (GLIBC-07, not named: the user's decision of 2026-11-04 for the iterative programs)."
+    }
+   }
+  },
+  {
+   "id": "orig/glibc-tfce",
+   "category": "orig",
+   "description": "-tfce_delta 0.01 -tfce 1.7 0.5 6: about 1,170 thresholds, among them powers (powf(h, 1.7), pow(s, 0.5)) where glibc's differ (GLIBC-07; the default names nothing)",
+   "command": "fslmaths <tstat: a synthetic input of the original's suite> -tfce_delta 0.01 -tfce 1.7 0.5 6 out",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file fslmaths writes with FSL's values (the record measures every value), with FSL's exit status and messages; in its default mode 2 values change, from the filters' expf, exp, pow, powf and logf (-s and -kernel gauss, -bptf, -tfce, -roc, -dog_edge) computed correctly rounded where reproduce computes them as glibc 2.35 does (GLIBC-07, not named: the user's decision of 2026-11-04 for the iterative programs)."
     }
    }
   },
@@ -24985,7 +25347,7 @@
    }
   }
  ],
- "cases_total": 446,
+ "cases_total": 456,
  "speed": {
   "title": "Seconds for the whole call (read the images, compute, write every output), one run each, log scale; the factor is the clean-room original's speed-up over FSL, both on one thread",
   "axis": [
@@ -25528,6 +25890,9 @@
      "num": true
     },
     {
+     "label": "The original's function"
+    },
+    {
      "label": "Reproduce mode: values that differ from FSL's",
      "num": true
     },
@@ -25543,7 +25908,7 @@
      "label": "Named by the default"
     },
     {
-     "label": "Against the replica's default (correctly rounded)"
+     "label": "Default against the replica's default (correctly rounded)"
     },
     {
      "label": "1 thread against 14"
@@ -25559,19 +25924,22 @@
        "fmt": "count"
       },
       {
+       "text": "glibc's bits with reproduce, correctly rounded by default (GLIBC-07 named)"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
        "v": 211,
        "fmt": "count"
       },
       {
-       "v": 1,
-       "fmt": "count"
-      },
-      {
-       "v": 211,
-       "fmt": "count"
-      },
-      {
-       "text": "–"
+       "text": "GLIBC-07"
       },
       {
        "text": "identical"
@@ -25580,7 +25948,7 @@
        "text": "identical"
       }
      ],
-     "verdict": "divergence"
+     "verdict": "bit-identical"
     },
     {
      "head": "`cos`",
@@ -25591,19 +25959,22 @@
        "fmt": "count"
       },
       {
+       "text": "glibc's bits with reproduce, correctly rounded by default (GLIBC-07 named)"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
        "v": 84,
        "fmt": "count"
       },
       {
-       "v": 1,
-       "fmt": "count"
-      },
-      {
-       "v": 84,
-       "fmt": "count"
-      },
-      {
-       "text": "–"
+       "text": "GLIBC-07"
       },
       {
        "text": "identical"
@@ -25612,7 +25983,7 @@
        "text": "identical"
       }
      ],
-     "verdict": "divergence"
+     "verdict": "bit-identical"
     },
     {
      "head": "`tan`",
@@ -25621,6 +25992,9 @@
       {
        "v": 136400,
        "fmt": "count"
+      },
+      {
+       "text": "correctly rounded in both modes"
       },
       {
        "v": 313,
@@ -25655,6 +26029,9 @@
        "fmt": "count"
       },
       {
+       "text": "correctly rounded in both modes"
+      },
+      {
        "v": 209,
        "fmt": "count"
       },
@@ -25685,6 +26062,9 @@
       {
        "v": 136400,
        "fmt": "count"
+      },
+      {
+       "text": "correctly rounded in both modes"
       },
       {
        "v": 20,
@@ -25719,6 +26099,9 @@
        "fmt": "count"
       },
       {
+       "text": "correctly rounded in both modes"
+      },
+      {
        "v": 200,
        "fmt": "count"
       },
@@ -25751,19 +26134,22 @@
        "fmt": "count"
       },
       {
+       "text": "glibc's bits with reproduce, correctly rounded by default (GLIBC-07 named)"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
        "v": 110,
        "fmt": "count"
       },
       {
-       "v": 1,
-       "fmt": "count"
-      },
-      {
-       "v": 110,
-       "fmt": "count"
-      },
-      {
-       "text": "–"
+       "text": "GLIBC-07"
       },
       {
        "text": "identical"
@@ -25772,7 +26158,7 @@
        "text": "identical"
       }
      ],
-     "verdict": "divergence"
+     "verdict": "bit-identical"
     },
     {
      "head": "`log`",
@@ -25783,19 +26169,22 @@
        "fmt": "count"
       },
       {
+       "text": "glibc's bits with reproduce, correctly rounded by default (GLIBC-07 named)"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
+       "v": 0,
+       "fmt": "count"
+      },
+      {
        "v": 15,
        "fmt": "count"
       },
       {
-       "v": 1,
-       "fmt": "count"
-      },
-      {
-       "v": 15,
-       "fmt": "count"
-      },
-      {
-       "text": "–"
+       "text": "GLIBC-07"
       },
       {
        "text": "identical"
@@ -25804,10 +26193,10 @@
        "text": "identical"
       }
      ],
-     "verdict": "divergence"
+     "verdict": "bit-identical"
     }
    ],
-   "note": "The same calls by LARMORX's clean-room original (14 threads, and at one): its double functions are CORE-MATH's correctly rounded ones (larmorx_core::math) in both modes, the replica's default's bits. Its reproduce mode does not give glibc's bits for exp, log and pow, which specs/fslmaths.md §19 asks of it (glibc 2.35 ships Arm's Optimized Routines for them, MIT-licensed: a follow-up); its record holds the double functions to one unit in the last place per function of the chain (§21), and every differing value here is one unit away (GLIBC-07, an expected divergence). Float results are FSL's."
+   "note": "The same calls by LARMORX's clean-room original (14 threads, and at one). Since 2026-11-04 its reproduce mode gives glibc 2.35's bits for sin, cos, exp, log and pow (larmorx_core::math: exp, log and pow from Arm's Optimized Routines as glibc ships them, MIT; sin and cos written from a behavioural specification of glibc's code, specs/glibc-dbl.md, and checked against the system's glibc on 11.8 billion arguments each), as specs/fslmaths.md §19 asks; tan, asin, acos and atan stay correctly rounded in both modes (the user's decision of 2026-11-04). Its default computes every one correctly rounded (CORE-MATH's, the replica's default's bits) and names GLIBC-07 exactly where a value differs from glibc's. Its record holds the double functions to one unit in the last place per function of the chain (§21); every value that differs here is one unit away (GLIBC-07, an expected divergence). Float results are FSL's."
   },
   {
    "id": "trial-original",
@@ -27507,7 +27896,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `b4b23e2a55b7`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `f092d74debaa`"
+     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `b4b23e2a55b7`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `3c0951127188`"
     },
     {
      "label": "Grid",
@@ -31338,7 +31727,7 @@
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: BOLD series in T1w space (sha256 ebfbc7b1648ca221…); the ribbon's stand-in (sha256 788750569ea12c93…)",
     "Runs: figures cache entry `fsl-maths/fmriprep-goodvoxels`, computed 2026-11-03T14:54:17+00:00 with larmorx `b4b23e2a55b7`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
-    "Runs: figures cache entry `fsl-maths/original-fmriprep-goodvoxels`, computed 2026-11-03T23:55:41+00:00 with larmorx `f092d74debaa`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-maths/original-fmriprep-goodvoxels`, computed 2026-11-04T12:57:11+00:00 with larmorx `3c0951127188`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
     "openneuro-ds005040"
@@ -31355,7 +31744,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (through the oracle cache (0 of 15 runs served, the others run for this page)); larmorx-nc 0.0.1 (the replica), from larmorx at commit `b4b23e2a55b7`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `da76711ef0f9`"
+     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (through the oracle cache (0 of 15 runs served, the others run for this page)); larmorx-nc 0.0.1 (the replica), from larmorx at commit `b4b23e2a55b7`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `3c0951127188`"
     },
     {
      "label": "Grid",
@@ -35958,7 +36347,7 @@
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: bold (sha256 ebfbc7b1648ca221…); mean (sha256 1470ac106d7dc916…); std (sha256 c02ef2250ee40f00…); mask (sha256 07f29647b79803b1…)",
     "Runs: figures cache entry `fsl-maths/families`, computed 2026-11-03T14:54:30+00:00 with larmorx `b4b23e2a55b7`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
-    "Runs: figures cache entry `fsl-maths/original-families`, computed 2026-11-04T00:58:56+00:00 with larmorx `da76711ef0f9`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-maths/original-families`, computed 2026-11-04T12:57:14+00:00 with larmorx `3c0951127188`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
     "openneuro-ds005040"

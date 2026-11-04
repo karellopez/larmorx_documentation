@@ -3,7 +3,7 @@
  "tool": "afni-tshift",
  "title": "3dTshift",
  "provenance": {
-  "exporter": "8035ad782ae6aa0fcc2d7008192b781adb9f3e15",
+  "exporter": "c2ef0e7819ba6a78845200b0787c9d05fb3c53f5",
   "records": [
    {
     "path": "docs/validation/afni-tshift-replica.json",
@@ -19,15 +19,15 @@
    },
    {
     "path": "docs/validation/afni-tshift.json",
-    "sha256": "ceaf01515b4aee3cb389e1bfe9842fcccd872f8ce7364564c8abfc4802e30d9f",
-    "generated": "2026-10-29",
-    "larmorx_commit": "bb36e15a24bb"
+    "sha256": "4aa6ed3e45dd0cd7e933deae26ccd0a05ee9170f46a1fe917a86f1999c751196",
+    "generated": "2026-11-04",
+    "larmorx_commit": "be3db916dce3"
    },
    {
     "path": "docs/validation/afni-tshift.md",
-    "sha256": "0950b74caedb0f7812cc84795d91f7efe028f6b3e3c0d0bbcd9f4c5355df2fa9",
-    "generated": "2026-10-29",
-    "larmorx_commit": "bb36e15a24bb"
+    "sha256": "7f3365a66f9e272003e1ce4254dd26d9adf0f05d8ef562186043cd293c1042a8",
+    "generated": "2026-11-04",
+    "larmorx_commit": "be3db916dce3"
    }
   ],
   "benchmarks": [
@@ -553,10 +553,10 @@
    "record": "docs/validation/afni-tshift.md",
    "status": "validated",
    "summary": {
-    "cases": 315,
+    "cases": 317,
     "verdicts": {
      "open": 102,
-     "bit-identical": 178,
+     "bit-identical": 180,
      "both-reject": 32,
      "divergence": 3
     }
@@ -572,7 +572,7 @@
     {
      "category": "methods",
      "counts": {
-      "bit-identical": 84
+      "bit-identical": 86
      }
     },
     {
@@ -6956,6 +6956,34 @@
    }
   },
   {
+   "id": "methods/glibc-sinf-wsinc5",
+   "category": "methods",
+   "description": "-wsinc5 -tpattern '@1D: 0 0.543 0.102 0.728': weights where glibc's sinf and cosf differ from the correctly rounded ones (GLIBC-07)",
+   "command": "3dTshift -tpattern '@1D: 0 0.543 0.102 0.728' -wsinc5 -prefix out.nii synthetic/tshift/dtypes/float32.nii.gz",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "methods/glibc-sinf-wsinc9",
+   "category": "methods",
+   "description": "-wsinc9 -tpattern '@1D: 0 0.911 1.821 0.603': weights where glibc's sinf and cosf differ from the correctly rounded ones (GLIBC-07)",
+   "command": "3dTshift -tpattern '@1D: 0 0.911 1.821 0.603' -wsinc9 -prefix out.nii synthetic/tshift/dtypes/float32.nii.gz",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": ""
+    }
+   }
+  },
+  {
    "id": "difftest/header-milliseconds-toffset",
    "category": "difftest",
    "description": "",
@@ -6970,7 +6998,7 @@
    }
   }
  ],
- "cases_total": 316,
+ "cases_total": 318,
  "speed": {
   "title": "Seconds for the whole command (read, shift, write), median of repeated runs, log scale; the factor is the clean-room original's speed-up over AFNI at one thread",
   "axis": [

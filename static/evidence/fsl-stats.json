@@ -3,7 +3,7 @@
  "tool": "fsl-stats",
  "title": "fslstats",
  "provenance": {
-  "exporter": "ae80b513d999edf2205b1cca96e01f7f05020ea6",
+  "exporter": "c2ef0e7819ba6a78845200b0787c9d05fb3c53f5",
   "records": [
    {
     "path": "docs/validation/fsl-stats-replica.json",
@@ -19,15 +19,15 @@
    },
    {
     "path": "docs/validation/fsl-stats.json",
-    "sha256": "d86821eba98edee50faf92c69dca51758789cb12120360ae6d9aa15d9d2d145b",
-    "generated": "2026-11-03",
-    "larmorx_commit": "8ce1c6adf070"
+    "sha256": "f8e5369dae35e3bec9c767229217f18ee1cc5e882f555b1890cdb786c0255258",
+    "generated": "2026-11-04",
+    "larmorx_commit": "be3db916dce3"
    },
    {
     "path": "docs/validation/fsl-stats.md",
-    "sha256": "3418e980b812364f567348cab3d20b0a403c79dddb92177fcf76310c86f8707b",
-    "generated": "2026-11-03",
-    "larmorx_commit": "8ce1c6adf070"
+    "sha256": "eaa7fdd76252f64469be4325181cb9462f31616f3e6fa39523c6a0798e62e237",
+    "generated": "2026-11-04",
+    "larmorx_commit": "be3db916dce3"
    }
   ],
   "benchmarks": [
@@ -7259,13 +7259,15 @@
    {
     "entry": "fsl-stats/original-options-real",
     "description": "The calls of fsl-stats/options-real: LARMORX's clean-room original, reproduce mode at 14 threads and at one, the default mode",
-    "computed": "2026-11-03T23:55:47+00:00",
-    "larmorx_commit": "f092d74debaa8c405e91e6f05294cc4b763673fd",
+    "computed": "2026-11-04T12:57:20+00:00",
+    "larmorx_commit": "3c0951127188c572a3fe7eb17a342daf974f750b",
     "commands": [
      {
       "label": "original-r",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7282,12 +7284,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1-r",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7304,12 +7308,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix-r",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7326,12 +7332,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-R",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7348,12 +7356,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1-R",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7370,12 +7380,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix-R",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7392,12 +7404,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-e",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7414,12 +7428,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1-e",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7436,12 +7452,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix-e",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7458,12 +7476,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-E",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7480,12 +7500,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-1-E",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7502,12 +7524,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix-E",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7524,12 +7548,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-v",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7546,12 +7572,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1-v",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7568,12 +7596,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix-v",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7590,12 +7620,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-V",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7612,12 +7644,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1-V",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7634,12 +7668,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix-V",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7656,12 +7692,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-m",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7678,12 +7716,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1-m",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7700,12 +7740,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix-m",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7722,12 +7764,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-M",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7744,12 +7788,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.07
      },
      {
       "label": "original-1-M",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7766,12 +7812,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.04
      },
      {
       "label": "original-fix-M",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7788,12 +7836,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-s",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7810,12 +7860,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1-s",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7832,12 +7884,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix-s",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7854,12 +7908,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-S",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7876,12 +7932,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1-S",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7898,12 +7956,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix-S",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7920,12 +7980,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-w",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7942,12 +8004,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1-w",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7964,12 +8028,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-fix-w",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -7986,12 +8052,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-x",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8008,12 +8076,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1-x",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8030,12 +8100,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix-x",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8052,12 +8124,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-X",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8074,12 +8148,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1-X",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8096,12 +8172,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix-X",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8118,12 +8196,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-c",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8140,12 +8220,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-1-c",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8162,12 +8244,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-fix-c",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8184,12 +8268,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-C",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8206,12 +8292,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-1-C",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8228,12 +8316,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-fix-C",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8250,12 +8340,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-p",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8277,12 +8369,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1-p",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8304,12 +8398,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix-p",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8331,12 +8427,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-P",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8358,12 +8456,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-1-P",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8385,12 +8485,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-fix-P",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8412,12 +8514,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-h",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8435,12 +8539,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1-h",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8458,12 +8564,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix-h",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8481,12 +8589,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-H",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8506,12 +8616,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1-H",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8531,12 +8643,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix-H",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8556,12 +8670,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-lu",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8584,12 +8700,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-1-lu",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8612,12 +8730,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix-lu",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8640,12 +8760,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-k",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8669,12 +8791,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-1-k",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8698,12 +8822,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-fix-k",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8727,12 +8853,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.04
      },
      {
       "label": "original-d",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8752,12 +8880,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.07
      },
      {
       "label": "original-1-d",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8777,12 +8907,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-fix-d",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8802,12 +8934,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-a",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8826,12 +8960,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1-a",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8850,12 +8986,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix-a",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8874,12 +9012,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-n",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8897,12 +9037,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1-n",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8920,12 +9062,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix-n",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "mean.nii.gz",
@@ -8943,12 +9087,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-t",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "-t",
@@ -8967,12 +9113,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.13
+      "seconds": 0.15
      },
      {
       "label": "original-1-t",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "-t",
@@ -8991,18 +9139,185 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.13
+      "seconds": 0.14
      },
      {
       "label": "original-fix-t",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "-t",
        "bold.nii.gz",
        "-M",
        "-S"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.18
+     },
+     {
+      "label": "original-K",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslstats",
+       "-K",
+       "labels.nii.gz",
+       "mean.nii.gz",
+       "-M",
+       "-S",
+       "-V"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-1-K",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslstats",
+       "-K",
+       "labels.nii.gz",
+       "mean.nii.gz",
+       "-M",
+       "-S",
+       "-V"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-fix-K",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslstats",
+       "-K",
+       "labels.nii.gz",
+       "mean.nii.gz",
+       "-M",
+       "-S",
+       "-V"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.02
+     },
+     {
+      "label": "original-tK",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslstats",
+       "-t",
+       "-K",
+       "labels.nii.gz",
+       "bold.nii.gz",
+       "-M"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "14",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.29
+     },
+     {
+      "label": "original-1-tK",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslstats",
+       "-t",
+       "-K",
+       "labels.nii.gz",
+       "bold.nii.gz",
+       "-M"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_IMPLEMENTATION": "original"
+      },
+      "exit": 0,
+      "seconds": 0.2
+     },
+     {
+      "label": "original-fix-tK",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "fsl",
+       "fslstats",
+       "-t",
+       "-K",
+       "labels.nii.gz",
+       "bold.nii.gz",
+       "-M"
       ],
       "env": {
        "HOME": "~",
@@ -9018,162 +9333,11 @@
       "seconds": 0.22
      },
      {
-      "label": "original-K",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslstats",
-       "-K",
-       "labels.nii.gz",
-       "mean.nii.gz",
-       "-M",
-       "-S",
-       "-V"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-1-K",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslstats",
-       "-K",
-       "labels.nii.gz",
-       "mean.nii.gz",
-       "-M",
-       "-S",
-       "-V"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-fix-K",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslstats",
-       "-K",
-       "labels.nii.gz",
-       "mean.nii.gz",
-       "-M",
-       "-S",
-       "-V"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.01
-     },
-     {
-      "label": "original-tK",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslstats",
-       "-t",
-       "-K",
-       "labels.nii.gz",
-       "bold.nii.gz",
-       "-M"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.19
-     },
-     {
-      "label": "original-1-tK",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslstats",
-       "-t",
-       "-K",
-       "labels.nii.gz",
-       "bold.nii.gz",
-       "-M"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
-       "OMP_NUM_THREADS": "1",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.17
-     },
-     {
-      "label": "original-fix-tK",
-      "argv": [
-       "<larmorx>/target/release/larmorx",
-       "fsl",
-       "fslstats",
-       "-t",
-       "-K",
-       "labels.nii.gz",
-       "bold.nii.gz",
-       "-M"
-      ],
-      "env": {
-       "HOME": "~",
-       "PATH": "/usr/bin:/bin",
-       "FSLDIR": "~/fsl-6.0.7.23",
-       "FSLOUTPUTTYPE": "NIFTI_GZ",
-       "OPENBLAS_CORETYPE": "Haswell",
-       "LARMORX_UPSTREAM_DEFECTS": "fix",
-       "OMP_NUM_THREADS": "14",
-       "LARMORX_IMPLEMENTATION": "original"
-      },
-      "exit": 0,
-      "seconds": 0.19
-     },
-     {
       "label": "original-json",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "-json",
@@ -9200,12 +9364,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-1-json",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "-json",
@@ -9232,12 +9398,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.03
      },
      {
       "label": "original-fix-json",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "-json",
@@ -9264,12 +9432,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.01
+      "seconds": 0.02
      },
      {
       "label": "original-bet",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "t1w.nii.gz",
@@ -9288,12 +9458,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.36
+      "seconds": 0.38
      },
      {
       "label": "original-1-bet",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "t1w.nii.gz",
@@ -9312,12 +9484,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.37
+      "seconds": 0.38
      },
      {
       "label": "original-fix-bet",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslstats",
        "t1w.nii.gz",
@@ -9336,7 +9510,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.29
+      "seconds": 0.31
      }
     ],
     "versions": {
@@ -9348,8 +9522,8 @@
    {
     "entry": "fsl-stats/original-cases-default-mode",
     "description": "LARMORX's clean-room fslstats in its default mode on every case of its record: its exit status and the entries it names",
-    "computed": "2026-11-03T23:55:48+00:00",
-    "larmorx_commit": "f092d74debaa8c405e91e6f05294cc4b763673fd",
+    "computed": "2026-11-04T12:57:22+00:00",
+    "larmorx_commit": "3c0951127188c572a3fe7eb17a342daf974f750b",
     "commands": [],
     "versions": {
      "fsl": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH)",
