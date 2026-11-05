@@ -64,6 +64,8 @@ fMRIPrep's own call on OpenNeuro ds000005's first run: its command, its BOLD and
 
 {{ ev.example('mri-hmc', 'fmriprep-hmc') }}
 
+The clean-room original's three runs of this call were made again on 2026-11-05 with the clean-room catch-up's build (mcflirt's runs and its band kept): since then the original takes the centres of mass as mcflirt's blocked sums (specs/mcflirt.md §6.1), prints mcflirt's warning where a volume's total is 0, and takes `atan2` from LARMORX's own maths ([findings](repo:docs/findings/mri-hmc-original.md)).
+
 ## Every case {#cases}
 
 Each case of the three records (the clean-room original's, against FSL 6.0.7.23, and the replica's against FSL 6.0.7.17 and 6.0.7.23), with what it tests, the command line, the verdict of each implementation and the reason; the replica's edge cases and fMRIPrep's calls are cases of their own. Search, filter by category or verdict (or select a segment of the chart above), sort by a column; `#case=<name>` links to one.
@@ -85,6 +87,12 @@ The replica corrects the same defects the same way by default, and three more th
 Random testing runs random valid inputs and option combinations through the original program and LARMORX, in long runs of several hours: inputs from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind), with options drawn in random combinations from those the program accepts ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest input and fewest options that still show it, then fixed and kept as a parity case, registered as a defect of the original, or reported. The latest long run:
 
 {{ ev.random_testing('/tools/mri-hmc/') }}
+
+The clean-room catch-up's own trial (2026-11-05, after its change of the centres of mass), half an hour of random cases against FSL 6.0.7.23's mcflirt, each difference in one category:
+
+{{ ev.table('mri-hmc', 'trial-catchup') }}
+
+{{ ev.table('mri-hmc', 'trial-catchup-triage') }}
 
 ## What is open {#open}
 

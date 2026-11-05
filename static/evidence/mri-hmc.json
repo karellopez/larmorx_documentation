@@ -3,19 +3,19 @@
  "tool": "mri-hmc",
  "title": "Head-motion correction",
  "provenance": {
-  "exporter": "c2ef0e7819ba6a78845200b0787c9d05fb3c53f5",
+  "exporter": "59c84469d551b6880da10494edd30e3d12dfe8bb",
   "records": [
    {
     "path": "docs/validation/mri-hmc.json",
-    "sha256": "88b3eea170c315dabb9223bf70a634cbe90f9ab504a80eed7da6673c7019954b",
-    "generated": "2026-11-04",
-    "larmorx_commit": "be3db916dce3"
+    "sha256": "597207da989cab339c95210f03b2b67976ff992bd65b03abf9d518d84813e0cc",
+    "generated": "2026-11-05",
+    "larmorx_commit": "0842fbda23cd"
    },
    {
     "path": "docs/validation/mri-hmc.md",
-    "sha256": "6cc7ff7224b126f430240699bbe0d84820700d2e152d57e9ab0c361d9f8bc4fe",
-    "generated": "2026-11-04",
-    "larmorx_commit": "be3db916dce3"
+    "sha256": "4a41423926d6ddb4969e2910474271b27e9c7bbf68f459ee0ac6a5f0732ba777",
+    "generated": "2026-11-05",
+    "larmorx_commit": "0842fbda23cd"
    },
    {
     "path": "docs/validation/fsl-mcflirt-replica-full.json",
@@ -55,7 +55,7 @@
     "entry": "mri-hmc/fmriprep-ds000005-run-01",
     "description": "fMRIPrep's head-motion correction of ds000005 sub-01 run 1: FSL 6.0.7's mcflirt (and its perturbation band) and larmorx",
     "computed": "2026-10-21T15:08:32+00:00",
-    "larmorx_commit": "1dfe56c0dc60ada5ef8938a87387bee37fd1b799",
+    "larmorx_commit": "ed522504f95ce6342e3e55e0c0faffce6ce2f2be",
     "commands": [
      {
       "label": "mcflirt",
@@ -192,7 +192,7 @@
        "FSLOUTPUTTYPE": "NIFTI_GZ"
       },
       "exit": 0,
-      "seconds": 20.75
+      "seconds": 2.72
      },
      {
       "label": "larmorx-1",
@@ -216,7 +216,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 61.02
+      "seconds": 16.94
      },
      {
       "label": "larmorx-fix",
@@ -239,7 +239,7 @@
        "FSLOUTPUTTYPE": "NIFTI_GZ"
       },
       "exit": 0,
-      "seconds": 19.98
+      "seconds": 2.77
      }
     ],
     "versions": {
@@ -398,6 +398,12 @@
     "settings": "fMRIPrep 25.2.6's mcflirt node of ds000005 sub-01 run 1 (its command.txt and its HMC reference), as the FSL 6.0.7.17 entry ran it: FSL 6.0.7.23's mcflirt (~/fsl-6.0.7.23, never on the PATH) and the larmorx-nc replica in reproduce mode, 3 threads"
    }
   ],
+  "difftest_catchup": {
+   "trial": "oracles/difftest/2026-11-05-catchup-hmc/summary.json",
+   "sha256": "9d7a80dffcd8db33a2725f10066908c82e3fe8aa6f89978c2b799a5be29ec194",
+   "triage": "validation/investigations/cleanroom-fixes/trial_catchup_hmc_triage.json",
+   "triage_sha256": "fba1da59e7db0859e783c7f00510deb610b6571538fa36fe9f18d7f8964f8038"
+  },
   "command": "python -m larmorx_validation evidence mri-hmc --site <site>"
  },
  "implementations": [
@@ -6281,6 +6287,178 @@
     }
    ],
    "note": "From the case explorer below: each case's reason gives its numbers."
+  },
+  {
+   "id": "trial-catchup",
+   "title": "Random testing of the clean-room original after the catch-up: the trial of 2026-11-05",
+   "columns": [
+    {
+     "label": ""
+    },
+    {
+     "label": "Cases",
+     "num": true
+    }
+   ],
+   "rows": [
+    {
+     "head": "Random cases, each compared with FSL 6.0.7.23's mcflirt",
+     "cells": [
+      {
+       "v": 83244,
+       "fmt": "count"
+      }
+     ]
+    },
+    {
+     "head": "within the record's thresholds, every exact check passed",
+     "cells": [
+      {
+       "v": 31552,
+       "fmt": "count"
+      }
+     ]
+    },
+    {
+     "head": "differing (each one in a category below)",
+     "cells": [
+      {
+       "v": 51681,
+       "fmt": "count"
+      }
+     ]
+    },
+    {
+     "head": "a register entry named in one mode only (a notice)",
+     "cells": [
+      {
+       "v": 11,
+       "fmt": "count"
+      }
+     ]
+    },
+    {
+     "head": "-mats, -plots, -rmsrel, -rmsabs",
+     "cells": [
+      {
+       "text": "58,004 / 58,354 / 58,370 / 58,352"
+      }
+     ]
+    },
+    {
+     "head": "-meanvol, -stats, -reffile, -refvol",
+     "cells": [
+      {
+       "text": "12,517 / 12,396 / 33,268 / 14,864"
+      }
+     ]
+    },
+    {
+     "head": "-sinc_final, -spline_final, -nn_final",
+     "cells": [
+      {
+       "text": "7,022 / 6,918 / 6,885"
+      }
+     ]
+    },
+    {
+     "head": "each cost (corratio, mutualinfo, normmi, normcorr, leastsquares)",
+     "cells": [
+      {
+       "text": "6,703 / 6,651 / 6,757 / 6,500 / 6,614"
+      }
+     ]
+    },
+    {
+     "head": "6, 7, 9, 12 dof",
+     "cells": [
+      {
+       "text": "5,396 / 5,234 / 5,170 / 5,093"
+      }
+     ]
+    },
+    {
+     "head": "1, 2, 3, 4 stages",
+     "cells": [
+      {
+       "text": "5,122 / 5,289 / 5,190 / 5,105"
+      }
+     ]
+    },
+    {
+     "head": "distinct options and settings drawn",
+     "cells": [
+      {
+       "v": 38,
+       "fmt": "count"
+      }
+     ]
+    },
+    {
+     "head": "length (minutes; 12 jobs at one thread each)",
+     "cells": [
+      {
+       "v": 30.0,
+       "fmt": "sig"
+      }
+     ]
+    }
+   ],
+   "note": "Differential random testing's trial of the clean-room original after the catch-up's change of its centres of mass (mcflirt's blocked sums, specs/mcflirt.md §6.1) and of atan2 (larmorx_core::math), seed `20261030`: the 2026-10-30 trial's cases drawn again and further, mcflirt's runs served by the oracle cache where they had run; each case compared as the record compares it, in reproduce mode. The build: larmorx `0b11e921f431`. Every case in a memory box of 3 GiB (peaks below 0.93 GiB)."
+  },
+  {
+   "id": "trial-catchup-triage",
+   "title": "The trial's differing cases, each in one category",
+   "columns": [
+    {
+     "label": "Category"
+    },
+    {
+     "label": "Cases",
+     "num": true
+    },
+    {
+     "label": "Verdict"
+    },
+    {
+     "label": "Reproducer"
+    }
+   ],
+   "rows": [
+    {
+     "head": "The registrations of small phantoms with large motions end elsewhere than mcflirt's, as well aligned: 400 sampled findings measured (hmc_alignment.py: the corrected series' temporal standard deviation in the phantom, LARMORX's over mcflirt's, in reproduce mode as the trial compares): median 1.000, 5 and 95 % quantiles 0.933 and 1.041, 279 within 1 %, 67 lower, 54 higher (mcflirt's own residual against the input's: median 1.41); in 4,065 of them mcflirt's run also lacks its empty .mat directory (the class below). The default mode's ratio has a longer tail (above 1.05 in 102 of the 400), for the head-motion correction's next part",
+     "verdict": "within-variability",
+     "cells": [
+      {
+       "v": 49383,
+       "fmt": "count"
+      },
+      {
+       "verdict": "within-variability"
+      },
+      {
+       "text": "20261030-00000-original"
+      }
+     ]
+    },
+    {
+     "head": "Only the files written differ: runs with -rmsrel or -rmsabs without -mats, where mcflirt makes an empty .mat directory (FSL-13) and its run was served by the oracle cache, which keeps a run's files and not its empty directories (the trial's first run, mcflirt live, had none of them): the harness's, fixed in the descriptor (such mcflirt runs go live, validation/tests/test_mri_hmc_descriptor.py); four replayed: the files agree",
+     "verdict": "both-reject",
+     "cells": [
+      {
+       "v": 2298,
+       "fmt": "count"
+      },
+      {
+       "verdict": "both-reject"
+      },
+      {
+       "text": "20261030-00007-original"
+      }
+     ]
+    }
+   ],
+   "note": "Every differing case of the trial in one category by its failed checks (`validation/investigations/cleanroom-fixes/trial_catchup_hmc_categories.py`, its output `validation/investigations/cleanroom-fixes/trial_catchup_hmc_triage.json`); the alignment measured by `hmc_alignment.py` on 400 sampled findings; the triage's entries: `validation/difftest/triage.toml`. The reproducer is a finding of the trial (`difftest --replay`)."
   }
  ],
  "cases_total": 243,
@@ -6375,7 +6553,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.17 (mcflirt), run as a black box; larmorx's clean-room original (`lx.mri.hmc`, experimental) at commit `1dfe56c0dc60`; the replica (larmorx-nc 0.0.1, `lx.mri.hmc(implementation=\"replica\")`) at commit `d6ba67e5ccc3`"
+     "text": "FSL 6.0.7.17 (mcflirt), run as a black box; larmorx's clean-room original (`lx.mri.hmc`, experimental) at commit `ed522504f95c`; the replica (larmorx-nc 0.0.1, `lx.mri.hmc(implementation=\"replica\")`) at commit `d6ba67e5ccc3`"
     },
     {
      "label": "Volumes",
@@ -13193,7 +13371,7 @@
    "provenance": [
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: BOLD (sha256 609ae0a21822318f…); HMC reference (sha256 5030b453bcc3bbd4…)",
-    "Runs: figures cache entry `mri-hmc/fmriprep-ds000005-run-01`, computed 2026-10-21T15:08:32+00:00 with larmorx `1dfe56c0dc60`; FSL 6.0.7.17 (mcflirt); every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `mri-hmc/fmriprep-ds000005-run-01`, computed 2026-10-21T15:08:32+00:00 with larmorx `ed522504f95c`; FSL 6.0.7.17 (mcflirt); every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Inputs: BOLD (sha256 609ae0a21822318f…); HMC reference (sha256 5030b453bcc3bbd4…)",
     "Runs: figures cache entry `mri-hmc/fmriprep-ds000005-run-01-replica`, computed 2026-10-24T19:03:54+00:00 with larmorx `d6ba67e5ccc3`; larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Inputs: BOLD (sha256 609ae0a21822318f…); HMC reference (sha256 5030b453bcc3bbd4…)",
