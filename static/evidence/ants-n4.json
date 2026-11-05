@@ -3480,7 +3480,7 @@
    "id": "panel/fmriprep/ds004958-sub-fsm64ps/bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the oracle run ds004958-sub-fsm64ps (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image /home/karelo/VScode_projects/super_fmriprep/oracles/bids-views/ds004958/sub-fsm64ps/func/sub-fsm64ps_task-rest_sbref.nii.gz --output sub-fsm64ps_task-rest_sbref_corrected.nii.gz -r --weight-image <fMRIPrep oracle run>/ds004958-sub-fsm64ps-noreconall/work/fmriprep_25_2_wf/sub_fsm64ps_wf/bold_task_rest_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image <workspace>/oracles/bids-views/ds004958/sub-fsm64ps/func/sub-fsm64ps_task-rest_sbref.nii.gz --output sub-fsm64ps_task-rest_sbref_corrected.nii.gz -r --weight-image <fMRIPrep oracle run>/ds004958-sub-fsm64ps-noreconall/work/fmriprep_25_2_wf/sub_fsm64ps_wf/bold_task_rest_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz",
    "results": {
     "port": {
      "outcome": "pass",
