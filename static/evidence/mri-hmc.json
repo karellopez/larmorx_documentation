@@ -3,7 +3,7 @@
  "tool": "mri-hmc",
  "title": "Head-motion correction",
  "provenance": {
-  "exporter": "cbd641b25f4a697b7addcaecf378bbe49089e7c6",
+  "exporter": "75a57ea7e021285f7ca445038907808536d8f4ba",
   "records": [
    {
     "path": "docs/validation/mri-hmc.json",
@@ -6427,7 +6427,6 @@
    "rows": [
     {
      "head": "The registrations of small phantoms with large motions end elsewhere than mcflirt's, as well aligned: 400 sampled findings measured (hmc_alignment.py: the corrected series' temporal standard deviation in the phantom, LARMORX's over mcflirt's, in reproduce mode as the trial compares): median 1.000, 5 and 95 % quantiles 0.933 and 1.041, 279 within 1 %, 67 lower, 54 higher (mcflirt's own residual against the input's: median 1.41); in 4,065 of them mcflirt's run also lacks its empty .mat directory (the class below). The default mode's ratio has a longer tail (above 1.05 in 102 of the 400), for the head-motion correction's next part",
-     "verdict": "within-variability",
      "cells": [
       {
        "v": 49383,
@@ -6439,18 +6438,18 @@
       {
        "text": "20261030-00000-original"
       }
-     ]
+     ],
+     "verdict": "within-variability"
     },
     {
      "head": "Only the files written differ: runs with -rmsrel or -rmsabs without -mats, where mcflirt makes an empty .mat directory (FSL-13) and its run was served by the oracle cache, which keeps a run's files and not its empty directories (the trial's first run, mcflirt live, had none of them): the harness's, fixed in the descriptor (such mcflirt runs go live, validation/tests/test_mri_hmc_descriptor.py); four replayed: the files agree",
-     "verdict": "both-reject",
      "cells": [
       {
        "v": 2298,
        "fmt": "count"
       },
       {
-       "verdict": "both-reject"
+       "text": "the harness's, fixed: the files agree on replay"
       },
       {
        "text": "20261030-00007-original"
