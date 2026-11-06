@@ -480,9 +480,9 @@
      "label": "larmorx-nc replica",
      "record": "docs/validation/fsl-topup-replica.md",
      "status": "experimental",
-     "cases": 176,
+     "cases": 177,
      "verdicts": {
-      "bit-identical": 106,
+      "bit-identical": 107,
       "divergence": 3,
       "both-reject": 67
      },
@@ -553,6 +553,25 @@
    ]
   },
   {
+   "page": "/tools/fsl-prelude/",
+   "title": "prelude",
+   "eco": "fsl",
+   "implementations": [
+    {
+     "label": "larmorx-nc replica",
+     "record": "docs/validation/fsl-prelude-replica.md",
+     "status": "experimental",
+     "cases": 88,
+     "verdicts": {
+      "bit-identical": 67,
+      "divergence": 1,
+      "both-reject": 20
+     },
+     "source": "evidence"
+    }
+   ]
+  },
+  {
    "page": "/tools/resample-series/",
    "title": "One-shot BOLD resampler",
    "eco": "larmorx",
@@ -608,6 +627,7 @@
   "fsl-fast",
   "fsl-flirt",
   "fsl-maths",
+  "fsl-prelude",
   "fsl-stats",
   "fsl-topup",
   "itk-hdf5",
