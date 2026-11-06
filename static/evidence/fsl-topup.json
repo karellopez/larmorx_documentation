@@ -3,19 +3,19 @@
  "tool": "fsl-topup",
  "title": "topup and applytopup",
  "provenance": {
-  "exporter": "874650188da74dab585be98528922fe6ec486278",
+  "exporter": "7eaec4394e9c196cb106dfef669e0e201e4ccba8",
   "records": [
    {
     "path": "docs/validation/fsl-topup-replica.json",
-    "sha256": "1651ca33255cc2be24ef81fe8694d08e2252f005376dddb26d9b82f54a8efd63",
-    "generated": "2026-11-03",
-    "larmorx_commit": "53796ce0a606"
+    "sha256": "a40497763cd8256d4e17de48890c94edab967cc1e3355ad95cd3192c4c74880d",
+    "generated": "2026-11-06",
+    "larmorx_commit": "868c1fce14ec"
    },
    {
     "path": "docs/validation/fsl-topup-replica.md",
-    "sha256": "053003c7631a2ead2e027a0cb11d05a82fd622fb53839cbd816eb52341de5b24",
-    "generated": "2026-11-03",
-    "larmorx_commit": "53796ce0a606"
+    "sha256": "32eb00f54c7744503b0e96bcf7eac973e086bdda433dce3c0671f938772219a0",
+    "generated": "2026-11-06",
+    "larmorx_commit": "868c1fce14ec"
    },
    {
     "path": "docs/validation/fsl-topup.json",
@@ -43,7 +43,7 @@
     "entry": "fsl-topup/fmriprep-ds005040-sub-002-noreconall",
     "description": "fMRIPrep's topup call of ds005040-sub-002-noreconall: FSL 6.0.7.23 at one thread (the record's run, from the oracle cache) and four, and the replica, reproduce and default modes",
     "computed": "2026-11-03T06:22:09+00:00",
-    "larmorx_commit": "3b65d4eeb6c75c678a07554682b9f50aefdf3cdb",
+    "larmorx_commit": "b2a352b8b3ba1bf931beb958fd5d6df8c4221e81",
     "commands": [
      {
       "label": "fsl",
@@ -158,7 +158,7 @@
      {
       "label": "replica-fix",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--config=b02b0.cnf",
@@ -182,7 +182,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 32.35
+      "seconds": 29.96
      }
     ],
     "versions": {
@@ -195,7 +195,7 @@
     "entry": "fsl-topup/fmriprep-ds001600-sub-1-noreconall",
     "description": "fMRIPrep's topup call of ds001600-sub-1-noreconall: FSL 6.0.7.23 at one thread (the record's run, from the oracle cache) and four, and the replica, reproduce and default modes",
     "computed": "2026-11-03T06:24:18+00:00",
-    "larmorx_commit": "3b65d4eeb6c75c678a07554682b9f50aefdf3cdb",
+    "larmorx_commit": "b2a352b8b3ba1bf931beb958fd5d6df8c4221e81",
     "commands": [
      {
       "label": "fsl",
@@ -310,7 +310,7 @@
      {
       "label": "replica-fix",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--config=b02b0.cnf",
@@ -334,7 +334,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 82.52
+      "seconds": 72.29
      }
     ],
     "versions": {
@@ -347,7 +347,7 @@
     "entry": "fsl-topup/opt-membrane-lm",
     "description": "The record's case opt/membrane-lm: FSL 6.0.7.23 (from the oracle cache) and the replica",
     "computed": "2026-11-03T06:20:34+00:00",
-    "larmorx_commit": "3b65d4eeb6c75c678a07554682b9f50aefdf3cdb",
+    "larmorx_commit": "b2a352b8b3ba1bf931beb958fd5d6df8c4221e81",
     "commands": [
      {
       "label": "fsl",
@@ -404,7 +404,7 @@
      {
       "label": "replica-fix",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -427,7 +427,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.46
+      "seconds": 0.42
      }
     ],
     "versions": {
@@ -440,7 +440,7 @@
     "entry": "fsl-topup/opt-levels",
     "description": "The record's case opt/levels: FSL 6.0.7.23 (from the oracle cache) and the replica",
     "computed": "2026-11-03T22:11:09+00:00",
-    "larmorx_commit": "3b65d4eeb6c75c678a07554682b9f50aefdf3cdb",
+    "larmorx_commit": "b2a352b8b3ba1bf931beb958fd5d6df8c4221e81",
     "commands": [
      {
       "label": "fsl",
@@ -513,7 +513,7 @@
      {
       "label": "replica-fix",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -557,7 +557,7 @@
     "entry": "fsl-topup/at-lsr-y",
     "description": "The record's case at/lsr-y: FSL 6.0.7.23 (from the oracle cache) and the replica",
     "computed": "2026-11-03T06:20:35+00:00",
-    "larmorx_commit": "3b65d4eeb6c75c678a07554682b9f50aefdf3cdb",
+    "larmorx_commit": "b2a352b8b3ba1bf931beb958fd5d6df8c4221e81",
     "commands": [
      {
       "label": "fsl",
@@ -606,7 +606,7 @@
      {
       "label": "replica-fix",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -625,7 +625,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.12
+      "seconds": 0.1
      }
     ],
     "versions": {
@@ -638,7 +638,7 @@
     "entry": "fsl-topup/at-jac-y",
     "description": "The record's case at/jac-y: FSL 6.0.7.23 (from the oracle cache) and the replica",
     "computed": "2026-11-03T06:20:35+00:00",
-    "larmorx_commit": "3b65d4eeb6c75c678a07554682b9f50aefdf3cdb",
+    "larmorx_commit": "b2a352b8b3ba1bf931beb958fd5d6df8c4221e81",
     "commands": [
      {
       "label": "fsl",
@@ -689,7 +689,7 @@
      {
       "label": "replica-fix",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -709,7 +709,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.01
      }
     ],
     "versions": {
@@ -722,7 +722,7 @@
     "entry": "fsl-topup/at-vb3d-y",
     "description": "The record's case at/vb3d-y: FSL 6.0.7.23 (from the oracle cache) and the replica",
     "computed": "2026-11-03T06:20:43+00:00",
-    "larmorx_commit": "3b65d4eeb6c75c678a07554682b9f50aefdf3cdb",
+    "larmorx_commit": "b2a352b8b3ba1bf931beb958fd5d6df8c4221e81",
     "commands": [
      {
       "label": "fsl",
@@ -773,7 +773,7 @@
      {
       "label": "replica-fix",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -793,7 +793,7 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 4.6
+      "seconds": 4.19
      }
     ],
     "versions": {
@@ -805,13 +805,13 @@
    {
     "entry": "fsl-topup/cases-default-mode",
     "description": "The replica's default mode on every case of the record: its exit status and the entries it names",
-    "computed": "2026-11-03T22:06:28+00:00",
-    "larmorx_commit": "3b65d4eeb6c75c678a07554682b9f50aefdf3cdb",
+    "computed": "2026-11-06T20:00:50+00:00",
+    "larmorx_commit": "b2a352b8b3ba1bf931beb958fd5d6df8c4221e81",
     "commands": [
      {
       "label": "fmriprep-ds001600-sub-1-noreconall",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--config=b02b0.cnf",
@@ -835,12 +835,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 79.22
+      "seconds": 76.62
      },
      {
       "label": "fmriprep-ds005040-sub-002-noreconall",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--config=b02b0.cnf",
@@ -864,12 +864,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 29.91
+      "seconds": 30.2
      },
      {
       "label": "debug-one-level",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=sub-002_dir-A_epi_average_merged_sliced_volreg.nii.gz",
@@ -903,12 +903,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 1.19
+      "seconds": 1.26
      },
      {
       "label": "debug-movements",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=sub-002_dir-A_epi_average_merged_sliced_volreg.nii.gz",
@@ -936,12 +936,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 1.19
+      "seconds": 1.21
      },
      {
       "label": "debug-hessian",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -967,7 +967,7 @@
      {
       "label": "debug-trace",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -992,12 +992,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.33
+      "seconds": 0.34
      },
      {
       "label": "debug-profile",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1027,7 +1027,7 @@
      {
       "label": "opt-defaults",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1049,7 +1049,7 @@
      {
       "label": "opt-levels",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1080,12 +1080,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.34
+      "seconds": 0.28
      },
      {
       "label": "opt-numprec-float",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1108,12 +1108,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.36
+      "seconds": 0.43
      },
      {
       "label": "opt-interp-linear",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1136,12 +1136,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.27
+      "seconds": 0.28
      },
      {
       "label": "opt-membrane-lm",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1164,12 +1164,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.41
+      "seconds": 0.35
      },
      {
       "label": "opt-membrane-scg",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1194,12 +1194,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.19
+      "seconds": 0.26
      },
      {
       "label": "opt-splineorder-2",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1227,7 +1227,7 @@
      {
       "label": "opt-fsl145-short-axis",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1256,7 +1256,7 @@
      {
       "label": "opt-fsl145-one-coefficient",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1286,7 +1286,7 @@
      {
       "label": "opt-scale",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1314,7 +1314,7 @@
      {
       "label": "opt-ssqlambda-0",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1341,7 +1341,7 @@
      {
       "label": "opt-regrid-0",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1372,7 +1372,7 @@
      {
       "label": "opt-scg",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1395,12 +1395,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.26
+      "seconds": 0.19
      },
      {
       "label": "opt-scg-movements",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1424,12 +1424,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.19
+      "seconds": 0.27
      },
      {
       "label": "opt-acqp",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1455,7 +1455,7 @@
      {
       "label": "opt-datain-transposed",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1476,12 +1476,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.42
+      "seconds": 0.35
      },
      {
       "label": "opt-x-phase-encoding",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=xhalf.nii.gz",
@@ -1506,12 +1506,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.37
+      "seconds": 0.43
      },
      {
       "label": "opt-four-volumes",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=four.nii.gz",
@@ -1541,7 +1541,7 @@
      {
       "label": "opt-fsl146-four-axes",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=four.nii.gz",
@@ -1564,12 +1564,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.77
+      "seconds": 0.7
      },
      {
       "label": "opt-oblique-phase-encoding",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1592,12 +1592,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.68
+      "seconds": 0.73
      },
      {
       "label": "opt-readout-times",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1624,7 +1624,7 @@
      {
       "label": "opt-zero-readout",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1647,12 +1647,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.36
+      "seconds": 0.37
      },
      {
       "label": "opt-same-direction",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1674,12 +1674,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.42
+      "seconds": 0.37
      },
      {
       "label": "opt-z-phase-encoding",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1705,7 +1705,7 @@
      {
       "label": "opt-int16",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half_i16.nii.gz",
@@ -1727,12 +1727,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.35
+      "seconds": 0.43
      },
      {
       "label": "opt-one-volume",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=one.nii.gz",
@@ -1753,12 +1753,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 2.04
+      "seconds": 2.01
      },
      {
       "label": "opt-no-out",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1783,7 +1783,7 @@
      {
       "label": "opt-intent",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half_intent.nii.gz",
@@ -1811,7 +1811,7 @@
      {
       "label": "opt-nifti",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1833,12 +1833,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.36
+      "seconds": 0.35
      },
      {
       "label": "opt-nifti2",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1861,12 +1861,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.46
+      "seconds": 0.36
      },
      {
       "label": "opt-nifti-pair",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1888,12 +1888,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.4
+      "seconds": 0.42
      },
      {
       "label": "opt-iout-extension",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1915,12 +1915,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.41
+      "seconds": 0.36
      },
      {
       "label": "opt-nthr-0",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1942,12 +1942,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.47
+      "seconds": 0.43
      },
      {
       "label": "opt-warpres-0",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1968,12 +1968,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.19
+      "seconds": 0.15
      },
      {
       "label": "opt-lambda-negative",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -1999,7 +1999,7 @@
      {
       "label": "opt-fwhm-negative",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2025,7 +2025,7 @@
      {
       "label": "opt-warpres-negative",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2050,7 +2050,7 @@
      {
       "label": "cfg-b02b0",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2071,12 +2071,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.63
+      "seconds": 0.49
      },
      {
       "label": "cfg-b02b0_1",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2097,12 +2097,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 1.51
+      "seconds": 1.36
      },
      {
       "label": "cfg-b02b0_2",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2123,12 +2123,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.63
+      "seconds": 0.48
      },
      {
       "label": "cfg-b02b0_4",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2154,7 +2154,7 @@
      {
       "label": "cfg-b02b0_7T",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2175,12 +2175,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.73
+      "seconds": 0.57
      },
      {
       "label": "cfg-test_acqp",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2206,7 +2206,7 @@
      {
       "label": "cfg-b02b0-extension",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2225,12 +2225,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.62
+      "seconds": 0.55
      },
      {
       "label": "cfg-local",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2254,7 +2254,7 @@
      {
       "label": "cfg-local-no-extension",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2273,12 +2273,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.27
+      "seconds": 0.25
      },
      {
       "label": "cfg-command-line-wins",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2303,7 +2303,7 @@
      {
       "label": "cfg-directory",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2327,7 +2327,7 @@
      {
       "label": "cfg-not-found",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2350,7 +2350,7 @@
      {
       "label": "cfg-not-found-path",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2373,7 +2373,7 @@
      {
       "label": "cfg-fsldir-unset",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2395,7 +2395,7 @@
      {
       "label": "cfg-bad-option",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2418,7 +2418,7 @@
      {
       "label": "cfg-long-line",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2437,12 +2437,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.29
+      "seconds": 0.3
      },
      {
       "label": "err-no-arguments",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup"
       ],
@@ -2461,7 +2461,7 @@
      {
       "label": "err-help",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "-h"
@@ -2481,7 +2481,7 @@
      {
       "label": "err-help-long",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2503,7 +2503,7 @@
      {
       "label": "err-unknown-option",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2525,7 +2525,7 @@
      {
       "label": "err-missing-value",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain"
@@ -2545,7 +2545,7 @@
      {
       "label": "err-no-imain",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--datain=acq.txt"
@@ -2565,7 +2565,7 @@
      {
       "label": "err-imain-missing",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=nothere.nii.gz",
@@ -2586,7 +2586,7 @@
      {
       "label": "err-imain-text",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=acq.txt",
@@ -2607,7 +2607,7 @@
      {
       "label": "err-datain-and-acqp",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2629,7 +2629,7 @@
      {
       "label": "err-no-datain",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz"
@@ -2649,7 +2649,7 @@
      {
       "label": "err-datain-missing",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2670,7 +2670,7 @@
      {
       "label": "err-datain-five-columns",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2691,7 +2691,7 @@
      {
       "label": "err-datain-text",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2712,7 +2712,7 @@
      {
       "label": "err-datain-norm",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2733,7 +2733,7 @@
      {
       "label": "err-datain-rows",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2754,7 +2754,7 @@
      {
       "label": "err-acqp-rows",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2775,7 +2775,7 @@
      {
       "label": "err-readout-long",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2796,7 +2796,7 @@
      {
       "label": "err-readout-two-zero",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2817,7 +2817,7 @@
      {
       "label": "err-levels-subsamp",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2841,7 +2841,7 @@
      {
       "label": "err-levels-minmet",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2865,7 +2865,7 @@
      {
       "label": "err-minmet-2",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2888,7 +2888,7 @@
      {
       "label": "err-subsamp-incompatible",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2911,7 +2911,7 @@
      {
       "label": "err-subsamp-0",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2934,7 +2934,7 @@
      {
       "label": "err-subsamp-mixed",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=crop.nii.gz",
@@ -2959,7 +2959,7 @@
      {
       "label": "err-numprec",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -2982,7 +2982,7 @@
      {
       "label": "err-regmod",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -3005,7 +3005,7 @@
      {
       "label": "err-interp",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -3028,7 +3028,7 @@
      {
       "label": "err-splineorder-4",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -3051,7 +3051,7 @@
      {
       "label": "err-splineorder-negative",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -3074,7 +3074,7 @@
      {
       "label": "err-debug-4",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -3101,7 +3101,7 @@
      {
       "label": "err-debug-negative",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -3128,7 +3128,7 @@
      {
       "label": "err-miter-negative",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -3153,7 +3153,7 @@
      {
       "label": "err-out-no-directory",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -3174,12 +3174,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 1,
-      "seconds": 0.42
+      "seconds": 0.43
      },
      {
       "label": "err-iout-no-directory",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -3206,7 +3206,7 @@
      {
       "label": "err-logout-no-directory",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -3228,12 +3228,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.42
+      "seconds": 0.43
      },
      {
       "label": "err-rbmout-no-directory",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -3255,12 +3255,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.35
+      "seconds": 0.36
      },
      {
       "label": "err-profile-no-directory",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -3287,7 +3287,7 @@
      {
       "label": "err-outputtype-invalid",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -3314,7 +3314,7 @@
      {
       "label": "err-outputtype-unset",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -3340,7 +3340,7 @@
      {
       "label": "thr-nthr-4",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -3367,12 +3367,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.2
+      "seconds": 0.19
      },
      {
       "label": "thr-fsl-num-threads",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -3401,7 +3401,7 @@
      {
       "label": "thr-openblas",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "topup",
        "--imain=half.nii.gz",
@@ -3428,12 +3428,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 0.22
+      "seconds": 0.23
      },
      {
       "label": "at-lsr-y",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -3457,7 +3457,7 @@
      {
       "label": "at-lsr-4d",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=dwi_up.nii.gz,dwi_dn.nii.gz",
@@ -3481,7 +3481,7 @@
      {
       "label": "at-lsr-x",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=xhalf_up.nii.gz,xhalf_dn.nii.gz",
@@ -3505,7 +3505,7 @@
      {
       "label": "at-lsr-four",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=four_0.nii.gz,four_1.nii.gz,four_2.nii.gz,four_3.nii.gz",
@@ -3529,7 +3529,7 @@
      {
       "label": "at-lsr-three",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz,half_up.nii.gz",
@@ -3553,7 +3553,7 @@
      {
       "label": "at-lsr-trilinear",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -3578,7 +3578,7 @@
      {
       "label": "at-lsr-crop",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=crop_up.nii.gz,crop_dn.nii.gz",
@@ -3602,7 +3602,7 @@
      {
       "label": "at-lsr-zero-field",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -3626,7 +3626,7 @@
      {
       "label": "at-vb2d-y",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -3646,12 +3646,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 7.53
+      "seconds": 7.39
      },
      {
       "label": "at-vb3d-y",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -3671,12 +3671,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 4.22
+      "seconds": 4.07
      },
      {
       "label": "at-vb4d-y",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -3696,12 +3696,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 4.15
+      "seconds": 4.12
      },
      {
       "label": "at-lsr-long",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=long_up.nii.gz,long_dn.nii.gz",
@@ -3726,7 +3726,7 @@
      {
       "label": "at-vb2d-long",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=long_up.nii.gz,long_dn.nii.gz",
@@ -3746,12 +3746,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 22.29
+      "seconds": 22.35
      },
      {
       "label": "at-vb3d-long",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=long_up.nii.gz,long_dn.nii.gz",
@@ -3771,12 +3771,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 12.28
+      "seconds": 12.56
      },
      {
       "label": "at-vb4d-long",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=long_up.nii.gz,long_dn.nii.gz",
@@ -3796,12 +3796,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 12.24
+      "seconds": 12.44
      },
      {
       "label": "at-vb3d-4d",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=dwi_up.nii.gz,dwi_dn.nii.gz",
@@ -3822,12 +3822,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 8.17
+      "seconds": 8.23
      },
      {
       "label": "at-vb4d-4d",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=dwi_up.nii.gz,dwi_dn.nii.gz",
@@ -3848,12 +3848,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 4.38
+      "seconds": 4.56
      },
      {
       "label": "at-vb2d-x",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=xhalf_up.nii.gz,xhalf_dn.nii.gz",
@@ -3873,12 +3873,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 7.52
+      "seconds": 7.58
      },
      {
       "label": "at-vb3d-x",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=xhalf_up.nii.gz,xhalf_dn.nii.gz",
@@ -3898,12 +3898,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 4.29
+      "seconds": 4.36
      },
      {
       "label": "at-vb3d-aniso",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up_aniso.nii.gz,half_up_aniso.nii.gz",
@@ -3923,12 +3923,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 4.12
+      "seconds": 4.37
      },
      {
       "label": "at-vb2d-aniso",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up_aniso.nii.gz,half_up_aniso.nii.gz",
@@ -3948,12 +3948,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 7.61
+      "seconds": 7.79
      },
      {
       "label": "at-vb4d-four",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=four_0.nii.gz,four_1.nii.gz,four_2.nii.gz,four_3.nii.gz",
@@ -3973,12 +3973,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 8.48
+      "seconds": 8.66
      },
      {
       "label": "at-vb3d-three",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz,half_up.nii.gz",
@@ -3998,12 +3998,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 4.25
+      "seconds": 4.09
      },
      {
       "label": "at-vb2d-three",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz,half_up.nii.gz",
@@ -4023,12 +4023,12 @@
        "OMP_NUM_THREADS": "4"
       },
       "exit": 0,
-      "seconds": 7.55
+      "seconds": 7.52
      },
      {
       "label": "at-vb-one-direction",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_up.nii.gz",
@@ -4053,7 +4053,7 @@
      {
       "label": "at-vb-no-movements",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -4078,7 +4078,7 @@
      {
       "label": "at-vb-other-grid",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=crop_up.nii.gz,crop_dn.nii.gz",
@@ -4103,7 +4103,7 @@
      {
       "label": "at-jac-y",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -4128,7 +4128,7 @@
      {
       "label": "at-jac-pair",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -4153,7 +4153,7 @@
      {
       "label": "at-jac-4d",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=dwi_up.nii.gz",
@@ -4178,7 +4178,7 @@
      {
       "label": "at-jac-trilinear",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -4205,7 +4205,7 @@
      {
       "label": "at-jac-x",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=xhalf_dn.nii.gz",
@@ -4230,7 +4230,7 @@
      {
       "label": "at-jac-quadratic",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -4255,7 +4255,7 @@
      {
       "label": "at-jac-field",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -4280,7 +4280,7 @@
      {
       "label": "at-jac-field-aniso",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up_aniso.nii.gz",
@@ -4303,9 +4303,34 @@
       "seconds": 0.03
      },
      {
+      "label": "at-jac-coef-aniso",
+      "argv": [
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
+       "fsl",
+       "applytopup",
+       "--imain=half_up_aniso.nii.gz",
+       "--inindex=1",
+       "--datain=acq.txt",
+       "--topup=tu",
+       "--out=hifi",
+       "--method=jac"
+      ],
+      "env": {
+       "HOME": "~",
+       "PATH": "/usr/bin:/bin",
+       "FSLDIR": "~/fsl-6.0.7.23",
+       "FSLOUTPUTTYPE": "NIFTI_GZ",
+       "OPENBLAS_CORETYPE": "Haswell",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "OMP_NUM_THREADS": "4"
+      },
+      "exit": 0,
+      "seconds": 0.01
+     },
+     {
       "label": "at-jac-no-movpar",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -4330,7 +4355,7 @@
      {
       "label": "at-jac-oblique",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -4355,7 +4380,7 @@
      {
       "label": "at-jac-z",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -4380,7 +4405,7 @@
      {
       "label": "at-datatype-preserve",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -4406,7 +4431,7 @@
      {
       "label": "at-datatype-char",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -4432,7 +4457,7 @@
      {
       "label": "at-datatype-short",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -4458,7 +4483,7 @@
      {
       "label": "at-datatype-int",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -4484,7 +4509,7 @@
      {
       "label": "at-datatype-float",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -4510,7 +4535,7 @@
      {
       "label": "at-datatype-double",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -4536,7 +4561,7 @@
      {
       "label": "at-datatype-preserve-int16",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up_i16.nii.gz",
@@ -4563,7 +4588,7 @@
      {
       "label": "at-datatype-preserve-int8",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up_i8.nii.gz",
@@ -4589,7 +4614,7 @@
      {
       "label": "at-short-options",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "-i",
@@ -4621,7 +4646,7 @@
      {
       "label": "at-nifti",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -4646,7 +4671,7 @@
      {
       "label": "at-no-arguments",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup"
       ],
@@ -4665,7 +4690,7 @@
      {
       "label": "at-help",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "-h"
@@ -4685,7 +4710,7 @@
      {
       "label": "at-unknown-option",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -4710,7 +4735,7 @@
      {
       "label": "at-invert",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -4735,7 +4760,7 @@
      {
       "label": "at-missing-out",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -4758,7 +4783,7 @@
      {
       "label": "at-interp-unknown",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -4783,7 +4808,7 @@
      {
       "label": "at-lists-mismatch",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -4807,7 +4832,7 @@
      {
       "label": "at-datatype-unknown",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -4833,7 +4858,7 @@
      {
       "label": "at-datatype-preserve-missing",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=nothere.nii.gz",
@@ -4858,7 +4883,7 @@
      {
       "label": "at-imain-missing",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=nothere.nii.gz",
@@ -4882,7 +4907,7 @@
      {
       "label": "at-images-mismatch",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,crop_dn.nii.gz",
@@ -4906,7 +4931,7 @@
      {
       "label": "at-datain-missing",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -4930,7 +4955,7 @@
      {
       "label": "at-datain-norm",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -4954,7 +4979,7 @@
      {
       "label": "at-inindex-zero",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -4978,7 +5003,7 @@
      {
       "label": "at-inindex-beyond",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -5002,7 +5027,7 @@
      {
       "label": "at-topup-extension",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -5026,7 +5051,7 @@
      {
       "label": "at-topup-missing",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -5050,7 +5075,7 @@
      {
       "label": "at-lsr-oblique",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -5074,7 +5099,7 @@
      {
       "label": "at-lsr-same",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -5098,7 +5123,7 @@
      {
       "label": "at-lsr-one",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -5122,7 +5147,7 @@
      {
       "label": "at-outputtype-invalid",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz",
@@ -5147,7 +5172,7 @@
      {
       "label": "at-method-unknown",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -5172,7 +5197,7 @@
      {
       "label": "at-lsr-no-movements",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up.nii.gz,half_dn.nii.gz",
@@ -5196,7 +5221,7 @@
      {
       "label": "at-jac-other-grid",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=crop_up.nii.gz",
@@ -5221,7 +5246,7 @@
      {
       "label": "at-jac-other-shape",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=half_up_64x16.nii.gz",
@@ -5246,7 +5271,7 @@
      {
       "label": "at-lsr-other-grid",
       "argv": [
-       "<larmorx>/crates-nc/target/release/larmorx-nc",
+       "<scratch>/prelude-1/target-nc/release/larmorx-nc",
        "fsl",
        "applytopup",
        "--imain=crop_up.nii.gz,crop_dn.nii.gz",
@@ -5950,9 +5975,9 @@
    "record": "docs/validation/fsl-topup-replica.md",
    "status": "experimental",
    "summary": {
-    "cases": 176,
+    "cases": 177,
     "verdicts": {
-     "bit-identical": 106,
+     "bit-identical": 107,
      "both-reject": 67,
      "divergence": 3
     }
@@ -6001,7 +6026,7 @@
     {
      "category": "at",
      "counts": {
-      "bit-identical": 47,
+      "bit-identical": 48,
       "divergence": 2,
       "both-reject": 25
      }
@@ -8826,14 +8851,28 @@
     "replica": {
      "outcome": "pass",
      "verdict": "bit-identical",
-     "checks": "6/6",
-     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-132, FSL-134 and names it: 20,480 values change"
+     "checks": "7/7",
+     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-132, FSL-134, FSL-273 and names it: 20,480 values change"
     },
     "original": {
      "outcome": "pass",
      "verdict": "open",
      "checks": "8/8",
      "reason": "Within the record's thresholds (specs/topup.md §12): hifi (applytopup's output): relative difference inside the brain, 99th percentile 1.01e-06 (§12: 0.001); hifi (applytopup's output): mean |d| / mean intensity inside the brain 8.36e-08 (§12: 0.001). 1 of 1 files differ in their values (most: `hifi.nii.gz`: 12,694 of 20,480 values, at most 0.0781): the clean-room original computes in its own order of operations (written from the specification, not from FSL's code). FSL's own band is not measured on this case (its thread band is, on fMRIPrep's calls); in its default mode the clean-room original corrects FSL-132 and names it: 20,480 values change."
+    }
+   }
+  },
+  {
+   "id": "at/jac-coef-aniso",
+   "category": "at",
+   "description": "topup's coefficients (a field of 6 x 6 mm voxels in plane) on images of 6 x 4 mm voxels of the same shape: FSL scales the Jacobian's y term by 4/6 (FSL-273)",
+   "command": "applytopup --imain=<half_up_aniso.nii.gz: derived from ds005040's fMRIPrep pair> --inindex=1 --datain=<acq.txt: acquisition parameters written by the suite> --topup=tu --out=hifi --method=jac (tu_*: FSL's topup outputs of the case opt/levels)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "every file FSL writes (6/6) byte for byte, with FSL's exit status and messages; in its default mode the replica corrects FSL-132, FSL-273 and names it: 20,480 values change"
     }
    }
   },
@@ -9744,7 +9783,7 @@
    }
   }
  ],
- "cases_total": 185,
+ "cases_total": 186,
  "speed": {
   "title": "Seconds for the whole call (read the images, estimate or restore, write every output), one run each, log scale; the factor is the clean-room original's speed-up over FSL, both at one thread",
   "axis": [
@@ -10580,7 +10619,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it; at --nthr=4 run through it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b65d4eeb6c7`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `92098004ac10`"
+     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it; at --nthr=4 run through it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `b2a352b8b3ba`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `92098004ac10`"
     },
     {
      "label": "Displacements",
@@ -14912,7 +14951,7 @@
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: merged reversed-phase-encoding pair (sha256 69ae4ec0347584a3…); b02b0.cnf (sha256 034f7c42027e500d…); brain mask (sha256 6f66568a84cafa3c…)",
-    "Runs: figures cache entry `fsl-topup/fmriprep-ds005040-sub-002-noreconall`, computed 2026-11-03T06:22:09+00:00 with larmorx `3b65d4eeb6c7`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `fsl-topup/fmriprep-ds005040-sub-002-noreconall`, computed 2026-11-03T06:22:09+00:00 with larmorx `b2a352b8b3ba`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs: figures cache entry `fsl-topup/original-fmriprep-ds005040-sub-002-noreconall`, computed 2026-11-03T14:29:36+00:00 with larmorx `92098004ac10`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
@@ -14942,7 +14981,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it; at --nthr=4 run through it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b65d4eeb6c7`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `92098004ac10`"
+     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it; at --nthr=4 run through it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `b2a352b8b3ba`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `92098004ac10`"
     },
     {
      "label": "Displacements",
@@ -19268,7 +19307,7 @@
    "provenance": [
     "Data: OpenNeuro ds001600, sub-1, CC-BY-SA",
     "Inputs: merged reversed-phase-encoding pair (sha256 f573a275b924eebd…); b02b0.cnf (sha256 034f7c42027e500d…); brain mask (sha256 aa9f5a88e712a0ff…)",
-    "Runs: figures cache entry `fsl-topup/fmriprep-ds001600-sub-1-noreconall`, computed 2026-11-03T06:24:18+00:00 with larmorx `3b65d4eeb6c7`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `fsl-topup/fmriprep-ds001600-sub-1-noreconall`, computed 2026-11-03T06:24:18+00:00 with larmorx `b2a352b8b3ba`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs: figures cache entry `fsl-topup/original-fmriprep-ds001600-sub-1-noreconall`, computed 2026-11-03T14:29:51+00:00 with larmorx `92098004ac10`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
@@ -19294,7 +19333,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b65d4eeb6c7`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `92098004ac10`"
+     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `b2a352b8b3ba`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `92098004ac10`"
     },
     {
      "label": "Grid",
@@ -20002,7 +20041,7 @@
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: half.nii.gz (sha256 33b8882c4fc51ed3…)",
-    "Runs: figures cache entry `fsl-topup/opt-membrane-lm`, computed 2026-11-03T06:20:34+00:00 with larmorx `3b65d4eeb6c7`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `fsl-topup/opt-membrane-lm`, computed 2026-11-03T06:20:34+00:00 with larmorx `b2a352b8b3ba`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs: figures cache entry `fsl-topup/original-opt-membrane-lm`, computed 2026-11-03T14:29:52+00:00 with larmorx `92098004ac10`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
@@ -20028,7 +20067,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b65d4eeb6c7`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `92098004ac10`"
+     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `b2a352b8b3ba`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `92098004ac10`"
     },
     {
      "label": "Grid",
@@ -23454,7 +23493,7 @@
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: half.nii.gz (sha256 33b8882c4fc51ed3…)",
-    "Runs: figures cache entry `fsl-topup/opt-levels`, computed 2026-11-03T22:11:09+00:00 with larmorx `3b65d4eeb6c7`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `fsl-topup/opt-levels`, computed 2026-11-03T22:11:09+00:00 with larmorx `b2a352b8b3ba`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs: figures cache entry `fsl-topup/original-opt-levels`, computed 2026-11-03T22:11:10+00:00 with larmorx `92098004ac10`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
@@ -23480,7 +23519,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b65d4eeb6c7`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `92098004ac10`"
+     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `b2a352b8b3ba`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `92098004ac10`"
     },
     {
      "label": "Grid",
@@ -24122,7 +24161,7 @@
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: half_up.nii.gz (sha256 1ae5fd56967afd07…); half_dn.nii.gz (sha256 8e49385dc2270b50…); tu_field.nii.gz (sha256 d055f946cfb0adc9…); tu_fieldcoef.nii.gz (sha256 698a5839514d8d17…); tu_movpar.txt (sha256 9d69af8d9e2fd149…)",
-    "Runs: figures cache entry `fsl-topup/at-lsr-y`, computed 2026-11-03T06:20:35+00:00 with larmorx `3b65d4eeb6c7`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `fsl-topup/at-lsr-y`, computed 2026-11-03T06:20:35+00:00 with larmorx `b2a352b8b3ba`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs: figures cache entry `fsl-topup/original-at-lsr-y`, computed 2026-11-03T14:29:52+00:00 with larmorx `92098004ac10`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
@@ -24148,7 +24187,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b65d4eeb6c7`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `92098004ac10`"
+     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `b2a352b8b3ba`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `92098004ac10`"
     },
     {
      "label": "Grid",
@@ -24781,7 +24820,7 @@
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: half_up.nii.gz (sha256 1ae5fd56967afd07…); tu_field.nii.gz (sha256 d055f946cfb0adc9…); tu_fieldcoef.nii.gz (sha256 698a5839514d8d17…); tu_movpar.txt (sha256 9d69af8d9e2fd149…)",
-    "Runs: figures cache entry `fsl-topup/at-jac-y`, computed 2026-11-03T06:20:35+00:00 with larmorx `3b65d4eeb6c7`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `fsl-topup/at-jac-y`, computed 2026-11-03T06:20:35+00:00 with larmorx `b2a352b8b3ba`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs: figures cache entry `fsl-topup/original-at-jac-y`, computed 2026-11-03T14:29:52+00:00 with larmorx `92098004ac10`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
@@ -24807,7 +24846,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `3b65d4eeb6c7`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `92098004ac10`"
+     "text": "FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH) (its run served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `b2a352b8b3ba`; larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0), from larmorx at commit `92098004ac10`"
     },
     {
      "label": "Grid",
@@ -25463,7 +25502,7 @@
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: half_up.nii.gz (sha256 1ae5fd56967afd07…); half_dn.nii.gz (sha256 8e49385dc2270b50…); tu_field.nii.gz (sha256 d055f946cfb0adc9…); tu_fieldcoef.nii.gz (sha256 698a5839514d8d17…); tu_movpar.txt (sha256 9d69af8d9e2fd149…)",
-    "Runs: figures cache entry `fsl-topup/at-vb3d-y`, computed 2026-11-03T06:20:43+00:00 with larmorx `3b65d4eeb6c7`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `fsl-topup/at-vb3d-y`, computed 2026-11-03T06:20:43+00:00 with larmorx `b2a352b8b3ba`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Runs: figures cache entry `fsl-topup/original-at-vb3d-y`, computed 2026-11-03T14:29:52+00:00 with larmorx `92098004ac10`; FSL 6.0.7.23 (fsl-topup 2203.5; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room original, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
