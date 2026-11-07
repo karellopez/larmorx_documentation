@@ -8,7 +8,7 @@ lede: >-
   then an output. fMRIPrep calls it in every BOLD reference's brain mask and fourteen times in
   its optional goodvoxels mask. A clean-room original in LARMORX itself (Apache-2.0),
   experimental, written without FSL's code: FSL's files, messages and exit status bit for bit in
-  358 of its record's 442 cases, fMRIPrep's calls included, 15 more within the record's
+  370 of its record's 454 cases, fMRIPrep's calls included, 15 more within the record's
   thresholds and 6 expected divergences (63 rejected by both alike); on a real series, one call
   of fifteen differs, a large kernel FSL convolves by its single-precision FFT, where the
   original's double sums lie closer to the exact result; 1.8 to 28 times faster than FSL on one
@@ -56,7 +56,7 @@ The clean-room original is written without FSL's code, so the question for it is
 
 {{ ev.agreement('fsl-maths', 'original') }}
 
-The original's record runs 452 cases against FSL 6.0.7.23 ([the record](repo:docs/validation/fsl-maths.md)): the replica suite's cases, 18 of its own (`orig/`, ten of them since 2026-11-04) and 17 permanent cases of random testing. 368 give FSL's values in every file, with FSL's headers, messages and exit status (fMRIPrep's four `combine_masks` calls and the goodvoxels mask's fourteen among them, the `-s 5` at 3 × 3 × 3.3 mm too); 63 are rejected by both alike; 15 are within the thresholds without being bit for bit, each with its reason in the case explorer: FSL's FFT path on four kernels, `-subsamp2` and `-subsamp2offc` under the floating types (FSL's arithmetic there is a question for the specification), the double-precision `-ztop` and `-ranknorm` (the last bits of Φ and Φ<sup>−1</sup>), `-tensor_decomp`'s eigenvectors, the same up to their sign (FSL's signs are LAPACK's, the original's each one's largest component positive), and one `-roc` area 10<sup>−7</sup> from FSL's; and 6 are expected divergences: FSL's FFT path on 3 kernels and `-subsamp2offc`'s means on 2, within the sums' bound but not its share of voxels within 4 units in the last place, and `-dt double -tan` (GLIBC-07, [below](#glibc)). On the FFT cases the original lies as close to the exact result as FSL's single-precision FFT or closer ([findings 31](repo:docs/findings/fsl-maths-original.md)); before its double sums of 2026-11-04 two more of them were expected divergences, up to 2.6 × 10<sup>−6</sup> of FSL's largest value from FSL.
+The original's record runs 454 cases against FSL 6.0.7.23 ([the record](repo:docs/validation/fsl-maths.md), made again on 2026-11-07): the replica suite's cases, 18 of its own (`orig/`, ten of them since 2026-11-04) and 19 permanent cases of random testing (two since 2026-11-07: a series whose time step is 0 or negative, which FSL's image layer reads as its magnitude, and as 1 for a time step of 0, and every output keeps). 370 give FSL's values in every file, with FSL's headers, messages and exit status (fMRIPrep's four `combine_masks` calls and the goodvoxels mask's fourteen among them, the `-s 5` at 3 × 3 × 3.3 mm too); 63 are rejected by both alike; 15 are within the thresholds without being bit for bit, each with its reason in the case explorer: FSL's FFT path on four kernels, `-subsamp2` and `-subsamp2offc` under the floating types (FSL's arithmetic there is a question for the specification), the double-precision `-ztop` and `-ranknorm` (the last bits of Φ and Φ<sup>−1</sup>), `-tensor_decomp`'s eigenvectors, the same up to their sign (FSL's signs are LAPACK's, the original's each one's largest component positive), and one `-roc` area 10<sup>−7</sup> from FSL's; and 6 are expected divergences: FSL's FFT path on 3 kernels and `-subsamp2offc`'s means on 2, within the sums' bound but not its share of voxels within 4 units in the last place, and `-dt double -tan` (GLIBC-07, [below](#glibc)). On the FFT cases the original lies as close to the exact result as FSL's single-precision FFT or closer ([findings 31](repo:docs/findings/fsl-maths-original.md)); before its double sums of 2026-11-04 two more of them were expected divergences, up to 2.6 × 10<sup>−6</sup> of FSL's largest value from FSL.
 
 The replica is a translation of FSL's source, so the question for it is whether it gives FSL's bytes: every file fslmaths writes (each image's header and data), its standard output and error, and its exit status.
 
@@ -110,7 +110,7 @@ The clean-room original's trial drew the replica trial's chains again and more (
 
 ## Every case {#cases}
 
-Each case of both records, with what it tests, its command line, each implementation's verdict and the reason (the 25 cases only the clean-room original's record holds are its own: `orig/` and the permanent cases random testing gave it). Search, filter (or select a segment of the chart above), sort; `#case=<name>` links to one.
+Each case of both records, with what it tests, its command line, each implementation's verdict and the reason (the 37 cases only the clean-room original's record holds are its own: `orig/` and the permanent cases random testing gave it). Search, filter (or select a segment of the chart above), sort; `#case=<name>` links to one.
 
 {{ ev.cases('fsl-maths') }}
 

@@ -3,19 +3,19 @@
  "tool": "mri-hmc",
  "title": "Head-motion correction",
  "provenance": {
-  "exporter": "75a57ea7e021285f7ca445038907808536d8f4ba",
+  "exporter": "39216a1313d8bbb0d069db21c789822ae1cf8d51",
   "records": [
    {
     "path": "docs/validation/mri-hmc.json",
-    "sha256": "597207da989cab339c95210f03b2b67976ff992bd65b03abf9d518d84813e0cc",
-    "generated": "2026-11-05",
-    "larmorx_commit": "0842fbda23cd"
+    "sha256": "c6b5025abc32cbe94d79436ffcbe2e534ef1eeb51c57ca18d1fa7a56013b6d58",
+    "generated": "2026-11-07",
+    "larmorx_commit": "a3f1d343b8ec"
    },
    {
     "path": "docs/validation/mri-hmc.md",
-    "sha256": "4a41423926d6ddb4969e2910474271b27e9c7bbf68f459ee0ac6a5f0732ba777",
-    "generated": "2026-11-05",
-    "larmorx_commit": "0842fbda23cd"
+    "sha256": "cc7ebecc50b6ef0256eb3a9b25d99a0808a0d9b512585268c7f1c52680459e6b",
+    "generated": "2026-11-07",
+    "larmorx_commit": "a3f1d343b8ec"
    },
    {
     "path": "docs/validation/fsl-mcflirt-replica-full.json",
@@ -55,7 +55,7 @@
     "entry": "mri-hmc/fmriprep-ds000005-run-01",
     "description": "fMRIPrep's head-motion correction of ds000005 sub-01 run 1: FSL 6.0.7's mcflirt (and its perturbation band) and larmorx",
     "computed": "2026-10-21T15:08:32+00:00",
-    "larmorx_commit": "ed522504f95ce6342e3e55e0c0faffce6ce2f2be",
+    "larmorx_commit": "80cc208fa4a3888a65a6d17c6c638a43ab803257",
     "commands": [
      {
       "label": "mcflirt",
@@ -192,7 +192,7 @@
        "FSLOUTPUTTYPE": "NIFTI_GZ"
       },
       "exit": 0,
-      "seconds": 2.72
+      "seconds": 2.26
      },
      {
       "label": "larmorx-1",
@@ -216,7 +216,7 @@
        "OMP_NUM_THREADS": "1"
       },
       "exit": 0,
-      "seconds": 16.94
+      "seconds": 18.58
      },
      {
       "label": "larmorx-fix",
@@ -239,7 +239,7 @@
        "FSLOUTPUTTYPE": "NIFTI_GZ"
       },
       "exit": 0,
-      "seconds": 2.77
+      "seconds": 2.28
      }
     ],
     "versions": {
@@ -414,21 +414,21 @@
    "record": "docs/validation/mri-hmc.md",
    "status": "experimental",
    "summary": {
-    "cases": 169,
+    "cases": 170,
     "verdicts": {
-     "within-variability": 30,
-     "open": 116,
+     "within-variability": 33,
+     "open": 112,
      "both-reject": 20,
-     "divergence": 3
+     "divergence": 5
     }
    },
    "agreement": [
     {
      "category": "real",
      "counts": {
-      "within-variability": 24,
+      "within-variability": 26,
       "both-reject": 1,
-      "open": 5
+      "open": 3
      }
     },
     {
@@ -450,7 +450,8 @@
      "category": "synthetic/content",
      "counts": {
       "within-variability": 1,
-      "open": 5
+      "divergence": 1,
+      "open": 4
      }
     },
     {
@@ -469,16 +470,17 @@
     {
      "category": "synthetic/motion",
      "counts": {
-      "within-variability": 3,
+      "within-variability": 4,
       "divergence": 1,
       "both-reject": 4,
-      "open": 28
+      "open": 27
      }
     },
     {
      "category": "synthetic/orientation",
      "counts": {
-      "open": 6
+      "divergence": 1,
+      "open": 5
      }
     },
     {
@@ -491,7 +493,8 @@
     {
      "category": "difftest",
      "counts": {
-      "divergence": 2
+      "divergence": 2,
+      "open": 1
      }
     }
    ]
@@ -685,7 +688,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0212 mm, median Δ 0.0019 mm / 0.0028°; 1/240 matrices identical as text; mcflirt's own: 0.0219 mm, 0.00224 mm / 0.0035°"
+     "reason": "95th-percentile RMS deviation 0.0192 mm, median Δ 0.0012 mm / 0.0009°; 35/240 matrices identical as text; mcflirt's own: 0.0219 mm, 0.00224 mm / 0.0035°"
     },
     "replica": {
      "outcome": "pass",
@@ -711,7 +714,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "11/11",
-     "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text; mcflirt's own: 0.101 mm, 0.00507 mm / 0.00679°"
+     "reason": "95th-percentile RMS deviation 0.0257 mm, median Δ 0.0019 mm / 0.0023°; 2/240 matrices identical as text; mcflirt's own: 0.101 mm, 0.00507 mm / 0.00679°"
     },
     "replica": {
      "outcome": "pass",
@@ -737,7 +740,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "11/11",
-     "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text; mcflirt's own: 0.101 mm, 0.00507 mm / 0.00679°"
+     "reason": "95th-percentile RMS deviation 0.0257 mm, median Δ 0.0019 mm / 0.0023°; 2/240 matrices identical as text; mcflirt's own: 0.101 mm, 0.00507 mm / 0.00679°"
     },
     "replica": {
      "outcome": "pass",
@@ -763,7 +766,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "11/11",
-     "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text; mcflirt's own: 0.101 mm, 0.00507 mm / 0.00679°"
+     "reason": "95th-percentile RMS deviation 0.0257 mm, median Δ 0.0019 mm / 0.0023°; 2/240 matrices identical as text; mcflirt's own: 0.101 mm, 0.00507 mm / 0.00679°"
     },
     "replica": {
      "outcome": "pass",
@@ -789,7 +792,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text; mcflirt's own: 0.101 mm, 0.00507 mm / 0.00679°"
+     "reason": "95th-percentile RMS deviation 0.0257 mm, median Δ 0.0019 mm / 0.0023°; 2/240 matrices identical as text; mcflirt's own: 0.101 mm, 0.00507 mm / 0.00679°"
     },
     "replica": {
      "outcome": "pass",
@@ -815,7 +818,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0133 mm, median Δ 0.0004 mm / 0°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0125 mm, median Δ 0.0002 mm / 0°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -841,7 +844,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0257 mm, median Δ 0.0019 mm / 0.0023°; 2/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -893,7 +896,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.022 mm, median Δ 0.0003 mm / 0.0006°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0227 mm, median Δ 0.0003 mm / 0.0005°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -945,7 +948,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0257 mm, median Δ 0.0019 mm / 0.0023°; 2/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -1023,7 +1026,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.022 mm, median Δ 0.0024 mm / 0.0049°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0239 mm, median Δ 0.0024 mm / 0.0053°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -1049,7 +1052,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0208 mm, median Δ 0.0021 mm / 0.003°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0189 mm, median Δ 0.0021 mm / 0.0042°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -1075,7 +1078,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0206 mm, median Δ 0.0024 mm / 0.0034°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0199 mm, median Δ 0.0023 mm / 0.003°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -1101,7 +1104,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0147 mm, median Δ 0.0007 mm / 0.0001°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0121 mm, median Δ 0.0002 mm / 0°; 57/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -1153,7 +1156,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "18/18",
-     "reason": "95th-percentile RMS deviation 0.0205 mm, median Δ 0.0023 mm / 0.0034°; 0/240 matrices identical as text; mcflirt's own: 0.0537 mm, 0.00511 mm / 0.00667°"
+     "reason": "95th-percentile RMS deviation 0.023 mm, median Δ 0.0025 mm / 0.0034°; 0/240 matrices identical as text; mcflirt's own: 0.0537 mm, 0.00511 mm / 0.00667°"
     },
     "replica": {
      "outcome": "pass",
@@ -1179,7 +1182,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "18/18",
-     "reason": "95th-percentile RMS deviation 0.0226 mm, median Δ 0.0021 mm / 0.0037°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0227 mm, median Δ 0.0019 mm / 0.004°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -1205,7 +1208,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0257 mm, median Δ 0.0019 mm / 0.0023°; 2/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -1231,7 +1234,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0204 mm, median Δ 0.0018 mm / 0.004°; 1/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0188 mm, median Δ 0.0013 mm / 0.0029°; 18/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -1257,7 +1260,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0234 mm, median Δ 0.002 mm / 0.002°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0213 mm, median Δ 0.0015 mm / 0.0015°; 4/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -1283,7 +1286,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0257 mm, median Δ 0.0019 mm / 0.0023°; 2/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -1335,7 +1338,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0247 mm, median Δ 0.0013 mm / 0.0017°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0151 mm, median Δ 0.0009 mm / 0.0002°; 3/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -1361,7 +1364,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0257 mm, median Δ 0.0019 mm / 0.0023°; 2/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -1387,7 +1390,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0271 mm, median Δ 0.0003 mm / 0.0003°; 3/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0251 mm, median Δ 0.0003 mm / 0.0003°; 4/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -1413,7 +1416,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0308 mm, median Δ 0.0003 mm / 0.0003°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0317 mm, median Δ 0.0007 mm / 0.0003°; 3/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -1439,7 +1442,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "22/22",
-     "reason": "95th-percentile RMS deviation 0.0262 mm, median Δ 0.0017 mm / 0.0005°; 0/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0257 mm, median Δ 0.0019 mm / 0.0023°; 2/240 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -1465,7 +1468,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.022 mm, median Δ 0.0023 mm / 0.0037°; 1/208 matrices identical as text; mcflirt's own: 0.0231 mm, 0.00256 mm / 0.00384°"
+     "reason": "95th-percentile RMS deviation 0.0214 mm, median Δ 0.0016 mm / 0.0026°; 10/208 matrices identical as text; mcflirt's own: 0.0231 mm, 0.00256 mm / 0.00384°"
     },
     "replica": {
      "outcome": "pass",
@@ -1491,7 +1494,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "11/11",
-     "reason": "95th-percentile RMS deviation 0.0191 mm, median Δ 0.0023 mm / 0.0031°; 0/208 matrices identical as text; mcflirt's own: 0.0203 mm, 0.00356 mm / 0.00407°"
+     "reason": "95th-percentile RMS deviation 0.0203 mm, median Δ 0.0023 mm / 0.0031°; 0/208 matrices identical as text; mcflirt's own: 0.0203 mm, 0.00356 mm / 0.00407°"
     },
     "replica": {
      "outcome": "pass",
@@ -1517,7 +1520,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0191 mm, median Δ 0.0023 mm / 0.0031°; 0/208 matrices identical as text; mcflirt's own: 0.0203 mm, 0.00356 mm / 0.00407°"
+     "reason": "95th-percentile RMS deviation 0.0203 mm, median Δ 0.0023 mm / 0.0031°; 0/208 matrices identical as text; mcflirt's own: 0.0203 mm, 0.00356 mm / 0.00407°"
     },
     "replica": {
      "outcome": "pass",
@@ -1543,7 +1546,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0288 mm, median Δ 0.0028 mm / 0.0053°; 1/258 matrices identical as text, FD r 0.9988: above mcflirt's own variability (mcflirt's own: 0.0289 mm, 0.00257 mm / 0.00501°, FD r 0.9987), within the record's thresholds"
+     "reason": "95th-percentile RMS deviation 0.0291 mm, median Δ 0.0025 mm / 0.0053°; 3/258 matrices identical as text, FD r 0.9987: above mcflirt's own variability (mcflirt's own: 0.0289 mm, 0.00257 mm / 0.00501°, FD r 0.9987), within the record's thresholds"
     },
     "replica": {
      "outcome": "pass",
@@ -1569,7 +1572,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "11/11",
-     "reason": "95th-percentile RMS deviation 0.0299 mm, median Δ 0.0023 mm / 0.0048°; 0/258 matrices identical as text, FD r 0.9985; mcflirt's own: 0.0312 mm, 0.0042 mm / 0.00733°, FD r 0.9977"
+     "reason": "95th-percentile RMS deviation 0.0269 mm, median Δ 0.0025 mm / 0.0054°; 0/258 matrices identical as text, FD r 0.9985; mcflirt's own: 0.0312 mm, 0.0042 mm / 0.00733°, FD r 0.9977"
     },
     "replica": {
      "outcome": "pass",
@@ -1595,7 +1598,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0299 mm, median Δ 0.0023 mm / 0.0048°; 0/258 matrices identical as text, FD r 0.9985; mcflirt's own: 0.0312 mm, 0.0042 mm / 0.00733°, FD r 0.9977"
+     "reason": "95th-percentile RMS deviation 0.0269 mm, median Δ 0.0025 mm / 0.0054°; 0/258 matrices identical as text, FD r 0.9985; mcflirt's own: 0.0312 mm, 0.0042 mm / 0.00733°, FD r 0.9977"
     },
     "replica": {
      "outcome": "pass",
@@ -1619,9 +1622,9 @@
    "results": {
     "original": {
      "outcome": "pass",
-     "verdict": "open",
+     "verdict": "within-variability",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.021 mm, median Δ 0.0021 mm / 0.0033°; 1/204 matrices identical as text, FD r 0.9911: above mcflirt's own variability (mcflirt's own: 0.0221 mm, 0.00229 mm / 0.00338°, FD r 0.992), within the record's thresholds"
+     "reason": "95th-percentile RMS deviation 0.0215 mm, median Δ 0.0021 mm / 0.0031°; 9/204 matrices identical as text, FD r 0.9925; mcflirt's own: 0.0221 mm, 0.00229 mm / 0.00338°, FD r 0.992"
     },
     "replica": {
      "outcome": "pass",
@@ -1647,7 +1650,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "11/11",
-     "reason": "95th-percentile RMS deviation 0.0226 mm, median Δ 0.0024 mm / 0.0039°; 0/204 matrices identical as text, FD r 0.982; mcflirt's own: 0.0229 mm, 0.00361 mm / 0.0051°, FD r 0.9799"
+     "reason": "95th-percentile RMS deviation 0.0221 mm, median Δ 0.0022 mm / 0.0032°; 0/204 matrices identical as text, FD r 0.9867; mcflirt's own: 0.0229 mm, 0.00361 mm / 0.0051°, FD r 0.9799"
     },
     "replica": {
      "outcome": "pass",
@@ -1673,7 +1676,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0226 mm, median Δ 0.0024 mm / 0.0039°; 0/204 matrices identical as text, FD r 0.982; mcflirt's own: 0.0229 mm, 0.00361 mm / 0.0051°, FD r 0.9799"
+     "reason": "95th-percentile RMS deviation 0.0221 mm, median Δ 0.0022 mm / 0.0032°; 0/204 matrices identical as text, FD r 0.9867; mcflirt's own: 0.0229 mm, 0.00361 mm / 0.0051°, FD r 0.9799"
     },
     "replica": {
      "outcome": "pass",
@@ -1699,7 +1702,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0178 mm, median Δ 0.0013 mm / 0.0017°; 1/239 matrices identical as text, FD r 0.9966; mcflirt's own: 0.0186 mm, 0.00157 mm / 0.00269°, FD r 0.9948"
+     "reason": "95th-percentile RMS deviation 0.0166 mm, median Δ 0.0011 mm / 0.0026°; 1/239 matrices identical as text, FD r 0.996; mcflirt's own: 0.0186 mm, 0.00157 mm / 0.00269°, FD r 0.9948"
     },
     "replica": {
      "outcome": "pass",
@@ -1725,7 +1728,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "11/11",
-     "reason": "95th-percentile RMS deviation 0.0181 mm, median Δ 0.0014 mm / 0.0021°; 0/239 matrices identical as text, FD r 0.9949; mcflirt's own: 0.0193 mm, 0.00245 mm / 0.00395°, FD r 0.9949"
+     "reason": "95th-percentile RMS deviation 0.0186 mm, median Δ 0.0014 mm / 0.0029°; 0/239 matrices identical as text, FD r 0.9953; mcflirt's own: 0.0193 mm, 0.00245 mm / 0.00395°, FD r 0.9949"
     },
     "replica": {
      "outcome": "pass",
@@ -1751,7 +1754,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0181 mm, median Δ 0.0014 mm / 0.0021°; 0/239 matrices identical as text, FD r 0.9949; mcflirt's own: 0.0193 mm, 0.00245 mm / 0.00395°, FD r 0.9949"
+     "reason": "95th-percentile RMS deviation 0.0186 mm, median Δ 0.0014 mm / 0.0029°; 0/239 matrices identical as text, FD r 0.9953; mcflirt's own: 0.0193 mm, 0.00245 mm / 0.00395°, FD r 0.9949"
     },
     "replica": {
      "outcome": "pass",
@@ -1774,10 +1777,10 @@
    "command": "mcflirt -in sub-22973_task-PenaltyKik_run-02_bold.nii.gz -out out_mcf.nii.gz -mats -plots -rmsrel -rmsabs",
    "results": {
     "original": {
-     "outcome": "fail",
-     "verdict": "open",
-     "checks": "15/16",
-     "reason": "FD (Power, 50 mm) correlation: 0.9885 (threshold ≥ 0.9893 (band))"
+     "outcome": "pass",
+     "verdict": "within-variability",
+     "checks": "16/16",
+     "reason": "95th-percentile RMS deviation 0.0235 mm, median Δ 0.0022 mm / 0.0037°; 12/216 matrices identical as text, FD r 0.9907; mcflirt's own: 0.0261 mm, 0.00256 mm / 0.00424°, FD r 0.9893"
     },
     "replica": {
      "outcome": "pass",
@@ -1803,7 +1806,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "11/11",
-     "reason": "95th-percentile RMS deviation 0.0259 mm, median Δ 0.0023 mm / 0.004°; 0/216 matrices identical as text, FD r 0.9867; mcflirt's own: 0.0299 mm, 0.00387 mm / 0.00584°, FD r 0.984"
+     "reason": "95th-percentile RMS deviation 0.0274 mm, median Δ 0.0028 mm / 0.0042°; 0/216 matrices identical as text, FD r 0.9854; mcflirt's own: 0.0299 mm, 0.00387 mm / 0.00584°, FD r 0.984"
     },
     "replica": {
      "outcome": "pass",
@@ -1829,7 +1832,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0259 mm, median Δ 0.0023 mm / 0.004°; 0/216 matrices identical as text, FD r 0.9867; mcflirt's own: 0.0299 mm, 0.00387 mm / 0.00584°, FD r 0.984"
+     "reason": "95th-percentile RMS deviation 0.0274 mm, median Δ 0.0028 mm / 0.0042°; 0/216 matrices identical as text, FD r 0.9854; mcflirt's own: 0.0299 mm, 0.00387 mm / 0.00584°, FD r 0.984"
     },
     "replica": {
      "outcome": "pass",
@@ -1879,9 +1882,9 @@
    "results": {
     "original": {
      "outcome": "pass",
-     "verdict": "within-variability",
+     "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.026 mm, median Δ 0.0029 mm / 0.0051°; 1/63 matrices identical as text; mcflirt's own: 0.0263 mm, 0.00317 mm / 0.00521°"
+     "reason": "95th-percentile RMS deviation 0.0268 mm, median Δ 0.0022 mm / 0.0046°; 3/63 matrices identical as text: above mcflirt's own variability (mcflirt's own: 0.0263 mm, 0.00317 mm / 0.00521°), within the record's thresholds"
     },
     "replica": {
      "outcome": "pass",
@@ -1907,7 +1910,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "11/11",
-     "reason": "95th-percentile RMS deviation 0.0252 mm, median Δ 0.0028 mm / 0.0032°; 0/63 matrices identical as text; mcflirt's own: 0.0257 mm, 0.00382 mm / 0.0047°"
+     "reason": "95th-percentile RMS deviation 0.0225 mm, median Δ 0.0024 mm / 0.0038°; 1/63 matrices identical as text; mcflirt's own: 0.0257 mm, 0.00382 mm / 0.0047°"
     },
     "replica": {
      "outcome": "pass",
@@ -1933,7 +1936,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0252 mm, median Δ 0.0028 mm / 0.0032°; 0/63 matrices identical as text; mcflirt's own: 0.0257 mm, 0.00382 mm / 0.0047°"
+     "reason": "95th-percentile RMS deviation 0.0225 mm, median Δ 0.0024 mm / 0.0038°; 1/63 matrices identical as text; mcflirt's own: 0.0257 mm, 0.00382 mm / 0.0047°"
     },
     "replica": {
      "outcome": "pass",
@@ -1957,9 +1960,9 @@
    "results": {
     "original": {
      "outcome": "pass",
-     "verdict": "open",
+     "verdict": "within-variability",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.013 mm, median Δ 0.0009 mm / 0.0001°; 1/113 matrices identical as text: above mcflirt's own variability (mcflirt's own: 0.0165 mm, 0.000776 mm / 0.000172°), within the record's thresholds"
+     "reason": "95th-percentile RMS deviation 0.0134 mm, median Δ 0.0007 mm / 0.0001°; 2/113 matrices identical as text; mcflirt's own: 0.0165 mm, 0.000776 mm / 0.000172°"
     },
     "replica": {
      "outcome": "pass",
@@ -1985,7 +1988,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "11/11",
-     "reason": "95th-percentile RMS deviation 0.0142 mm, median Δ 0.001 mm / 0.001°; 0/113 matrices identical as text; mcflirt's own: 0.0164 mm, 0.00207 mm / 0.00298°"
+     "reason": "95th-percentile RMS deviation 0.0151 mm, median Δ 0.0016 mm / 0.0023°; 0/113 matrices identical as text; mcflirt's own: 0.0164 mm, 0.00207 mm / 0.00298°"
     },
     "replica": {
      "outcome": "pass",
@@ -2011,7 +2014,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0142 mm, median Δ 0.001 mm / 0.001°; 0/113 matrices identical as text; mcflirt's own: 0.0164 mm, 0.00207 mm / 0.00298°"
+     "reason": "95th-percentile RMS deviation 0.0151 mm, median Δ 0.0016 mm / 0.0023°; 0/113 matrices identical as text; mcflirt's own: 0.0164 mm, 0.00207 mm / 0.00298°"
     },
     "replica": {
      "outcome": "pass",
@@ -2037,7 +2040,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0189 mm, median Δ 0.0018 mm / 0.0031°; 1/69 matrices identical as text, FD r 0.9991: above mcflirt's own variability (mcflirt's own: 0.0233 mm, 0.00237 mm / 0.00258°, FD r 0.9989), within the record's thresholds"
+     "reason": "95th-percentile RMS deviation 0.0211 mm, median Δ 0.0021 mm / 0.0031°; 1/69 matrices identical as text, FD r 0.9986: above mcflirt's own variability (mcflirt's own: 0.0233 mm, 0.00237 mm / 0.00258°, FD r 0.9989), within the record's thresholds"
     },
     "replica": {
      "outcome": "pass",
@@ -2063,7 +2066,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "11/11",
-     "reason": "95th-percentile RMS deviation 0.0252 mm, median Δ 0.0021 mm / 0.0038°; 0/69 matrices identical as text, FD r 0.9987; mcflirt's own: 0.0259 mm, 0.00351 mm / 0.0059°, FD r 0.9974"
+     "reason": "95th-percentile RMS deviation 0.0232 mm, median Δ 0.0022 mm / 0.0026°; 0/69 matrices identical as text, FD r 0.9989; mcflirt's own: 0.0259 mm, 0.00351 mm / 0.0059°, FD r 0.9974"
     },
     "replica": {
      "outcome": "pass",
@@ -2089,7 +2092,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0252 mm, median Δ 0.0021 mm / 0.0038°; 0/69 matrices identical as text, FD r 0.9987; mcflirt's own: 0.0259 mm, 0.00351 mm / 0.0059°, FD r 0.9974"
+     "reason": "95th-percentile RMS deviation 0.0232 mm, median Δ 0.0022 mm / 0.0026°; 0/69 matrices identical as text, FD r 0.9989; mcflirt's own: 0.0259 mm, 0.00351 mm / 0.0059°, FD r 0.9974"
     },
     "replica": {
      "outcome": "pass",
@@ -2115,7 +2118,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "11/11",
-     "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0601 mm, median Δ 0.0019 mm / 0.0097°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2141,7 +2144,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2245,7 +2248,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "6/6",
-     "reason": "Within the record's thresholds (median .par difference 0.0006 / 0.0088 (mm / °)); no matrices to set against mcflirt's own variability."
+     "reason": "Within the record's thresholds (median .par difference 0.0004 / 0.0098 (mm / °)); no matrices to set against mcflirt's own variability."
     },
     "replica": {
      "outcome": "pass",
@@ -2271,7 +2274,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0601 mm, median Δ 0.0019 mm / 0.0097°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2401,7 +2404,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0864 mm, median Δ 0.0036 mm / 0.0126°; 1/6 matrices identical as text, FD r 1; mcflirt's own: 3.96 mm, 0.0122 mm / 0.0297°, FD r 1"
+     "reason": "95th-percentile RMS deviation 0.0482 mm, median Δ 0.0079 mm / 0.0106°; 1/6 matrices identical as text, FD r 1; mcflirt's own: 3.96 mm, 0.0122 mm / 0.0297°, FD r 1"
     },
     "replica": {
      "outcome": "pass",
@@ -2427,7 +2430,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.087 mm, median Δ 0.0024 mm / 0.0089°; 1/6 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0694 mm, median Δ 0.0018 mm / 0.0045°; 1/6 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2453,7 +2456,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0567 mm, median Δ 0.0007 mm / 0.0082°; 2/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0502 mm, median Δ 0.0016 mm / 0.0092°; 2/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2479,7 +2482,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0585 mm, median Δ 0.0027 mm / 0.0109°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0829 mm, median Δ 0.0042 mm / 0.0165°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2502,10 +2505,10 @@
    "command": "mcflirt -in ramp.nii.gz -out out_mcf.nii.gz -reffile ramp-ref.nii.gz -mats -plots -rmsrel -rmsabs",
    "results": {
     "original": {
-     "outcome": "pass",
-     "verdict": "open",
-     "checks": "5/5",
-     "reason": "Within the record's thresholds (files and messages compared); no matrices to set against mcflirt's own variability."
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "4/5",
+     "reason": "A ramp along x, which only the x translation can align (the other parameters are not constrained by the data: mcflirt's own matrices move 11 to 17 mm at the 95th percentile when its inputs move in their last bits): the x translation ends 0.342 mm from mcflirt…"
     },
     "replica": {
      "outcome": "pass",
@@ -2557,7 +2560,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0601 mm, median Δ 0.0019 mm / 0.0097°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2583,7 +2586,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2609,7 +2612,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0601 mm, median Δ 0.0019 mm / 0.0097°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2635,7 +2638,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2661,7 +2664,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0601 mm, median Δ 0.0019 mm / 0.0097°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2687,7 +2690,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2713,7 +2716,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0601 mm, median Δ 0.0019 mm / 0.0097°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2739,7 +2742,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2765,7 +2768,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0395 mm, median Δ 0.0025 mm / 0.0101°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0374 mm, median Δ 0.0023 mm / 0.0119°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2791,7 +2794,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0961 mm, median Δ 0.0032 mm / 0.0121°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0619 mm, median Δ 0.0037 mm / 0.0126°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2843,7 +2846,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "95th-percentile RMS deviation 0.0104 mm, median Δ 0.0012 mm / 0.0055°; 0/1 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0435 mm, median Δ 0.0014 mm / 0.0155°; 0/1 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2895,7 +2898,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0104 mm, median Δ 0.0012 mm / 0.0055°; 0/1 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0435 mm, median Δ 0.0014 mm / 0.0155°; 0/1 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2921,7 +2924,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0407 mm, median Δ 0.0013 mm / 0°; 1/8 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0344 mm, median Δ 0.0014 mm / 0°; 1/8 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2947,7 +2950,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0407 mm, median Δ 0.0013 mm / 0°; 1/8 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0344 mm, median Δ 0.0014 mm / 0°; 1/8 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2973,7 +2976,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0308 mm, median Δ 0 mm / 0°; 2/8 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0155 mm, median Δ 0 mm / 0°; 2/8 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -2999,7 +3002,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.113 mm, median Δ 0.0029 mm / 0.0278°; 1/6 matrices identical as text, FD r 0.9995; mcflirt's own: 0.36 mm, 0.00572 mm / 0.0992°, FD r 0.9963"
+     "reason": "95th-percentile RMS deviation 0.119 mm, median Δ 0.003 mm / 0.0345°; 1/6 matrices identical as text, FD r 0.9994; mcflirt's own: 0.36 mm, 0.00572 mm / 0.0992°, FD r 0.9963"
     },
     "replica": {
      "outcome": "pass",
@@ -3025,7 +3028,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "95th-percentile RMS deviation 0.0514 mm, median Δ 0.0015 mm / 0.0005°; 1/2 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0416 mm, median Δ 0.0002 mm / 0.0081°; 1/2 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3051,7 +3054,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0578 mm, median Δ 0.0017 mm / 0.0251°; 0/2 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0425 mm, median Δ 0.0022 mm / 0.0068°; 0/2 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3101,9 +3104,9 @@
    "results": {
     "original": {
      "outcome": "pass",
-     "verdict": "open",
+     "verdict": "within-variability",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0575 mm, median Δ 0.0063 mm / 0.0168°; 0/6 matrices identical as text: above mcflirt's own variability (mcflirt's own: 0.065 mm, 0.00401 mm / 0.0163°), within the record's thresholds"
+     "reason": "95th-percentile RMS deviation 0.0474 mm, median Δ 0.0032 mm / 0.0129°; 0/6 matrices identical as text; mcflirt's own: 0.065 mm, 0.00401 mm / 0.0163°"
     },
     "replica": {
      "outcome": "pass",
@@ -3129,7 +3132,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0228 mm, median Δ 0.0099 mm / 0.005°; 0/6 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0218 mm, median Δ 0.0043 mm / 0.0116°; 0/6 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3155,7 +3158,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0463 mm, median Δ 0.0026 mm / 0.0133°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0644 mm, median Δ 0.0035 mm / 0.0122°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3181,7 +3184,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0646 mm, median Δ 0.0042 mm / 0.0118°; 0/12 matrices identical as text, FD r 0.9993: above mcflirt's own variability (mcflirt's own: 0.0887 mm, 0.0041 mm / 0.0157°, FD r 0.9991), within the record's thresholds"
+     "reason": "95th-percentile RMS deviation 0.0729 mm, median Δ 0.0039 mm / 0.0192°; 0/12 matrices identical as text, FD r 0.9988: above mcflirt's own variability (mcflirt's own: 0.0887 mm, 0.0041 mm / 0.0157°, FD r 0.9991), within the record's thresholds"
     },
     "replica": {
      "outcome": "pass",
@@ -3207,7 +3210,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.036 mm, median Δ 0.0009 mm / 0°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0514 mm, median Δ 0.0011 mm / 0°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3231,9 +3234,9 @@
    "results": {
     "original": {
      "outcome": "pass",
-     "verdict": "within-variability",
+     "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text, FD r 0.9988; mcflirt's own: 0.0558 mm, 0.00144 mm / 0.0094°, FD r 0.9974"
+     "reason": "95th-percentile RMS deviation 0.0601 mm, median Δ 0.0019 mm / 0.0097°; 1/12 matrices identical as text, FD r 0.9982: above mcflirt's own variability (mcflirt's own: 0.0558 mm, 0.00144 mm / 0.0094°, FD r 0.9974), within the record's thresholds"
     },
     "replica": {
      "outcome": "pass",
@@ -3259,7 +3262,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0601 mm, median Δ 0.0019 mm / 0.0097°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3285,7 +3288,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.125 mm, median Δ 0.0054 mm / 0.0267°; 0/12 matrices identical as text, FD r 0.9975; mcflirt's own: 1.16 mm, 0.0278 mm / 0.0734°, FD r 0.8346"
+     "reason": "95th-percentile RMS deviation 0.0699 mm, median Δ 0.0031 mm / 0.0152°; 0/12 matrices identical as text, FD r 0.9978; mcflirt's own: 1.16 mm, 0.0278 mm / 0.0734°, FD r 0.8346"
     },
     "replica": {
      "outcome": "pass",
@@ -3311,7 +3314,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0707 mm, median Δ 0.0026 mm / 0.0185°; 0/12 matrices identical as text, FD r 0.9961: above mcflirt's own variability (mcflirt's own: 0.0759 mm, 0.00405 mm / 0.0252°, FD r 0.9968), within the record's thresholds"
+     "reason": "95th-percentile RMS deviation 0.085 mm, median Δ 0.0027 mm / 0.0145°; 0/12 matrices identical as text, FD r 0.9991: above mcflirt's own variability (mcflirt's own: 0.0759 mm, 0.00405 mm / 0.0252°, FD r 0.9968), within the record's thresholds"
     },
     "replica": {
      "outcome": "pass",
@@ -3337,7 +3340,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3363,7 +3366,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0486 mm, median Δ 0.0028 mm / 0.0139°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0613 mm, median Δ 0.0018 mm / 0.0109°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3389,7 +3392,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3413,9 +3416,9 @@
    "results": {
     "original": {
      "outcome": "pass",
-     "verdict": "open",
+     "verdict": "within-variability",
      "checks": "18/18",
-     "reason": "95th-percentile RMS deviation 0.281 mm, median Δ 0.0054 mm / 0.0109°; 0/12 matrices identical as text, FD r 0.9737: above mcflirt's own variability (mcflirt's own: 0.418 mm, 0.00533 mm / 0.0157°, FD r 0.9015), within the record's thresholds"
+     "reason": "95th-percentile RMS deviation 0.0557 mm, median Δ 0.0024 mm / 0.0118°; 0/12 matrices identical as text, FD r 0.9943; mcflirt's own: 0.418 mm, 0.00533 mm / 0.0157°, FD r 0.9015"
     },
     "replica": {
      "outcome": "pass",
@@ -3441,7 +3444,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3467,7 +3470,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3545,7 +3548,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "12/12",
-     "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0601 mm, median Δ 0.0019 mm / 0.0097°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3571,7 +3574,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3597,7 +3600,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "24/24",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3623,7 +3626,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text, FD r 0.9971; mcflirt's own: 0.107 mm, 0.00439 mm / 0.018°, FD r 0.9942"
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text, FD r 0.9981; mcflirt's own: 0.107 mm, 0.00439 mm / 0.018°, FD r 0.9942"
     },
     "replica": {
      "outcome": "pass",
@@ -3649,7 +3652,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.056 mm, median Δ 0.0039 mm / 0.0161°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0447 mm, median Δ 0.0037 mm / 0.0127°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3701,7 +3704,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3727,7 +3730,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.056 mm, median Δ 0.0039 mm / 0.0108°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0447 mm, median Δ 0.0037 mm / 0.0127°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3779,7 +3782,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3805,7 +3808,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3857,7 +3860,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3883,7 +3886,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0694 mm, median Δ 0.0022 mm / 0.0043°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.076 mm, median Δ 0.0011 mm / 0.0011°; 2/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3909,7 +3912,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0539 mm, median Δ 0.003 mm / 0.0098°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.068 mm, median Δ 0.0037 mm / 0.0115°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3935,7 +3938,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "23/23",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -3961,7 +3964,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -4013,7 +4016,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0601 mm, median Δ 0.0019 mm / 0.0097°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -4039,7 +4042,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -4065,7 +4068,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0515 mm, median Δ 0.0022 mm / 0.0064°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0723 mm, median Δ 0.0029 mm / 0.0095°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -4088,10 +4091,10 @@
    "command": "mcflirt -in ras-unflipped.nii.gz -out out_mcf.nii.gz -reffile ref.nii.gz -mats -plots -rmsrel -rmsabs",
    "results": {
     "original": {
-     "outcome": "pass",
-     "verdict": "open",
-     "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.066 mm, median Δ 0.0024 mm / 0.0108°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "15/16",
+     "reason": "larmorx's evaluated matrices are mcflirt's for the first 41 evaluations (count_trace.py, mcflirt's -verbose 20), then part in a translation's 6th decimal and end 0.110 mm from mcflirt's at the 95th percentile, beyond the 0.1 mm made for real BOLD runs but wit…"
     },
     "replica": {
      "outcome": "pass",
@@ -4117,7 +4120,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "95th-percentile RMS deviation 0.0488 mm, median Δ 0.0008 mm / 0.0088°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0601 mm, median Δ 0.0019 mm / 0.0097°; 1/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -4143,7 +4146,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "95th-percentile RMS deviation 0.0713 mm, median Δ 0.0027 mm / 0.0164°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0667 mm, median Δ 0.0037 mm / 0.016°; 0/12 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica": {
      "outcome": "pass",
@@ -4349,7 +4352,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "9/9",
-     "reason": "95th-percentile RMS deviation 0.0529 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.005 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica-23": {
      "outcome": "pass",
@@ -4409,7 +4412,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "9/9",
-     "reason": "95th-percentile RMS deviation 0.0475 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.004 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica-23": {
      "outcome": "pass",
@@ -4649,7 +4652,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "7/7",
-     "reason": "95th-percentile RMS deviation 0.0296 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0425 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica-23": {
      "outcome": "pass",
@@ -4669,7 +4672,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "7/7",
-     "reason": "95th-percentile RMS deviation 0.0118 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0001 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica-23": {
      "outcome": "pass",
@@ -4689,7 +4692,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "9/9",
-     "reason": "95th-percentile RMS deviation 0.0296 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
+     "reason": "95th-percentile RMS deviation 0.0425 mm, median Δ 0 mm / 0°: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     },
     "replica-23": {
      "outcome": "pass",
@@ -4842,8 +4845,22 @@
     "original": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
-     "checks": "15/16",
+     "checks": "13/16",
      "reason": "A small phantom moved by up to 15 degrees: the normalised correlation has several minima, and larmorx's estimates end in other ones than mcflirt's beyond the record's thresholds, aligning the series as well (temporal SD 0.999 of mcflirt's here; over the 782 f…"
+    }
+   }
+  },
+  {
+   "id": "difftest/time-step-negative-series",
+   "category": "difftest",
+   "description": "mcflirt's engine on a series of time step -2: FSL writes the time step as its image layer reads it (its magnitude, 1 fo…",
+   "command": "",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "open",
+     "checks": "13/13",
+     "reason": "95th-percentile RMS deviation 0 mm, median Δ 0 mm / 0°; 1/1 matrices identical as text: within the record's thresholds (0.1 mm; 0.05 mm / 0.05°); mcflirt's own variability is not measured for this run, so the difference is not yet set against it."
     }
    }
   },
@@ -6241,7 +6258,7 @@
      "head": "misses a threshold of the record",
      "cells": [
       {
-       "v": 1,
+       "v": 0,
        "fmt": "count"
       },
       {
@@ -6253,7 +6270,7 @@
      "head": "above mcflirt's own variability in at least one estimate, within the record's thresholds",
      "cells": [
       {
-       "v": 8,
+       "v": 6,
        "fmt": "count"
       },
       {
@@ -6277,7 +6294,7 @@
      "head": "within the record's thresholds; no matrices to set against it",
      "cells": [
       {
-       "v": 20,
+       "v": 19,
        "fmt": "count"
       },
       {
@@ -6460,7 +6477,7 @@
    "note": "Every differing case of the trial in one category by its failed checks (`validation/investigations/cleanroom-fixes/trial_catchup_hmc_categories.py`, its output `validation/investigations/cleanroom-fixes/trial_catchup_hmc_triage.json`); the alignment measured by `hmc_alignment.py` on 400 sampled findings; the triage's entries: `validation/difftest/triage.toml`. The reproducer is a finding of the trial (`difftest --replay`)."
   }
  ],
- "cases_total": 243,
+ "cases_total": 244,
  "speed": {
   "title": "Seconds for the whole command, median of repeated runs, log scale; the factor is the clean-room original's speed-up at one thread",
   "axis": [
@@ -6552,7 +6569,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.17 (mcflirt), run as a black box; larmorx's clean-room original (`lx.mri.hmc`, experimental) at commit `ed522504f95c`; the replica (larmorx-nc 0.0.1, `lx.mri.hmc(implementation=\"replica\")`) at commit `d6ba67e5ccc3`"
+     "text": "FSL 6.0.7.17 (mcflirt), run as a black box; larmorx's clean-room original (`lx.mri.hmc`, experimental) at commit `80cc208fa4a3`; the replica (larmorx-nc 0.0.1, `lx.mri.hmc(implementation=\"replica\")`) at commit `d6ba67e5ccc3`"
     },
     {
      "label": "Volumes",
@@ -6700,11 +6717,11 @@
      "sub": "reproduce mode, all CPUs",
      "arrays": {
       "series": {
-       "blob": "e1f9b6b3f217fae21873c0ae.bin",
+       "blob": "b911e255f6211e31f17fbd33.bin",
        "dtype": "i2",
        "xor": "bold:all",
        "zero": false,
-       "bytes": 178749
+       "bytes": 179712
       }
      },
      "own": {
@@ -6739,11 +6756,11 @@
      "sub": "default mode",
      "arrays": {
       "series": {
-       "blob": "89341262102c8c1d595bfebe.bin",
+       "blob": "e455e1368d14296ad0e3a569.bin",
        "dtype": "i2",
        "xor": "larmorx-1:series",
        "zero": false,
-       "bytes": 88888
+       "bytes": 86936
       }
      },
      "own": {
@@ -6760,11 +6777,11 @@
      "sub": "fMRIPrep's command",
      "arrays": {
       "series": {
-       "blob": "66c777cecc36acd29b9e1515.bin",
+       "blob": "540e3ab35e81bb4484d55175.bin",
        "dtype": "i2",
        "xor": "larmorx-1:series",
        "zero": false,
-       "bytes": 67968
+       "bytes": 63241
       }
      },
      "own": {
@@ -6856,11 +6873,11 @@
      "sub": "default mode, 3 threads",
      "arrays": {
       "series": {
-       "blob": "0a86c5b59e299c6d6c76e96b.bin",
+       "blob": "4a1f999e083fdbb8634d75be.bin",
        "dtype": "i2",
        "xor": "larmorx-fix:series",
        "zero": false,
-       "bytes": 73538
+       "bytes": 62108
       }
      },
      "own": {
@@ -6919,41 +6936,41 @@
       "series": {
        "identical": false,
        "voxels": 835584,
-       "differ": 93448,
-       "share": 0.11183555453431372,
-       "max_abs": 7.0,
+       "differ": 85708,
+       "share": 0.10257257199754902,
+       "max_abs": 8.0,
        "at": [
-        39,
-        51,
-        1,
+        42,
+        16,
+        28,
         4
        ],
-       "a_at": 344.0,
-       "b_at": 351.0,
-       "rms": 0.41458675884140056,
+       "a_at": 23.0,
+       "b_at": 31.0,
+       "rms": 0.3896833011747627,
        "range": 1133.0,
-       "max_rel_range": 0.00617828773168579,
-       "one_minus_ncc": 1.5973902934969807e-06,
+       "max_rel_range": 0.00706090026478376,
+       "one_minus_ncc": 1.4111707614540692e-06,
        "at_display": [
-        18,
-        49,
-        1,
+        15,
+        14,
+        28,
         4
        ]
       }
      },
      "display": {
       "series": {
-       "max_abs": 7.0,
+       "max_abs": 8.0,
        "at": [
-        17,
-        48,
-        9,
+        15,
+        14,
+        28,
         4
        ],
-       "a": 753.0,
-       "b": 760.0,
-       "differ": 65296
+       "a": 23.0,
+       "b": 31.0,
+       "differ": 59294
       }
      },
      "verdict": "within-variability",
@@ -6971,41 +6988,41 @@
       "series": {
        "identical": false,
        "voxels": 835584,
-       "differ": 153727,
-       "share": 0.18397551891850492,
-       "max_abs": 6.0,
+       "differ": 149652,
+       "share": 0.17909869025735295,
+       "max_abs": 3.0,
        "at": [
-        21,
-        19,
-        28,
+        18,
+        16,
+        25,
         5
        ],
-       "a_at": 652.0,
-       "b_at": 646.0,
-       "rms": 0.4538863300740217,
-       "range": 1133.0,
-       "max_rel_range": 0.00529567519858782,
-       "one_minus_ncc": 1.2825646566375862e-06,
+       "a_at": 606.0,
+       "b_at": 603.0,
+       "rms": 0.42812913712757045,
+       "range": 1134.0,
+       "max_rel_range": 0.0026455026455026454,
+       "one_minus_ncc": 1.0993657342693328e-06,
        "at_display": [
-        36,
-        17,
-        28,
+        39,
+        14,
+        25,
         5
        ]
       }
      },
      "display": {
       "series": {
-       "max_abs": 6.0,
+       "max_abs": 3.0,
        "at": [
-        23,
-        16,
-        1,
+        11,
+        47,
+        8,
         5
        ],
-       "a": 521.0,
-       "b": 515.0,
-       "differ": 112168
+       "a": 31.0,
+       "b": 28.0,
+       "differ": 109186
       }
      },
      "verdict": "d13",
@@ -7044,7 +7061,7 @@
        "a_at": 0.0,
        "b_at": 0.0,
        "rms": 0.0,
-       "range": 1133.0,
+       "range": 1134.0,
        "max_rel_range": 0.0,
        "one_minus_ncc": 0.0,
        "at_display": null
@@ -7338,24 +7355,24 @@
       "series": {
        "identical": false,
        "voxels": 835584,
-       "differ": 103925,
-       "share": 0.1243740904564951,
-       "max_abs": 7.0,
+       "differ": 83992,
+       "share": 0.10051891850490197,
+       "max_abs": 8.0,
        "at": [
-        39,
-        51,
+        32,
+        14,
         1,
         4
        ],
-       "a_at": 345.0,
-       "b_at": 352.0,
-       "rms": 0.43855189109454085,
+       "a_at": 415.0,
+       "b_at": 423.0,
+       "rms": 0.3862267710073573,
        "range": 1134.0,
-       "max_rel_range": 0.006172839506172839,
-       "one_minus_ncc": 1.7798134064942493e-06,
+       "max_rel_range": 0.007054673721340388,
+       "one_minus_ncc": 1.3823792089725277e-06,
        "at_display": [
-        18,
-        49,
+        25,
+        12,
         1,
         4
        ]
@@ -7363,16 +7380,16 @@
      },
      "display": {
       "series": {
-       "max_abs": 7.0,
+       "max_abs": 8.0,
        "at": [
-        17,
-        48,
-        9,
+        15,
+        14,
+        28,
         4
        ],
-       "a": 754.0,
-       "b": 761.0,
-       "differ": 72269
+       "a": 23.0,
+       "b": 31.0,
+       "differ": 58107
       }
      },
      "verdict": "within-variability",
@@ -7489,41 +7506,41 @@
       "series": {
        "identical": false,
        "voxels": 835584,
-       "differ": 93448,
-       "share": 0.11183555453431372,
-       "max_abs": 7.0,
+       "differ": 85708,
+       "share": 0.10257257199754902,
+       "max_abs": 8.0,
        "at": [
-        39,
-        51,
-        1,
+        42,
+        16,
+        28,
         4
        ],
-       "a_at": 344.0,
-       "b_at": 351.0,
-       "rms": 0.41458675884140056,
+       "a_at": 23.0,
+       "b_at": 31.0,
+       "rms": 0.3896833011747627,
        "range": 1133.0,
-       "max_rel_range": 0.00617828773168579,
-       "one_minus_ncc": 1.5973902934969807e-06,
+       "max_rel_range": 0.00706090026478376,
+       "one_minus_ncc": 1.4111707614540692e-06,
        "at_display": [
-        18,
-        49,
-        1,
+        15,
+        14,
+        28,
         4
        ]
       }
      },
      "display": {
       "series": {
-       "max_abs": 7.0,
+       "max_abs": 8.0,
        "at": [
-        17,
-        48,
-        9,
+        15,
+        14,
+        28,
         4
        ],
-       "a": 753.0,
-       "b": 760.0,
-       "differ": 65296
+       "a": 23.0,
+       "b": 31.0,
+       "differ": 59294
       }
      },
      "verdict": "within-variability",
@@ -7572,13 +7589,13 @@
      "bold": "d1e1197baf970203e35817a5.webp",
      "mcflirt": "82e243e4433203cc68814fdc.webp",
      "replica": "82e243e4433203cc68814fdc.webp",
-     "larmorx": "ace4e26ab258b919afe04c5e.webp",
-     "larmorx-fix": "da80e271a400fc21f37e2285.webp"
+     "larmorx": "0f080877ce40ca61883dc6fd.webp",
+     "larmorx-fix": "bba861109870b1f9c6c8f695.webp"
     },
     "diffs": {
-     "lx-mcflirt": "a1e38c54a062e515145217b7.webp",
+     "lx-mcflirt": "1ba9443669a433ecc87e580d.webp",
      "rev-mc": "92cdef1f8ca376c6c7f73d89.webp",
-     "fix-lx": "7cc071601411ca877f1f2832.webp"
+     "fix-lx": "6775d79f1cee8490ff2c1ae9.webp"
     },
     "ranges": {
      "lx-mcflirt": 10.0,
@@ -13370,7 +13387,7 @@
    "provenance": [
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: BOLD (sha256 609ae0a21822318f…); HMC reference (sha256 5030b453bcc3bbd4…)",
-    "Runs: figures cache entry `mri-hmc/fmriprep-ds000005-run-01`, computed 2026-10-21T15:08:32+00:00 with larmorx `ed522504f95c`; FSL 6.0.7.17 (mcflirt); every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `mri-hmc/fmriprep-ds000005-run-01`, computed 2026-10-21T15:08:32+00:00 with larmorx `80cc208fa4a3`; FSL 6.0.7.17 (mcflirt); every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Inputs: BOLD (sha256 609ae0a21822318f…); HMC reference (sha256 5030b453bcc3bbd4…)",
     "Runs: figures cache entry `mri-hmc/fmriprep-ds000005-run-01-replica`, computed 2026-10-24T19:03:54+00:00 with larmorx `d6ba67e5ccc3`; larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Inputs: BOLD (sha256 609ae0a21822318f…); HMC reference (sha256 5030b453bcc3bbd4…)",

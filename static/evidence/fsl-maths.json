@@ -3,7 +3,7 @@
  "tool": "fsl-maths",
  "title": "fslmaths",
  "provenance": {
-  "exporter": "81a65170afad9100973a8c8c4dda3e445f6b50b3",
+  "exporter": "39216a1313d8bbb0d069db21c789822ae1cf8d51",
   "records": [
    {
     "path": "docs/validation/fsl-maths-replica.json",
@@ -19,15 +19,15 @@
    },
    {
     "path": "docs/validation/fsl-maths.json",
-    "sha256": "05ccddfe63f8d525a136425a48feebe439f8e6960472874e561caf7bb8503906",
-    "generated": "2026-11-04",
-    "larmorx_commit": "be3db916dce3"
+    "sha256": "784c9e69329863b3665b07c156b698ebe05a90ca74b18149acf5bf29c2013522",
+    "generated": "2026-11-07",
+    "larmorx_commit": "f005a08f6328"
    },
    {
     "path": "docs/validation/fsl-maths.md",
-    "sha256": "608ce6e540ae37c54a6b2896e014b8b75e8d7a3f386ae6eb2520e0bd06fdc78e",
-    "generated": "2026-11-04",
-    "larmorx_commit": "be3db916dce3"
+    "sha256": "0890f0580e1babcd27ea2e84c142f81a97744e23ef95608af2536d7af5145632",
+    "generated": "2026-11-07",
+    "larmorx_commit": "f005a08f6328"
    }
   ],
   "benchmarks": [
@@ -12842,13 +12842,15 @@
    {
     "entry": "fsl-maths/original-fmriprep-combine-masks",
     "description": "The calls of fsl-maths/fmriprep-combine-masks: LARMORX's clean-room original, reproduce mode at 14 threads and at one, the default mode",
-    "computed": "2026-11-03T23:55:40+00:00",
-    "larmorx_commit": "f092d74debaa8c405e91e6f05294cc4b763673fd",
+    "computed": "2026-11-07T02:06:27+00:00",
+    "larmorx_commit": "80cc208fa4a3888a65a6d17c6c638a43ab803257-dirty",
     "commands": [
      {
       "label": "original",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/skullstrip_first_pass/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_mask.nii.gz",
@@ -12867,12 +12869,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-1",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/skullstrip_first_pass/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_mask.nii.gz",
@@ -12891,12 +12895,14 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      },
      {
       "label": "original-fix",
       "argv": [
-       "<larmorx>/target/release/larmorx",
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
        "fsl",
        "fslmaths",
        "<workspace>/oracles/fmriprep-25.2.6/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/skullstrip_first_pass/sub-002_task-clip_run-1_desc-hmc_boldref_corrected_brain_mask.nii.gz",
@@ -12915,7 +12921,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.0
+      "seconds": 0.02
      }
     ],
     "versions": {
@@ -12927,8 +12933,8 @@
    {
     "entry": "fsl-maths/original-fmriprep-goodvoxels",
     "description": "The calls of fsl-maths/fmriprep-goodvoxels: LARMORX's clean-room original, reproduce mode at 14 threads and at one, the default mode",
-    "computed": "2026-11-04T12:57:11+00:00",
-    "larmorx_commit": "3c0951127188c572a3fe7eb17a342daf974f750b",
+    "computed": "2026-11-07T02:06:29+00:00",
+    "larmorx_commit": "80cc208fa4a3888a65a6d17c6c638a43ab803257-dirty",
     "commands": [
      {
       "label": "original-stdev_volume",
@@ -12953,7 +12959,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.11
+      "seconds": 0.12
      },
      {
       "label": "original-1-stdev_volume",
@@ -13028,7 +13034,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.17
+      "seconds": 0.12
      },
      {
       "label": "original-1-mean_volume",
@@ -13078,7 +13084,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.11
+      "seconds": 0.12
      },
      {
       "label": "original-cov_volume",
@@ -13234,7 +13240,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.03
+      "seconds": 0.02
      },
      {
       "label": "original-cov_ribbon_norm",
@@ -13393,7 +13399,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.03
+      "seconds": 0.02
      },
      {
       "label": "original-cov_ribbon_norm_smooth",
@@ -13506,7 +13512,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.03
+      "seconds": 0.02
      },
      {
       "label": "original-1-cov_norm",
@@ -13584,7 +13590,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.08
+      "seconds": 0.03
      },
      {
       "label": "original-1-cov_norm_modulate",
@@ -13610,7 +13616,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.04
+      "seconds": 0.03
      },
      {
       "label": "original-fix-cov_norm_modulate",
@@ -14044,8 +14050,8 @@
    {
     "entry": "fsl-maths/original-families",
     "description": "The calls of fsl-maths/families: LARMORX's clean-room original, reproduce mode at 14 threads and at one, the default mode",
-    "computed": "2026-11-04T12:57:14+00:00",
-    "larmorx_commit": "3c0951127188c572a3fe7eb17a342daf974f750b",
+    "computed": "2026-11-07T02:06:32+00:00",
+    "larmorx_commit": "80cc208fa4a3888a65a6d17c6c638a43ab803257-dirty",
     "commands": [
      {
       "label": "original-tsnr",
@@ -14073,7 +14079,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.03
      },
      {
       "label": "original-1-tsnr",
@@ -14288,7 +14294,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.03
+      "seconds": 0.02
      },
      {
       "label": "original-tmedian",
@@ -14338,7 +14344,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.37
+      "seconds": 0.29
      },
      {
       "label": "original-fix-tmedian",
@@ -14413,7 +14419,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.19
+      "seconds": 0.18
      },
      {
       "label": "original-fix-tar1",
@@ -14522,7 +14528,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.07
+      "seconds": 0.02
      },
      {
       "label": "original-dilm",
@@ -14551,7 +14557,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.05
+      "seconds": 0.03
      },
      {
       "label": "original-1-dilm",
@@ -14609,7 +14615,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.03
+      "seconds": 0.02
      },
      {
       "label": "original-smooth",
@@ -14635,7 +14641,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.03
      },
      {
       "label": "original-1-smooth",
@@ -14825,7 +14831,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.05
+      "seconds": 0.06
      },
      {
       "label": "original-fix-fmedian",
@@ -14877,7 +14883,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.02
+      "seconds": 0.03
      },
      {
       "label": "original-1-edge",
@@ -14927,7 +14933,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.03
+      "seconds": 0.02
      },
      {
       "label": "original-inm",
@@ -15039,7 +15045,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.13
+      "seconds": 0.14
      },
      {
       "label": "original-1-bptf",
@@ -15067,7 +15073,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.4
+      "seconds": 0.33
      },
      {
       "label": "original-fix-bptf",
@@ -15302,8 +15308,8 @@
    {
     "entry": "fsl-maths/original-glibc-double",
     "description": "The calls of fsl-maths/glibc-double: LARMORX's clean-room original, reproduce mode at 14 threads and at one, the default mode",
-    "computed": "2026-11-04T12:57:15+00:00",
-    "larmorx_commit": "3c0951127188c572a3fe7eb17a342daf974f750b",
+    "computed": "2026-11-07T02:06:33+00:00",
+    "larmorx_commit": "80cc208fa4a3888a65a6d17c6c638a43ab803257-dirty",
     "commands": [
      {
       "label": "original-sin",
@@ -15613,7 +15619,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.04
+      "seconds": 0.03
      },
      {
       "label": "original-1-asin",
@@ -15644,7 +15650,7 @@
        "LARMORX_IMPLEMENTATION": "original"
       },
       "exit": 0,
-      "seconds": 0.1
+      "seconds": 0.04
      },
      {
       "label": "original-fix-asin",
@@ -16062,8 +16068,8 @@
    {
     "entry": "fsl-maths/original-cases-default-mode",
     "description": "LARMORX's clean-room fslmaths in its default mode on every case of its record: its exit status and the entries it names",
-    "computed": "2026-11-04T12:57:21+00:00",
-    "larmorx_commit": "3c0951127188c572a3fe7eb17a342daf974f750b",
+    "computed": "2026-11-07T02:06:34+00:00",
+    "larmorx_commit": "80cc208fa4a3888a65a6d17c6c638a43ab803257-dirty",
     "commands": [],
     "versions": {
      "fsl": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH)",
@@ -16275,9 +16281,9 @@
    "record": "docs/validation/fsl-maths.md",
    "status": "experimental",
    "summary": {
-    "cases": 452,
+    "cases": 454,
     "verdicts": {
-     "bit-identical": 368,
+     "bit-identical": 370,
      "both-reject": 63,
      "divergence": 6,
      "open": 15
@@ -16459,7 +16465,7 @@
     {
      "category": "difftest",
      "counts": {
-      "bit-identical": 13,
+      "bit-identical": 15,
       "both-reject": 3,
       "open": 1
      }
@@ -25370,6 +25376,34 @@
    }
   },
   {
+   "id": "difftest/time-step-negative-series",
+   "category": "difftest",
+   "description": "fslmaths on a series of time step -2: FSL writes the time step as its image layer reads it (its magnitude, 1 for a series of 0); the clean-room originals wrote the stored value",
+   "command": "FSLOUTPUTTYPE=NIFTI_GZ fslmaths <the case's img> -bin out",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file fslmaths writes with FSL's values (the record measures every value), with FSL's exit status and messages."
+    }
+   }
+  },
+  {
+   "id": "difftest/time-step-zero-series",
+   "category": "difftest",
+   "description": "fslmaths on a series of time step 0: FSL writes the time step as its image layer reads it (its magnitude, 1 for a series of 0); the clean-room originals wrote the stored value",
+   "command": "FSLOUTPUTTYPE=NIFTI_PAIR fslmaths <the case's img> -thr 50 -sub <the case's i1> -s 2.5 out.nii",
+   "results": {
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "7/7",
+     "reason": "Every file fslmaths writes with FSL's values (the record measures every value), with FSL's exit status and messages."
+    }
+   }
+  },
+  {
    "id": "difftest/ztop-nan-sign",
    "category": "difftest",
    "description": "-ztop of the default NaN: the positive NaN (findings 30)",
@@ -25384,7 +25418,7 @@
    }
   }
  ],
- "cases_total": 457,
+ "cases_total": 459,
  "speed": {
   "title": "Seconds for the whole call (read the images, compute, write every output), one run each, log scale; the factor is the clean-room original's speed-up over FSL, both on one thread",
   "axis": [
@@ -26993,7 +27027,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `73451f78a400`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `f092d74debaa`"
+     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `73451f78a400`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `80cc208fa4a3`"
     },
     {
      "label": "Grid",
@@ -27902,7 +27936,7 @@
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: BET's first-pass mask (sha256 da8a28916643c2c6…); the template's mask, on the reference (sha256 e07b0a17f73c28dc…); the BOLD reference after N4 (sha256 54b587437b15bd28…)",
     "Runs: figures cache entry `fsl-maths/fmriprep-combine-masks`, computed 2026-11-04T20:40:54+00:00 with larmorx `73451f78a400`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
-    "Runs: figures cache entry `fsl-maths/original-fmriprep-combine-masks`, computed 2026-11-03T23:55:40+00:00 with larmorx `f092d74debaa`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-maths/original-fmriprep-combine-masks`, computed 2026-11-07T02:06:27+00:00 with larmorx `80cc208fa4a3`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
     "openneuro-ds005040",
@@ -27933,7 +27967,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `73451f78a400`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `3c0951127188`"
+     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `73451f78a400`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `80cc208fa4a3`"
     },
     {
      "label": "Grid",
@@ -31764,7 +31798,7 @@
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: BOLD series in T1w space (sha256 ebfbc7b1648ca221…); the ribbon's stand-in (sha256 788750569ea12c93…)",
     "Runs: figures cache entry `fsl-maths/fmriprep-goodvoxels`, computed 2026-11-04T20:40:56+00:00 with larmorx `73451f78a400`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
-    "Runs: figures cache entry `fsl-maths/original-fmriprep-goodvoxels`, computed 2026-11-04T12:57:11+00:00 with larmorx `3c0951127188`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-maths/original-fmriprep-goodvoxels`, computed 2026-11-07T02:06:29+00:00 with larmorx `80cc208fa4a3`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
     "openneuro-ds005040"
@@ -31781,7 +31815,7 @@
     },
     {
      "label": "Programs",
-     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `73451f78a400`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `3c0951127188`"
+     "text": "FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH) (served from the oracle cache, as the record ran it); larmorx-nc 0.0.1 (the replica), from larmorx at commit `73451f78a400`; larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0), from larmorx at commit `80cc208fa4a3`"
     },
     {
      "label": "Grid",
@@ -36384,7 +36418,7 @@
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: bold (sha256 ebfbc7b1648ca221…); mean (sha256 1470ac106d7dc916…); std (sha256 c02ef2250ee40f00…); mask (sha256 07f29647b79803b1…)",
     "Runs: figures cache entry `fsl-maths/families`, computed 2026-11-04T20:41:05+00:00 with larmorx `73451f78a400`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
-    "Runs: figures cache entry `fsl-maths/original-families`, computed 2026-11-04T12:57:14+00:00 with larmorx `3c0951127188`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-maths/original-families`, computed 2026-11-07T02:06:32+00:00 with larmorx `80cc208fa4a3`; FSL 6.0.7.23 (fsl-avwutils 2209.6, fsl-newimage 2601.0; ~/fsl-6.0.7.23, never on the PATH); larmorx 0.0.1 (the clean-room originals, crate larmorx-fsl, Apache-2.0); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
     "openneuro-ds005040"
