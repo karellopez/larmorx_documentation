@@ -7,15 +7,15 @@
   "records": [
    {
     "path": "docs/validation/afni-volreg-replica.json",
-    "sha256": "8e360a0e15a19fd2f953c9d77e21b032c292577ed3bc2ba777e21b1ed310739c",
+    "sha256": "ccba4b5c0ba60e6e2d6c03a3a956d3b64b758f1233e85ee4adbb249a3adbcb1a",
     "generated": "2026-11-07",
-    "larmorx_commit": "b302c95de55c"
+    "larmorx_commit": "1a9e7f20a8af"
    },
    {
     "path": "docs/validation/afni-volreg-replica.md",
-    "sha256": "52e6116f44795f5abc0f2e194b9f0be30174d442278c4cf923611604d23086e7",
+    "sha256": "f859f3efab82bace84741d0e0c10768512b276be5b03bc2d6b872506e654e777",
     "generated": "2026-11-07",
-    "larmorx_commit": "b302c95de55c"
+    "larmorx_commit": "1a9e7f20a8af"
    }
   ],
   "benchmarks": [
@@ -345,9 +345,9 @@
    "record": "docs/validation/afni-volreg-replica.md",
    "status": "validated",
    "summary": {
-    "cases": 189,
+    "cases": 190,
     "verdicts": {
-     "bit-identical": 140,
+     "bit-identical": 141,
      "both-reject": 40,
      "divergence": 9
     }
@@ -468,7 +468,7 @@
     {
      "category": "difftest",
      "counts": {
-      "bit-identical": 1,
+      "bit-identical": 2,
       "divergence": 4,
       "both-reject": 1
      }
@@ -3041,6 +3041,20 @@
    }
   },
   {
+   "id": "difftest/afni99-notice-unchanged",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": ""
+    }
+   }
+  },
+  {
    "id": "difftest/constant-twopass-lsqfit",
    "category": "difftest",
    "description": "",
@@ -3125,7 +3139,7 @@
    }
   }
  ],
- "cases_total": 189,
+ "cases_total": 190,
  "speed": {
   "title": "3dvolreg: wall time of fMRIPrep's RobustAverage call (informal timings, 2026-11-06)",
   "axis": [
