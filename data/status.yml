@@ -96,6 +96,12 @@ implemented:
     use: ["larmorx afni 3dUnifize", "lx.afni.unifize"]
     how: "clean-room original and exact replica, both in larmorx (the replica with CC BY 4.0's attribution)"
     validation: "original: [129 cases](repo:docs/validation/afni-unifize.md), none failing: 44 of 99 compared cases that write outputs bit-identical to AFNI, the other 55 within 1e-5 (at most 8.7e-8 of the largest value) and bit-identical to AFNI run with correctly rounded maths (glibc's `tanhf` in AFNI's squash), fMRIPrep's call on every oracle run included; 4 to 25 times faster than AFNI (informal timings); replica: [97 of 97](repo:docs/validation/afni-unifize-replica.md) compared cases that write outputs bit-identical at 1, 2 and 6 threads"
+  - eco: afni
+    tool: "3dvolreg (rigid-body registration of a series)"
+    page: /tools/afni-volreg/
+    use: ["larmorx afni 3dvolreg", "lx.afni.volreg"]
+    how: "exact replica in larmorx (with CC BY 4.0's attribution; 2026-11-07: every option, message and failure case; AFNI-86 to AFNI-99 corrected or refused by default, AFNI's behaviour with `reproduce` where it is defined); clean-room original: the next part, from `specs/3dvolreg.md`"
+    validation: "replica: [137 of 137](repo:docs/validation/afni-volreg-replica.md) compared cases that write outputs bit-identical to AFNI 26.3.05 (every file written, the messages, the exit status), fMRIPrep's RobustAverage calls on six oracle runs' BOLD references and sdcflows' PEPOLAR reference averages on two included (their medians fMRIPrep's own outputs byte for byte); 30 more rejected by both alike; 2.2 to 3.1 times faster than AFNI (informal timings)"
   - eco: fsl
     tool: "Head-motion correction (mcflirt)"
     page: /tools/mri-hmc/
@@ -149,7 +155,7 @@ implemented:
 planned:
   - eco: [afni]
     title: AFNI
-    text: 3dQwarp, 3dSkullStrip, 3dcalc and an analysis track (3dTproject, 3dDespike, 3dReHo, 3dRSFC, 3dDeconvolve/3dREMLfit, 3dFWHMx/3dClustSim, ...).
+    text: 3dvolreg's clean-room original (its exact replica is done); 3dQwarp, 3dSkullStrip, 3dcalc and an analysis track (3dTproject, 3dDespike, 3dReHo, 3dRSFC, 3dDeconvolve/3dREMLfit, 3dFWHMx/3dClustSim, ...).
   - eco: [fsl]
     title: FSL-compatible tools
     text: PRELUDE's clean-room original (FSL's phase unwrapping) (the mcflirt, BET with every option, FLIRT, FAST, topup, `fslmaths`, `fslstats`, `standard_space_roi`, `fslroi` and prelude replicas and the clean-room originals of BET with every option, FLIRT, FAST, topup, `fslmaths`, `fslstats`, `standard_space_roi` and `fslroi` are done).

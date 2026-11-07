@@ -331,6 +331,25 @@
    ]
   },
   {
+   "page": "/tools/afni-volreg/",
+   "title": "3dvolreg",
+   "eco": "afni",
+   "implementations": [
+    {
+     "label": "larmorx replica",
+     "record": "docs/validation/afni-volreg-replica.md",
+     "status": "validated",
+     "cases": 190,
+     "verdicts": {
+      "bit-identical": 141,
+      "divergence": 9,
+      "both-reject": 40
+     },
+     "source": "evidence"
+    }
+   ]
+  },
+  {
    "page": "/tools/fsl-bet/",
    "title": "BET",
    "eco": "fsl",
@@ -616,6 +635,7 @@
   "afni-automask",
   "afni-tshift",
   "afni-unifize",
+  "afni-volreg",
   "ants-ai",
   "ants-apply-transforms",
   "ants-atropos",
