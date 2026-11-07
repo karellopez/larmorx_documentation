@@ -355,6 +355,20 @@
    "eco": "fsl",
    "implementations": [
     {
+     "label": "clean-room original",
+     "record": "docs/validation/fsl-bet.md",
+     "status": "experimental",
+     "cases": 252,
+     "verdicts": {
+      "bit-identical": 178,
+      "d13": 3,
+      "divergence": 12,
+      "both-reject": 40,
+      "open": 19
+     },
+     "source": "evidence"
+    },
+    {
      "label": "larmorx-nc replica",
      "record": "docs/validation/fsl-bet-replica-full.md",
      "status": "validated",
@@ -391,12 +405,12 @@
      "label": "clean-room original",
      "record": "docs/validation/mri-hmc.md",
      "status": "experimental",
-     "cases": 169,
+     "cases": 170,
      "verdicts": {
-      "within-variability": 30,
-      "divergence": 3,
+      "within-variability": 33,
+      "divergence": 5,
       "both-reject": 20,
-      "open": 116
+      "open": 112
      },
      "source": "evidence"
     },
@@ -435,11 +449,11 @@
      "status": "experimental",
      "cases": 339,
      "verdicts": {
-      "bit-identical": 207,
+      "bit-identical": 209,
       "within-variability": 3,
       "divergence": 10,
       "both-reject": 89,
-      "open": 30
+      "open": 28
      },
      "source": "evidence"
     },
@@ -496,6 +510,20 @@
    "eco": "fsl",
    "implementations": [
     {
+     "label": "clean-room original",
+     "record": "docs/validation/fsl-topup.md",
+     "status": "experimental",
+     "cases": 187,
+     "verdicts": {
+      "bit-identical": 9,
+      "within-variability": 2,
+      "divergence": 14,
+      "both-reject": 67,
+      "open": 95
+     },
+     "source": "evidence"
+    },
+    {
      "label": "larmorx-nc replica",
      "record": "docs/validation/fsl-topup-replica.md",
      "status": "experimental",
@@ -518,9 +546,9 @@
      "label": "clean-room original",
      "record": "docs/validation/fsl-maths.md",
      "status": "experimental",
-     "cases": 452,
+     "cases": 454,
      "verdicts": {
-      "bit-identical": 368,
+      "bit-identical": 370,
       "divergence": 6,
       "both-reject": 63,
       "open": 15
@@ -576,6 +604,18 @@
    "title": "prelude",
    "eco": "fsl",
    "implementations": [
+    {
+     "label": "clean-room original",
+     "record": "docs/validation/fsl-prelude.md",
+     "status": "experimental",
+     "cases": 166,
+     "verdicts": {
+      "bit-identical": 134,
+      "divergence": 4,
+      "both-reject": 28
+     },
+     "source": "evidence"
+    },
     {
      "label": "larmorx-nc replica",
      "record": "docs/validation/fsl-prelude-replica.md",
