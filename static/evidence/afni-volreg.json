@@ -1,0 +1,6099 @@
+{
+ "schema": 1,
+ "tool": "afni-volreg",
+ "title": "3dvolreg",
+ "provenance": {
+  "exporter": "99fee6406e8e9731f8345068c182c067c0e3b0ab",
+  "records": [
+   {
+    "path": "docs/validation/afni-volreg-replica.json",
+    "sha256": "8e360a0e15a19fd2f953c9d77e21b032c292577ed3bc2ba777e21b1ed310739c",
+    "generated": "2026-11-07",
+    "larmorx_commit": "b302c95de55c"
+   },
+   {
+    "path": "docs/validation/afni-volreg-replica.md",
+    "sha256": "52e6116f44795f5abc0f2e194b9f0be30174d442278c4cf923611604d23086e7",
+    "generated": "2026-11-07",
+    "larmorx_commit": "b302c95de55c"
+   }
+  ],
+  "benchmarks": [
+   {
+    "path": "validation/investigations/afni-volreg/speed-2026-11-06.json",
+    "sha256": "97ddeeda5e3a346dad9572d8e47c9d7fda26b2f639c2a790af0d41189e5ea953"
+   }
+  ],
+  "cache": [
+   {
+    "entry": "afni-volreg/fmriprep-ds000005-run-01",
+    "description": "fMRIPrep's RobustAverage 3dvolreg call on ds000005 sub-01 run 1: AFNI 26.3.05 and 25.2.09, fMRIPrep's AFNI, the replica in both modes; the volumes stored LPS (AFNI-99); the medians",
+    "computed": "2026-11-07T01:27:24+00:00",
+    "larmorx_commit": "c0fa9881ce744131044af0213868656daf681a53",
+    "commands": [
+     {
+      "label": "afni26",
+      "argv": [
+       "<workspace>/oracles/afni-26.3.05/bin/3dvolreg",
+       "-Fourier",
+       "-twopass",
+       "-zpad",
+       "4",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/afni26.nii.gz",
+       "-1Dfile",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/afni26.1D",
+       "-1Dmatrix_save",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/afni26.aff12.1D",
+       "-maxdisp1D",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/afni26_md.1D",
+       "<workspace>/oracles/inputs/afni-volreg/fmriprep/ds000005-run-01_sliced.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/.home",
+       "OMP_NUM_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 6.96
+     },
+     {
+      "label": "afni25",
+      "argv": [
+       "<workspace>/oracles/afni-25.2.09/bin/3dvolreg",
+       "-Fourier",
+       "-twopass",
+       "-zpad",
+       "4",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/afni25.nii.gz",
+       "-1Dfile",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/afni25.1D",
+       "-1Dmatrix_save",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/afni25.aff12.1D",
+       "-maxdisp1D",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/afni25_md.1D",
+       "<workspace>/oracles/inputs/afni-volreg/fmriprep/ds000005-run-01_sliced.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/.home",
+       "OMP_NUM_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 8.13
+     },
+     {
+      "label": "image",
+      "argv": [
+       "apptainer",
+       "exec",
+       "--cleanenv",
+       "--no-home",
+       "--bind",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01:<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01",
+       "--bind",
+       "<workspace>/oracles/inputs/afni-volreg/fmriprep:<workspace>/oracles/inputs/afni-volreg/fmriprep",
+       "--env",
+       "AFNI_DONT_LOGFILE=YES",
+       "--env",
+       "AFNI_NIFTI_NOEXT=YES",
+       "--env",
+       "HOME=<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/.home",
+       "--env",
+       "OMP_NUM_THREADS=1",
+       "<workspace>/oracles/images/fmriprep-25.2.6.sif",
+       "3dvolreg",
+       "-Fourier",
+       "-twopass",
+       "-zpad",
+       "4",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/image.nii.gz",
+       "-1Dfile",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/image.1D",
+       "-1Dmatrix_save",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/image.aff12.1D",
+       "-maxdisp1D",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/image_md.1D",
+       "<workspace>/oracles/inputs/afni-volreg/fmriprep/ds000005-run-01_sliced.nii.gz"
+      ],
+      "env": {},
+      "exit": 0,
+      "seconds": 7.11
+     },
+     {
+      "label": "replica-1",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "afni",
+       "3dvolreg",
+       "-Fourier",
+       "-twopass",
+       "-zpad",
+       "4",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/replica-1.nii.gz",
+       "-1Dfile",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/replica-1.1D",
+       "-1Dmatrix_save",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/replica-1.aff12.1D",
+       "-maxdisp1D",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/replica-1_md.1D",
+       "<workspace>/oracles/inputs/afni-volreg/fmriprep/ds000005-run-01_sliced.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/.home",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "LARMORX_IMPLEMENTATION": "replica"
+      },
+      "exit": 0,
+      "seconds": 2.38
+     },
+     {
+      "label": "replica-6",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "afni",
+       "3dvolreg",
+       "-Fourier",
+       "-twopass",
+       "-zpad",
+       "4",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/replica-6.nii.gz",
+       "-1Dfile",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/replica-6.1D",
+       "-1Dmatrix_save",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/replica-6.aff12.1D",
+       "-maxdisp1D",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/replica-6_md.1D",
+       "<workspace>/oracles/inputs/afni-volreg/fmriprep/ds000005-run-01_sliced.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/.home",
+       "OMP_NUM_THREADS": "6",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "LARMORX_IMPLEMENTATION": "replica"
+      },
+      "exit": 0,
+      "seconds": 2.56
+     },
+     {
+      "label": "replica-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "afni",
+       "3dvolreg",
+       "-Fourier",
+       "-twopass",
+       "-zpad",
+       "4",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/replica-reproduce.nii.gz",
+       "-1Dfile",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/replica-reproduce.1D",
+       "-1Dmatrix_save",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/replica-reproduce.aff12.1D",
+       "-maxdisp1D",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/replica-reproduce_md.1D",
+       "<workspace>/oracles/inputs/afni-volreg/fmriprep/ds000005-run-01_sliced.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/.home",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "LARMORX_IMPLEMENTATION": "replica"
+      },
+      "exit": 0,
+      "seconds": 2.36
+     },
+     {
+      "label": "lps-afni26",
+      "argv": [
+       "<workspace>/oracles/afni-26.3.05/bin/3dvolreg",
+       "-Fourier",
+       "-twopass",
+       "-zpad",
+       "4",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/lps-afni26.nii.gz",
+       "-1Dfile",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/lps-afni26.1D",
+       "-1Dmatrix_save",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/lps-afni26.aff12.1D",
+       "-maxdisp1D",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/lps-afni26_md.1D",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/input-lps.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/.home",
+       "OMP_NUM_THREADS": "1"
+      },
+      "exit": 0,
+      "seconds": 6.77
+     },
+     {
+      "label": "lps-replica",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "afni",
+       "3dvolreg",
+       "-Fourier",
+       "-twopass",
+       "-zpad",
+       "4",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/lps-replica.nii.gz",
+       "-1Dfile",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/lps-replica.1D",
+       "-1Dmatrix_save",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/lps-replica.aff12.1D",
+       "-maxdisp1D",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/lps-replica_md.1D",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/input-lps.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/.home",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "fix",
+       "LARMORX_IMPLEMENTATION": "replica"
+      },
+      "exit": 0,
+      "seconds": 2.38
+     },
+     {
+      "label": "lps-replica-reproduce",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx",
+       "afni",
+       "3dvolreg",
+       "-Fourier",
+       "-twopass",
+       "-zpad",
+       "4",
+       "-prefix",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/lps-replica-reproduce.nii.gz",
+       "-1Dfile",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/lps-replica-reproduce.1D",
+       "-1Dmatrix_save",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/lps-replica-reproduce.aff12.1D",
+       "-maxdisp1D",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/lps-replica-reproduce_md.1D",
+       "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/input-lps.nii.gz"
+      ],
+      "env": {
+       "AFNI_DONT_LOGFILE": "YES",
+       "AFNI_NIFTI_NOEXT": "YES",
+       "HOME": "<workspace>/oracles/figures-cache/afni-volreg/fmriprep-ds000005-run-01/.home",
+       "OMP_NUM_THREADS": "1",
+       "LARMORX_UPSTREAM_DEFECTS": "reproduce",
+       "LARMORX_IMPLEMENTATION": "replica"
+      },
+      "exit": 0,
+      "seconds": 2.34
+     }
+    ],
+    "versions": {
+     "afni_26": "AFNI_26.3.05, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+     "afni_25": "AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+     "afni_in_fmriprep_image": "AFNI_25.2.09 (Aug 24 2025) [64-bit]",
+     "larmorx-replica": "larmorx 0.0.1 (crate larmorx-afni-replica, built in)"
+    },
+    "threads": {
+     "afni": [
+      "1"
+     ],
+     "replica": [
+      "1",
+      "6"
+     ]
+    },
+    "settings": "fMRIPrep 25.2.6's RobustAverage (gen_avg, hmc_boldref_wf) of ds000005 sub-01 task mixedgamblestask run 1: its 3dvolreg call on the sliced volumes (re-made by fMRIPrep's Python in its image) by AFNI 26.3.05 and 25.2.09 (oracle builds), fMRIPrep's AFNI (in its image) and the replica (default mode at 1 and 6 threads, reproduce at 1); the same call on the volumes stored LPS (AFNI 26.3.05, the replica in both modes); RobustAverage's median of each registered series"
+   }
+  ],
+  "command": "python -m larmorx_validation evidence afni-volreg --site <site>"
+ },
+ "implementations": [
+  {
+   "id": "replica",
+   "label": "larmorx replica",
+   "short": "replica",
+   "record": "docs/validation/afni-volreg-replica.md",
+   "status": "validated",
+   "summary": {
+    "cases": 189,
+    "verdicts": {
+     "bit-identical": 140,
+     "both-reject": 40,
+     "divergence": 9
+    }
+   },
+   "agreement": [
+    {
+     "category": "interpolation",
+     "counts": {
+      "bit-identical": 21
+     }
+    },
+    {
+     "category": "base",
+     "counts": {
+      "bit-identical": 6,
+      "both-reject": 1
+     }
+    },
+    {
+     "category": "twopass",
+     "counts": {
+      "bit-identical": 11
+     }
+    },
+    {
+     "category": "weights",
+     "counts": {
+      "bit-identical": 8
+     }
+    },
+    {
+     "category": "environment",
+     "counts": {
+      "bit-identical": 6
+     }
+    },
+    {
+     "category": "outputs",
+     "counts": {
+      "bit-identical": 9,
+      "both-reject": 1
+     }
+    },
+    {
+     "category": "tshift",
+     "counts": {
+      "bit-identical": 8
+     }
+    },
+    {
+     "category": "rotparent",
+     "counts": {
+      "bit-identical": 13,
+      "both-reject": 7
+     }
+    },
+    {
+     "category": "twodup",
+     "counts": {
+      "bit-identical": 4
+     }
+    },
+    {
+     "category": "messages",
+     "counts": {
+      "bit-identical": 8,
+      "both-reject": 2
+     }
+    },
+    {
+     "category": "datatypes",
+     "counts": {
+      "bit-identical": 10
+     }
+    },
+    {
+     "category": "edge cases",
+     "counts": {
+      "bit-identical": 18,
+      "divergence": 1,
+      "both-reject": 4
+     }
+    },
+    {
+     "category": "errors",
+     "counts": {
+      "bit-identical": 1,
+      "divergence": 1,
+      "both-reject": 22
+     }
+    },
+    {
+     "category": "divergences",
+     "counts": {
+      "divergence": 2
+     }
+    },
+    {
+     "category": "global",
+     "counts": {
+      "bit-identical": 6,
+      "both-reject": 2
+     }
+    },
+    {
+     "category": "defects",
+     "counts": {
+      "bit-identical": 2,
+      "divergence": 1
+     }
+    },
+    {
+     "category": "fmriprep",
+     "counts": {
+      "bit-identical": 8
+     }
+    },
+    {
+     "category": "difftest",
+     "counts": {
+      "bit-identical": 1,
+      "divergence": 4,
+      "both-reject": 1
+     }
+    }
+   ]
+  }
+ ],
+ "cases": [
+  {
+   "id": "interpolation/default",
+   "category": "interpolation",
+   "description": "the defaults (heptic), every text output",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii -1Dfile p.1D -dfile d.txt -1Dmatrix_save m.aff12.1D -maxdisp1D md.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "19/19",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/Fourier",
+   "category": "interpolation",
+   "description": "-Fourier",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -Fourier -prefix o.nii -1Dfile p.1D -dfile d.txt <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/cubic",
+   "category": "interpolation",
+   "description": "-cubic",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -cubic -prefix o.nii -1Dfile p.1D -dfile d.txt <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/quintic",
+   "category": "interpolation",
+   "description": "-quintic",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -quintic -prefix o.nii -1Dfile p.1D -dfile d.txt <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/linear",
+   "category": "interpolation",
+   "description": "-linear",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -linear -prefix o.nii -1Dfile p.1D -dfile d.txt <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/heptic",
+   "category": "interpolation",
+   "description": "-heptic",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -heptic -prefix o.nii -1Dfile p.1D -dfile d.txt <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/fourier-lowercase",
+   "category": "interpolation",
+   "description": "-fourier: AFNI compares four letters",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -fourier -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/final-NN",
+   "category": "interpolation",
+   "description": "-final NN",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -final NN -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/final-Fourier",
+   "category": "interpolation",
+   "description": "-final Fourier",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -final Fourier -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/final-cubic",
+   "category": "interpolation",
+   "description": "-final cubic",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -final cubic -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/final-linear",
+   "category": "interpolation",
+   "description": "-final linear",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -final linear -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/final-quintic",
+   "category": "interpolation",
+   "description": "-final quintic",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -final quintic -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/final-heptic",
+   "category": "interpolation",
+   "description": "-final heptic",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -final heptic -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/final-cubic-noclip",
+   "category": "interpolation",
+   "description": "-final cubic -noclip",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -final cubic -noclip -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/Fourier-noclip",
+   "category": "interpolation",
+   "description": "-Fourier -noclip",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -Fourier -noclip -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/clipit",
+   "category": "interpolation",
+   "description": "-clipit (the default, a notice), -wtrim, -coarserot",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -clipit -wtrim -coarserot -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/zpad-0",
+   "category": "interpolation",
+   "description": "-zpad 0",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -zpad 0 -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/zpad-2",
+   "category": "interpolation",
+   "description": "-zpad 2",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -zpad 2 -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/zpad-8",
+   "category": "interpolation",
+   "description": "-zpad 8",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -zpad 8 -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/zpad-twice",
+   "category": "interpolation",
+   "description": "-zpad 3 -zpad 2: the last one",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -zpad 3 -zpad 2 -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "interpolation/Fourier-zpad-0",
+   "category": "interpolation",
+   "description": "-Fourier -zpad 0",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -Fourier -zpad 0 -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "base/index",
+   "category": "base",
+   "description": "-base 3",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -base 3 -prefix o.nii -1Dmatrix_save m.aff12.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "base/last",
+   "category": "base",
+   "description": "-base 5 (the last volume)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -base 5 -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "base/dataset",
+   "category": "base",
+   "description": "-base <3D dataset>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -base <generated: base3d.nii.gz> -prefix o.nii -1Dmatrix_save m.aff12.1D -dfile d.txt <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "base/dataset-twopass",
+   "category": "base",
+   "description": "-twopass -base <3D dataset>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -base <generated: base3d.nii.gz> -prefix o.nii -1Dmatrix_save m.aff12.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "base/dataset-4d",
+   "category": "base",
+   "description": "-base <4D dataset>: its first volume",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -base <generated: s2_short.nii.gz> -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "base/3d-input",
+   "category": "base",
+   "description": "a 3D input with an external base",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -tshift 0 -base <generated: s1.nii.gz> -prefix o.nii <generated: base3d.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "base/vol3d-input",
+   "category": "base",
+   "description": "a 3D input, the base a moving series",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -base <generated: s1.nii.gz> -prefix o.nii -1Dfile p.1D <generated: e_vol3d.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "twopass/twopass",
+   "category": "twopass",
+   "description": "-twopass",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "twopass/twoblur-3",
+   "category": "twopass",
+   "description": "-twopass -twoblur 3",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -twoblur 3 -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "twopass/coarse-1-1",
+   "category": "twopass",
+   "description": "-twopass -coarse 1 1",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -coarse 1 1 -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "twopass/coarse-0-0",
+   "category": "twopass",
+   "description": "-twopass -coarse 0 0",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -coarse 0 0 -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "in its default mode the replica computes with correctly rounded maths where glibc 2.35's is not correctly rounded (GLIBC-07, not named): 53 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "twopass/sinit",
+   "category": "twopass",
+   "description": "-twopass -sinit",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -sinit -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "twopass/nomaxdisp",
+   "category": "twopass",
+   "description": "-twopass -nomaxdisp: AFNI-92's clip fraction",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -nomaxdisp -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "twopass/nocoarserot",
+   "category": "twopass",
+   "description": "-nocoarserot -twopass: AFNI reads -noclip (AFNI-86)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -nocoarserot -twopass -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "in its default mode the replica corrects AFNI-86 and names it: 123,278 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "twopass/twopass-weight",
+   "category": "twopass",
+   "description": "-twopass -weight",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -weight {1}[0] -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "twopass/twopass-wtinp",
+   "category": "twopass",
+   "description": "-twopass -wtinp",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -wtinp -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "twopass/twopass-maxite-2",
+   "category": "twopass",
+   "description": "-twopass -maxite 2: raised to 66",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -maxite 2 -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "twopass/fmriprep-call",
+   "category": "twopass",
+   "description": "fMRIPrep's call on the synthetic series",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -Fourier -twopass -1Dfile o.1D -1Dmatrix_save o.aff12.1D -prefix o.nii.gz -zpad 4 -maxdisp1D o_md.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "17/17",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "weights/wtinp",
+   "category": "weights",
+   "description": "-wtinp",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -wtinp -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "weights/weight",
+   "category": "weights",
+   "description": "-weight 'wset[1]'",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -weight {1}[1] -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "weights/edging-3",
+   "category": "weights",
+   "description": "-edging 3",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -edging 3 -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "weights/edging-10pc",
+   "category": "weights",
+   "description": "-edging 10%",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -edging 10% -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "weights/edging-0",
+   "category": "weights",
+   "description": "-edging 0",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -edging 0 -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "weights/controls",
+   "category": "weights",
+   "description": "-maxite 2 -x_thresh 0.1 -rot_thresh 0.1 -delta 1",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -maxite 2 -x_thresh 0.1 -rot_thresh 0.1 -delta 1 -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "weights/params",
+   "category": "weights",
+   "description": "-params 3 0.05 0.05 0.5",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -params 3 0.05 0.05 0.5 -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "weights/controls-nonpositive",
+   "category": "weights",
+   "description": "-maxite 0 -delta -1: ignored",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -maxite 0 -delta -1 -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "environment/edging-env",
+   "category": "environment",
+   "description": "AFNI_VOLREG_EDGING=10",
+   "command": "OMP_NUM_THREADS=1 AFNI_VOLREG_EDGING=10 3dvolreg -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "environment/edging-env-pc",
+   "category": "environment",
+   "description": "AFNI_VOLREG_EDGING=12%",
+   "command": "OMP_NUM_THREADS=1 AFNI_VOLREG_EDGING=12% 3dvolreg -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "environment/blur-firfac",
+   "category": "environment",
+   "description": "-twopass with AFNI_BLUR_FIRFAC=1.5",
+   "command": "OMP_NUM_THREADS=1 AFNI_BLUR_FIRFAC=1.5 3dvolreg -twopass -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "environment/blur-firold",
+   "category": "environment",
+   "description": "-twopass with AFNI_BLUR_FIROLD=YES",
+   "command": "OMP_NUM_THREADS=1 AFNI_BLUR_FIROLD=YES 3dvolreg -twopass -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "environment/rota-zpad",
+   "category": "environment",
+   "description": "AFNI_ROTA_ZPAD=7: not read",
+   "command": "OMP_NUM_THREADS=1 AFNI_ROTA_ZPAD=7 3dvolreg -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "outputs/rotcom",
+   "category": "outputs",
+   "description": "-rotcom -prefix NULL",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -rotcom -prefix NULL -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "outputs/prefix-null",
+   "category": "outputs",
+   "description": "-prefix NULL with every text output",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix NULL -dfile d.txt -1Dmatrix_save m.aff12.1D -maxdisp1D md.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "14/14",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "outputs/matrix-no-suffix",
+   "category": "outputs",
+   "description": "-1Dmatrix_save m: .aff12.1D added",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -1Dmatrix_save m -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "outputs/maxdisp1D-stdout",
+   "category": "outputs",
+   "description": "-maxdisp1D -: standard output, and the file -_delt",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -maxdisp1D - -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "outputs/float",
+   "category": "outputs",
+   "description": "-float on int16",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -float -prefix o.nii <generated: s2_short.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "9/9",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "outputs/nii-gz",
+   "category": "outputs",
+   "description": "a compressed output",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii.gz <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "outputs/savedisp",
+   "category": "outputs",
+   "description": "-savedisp",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -savedisp sd.nii.gz -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "15/15",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "outputs/SAVEDISP",
+   "category": "outputs",
+   "description": "-SAVEDISP -verbose: 19 datasets",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -SAVEDISP SD.nii -prefix o.nii -verbose <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "46/46",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "outputs/savedisp-oblique",
+   "category": "outputs",
+   "description": "-savedisp -prefix NULL on an oblique series",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -savedisp sd.nii.gz -prefix NULL <generated: s3_oblique.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": "in its default mode the replica corrects AFNI-99 and names it: 568,675 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "outputs/savedisp-bare",
+   "category": "outputs",
+   "description": "-savedisp .nii",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -savedisp .nii -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "tshift/tshift-0",
+   "category": "tshift",
+   "description": "-tshift 0 on sequential slices",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -tshift 0 -prefix o.nii -1Dfile p.1D <generated: s6_st.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "tshift/tshift-1",
+   "category": "tshift",
+   "description": "-tshift 1",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -tshift 1 -prefix o.nii -1Dfile p.1D <generated: s6_st.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "tshift/tshift-verbose",
+   "category": "tshift",
+   "description": "-verbose -tshift 2 -base 1",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -verbose -tshift 2 -base 1 -prefix o.nii -1Dfile p.1D <generated: s6_st.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "tshift/tshift-twopass",
+   "category": "tshift",
+   "description": "-tshift 0 -twopass -Fourier",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -tshift 0 -twopass -Fourier -prefix o.nii -dfile d.txt <generated: s6_st.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "tshift/tshift-negative-slope",
+   "category": "tshift",
+   "description": "-tshift 0 on int16 with a negative slope (AFNI-01) and alternating slices",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -tshift 0 -prefix o.nii -1Dfile p.1D <generated: s6_stneg.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "in its default mode the replica corrects AFNI-01 and names it: 253,264 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "tshift/tshift-no-timing",
+   "category": "tshift",
+   "description": "-tshift 0 without slice times",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -tshift 0 -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "tshift/tshift-ignore-large",
+   "category": "tshift",
+   "description": "-tshift 0 on 4 volumes: ignore too large",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -tshift 0 -prefix o.nii <generated: s6_st4.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "tshift/tshift-savedisp",
+   "category": "tshift",
+   "description": "-tshift 0 -savedisp",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -tshift 0 -savedisp sd.nii -prefix o.nii <generated: s6_st.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "14/14",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "rotparent/rotparent",
+   "category": "rotparent",
+   "description": "-rotparent",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -rotparent <generated: rp.nii.gz> -prefix o.nii -1Dfile p.1D -dfile d.txt <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "rotparent/rotparent-gridparent",
+   "category": "rotparent",
+   "description": "-verbose -rotparent -gridparent (27 slices)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -verbose -rotparent <generated: rp.nii.gz> -gridparent <generated: gp27.nii.gz> -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "rotparent/gridparent-24",
+   "category": "rotparent",
+   "description": "-rotparent -gridparent (24 slices) -Fourier -final cubic",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -rotparent <generated: rp.nii.gz> -gridparent <generated: gp24.nii.gz> -prefix o.nii -Fourier -final cubic <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "rotparent/gridparent-moved",
+   "category": "rotparent",
+   "description": "-rotparent -gridparent (moved origin) -noclip -final linear",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -rotparent <generated: rp.nii.gz> -gridparent <generated: gp27m.nii.gz> -prefix o.nii -noclip -final linear <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "rotparent/rotparent-slice-times",
+   "category": "rotparent",
+   "description": "-verbose -rotparent -gridparent on slice-timed data",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -verbose -rotparent <generated: rp_st.nii.gz> -gridparent <generated: gp27m.nii.gz> -prefix o.nii <generated: s6_st.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "rotparent/rotparent-tshift",
+   "category": "rotparent",
+   "description": "-tshift 0 -rotparent",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -tshift 0 -rotparent <generated: rp_st.nii.gz> -prefix o.nii <generated: s6_st.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "rotparent/gridparent-gp22",
+   "category": "rotparent",
+   "description": "-rotparent -gridparent with too few slices",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -rotparent <generated: rp.nii.gz> -gridparent <generated: gp22.nii.gz> -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "rotparent/gridparent-gpx",
+   "category": "rotparent",
+   "description": "-rotparent -gridparent with another x size",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -rotparent <generated: rp.nii.gz> -gridparent <generated: gpx.nii.gz> -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "rotparent/gridparent-gpsp",
+   "category": "rotparent",
+   "description": "-rotparent -gridparent with another spacing",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -rotparent <generated: rp.nii.gz> -gridparent <generated: gpsp.nii.gz> -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "rotparent/gridparent-alone",
+   "category": "rotparent",
+   "description": "-gridparent without -rotparent",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -gridparent <generated: gp27.nii.gz> -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "rotparent/rotparent-twice",
+   "category": "rotparent",
+   "description": "-rotparent twice",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -rotparent <generated: rp.nii.gz> -rotparent <generated: rp.nii.gz> -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "rotparent/gridparent-twice",
+   "category": "rotparent",
+   "description": "-gridparent twice",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -gridparent <generated: gp27.nii.gz> -gridparent <generated: gp27.nii.gz> -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "rotparent/rotparent-missing",
+   "category": "rotparent",
+   "description": "-rotparent of a missing file",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -rotparent nothere.nii.gz -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "rotparent/rotparent-twopass",
+   "category": "rotparent",
+   "description": "-rotparent -twopass",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -rotparent <generated: rp.nii.gz> -twopass -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "rotparent/rotparent-oblique",
+   "category": "rotparent",
+   "description": "-rotparent on an oblique series",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -rotparent <generated: rp_obl.nii.gz> -prefix o.nii -1Dmatrix_save m.aff12.1D <generated: s3_oblique.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "rotparent/rotparent-twodup-grid",
+   "category": "rotparent",
+   "description": "-rotparent -twopass -twodup -base <shifted> -gridparent",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -rotparent <generated: rp.nii.gz> -twopass -twodup -base <generated: base_shift.nii.gz> -gridparent <generated: gp27.nii.gz> -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "rotparent/rotparent-twodup",
+   "category": "rotparent",
+   "description": "-rotparent -twopass -twodup -base <shifted>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -rotparent <generated: rp.nii.gz> -twopass -twodup -base <generated: base_shift.nii.gz> -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "rotparent/rotparent-savedisp",
+   "category": "rotparent",
+   "description": "-rotparent -savedisp -gridparent",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -rotparent <generated: rp.nii.gz> -savedisp sd.nii.gz -gridparent <generated: gp27.nii.gz> -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "14/14",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "rotparent/rotparent-int16",
+   "category": "rotparent",
+   "description": "-rotparent on int16 (LPI)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -rotparent <generated: rp.nii.gz> -prefix o.nii <generated: s2_short.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "rotparent/rotparent-without-attributes",
+   "category": "rotparent",
+   "description": "-rotparent of a dataset without VOLREG attributes: AFNI's error",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -rotparent <generated: s1.nii.gz> -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** -rotparent dataset doesn't have VOLREG attributes!?; larmorx exit 1: ** -rotparent dataset doesn't have VOLREG attributes!? (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "twodup/twodup",
+   "category": "twodup",
+   "description": "-twopass -twodup -base <shifted>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -twodup -base <generated: base_shift.nii.gz> -prefix o.nii -1Dmatrix_save m.aff12.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "11/11",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "twodup/twodup-onepass",
+   "category": "twodup",
+   "description": "-twodup without -twopass",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twodup -base <generated: base_shift.nii.gz> -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "twodup/twodup-internal",
+   "category": "twodup",
+   "description": "-twopass -twodup, an internal base",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -twodup -prefix o.nii -1Dfile p.1D <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "twodup/twodup-savedisp",
+   "category": "twodup",
+   "description": "-twopass -twodup -base <shifted> -savedisp on slice-timed data",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -twodup -base <generated: base_shift.nii.gz> -savedisp sd.nii.gz -prefix o.nii <generated: s6_st.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "14/14",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "messages/verbose",
+   "category": "messages",
+   "description": "-verbose",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -verbose -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "messages/verbose-verbose",
+   "category": "messages",
+   "description": "-verbose -verbose -twopass -Fourier",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -verbose -verbose -twopass -Fourier -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "messages/base-before-verbose",
+   "category": "messages",
+   "description": "-base <dset> -verbose: messages in the scan's order",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -base <generated: base3d.nii.gz> -verbose -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "messages/verbose-base-mismatch",
+   "category": "messages",
+   "description": "-verbose -base <another grid>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -verbose -base <generated: s2_short.nii.gz> -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "messages/verbose-weight",
+   "category": "messages",
+   "description": "-verbose -weight -base 2",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -verbose -weight {1}[1] -base 2 -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "messages/verbose-names",
+   "category": "messages",
+   "description": "-verbose with a base and a weight: their names",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -verbose -base <generated: base3d.nii.gz> -weight {2}[0] -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "messages/verbose-byte",
+   "category": "messages",
+   "description": "-verbose on bytes",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -verbose -prefix o.nii -1Dfile p.1D <generated: s5_byte.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "in its default mode the replica corrects AFNI-87 and names it: 81,911 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "messages/verbose-tshift-base",
+   "category": "messages",
+   "description": "-verbose -tshift 0 -base <a 4D weight>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -verbose -tshift 0 -base <generated: weight.nii.gz> -prefix o.nii <generated: s6_st.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "messages/verbose-3d-input",
+   "category": "messages",
+   "description": "-verbose, a 3D input and a 4D base",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -verbose -base <generated: s1.nii.gz> -prefix o.nii <generated: base3d.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "messages/weight-index-beyond",
+   "category": "messages",
+   "description": "-weight 'wset[5]': beyond its volumes",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -weight {1}[5] -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "datatypes/s2_short",
+   "category": "datatypes",
+   "description": "int16, LPI",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii -1Dfile p.1D -dfile d.txt <generated: s2_short.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "datatypes/s2_scaled",
+   "category": "datatypes",
+   "description": "int16 with a slope: written as float",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii -1Dfile p.1D -dfile d.txt <generated: s2_scaled.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "datatypes/s3_oblique",
+   "category": "datatypes",
+   "description": "oblique, odd sizes",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -Fourier -twopass -1Dmatrix_save m.aff12.1D -maxdisp1D md.1D -prefix o.nii -1Dfile p.1D -dfile d.txt <generated: s3_oblique.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "18/18",
+     "reason": "in its default mode the replica corrects AFNI-99 and names it: 10 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "datatypes/s4_sagittal",
+   "category": "datatypes",
+   "description": "sagittal",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -Fourier -twopass -1Dmatrix_save m.aff12.1D -maxdisp1D md.1D -prefix o.nii -1Dfile p.1D -dfile d.txt <generated: s4_sagittal.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "18/18",
+     "reason": "in its default mode the replica corrects AFNI-99 and names it: 10 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "datatypes/e_nifti2",
+   "category": "datatypes",
+   "description": "NIfTI-2",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii -1Dfile p.1D -dfile d.txt <generated: e_nifti2.nii>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "datatypes/e_plain",
+   "category": "datatypes",
+   "description": "uncompressed NIfTI-1",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii -1Dfile p.1D -dfile d.txt <generated: e_plain.nii>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "datatypes/e_qform",
+   "category": "datatypes",
+   "description": "a qform only",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii -1Dfile p.1D -dfile d.txt <generated: e_qform.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "datatypes/e_bigendian",
+   "category": "datatypes",
+   "description": "int16, big-endian",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii -1Dfile p.1D -dfile d.txt <generated: e_bigendian.nii>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "datatypes/byte",
+   "category": "datatypes",
+   "description": "bytes (AFNI-87)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii -1Dfile p.1D <generated: s5_byte.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "in its default mode the replica corrects AFNI-87 and names it: 81,911 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "datatypes/input-option",
+   "category": "datatypes",
+   "description": "-input, and a dataset name left over",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -input <generated: s1.nii.gz> -prefix o.nii extra <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "edge cases/one-volume",
+   "category": "edge cases",
+   "description": "a 4D file of one volume",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii -1Dfile p.1D -dfile d.txt <generated: e_one.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "edge cases/one-volume-twopass",
+   "category": "edge cases",
+   "description": "one volume, -twopass",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -prefix o.nii -1Dfile p.1D <generated: e_one.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "edge cases/no-motion",
+   "category": "edge cases",
+   "description": "four identical volumes",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii -1Dfile p.1D -maxdisp1D md.1D <generated: e_still.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "14/14",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "edge cases/no-motion-fmriprep",
+   "category": "edge cases",
+   "description": "four identical volumes, fMRIPrep's call",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -Fourier -twopass -zpad 4 -prefix o.nii -1Dfile p.1D -1Dmatrix_save m.aff12.1D <generated: e_still.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "edge cases/large_z",
+   "category": "edge cases",
+   "description": "rotations of 12 degrees per volume about z, -twopass -Fourier",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -Fourier -prefix o.nii -1Dfile p.1D -1Dmatrix_save m.aff12.1D <generated: e_large_z.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "edge cases/large_z-onepass",
+   "category": "edge cases",
+   "description": "the same, one pass",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii -1Dfile p.1D <generated: e_large_z.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "edge cases/large_z-nocoarserot",
+   "category": "edge cases",
+   "description": "the same, -twopass -nocoarserot (AFNI-86)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -nocoarserot -prefix o.nii -1Dfile p.1D <generated: e_large_z.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "in its default mode the replica corrects AFNI-86 and names it: 121,396 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "edge cases/large_x",
+   "category": "edge cases",
+   "description": "rotations of 9 degrees per volume about x, -twopass -Fourier",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -Fourier -prefix o.nii -1Dfile p.1D -1Dmatrix_save m.aff12.1D <generated: e_large_x.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "edge cases/large_x-onepass",
+   "category": "edge cases",
+   "description": "the same, one pass",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii -1Dfile p.1D <generated: e_large_x.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "edge cases/large_x-nocoarserot",
+   "category": "edge cases",
+   "description": "the same, -twopass -nocoarserot (AFNI-86)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -nocoarserot -prefix o.nii -1Dfile p.1D <generated: e_large_x.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "in its default mode the replica corrects AFNI-86 and names it: 120,124 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "edge cases/nan",
+   "category": "edge cases",
+   "description": "NaN in volume 2",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii -1Dfile p.1D -dfile d.txt <generated: e_nan.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "edge cases/nan-twopass",
+   "category": "edge cases",
+   "description": "NaN in volume 2, fMRIPrep's call",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -Fourier -twopass -zpad 4 -prefix o.nii -1Dfile p.1D <generated: e_nan.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "edge cases/nan-base",
+   "category": "edge cases",
+   "description": "NaN in the base (-base 2)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -base 2 -prefix o.nii -1Dfile p.1D <generated: e_nan.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "edge cases/two-slices",
+   "category": "edge cases",
+   "description": "two slices",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii -1Dfile p.1D <generated: e_nz2.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "edge cases/one-slice",
+   "category": "edge cases",
+   "description": "one slice",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii <generated: s7_nz1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "edge cases/one-slice-twopass",
+   "category": "edge cases",
+   "description": "one slice, -twopass",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -prefix o.nii <generated: s7_nz1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "edge cases/subsampled",
+   "category": "edge cases",
+   "description": "120 x 120 x 120 voxels, -twopass: the coarse search blurred and subsampled",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -prefix o.nii -1Dfile p.1D -1Dmatrix_save m.aff12.1D <generated: e_big120.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "12/12",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "edge cases/subsampled-fmriprep",
+   "category": "edge cases",
+   "description": "120 x 120 x 120 voxels, fMRIPrep's call",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -Fourier -twopass -zpad 4 -prefix o.nii -1Dfile p.1D <generated: e_big120.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "edge cases/subsampled-coarse-2",
+   "category": "edge cases",
+   "description": "120 x 120 x 120 voxels, -twopass -coarse 2 1: the subsampled step 1",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -coarse 2 1 -prefix o.nii -1Dfile p.1D <generated: e_big120.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "edge cases/four-slices-twopass",
+   "category": "edge cases",
+   "description": "four slices, -twopass: an empty coarse region (AFNI-93)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -prefix o.nii -1Dfile p.1D <generated: s7_nz4.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "in its default mode the replica corrects AFNI-93 and names it: 20,448 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "edge cases/four-slices-nocoarserot",
+   "category": "edge cases",
+   "description": "four slices, -twopass -nocoarserot",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -nocoarserot -prefix o.nii -1Dfile p.1D <generated: s7_nz4.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "in its default mode the replica corrects AFNI-86, AFNI-93 and names it: 20,450 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "edge cases/constant",
+   "category": "edge cases",
+   "description": "a constant series: one pass registers it",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii <generated: s7_const.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "edge cases/constant-twopass",
+   "category": "edge cases",
+   "description": "a constant series, -twopass (AFNI-89)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twopass -prefix o.nii <generated: s7_const.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "divergence",
+     "checks": "4/4",
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: the base's least squares could not be set up (the messages above say why: all-zero weights, or a base whose rotated and shifted copies do not change under the …"
+    }
+   }
+  },
+  {
+   "id": "errors/unknown-option",
+   "category": "errors",
+   "description": "-bogus <input>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -bogus <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** Unknown option: -bogus\u0007; larmorx exit 1: ** Unknown option: -bogus\u0007 (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/final-bogus",
+   "category": "errors",
+   "description": "-final bogus <input>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -final bogus <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** Illegal mode after -final; larmorx exit 1: ** Illegal mode after -final (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/twoblur-low",
+   "category": "errors",
+   "description": "-twoblur 1 <input>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -twoblur 1 <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** ERROR: value after -twoblur is < 2.0; larmorx exit 1: ** ERROR: value after -twoblur is < 2.0 (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/zpad-negative",
+   "category": "errors",
+   "description": "-zpad -2 <input>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -zpad -2 <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** ERROR: Can't use -zpad -2; larmorx exit 1: ** ERROR: Can't use -zpad -2 (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/base-beyond",
+   "category": "errors",
+   "description": "-base 99 <input>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -base 99 <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** Dataset ~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/s1.nii.gz doesn't have base brick index = 99; larmorx exit 1: ** Dataset ~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/s1.nii.gz doesn't have base brick index = …"
+    }
+   }
+  },
+  {
+   "id": "errors/base-negative",
+   "category": "errors",
+   "description": "-base -1 <input>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -base -1 <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal negative number after -base; larmorx exit 1: ** FATAL ERROR: Illegal negative number after -base (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/edging-negative",
+   "category": "errors",
+   "description": "-edging -1 <input>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -edging -1 <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** Illegal value after -edging; larmorx exit 1: ** Illegal value after -edging (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/edging-30pc",
+   "category": "errors",
+   "description": "-edging 30% <input>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -edging 30% <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** Illegal percentage after -edging; larmorx exit 1: ** Illegal percentage after -edging (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/weight-no-selector",
+   "category": "errors",
+   "description": "-weight <weight> <input>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -weight <generated: weight.nii.gz> <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** Illegal weight dataset after -weight; larmorx exit 1: ** Illegal weight dataset after -weight (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/weight-missing",
+   "category": "errors",
+   "description": "-weight nothere.nii.gz[0] -prefix o.nii <input>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -weight nothere.nii.gz[0] -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** Can't open weight dataset nothere.nii.gz; larmorx exit 1: ** Can't open weight dataset nothere.nii.gz (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/base-missing",
+   "category": "errors",
+   "description": "-base nothere.nii.gz -prefix o.nii <input>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -base nothere.nii.gz -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Couldn't open -base dataset nothere.nii.gz; larmorx exit 1: ** FATAL ERROR: Couldn't open -base dataset nothere.nii.gz (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/tshift-negative",
+   "category": "errors",
+   "description": "-tshift -1 <input>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -tshift -1 <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** -tshift parameter is negative!; larmorx exit 1: ** -tshift parameter is negative! (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/no-dataset",
+   "category": "errors",
+   "description": "-prefix o.nii",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Too few arguments!? Last=o.nii; larmorx exit 1: ** FATAL ERROR: Too few arguments!? Last=o.nii (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/missing-input",
+   "category": "errors",
+   "description": "-prefix o.nii /nonexistent/x.nii",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii /nonexistent/x.nii",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** Can't open dataset /nonexistent/x.nii; larmorx exit 1: ** Can't open dataset /nonexistent/x.nii (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/base-twice",
+   "category": "errors",
+   "description": "-base 0 -base 3 -prefix o.nii <input>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -base 0 -base 3 -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "errors/prefix-after-dataset",
+   "category": "errors",
+   "description": "-prefix o.nii <input> -prefix",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii <generated: s1.nii.gz> -prefix",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Too many arguments?! Dataset=~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/s1.nii.gz?; larmorx exit 1: ** FATAL ERROR: Too many arguments?! Dataset=~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/s1.nii.g…"
+    }
+   }
+  },
+  {
+   "id": "errors/maxite-last",
+   "category": "errors",
+   "description": "-maxite",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -maxite",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "divergence",
+     "checks": "4/4",
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: need argument after -maxite (AFNI-88: AFNI crashes here)), after the same messages"
+    }
+   }
+  },
+  {
+   "id": "errors/input-last",
+   "category": "errors",
+   "description": "-input",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -input",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** FATAL ERROR: Can't open input dataset '(null)'; larmorx exit 1: ** FATAL ERROR: Can't open input dataset '(null)' (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/rotparent-last",
+   "category": "errors",
+   "description": "-rotparent",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -rotparent",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ; larmorx exit 1: (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/gridparent-last",
+   "category": "errors",
+   "description": "-gridparent",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -gridparent",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ; larmorx exit 1: (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/matrix-save-last",
+   "category": "errors",
+   "description": "-1Dmatrix_save",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -1Dmatrix_save",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** FATAL ERROR: no argument after '-1Dmatrix_save'!; larmorx exit 1: ** FATAL ERROR: no argument after '-1Dmatrix_save'! (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/one-volume-no-base",
+   "category": "errors",
+   "description": "-base 1 -prefix o.nii <one volume>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -base 1 -prefix o.nii <generated: e_one.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** Dataset ~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/e_one.nii.gz doesn't have base brick index = 1; larmorx exit 1: ** Dataset ~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/e_one.nii.gz doesn't have base brick ind…"
+    }
+   }
+  },
+  {
+   "id": "errors/base-beyond-input",
+   "category": "errors",
+   "description": "-base 99 -prefix o.nii -input <input>",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -base 99 -prefix o.nii -input <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** Dataset (null) doesn't have base brick index = 99; larmorx exit 1: ** Dataset (null) doesn't have base brick index = 99 (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "errors/base-beyond-input-stray",
+   "category": "errors",
+   "description": "-base 99 -prefix o.nii -input <input> stray",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -base 99 -prefix o.nii -input <generated: s1.nii.gz> stray",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI exit 1: ** Dataset stray doesn't have base brick index = 99; larmorx exit 1: ** Dataset stray doesn't have base brick index = 99 (the same messages)"
+    }
+   }
+  },
+  {
+   "id": "divergences/default-prefix",
+   "category": "divergences",
+   "description": "no -prefix: AFNI writes its own format (volreg+orig)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "2/3",
+     "reason": "AFNI's default prefix 'volreg' is its own dataset format, which larmorx does not write: it refuses (NIfTI only)."
+    }
+   }
+  },
+  {
+   "id": "divergences/savedisp-afni-format",
+   "category": "divergences",
+   "description": "-savedisp sd: AFNI's own format",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -savedisp sd -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "expected-divergence",
+     "verdict": "divergence",
+     "checks": "2/3",
+     "reason": "-savedisp without .nii/.nii.gz writes AFNI's own dataset format, which larmorx does not write: it refuses (NIfTI only)."
+    }
+   }
+  },
+  {
+   "id": "global/exists",
+   "category": "global",
+   "description": "an existing output (AFNI-11)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii <generated: s1.nii.gz> (with o.nii present)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Neither writes an output; the exit status (0) and the messages are AFNI's. The default mode refuses instead (exit 1) and names AFNI-11 (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "global/overwrite",
+   "category": "global",
+   "description": "-overwrite",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -overwrite -prefix o.nii <generated: s1.nii.gz> (with o.nii present)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "global/deconflict-yes",
+   "category": "global",
+   "description": "AFNI_DECONFLICT=YES: renamed",
+   "command": "OMP_NUM_THREADS=1 AFNI_DECONFLICT=YES 3dvolreg -prefix o.nii <generated: s1.nii.gz> (with o.nii present)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "global/D-write-type-2",
+   "category": "global",
+   "description": "-DAFNI_NIFTI_WRITE_TYPE=2",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -DAFNI_NIFTI_WRITE_TYPE=2 -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "environment/quiet-startup",
+   "category": "environment",
+   "description": "AFNI_QUIET_STARTUP=YES",
+   "command": "OMP_NUM_THREADS=1 AFNI_QUIET_STARTUP=YES 3dvolreg -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "global/prefix-with-blank",
+   "category": "global",
+   "description": "a -prefix with a blank: AFNI writes nothing, with exit status 0 (AFNI-12)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix 'a b.nii' <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Neither writes an output; the exit status (0) and the messages are AFNI's. The default mode refuses instead (exit 1) and names AFNI-12 (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "global/savedisp-with-blank",
+   "category": "global",
+   "description": "-savedisp with a blank (AFNI-12)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -savedisp 's d.nii' -prefix o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names AFNI-12 (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "global/input-dir-with-blank",
+   "category": "global",
+   "description": "an input in a directory with a blank (AFNI-18)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix o.nii <generated: s1.nii.gz, in a directory with a blank>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "6/6",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names AFNI-18 (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "global/missing-directory",
+   "category": "global",
+   "description": "an output in a missing directory (AFNI-26)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix nodir/o.nii <generated: s1.nii.gz>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "Neither writes an output; the exit status (0) and the messages are AFNI's. The default mode refuses instead (exit 1) and names AFNI-26 (the record's D13 section)."
+    }
+   }
+  },
+  {
+   "id": "defects/prefix-255",
+   "category": "defects",
+   "description": "a -prefix of 255 bytes",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD/LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL.nii <generated: s1.nii.gz> (with DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD/.keep present)",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "8/8",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "defects/prefix-256",
+   "category": "defects",
+   "description": "a -prefix of 256 bytes: AFNI aborts (AFNI-90)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -prefix DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD/LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL.nii <generated: s1.nii.gz> (with DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD/.keep present)",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "divergence",
+     "checks": "5/5",
+     "reason": "AFNI crashes (exit 1, Fatal Signal 6 (SIGABRT) received); larmorx refuses (exit 1: ** FATAL ERROR: the -prefix name has 256 bytes; AFNI's buffer holds 255 and AFNI aborts here (*** buffer overflow detected ***, AFNI-90)), after the same messages"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds000005-run-01",
+   "category": "fmriprep",
+   "description": "fMRIPrep's RobustAverage call (single-band, int16, 64 x 64 x 34, 20 volumes)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -Fourier -twopass -zpad 4 -prefix o.nii.gz -1Dfile o.1D -1Dmatrix_save o.aff12.1D -maxdisp1D o_md.1D <fMRIPrep ds000005-run-01: RobustAverage's sliced volumes>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "21/21",
+     "reason": "fMRIPrep 25.2.6's AFNI give the oracle's bytes; average.nii.gz: fMRIPrep's own output, the same bytes; in its default mode the replica corrects AFNI-99 and names it: 35 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in both modes (the record's D13 section)"
+    }
+   },
+   "example": "fmriprep-volreg"
+  },
+  {
+   "id": "fmriprep/ds000005-run-03",
+   "category": "fmriprep",
+   "description": "fMRIPrep's RobustAverage call (two volumes)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -Fourier -twopass -zpad 4 -prefix o.nii.gz -1Dfile o.1D -1Dmatrix_save o.aff12.1D -maxdisp1D o_md.1D <fMRIPrep ds000005-run-03: RobustAverage's sliced volumes>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "20/20",
+     "reason": "fMRIPrep 25.2.6's AFNI give the oracle's bytes; average.nii.gz: fMRIPrep's own output, the same bytes; in its default mode the replica corrects AFNI-99 and names it: 2 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in both modes (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds005454",
+   "category": "fmriprep",
+   "description": "fMRIPrep's RobustAverage call (multiband, 160 x 160 x 96 (the subsampled coarse search), oblique)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -Fourier -twopass -zpad 4 -prefix o.nii.gz -1Dfile o.1D -1Dmatrix_save o.aff12.1D -maxdisp1D o_md.1D <fMRIPrep ds005454: RobustAverage's sliced volumes>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "20/20",
+     "reason": "fMRIPrep 25.2.6's AFNI give the oracle's bytes; average.nii.gz: fMRIPrep's own output, the same bytes; in its default mode the replica corrects AFNI-99 and names it: 32 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in both modes (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds003592-echo-1",
+   "category": "fmriprep",
+   "description": "fMRIPrep's RobustAverage call (multi-echo (echo 1), oblique, 64 x 64 x 43)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -Fourier -twopass -zpad 4 -prefix o.nii.gz -1Dfile o.1D -1Dmatrix_save o.aff12.1D -maxdisp1D o_md.1D <fMRIPrep ds003592-echo-1: RobustAverage's sliced volumes>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "20/20",
+     "reason": "fMRIPrep 25.2.6's AFNI give the oracle's bytes; average.nii.gz: fMRIPrep's own output, the same bytes; in its default mode the replica corrects AFNI-99 and names it: 35 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in both modes (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds004958",
+   "category": "fmriprep",
+   "description": "fMRIPrep's RobustAverage call (multiband 8, uint16 stored, 104 x 104 x 72, 3 volumes, 24 degrees oblique)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -Fourier -twopass -zpad 4 -prefix o.nii.gz -1Dfile o.1D -1Dmatrix_save o.aff12.1D -maxdisp1D o_md.1D <fMRIPrep ds004958: RobustAverage's sliced volumes>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "20/20",
+     "reason": "fMRIPrep 25.2.6's AFNI give the oracle's bytes; average.nii.gz: fMRIPrep's own output, the same bytes; in its default mode the replica corrects AFNI-99 and names it: 4 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in both modes (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/ds002603-mb4",
+   "category": "fmriprep",
+   "description": "fMRIPrep's RobustAverage call (Philips multiband 4, float32 stored)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -Fourier -twopass -zpad 4 -prefix o.nii.gz -1Dfile o.1D -1Dmatrix_save o.aff12.1D -maxdisp1D o_md.1D <fMRIPrep ds002603-mb4: RobustAverage's sliced volumes>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "20/20",
+     "reason": "fMRIPrep 25.2.6's AFNI give the oracle's bytes; average.nii.gz: fMRIPrep's own output, the same bytes; in its default mode the replica corrects AFNI-99 and names it: 22 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in both modes (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/pepolar-ds005040",
+   "category": "fmriprep",
+   "description": "fMRIPrep's RobustAverage call (sdcflows' PEPOLAR reference average: 2 topup-corrected volumes, float32)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -Fourier -twopass -zpad 4 -prefix o.nii.gz -1Dfile o.1D -1Dmatrix_save o.aff12.1D -maxdisp1D o_md.1D <fMRIPrep pepolar-ds005040: RobustAverage's sliced volumes>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "20/20",
+     "reason": "fMRIPrep 25.2.6's AFNI give the oracle's bytes; average.nii.gz: fMRIPrep's own output, the same bytes; in its default mode the replica corrects AFNI-99 and names it: 2 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in both modes (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "fmriprep/pepolar-ds001600",
+   "category": "fmriprep",
+   "description": "fMRIPrep's RobustAverage call (sdcflows' PEPOLAR reference average: 2 volumes, 80 x 80 x 60)",
+   "command": "OMP_NUM_THREADS=1 3dvolreg -Fourier -twopass -zpad 4 -prefix o.nii.gz -1Dfile o.1D -1Dmatrix_save o.aff12.1D -maxdisp1D o_md.1D <fMRIPrep pepolar-ds001600: RobustAverage's sliced volumes>",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "20/20",
+     "reason": "fMRIPrep 25.2.6's AFNI give the oracle's bytes; average.nii.gz: fMRIPrep's own output, the same bytes; in its default mode the replica corrects AFNI-99 and names it: 2 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in both modes (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "defects/coarse-1-large",
+   "category": "defects",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "4/4",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "difftest/constant-twopass-lsqfit",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "divergence",
+     "checks": "4/4",
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: the base's least squares could not be set up (the messages above say why: all-zero weights, or a base whose rotated and shifted copies do not change under the …"
+    }
+   }
+  },
+  {
+   "id": "difftest/crash-after-progress-line",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "divergence",
+     "checks": "4/4",
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: a Fourier rotation shifted the last of an odd count of rows beyond the row length together with the previous pair's second shift (a rotation far beyond a head'…"
+    }
+   }
+  },
+  {
+   "id": "difftest/fourier-lone-row-default",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "divergence",
+     "checks": "5/5",
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: a Fourier rotation shifted the last of an odd count of rows beyond the row length together with the previous pair's second shift (a rotation far beyond a head'…"
+    }
+   }
+  },
+  {
+   "id": "difftest/fourier-lone-row-null",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "both-error",
+     "verdict": "divergence",
+     "checks": "5/5",
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: a Fourier rotation shifted the last of an odd count of rows beyond the row length together with the previous pair's second shift (a rotation far beyond a head'…"
+    }
+   }
+  },
+  {
+   "id": "difftest/notice-after-open-line",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "10/10",
+     "reason": "in its default mode the replica corrects AFNI-92, AFNI-93 and names it: 1,436 values change (the record's D13 section)"
+    }
+   }
+  },
+  {
+   "id": "difftest/uint16-base-and-input",
+   "category": "difftest",
+   "description": "",
+   "command": "",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "both-reject",
+     "checks": "5/5",
+     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+    }
+   }
+  }
+ ],
+ "cases_total": 189,
+ "speed": {
+  "title": "3dvolreg: wall time of fMRIPrep's RobustAverage call (informal timings, 2026-11-06)",
+  "axis": [
+   0.1,
+   100.0
+  ],
+  "ticks": [
+   [
+    0.1,
+    "0.1 s"
+   ],
+   [
+    1.0,
+    "1 s"
+   ],
+   [
+    10.0,
+    "10 s"
+   ],
+   [
+    100.0,
+    "100 s"
+   ]
+  ],
+  "series": [
+   {
+    "id": "AFNI",
+    "label": "AFNI 26.3.05, 1 thread",
+    "mark": "original"
+   },
+   {
+    "id": "larmorx",
+    "label": "replica, larmorx afni 3dvolreg",
+    "mark": "replica"
+   },
+   {
+    "id": "python -m larmorx",
+    "label": "replica, python -m larmorx",
+    "mark": "replica-open"
+   }
+  ],
+  "rows": [
+   {
+    "label": "ds000005 run 1, single-band (64 × 64 × 34 × 20)",
+    "input": "ds000005-run-01",
+    "seconds": {
+     "AFNI": 8.946458065067418,
+     "larmorx": 2.8846343979239464,
+     "python -m larmorx": 2.656995684024878
+    },
+    "speedup": 3.101418353572338
+   },
+   {
+    "label": "ds003592 echo 1, multi-echo (64 × 64 × 43 × 20)",
+    "input": "ds003592-echo-1",
+    "seconds": {
+     "AFNI": 9.785799230099656,
+     "larmorx": 3.207274597021751,
+     "python -m larmorx": 3.1814082770142704
+    },
+    "speedup": 3.05112609914557
+   },
+   {
+    "label": "ds005454, multiband (160 × 160 × 96 × 20)",
+    "input": "ds005454",
+    "seconds": {
+     "AFNI": 93.22753528202884,
+     "larmorx": 40.778508518007584,
+     "python -m larmorx": 40.952470425050706
+    },
+    "speedup": 2.2861928665404725
+   },
+   {
+    "label": "ds004958, multiband 8 (104 × 104 × 72 × 3)",
+    "input": "ds004958",
+    "seconds": {
+     "AFNI": 4.6209620491135865,
+     "larmorx": 2.0545859759440646,
+     "python -m larmorx": 1.9891128659946844
+    },
+    "speedup": 2.249096461874901
+   },
+   {
+    "label": "ds005040, PEPOLAR average (64 × 64 × 40 × 2)",
+    "input": "pepolar-ds005040",
+    "seconds": {
+     "AFNI": 0.8305008310126141,
+     "larmorx": 0.3436106280423701,
+     "python -m larmorx": 0.35060570505447686
+    },
+    "speedup": 2.416982372588913
+   }
+  ],
+  "note": "fMRIPrep's call (-Fourier -twopass -zpad 4 with -1Dfile, -1Dmatrix_save, -maxdisp1D) on the parity suite's inputs, one thread each (3dvolreg has no parallel loop on this path), the median of three runs, reading and writing compressed NIfTI included, every output checked byte for byte; on the main machine while another agent worked: indications, not a benchmark report. The ratio is AFNI's time over the replica's program's. Tool: validation/investigations/afni-volreg/speed.py."
+ },
+ "examples": [
+  {
+   "id": "fmriprep-volreg",
+   "title": "fMRIPrep's registration of a real BOLD run's reference volumes",
+   "summary": "fMRIPrep's BOLD reference is the median of some of a run's volumes, aligned first: niworkflows' RobustAverage (the gen_avg node of fMRIPrep 25.2.6's hmc_boldref_wf) takes 20 volumes of OpenNeuro ds000005 sub-01's first run (file volumes 20 to 39 of 240), clips them and divides them by the global signal's drift, and gives them to 3dvolreg with -Fourier -twopass -zpad 4. That call, given to AFNI 26.3.05, AFNI 25.2.09, fMRIPrep's build of AFNI and the larmorx replica in both modes. Choose a volume with the slider; the input panels show the run before registration.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, task mixedgamblestask run 1 (PDDL-1.0); shown inside fMRIPrep's BOLD brain mask, dilated by one voxel"
+    },
+    {
+     "label": "Node",
+     "text": "fMRIPrep 25.2.6, `bold_fit_wf/hmc_boldref_wf/gen_avg` (niworkflows' RobustAverage)"
+    },
+    {
+     "label": "Command",
+     "text": "`3dvolreg -Fourier -twopass -zpad 4 -prefix o.nii.gz -1Dfile o.1D -1Dmatrix_save o.aff12.1D -maxdisp1D o_md.1D sliced.nii.gz`"
+    },
+    {
+     "label": "Programs",
+     "text": "AFNI_26.3.05, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0 and AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0 (the repository's oracle builds); AFNI AFNI_25.2.09 (Aug 24 2025) [64-bit] in fMRIPrep's image; larmorx 0.0.1 (crate larmorx-afni-replica, built in) at commit `c0fa9881ce74`"
+    },
+    {
+     "label": "Grid",
+     "text": "64 × 64 × 34 × 20 voxels of 3.12 × 3.12 × 4 mm; shown: 53 × 55 × 34 around the brain"
+    }
+   ],
+   "grid": {
+    "shape": [
+     53,
+     55,
+     34
+    ],
+    "spacing": [
+     3.125,
+     3.125,
+     4.0
+    ],
+    "to_file": [
+     [
+      -1,
+      0,
+      0,
+      57
+     ],
+     [
+      0,
+      1,
+      0,
+      2
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      3.125,
+      0.0,
+      0.0,
+      -77.125
+     ],
+     [
+      0.0,
+      3.125,
+      0.0,
+      -65.75
+     ],
+     [
+      0.0,
+      0.0,
+      4.0,
+      -99.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     64,
+     64,
+     34,
+     20
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)",
+    "volumes": 20,
+    "t_index": [
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     37,
+     38,
+     39
+    ]
+   },
+   "mask": {
+    "blob": "c67b3d02050e38e70afb534f.bin",
+    "dtype": "u1",
+    "bytes": 2011
+   },
+   "outputs": [
+    {
+     "id": "series",
+     "label": "Registered series",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 793.498291015625
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 797.3063354492188
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "bold",
+     "role": "input",
+     "label": "ds000005 sub-01 BOLD, run 1, as stored",
+     "sub": "int16; the 20 volumes RobustAverage takes (file volumes 20 to 39 of 240)",
+     "arrays": {
+      "all": {
+       "blob": "e437a35f62f1487912e98b4c.bin",
+       "dtype": "i2",
+       "bytes": 883414
+      }
+     },
+     "window": [
+      0.0,
+      817.0
+     ]
+    },
+    {
+     "id": "sliced",
+     "role": "input",
+     "label": "3dvolreg's input: RobustAverage's sliced volumes",
+     "sub": "clipped to the 99.8th percentile and divided by the global signal's drift (fMRIPrep's Python in its image); int16 with a scale factor",
+     "arrays": {
+      "all": {
+       "blob": "8395f75db8014ed032840dc0.bin",
+       "dtype": "i2",
+       "xor": "bold:all",
+       "zero": false,
+       "bytes": 1439715,
+       "scale": 0.012166114524006844,
+       "inter": 398.65924072265625
+      }
+     },
+     "window": [
+      0.0,
+      794.2404544707388
+     ]
+    },
+    {
+     "id": "afni26",
+     "role": "original",
+     "label": "AFNI 26.3.05, 3dvolreg",
+     "sub": "the repository's build; the replica's reference",
+     "arrays": {
+      "series": {
+       "blob": "e52d528bf2b2a6dbd58f8c28.bin",
+       "dtype": "f4",
+       "bytes": 2458767
+      }
+     },
+     "own": {
+      "series": [
+       0.0,
+       793.498291015625
+      ]
+     }
+    },
+    {
+     "id": "afni25",
+     "role": "original",
+     "label": "AFNI 25.2.09, 3dvolreg",
+     "sub": "the repository's build; the previous release",
+     "arrays": {
+      "series": {
+       "same": "afni26:series",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "series": [
+       0.0,
+       793.498291015625
+      ]
+     }
+    },
+    {
+     "id": "image",
+     "role": "original",
+     "label": "AFNI in fMRIPrep's image",
+     "sub": "fMRIPrep 25.2.6's build (AFNI_25.2.09 (Aug 24 2025) [64-bit])",
+     "arrays": {
+      "series": {
+       "same": "afni26:series",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "series": [
+       0.0,
+       793.498291015625
+      ]
+     }
+    },
+    {
+     "id": "replica-1",
+     "role": "larmorx",
+     "label": "larmorx replica",
+     "sub": "default mode, 1 thread",
+     "arrays": {
+      "series": {
+       "same": "afni26:series",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "series": [
+       0.0,
+       793.498291015625
+      ]
+     }
+    },
+    {
+     "id": "replica-6",
+     "role": "larmorx",
+     "label": "larmorx replica",
+     "sub": "default mode, 6 threads",
+     "arrays": {
+      "series": {
+       "same": "afni26:series",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "series": [
+       0.0,
+       793.498291015625
+      ]
+     }
+    },
+    {
+     "id": "replica-reproduce",
+     "role": "larmorx",
+     "label": "larmorx replica",
+     "sub": "reproduce mode, 1 thread",
+     "arrays": {
+      "series": {
+       "same": "afni26:series",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "series": [
+       0.0,
+       793.498291015625
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "replica-afni26",
+     "a": "replica-1",
+     "b": "afni26",
+     "kind": "main",
+     "label": "replica (default) − AFNI 26.3.05",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "series": {
+       "identical": true,
+       "voxels": 2785280,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 797.3063354492188,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [
+      {
+       "label": "AFNI-99",
+       "href": "docs/api/afni-volreg.md#upstream-defects"
+      }
+     ],
+     "verdict": "bit-identical",
+     "reason": "The same values, every one: the registered series, and the parameters and matrices as text; the maximum displacements differ (AFNI-99, corrected by default: the chart below)."
+    },
+    {
+     "id": "repro-afni26",
+     "a": "replica-reproduce",
+     "b": "afni26",
+     "kind": "main",
+     "label": "replica (reproduce) − AFNI 26.3.05",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "series": {
+       "identical": true,
+       "voxels": 2785280,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 797.3063354492188,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same values, every one, and every text file AFNI writes."
+    },
+    {
+     "id": "afni25-afni26",
+     "a": "afni25",
+     "b": "afni26",
+     "kind": "variability",
+     "label": "AFNI 25.2.09 − 26.3.05",
+     "role_label": "the original against itself: the version step",
+     "metrics": {
+      "series": {
+       "identical": true,
+       "voxels": 2785280,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 797.3063354492188,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "AFNI 25.2.09 gives AFNI 26.3.05's bytes on this call (the series and every text file): 3dvolreg did not change between the two releases."
+    },
+    {
+     "id": "image-afni26",
+     "a": "image",
+     "b": "afni26",
+     "kind": "variability",
+     "label": "fMRIPrep's AFNI − AFNI 26.3.05",
+     "role_label": "the original against itself",
+     "metrics": {
+      "series": {
+       "identical": true,
+       "voxels": 2785280,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 797.3063354492188,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "fMRIPrep's build of AFNI (in its image) gives the repository's AFNI 26.3.05 bytes, the series and every text file."
+    },
+    {
+     "id": "replica6-replica1",
+     "a": "replica-6",
+     "b": "replica-1",
+     "kind": "check",
+     "label": "replica, 6 threads − 1 thread",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "series": {
+       "identical": true,
+       "voxels": 2785280,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 797.3063354492188,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same bytes on any number of threads (AFNI's 3dvolreg has no parallel loop on this path; neither has the replica's registration)."
+    },
+    {
+     "id": "replica-repro",
+     "a": "replica-1",
+     "b": "replica-reproduce",
+     "kind": "check",
+     "label": "replica, default − reproduce mode",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "series": {
+       "identical": true,
+       "voxels": 2785280,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 797.3063354492188,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [
+      {
+       "label": "AFNI-99",
+       "href": "docs/api/afni-volreg.md#upstream-defects"
+      }
+     ],
+     "verdict": "bit-identical",
+     "reason": "The registered volumes are the same bytes in both modes: AFNI-99 changes only the maximum displacements, which the default computes for the voxels themselves (the chart below)."
+    }
+   ],
+   "default": {
+    "output": "series",
+    "plane": "axial",
+    "voxel": [
+     26,
+     27,
+     15
+    ],
+    "t": 16,
+    "panels": [
+     "sliced",
+     "afni26",
+     "replica-1",
+     "replica-reproduce"
+    ],
+    "diffs": [
+     "replica-afni26",
+     "afni25-afni26",
+     "image-afni26"
+    ],
+    "compare": {
+     "a": "sliced",
+     "b": "afni26"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 15,
+    "aspect": 0.96364,
+    "panels": {
+     "sliced": "395324218b0a0261e8f861c7.webp",
+     "afni26": "66b5299ce73e5360787e6355.webp",
+     "replica-1": "66b5299ce73e5360787e6355.webp",
+     "replica-reproduce": "66b5299ce73e5360787e6355.webp"
+    },
+    "diffs": {},
+    "ranges": {},
+    "caption": "Axial slice 16 of 34, volume 17 of 20; file volume 36, the one AFNI finds farthest from the base (the first volume given)."
+   },
+   "lines": {
+    "params": {
+     "title": "The six motion parameters and the maximum displacements over the 20 volumes",
+     "x_label": "volume",
+     "x": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+     ],
+     "key": [
+      {
+       "label": "AFNI 26.3.05",
+       "mark": "original"
+      },
+      {
+       "label": "larmorx replica, default mode",
+       "mark": "larmorx"
+      },
+      {
+       "label": "larmorx replica, reproduce mode (AFNI's bytes)",
+       "mark": "replica"
+      }
+     ],
+     "panels": [
+      {
+       "label": "roll (°, about I-S)",
+       "series": [
+        {
+         "label": "AFNI 26.3.05",
+         "mark": "original",
+         "y": [
+          -0.0,
+          -0.0016,
+          0.0016,
+          0.0011,
+          0.0037,
+          -0.0009,
+          -0.0018,
+          0.0005,
+          -0.0009,
+          0.0019,
+          0.0031,
+          0.002,
+          0.0068,
+          0.0028,
+          0.005,
+          0.0036,
+          -0.0004,
+          -0.0,
+          0.0176,
+          0.0091
+         ]
+        },
+        {
+         "label": "replica, default",
+         "mark": "larmorx",
+         "y": [
+          -0.0,
+          -0.0016,
+          0.0016,
+          0.0011,
+          0.0037,
+          -0.0009,
+          -0.0018,
+          0.0005,
+          -0.0009,
+          0.0019,
+          0.0031,
+          0.002,
+          0.0068,
+          0.0028,
+          0.005,
+          0.0036,
+          -0.0004,
+          -0.0,
+          0.0176,
+          0.0091
+         ]
+        },
+        {
+         "label": "replica, reproduce",
+         "mark": "replica",
+         "y": [
+          -0.0,
+          -0.0016,
+          0.0016,
+          0.0011,
+          0.0037,
+          -0.0009,
+          -0.0018,
+          0.0005,
+          -0.0009,
+          0.0019,
+          0.0031,
+          0.002,
+          0.0068,
+          0.0028,
+          0.005,
+          0.0036,
+          -0.0004,
+          -0.0,
+          0.0176,
+          0.0091
+         ]
+        }
+       ]
+      },
+      {
+       "label": "pitch (°, about R-L)",
+       "series": [
+        {
+         "label": "AFNI 26.3.05",
+         "mark": "original",
+         "y": [
+          -0.0,
+          -0.0066,
+          -0.0156,
+          -0.0125,
+          0.005,
+          -0.0188,
+          -0.0216,
+          -0.0189,
+          -0.0297,
+          -0.0276,
+          -0.0436,
+          -0.0256,
+          -0.0233,
+          -0.0203,
+          -0.0262,
+          -0.0187,
+          -0.0359,
+          -0.0217,
+          -0.0343,
+          -0.0258
+         ]
+        },
+        {
+         "label": "replica, default",
+         "mark": "larmorx",
+         "y": [
+          -0.0,
+          -0.0066,
+          -0.0156,
+          -0.0125,
+          0.005,
+          -0.0188,
+          -0.0216,
+          -0.0189,
+          -0.0297,
+          -0.0276,
+          -0.0436,
+          -0.0256,
+          -0.0233,
+          -0.0203,
+          -0.0262,
+          -0.0187,
+          -0.0359,
+          -0.0217,
+          -0.0343,
+          -0.0258
+         ]
+        },
+        {
+         "label": "replica, reproduce",
+         "mark": "replica",
+         "y": [
+          -0.0,
+          -0.0066,
+          -0.0156,
+          -0.0125,
+          0.005,
+          -0.0188,
+          -0.0216,
+          -0.0189,
+          -0.0297,
+          -0.0276,
+          -0.0436,
+          -0.0256,
+          -0.0233,
+          -0.0203,
+          -0.0262,
+          -0.0187,
+          -0.0359,
+          -0.0217,
+          -0.0343,
+          -0.0258
+         ]
+        }
+       ]
+      },
+      {
+       "label": "yaw (°, about A-P)",
+       "series": [
+        {
+         "label": "AFNI 26.3.05",
+         "mark": "original",
+         "y": [
+          0.0,
+          0.0027,
+          0.0065,
+          0.0059,
+          0.0016,
+          0.0021,
+          0.0041,
+          0.0081,
+          0.0106,
+          0.0148,
+          0.0089,
+          0.0113,
+          0.0096,
+          0.0096,
+          0.0075,
+          0.0095,
+          0.0076,
+          0.0115,
+          0.0123,
+          0.0185
+         ]
+        },
+        {
+         "label": "replica, default",
+         "mark": "larmorx",
+         "y": [
+          0.0,
+          0.0027,
+          0.0065,
+          0.0059,
+          0.0016,
+          0.0021,
+          0.0041,
+          0.0081,
+          0.0106,
+          0.0148,
+          0.0089,
+          0.0113,
+          0.0096,
+          0.0096,
+          0.0075,
+          0.0095,
+          0.0076,
+          0.0115,
+          0.0123,
+          0.0185
+         ]
+        },
+        {
+         "label": "replica, reproduce",
+         "mark": "replica",
+         "y": [
+          0.0,
+          0.0027,
+          0.0065,
+          0.0059,
+          0.0016,
+          0.0021,
+          0.0041,
+          0.0081,
+          0.0106,
+          0.0148,
+          0.0089,
+          0.0113,
+          0.0096,
+          0.0096,
+          0.0075,
+          0.0095,
+          0.0076,
+          0.0115,
+          0.0123,
+          0.0185
+         ]
+        }
+       ]
+      },
+      {
+       "label": "dS (mm)",
+       "series": [
+        {
+         "label": "AFNI 26.3.05",
+         "mark": "original",
+         "y": [
+          0.0,
+          0.0109,
+          -0.0119,
+          -0.0087,
+          -0.0213,
+          0.0313,
+          0.016,
+          0.0276,
+          0.0342,
+          0.0371,
+          0.034,
+          0.0236,
+          0.0128,
+          0.0392,
+          0.0522,
+          0.0526,
+          0.0897,
+          0.0776,
+          0.0746,
+          0.0711
+         ]
+        },
+        {
+         "label": "replica, default",
+         "mark": "larmorx",
+         "y": [
+          0.0,
+          0.0109,
+          -0.0119,
+          -0.0087,
+          -0.0213,
+          0.0313,
+          0.016,
+          0.0276,
+          0.0342,
+          0.0371,
+          0.034,
+          0.0236,
+          0.0128,
+          0.0392,
+          0.0522,
+          0.0526,
+          0.0897,
+          0.0776,
+          0.0746,
+          0.0711
+         ]
+        },
+        {
+         "label": "replica, reproduce",
+         "mark": "replica",
+         "y": [
+          0.0,
+          0.0109,
+          -0.0119,
+          -0.0087,
+          -0.0213,
+          0.0313,
+          0.016,
+          0.0276,
+          0.0342,
+          0.0371,
+          0.034,
+          0.0236,
+          0.0128,
+          0.0392,
+          0.0522,
+          0.0526,
+          0.0897,
+          0.0776,
+          0.0746,
+          0.0711
+         ]
+        }
+       ]
+      },
+      {
+       "label": "dL (mm)",
+       "series": [
+        {
+         "label": "AFNI 26.3.05",
+         "mark": "original",
+         "y": [
+          0.0,
+          0.0081,
+          0.0126,
+          0.0138,
+          0.0076,
+          0.0043,
+          0.0029,
+          0.0049,
+          0.0037,
+          0.0054,
+          0.0025,
+          0.0031,
+          0.0099,
+          0.0009,
+          0.002,
+          0.002,
+          0.0005,
+          -0.0014,
+          0.0178,
+          0.0177
+         ]
+        },
+        {
+         "label": "replica, default",
+         "mark": "larmorx",
+         "y": [
+          0.0,
+          0.0081,
+          0.0126,
+          0.0138,
+          0.0076,
+          0.0043,
+          0.0029,
+          0.0049,
+          0.0037,
+          0.0054,
+          0.0025,
+          0.0031,
+          0.0099,
+          0.0009,
+          0.002,
+          0.002,
+          0.0005,
+          -0.0014,
+          0.0178,
+          0.0177
+         ]
+        },
+        {
+         "label": "replica, reproduce",
+         "mark": "replica",
+         "y": [
+          0.0,
+          0.0081,
+          0.0126,
+          0.0138,
+          0.0076,
+          0.0043,
+          0.0029,
+          0.0049,
+          0.0037,
+          0.0054,
+          0.0025,
+          0.0031,
+          0.0099,
+          0.0009,
+          0.002,
+          0.002,
+          0.0005,
+          -0.0014,
+          0.0178,
+          0.0177
+         ]
+        }
+       ]
+      },
+      {
+       "label": "dP (mm)",
+       "series": [
+        {
+         "label": "AFNI 26.3.05",
+         "mark": "original",
+         "y": [
+          -0.0,
+          -0.0319,
+          -0.0159,
+          -0.0313,
+          -0.0148,
+          -0.0831,
+          -0.0084,
+          -0.0509,
+          -0.0327,
+          -0.0368,
+          -0.0569,
+          -0.0153,
+          -0.025,
+          -0.0287,
+          -0.0558,
+          -0.0029,
+          -0.0488,
+          0.0145,
+          -0.0226,
+          -0.0173
+         ]
+        },
+        {
+         "label": "replica, default",
+         "mark": "larmorx",
+         "y": [
+          -0.0,
+          -0.0319,
+          -0.0159,
+          -0.0313,
+          -0.0148,
+          -0.0831,
+          -0.0084,
+          -0.0509,
+          -0.0327,
+          -0.0368,
+          -0.0569,
+          -0.0153,
+          -0.025,
+          -0.0287,
+          -0.0558,
+          -0.0029,
+          -0.0488,
+          0.0145,
+          -0.0226,
+          -0.0173
+         ]
+        },
+        {
+         "label": "replica, reproduce",
+         "mark": "replica",
+         "y": [
+          -0.0,
+          -0.0319,
+          -0.0159,
+          -0.0313,
+          -0.0148,
+          -0.0831,
+          -0.0084,
+          -0.0509,
+          -0.0327,
+          -0.0368,
+          -0.0569,
+          -0.0153,
+          -0.025,
+          -0.0287,
+          -0.0558,
+          -0.0029,
+          -0.0488,
+          0.0145,
+          -0.0226,
+          -0.0173
+         ]
+        }
+       ]
+      },
+      {
+       "label": "maximum displacement (mm, -maxdisp1D)",
+       "series": [
+        {
+         "label": "AFNI 26.3.05",
+         "mark": "original",
+         "y": [
+          0.0,
+          0.043,
+          0.04,
+          0.047,
+          0.035,
+          0.116,
+          0.051,
+          0.087,
+          0.095,
+          0.098,
+          0.134,
+          0.07,
+          0.066,
+          0.083,
+          0.118,
+          0.084,
+          0.157,
+          0.113,
+          0.141,
+          0.123
+         ]
+        },
+        {
+         "label": "replica, default",
+         "mark": "larmorx",
+         "y": [
+          0.0,
+          0.041,
+          0.044,
+          0.051,
+          0.033,
+          0.109,
+          0.048,
+          0.082,
+          0.089,
+          0.093,
+          0.123,
+          0.066,
+          0.062,
+          0.079,
+          0.113,
+          0.081,
+          0.152,
+          0.11,
+          0.134,
+          0.119
+         ]
+        },
+        {
+         "label": "replica, reproduce",
+         "mark": "replica",
+         "y": [
+          0.0,
+          0.043,
+          0.04,
+          0.047,
+          0.035,
+          0.116,
+          0.051,
+          0.087,
+          0.095,
+          0.098,
+          0.134,
+          0.07,
+          0.066,
+          0.083,
+          0.118,
+          0.084,
+          0.157,
+          0.113,
+          0.141,
+          0.123
+         ]
+        }
+       ]
+      },
+      {
+       "label": "maximum displacement from the previous volume (mm, _delt)",
+       "series": [
+        {
+         "label": "AFNI 26.3.05",
+         "mark": "original",
+         "y": [
+          0.0,
+          0.043,
+          0.039,
+          0.019,
+          0.048,
+          0.123,
+          0.079,
+          0.049,
+          0.033,
+          0.012,
+          0.041,
+          0.068,
+          0.024,
+          0.031,
+          0.039,
+          0.062,
+          0.086,
+          0.084,
+          0.071,
+          0.026
+         ]
+        },
+        {
+         "label": "replica, default",
+         "mark": "larmorx",
+         "y": [
+          0.0,
+          0.041,
+          0.042,
+          0.02,
+          0.044,
+          0.116,
+          0.08,
+          0.05,
+          0.031,
+          0.012,
+          0.044,
+          0.063,
+          0.023,
+          0.031,
+          0.037,
+          0.062,
+          0.081,
+          0.08,
+          0.072,
+          0.023
+         ]
+        },
+        {
+         "label": "replica, reproduce",
+         "mark": "replica",
+         "y": [
+          0.0,
+          0.043,
+          0.039,
+          0.019,
+          0.048,
+          0.123,
+          0.079,
+          0.049,
+          0.033,
+          0.012,
+          0.041,
+          0.068,
+          0.024,
+          0.031,
+          0.039,
+          0.062,
+          0.086,
+          0.084,
+          0.071,
+          0.026
+         ]
+        }
+       ]
+      }
+     ],
+     "note": "3dvolreg's own parameters (-1Dfile): rotations in degrees about AFNI's axes, shifts in mm (S, L, P positive), from the base (the first volume) to each volume. Lines that coincide are the same values. Move the pointer over a chart to read every value at one volume.",
+     "stats": {
+      "id": "volreg-params",
+      "title": "The text outputs compared, over every volume (the files without their comment line)",
+      "columns": [
+       {
+        "label": "Comparison"
+       },
+       {
+        "label": "largest |Δ| rotation (°)",
+        "num": true
+       },
+       {
+        "label": "largest |Δ| shift (mm)",
+        "num": true
+       },
+       {
+        "label": "largest |Δ| max displacement (mm)",
+        "num": true
+       },
+       {
+        "label": "identical as text"
+       }
+      ],
+      "rows": [
+       {
+        "head": "replica (default) − AFNI 26.3.05",
+        "sub": "AFNI-99 corrected",
+        "cells": [
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.01100000000000001,
+          "fmt": "sig"
+         },
+         {
+          "text": "-1Dfile, matrices"
+         }
+        ]
+       },
+       {
+        "head": "replica (reproduce) − AFNI 26.3.05",
+        "cells": [
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "text": "-1Dfile, matrices, -maxdisp1D, _delt"
+         }
+        ]
+       },
+       {
+        "head": "replica: default − reproduce",
+        "cells": [
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.01100000000000001,
+          "fmt": "sig"
+         },
+         {
+          "text": "-1Dfile, matrices"
+         }
+        ]
+       },
+       {
+        "head": "replica: 6 threads − 1 thread",
+        "cells": [
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "text": "-1Dfile, matrices, -maxdisp1D, _delt"
+         }
+        ]
+       },
+       {
+        "head": "AFNI 25.2.09 − 26.3.05",
+        "sub": "the version step",
+        "class": "is-sep is-yardstick",
+        "cells": [
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "text": "-1Dfile, matrices, -maxdisp1D, _delt"
+         }
+        ]
+       },
+       {
+        "head": "fMRIPrep's AFNI − AFNI 26.3.05",
+        "class": "is-yardstick",
+        "cells": [
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "text": "-1Dfile, matrices, -maxdisp1D, _delt"
+         }
+        ]
+       }
+      ],
+      "note": "Values as the files write them (-1Dfile: 4 decimals; -maxdisp1D: 3). The shaded rows are AFNI against itself. AFNI-99: the maximum displacement AFNI writes is that of the voxel mirrored along every axis stored posterior to anterior (this run's second axis); the default computes it for the voxel itself, reproduce gives AFNI's numbers."
+     }
+    }
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B, computed in float64 over every value of the files (2,785,280), not only those shown; the range is B's maximum minus its minimum. The record's threshold: every output bit-identical to AFNI 26.3.05's (the registered series, -1Dfile, -1Dmatrix_save, -maxdisp1D), with its exit status and messages. The rows *the original against itself* are AFNI's own variability on this input: its previous release and fMRIPrep's build.",
+   "provenance": [
+    "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
+    "Inputs: RobustAverage's sliced volumes (sha256 2cce88990bcfbee8…); the raw BOLD run (sha256 609ae0a21822318f…); fMRIPrep's BOLD reference (sha256 ab49738164116b9c…); the sliced volumes stored LPS (sha256 71708c457976d2d1…)",
+    "Runs: figures cache entry `afni-volreg/fmriprep-ds000005-run-01`, computed 2026-11-07T01:27:24+00:00 with larmorx `c0fa9881ce74`; AFNI_26.3.05, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx 0.0.1 (crate larmorx-afni-replica, built in); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds000005"
+   ]
+  },
+  {
+   "id": "fmriprep-boldref",
+   "title": "The BOLD reference fMRIPrep makes from the registered volumes",
+   "summary": "RobustAverage's last step: the median, voxel by voxel, of the registered volumes of the first example. fMRIPrep's own reference of the run (the node's output, from AFNI in its image) beside the median of AFNI 26.3.05's, AFNI 25.2.09's and the replica's registered series, computed as RobustAverage computes it. The first panel is the median of the volumes before registration: choose *compare* to see what aligning them changes.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, run 1 (PDDL-1.0); shown inside fMRIPrep's BOLD brain mask, dilated by one voxel"
+    },
+    {
+     "label": "Node",
+     "text": "fMRIPrep 25.2.6, `bold_fit_wf/hmc_boldref_wf/gen_avg`: its output, `…_bold_average.nii.gz`"
+    },
+    {
+     "label": "Median",
+     "text": "niworkflows' RobustAverage: the registered values clipped (at 0 below), `np.median` over the volumes, written with the sliced volumes' header (float32)"
+    },
+    {
+     "label": "Grid",
+     "text": "64 × 64 × 34 voxels of 3.12 × 3.12 × 4 mm; shown: 53 × 55 × 34 around the brain"
+    }
+   ],
+   "grid": {
+    "shape": [
+     53,
+     55,
+     34
+    ],
+    "spacing": [
+     3.125,
+     3.125,
+     4.0
+    ],
+    "to_file": [
+     [
+      -1,
+      0,
+      0,
+      57
+     ],
+     [
+      0,
+      1,
+      0,
+      2
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      3.125,
+      0.0,
+      0.0,
+      -77.125
+     ],
+     [
+      0.0,
+      3.125,
+      0.0,
+      -65.75
+     ],
+     [
+      0.0,
+      0.0,
+      4.0,
+      -99.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     64,
+     64,
+     34
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "c67b3d02050e38e70afb534f.bin",
+    "dtype": "u1",
+    "bytes": 2011
+   },
+   "outputs": [
+    {
+     "id": "average",
+     "label": "BOLD reference (RobustAverage's median)",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 793.574958331883
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 794.6784257423133
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "unregistered",
+     "role": "input",
+     "label": "the sliced volumes' median, not registered",
+     "sub": "what the median would be without 3dvolreg (for comparison; not a step of fMRIPrep)",
+     "arrays": {
+      "all": {
+       "blob": "aac9434822d3f536d77549ee.bin",
+       "dtype": "f4",
+       "bytes": 116611
+      }
+     },
+     "window": [
+      0.0,
+      794.6784057617188
+     ]
+    },
+    {
+     "id": "fmriprep",
+     "role": "fmriprep",
+     "label": "fMRIPrep 25.2.6, as it ran",
+     "sub": "the node's BOLD reference (AFNI in its image)",
+     "arrays": {
+      "average": {
+       "blob": "806d8187215d1c7b4ebbb5f4.bin",
+       "dtype": "f8",
+       "bytes": 202561
+      }
+     },
+     "own": {
+      "average": [
+       0.0,
+       793.574958331883
+      ]
+     }
+    },
+    {
+     "id": "afni26",
+     "role": "original",
+     "label": "AFNI 26.3.05's series, median",
+     "sub": "RobustAverage's median of AFNI's registered volumes",
+     "arrays": {
+      "average": {
+       "same": "fmriprep:average",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "average": [
+       0.0,
+       793.574958331883
+      ]
+     }
+    },
+    {
+     "id": "afni25",
+     "role": "original",
+     "label": "AFNI 25.2.09's series, median",
+     "sub": "the previous release",
+     "arrays": {
+      "average": {
+       "same": "fmriprep:average",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "average": [
+       0.0,
+       793.574958331883
+      ]
+     }
+    },
+    {
+     "id": "replica-1",
+     "role": "larmorx",
+     "label": "larmorx replica's series, median",
+     "sub": "default mode, 1 thread",
+     "arrays": {
+      "average": {
+       "same": "fmriprep:average",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "average": [
+       0.0,
+       793.574958331883
+      ]
+     }
+    },
+    {
+     "id": "replica-reproduce",
+     "role": "larmorx",
+     "label": "larmorx replica's series, median",
+     "sub": "reproduce mode",
+     "arrays": {
+      "average": {
+       "same": "fmriprep:average",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "average": [
+       0.0,
+       793.574958331883
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "replica-fmriprep",
+     "a": "replica-1",
+     "b": "fmriprep",
+     "kind": "fmriprep",
+     "label": "replica − fMRIPrep's own reference",
+     "role_label": "larmorx against fMRIPrep",
+     "metrics": {
+      "average": {
+       "identical": true,
+       "voxels": 139264,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 794.6784257423133,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "average": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "fMRIPrep's BOLD reference of this run, every value: the replica's registered volumes give the median fMRIPrep computed from AFNI's."
+    },
+    {
+     "id": "replica-afni26",
+     "a": "replica-1",
+     "b": "afni26",
+     "kind": "main",
+     "label": "replica (default) − AFNI 26.3.05",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "average": {
+       "identical": true,
+       "voxels": 139264,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 794.6784257423133,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "average": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same values, every one."
+    },
+    {
+     "id": "repro-afni26",
+     "a": "replica-reproduce",
+     "b": "afni26",
+     "kind": "main",
+     "label": "replica (reproduce) − AFNI 26.3.05",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "average": {
+       "identical": true,
+       "voxels": 139264,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 794.6784257423133,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "average": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "The same values, every one."
+    },
+    {
+     "id": "afni26-fmriprep",
+     "a": "afni26",
+     "b": "fmriprep",
+     "kind": "variability",
+     "label": "AFNI 26.3.05 − fMRIPrep's own",
+     "role_label": "the original against itself: fMRIPrep's AFNI 25.2.09 in its image",
+     "metrics": {
+      "average": {
+       "identical": true,
+       "voxels": 139264,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 794.6784257423133,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "average": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "AFNI 26.3.05 gives the reference fMRIPrep computed with its own AFNI, every value."
+    },
+    {
+     "id": "afni25-afni26",
+     "a": "afni25",
+     "b": "afni26",
+     "kind": "variability",
+     "label": "AFNI 25.2.09 − 26.3.05",
+     "role_label": "the original against itself: the version step",
+     "metrics": {
+      "average": {
+       "identical": true,
+       "voxels": 139264,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 794.6784257423133,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "average": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "The same bytes: 3dvolreg did not change between the two releases."
+    }
+   ],
+   "default": {
+    "output": "average",
+    "plane": "axial",
+    "voxel": [
+     26,
+     27,
+     15
+    ],
+    "panels": [
+     "unregistered",
+     "fmriprep",
+     "replica-1"
+    ],
+    "diffs": [
+     "replica-fmriprep",
+     "afni26-fmriprep"
+    ],
+    "compare": {
+     "a": "unregistered",
+     "b": "replica-1"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 15,
+    "aspect": 0.96364,
+    "panels": {
+     "unregistered": "a447c64a0356568e3ad4d90d.webp",
+     "fmriprep": "64484b647f577cc29487e0f8.webp",
+     "replica-1": "64484b647f577cc29487e0f8.webp"
+    },
+    "diffs": {},
+    "ranges": {},
+    "caption": "Axial slice 16 of 34; the crosshair at the brain's centre."
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B, computed in float64 over every value of the files (139,264), not only those shown; the range is B's maximum minus its minimum. The record's threshold: every output bit-identical to AFNI 26.3.05's (the registered series and the text files; here their median, which the record also compares with fMRIPrep's own), with its exit status and messages. The rows *the original against itself* are AFNI's own variability on this input: its previous release and fMRIPrep's build.",
+   "provenance": [
+    "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
+    "Inputs: RobustAverage's sliced volumes (sha256 2cce88990bcfbee8…); the raw BOLD run (sha256 609ae0a21822318f…); fMRIPrep's BOLD reference (sha256 ab49738164116b9c…); the sliced volumes stored LPS (sha256 71708c457976d2d1…)",
+    "Runs: figures cache entry `afni-volreg/fmriprep-ds000005-run-01`, computed 2026-11-07T01:27:24+00:00 with larmorx `c0fa9881ce74`; AFNI_26.3.05, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx 0.0.1 (crate larmorx-afni-replica, built in); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds000005"
+   ]
+  },
+  {
+   "id": "afni-99",
+   "title": "AFNI-99: the maximum displacement of a mirrored voxel",
+   "summary": "3dvolreg's -maxdisp1D (and -savedisp) convert the registration's rotation and shift to the dataset's axes with each axis's sign, but take the voxel positions without it: for an axis stored left to right, posterior to anterior or superior to inferior, the displacement computed is that of the voxel mirrored about the axis's centre. fMRIPrep's volumes of the first example are stored that way along their second axis. The same volumes stored with that axis reversed (LPS: every axis positive in AFNI's order), registered by AFNI 26.3.05 and the replica in both modes.",
+   "facts": [
+    {
+     "label": "Input",
+     "text": "the first example's sliced volumes; and the same stored integers, scale factor and header, the second axis reversed and the qform and sform changed so that every voxel stays where it was"
+    },
+    {
+     "label": "Command",
+     "text": "`3dvolreg -Fourier -twopass -zpad 4 -prefix o.nii.gz -1Dfile o.1D -1Dmatrix_save o.aff12.1D -maxdisp1D o_md.1D sliced.nii.gz`"
+    },
+    {
+     "label": "Defect",
+     "text": "[AFNI-99](repo:docs/api/afni-volreg.md#upstream-defects): -maxdisp and -savedisp give the displacements of a mirrored position; corrected by default, named; reproduce gives AFNI's numbers"
+    },
+    {
+     "label": "Size",
+     "text": "on this run, whose head moves little (at most 0.157 mm from the base), AFNI's maximum displacements change by up to 0.011 mm with the storage order; the error grows with the rotation and with the voxels' distance from the axis's centre (on the API page's synthetic series, 1.718 against 1.672 mm)"
+    },
+    {
+     "label": "fMRIPrep",
+     "text": "RobustAverage writes -maxdisp1D but uses only the registered volumes: fMRIPrep's results do not change"
+    }
+   ],
+   "grid": {
+    "shape": [
+     53,
+     55,
+     34
+    ],
+    "spacing": [
+     3.125,
+     3.125,
+     4.0
+    ],
+    "to_file": [
+     [
+      -1,
+      0,
+      0,
+      57
+     ],
+     [
+      0,
+      1,
+      0,
+      2
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      3.125,
+      0.0,
+      0.0,
+      -77.125
+     ],
+     [
+      0.0,
+      3.125,
+      0.0,
+      -65.75
+     ],
+     [
+      0.0,
+      0.0,
+      4.0,
+      -99.0
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     64,
+     64,
+     34,
+     20
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)",
+    "volumes": 20
+   },
+   "mask": {
+    "blob": "c67b3d02050e38e70afb534f.bin",
+    "dtype": "u1",
+    "bytes": 2011
+   },
+   "outputs": [
+    {
+     "id": "series",
+     "label": "Registered series",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 793.498291015625
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 797.3063354492188
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "sliced",
+     "role": "input",
+     "label": "3dvolreg's input, stored LAS",
+     "sub": "as fMRIPrep gives it (the first example's input)",
+     "arrays": {
+      "all": {
+       "blob": "e13336a613dec3a4d355e421.bin",
+       "dtype": "i2",
+       "bytes": 1450631,
+       "scale": 0.012166114524006844,
+       "inter": 398.65924072265625
+      }
+     },
+     "window": [
+      0.0,
+      794.2404544707388
+     ]
+    },
+    {
+     "id": "afni26",
+     "role": "original",
+     "label": "AFNI 26.3.05, stored LAS",
+     "sub": "as fMRIPrep gives it",
+     "arrays": {
+      "series": {
+       "blob": "e52d528bf2b2a6dbd58f8c28.bin",
+       "dtype": "f4",
+       "bytes": 2458767
+      }
+     },
+     "own": {
+      "series": [
+       0.0,
+       793.498291015625
+      ]
+     }
+    },
+    {
+     "id": "lps-afni26",
+     "role": "original",
+     "label": "AFNI 26.3.05, stored LPS",
+     "sub": "the same volumes, the second axis reversed; shown back in place",
+     "arrays": {
+      "series": {
+       "blob": "368bea753037a50ad60e1172.bin",
+       "dtype": "f4",
+       "xor": "afni26:series",
+       "zero": false,
+       "bytes": 903461
+      }
+     },
+     "own": {
+      "series": [
+       0.0,
+       793.498291015625
+      ]
+     }
+    },
+    {
+     "id": "lps-replica",
+     "role": "larmorx",
+     "label": "larmorx replica, stored LPS",
+     "sub": "default mode",
+     "arrays": {
+      "series": {
+       "same": "lps-afni26:series",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "series": [
+       0.0,
+       793.498291015625
+      ]
+     }
+    },
+    {
+     "id": "lps-replica-reproduce",
+     "role": "larmorx",
+     "label": "larmorx replica, stored LPS",
+     "sub": "reproduce mode",
+     "arrays": {
+      "series": {
+       "same": "lps-afni26:series",
+       "dtype": "f4"
+      }
+     },
+     "own": {
+      "series": [
+       0.0,
+       793.498291015625
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lps-las",
+     "a": "lps-afni26",
+     "b": "afni26",
+     "kind": "variability",
+     "label": "AFNI 26.3.05: stored LPS − LAS",
+     "role_label": "the original against itself: the same volumes stored another way",
+     "metrics": {
+      "series": {
+       "identical": false,
+       "voxels": 2785280,
+       "differ": 1685216,
+       "share": 0.6050436580882353,
+       "max_abs": 0.026641845703125,
+       "at": [
+        31,
+        19,
+        30,
+        15
+       ],
+       "a_at": 332.8039245605469,
+       "b_at": 332.83056640625,
+       "rms": 0.0011171593841111686,
+       "range": 797.3063354492188,
+       "max_rel_range": 3.341481751567224e-05,
+       "one_minus_ncc": 1.161071737080261e-11,
+       "at_display": [
+        26,
+        17,
+        30,
+        15
+       ]
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 0.026641845703125,
+       "at": [
+        26,
+        17,
+        30,
+        15
+       ],
+       "a": 332.8039245605469,
+       "b": 332.83056640625,
+       "differ": 651423
+      }
+     },
+     "links": [
+      {
+       "label": "AFNI-99",
+       "href": "docs/api/afni-volreg.md#upstream-defects"
+      }
+     ],
+     "verdict": null,
+     "reason": "The same registration in the other storage order: each volume is resampled along the second axis in the other direction, so the parameters differ in their last digits and 1,685,216 of 2,785,280 values by up to 0.0266 (3.3e-05 of the range)."
+    },
+    {
+     "id": "lps-replica-afni",
+     "a": "lps-replica",
+     "b": "lps-afni26",
+     "kind": "main",
+     "label": "replica (default) − AFNI, LPS",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "series": {
+       "identical": true,
+       "voxels": 2785280,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 797.3063354492188,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [
+      {
+       "label": "AFNI-99",
+       "href": "docs/api/afni-volreg.md#upstream-defects"
+      }
+     ],
+     "verdict": "bit-identical",
+     "reason": "The same values, every one: AFNI-99 changes no registered volume."
+    },
+    {
+     "id": "lps-repro-afni",
+     "a": "lps-replica-reproduce",
+     "b": "lps-afni26",
+     "kind": "main",
+     "label": "replica (reproduce) − AFNI, LPS",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "series": {
+       "identical": true,
+       "voxels": 2785280,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 797.3063354492188,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "series": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [
+      {
+       "label": "AFNI-99",
+       "href": "docs/api/afni-volreg.md#upstream-defects"
+      }
+     ],
+     "verdict": "bit-identical",
+     "reason": "The same values, every one."
+    }
+   ],
+   "default": {
+    "output": "series",
+    "plane": "axial",
+    "voxel": [
+     46,
+     28,
+     15
+    ],
+    "t": 19,
+    "panels": [
+     "afni26",
+     "lps-afni26",
+     "lps-replica"
+    ],
+    "diffs": [
+     "lps-las",
+     "lps-replica-afni"
+    ],
+    "compare": {
+     "a": "afni26",
+     "b": "lps-afni26"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 15,
+    "aspect": 0.96364,
+    "panels": {
+     "afni26": "18915892a334e29e7c616ebc.webp",
+     "lps-afni26": "6ccb3243f3e9e15d76ab6f21.webp",
+     "lps-replica": "6ccb3243f3e9e15d76ab6f21.webp"
+    },
+    "diffs": {
+     "lps-las": "e016d615186e6a588936c437.webp"
+    },
+    "ranges": {
+     "lps-las": 0.026641845703125
+    },
+    "caption": "Axial slice 16 of 34, volume 20 of 20; the last volume."
+   },
+   "lines": {
+    "md": {
+     "title": "Maximum displacement over the 20 volumes, in two storage orders",
+     "x_label": "volume",
+     "x": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+     ],
+     "key": [
+      {
+       "label": "AFNI 26.3.05 (the replica's reproduce mode gives these numbers)",
+       "mark": "original"
+      },
+      {
+       "label": "larmorx replica, default mode",
+       "mark": "larmorx"
+      }
+     ],
+     "panels": [
+      {
+       "label": "stored LAS, as fMRIPrep gives it (mm)",
+       "series": [
+        {
+         "label": "AFNI 26.3.05",
+         "mark": "original",
+         "y": [
+          0.0,
+          0.043,
+          0.04,
+          0.047,
+          0.035,
+          0.116,
+          0.051,
+          0.087,
+          0.095,
+          0.098,
+          0.134,
+          0.07,
+          0.066,
+          0.083,
+          0.118,
+          0.084,
+          0.157,
+          0.113,
+          0.141,
+          0.123
+         ]
+        },
+        {
+         "label": "replica, default",
+         "mark": "larmorx",
+         "y": [
+          0.0,
+          0.041,
+          0.044,
+          0.051,
+          0.033,
+          0.109,
+          0.048,
+          0.082,
+          0.089,
+          0.093,
+          0.123,
+          0.066,
+          0.062,
+          0.079,
+          0.113,
+          0.081,
+          0.152,
+          0.11,
+          0.134,
+          0.119
+         ]
+        }
+       ]
+      },
+      {
+       "label": "the same volumes stored LPS (mm)",
+       "series": [
+        {
+         "label": "AFNI 26.3.05",
+         "mark": "original",
+         "y": [
+          0.0,
+          0.041,
+          0.044,
+          0.051,
+          0.033,
+          0.109,
+          0.048,
+          0.082,
+          0.089,
+          0.093,
+          0.123,
+          0.066,
+          0.062,
+          0.079,
+          0.113,
+          0.081,
+          0.152,
+          0.11,
+          0.134,
+          0.119
+         ]
+        },
+        {
+         "label": "replica, default",
+         "mark": "larmorx",
+         "y": [
+          0.0,
+          0.041,
+          0.044,
+          0.051,
+          0.033,
+          0.109,
+          0.048,
+          0.082,
+          0.089,
+          0.093,
+          0.123,
+          0.066,
+          0.062,
+          0.079,
+          0.113,
+          0.081,
+          0.152,
+          0.11,
+          0.134,
+          0.119
+         ]
+        }
+       ]
+      },
+      {
+       "label": "LAS − LPS (mm)",
+       "series": [
+        {
+         "label": "AFNI 26.3.05",
+         "mark": "original",
+         "y": [
+          0.0,
+          0.002,
+          -0.004,
+          -0.004,
+          0.002,
+          0.007,
+          0.003,
+          0.005,
+          0.006,
+          0.005,
+          0.011,
+          0.004,
+          0.004,
+          0.004,
+          0.005,
+          0.003,
+          0.005,
+          0.003,
+          0.007,
+          0.004
+         ]
+        },
+        {
+         "label": "replica, default",
+         "mark": "larmorx",
+         "y": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+         ]
+        }
+       ]
+      }
+     ],
+     "note": "-maxdisp1D: for each volume, the largest displacement of a voxel of the base's brain mask (3dAutomask's, clip fraction 0.33), taken over the mask's boundary voxels, where a rigid motion moves farthest. Move the pointer over a chart to read every value at one volume.",
+     "stats": {
+      "id": "afni99-md",
+      "title": "The maximum displacements compared (-maxdisp1D, over every volume)",
+      "columns": [
+       {
+        "label": "Comparison"
+       },
+       {
+        "label": "largest |Δ| (mm)",
+        "num": true
+       },
+       {
+        "label": "text"
+       }
+      ],
+      "rows": [
+       {
+        "head": "AFNI 26.3.05: LAS − LPS",
+        "class": "is-yardstick",
+        "sub": "the same volumes; AFNI's maximum displacement depends on the storage order",
+        "cells": [
+         {
+          "v": 0.01100000000000001,
+          "fmt": "sig"
+         },
+         {
+          "text": "–"
+         }
+        ]
+       },
+       {
+        "head": "replica, default: LAS − LPS",
+        "verdict": "d13",
+        "sub": "the voxels' own displacements, in either storage order",
+        "cells": [
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "text": "AFNI-99 corrected, named"
+         }
+        ]
+       },
+       {
+        "head": "replica, default − AFNI 26.3.05, stored LAS",
+        "verdict": "d13",
+        "sub": "the second axis is stored posterior to anterior: AFNI mirrors the voxels along it",
+        "cells": [
+         {
+          "v": 0.01100000000000001,
+          "fmt": "sig"
+         },
+         {
+          "text": "AFNI-99 corrected, named"
+         }
+        ]
+       },
+       {
+        "head": "replica, default − AFNI 26.3.05, stored LPS",
+        "verdict": "bit-identical",
+        "sub": "every axis positive in AFNI's order: nothing to correct",
+        "cells": [
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "text": "identical as text"
+         }
+        ]
+       },
+       {
+        "head": "replica, reproduce − AFNI 26.3.05, both storages",
+        "verdict": "bit-identical",
+        "sub": "AFNI's numbers, byte for byte",
+        "cells": [
+         {
+          "v": 0.0,
+          "fmt": "sig"
+         },
+         {
+          "text": "identical as text"
+         }
+        ]
+       }
+      ],
+      "note": "-maxdisp1D writes 3 decimals. The registration itself does not depend on the storage order beyond the last bits of the parameters (the viewer above)."
+     }
+    }
+   },
+   "chain": null,
+   "metrics_note": "Δ is A − B, computed in float64 over every value of the files (2,785,280), not only those shown; the range is B's maximum minus its minimum. The record's threshold: every output bit-identical to AFNI 26.3.05's (the registered series, -1Dfile, -1Dmatrix_save, -maxdisp1D), with its exit status and messages. The rows *the original against itself* are AFNI's own variability on this input: its previous release and fMRIPrep's build.",
+   "provenance": [
+    "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
+    "Inputs: RobustAverage's sliced volumes (sha256 2cce88990bcfbee8…); the raw BOLD run (sha256 609ae0a21822318f…); fMRIPrep's BOLD reference (sha256 ab49738164116b9c…); the sliced volumes stored LPS (sha256 71708c457976d2d1…)",
+    "Runs: figures cache entry `afni-volreg/fmriprep-ds000005-run-01`, computed 2026-11-07T01:27:24+00:00 with larmorx `c0fa9881ce74`; AFNI_26.3.05, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx 0.0.1 (crate larmorx-afni-replica, built in); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds000005"
+   ]
+  }
+ ],
+ "cases_credits": [
+  "openneuro-ds000005",
+  "openneuro-ds005454",
+  "openneuro-ds003592",
+  "openneuro-ds004958",
+  "openneuro-ds002603",
+  "openneuro-ds005040",
+  "openneuro-ds001600"
+ ],
+ "credits": {
+  "openneuro-ds000005": {
+   "id": "openneuro-ds000005",
+   "title": "Mixed-gambles task",
+   "source": "OpenNeuro ds000005",
+   "version": "00001",
+   "doi": "",
+   "url": "https://openneuro.org/datasets/ds000005/versions/00001",
+   "licence": "PDDL-1.0",
+   "licence_name": "Open Data Commons Public Domain Dedication and Licence 1.0",
+   "licence_url": "https://opendatacommons.org/licenses/pddl/1-0/",
+   "citation": "Tom, S.M., Fox, C.R., Trepel, C., Poldrack, R.A. (2007). The neural basis of loss aversion in decision-making under risk. Science, 315(5811):515-8. Dataset: OpenNeuro ds000005 (OpenfMRI), snapshot 00001.",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Mixed-gambles task (OpenNeuro ds000005, version 00001), Open Data Commons Public Domain Dedication and Licence 1.0."
+  },
+  "openneuro-ds001600": {
+   "id": "openneuro-ds001600",
+   "title": "Example fieldmaps",
+   "source": "OpenNeuro ds001600",
+   "version": "1.0.0",
+   "doi": "",
+   "url": "https://openneuro.org/datasets/ds001600/versions/1.0.0",
+   "licence": "CC-BY-SA",
+   "licence_name": "Creative Commons Attribution-ShareAlike (CC BY-SA; the dataset gives no version)",
+   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "citation": "Cieslak M., Elliott M., Satterthwaite T. Example Fieldmaps. OpenNeuro ds001600, version 1.0.0 (Siemens Prisma, University of Pennsylvania).",
+   "attribution": true,
+   "share_alike": true,
+   "text": "Example fieldmaps (OpenNeuro ds001600, version 1.0.0), Creative Commons Attribution-ShareAlike (CC BY-SA; the dataset gives no version). Attribution: Cieslak M., Elliott M., Satterthwaite T. Example Fieldmaps. OpenNeuro ds001600, version 1.0.0 (Siemens Prisma, University of Pennsylvania). The images shown here are adapted from it: reoriented to RAS, cropped to the region shown, masked outside it, and shown as the outputs of the programs compared. Under its share-alike condition the images adapted from this dataset are shared under the same licence, CC BY-SA."
+  },
+  "openneuro-ds002603": {
+   "id": "openneuro-ds002603",
+   "title": "MB-EPI-comparison",
+   "source": "OpenNeuro ds002603",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds002603.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds002603/versions/1.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Snoek L, Beemsterboer T, Scholte HS. MB-EPI-comparison. OpenNeuro ds002603 v1.0.0, doi:10.18112/openneuro.ds002603.v1.0.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "MB-EPI-comparison (OpenNeuro ds002603, version 1.0.0, doi:10.18112/openneuro.ds002603.v1.0.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds003592": {
+   "id": "openneuro-ds003592",
+   "title": "Neurocognitive aging data release",
+   "source": "OpenNeuro ds003592",
+   "version": "1.0.13",
+   "doi": "10.18112/openneuro.ds003592.v1.0.13",
+   "url": "https://openneuro.org/datasets/ds003592/versions/1.0.13",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Spreng RN, Setton R, Alter U, Cassidy BN, Darboh B, DuPre E, Kantarovich K, Lockrow AW, Mwilambwe-Tshilobo L, Luh W-M, Kundu P, Turner GR. Neurocognitive aging data release with behavioral, structural, and multi-echo functional MRI measures. OpenNeuro ds003592 v1.0.13, doi:10.18112/openneuro.ds003592.v1.0.13",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Neurocognitive aging data release (OpenNeuro ds003592, version 1.0.13, doi:10.18112/openneuro.ds003592.v1.0.13), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds004958": {
+   "id": "openneuro-ds004958",
+   "title": "The FreeSurfer Maintenance Dataset",
+   "source": "OpenNeuro ds004958",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds004958.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds004958/versions/1.0.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Greve DN, Fischl B. The FreeSurfer Maintenance Dataset. OpenNeuro ds004958 v1.0.0, doi:10.18112/openneuro.ds004958.v1.0.0 (FreeSurfer Maintenance grant R01EB023281; https://surfer.nmr.mgh.harvard.edu/fswiki/FsmData)",
+   "attribution": false,
+   "share_alike": false,
+   "text": "The FreeSurfer Maintenance Dataset (OpenNeuro ds004958, version 1.0.0, doi:10.18112/openneuro.ds004958.v1.0.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds005040": {
+   "id": "openneuro-ds005040",
+   "title": "Political Moralization",
+   "source": "OpenNeuro ds005040",
+   "version": "1.2.0",
+   "doi": "10.18112/openneuro.ds005040.v1.2.0",
+   "url": "https://openneuro.org/datasets/ds005040/versions/1.2.0",
+   "licence": "CC0-1.0",
+   "licence_name": "CC0 1.0 public-domain dedication",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "citation": "Cohen MS, Cao Q, Decety J. Political Moralization (PMM). OpenNeuro ds005040 v1.2.0, doi:10.18112/openneuro.ds005040.v1.2.0",
+   "attribution": false,
+   "share_alike": false,
+   "text": "Political Moralization (OpenNeuro ds005040, version 1.2.0, doi:10.18112/openneuro.ds005040.v1.2.0), CC0 1.0 public-domain dedication."
+  },
+  "openneuro-ds005454": {
+   "id": "openneuro-ds005454",
+   "title": "fMRIPrep boot camp 7T training dataset",
+   "source": "OpenNeuro ds005454",
+   "version": "1.0.0",
+   "doi": "10.18112/openneuro.ds005454.v1.0.0",
+   "url": "https://openneuro.org/datasets/ds005454/versions/1.0.0",
+   "licence": "CC-BY-4.0",
+   "licence_name": "Creative Commons Attribution 4.0 (CC BY 4.0)",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+   "citation": "Sleight EC, Esteban O, Grouiller F. fMRIPrep boot camp -- 7T training dataset. OpenNeuro ds005454, version 1.0.0. doi:10.18112/openneuro.ds005454.v1.0.0",
+   "attribution": true,
+   "share_alike": false,
+   "text": "fMRIPrep boot camp 7T training dataset (OpenNeuro ds005454, version 1.0.0, doi:10.18112/openneuro.ds005454.v1.0.0), Creative Commons Attribution 4.0 (CC BY 4.0). Attribution: Sleight EC, Esteban O, Grouiller F. fMRIPrep boot camp -- 7T training dataset. OpenNeuro ds005454, version 1.0.0. doi:10.18112/openneuro.ds005454.v1.0.0 The images shown here are adapted from it: reoriented to RAS, cropped to the region shown, masked outside it, and shown as the outputs of the programs compared."
+  }
+ }
+}
