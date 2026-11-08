@@ -3,7 +3,7 @@
  "tool": "sdcflows-fieldmap",
  "title": "sdcflows' field-map estimation",
  "provenance": {
-  "exporter": "b9a0057f22d267669107a61aee51cf03ed9a61d3",
+  "exporter": "f6766670cd64032a74f0b68c544ee5285ee1b5cc",
   "records": [
    {
     "path": "docs/validation/sdcflows-fieldmap.json",
@@ -2931,13 +2931,7 @@
      "label": "Workflow"
     },
     {
-     "label": "1 vs 14 threads"
-    },
-    {
-     "label": "Default vs reproduce"
-    },
-    {
-     "label": "sdcflows' step"
+     "label": "Threads, modes, step"
     },
     {
      "label": "Verdict"
@@ -2946,14 +2940,8 @@
    "rows": [
     {
      "head": "ds005454-sub-16 `wf_gre16`",
-     "sub": "a GRE phase difference at 7 T (Siemens), 112 × 112 × 70 voxels of 2 mm; 112 × 112 × 70 voxels",
+     "sub": "a GRE phase difference at 7 T (Siemens), 112 × 112 × 70 voxels of 2 mm",
      "cells": [
-      {
-       "text": "identical"
-      },
-      {
-       "text": "identical"
-      },
       {
        "text": "identical"
       },
@@ -2986,14 +2974,8 @@
     },
     {
      "head": "ds002603-sub-01 `wf_auto_00000`",
-     "sub": "a Philips phase difference at 3 T (`acq-Mm2`), 128 × 128 × 128 voxels of 2 mm; 128 × 128 × 128 voxels",
+     "sub": "a Philips phase difference at 3 T (`acq-Mm2`), 128 × 128 × 128 voxels of 2 mm",
      "cells": [
-      {
-       "text": "identical"
-      },
-      {
-       "text": "identical"
-      },
       {
        "text": "identical"
       },
@@ -3053,12 +3035,6 @@
        "text": "identical"
       },
       {
-       "text": "identical"
-      },
-      {
-       "text": "identical"
-      },
-      {
        "verdict": "bit-identical"
       }
      ],
@@ -3068,12 +3044,6 @@
      "head": "ds002422-sub-02 `wf_auto_00001`",
      "sub": "the second phase difference at 1.5 T (`run-02`), on another grid; 64 × 64 × 36 voxels",
      "cells": [
-      {
-       "text": "identical"
-      },
-      {
-       "text": "identical"
-      },
       {
        "text": "identical"
       },
@@ -3133,12 +3103,6 @@
        "text": "identical"
       },
       {
-       "text": "identical"
-      },
-      {
-       "text": "identical"
-      },
-      {
        "verdict": "bit-identical"
       }
      ],
@@ -3148,12 +3112,6 @@
      "head": "ds001600-sub-1 `wf_auto_00001`",
      "sub": "two phase images of a second protocol (`acq-v2`); 64 × 64 × 44 voxels",
      "cells": [
-      {
-       "text": "identical"
-      },
-      {
-       "text": "identical"
-      },
       {
        "text": "identical"
       },
@@ -3213,19 +3171,13 @@
        "text": "identical"
       },
       {
-       "text": "identical"
-      },
-      {
-       "text": "identical"
-      },
-      {
        "verdict": "bit-identical"
       }
      ],
      "verdict": "bit-identical"
     }
    ],
-   "note": "Each phase-difference estimator of the four oracle runs that have one (ds001600 has three, ds002422 two), step by step on the inputs fMRIPrep's nodes were given (the examples above show three): larmorx (1 thread, reproduce mode) against sdcflows 2.17.1 (newest releases) output by output; against fMRIPrep 25.2.6's own files (the phase difference, the field map, the extrapolated field and the coefficients); larmorx's whole workflow with lx.fsl.prelude's clean-room original against fMRIPrep's phase difference and field map; larmorx at 14 threads and in its default mode against itself; sdcflows with the shared environment's releases against the newest (the originals' own step). Values counted as stored (NaN alike)."
+   "note": "Each phase-difference estimator of the four oracle runs that have one (ds001600 has three, ds002422 two), step by step on the inputs fMRIPrep's nodes were given (the examples above show three): larmorx (1 thread, reproduce mode) against sdcflows 2.17.1 (newest releases) output by output; against fMRIPrep 25.2.6's own files (the phase difference, the field map, the extrapolated field and the coefficients); larmorx's whole workflow with lx.fsl.prelude's clean-room original against fMRIPrep's phase difference and field map; in one column, larmorx at 14 threads and in its default mode against itself and sdcflows with the shared environment's releases against the newest (the originals' own step). Values counted as stored (NaN alike)."
   },
   {
    "id": "sdc10",
@@ -7912,7 +7864,7 @@
      "id": "fmriprep",
      "role": "fmriprep",
      "label": "fMRIPrep 25.2.6's own coefficients",
-     "sub": "`bs_filter`'s `*_coeff000` file (sdcflows 2.15.1 in its image)",
+     "sub": "bs_filter's *_coeff000 file (sdcflows 2.15.1 in its image)",
      "arrays": {
       "coeff": {
        "blob": "6e770bccb645528dcba8ee28.bin",
@@ -8969,7 +8921,7 @@
      "id": "bref",
      "role": "input",
      "label": "ds002603 sub-01: BOLD reference (acq-Mb4Mm3Tr550)",
-     "sub": "fMRIPrep's `desc-hmc_boldref`, an oblique grid",
+     "sub": "fMRIPrep's desc-hmc_boldref, an oblique grid",
      "arrays": {
       "all": {
        "blob": "6ecfaf7e68b012854d442d19.bin",
