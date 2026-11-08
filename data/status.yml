@@ -78,6 +78,12 @@ implemented:
     use: ["lx.transforms.resample_series"]
     how: "port (fMRIPrep, nitransforms, SciPy)"
     validation: "[139 cases](repo:docs/validation/resample-series.md): 136 of 136 compared bit-identical"
+  - eco: larmorx
+    tool: "sdcflows' field-map estimation (the B-spline field fit, the field evaluated and applied, the phase-difference preparation)"
+    page: /tools/sdcflows-fieldmap/
+    use: ["lx.sdcflows.bspline_approx", "lx.sdcflows.B0FieldTransform", "lx.sdcflows.apply_coeffs_field", "lx.sdcflows.phdiff_workflow", "lx.io.save_nibabel"]
+    how: "port (sdcflows 2.17.1, with scikit-learn's, SciPy's, numpy's and nibabel's arithmetic)"
+    validation: "[37 cases](repo:docs/validation/sdcflows-fieldmap.md): 37 of 37 bit-identical to sdcflows 2.17.1 (every array, file, header, warning and message), fMRIPrep's seven phase-difference estimators and their B-spline fits included (also fMRIPrep's own files); SDC-01, -02 and -04 to -11 corrected by default or refused, each with `reproduce`; the fit [6.5 to 7.8 times faster](repo:docs/benchmarks/sdcflows-fieldmap.md) than scikit-learn's at 14 threads, with 22 to 32 % of sdcflows' peak memory at one"
   - eco: afni
     tool: "3dTshift (slice timing)"
     page: /tools/afni-tshift/
@@ -161,7 +167,7 @@ planned:
     text: FNIRT, applywarp, convertwarp and fugue, with FLIRT's `-warp`, epi_reg and flirt_average, after FreeSurfer (the mcflirt, BET with every option, FLIRT, FAST, topup, `fslmaths`, `fslstats`, `standard_space_roi`, `fslroi` and prelude replicas and the clean-room originals of BET with every option, FLIRT, FAST, topup, `fslmaths`, `fslstats`, `standard_space_roi`, `fslroi` and prelude are done).
   - eco: [freesurfer, workbench]
     title: Field maps, FreeSurfer, surfaces
-    text: sdcflows' field-map estimation, FreeSurfer (`larmorx-freesurfer`), Connectome Workbench- and MSM-compatible surface tools, the confounds.
+    text: sdcflows' field-map estimation, part B (PEPOLAR's and SyN's steps, sdcflows' masks and command line, fMRIPrep's own field-map steps; part A, the B-spline fit, the field and the phase-difference preparation, is done), FreeSurfer (`larmorx-freesurfer`), Connectome Workbench- and MSM-compatible surface tools, the confounds.
   - eco: [larmorx]
     title: larmorprepx
     text: an independent, fMRIPrep-compatible preprocessing pipeline (BIDS in, fMRIPrep-compatible derivatives and reports out), written in plain Python on the library, then compared with fMRIPrep end to end.
