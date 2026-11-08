@@ -3,19 +3,19 @@
  "tool": "nifti-io",
  "title": "NIfTI I/O",
  "provenance": {
-  "exporter": "f82992b55fd6ca5b48682b959a546aedc5331326",
+  "exporter": "cd89a3abc46e34b9a59e0b5856fea1ebf0a48412",
   "records": [
    {
     "path": "docs/validation/nifti-io.json",
-    "sha256": "d44f3ff506a87adcf6a1353d0ae1d6a4b39f741de914f4ccd97d5e9f290afb89",
-    "generated": "2026-10-21",
-    "larmorx_commit": "1dfe56c0dc60"
+    "sha256": "7848837c16f9080f2f9f608ee46355e2a93b1bf5c748efa3f0210bcef67549d4",
+    "generated": "2026-11-08",
+    "larmorx_commit": "6608931ecce5"
    },
    {
     "path": "docs/validation/nifti-io.md",
-    "sha256": "d1c3a8d146271bd3469fcb293ea43058b8c844c5f3ad8b1a3f7eddcaa5eaaba7",
-    "generated": "2026-10-21",
-    "larmorx_commit": "1dfe56c0dc60"
+    "sha256": "2097db50720979e22f84f76115d4269e6206d2ea28b7e3a161d6e41432457103",
+    "generated": "2026-11-08",
+    "larmorx_commit": "6608931ecce5"
    }
   ],
   "benchmarks": [
@@ -37,10 +37,10 @@
    "record": "docs/validation/nifti-io.md",
    "status": "validated",
    "summary": {
-    "cases": 254,
+    "cases": 257,
     "verdicts": {
      "bit-identical": 166,
-     "within-variability": 66,
+     "within-variability": 69,
      "both-reject": 17,
      "divergence": 5
     }
@@ -50,7 +50,7 @@
      "category": "OpenNeuro datasets",
      "counts": {
       "bit-identical": 46,
-      "within-variability": 35,
+      "within-variability": 38,
       "both-reject": 2
      }
     },
@@ -1062,6 +1062,48 @@
      "verdict": "within-variability",
      "checks": "21/21",
      "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+    }
+   }
+  },
+  {
+   "id": "openneuro/ds000258/sub-21262/func/sub-21262_task-rest_echo-1_bold.nii.gz",
+   "category": "OpenNeuro datasets",
+   "description": "BIG-endian 4D BOLD (>i2, 64x64x30x239, echo 1 of the four-echo run, TE 12 ms), LPS, oblique; with echoes 2-4 the input …",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "within-variability",
+     "checks": "22/22",
+     "reason": "data and every header field equal; the matrices within 1.1e-14 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+    }
+   }
+  },
+  {
+   "id": "openneuro/ds000258/sub-21262/func/sub-21262_task-rest_echo-2_bold.nii.gz",
+   "category": "OpenNeuro datasets",
+   "description": "BIG-endian 4D BOLD (>i2, 64x64x30x239, echo 2 of the four-echo run, TE 28 ms), LPS, oblique; with echoes 2-4 the input …",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "within-variability",
+     "checks": "22/22",
+     "reason": "data and every header field equal; the matrices within 1.1e-14 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+    }
+   }
+  },
+  {
+   "id": "openneuro/ds000258/sub-21262/func/sub-21262_task-rest_echo-3_bold.nii.gz",
+   "category": "OpenNeuro datasets",
+   "description": "BIG-endian 4D BOLD (>i2, 64x64x30x239, echo 3 of the four-echo run, TE 44 ms), LPS, oblique; with echoes 2-4 the input …",
+   "command": "",
+   "results": {
+    "port": {
+     "outcome": "pass",
+     "verdict": "within-variability",
+     "checks": "22/22",
+     "reason": "data and every header field equal; the matrices within 1.1e-14 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
     }
    }
   },
@@ -3698,7 +3740,7 @@
    }
   }
  ],
- "cases_total": 254,
+ "cases_total": 257,
  "openneuro_datasets": 41,
  "speed": {
   "title": "Seconds to read a gzipped file into memory, median of repeated runs, log scale; the factor is larmorx's speed-up over nibabel at one thread",
