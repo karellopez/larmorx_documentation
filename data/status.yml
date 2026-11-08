@@ -84,6 +84,12 @@ implemented:
     use: ["lx.sdcflows.bspline_approx", "lx.sdcflows.B0FieldTransform", "lx.sdcflows.apply_coeffs_field", "lx.sdcflows.phdiff_workflow", "lx.io.save_nibabel"]
     how: "port (sdcflows 2.17.1, with scikit-learn's, SciPy's, numpy's and nibabel's arithmetic)"
     validation: "[37 cases](repo:docs/validation/sdcflows-fieldmap.md): 37 of 37 bit-identical to sdcflows 2.17.1 (every array, file, header, warning and message), fMRIPrep's seven phase-difference estimators and their B-spline fits included (also fMRIPrep's own files); SDC-01, -02 and -04 to -11 corrected by default or refused, each with `reproduce`; the fit [6.5 to 7.8 times faster](repo:docs/benchmarks/sdcflows-fieldmap.md) than scikit-learn's at 14 threads, with 22 to 32 % of sdcflows' peak memory at one"
+  - eco: larmorx
+    tool: "tedana's t2smap (the T2* and S0 maps of multi-echo fMRI and the echoes' optimal combination)"
+    page: /tools/tedana-t2smap/
+    use: ["larmorx tedana t2smap", "larmorx-gpl tedana t2smap", "lx.tedana.t2smap"]
+    how: "exact replica in `larmorx-gpl` (GNU GPL version 3, converted from tedana's LGPL-2.1 under its section 3), `experimental` (2026-11-08: every option, message, output and failure case of tedana 26.0.3, with numpy's, SciPy's, nibabel's and nilearn's arithmetic; TED-01 to TED-18 corrected by default or refused, each with `reproduce`, but TED-06, kept); the clean-room original later, in the main package"
+    validation: "replica: [44 of 44](repo:docs/validation/tedana-t2smap-replica.md) compared cases bit-identical to tedana 26.0.3 in both kept library environments (every file, message and exit status): fMRIPrep's 5 multi-echo calls on three oracle runs (also against fMRIPrep's own files), every option, data type and failure; 25 more rejected by both alike; 44 % of tedana's peak memory on fMRIPrep's calls, [3.0 to 4.2 times its speed](repo:docs/benchmarks/tedana-t2smap.md) at 14 threads on fMRIPrep's curve-fit calls"
   - eco: afni
     tool: "3dTshift (slice timing)"
     page: /tools/afni-tshift/
@@ -167,7 +173,7 @@ planned:
     text: FNIRT, applywarp, convertwarp and fugue, with FLIRT's `-warp`, epi_reg and flirt_average, after FreeSurfer (the mcflirt, BET with every option, FLIRT, FAST, topup, `fslmaths`, `fslstats`, `standard_space_roi`, `fslroi` and prelude replicas and the clean-room originals of BET with every option, FLIRT, FAST, topup, `fslmaths`, `fslstats`, `standard_space_roi`, `fslroi` and prelude are done).
   - eco: [freesurfer, workbench]
     title: Field maps, FreeSurfer, surfaces
-    text: sdcflows' field-map estimation, part B (PEPOLAR's and SyN's steps, sdcflows' masks and command line, fMRIPrep's own field-map steps; part A, the B-spline fit, the field and the phase-difference preparation, is done), FreeSurfer (`larmorx-freesurfer`), Connectome Workbench- and MSM-compatible surface tools, the confounds.
+    text: sdcflows' field-map estimation, part B (PEPOLAR's and SyN's steps, sdcflows' masks and command line, fMRIPrep's own field-map steps; part A, the B-spline fit, the field and the phase-difference preparation, is done), multi-echo (the clean-room original of tedana's `t2smap`; the exact replica, in `larmorx-gpl`, is done), FreeSurfer (`larmorx-freesurfer`), Connectome Workbench- and MSM-compatible surface tools, the confounds.
   - eco: [larmorx]
     title: larmorprepx
     text: an independent, fMRIPrep-compatible preprocessing pipeline (BIDS in, fMRIPrep-compatible derivatives and reports out), written in plain Python on the library, then compared with fMRIPrep end to end.
