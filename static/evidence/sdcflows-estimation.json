@@ -3,7 +3,7 @@
  "tool": "sdcflows-estimation",
  "title": "sdcflows' field-map estimation: PEPOLAR, direct and fieldmap-less, the masks and the BIDS app",
  "provenance": {
-  "exporter": "d4707a9901262b9e3879c746442657bb0978db6e",
+  "exporter": "b536ce5f5d195fa0351b5da2c4241c0b0cb9614c",
   "records": [
    {
     "path": "docs/validation/sdcflows-estimation.json",
@@ -1070,6 +1070,257 @@
      "programs": "FSL 6.0.7.23's topup, ANTs 2.6.5's N4BiasFieldCorrection (the GCC 14.3 build; one thread, correctly rounded maths), AFNI 26.3.05's 3dvolreg, through the oracle cache; LARMORX's replicas and ports"
     },
     "settings": "The memory rule's calls of part B (tests/parity/test_memory_peak.py, FIELDMAP_B_CASES): validation/investigations/sdcflows-fieldmap-b/memory_call.py, one call per process, its peak resident memory from /usr/bin/time -v; the originals and LARMORX (one thread, both modes) in the newest environment"
+   },
+   {
+    "entry": "sdcflows-estimation/syn-ds000228",
+    "description": "The fieldmap-less (SyN) estimation of fMRIPrep's ds000228 estimator: LARMORX, ANTs 2.6.5 at one thread (correctly rounded maths, glibc's) and twice at four (glibc's), fMRIPrep's own warp",
+    "computed": "2026-11-09T23:28:17+00:00",
+    "larmorx_commit": "f786069d275050ec3be570261db7e1ff72956831",
+    "commands": [
+     {
+      "label": "larmorx",
+      "argv": [
+       "<workspace>/oracles/python-newest/bin/python",
+       "-P",
+       "-m",
+       "larmorx_validation.evidence.sdcflows_estimation_run",
+       "syn",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000228-sub-pixar008-noreconall-syn/work/fmriprep_25_2_wf/sub_pixar008_wf/fmap_preproc_wf/wf_auto_00000",
+       "<workspace>/oracles/figures-cache/sdcflows-estimation/syn-ds000228/larmorx",
+       "--implementation",
+       "larmorx",
+       "--threads",
+       "14",
+       "--defects",
+       "reproduce"
+      ],
+      "env": {
+       "OPENBLAS_CORETYPE": "Haswell",
+       "OPENBLAS_NUM_THREADS": "1",
+       "OMP_NUM_THREADS": "1",
+       "PYTHONPATH": "<workspace>/larmorx/.claude/worktrees/agent-a33e6cc1a7edea6ca/python:<larmorx>/validation/src",
+       "LARMORX_WORKSPACE": "~/VScode_projects/super_fmriprep",
+       "PYTHONUNBUFFERED": "1",
+       "LARMORX_PARITY_RUN_TIMEOUT": "14400"
+      },
+      "exit": 0,
+      "seconds": 681.04
+     },
+     {
+      "label": "larmorx-fix",
+      "argv": [
+       "<workspace>/oracles/python-newest/bin/python",
+       "-P",
+       "-m",
+       "larmorx_validation.evidence.sdcflows_estimation_run",
+       "syn",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000228-sub-pixar008-noreconall-syn/work/fmriprep_25_2_wf/sub_pixar008_wf/fmap_preproc_wf/wf_auto_00000",
+       "<workspace>/oracles/figures-cache/sdcflows-estimation/syn-ds000228/larmorx-fix",
+       "--implementation",
+       "larmorx",
+       "--threads",
+       "4",
+       "--defects",
+       "fix"
+      ],
+      "env": {
+       "OPENBLAS_CORETYPE": "Haswell",
+       "OPENBLAS_NUM_THREADS": "1",
+       "OMP_NUM_THREADS": "1",
+       "PYTHONPATH": "<workspace>/larmorx/.claude/worktrees/agent-a33e6cc1a7edea6ca/python:<larmorx>/validation/src",
+       "LARMORX_WORKSPACE": "~/VScode_projects/super_fmriprep",
+       "PYTHONUNBUFFERED": "1",
+       "LARMORX_PARITY_RUN_TIMEOUT": "14400"
+      },
+      "exit": 0,
+      "seconds": 857.33
+     },
+     {
+      "label": "ants-cr1",
+      "argv": [
+       "<workspace>/oracles/python-newest/bin/python",
+       "-P",
+       "-m",
+       "larmorx_validation.evidence.sdcflows_estimation_run",
+       "syn",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000228-sub-pixar008-noreconall-syn/work/fmriprep_25_2_wf/sub_pixar008_wf/fmap_preproc_wf/wf_auto_00000",
+       "<workspace>/oracles/figures-cache/sdcflows-estimation/syn-ds000228/ants-cr1",
+       "--implementation",
+       "ants",
+       "--threads",
+       "1",
+       "--defects",
+       "reproduce",
+       "--maths",
+       "cr"
+      ],
+      "env": {
+       "OPENBLAS_CORETYPE": "Haswell",
+       "OPENBLAS_NUM_THREADS": "1",
+       "OMP_NUM_THREADS": "1",
+       "PYTHONPATH": "<workspace>/larmorx/.claude/worktrees/agent-a33e6cc1a7edea6ca/python:<larmorx>/validation/src",
+       "LARMORX_WORKSPACE": "~/VScode_projects/super_fmriprep",
+       "PYTHONUNBUFFERED": "1",
+       "LARMORX_PARITY_RUN_TIMEOUT": "14400"
+      },
+      "exit": 0,
+      "seconds": 1813.68
+     },
+     {
+      "label": "ants-g1",
+      "argv": [
+       "<workspace>/oracles/python-newest/bin/python",
+       "-P",
+       "-m",
+       "larmorx_validation.evidence.sdcflows_estimation_run",
+       "syn",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000228-sub-pixar008-noreconall-syn/work/fmriprep_25_2_wf/sub_pixar008_wf/fmap_preproc_wf/wf_auto_00000",
+       "<workspace>/oracles/figures-cache/sdcflows-estimation/syn-ds000228/ants-g1",
+       "--implementation",
+       "ants",
+       "--threads",
+       "1",
+       "--defects",
+       "reproduce",
+       "--maths",
+       "glibc"
+      ],
+      "env": {
+       "OPENBLAS_CORETYPE": "Haswell",
+       "OPENBLAS_NUM_THREADS": "1",
+       "OMP_NUM_THREADS": "1",
+       "PYTHONPATH": "<workspace>/larmorx/.claude/worktrees/agent-a33e6cc1a7edea6ca/python:<larmorx>/validation/src",
+       "LARMORX_WORKSPACE": "~/VScode_projects/super_fmriprep",
+       "PYTHONUNBUFFERED": "1",
+       "LARMORX_PARITY_RUN_TIMEOUT": "14400"
+      },
+      "exit": 0,
+      "seconds": 1807.08
+     },
+     {
+      "label": "ants-g4a",
+      "argv": [
+       "<workspace>/oracles/python-newest/bin/python",
+       "-P",
+       "-m",
+       "larmorx_validation.evidence.sdcflows_estimation_run",
+       "syn",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000228-sub-pixar008-noreconall-syn/work/fmriprep_25_2_wf/sub_pixar008_wf/fmap_preproc_wf/wf_auto_00000",
+       "<workspace>/oracles/figures-cache/sdcflows-estimation/syn-ds000228/ants-g4a",
+       "--implementation",
+       "ants",
+       "--threads",
+       "4",
+       "--defects",
+       "reproduce",
+       "--maths",
+       "glibc",
+       "--never",
+       "the original's own spread: ANTs' registration at four threads, run to run"
+      ],
+      "env": {
+       "OPENBLAS_CORETYPE": "Haswell",
+       "OPENBLAS_NUM_THREADS": "1",
+       "OMP_NUM_THREADS": "1",
+       "PYTHONPATH": "<workspace>/larmorx/.claude/worktrees/agent-a33e6cc1a7edea6ca/python:<larmorx>/validation/src",
+       "LARMORX_WORKSPACE": "~/VScode_projects/super_fmriprep",
+       "PYTHONUNBUFFERED": "1",
+       "LARMORX_PARITY_RUN_TIMEOUT": "14400"
+      },
+      "exit": 0,
+      "seconds": 950.12
+     },
+     {
+      "label": "ants-g4b",
+      "argv": [
+       "<workspace>/oracles/python-newest/bin/python",
+       "-P",
+       "-m",
+       "larmorx_validation.evidence.sdcflows_estimation_run",
+       "syn",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000228-sub-pixar008-noreconall-syn/work/fmriprep_25_2_wf/sub_pixar008_wf/fmap_preproc_wf/wf_auto_00000",
+       "<workspace>/oracles/figures-cache/sdcflows-estimation/syn-ds000228/ants-g4b",
+       "--implementation",
+       "ants",
+       "--threads",
+       "4",
+       "--defects",
+       "reproduce",
+       "--maths",
+       "glibc",
+       "--never",
+       "the original's own spread: ANTs' registration at four threads, run to run"
+      ],
+      "env": {
+       "OPENBLAS_CORETYPE": "Haswell",
+       "OPENBLAS_NUM_THREADS": "1",
+       "OMP_NUM_THREADS": "1",
+       "PYTHONPATH": "<workspace>/larmorx/.claude/worktrees/agent-a33e6cc1a7edea6ca/python:<larmorx>/validation/src",
+       "LARMORX_WORKSPACE": "~/VScode_projects/super_fmriprep",
+       "PYTHONUNBUFFERED": "1",
+       "LARMORX_PARITY_RUN_TIMEOUT": "14400"
+      },
+      "exit": 0,
+      "seconds": 947.94
+     },
+     {
+      "label": "fmriprep",
+      "argv": [
+       "<workspace>/oracles/python-newest/bin/python",
+       "-P",
+       "-m",
+       "larmorx_validation.evidence.sdcflows_estimation_run",
+       "syn",
+       "<workspace>/oracles/fmriprep-25.2.6/ds000228-sub-pixar008-noreconall-syn/work/fmriprep_25_2_wf/sub_pixar008_wf/fmap_preproc_wf/wf_auto_00000",
+       "<workspace>/oracles/figures-cache/sdcflows-estimation/syn-ds000228/fmriprep",
+       "--implementation",
+       "fmriprep",
+       "--threads",
+       "4",
+       "--defects",
+       "reproduce"
+      ],
+      "env": {
+       "OPENBLAS_CORETYPE": "Haswell",
+       "OPENBLAS_NUM_THREADS": "1",
+       "OMP_NUM_THREADS": "1",
+       "PYTHONPATH": "<workspace>/larmorx/.claude/worktrees/agent-a33e6cc1a7edea6ca/python:<larmorx>/validation/src",
+       "LARMORX_WORKSPACE": "~/VScode_projects/super_fmriprep",
+       "PYTHONUNBUFFERED": "1",
+       "LARMORX_PARITY_RUN_TIMEOUT": "14400"
+      },
+      "exit": 0,
+      "seconds": 3.87
+     },
+     {
+      "label": "warps",
+      "argv": [
+       "<workspace>/oracles/python-newest/bin/python",
+       "-P",
+       "-m",
+       "larmorx_validation.evidence.sdcflows_estimation_run",
+       "syn-warps",
+       "<workspace>/oracles/figures-cache/sdcflows-estimation/syn-ds000228",
+       "<workspace>/oracles/figures-cache/sdcflows-estimation/syn-ds000228/warps"
+      ],
+      "env": {
+       "OPENBLAS_CORETYPE": "Haswell",
+       "OPENBLAS_NUM_THREADS": "1",
+       "OMP_NUM_THREADS": "1",
+       "PYTHONPATH": "<workspace>/larmorx/.claude/worktrees/agent-a33e6cc1a7edea6ca/python:<larmorx>/validation/src",
+       "LARMORX_WORKSPACE": "~/VScode_projects/super_fmriprep",
+       "PYTHONUNBUFFERED": "1",
+       "LARMORX_PARITY_RUN_TIMEOUT": "14400"
+      },
+      "exit": 0,
+      "seconds": 23.47
+     }
+    ],
+    "versions": {
+     "newest": "sdcflows 2.17.1, niworkflows 1.15.3, nipype 1.12.0, scikit-image 0.26.0, nibabel 5.4.2, numpy 2.5.4 (OpenBLAS 0.3.34), SciPy 1.18.1 (oracles/python-newest: larmorx's reference)",
+     "programs": "ANTs 2.6.5's antsRegistration (the GCC 14.3 build), through the oracle cache: one thread with CORE-MATH's correctly rounded functions preloaded, one thread and twice four threads with glibc's (never cached: the original's own spread); fMRIPrep 25.2.6's image holds ANTs 2.6.2.dev1 (its own build)"
+    },
+    "settings": "sdcflows' init_syn_sdc_wf as fMRIPrep 25.2.6 ran it for ds000228's estimator (--use-syn-sdc): LARMORX's lx.sdcflows.syn_sdc_workflow on fMRIPrep's own inputs and ANTS_RANDOM_SEED, fMRIPrep's image's numpy 2.2.6 for the clip (14 threads reproduce, 4 default); ANTs 2.6.5 on fMRIPrep's own registration command and inputs, then sdcflows' steps after it (extract_field, zooms_field, bs_filter, unwarp) by LARMORX's port in reproduce mode (= sdcflows' nodes on these inputs, check_syn_sdc.py --sections nodes); the same steps on fMRIPrep's own warp (its 4 threads); the newest environment"
    }
   ],
   "difftest": {
@@ -2230,7 +2481,7 @@
    ],
    "rows": [
     {
-     "head": "[sdcflows-estimation](record:sdcflows-estimation)",
+     "head": "[sdcflows-estimation](repo:docs/validation/sdcflows-estimation.md)",
      "cells": [
       {
        "text": "sdcflows-estimation"
@@ -2260,7 +2511,7 @@
      "verdict": "bit-identical"
     },
     {
-     "head": "[sdcflows-estimation-full](record:sdcflows-estimation-full)",
+     "head": "[sdcflows-estimation-full](repo:docs/validation/sdcflows-estimation-full.md)",
      "cells": [
       {
        "text": "sdcflows-estimation"
@@ -2290,7 +2541,7 @@
      "verdict": "bit-identical"
     },
     {
-     "head": "[sdcflows-estimation-app-shared](record:sdcflows-estimation-app-shared)",
+     "head": "[sdcflows-estimation-app-shared](repo:docs/validation/sdcflows-estimation-app-shared.md)",
      "cells": [
       {
        "text": "sdcflows-estimation"
@@ -2320,7 +2571,7 @@
      "verdict": "bit-identical"
     },
     {
-     "head": "[ndimage-skimage](record:ndimage-skimage)",
+     "head": "[ndimage-skimage](repo:docs/validation/ndimage-skimage.md)",
      "cells": [
       {
        "text": "ndimage-skimage"
@@ -2350,7 +2601,7 @@
      "verdict": "bit-identical"
     },
     {
-     "head": "[ndimage-skimage-full](record:ndimage-skimage-full)",
+     "head": "[ndimage-skimage-full](repo:docs/validation/ndimage-skimage-full.md)",
      "cells": [
       {
        "text": "ndimage-skimage"
@@ -2380,7 +2631,7 @@
      "verdict": "bit-identical"
     },
     {
-     "head": "[niworkflows-helpers](record:niworkflows-helpers)",
+     "head": "[niworkflows-helpers](repo:docs/validation/niworkflows-helpers.md)",
      "cells": [
       {
        "text": "niworkflows-helpers"
@@ -8839,6 +9090,1032 @@
    ],
    "credits": [
     "openneuro-ds005752"
+   ]
+  },
+  {
+   "id": "syn-ds000228",
+   "title": "Fieldmap-less (SyN): sdcflows' syn_sdc_workflow on fMRIPrep's ds000228 estimator",
+   "summary": "sdcflows' fieldmap-less estimation (`init_syn_sdc_wf`, fMRIPrep's `--use-syn-sdc`) on the inputs fMRIPrep 25.2.6 gave it for ds000228's BOLD reference (a child of 3.5 years; the EPI 20.7° oblique): the reference clipped and registered with ANTs' SyN to the anatomical reference brought into its space (two Mattes metrics each, the image and its normalised Laplacian; the deformation restricted to the phase encoding), the displacements turned into Hz, fitted by sdcflows' B-splines and applied to the reference. LARMORX runs the whole workflow; ANTs 2.6.5 runs fMRIPrep's own registration command at one thread with correctly rounded maths (LARMORX's reference), and with glibc's maths at one thread and twice at four (the original's own band), each followed by sdcflows' steps; fMRIPrep's own field is placed against that band.",
+   "facts": [
+    {
+     "label": "Data",
+     "text": "OpenNeuro ds000228, sub-pixar008 (CC0-1.0): the BOLD reference and the anatomical reference in its space, as fMRIPrep's workflow was given them; shown inside the EPI's brain masks (fMRIPrep's and the anatomical one resampled), dilated by 2 voxels, so no face shows"
+    },
+    {
+     "label": "Node",
+     "text": "fMRIPrep 25.2.6, `fmriprep_25_2_wf/sub_pixar008_wf/fmap_preproc_wf/wf_auto_00000` (`--use-syn-sdc`)"
+    },
+    {
+     "label": "Warp",
+     "text": "LARMORX's registration against ANTs 2.6.5 at one thread with correctly rounded maths: byte for byte (29,895,327 values); glibc's maths at one thread: 12,788,936 of 29,895,327 values differ, at most 7.41e-08 mm apart (99th percentile 4.21e-10 mm); four threads against one: 29,062,160 of 29,895,327 values differ, at most 0.835 mm apart (99th percentile 0.0262 mm); four threads, run to run: 29,061,772 of 29,895,327 values differ, at most 0.659 mm apart (99th percentile 0.00445 mm); fMRIPrep's own warp against LARMORX's: 29,062,161 of 29,895,327 values differ, at most 0.813 mm apart (99th percentile 0.0277 mm)"
+    },
+    {
+     "label": "Coefficients",
+     "text": "the 14 × 14 × 13 coefficients: LARMORX's equal ANTs' one-thread run's; sdcflows' steps on fMRIPrep's own warp give fMRIPrep's own coefficients, field and corrected reference, every value"
+    },
+    {
+     "label": "Programs",
+     "text": "ANTs 2.6.5's antsRegistration (the GCC 14.3 build) through the oracle cache, the four-thread runs never cached; sdcflows' steps after it by LARMORX's port (= sdcflows' nodes on these inputs, the records' `syn-sdc` case); LARMORX at commit `f786069d2750`, fMRIPrep's image's numpy 2.2.6 for the clip"
+    },
+    {
+     "label": "Time",
+     "text": "LARMORX's whole workflow 681 s at 14 threads; ANTs' registration 1808 s and 1802 s at one thread, 946 s and 944 s at four (the six runs side by side; informal)"
+    },
+    {
+     "label": "Grid",
+     "text": "64 × 64 × 32 voxels of 3 × 3 × 3.3 mm; shown: 53 × 62 × 32 around the brain"
+    }
+   ],
+   "grid": {
+    "shape": [
+     53,
+     62,
+     32
+    ],
+    "spacing": [
+     3.0,
+     3.0,
+     3.299999
+    ],
+    "to_file": [
+     [
+      1,
+      0,
+      0,
+      6
+     ],
+     [
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "affine": [
+     [
+      2.932368,
+      -0.589077,
+      -0.256112,
+      -53.700449
+     ],
+     [
+      0.489498,
+      2.807314,
+      -1.031527,
+      -66.372707
+     ],
+     [
+      0.402011,
+      0.878622,
+      3.124156,
+      -104.866333
+     ],
+     [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "file_shape": [
+     64,
+     64,
+     32
+    ],
+    "orientation": "RAS (shown in neurological convention: the subject's left on the left)"
+   },
+   "mask": {
+    "blob": "8ea66f4ae3f5f5c6496ab459.bin",
+    "dtype": "u1",
+    "bytes": 2060
+   },
+   "outputs": [
+    {
+     "id": "fmap",
+     "label": "Field map (Hz, the unwarp node's `_field`)",
+     "unit": "Hz",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": -18.812665462493896,
+       "hi": 23.44498872756958
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": -27.60202407836914,
+       "hi": 41.015357971191406
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    },
+    {
+     "id": "ref",
+     "label": "Corrected EPI reference (`_sdc`)",
+     "unit": "",
+     "windows": [
+      {
+       "id": "brain",
+       "label": "brain, 0.5–99.5 %",
+       "lo": 0.0,
+       "hi": 258.0808037824463
+      },
+      {
+       "id": "full",
+       "label": "full range",
+       "lo": 0.0,
+       "hi": 280.8519461634569
+      },
+      {
+       "id": "own",
+       "label": "each image's own 0.5–99.5 %",
+       "lo": 0,
+       "hi": 1
+      }
+     ]
+    }
+   ],
+   "panels": [
+    {
+     "id": "epi",
+     "role": "input",
+     "label": "ds000228: the EPI reference",
+     "sub": "the workflow's epi_ref (syn_preprocessing's clip_bg_noise), as fMRIPrep gave it",
+     "arrays": {
+      "all": {
+       "blob": "c6f50f46498802ff945fa793.bin",
+       "dtype": "i2",
+       "bytes": 51492
+      }
+     },
+     "window": [
+      0.0,
+      255.0
+     ]
+    },
+    {
+     "id": "larmorx",
+     "role": "larmorx",
+     "label": "LARMORX (port), 14 threads",
+     "sub": "lx.sdcflows.syn_sdc_workflow on fMRIPrep's inputs, reproduce mode; its antsRegistration computes ANTs' one-thread result at any thread count",
+     "arrays": {
+      "fmap": {
+       "blob": "23a10f743cee46ad49e57916.bin",
+       "dtype": "f4",
+       "bytes": 182535
+      },
+      "ref": {
+       "blob": "3f541740c5f95d2c7e997bc8.bin",
+       "dtype": "f8",
+       "bytes": 287633
+      }
+     },
+     "own": {
+      "fmap": [
+       -18.812665462493896,
+       23.44498872756958
+      ],
+      "ref": [
+       0.0,
+       258.0808037824463
+      ]
+     }
+    },
+    {
+     "id": "larmorx-fix",
+     "role": "larmorx",
+     "label": "LARMORX (port), 4 threads",
+     "sub": "default mode (D13 corrections)",
+     "arrays": {
+      "fmap": {
+       "blob": "5c0f85b3554600f83972cf86.bin",
+       "dtype": "f4",
+       "xor": "larmorx:fmap",
+       "zero": false,
+       "bytes": 141592
+      },
+      "ref": {
+       "blob": "f3585c12150eb7e79ed7ef88.bin",
+       "dtype": "f8",
+       "xor": "larmorx:ref",
+       "zero": false,
+       "bytes": 211041
+      }
+     },
+     "own": {
+      "fmap": [
+       -18.73501205444336,
+       23.3508882522583
+      ],
+      "ref": [
+       0.0,
+       258.0838885596022
+      ]
+     }
+    },
+    {
+     "id": "ants-cr1",
+     "role": "original",
+     "label": "ANTs 2.6.5, 1 thread, correctly rounded maths",
+     "sub": "the GCC 14.3 build with CORE-MATH's functions preloaded, on fMRIPrep's command line; sdcflows' steps after it: LARMORX's reference",
+     "arrays": {
+      "fmap": {
+       "same": "larmorx:fmap",
+       "dtype": "f4"
+      },
+      "ref": {
+       "same": "larmorx:ref",
+       "dtype": "f8"
+      }
+     },
+     "own": {
+      "fmap": [
+       -18.812665462493896,
+       23.44498872756958
+      ],
+      "ref": [
+       0.0,
+       258.0808037824463
+      ]
+     }
+    },
+    {
+     "id": "ants-g1",
+     "role": "original",
+     "label": "ANTs 2.6.5, 1 thread, glibc's maths",
+     "sub": "the same build with the C library's functions",
+     "arrays": {
+      "fmap": {
+       "blob": "adcf07dbf640b61301e2d4a5.bin",
+       "dtype": "f4",
+       "xor": "ants-cr1:fmap",
+       "zero": false,
+       "bytes": 119443
+      },
+      "ref": {
+       "blob": "6e8a610b75f7675c90e41c94.bin",
+       "dtype": "f8",
+       "xor": "ants-cr1:ref",
+       "zero": false,
+       "bytes": 160016
+      }
+     },
+     "own": {
+      "fmap": [
+       -18.809415340423584,
+       23.4446759223938
+      ],
+      "ref": [
+       0.0,
+       258.0837935815798
+      ]
+     }
+    },
+    {
+     "id": "ants-g4a",
+     "role": "original",
+     "label": "ANTs 2.6.5, 4 threads, glibc's maths",
+     "sub": "as fMRIPrep's node ran it (--omp-nthreads 4); the first run",
+     "arrays": {
+      "fmap": {
+       "blob": "1daaca5faf1fe9b87dca4662.bin",
+       "dtype": "f4",
+       "xor": "larmorx-fix:fmap",
+       "zero": false,
+       "bytes": 163910
+      },
+      "ref": {
+       "blob": "f273a2c5ceb2181e0cbc0ac5.bin",
+       "dtype": "f8",
+       "xor": "larmorx-fix:ref",
+       "zero": false,
+       "bytes": 231917
+      }
+     },
+     "own": {
+      "fmap": [
+       -18.750696659088135,
+       23.278955459594727
+      ],
+      "ref": [
+       0.0,
+       258.05616371682845
+      ]
+     }
+    },
+    {
+     "id": "ants-g4b",
+     "role": "original",
+     "label": "ANTs 2.6.5, 4 threads, glibc's maths",
+     "sub": "the same call again (never cached: the original's own spread)",
+     "arrays": {
+      "fmap": {
+       "blob": "5f007eaec9976a18192c7a54.bin",
+       "dtype": "f4",
+       "xor": "ants-g4a:fmap",
+       "zero": false,
+       "bytes": 143770
+      },
+      "ref": {
+       "blob": "05794ee831c391d03e0875e8.bin",
+       "dtype": "f8",
+       "xor": "ants-g4a:ref",
+       "zero": false,
+       "bytes": 212370
+      }
+     },
+     "own": {
+      "fmap": [
+       -18.78003740310669,
+       23.356101036071777
+      ],
+      "ref": [
+       0.0,
+       258.0606791754253
+      ]
+     }
+    },
+    {
+     "id": "fmriprep",
+     "role": "fmriprep",
+     "label": "fMRIPrep 25.2.6's own files",
+     "sub": "its image's ANTs 2.6.2.dev1 at 4 threads, glibc's maths",
+     "arrays": {
+      "fmap": {
+       "blob": "9e65ebb6173e15c1b1c99182.bin",
+       "dtype": "f4",
+       "xor": "ants-g4b:fmap",
+       "zero": false,
+       "bytes": 144915
+      },
+      "ref": {
+       "blob": "4a0729cce2ae8f9127b8e05c.bin",
+       "dtype": "f8",
+       "xor": "ants-g4b:ref",
+       "zero": false,
+       "bytes": 213308
+      }
+     },
+     "own": {
+      "fmap": [
+       -18.746012687683105,
+       23.30887460708618
+      ],
+      "ref": [
+       0.0,
+       258.0623717777198
+      ]
+     }
+    }
+   ],
+   "diffs": [
+    {
+     "id": "lx-ants",
+     "a": "larmorx",
+     "b": "ants-cr1",
+     "kind": "main",
+     "label": "LARMORX (14 threads) − ANTs 2.6.5 at one thread, correctly rounded maths",
+     "role_label": "larmorx against the original",
+     "metrics": {
+      "fmap": {
+       "identical": true,
+       "voxels": 131072,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.02751106396317482,
+       "b_at": 0.02751106396317482,
+       "rms": 0.0,
+       "range": 68.61738204956055,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      },
+      "ref": {
+       "identical": true,
+       "voxels": 131072,
+       "differ": 0,
+       "share": 0.0,
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a_at": 0.0,
+       "b_at": 0.0,
+       "rms": 0.0,
+       "range": 280.8519461634569,
+       "max_rel_range": 0.0,
+       "one_minus_ncc": 0.0,
+       "at_display": null
+      }
+     },
+     "display": {
+      "fmap": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      },
+      "ref": {
+       "max_abs": 0.0,
+       "at": [
+        0,
+        0,
+        0
+       ],
+       "a": 0.0,
+       "b": 0.0,
+       "differ": 0
+      }
+     },
+     "links": [],
+     "verdict": "bit-identical",
+     "reason": "Every value of both outputs is ANTs 2.6.5's at one thread with correctly rounded maths followed by sdcflows' steps (the field in Hz from the displacements, its B-spline resampling onto the EPI grid, the B-spline fit 16 × 16 × 10 mm apart, the unwarping): LARMORX's warp is ANTs' byte for byte (29,895,327 values), at 14 threads (its registration computes ANTs' one-thread sums whatever the thread count)."
+    },
+    {
+     "id": "lx-fmriprep",
+     "a": "larmorx",
+     "b": "fmriprep",
+     "kind": "fmriprep",
+     "label": "LARMORX − fMRIPrep 25.2.6's own files",
+     "role_label": "larmorx against fMRIPrep",
+     "metrics": {
+      "fmap": {
+       "identical": false,
+       "voxels": 131072,
+       "differ": 131071,
+       "share": 0.9999923706054688,
+       "max_abs": 1.7981168329715729,
+       "at": [
+        27,
+        15,
+        0
+       ],
+       "a_at": -2.2821359634399414,
+       "b_at": -0.48401913046836853,
+       "rms": 0.13555808039336958,
+       "range": 68.39204978942871,
+       "max_rel_range": 0.026291313661569855,
+       "one_minus_ncc": 0.00036242925459292925,
+       "at_display": [
+        21,
+        15,
+        0
+       ]
+      },
+      "ref": {
+       "identical": false,
+       "voxels": 131072,
+       "differ": 74967,
+       "share": 0.5719528198242188,
+       "max_abs": 17.00068162707612,
+       "at": [
+        52,
+        63,
+        19
+       ],
+       "a_at": 17.00068162707612,
+       "b_at": 0.0,
+       "rms": 0.18498705115552183,
+       "range": 280.8726977999322,
+       "max_rel_range": 0.060528067556020825,
+       "one_minus_ncc": 2.0790068970715157e-06,
+       "at_display": null
+      }
+     },
+     "display": {
+      "fmap": {
+       "max_abs": 1.7981168329715729,
+       "at": [
+        21,
+        15,
+        0
+       ],
+       "a": -2.2821359634399414,
+       "b": -0.48401913046836853,
+       "differ": 52051
+      },
+      "ref": {
+       "max_abs": 7.873002083506435,
+       "at": [
+        23,
+        56,
+        13
+       ],
+       "a": 114.77924275724217,
+       "b": 122.65224484074861,
+       "differ": 51340
+      }
+     },
+     "links": [],
+     "verdict": "within-variability",
+     "reason": "fMRIPrep's registration ran its image's ANTs 2.6.2.dev1 at four threads with glibc's maths, LARMORX's gives ANTs 2.6.5's one-thread result with correctly rounded maths (the first row); sdcflows' steps after the registration give fMRIPrep's own files from fMRIPrep's own warp, every value (the cache entry's `fmriprep` run), so the difference is the registration's alone. ANTs 2.6.5's own runs of this call with glibc's maths, as fMRIPrep's image runs ANTs, differ from each other by up to 1.82 Hz (between its one-thread run and its second four-thread run: root mean square 0.141 Hz; the reference rows below), and fMRIPrep's field lies within that band (at most 1.8 Hz from LARMORX's, root mean square 0.136 Hz; its warp: 29,062,161 of 29,895,327 values differ, at most 0.813 mm apart (99th percentile 0.0277 mm)): Field map (Hz, the unwarp node's `_field`): 131,071 of 131,072 values differ, at most 1.8 apart; Corrected EPI reference (`_sdc`): 74,967 of 131,072 values differ, at most 17 apart."
+    },
+    {
+     "id": "fix-lx",
+     "a": "larmorx-fix",
+     "b": "larmorx",
+     "kind": "check",
+     "label": "LARMORX: default mode (4 threads) − reproduce (14 threads)",
+     "role_label": "larmorx against itself",
+     "metrics": {
+      "fmap": {
+       "identical": false,
+       "voxels": 131072,
+       "differ": 131071,
+       "share": 0.9999923706054688,
+       "max_abs": 0.8203086853027344,
+       "at": [
+        34,
+        55,
+        10
+       ],
+       "a_at": 22.734609603881836,
+       "b_at": 21.9143009185791,
+       "rms": 0.040872630823454964,
+       "range": 68.61738204956055,
+       "max_rel_range": 0.011954823410637362,
+       "one_minus_ncc": 3.372931874620376e-05,
+       "at_display": [
+        28,
+        55,
+        10
+       ]
+      },
+      "ref": {
+       "identical": false,
+       "voxels": 131072,
+       "differ": 74915,
+       "share": 0.5715560913085938,
+       "max_abs": 5.094500747043639,
+       "at": [
+        29,
+        56,
+        13
+       ],
+       "a_at": 119.87374350428581,
+       "b_at": 114.77924275724217,
+       "rms": 0.07713687830352783,
+       "range": 280.8519461634569,
+       "max_rel_range": 0.01813945324800641,
+       "one_minus_ncc": 3.6463100359331465e-07,
+       "at_display": [
+        23,
+        56,
+        13
+       ]
+      }
+     },
+     "display": {
+      "fmap": {
+       "max_abs": 0.8203086853027344,
+       "at": [
+        28,
+        55,
+        10
+       ],
+       "a": 22.734609603881836,
+       "b": 21.9143009185791,
+       "differ": 52050
+      },
+      "ref": {
+       "max_abs": 5.094500747043639,
+       "at": [
+        23,
+        56,
+        13
+       ],
+       "a": 119.87374350428581,
+       "b": 114.77924275724217,
+       "differ": 51336
+      }
+     },
+     "links": [],
+     "verdict": "d13",
+     "reason": "The default mode corrects ITK-31 (ITK: SyN sets the metric's resampled masks only for the roles that have one: with a fixed mask and no moving mask (or the reverse), the role without one keeps the mask o…) and names it: Field map (Hz, the unwarp node's `_field`): 131,071 of 131,072 values differ, at most 0.82 apart; Corrected EPI reference (`_sdc`): 74,915 of 131,072 values differ, at most 5.09 apart."
+    },
+    {
+     "id": "g1-cr1",
+     "a": "ants-g1",
+     "b": "ants-cr1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5 at one thread: glibc's maths − correctly rounded",
+     "role_label": "the original against itself",
+     "metrics": {
+      "fmap": {
+       "identical": false,
+       "voxels": 131072,
+       "differ": 131067,
+       "share": 0.9999618530273438,
+       "max_abs": 0.015877658501267433,
+       "at": [
+        0,
+        1,
+        0
+       ],
+       "a_at": -0.02183820866048336,
+       "b_at": -0.005960550159215927,
+       "rms": 0.00207586919096047,
+       "range": 68.61738204956055,
+       "max_rel_range": 0.00023139411657820775,
+       "one_minus_ncc": 8.795200835787899e-08,
+       "at_display": null
+      },
+      "ref": {
+       "identical": false,
+       "voxels": 131072,
+       "differ": 74904,
+       "share": 0.57147216796875,
+       "max_abs": 3.9983922787941992,
+       "at": [
+        13,
+        63,
+        19
+       ],
+       "a_at": 3.9983922787941992,
+       "b_at": 0.0,
+       "rms": 0.014446029737566504,
+       "range": 280.8519461634569,
+       "max_rel_range": 0.014236655054072938,
+       "one_minus_ncc": 1.2797201327747453e-08,
+       "at_display": null
+      }
+     },
+     "display": {
+      "fmap": {
+       "max_abs": 0.009697914123535156,
+       "at": [
+        39,
+        29,
+        1
+       ],
+       "a": 5.035036087036133,
+       "b": 5.025338172912598,
+       "differ": 52048
+      },
+      "ref": {
+       "max_abs": 0.03012586710974574,
+       "at": [
+        23,
+        7,
+        18
+       ],
+       "a": 146.31201585242525,
+       "b": 146.342141719535,
+       "differ": 51334
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "The original against itself, a reference row: glibc's exp and log are not always correctly rounded, and the registration's iterations grow those last bits (its warp: 12,788,936 of 29,895,327 values differ, at most 7.41e-08 mm apart (99th percentile 4.21e-10 mm)): Field map (Hz, the unwarp node's `_field`): 131,067 of 131,072 values differ, at most 0.0159 apart; Corrected EPI reference (`_sdc`): 74,904 of 131,072 values differ, at most 4 apart."
+    },
+    {
+     "id": "g4-g1",
+     "a": "ants-g4a",
+     "b": "ants-g1",
+     "kind": "variability",
+     "label": "ANTs 2.6.5 with glibc's maths: 4 threads − 1 thread",
+     "role_label": "the original against itself",
+     "metrics": {
+      "fmap": {
+       "identical": false,
+       "voxels": 131072,
+       "differ": 131072,
+       "share": 1.0,
+       "max_abs": 1.7031841278076172,
+       "at": [
+        35,
+        56,
+        13
+       ],
+       "a_at": 18.330713272094727,
+       "b_at": 16.62752914428711,
+       "rms": 0.1305380219420977,
+       "range": 68.61850357055664,
+       "max_rel_range": 0.024821061946597632,
+       "one_minus_ncc": 0.0003370530504087694,
+       "at_display": [
+        29,
+        56,
+        13
+       ]
+      },
+      "ref": {
+       "identical": false,
+       "voxels": 131072,
+       "differ": 74965,
+       "share": 0.5719375610351562,
+       "max_abs": 17.000666848849505,
+       "at": [
+        52,
+        63,
+        19
+       ],
+       "a_at": 0.0,
+       "b_at": 17.000666848849505,
+       "rms": 0.2001957023861405,
+       "range": 280.8517020265572,
+       "max_rel_range": 0.060532539864194705,
+       "one_minus_ncc": 2.4369147450300844e-06,
+       "at_display": null
+      }
+     },
+     "display": {
+      "fmap": {
+       "max_abs": 1.7031841278076172,
+       "at": [
+        29,
+        56,
+        13
+       ],
+       "a": 18.330713272094727,
+       "b": 16.62752914428711,
+       "differ": 52051
+      },
+      "ref": {
+       "max_abs": 12.877646836917847,
+       "at": [
+        23,
+        56,
+        13
+       ],
+       "a": 127.67393190879375,
+       "b": 114.7962850718759,
+       "differ": 51339
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "The original against itself, a reference row: at four threads the Mattes metrics sum their joint histograms per work unit, in another order (its warp: 29,062,160 of 29,895,327 values differ, at most 0.835 mm apart (99th percentile 0.0262 mm)): Field map (Hz, the unwarp node's `_field`): 131,072 of 131,072 values differ, at most 1.7 apart; Corrected EPI reference (`_sdc`): 74,965 of 131,072 values differ, at most 17 apart."
+    },
+    {
+     "id": "g4b-g4a",
+     "a": "ants-g4b",
+     "b": "ants-g4a",
+     "kind": "variability",
+     "label": "ANTs 2.6.5 at 4 threads with glibc's maths: the second run − the first",
+     "role_label": "the original against itself",
+     "metrics": {
+      "fmap": {
+       "identical": false,
+       "voxels": 131072,
+       "differ": 131072,
+       "share": 1.0,
+       "max_abs": 0.7006597518920898,
+       "at": [
+        39,
+        55,
+        13
+       ],
+       "a_at": 11.959420204162598,
+       "b_at": 11.258760452270508,
+       "rms": 0.02785148100340078,
+       "range": 68.22551918029785,
+       "max_rel_range": 0.010269760645433479,
+       "one_minus_ncc": 1.3000349566979452e-05,
+       "at_display": [
+        33,
+        55,
+        13
+       ]
+      },
+      "ref": {
+       "identical": false,
+       "voxels": 131072,
+       "differ": 74932,
+       "share": 0.571685791015625,
+       "max_abs": 4.0008575692772865,
+       "at": [
+        22,
+        63,
+        22
+       ],
+       "a_at": 4.0008575692772865,
+       "b_at": 0.0,
+       "rms": 0.0548547652336959,
+       "range": 281.0584859806113,
+       "max_rel_range": 0.014234964496155736,
+       "one_minus_ncc": 1.834555979615321e-07,
+       "at_display": null
+      }
+     },
+     "display": {
+      "fmap": {
+       "max_abs": 0.7006597518920898,
+       "at": [
+        33,
+        55,
+        13
+       ],
+       "a": 11.959420204162598,
+       "b": 11.258760452270508,
+       "differ": 52051
+      },
+      "ref": {
+       "max_abs": 3.288050194270909,
+       "at": [
+        17,
+        55,
+        12
+       ],
+       "a": 57.110953971743584,
+       "b": 53.822903777472675,
+       "differ": 51332
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "The original against itself, a reference row: ANTs at four threads does not repeat itself: above one thread its metrics' sums per work unit change from run to run (docs/findings/ants-registration.md; its warp: 29,061,772 of 29,895,327 values differ, at most 0.659 mm apart (99th percentile 0.00445 mm)): Field map (Hz, the unwarp node's `_field`): 131,072 of 131,072 values differ, at most 0.701 apart; Corrected EPI reference (`_sdc`): 74,932 of 131,072 values differ, at most 4 apart."
+    },
+    {
+     "id": "fmriprep-g4",
+     "a": "fmriprep",
+     "b": "ants-g4a",
+     "kind": "variability",
+     "label": "fMRIPrep's own files (ANTs 2.6.2.dev1) − ANTs 2.6.5, both at 4 threads with glibc's maths",
+     "role_label": "the original against itself",
+     "metrics": {
+      "fmap": {
+       "identical": false,
+       "voxels": 131072,
+       "differ": 131071,
+       "share": 0.9999923706054688,
+       "max_abs": 0.6970710754394531,
+       "at": [
+        35,
+        56,
+        13
+       ],
+       "a_at": 17.633642196655273,
+       "b_at": 18.330713272094727,
+       "rms": 0.03047241668881703,
+       "range": 68.22551918029785,
+       "max_rel_range": 0.010217160438124642,
+       "one_minus_ncc": 1.871209256588316e-05,
+       "at_display": [
+        29,
+        56,
+        13
+       ]
+      },
+      "ref": {
+       "identical": false,
+       "voxels": 131072,
+       "differ": 74934,
+       "share": 0.5717010498046875,
+       "max_abs": 11.000458023045212,
+       "at": [
+        51,
+        0,
+        22
+       ],
+       "a_at": 0.0,
+       "b_at": 11.000458023045212,
+       "rms": 0.06361020792860944,
+       "range": 281.0584859806113,
+       "max_rel_range": 0.03913939116502632,
+       "one_minus_ncc": 2.480605258516425e-07,
+       "at_display": [
+        45,
+        0,
+        22
+       ]
+      }
+     },
+     "display": {
+      "fmap": {
+       "max_abs": 0.6970710754394531,
+       "at": [
+        29,
+        56,
+        13
+       ],
+       "a": 17.633642196655273,
+       "b": 18.330713272094727,
+       "differ": 52051
+      },
+      "ref": {
+       "max_abs": 5.021687068045139,
+       "at": [
+        23,
+        56,
+        13
+       ],
+       "a": 122.65224484074861,
+       "b": 127.67393190879375,
+       "differ": 51333
+      }
+     },
+     "links": [],
+     "verdict": null,
+     "reason": "The originals against each other, a reference row: fMRIPrep's image holds ANTs 2.6.2.dev1 (its own build) where this machine's oracle is ANTs 2.6.5 built with GCC 14.3; both at four threads with glibc's maths (its warp: 29,062,155 of 29,895,327 values differ, at most 0.833 mm apart (99th percentile 0.00492 mm)): Field map (Hz, the unwarp node's `_field`): 131,071 of 131,072 values differ, at most 0.697 apart; Corrected EPI reference (`_sdc`): 74,934 of 131,072 values differ, at most 11 apart."
+    }
+   ],
+   "default": {
+    "output": "fmap",
+    "plane": "axial",
+    "voxel": [
+     28,
+     56,
+     12
+    ],
+    "panels": [
+     "epi",
+     "larmorx",
+     "ants-cr1",
+     "fmriprep"
+    ],
+    "diffs": [
+     "lx-ants",
+     "lx-fmriprep",
+     "g4-g1",
+     "fmriprep-g4"
+    ],
+    "compare": {
+     "a": "ants-cr1",
+     "b": "larmorx"
+    },
+    "scale": "linear"
+   },
+   "poster": {
+    "plane": "axial",
+    "slice": 12,
+    "aspect": 0.85484,
+    "panels": {
+     "epi": "c6a275dc3d34f00e9e383618.webp",
+     "larmorx": "95bf7f1dfae9f9c4c37f25d2.webp",
+     "ants-cr1": "95bf7f1dfae9f9c4c37f25d2.webp",
+     "fmriprep": "340c320cf912c7a0a1202e63.webp"
+    },
+    "diffs": {
+     "lx-fmriprep": "c30c768c6d008756dd07b1a3.webp",
+     "g4-g1": "4ba14732e8e0c81761151285.webp",
+     "fmriprep-g4": "89323722fb23420d79cd9d19.webp"
+    },
+    "ranges": {
+     "lx-fmriprep": 1.7981168329715729,
+     "g4-g1": 1.7981168329715729,
+     "fmriprep-g4": 1.7981168329715729
+    },
+    "caption": "Axial slice 13 of 32; the axial slice with the most brain, the crosshair where fMRIPrep's field differs most from LARMORX's in it; choose the output (the field map, the corrected reference) above the images."
+   },
+   "chain": null,
+   "groups": [
+    [
+     "main",
+     "LARMORX against ANTs 2.6.5 (one thread, correctly rounded maths)"
+    ],
+    [
+     "fmriprep",
+     "LARMORX against fMRIPrep's own files"
+    ],
+    [
+     "check",
+     "LARMORX against itself: modes and threads"
+    ],
+    [
+     "variability",
+     "ANTs against itself: maths, threads, runs, builds"
+    ]
+   ],
+   "metrics_note": "Δ is A − B over all 131,072 voxels of each output file, not only those shown (the field extrapolated over the whole grid).",
+   "provenance": [
+    "Data: OpenNeuro ds000228, sub-pixar008, CC0-1.0",
+    "Inputs: fMRIPrep's run (sha256 9899afe9e7ce3c95…); the registration's command (sha256 a2e436d7b08baa3e…); fMRIPrep's warp (sha256 36c7cedc7a27b7ae…); fMRIPrep's field (sha256 d06baa15d552c170…)",
+    "Runs: figures cache entry `sdcflows-estimation/syn-ds000228`, computed 2026-11-09T23:28:17+00:00 with larmorx `f786069d2750`; sdcflows 2.17.1, niworkflows 1.15.3, nipype 1.12.0, scikit-image 0.26.0, nibabel 5.4.2, numpy 2.5.4 (OpenBLAS 0.3.34), SciPy 1.18.1 (oracles/python-newest: larmorx's reference); ANTs 2.6.5's antsRegistration (the GCC 14.3 build), through the oracle cache: one thread with CORE-MATH's correctly rounded functions preloaded, one thread and twice four threads with glibc's (never cached: the original's own spread); fMRIPrep 25.2.6's image holds ANTs 2.6.2.dev1 (its own build); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+   ],
+   "credits": [
+    "openneuro-ds000228"
    ]
   },
   {
