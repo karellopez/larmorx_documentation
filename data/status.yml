@@ -85,6 +85,12 @@ implemented:
     how: "port (sdcflows 2.17.1, with scikit-learn's, SciPy's, numpy's and nibabel's arithmetic)"
     validation: "[37 cases](repo:docs/validation/sdcflows-fieldmap.md): 37 of 37 bit-identical to sdcflows 2.17.1 (every array, file, header, warning and message), fMRIPrep's seven phase-difference estimators and their B-spline fits included (also fMRIPrep's own files); SDC-01, -02 and -04 to -11 corrected by default or refused, each with `reproduce`; the fit [6.5 to 7.8 times faster](repo:docs/benchmarks/sdcflows-fieldmap.md) than scikit-learn's at 14 threads, with 22 to 32 % of sdcflows' peak memory at one"
   - eco: larmorx
+    tool: "sdcflows' PEPOLAR, direct and fieldmap-less estimation (the masks, the estimators of a BIDS dataset, the derivatives, the BIDS app; niworkflows' helpers; fMRIPrep's own field-map steps)"
+    page: /tools/sdcflows-estimation/
+    use: ["larmorx sdcflows sdcflows", "lx.sdcflows.topup_workflow", "lx.sdcflows.fmap_workflow", "lx.sdcflows.syn_sdc_workflow", "lx.sdcflows.brain_masker", "lx.sdcflows.run_app", "lx.niworkflows", "lx.bids", "lx.ndimage", "lx.skimage"]
+    how: "port (sdcflows 2.17.1 with 2.15.2's estimator search, niworkflows 1.15.4, nipype 1.12.0's command lines, pybids 0.22.0's index, fMRIPrep 25.2.7's field-map steps; SciPy's, scikit-image's and numpy's arithmetic in Rust)"
+    validation: "[19](repo:docs/validation/sdcflows-estimation.md), [14](repo:docs/validation/sdcflows-estimation-full.md) and [8](repo:docs/validation/sdcflows-estimation-app-shared.md) cases of the estimation, [5](repo:docs/validation/niworkflows-helpers.md) of niworkflows' helpers and [10](repo:docs/validation/ndimage-skimage.md) and [1](repo:docs/validation/ndimage-skimage-full.md) of SciPy's, scikit-image's and numpy's arithmetic, every one bit-identical to the originals (every array, file, header, warning, message and command line): sdcflows' BIDS app whole on its eight oracle datasets in both library environments, fMRIPrep's own field-map derivatives from LARMORX's stage run as fMRIPrep ran it, the fieldmap-less (SyN) registration ANTs' one-thread warp byte for byte; SDC-12 to SDC-46, PIPE-18 to PIPE-40, SCI-06 to SCI-32 and SKI-01 to SKI-04: 42 corrected by default and 15 refused, 61 with `reproduce`; the BIDS app [1.2 to 5.3 times faster](repo:docs/benchmarks/sdcflows-estimation.md) than sdcflows at one thread, with 16 to 72 % of the originals' peak memory"
+  - eco: larmorx
     tool: "tedana's t2smap (the T2* and S0 maps of multi-echo fMRI and the echoes' optimal combination)"
     page: /tools/tedana-t2smap/
     use: ["larmorx tedana t2smap", "larmorx-gpl tedana t2smap", "lx.tedana.t2smap"]
@@ -173,7 +179,7 @@ planned:
     text: FNIRT, applywarp, convertwarp and fugue, with FLIRT's `-warp`, epi_reg and flirt_average, after FreeSurfer (the mcflirt, BET with every option, FLIRT, FAST, topup, `fslmaths`, `fslstats`, `standard_space_roi`, `fslroi` and prelude replicas and the clean-room originals of BET with every option, FLIRT, FAST, topup, `fslmaths`, `fslstats`, `standard_space_roi`, `fslroi` and prelude are done).
   - eco: [freesurfer, workbench]
     title: Field maps, FreeSurfer, surfaces
-    text: sdcflows' field-map estimation, part B (PEPOLAR's and SyN's steps, sdcflows' masks and command line, fMRIPrep's own field-map steps; part A, the B-spline fit, the field and the phase-difference preparation, is done), multi-echo (the clean-room original of tedana's `t2smap`; the exact replica, in `larmorx-gpl`, is done), FreeSurfer (`larmorx-freesurfer`), Connectome Workbench- and MSM-compatible surface tools, the confounds.
+    text: multi-echo (the clean-room original of tedana's `t2smap`; the exact replica, in `larmorx-gpl`, is done), FreeSurfer (`larmorx-freesurfer`), Connectome Workbench- and MSM-compatible surface tools, the confounds.
   - eco: [larmorx]
     title: larmorprepx
     text: an independent, fMRIPrep-compatible preprocessing pipeline (BIDS in, fMRIPrep-compatible derivatives and reports out), written in plain Python on the library, then compared with fMRIPrep end to end.
