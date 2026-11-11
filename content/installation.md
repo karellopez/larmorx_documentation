@@ -13,9 +13,9 @@ Nothing else is needed: no ANTs, AFNI, FSL or tedana installation, no compiler a
 ## With pip {#pip}
 
 ```bash
-pip install larmorx              # the library and the larmorx / lx commands (Apache-2.0)
-pip install "larmorx[prep]"      # + what the larmorprepx pipeline will need (not ready yet)
-pip install "larmorx[all]"       # + [prep] and the replica packages larmorx-nc and larmorx-gpl
+pip install larmorx              # the library and the commands larmorx and lx
+pip install "larmorx[prep]"      # + what larmorprepx will need (not ready yet)
+pip install "larmorx[all]"       # + [prep], larmorx-nc and larmorx-gpl
 ```
 
 pip installs a pre-release by itself only while no final release exists; `pip install "larmorx=={{ v }}"` (or `pip install --pre larmorx`) asks for it by name. `[all]` installs the three packages at the same version. The quotation marks keep the square brackets from being read by the shell.
@@ -42,13 +42,11 @@ In Python, `import larmorx as lx` gives the same tools (`lx.__version__` is the 
 
 ## The three packages and their licences {#packages}
 
-LARMORX is published as three packages, one for each family of licences, so that each licence stays with the code it covers:
+LARMORX is published as three packages, one for each family of licences, so that each licence stays with the code it covers. Their licences, in plain words:
 
-| Package | What it holds | Its licence, in plain words |
-|---|---|---|
-| `larmorx` | every tool on the [Tools](/tools/) page: the ports, the clean-room originals and the AFNI replicas | [Apache-2.0](repo:LICENSE): any use, commercial use included; keep the licence and the notices. The works it includes and their licences, permissive ones and the Mozilla Public License 2.0 for routines translated from Eigen (whose source stays public), are listed in its [NOTICE](repo:NOTICE). |
-| `larmorx-nc` | the exact replicas of FSL's tools | the [FSL Licence](repo:crates-nc/LICENSE): **non-commercial use only**. Once it is installed, the FSL tools' default (`implementation="auto"`) runs these replicas, so FSL's terms then cover your default results; `implementation="original"` (or `LARMORX_IMPLEMENTATION=original` on the command line) runs LARMORX's own clean-room originals instead. |
-| `larmorx-gpl` | the exact replica of tedana's `t2smap` | the [GNU GPL version 3](repo:crates-gpl/LICENSE): any use; whoever passes it on, changed or not, must pass on its source under the same licence. |
+- **`larmorx`**, every tool on the [Tools](/tools/) page (the ports, the clean-room originals and the AFNI replicas): [Apache-2.0](repo:LICENSE), any use, commercial use included; keep the licence and the notices. The works it includes and their licences, permissive ones and the Mozilla Public License 2.0 for routines translated from Eigen (whose source stays public), are listed in its [NOTICE](repo:NOTICE).
+- **`larmorx-nc`**, the exact replicas of FSL's tools: the [FSL Licence](repo:crates-nc/LICENSE), **non-commercial use only**. Once it is installed, the FSL tools' default (`implementation="auto"`) runs these replicas, so FSL's terms then cover your default results; `implementation="original"` (or `LARMORX_IMPLEMENTATION=original` on the command line) runs LARMORX's own clean-room originals instead.
+- **`larmorx-gpl`**, the exact replica of tedana's `t2smap`: the [GNU GPL version 3](repo:crates-gpl/LICENSE), any use; whoever passes it on, changed or not, must pass on its source under the same licence.
 
 The two replica packages are separate programs (`larmorx-nc`, `larmorx-gpl`) that `larmorx` runs as separate processes, so their licences stay with them; each is installed only when you ask for it by name (`pip install larmorx-nc`) or through `[all]`. Which implementations each tool has, and how they differ, is on its page; why there are two kinds is explained under [What LARMORX is](/#what-it-is) and in the repository's [licensing notes](repo:docs/licensing.md).
 
@@ -76,12 +74,14 @@ Each [release on GitHub](https://github.com/karellopez/larmorx/releases) also ha
 | Windows, x64 | `larmorx-{{ v }}-x86_64-pc-windows-msvc.zip` |
 | Windows, arm64 | `larmorx-{{ v }}-aarch64-pc-windows-msvc.zip` |
 
-The archives of `larmorx-nc` and `larmorx-gpl` are named the same way (`larmorx-nc-{{ v }}-…`, `larmorx-gpl-{{ v }}-…`). Each unpacks into a folder of its own name, with the program in `bin/`, its licences beside it and a `README.txt`. On Linux and macOS (here for Linux on x86-64):
+The archives of `larmorx-nc` and `larmorx-gpl` are named the same way (`larmorx-nc-{{ v }}-…`, `larmorx-gpl-{{ v }}-…`). Each unpacks into a folder of its own name, with the program in `bin/`, its licences beside it and a `README.txt`. On Linux and macOS, with `t` set to your computer's ending from the table:
 
 ```bash
-curl -LO https://github.com/karellopez/larmorx/releases/download/v{{ v }}/larmorx-{{ v }}-x86_64-unknown-linux-gnu.tar.gz
-tar -xzf larmorx-{{ v }}-x86_64-unknown-linux-gnu.tar.gz
-larmorx-{{ v }}-x86_64-unknown-linux-gnu/bin/larmorx --version
+v={{ v }}
+t=x86_64-unknown-linux-gnu       # your computer's ending, from the table above
+curl -LO https://github.com/karellopez/larmorx/releases/download/v$v/larmorx-$v-$t.tar.gz
+tar -xzf larmorx-$v-$t.tar.gz
+larmorx-$v-$t/bin/larmorx --version
 ```
 
 On Windows, in PowerShell, after downloading the archive:
@@ -97,10 +97,8 @@ To call the program by its name from anywhere, add its `bin` folder to your `PAT
 
 For Linux machines and computing clusters, each release also has two container images, for linux/amd64 and linux/arm64, usable by Apptainer, Docker and Podman:
 
-| Image | What it holds | Its licence |
-|---|---|---|
-| `ghcr.io/karellopez/larmorx:{{ v }}` | `larmorx` with `[prep]`, without the replica packages | commercial use allowed |
-| `ghcr.io/karellopez/larmorx:{{ v }}-all` | also `larmorx-gpl` and `larmorx-nc` | non-commercial use only (the FSL Licence) |
+- **`ghcr.io/karellopez/larmorx:{{ v }}`**: `larmorx` with `[prep]`, without the replica packages; commercial use allowed.
+- **`ghcr.io/karellopez/larmorx:{{ v }}-all`**: also `larmorx-gpl` and `larmorx-nc`; non-commercial use only (the FSL Licence).
 
 `latest` and `latest-all` name the newest final release (never a release candidate such as {{ v }}). With Apptainer:
 
@@ -136,10 +134,18 @@ Each file you have is listed with `OK`; a different word means that the file is 
 
 ```powershell
 $f = "larmorx-{{ v }}-x86_64-pc-windows-msvc.zip"
-(Get-FileHash $f).Hash -eq (Select-String -Path SHA256SUMS -SimpleMatch "  $f").Line.Split(" ")[0]
+$sum = (Select-String -Path SHA256SUMS -SimpleMatch "  $f").Line.Split(" ")[0]
+(Get-FileHash $f).Hash -eq $sum
 ```
 
-Every file and both images also carry GitHub's record of the build that made them (an attestation), which GitHub's command-line program [`gh`](https://cli.github.com/) checks: `gh attestation verify <file> --repo karellopez/larmorx`, or for an image `gh attestation verify oci://ghcr.io/karellopez/larmorx:{{ v }} --repo karellopez/larmorx`. PyPI shows its own attestations on each file's page.
+Every file and both images also carry GitHub's record of the build that made them (an attestation), which GitHub's command-line program [`gh`](https://cli.github.com/) checks, for a file and for an image:
+
+```bash
+gh attestation verify <file> --repo karellopez/larmorx
+gh attestation verify oci://ghcr.io/karellopez/larmorx:{{ v }} --repo karellopez/larmorx
+```
+
+PyPI shows its own attestations on each file's page.
 
 ## Updating and removing {#updating}
 
