@@ -10,7 +10,7 @@ hero_kicker: Documentation · early development
 hero_acronym: "*L*ibrary of *A*lgorithmic *R*eimplementations for *M*RI through *O*pen *R*ust e*X*ecution"
 hero_tagline: Bringing Neuroimaging Tools into *Resonance*.
 hero_lede: Reimplemented in Rust. Accessible through Python. Built for FAIR research.
-hero_meta: Apache-2.0 · Linux, macOS and Windows · not yet on PyPI
+hero_meta: Apache-2.0 · Linux, macOS and Windows · pip install larmorx
 hero_end_title: Many toolkits, *one* framework.
 hero_end_text: Spins of five software ecosystems, precessing at one Larmor frequency, gather into one brain. Each keeps its colour.
 hero_description: >-
@@ -37,20 +37,20 @@ hero_description: >-
 <h2 id="what-it-is">Established tools, reimplemented in <em>Rust</em></h2>
 <p class="section-lede">Each tool is reimplemented in one of three ways, chosen by the licence of the original. Where a licence requires it, algorithms are reimplemented under clean-room development practices, so that restrictively licensed source code is not incorporated.</p>
 </div>
-<p class="margin-note"><b>Status</b>Early development. The tools listed under <a href="#status">Status</a> are implemented and validated against the original programs; everything else is planned. Not yet on PyPI: <a href="{{ repo('README.md') }}#development">build it from source</a>.</p>
+<p class="margin-note"><b>Status</b>Early development; the first release, 0.1.0rc1, is a pre-release. The tools listed under <a href="#status">Status</a> are implemented and validated against the original programs; everything else is planned. How to install it: <a href="{{ link('/installation/') }}">installation</a>.</p>
 </div>
 <div class="ways">
 <div><span class="roman">i.</span><h3>Ported from the source</h3><p>Tools with permissive licences, ANTs and ITK (Apache-2.0), are ported from their source, with each Rust function's origin recorded in the crate's <code>PROVENANCE.md</code>.</p><p class="where">larmorx · Apache-2.0</p></div>
-<div><span class="roman">ii.</span><h3>A clean-room original</h3><p>Where the licence is restrictive (AFNI's GPL code, FSL), an original is written from a behavioural specification, documentation and runs of the original program, never from its source.</p><p class="where">larmorx · Apache-2.0</p></div>
-<div><span class="roman">iii.</span><h3>An exact replica, kept apart</h3><p>An exact replica, where one exists, is a separate package under the upstream's licence, such as <code>larmorx-gpl</code>, that runs as a separate program. Tools with both take <code>implementation="auto" | "replica" | "original"</code>.</p><p class="where">larmorx-gpl · GPL-3.0-or-later</p></div>
+<div><span class="roman">ii.</span><h3>A clean-room original</h3><p>Where the licence is restrictive (FSL, tedana, Workbench), an original is written from a behavioural specification, documentation and runs of the original program, never from its source.</p><p class="where">larmorx · Apache-2.0</p></div>
+<div><span class="roman">iii.</span><h3>An exact replica, kept apart</h3><p>An exact replica, where one exists, is a separate package under the upstream's licence (<code>larmorx-nc</code> for FSL, <code>larmorx-gpl</code> for tedana's <code>t2smap</code>) that runs as a separate program. AFNI's tools have both inside LARMORX since AFNI 26.3.05 released the Medical College of Wisconsin's code under CC BY 4.0. Tools with both take <code>implementation="auto" | "replica" | "original"</code>.</p><p class="where">larmorx-nc · FSL Licence<br>larmorx-gpl · GPL-3.0</p></div>
 </div>
 <ul class="ecos" aria-label="The ecosystems and their colours">
-<li class="eco-ants"><h3>ANTs and ITK</h3><p>Ported from the source: transforms, N4, denoising, ImageMath, registration (linear and deformable stages).</p><span class="state">In LARMORX</span></li>
-<li class="eco-afni"><h3>AFNI</h3><p>3dTshift as a clean-room original, with an exact replica in <code>larmorx-gpl</code>.</p><span class="state">In LARMORX</span></li>
-<li class="eco-fsl"><h3>FSL</h3><p>Head-motion correction with mcflirt-style options, a clean-room original, experimental.</p><span class="state">In LARMORX</span></li>
+<li class="eco-ants"><h3>ANTs and ITK</h3><p>Ported from the source: transforms, N4, denoising, ImageMath and its filters, registration (linear and deformable stages), antsAI, Atropos.</p><span class="state">In LARMORX</span></li>
+<li class="eco-afni"><h3>AFNI</h3><p>3dTshift, 3dAutomask, 3dUnifize and 3dvolreg, each an exact replica and a clean-room original, in <code>larmorx</code>.</p><span class="state">In LARMORX</span></li>
+<li class="eco-fsl"><h3>FSL</h3><p>mcflirt, BET, FLIRT, FAST, topup, <code>fslmaths</code>, <code>fslstats</code> and prelude: clean-room originals in <code>larmorx</code>, exact replicas in <code>larmorx-nc</code>.</p><span class="state">In LARMORX</span></li>
 <li class="eco-freesurfer"><h3>FreeSurfer</h3><p>Planned, as its own package, <code>larmorx-freesurfer</code>.</p><span class="state state--planned">Planned</span></li>
 <li class="eco-workbench"><h3>Workbench</h3><p>Connectome Workbench- and MSM-compatible surface tools.</p><span class="state state--planned">Planned</span></li>
-<li class="eco-larmorx"><h3>LARMORX</h3><p>Its own NIfTI I/O and a port of fMRIPrep's one-shot BOLD resampler; the larmorprepx pipeline is planned.</p><span class="state">The accent</span></li>
+<li class="eco-larmorx"><h3>LARMORX</h3><p>Its own NIfTI I/O, ports of fMRIPrep's one-shot BOLD resampler and of sdcflows' field-map estimation, and tedana's <code>t2smap</code> (an exact replica in <code>larmorx-gpl</code>); the larmorprepx pipeline is planned.</p><span class="state">The accent</span></li>
 </ul>
 </section>
 
@@ -65,7 +65,7 @@ hero_description: >-
 </div>
 </div>
 <div class="features">
-<div class="feature"><span class="label">Rust</span><h3>Rust implementations</h3><p>Pure Rust, with no C, C++ or Fortran library dependencies. By design, results do not depend on the thread count, and transcendental functions come from correctly rounded <a class="body-link" href="https://core-math.gitlabpages.inria.fr/">CORE-MATH</a> ports (or the deterministic pure-Rust <code>libm</code> where not yet ported), so a tool gives the same bits on every platform.</p></div>
+<div class="feature"><span class="label">Rust</span><h3>Rust implementations</h3><p>Pure Rust, with no C, C++ or Fortran library dependencies. By design, results do not depend on the thread count, and transcendental functions come from correctly rounded <a class="body-link" href="https://core-math.gitlabpages.inria.fr/">CORE-MATH</a> ports (or the deterministic pure-Rust <code>libm</code> where not yet ported), so a tool gives the same bits on every platform (<a class="body-link" href="{{ link('/why-rust-and-python/') }}">why Rust and Python</a>).</p></div>
 <div class="feature"><span class="label">Command line</span><h3>The original's arguments</h3><p><code>larmorx &lt;family&gt; &lt;program&gt; &lt;the original's arguments&gt;</code>, short alias <code>lx</code>, accepting the original's options. How far messages and exit statuses match is stated in each tool's validation record.</p></div>
 <div class="feature"><span class="label">Python</span><h3>Python bindings</h3><p><code>import larmorx as lx</code>: the same tools with typed options, on in-memory images.</p></div>
 <div class="feature"><span class="label">Platforms</span><h3>Six platforms, one output</h3><p>Continuous integration builds the wheels and runs the test suites on Linux (x86-64, aarch64), macOS (Intel, Apple silicon) and Windows (x64, arm64); golden tests check that every tool reproduces its Linux x86-64 output bit for bit on each platform.</p></div>
@@ -120,8 +120,8 @@ lx.save(t1w_n4, "t1w_n4.nii.gz")
 </div>
 </div>
 <ul class="fair" aria-label="FAIR, for research software">
-<li><span class="letter" aria-hidden="true">F</span><h3>Findable</h3><p>A public repository with versioned history; PyPI releases with citation metadata are planned.</p></li>
-<li><span class="letter" aria-hidden="true">A</span><h3>Accessible</h3><p>Open source under Apache-2.0; native builds with no external neuroimaging installations, containers or administrator rights.</p></li>
+<li><span class="letter" aria-hidden="true">F</span><h3>Findable</h3><p>A public repository with versioned history, releases on PyPI and GitHub, and citation metadata (<a class="body-link" href="{{ repo('CITATION.cff') }}">CITATION.cff</a>).</p></li>
+<li><span class="letter" aria-hidden="true">A</span><h3>Accessible</h3><p>Open source under Apache-2.0; native wheels for six platforms that need no external neuroimaging installations, containers or administrator rights, and <a class="body-link" href="{{ link('/installation/') }}#containers">container images</a> for those who prefer them.</p></li>
 <li><span class="letter" aria-hidden="true">I</span><h3>Interoperable</h3><p>Standard formats (NIfTI-1/2, ITK transform files including HDF5), the original tools' command-line arguments, and a Python API for pipelines.</p></li>
 <li><span class="letter" aria-hidden="true">R</span><h3>Reusable</h3><p>A permissive licence, per-tool documentation, provenance records, case-by-case validation records and a register of the differences from the originals.</p></li>
 </ul>
@@ -135,7 +135,7 @@ lx.save(t1w_n4, "t1w_n4.nii.gz")
 <div>
 <p class="kicker">Current status</p>
 <h2 id="status">What is implemented, and what is <em>planned</em></h2>
-<p class="section-lede">Implemented and validated against the original programs (ANTs 2.6.5, AFNI 25.2.09, FSL 6.0.7, nibabel). Each tool's name leads to its page, with figures comparing it with the original; each line links to its validation record in the main repository. Everything else is planned.</p>
+<p class="section-lede">Implemented and validated against the original programs (ANTs 2.6.5, AFNI 26.3.05, FSL 6.0.7.23, sdcflows 2.17.1, tedana 26.0.3, nibabel). Each tool's name leads to its page, with figures comparing it with the original; each line links to its validation record in the main repository. Everything else is planned.</p>
 </div>
 <p class="margin-note"><b>In the repository</b>API pages are in <a href="{{ repo('docs/api/') }}">docs/api</a>, benchmark reports in <a href="{{ repo('docs/benchmarks/') }}">docs/benchmarks</a>, and the defects found in the originals in the <a href="{{ repo('docs/findings/upstream-defects.md') }}">register</a>.</p>
 </div>
@@ -156,7 +156,7 @@ lx.save(t1w_n4, "t1w_n4.nii.gz")
 <li><h3><span class="dots">{% for e in item.eco %}<span class="dot eco-{{ e }}" title="{{ eco[e].long }}"></span>{% endfor %}</span>{{ item.title }}</h3><p>{{ item.text | md_inline }}</p></li>
 {%- endfor %}
 </ol>
-<p class="status-note">LARMORX is not on PyPI yet. The planned distribution is <code>pip install larmorx</code> for the library and the <code>larmorx</code> and <code>lx</code> commands, with extras for exact replicas of GPL-licensed tools (<code>larmorx[exact]</code>) and the larmorprepx pipeline (<code>larmorx[prep]</code>). Until then, <a class="body-link" href="{{ repo('README.md') }}#development">build it from source</a>.</p>
+<p class="status-note">Install it with <code>pip install larmorx</code>: the library and the <code>larmorx</code> and <code>lx</code> commands. <code>larmorx[prep]</code> adds what the larmorprepx pipeline will need, and <code>larmorx[all]</code> also the exact replicas of FSL's tools (<code>larmorx-nc</code>, non-commercial use only) and of tedana's <code>t2smap</code> (<code>larmorx-gpl</code>, GPL-3.0). Standalone programs, container images and what your computer needs: <a class="body-link" href="{{ link('/installation/') }}">installation</a>.</p>
 <div class="closing">
 <p>How every tool is compared with the original program, and where the records are.</p>
 <a class="btn btn--secondary" href="{{ link('/validation/') }}">Validation<svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
