@@ -76,7 +76,6 @@ hero_description: >-
 <div>
 
 ```bash
-# the command line, with the original programs' arguments
 larmorx ants N4BiasFieldCorrection -d 3 -i t1w.nii.gz -o t1w_n4.nii.gz
 larmorx ants antsApplyTransforms -d 3 -i boldref.nii.gz -r t1w.nii.gz -t xfm.h5 -o boldref_t1w.nii.gz
 larmorx afni 3dTshift -tpattern alt+z -TR 2 -prefix bold_stc.nii.gz bold.nii.gz
@@ -97,6 +96,9 @@ lx.save(t1w_n4, "t1w_n4.nii.gz")
 
 </div>
 </div>
+
+<p class="try-note">The command line takes the original programs' arguments; Python takes the same tools with typed options, on images in memory. A first session from start to end, on public data: <a class="body-link" href="{{ link('/installation/#first-steps') }}">First steps</a>.</p>
+
 </section>
 
 <section class="home-section" aria-labelledby="philosophy">

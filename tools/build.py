@@ -12,7 +12,9 @@ into a layout from templates/. Static files are copied from static/.
 Every build checks what it wrote: internal links and their anchors, the main
 repository's files that pages link to (when that repository is checked out
 next to this one, ../larmorx, or given with --main-repo), one h1 per page,
-heading levels that do not skip, and leftovers of the template language.
+heading levels that do not skip, leftovers of the template language, and
+comments in the shell blocks people copy (zsh, macOS's default shell, does not
+take a `#` typed at its prompt as a comment, nor does Windows' Command Prompt).
 Problems stop the build (exit status 1).
 """
 
@@ -106,6 +108,28 @@ def slug(text: str) -> str:
 
 
 # -------------------------------------------------------------- markdown
+#: Code blocks whose lines are typed at a shell's prompt (and the blocks without a language).
+SHELL_LANGS = {"", "bash", "sh", "shell", "zsh", "console", "powershell", "ps1", "pwsh", "bat", "cmd"}
+
+
+def shell_comment_at(line: str) -> int | None:
+    """Where a shell comment starts in `line`: a `#` at the start of a word, outside quotes
+    (`a#b`, `"#"` and `${#x}` are not comments); None without one. Pasted into zsh, whose
+    INTERACTIVE_COMMENTS option is off by default, `pip install x  # note` installs `#` and
+    `note` too, so the copyable blocks hold commands only (the larmorx repository's
+    validation/tests/test_docs_shell_blocks.py checks its documents the same way)."""
+    quote = None
+    for i, c in enumerate(line):
+        if quote:
+            if c == quote:
+                quote = None
+        elif c in "'\"":
+            quote = c
+        elif c == "#" and (i == 0 or line[i - 1] in " \t"):
+            return i
+    return None
+
+
 def make_markdown(site: dict, repo_paths: set) -> MarkdownIt:
     md = MarkdownIt("commonmark", {"html": True, "typographer": True})
     md.enable(["table", "replacements", "smartquotes"])
@@ -157,6 +181,10 @@ def make_markdown(site: dict, repo_paths: set) -> MarkdownIt:
         t = tokens[idx]
         lang = t.info.strip().split()[0] if t.info.strip() else ""
         lines = []
+        if lang.lower() in SHELL_LANGS:
+            for line in t.content.rstrip("\n").split("\n"):
+                if shell_comment_at(line) is not None:
+                    env.setdefault("shell_comments", []).append(f"[{lang or 'no language'}] {line.strip()}")
         for line in t.content.rstrip("\n").split("\n"):
             m = re.search(r"(^|\s)(#.*)$", line) if lang in ("bash", "sh", "python", "console") else None
             if m:
@@ -222,6 +250,7 @@ class Site:
         self.main_repo = main_repo
         self.repo_paths: set[str] = set()
         self.evidence_problems: list[str] = []
+        self.page_problems: list[str] = []
         self.md = make_markdown(self.site, self.repo_paths)
         self.base_path = urlsplit(self.site["base_url"]).path  # "/larmorx_documentation/"
 
@@ -281,6 +310,7 @@ class Site:
 
     def build(self) -> int:
         t0 = time.time()
+        self.page_problems = []
         if OUT.exists():
             shutil.rmtree(OUT)
         shutil.copytree(STATIC, OUT / "static")
@@ -298,6 +328,9 @@ class Site:
             body = cenv.from_string(page.body).render(**h)
             env: dict = {"link": h["link"]}
             page.html = Markup(self.md.render(body, env))
+            for line in env.get("shell_comments", []):
+                self.page_problems.append(f"{page.source.relative_to(ROOT).as_posix()}: a comment in a "
+                                          f"copyable shell block (say it in the text instead): {line}")
             page.toc = [e for e in env.get("toc", []) if e["level"] in (2, 3)]
             if h["ev"].page_credits():  # the template ends an evidence page with its data credits
                 page.toc.append({"level": 2, "id": "data-credits", "text": "Data credits"})
@@ -310,7 +343,7 @@ class Site:
             page.out.write_text(out, encoding="utf-8")
         self.sitemap(pages)
         problems, notes = check(OUT, self.base_path, self.repo_paths, self.main_repo)
-        problems = sorted(set(self.evidence_problems)) + problems
+        problems = sorted(set(self.evidence_problems)) + self.page_problems + problems
         for n in notes:
             print(f"note: {n}")
         for p in problems:

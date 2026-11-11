@@ -13,10 +13,13 @@ Nothing else is needed: no ANTs, AFNI, FSL or tedana installation, no compiler a
 ## With pip {#pip}
 
 ```bash
-pip install larmorx              # the library and the commands larmorx and lx
-pip install "larmorx[prep]"      # + what larmorprepx will need (not ready yet)
-pip install "larmorx[all]"       # + [prep], larmorx-nc and larmorx-gpl
+pip install larmorx
 ```
+
+installs the library and the commands `larmorx` and `lx`. Two extras add more:
+
+- `pip install "larmorx[prep]"` adds what `larmorprepx` will need (not ready yet);
+- `pip install "larmorx[all]"` adds `[prep]`, `larmorx-nc` and `larmorx-gpl`.
 
 pip installs a pre-release by itself only while no final release exists; `pip install "larmorx=={{ v }}"` (or `pip install --pre larmorx`) asks for it by name. `[all]` installs the three packages at the same version. The quotation marks keep the square brackets from being read by the shell.
 
@@ -26,8 +29,10 @@ A virtual environment keeps LARMORX and the packages it needs apart from the res
 python3 -m venv larmorx-env
 source larmorx-env/bin/activate
 pip install larmorx
-larmorx --version                # prints {{ v }}
+larmorx --version
 ```
+
+The last line prints {{ v }}.
 
 On Windows, in the Command Prompt:
 
@@ -40,12 +45,91 @@ larmorx --version
 
 In Python, `import larmorx as lx` gives the same tools (`lx.__version__` is the version). With `[all]`, `larmorx-nc --version` and `larmorx-gpl --version` print the same version. Examples of both ways of calling a tool are on the [home page](/#features); each tool's command, Python function and options are in the repository's [API pages](repo:docs/api/).
 
+## First steps {#first-steps}
+
+**Where pip puts the commands.** pip installs `larmorx`, `lx` and `larmorprepx` into the Python environment's folder of programs: `bin` on Linux and macOS, `Scripts` on Windows. For the virtual environment above that is `larmorx-env/bin` or `larmorx-env\Scripts`, and activating the environment puts it on the `PATH`, so the commands work by their names. Without a virtual environment, pip names the folder in a warning when it is not on the `PATH`; this prints it (in PowerShell, with `python` for `python3`):
+
+```bash
+python3 -c "import sysconfig; print(sysconfig.get_path('scripts'))"
+```
+
+After `pip install --user`, the folder is `sysconfig.get_path('scripts', sysconfig.get_preferred_scheme('user'))` instead. `python3 -m larmorx` (`python -m larmorx` on Windows), followed by the same arguments, runs the same command without the folder on the `PATH`.
+
+**Three settings for every tool.** In {{ v }} the command line takes them from environment variables, and Python takes the same values as arguments of every function:
+
+- **Threads:** `OMP_NUM_THREADS` (ANTs' tools: `ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS`, or `NSLOTS`); in Python `n_threads`. The number of threads; without the variable the command line uses every logical CPU (Python's default is 1).
+- **Implementation:** `LARMORX_IMPLEMENTATION`; in Python `implementation`. `auto` (the default) runs a tool's exact replica when it is built in or installed, otherwise its clean-room original; `replica` the replica; `original` the clean-room original.
+- **Upstream defects:** `LARMORX_UPSTREAM_DEFECTS`; in Python `upstream_defects`. `fix` (the default) corrects the original program's known defects, each with a notice (below); `reproduce` gives the original program's result.
+
+In bash and zsh, `NAME=value` before a command sets a variable for that command only, and `export NAME=value` for the rest of the session; in PowerShell, `$env:NAME = "value"` sets it for the session and `Remove-Item Env:NAME` removes it.
+
+**Coming with the next release** (already in the repository's `main`, [First steps](repo:README.md#first-steps) in its README): the same three settings as options between `larmorx` and the family, with the Python arguments' names, `larmorx --n-threads 4 --implementation clean-room --upstream-defects reproduce <family> <tool> ...`, each winning over its variable; and `clean-room` as the name of the clean-room original, where {{ v }} says `original` (which keeps working). The replica programs `larmorx-nc` and `larmorx-gpl` take `--n-threads` and `--upstream-defects` the same way.
+
+**An example, start to end**, on one participant of the public OpenNeuro dataset [ds000005](https://openneuro.org/datasets/ds000005) (public domain, PDDL; 21 MB): a new virtual environment, the two images downloaded, then ANTs' bias-field correction on four threads, FSL's brain extraction, head-motion correction and registration, and AFNI's brain mask computed by the replica (the default) and by the clean-room original. FSL's tools need `FSLOUTPUTTYPE`, as FSL's own do (`NIFTI_GZ`: they write `.nii.gz` files). The last command gives the original N4's result instead of the corrected one. On Linux and macOS (bash or zsh), with Python 3.12 or newer as `python3` (macOS's own `python3` is older: install one from [python.org](https://www.python.org) or Homebrew):
+
+```bash
+python3 -m venv larmorx-env
+source larmorx-env/bin/activate
+pip install larmorx
+mkdir larmorx-demo
+cd larmorx-demo
+curl -L -o t1w.nii.gz https://s3.amazonaws.com/openneuro.org/ds000005/sub-01/anat/sub-01_T1w.nii.gz
+curl -L -o bold.nii.gz https://s3.amazonaws.com/openneuro.org/ds000005/sub-01/func/sub-01_task-mixedgamblestask_run-01_bold.nii.gz
+export FSLOUTPUTTYPE=NIFTI_GZ
+ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=4 larmorx ants N4BiasFieldCorrection -d 3 -i t1w.nii.gz -o t1w_n4.nii.gz
+larmorx fsl bet t1w_n4.nii.gz t1w_brain -R -m
+larmorx fsl mcflirt -in bold.nii.gz -out bold_mcf -plots
+larmorx fsl fslmaths bold_mcf -Tmean bold_mean
+larmorx afni 3dAutomask -prefix bold_mask.nii.gz bold_mean.nii.gz
+LARMORX_IMPLEMENTATION=original larmorx afni 3dAutomask -prefix bold_mask_clean_room.nii.gz bold_mean.nii.gz
+larmorx fsl fslmaths bold_mean -mas bold_mask bold_brain
+larmorx fsl flirt -in bold_brain -ref t1w_brain -dof 6 -omat bold2t1w.mat -out bold2t1w
+LARMORX_UPSTREAM_DEFECTS=reproduce larmorx ants N4BiasFieldCorrection -d 3 -i t1w.nii.gz -o t1w_n4_ants.nii.gz
+```
+
+On Windows, in PowerShell, with Python 3.12 or newer as `python` (python.org's installer puts it on the `PATH` when "Add python.exe to PATH" is ticked; otherwise write `py` for `python` in the first line):
+
+```powershell
+python -m venv larmorx-env
+larmorx-env\Scripts\Activate.ps1
+pip install larmorx
+mkdir larmorx-demo
+cd larmorx-demo
+curl.exe -L -o t1w.nii.gz https://s3.amazonaws.com/openneuro.org/ds000005/sub-01/anat/sub-01_T1w.nii.gz
+curl.exe -L -o bold.nii.gz https://s3.amazonaws.com/openneuro.org/ds000005/sub-01/func/sub-01_task-mixedgamblestask_run-01_bold.nii.gz
+$env:FSLOUTPUTTYPE = "NIFTI_GZ"
+$env:ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS = "4"
+larmorx ants N4BiasFieldCorrection -d 3 -i t1w.nii.gz -o t1w_n4.nii.gz
+larmorx fsl bet t1w_n4.nii.gz t1w_brain -R -m
+larmorx fsl mcflirt -in bold.nii.gz -out bold_mcf -plots
+larmorx fsl fslmaths bold_mcf -Tmean bold_mean
+larmorx afni 3dAutomask -prefix bold_mask.nii.gz bold_mean.nii.gz
+$env:LARMORX_IMPLEMENTATION = "original"
+larmorx afni 3dAutomask -prefix bold_mask_clean_room.nii.gz bold_mean.nii.gz
+Remove-Item Env:LARMORX_IMPLEMENTATION
+larmorx fsl fslmaths bold_mean -mas bold_mask bold_brain
+larmorx fsl flirt -in bold_brain -ref t1w_brain -dof 6 -omat bold2t1w.mat -out bold2t1w
+$env:LARMORX_UPSTREAM_DEFECTS = "reproduce"
+larmorx ants N4BiasFieldCorrection -d 3 -i t1w.nii.gz -o t1w_n4_ants.nii.gz
+Remove-Item Env:LARMORX_UPSTREAM_DEFECTS
+```
+
+If PowerShell refuses `Activate.ps1` because running scripts is disabled on the computer, `Set-ExecutionPolicy -Scope Process RemoteSigned` allows it in that window only. Each command writes its results into `larmorx-demo`; `deactivate` leaves the virtual environment.
+
+**What the `upstream defect ... corrected` lines mean.** Some commands print a notice such as
+
+```text
+larmorx: upstream defect ANTS-40 (N4BiasFieldCorrection) corrected: 6208 of the 92160 voxels N4 uses have no logarithm (6208 are 0, 0 negative or NaN): they are left out of the histogram and the fit; ITK keeps them in its log image as they are (0 is the log of 1) [LARMORX_UPSTREAM_DEFECTS=reproduce gives N4BiasFieldCorrection's result]
+```
+
+It is not an error (the command still ends with exit status 0). It says that a known defect of the original program (here ANTs' N4) would have changed this result, and that LARMORX computed the corrected result, as it does by default. The code (`ANTS-40`) is the defect's entry in the repository's [register](repo:docs/findings/upstream-defects.md); the [upstream defects](repo:docs/api/upstream-defects.md) page explains the rules. To get the original program's result, bit for bit, set `LARMORX_UPSTREAM_DEFECTS=reproduce`, as the notice says (`upstream_defects="reproduce"` in Python); the notice then says `reproduced`. The replica programs' notices start with `larmorx-nc:` or `larmorx-gpl:`, and AFNI's tools print theirs as AFNI's warnings (`*+ WARNING: upstream defect AFNI-99 (3dvolreg) corrected: ...`).
+
 ## The three packages and their licences {#packages}
 
 LARMORX is published as three packages, one for each family of licences, so that each licence stays with the code it covers. Their licences, in plain words:
 
 - **`larmorx`**, every tool on the [Tools](/tools/) page (the ports, the clean-room originals and the AFNI replicas): [Apache-2.0](repo:LICENSE), any use, commercial use included; keep the licence and the notices. The works it includes and their licences, permissive ones and the Mozilla Public License 2.0 for routines translated from Eigen (whose source stays public), are listed in its [NOTICE](repo:NOTICE).
-- **`larmorx-nc`**, the exact replicas of FSL's tools: the [FSL Licence](repo:crates-nc/LICENSE), **non-commercial use only**. Once it is installed, the FSL tools' default (`implementation="auto"`) runs these replicas, so FSL's terms then cover your default results; `implementation="original"` (or `LARMORX_IMPLEMENTATION=original` on the command line) runs LARMORX's own clean-room originals instead.
+- **`larmorx-nc`**, the exact replicas of FSL's tools: the [FSL Licence](repo:crates-nc/LICENSE), **non-commercial use only**. Once it is installed, the FSL tools' default (`implementation="auto"`) runs these replicas, so FSL's terms then cover your default results; `implementation="original"` (or `LARMORX_IMPLEMENTATION=original` on the command line; `clean-room` from the next release) runs LARMORX's own clean-room originals instead.
 - **`larmorx-gpl`**, the exact replica of tedana's `t2smap`: the [GNU GPL version 3](repo:crates-gpl/LICENSE), any use; whoever passes it on, changed or not, must pass on its source under the same licence.
 
 The two replica packages are separate programs (`larmorx-nc`, `larmorx-gpl`) that `larmorx` runs as separate processes, so their licences stay with them; each is installed only when you ask for it by name (`pip install larmorx-nc`) or through `[all]`. Which implementations each tool has, and how they differ, is on its page; why there are two kinds is explained under [What LARMORX is](/#what-it-is) and in the repository's [licensing notes](repo:docs/licensing.md).
@@ -74,11 +158,11 @@ Each [release on GitHub](https://github.com/karellopez/larmorx/releases) also ha
 | Windows, x64 | `larmorx-{{ v }}-x86_64-pc-windows-msvc.zip` |
 | Windows, arm64 | `larmorx-{{ v }}-aarch64-pc-windows-msvc.zip` |
 
-The archives of `larmorx-nc` and `larmorx-gpl` are named the same way (`larmorx-nc-{{ v }}-…`, `larmorx-gpl-{{ v }}-…`). Each unpacks into a folder of its own name, with the program in `bin/`, its licences beside it and a `README.txt`. On Linux and macOS, with `t` set to your computer's ending from the table:
+The archives of `larmorx-nc` and `larmorx-gpl` are named the same way (`larmorx-nc-{{ v }}-…`, `larmorx-gpl-{{ v }}-…`). Each unpacks into a folder of its own name, with the program in `bin/`, its licences beside it and a `README.txt`. On Linux and macOS, with `t` set to your computer's ending from the table (here Linux on x86-64):
 
 ```bash
 v={{ v }}
-t=x86_64-unknown-linux-gnu       # your computer's ending, from the table above
+t=x86_64-unknown-linux-gnu
 curl -LO https://github.com/karellopez/larmorx/releases/download/v$v/larmorx-$v-$t.tar.gz
 tar -xzf larmorx-$v-$t.tar.gz
 larmorx-$v-$t/bin/larmorx --version

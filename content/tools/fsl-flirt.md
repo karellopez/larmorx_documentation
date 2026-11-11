@@ -34,9 +34,11 @@ fMRIPrep calls it once per BOLD run, in its boundary-based registration (`bold_r
 larmorx fsl flirt -in boldref.nii.gz -ref T1w_brain.nii.gz -dof 6 -cost bbr \
     -wmseg wm.nii.gz -init init.mat -schedule bbr.sch -omat bold2t1.mat -out bold_in_t1
 larmorx fsl convert_xfm -omat t12bold.mat -inverse bold2t1.mat
-larmorx fsl avscale --allparams bold2t1.mat boldref.nii.gz       # rotations, scales, skews
-larmorx fsl rmsdiff bold2t1.mat other.mat boldref.nii.gz         # the RMS deviation in mm
+larmorx fsl avscale --allparams bold2t1.mat boldref.nii.gz
+larmorx fsl rmsdiff bold2t1.mat other.mat boldref.nii.gz
 ```
+
+`avscale` prints the matrix's rotations, scales and skews; `rmsdiff` the RMS deviation between two matrices, in mm.
 
 ```python
 import larmorx as lx

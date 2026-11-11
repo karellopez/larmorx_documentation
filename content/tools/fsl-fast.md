@@ -30,10 +30,12 @@ FAST models the intensities of a skull-stripped brain as a mixture of tissue cla
 fMRIPrep calls it once per subject, on the T1w its brain extraction made (denoised, N4-corrected and skull-stripped), in its anatomical workflow (`anat_fit_wf/fast`): `fast -I 0 -N -p -g -S 1 <T1w brain>`, without a bias field (N4 corrected it before). Its partial-volume maps become the CSF, grey- and white-matter probability maps fMRIPrep writes (`label-CSF_probseg` and the others), from which its CompCor masks are made.
 
 ```bash
-larmorx fsl fast -I 0 -N -p -g -S 1 T1w_brain.nii.gz             # fMRIPrep's call
-larmorx fsl fast -b -B -o out T1w_brain.nii.gz                   # the bias field and the corrected image
-larmorx fsl fast -S 2 -B -o out T2w_brain.nii.gz T1w_brain.nii.gz   # two channels (channel 1 named last)
+larmorx fsl fast -I 0 -N -p -g -S 1 T1w_brain.nii.gz
+larmorx fsl fast -b -B -o out T1w_brain.nii.gz
+larmorx fsl fast -S 2 -B -o out T2w_brain.nii.gz T1w_brain.nii.gz
 ```
+
+The first is fMRIPrep's call; the second also writes the bias field and the corrected image; the third segments two channels (channel 1 named last).
 
 ```python
 import larmorx as lx
