@@ -26,8 +26,10 @@ Head-motion correction estimates, for every volume of a BOLD run, the rigid tran
 
 ```bash
 larmorx mri hmc -in bold.nii.gz -out bold_mcf.nii.gz -reffile hmc_boldref.nii.gz -mats -plots
-larmorx fsl mcflirt -in bold.nii.gz -out bold_mcf.nii.gz -reffile hmc_boldref.nii.gz -mats -plots   # the replica, if installed
+larmorx fsl mcflirt -in bold.nii.gz -out bold_mcf.nii.gz -reffile hmc_boldref.nii.gz -mats -plots
 ```
+
+(the second runs the replica, if `larmorx-nc` is installed.)
 
 ```python
 import larmorx as lx

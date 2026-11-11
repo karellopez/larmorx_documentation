@@ -3,19 +3,19 @@
  "tool": "mri-hmc",
  "title": "Head-motion correction",
  "provenance": {
-  "exporter": "f278203161a990923ea494a6da82175a71a8891e",
+  "exporter": "c0edf327c5d14a3a4bd26fb10a9b3943c1348259",
   "records": [
    {
     "path": "docs/validation/mri-hmc.json",
-    "sha256": "c6b5025abc32cbe94d79436ffcbe2e534ef1eeb51c57ca18d1fa7a56013b6d58",
-    "generated": "2026-11-07",
-    "larmorx_commit": "a3f1d343b8ec"
+    "sha256": "24930881c346e88d3831b17016445a79ba39602b32f439033395b7b9be2d3139",
+    "generated": "2026-11-11",
+    "larmorx_commit": "d300ef431136"
    },
    {
     "path": "docs/validation/mri-hmc.md",
-    "sha256": "cc7ebecc50b6ef0256eb3a9b25d99a0808a0d9b512585268c7f1c52680459e6b",
-    "generated": "2026-11-07",
-    "larmorx_commit": "a3f1d343b8ec"
+    "sha256": "318c312a73b72a114e3b7015947ab5e5c294a84d42dea54cf536a9dc2422b217",
+    "generated": "2026-11-11",
+    "larmorx_commit": "d300ef431136"
    },
    {
     "path": "docs/validation/fsl-mcflirt-replica-full.json",
@@ -418,8 +418,8 @@
     "verdicts": {
      "within-variability": 33,
      "open": 112,
-     "both-reject": 20,
-     "divergence": 5
+     "both-reject": 21,
+     "divergence": 4
     }
    },
    "agreement": [
@@ -471,8 +471,7 @@
      "category": "synthetic/motion",
      "counts": {
       "within-variability": 4,
-      "divergence": 1,
-      "both-reject": 4,
+      "both-reject": 5,
       "open": 27
      }
     },
@@ -3493,10 +3492,10 @@
    "command": "mcflirt -in small.nii.gz -out out_mcf.nii.gz -reffile ref.nii.gz -mats",
    "results": {
     "original": {
-     "outcome": "expected-divergence",
-     "verdict": "divergence",
-     "checks": "1/1",
-     "reason": "Without FSLOUTPUTTYPE, mcflirt writes the .mat files and fails (exit 1); larmorx writes every output as .nii.gz (its default)."
+     "outcome": "both-error",
+     "verdict": "both-reject",
+     "checks": "13/13",
+     "reason": "Without FSLOUTPUTTYPE, mcflirt writes the .mat files and stops at its first image with FSL's message (exit 1), and so does larmorx with reproduce (the same matrices within the thresholds); larmorx's default writes every output, the images as .nii.gz, and name…"
     },
     "replica": {
      "outcome": "both-error",

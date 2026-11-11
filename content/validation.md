@@ -35,9 +35,11 @@ page has a section *On the data panel* with fMRIPrep's calls of the fourteen ora
 panel's own images.
 
 ```bash
-pytest tests/parity                                                    # the smoke tier
+pytest tests/parity
 python -m larmorx_validation parity ants-n4 --tier standard --out docs/validation
 ```
+
+(the first runs the smoke tier; the second one tool's standard tier.)
 
 **Golden tests on six platforms.** Every function's output on small generated inputs is checked, bit for bit, against LARMORX's own Linux x86-64 output on Linux (x86-64, aarch64), macOS (Intel, Apple silicon) and Windows (x64, arm64), in continuous integration ([golden tests](repo:docs/validation/golden.md)). So a comparison made on Linux holds on every platform.
 
