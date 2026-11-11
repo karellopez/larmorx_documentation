@@ -38,7 +38,7 @@ hmc.matrices          # (N, 4, 4) FSL matrices, as mcflirt's MAT_* files
 hmc.implementation    # which implementation ran
 ```
 
-`implementation="auto" | "replica" | "original"` chooses (on the command line `LARMORX_IMPLEMENTATION`); `auto` takes the replica when `larmorx-nc` is installed (`pip install larmorx-nc`, by name, so that its non-commercial licence is accepted knowingly).
+`implementation="auto" | "replica" | "original"` chooses (on the command line `LARMORX_IMPLEMENTATION`); `auto` takes the replica when `larmorx-nc` is installed (`pip install larmorx-nc` by name, or `pip install "larmorx[all]"`, so that its non-commercial licence is accepted knowingly; [installation](/installation/#packages)).
 
 How to read what follows: [the validation guide](/validation/#reading).
 
