@@ -646,7 +646,7 @@ class Evidence:
                     f'<span class="seg-n">{self.num(tool, pp, fmt_count(n))}</span></a>'
                 )
             out.append(
-                f'<div class="ev-agree-row"><span class="ev-agree-cat">{esc(cat).replace("/", "/<wbr>").replace("_", "_<wbr>")}</span>'
+                f'<div class="ev-agree-row"><span class="ev-agree-cat">{esc(cat).replace("/", "/<wbr>").replace("_", "_<wbr>" if labels else "_")}</span>'
                 f'<div class="ev-agree-track"><div class="ev-bar" style="width:{100 * total / top:.3f}%" '
                 f'role="group" aria-label="{esc(cat)}: {total} cases: {esc(", ".join(parts))}">{"".join(segs)}</div></div>'
                 f'<span class="ev-agree-n">{total}</span></div>'
@@ -818,7 +818,8 @@ class Evidence:
         k, t = next(((i, x) for i, x in enumerate(doc.get("tables", [])) if x["id"] == tid), (None, None))
         if t is None:
             raise SystemExit(f"evidence {tool}: no table {tid!r}")
-        return Markup(f'<figure class="ev-chart ev-tablefig">{self.table_html(tool, t, ptr("tables", k))}</figure>')
+        ported = " ev-ported" if doc.get("presentation") == PRESENTATION else ""  # titles keep the case
+        return Markup(f'<figure class="ev-chart ev-tablefig{ported}">{self.table_html(tool, t, ptr("tables", k))}</figure>')
 
     # ------------------------------------------------------------------ dots
 
@@ -971,7 +972,7 @@ class Evidence:
                     else ""
                 )
                 + "</th>",
-                f"<td class=cat>{esc(cat).replace('_', '_<wbr>')}</td>",
+                f"<td class=cat>{esc(cat).replace('_', '_<wbr>' if labels else '_')}</td>",
                 f'<td class=what><span>{esc(c["description"])}</span>'
                 + (
                     f'<details class="cmd"><summary>command line</summary><code class="cmdline">'

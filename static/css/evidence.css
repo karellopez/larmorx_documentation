@@ -474,10 +474,10 @@ th[aria-sort="descending"] .ev-sort::after { content: " ↓"; }
   background: var(--bg-elev); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
 .ev-ported .ev-band-key .dot.s-replica, .ev-ported .ev-band-key .dot.s-replica-open { margin: 0; }
 /* a title that names programs (FSL bet 6.0.7.23) keeps their letter case: not in capitals */
-.ev-chart.ev-ported > .ev-chart-title { font-family: inherit; font-size: 0.98rem; letter-spacing: 0; text-transform: none;
+.ev-chart.ev-ported > .ev-chart-title, .ev-tablefig.ev-ported .ev-metrics-title { font-family: inherit; font-size: 0.98rem; letter-spacing: 0; text-transform: none;
   color: var(--ink); font-weight: 600; line-height: 1.4; }
 .ev-chart.ev-ported > .ev-chart-title a { font-weight: 400; }
-.ev-chart.ev-ported > .ev-chart-title code { font-size: 0.92em; }
+.ev-chart.ev-ported > .ev-chart-title code, .ev-tablefig.ev-ported .ev-metrics-title code { font-size: 0.92em; }
 /* the input, the original and the two ports in one row where the page is wide enough: five
    panels side by side at the site's widest column (the comparisons follow in the next row) */
 .ev-ported .ev-panels { grid-template-columns: repeat(auto-fill, minmax(min(100%, 184px), 1fr)); }
