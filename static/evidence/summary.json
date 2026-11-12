@@ -686,13 +686,26 @@
    "eco": "larmorx",
    "implementations": [
     {
+     "label": "clean-room original",
+     "record": "docs/validation/tedana-t2smap-original.md",
+     "status": "experimental",
+     "cases": 125,
+     "verdicts": {
+      "bit-identical": 65,
+      "within-variability": 23,
+      "divergence": 1,
+      "both-reject": 36
+     },
+     "source": "evidence"
+    },
+    {
      "label": "larmorx-gpl replica",
      "record": "docs/validation/tedana-t2smap-replica.md",
      "status": "experimental",
-     "cases": 69,
+     "cases": 102,
      "verdicts": {
-      "bit-identical": 44,
-      "both-reject": 25
+      "bit-identical": 62,
+      "both-reject": 40
      },
      "source": "evidence"
     }
