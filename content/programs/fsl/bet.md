@@ -21,14 +21,14 @@ reference:
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
     crates/larmorx-core/src/defects.rs: "54f1863ded1d5cef"
     crates/larmorx-fsl/src/cli/bet.rs: "da8dac774b79a854"
-    docs/api/fsl-bet.md: "2d69785aafd8d362"
-    python/larmorx/fsl/bet.py: "f3c4fc349d3092b9"
+    docs/api/fsl-bet.md: "540d33885a35ffc4"
+    python/larmorx/fsl/bet.py: "14e2e5d5c68509eb"
     validation/tools.toml: "2502f59cd0e3640d"
 ---
 
 ## What it does {#what-it-does}
 
-`bet` finds the brain in a head image. It writes the brain and, on request, its mask, its
+It writes the brain and, on request, its mask, its
 outline, an approximate skull and the brain's surface as a mesh. It runs FSL's brain extraction,
 `bet2`, alone or inside one of seven variations (below).
 
@@ -198,7 +198,7 @@ They stand between `larmorx` and `fsl` on the command line (`larmorx --n-threads
 |---|---|
 | <code><span class="nw">&#45;&#45;n&#45;threads</span></code> <code><span class="nw">N</span></code><br><code><span class="nw">n&#95;threads&#61;1</span></code> | Threads (0 = all); the result does not depend on it. Default: every logical CPU on the command line (<code><span class="nw">0</span></code>), <code><span class="nw">1</span></code> in Python. The variable <code><span class="nw">OMP&#95;NUM&#95;THREADS</span></code> in 0.1.0rc1. |
 | <code><span class="nw">&#45;&#45;implementation</span></code> <code><span class="nw">auto&#124;replica&#124;clean&#45;room</span></code><br><code><span class="nw">implementation&#61;&#34;auto&#34;</span></code> | <code><span class="nw">&#34;auto&#34;</span></code> (default): the replica in <code><span class="nw">larmorx&#45;nc</span></code> when it is installed, else the clean room (always the clean room with <code><span class="nw">tanh&#61;&#34;correctly&#45;rounded&#34;</span></code>); <code><span class="nw">&#34;replica&#34;</span></code>: the replica (<code><span class="nw">ReplicaNotFoundError</span></code> without it); <code><span class="nw">&#34;clean&#45;room&#34;</span></code>: the clean room (FSL's behaviour within the thresholds of its validation record, <code><span class="nw">docs&#47;validation&#47;fsl&#45;bet&#46;md</span></code>). The variable <code><span class="nw">LARMORX&#95;IMPLEMENTATION</span></code> in 0.1.0rc1. |
-| <code><span class="nw">&#45;&#45;upstream&#45;defects</span></code> <code><span class="nw">fix&#124;reproduce</span></code><br><code><span class="nw">upstream&#95;defects&#61;&#34;fix&#34;</span></code> | <code><span class="nw">&#34;fix&#34;</span></code> (default) or <code><span class="nw">&#34;reproduce&#34;</span></code> (FSL's output); a <code><span class="nw">UpstreamDefectWarning</span></code> names each defect that changed the result. The variable <code><span class="nw">LARMORX&#95;UPSTREAM&#95;DEFECTS</span></code> in 0.1.0rc1. |
+| <code><span class="nw">&#45;&#45;upstream&#45;defects</span></code> <code><span class="nw">fix&#124;reproduce</span></code><br><code><span class="nw">upstream&#95;defects&#61;&#34;fix&#34;</span></code> | <code><span class="nw">&#34;fix&#34;</span></code> (default) or <code><span class="nw">&#34;reproduce&#34;</span></code> (FSL's output); an <code><span class="nw">UpstreamDefectWarning</span></code> names each defect that changed the result. The variable <code><span class="nw">LARMORX&#95;UPSTREAM&#95;DEFECTS</span></code> in 0.1.0rc1. |
 
 ## Examples {#examples}
 
@@ -210,7 +210,8 @@ import larmorx as lx
 # As fMRIPrep calls BET on its BOLD reference.
 r = lx.fsl.bet("boldref.nii.gz", frac=0.2, mask=True)
 r.brain, r.mask
-# The port that ran: the clean room of larmorx, or the replica once larmorx-nc is installed.
+# The port that ran: the clean room of larmorx,
+# or the replica once larmorx-nc is installed.
 r.mask.implementation
 
 # The same call, the clean room chosen.
@@ -232,10 +233,13 @@ larmorx fsl bet boldref.nii.gz boldref_brain.nii.gz -f 0.20 -m
 | clean room | <code><span class="nw">larmorx</span></code> | Apache-2.0 | experimental | [fsl-bet](repo:docs/validation/fsl-bet.md) |
 
 The replica gives FSL 6.0.7.23's exit status, messages and files byte for byte in 201 of the 263
-cases of its record, which holds `bet`, `bet2` and `betsurf`; 47 more are rejected by both. The
-clean room is within the thresholds in 198 of its 200 compared cases. One of the two others is
-`bet`'s: a 3.5-year-old's `bet -B`, whose mask has a Dice coefficient of 0.9983 and a boundary
-distance of 1.0 voxel at the 95th percentile but 2.24 voxels at most, where the threshold is 2.
+cases of its record, which holds `bet`, `bet2`, `betsurf`, `standard_space_roi` and `fslroi`; 47
+more are rejected by both. The clean room is within the thresholds in 198 of the 200 compared
+cases of its record, which holds the same programs. One of the two others is `bet`'s: a
+3.5-year-old's `bet -B`. The boundaries of its brain and mask lie up to 2.24 voxels from FSL's,
+where the threshold is 2, and the mask's boundary distance at the 95th percentile is 1.0 voxel,
+where the threshold is 0.5. Their Dice coefficients, 0.9989 and 0.9983, are within the threshold
+of 0.995.
 
 FSL's licence allows non-commercial use only, so the two ports of `bet`, `bet2` and `betsurf`, a
 replica and a clean room, live in different packages ([licensing](repo:docs/licensing.md) says what each

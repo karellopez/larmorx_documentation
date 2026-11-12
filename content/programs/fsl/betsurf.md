@@ -20,8 +20,8 @@ reference:
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
     crates/larmorx-core/src/defects.rs: "54f1863ded1d5cef"
     crates/larmorx-fsl/src/cli/betsurf.rs: "05d2c5fea516456d"
-    docs/api/fsl-bet.md: "2d69785aafd8d362"
-    python/larmorx/fsl/bet.py: "f3c4fc349d3092b9"
+    docs/api/fsl-bet.md: "540d33885a35ffc4"
+    python/larmorx/fsl/bet.py: "14e2e5d5c68509eb"
     validation/tools.toml: "2502f59cd0e3640d"
 ---
 
@@ -171,8 +171,8 @@ larmorx fsl betsurf --t1only -o -m -s T1w.nii.gz T1w_brain_mesh.vtk T1w_to_MNI15
 | clean room | <code><span class="nw">larmorx</span></code> | Apache-2.0 | experimental | [fsl-bet](repo:docs/validation/fsl-bet.md) |
 
 The replica gives FSL 6.0.7.23's exit status, messages and files byte for byte in 201 of the 263
-cases of its record, which holds `bet`, `bet2` and `betsurf`; 47 more are rejected by both. The
-clean room's masks and outlines are within its thresholds (a Dice coefficient of at least 0.99, a
+cases of its record, which holds `bet`, `bet2`, `betsurf`, `standard_space_roi` and `fslroi`; 47
+more are rejected by both. The clean room's masks and outlines are within its thresholds (a Dice coefficient of at least 0.99, a
 boundary distance of at most 1 voxel at the 95th percentile) in 114 of 116, 34 of them bit for bit.
 One of the record's two misses is `betsurf`'s: the scalp of ds002603 with its T2, whose boundary
 distance is 2 voxels at the 95th percentile.
