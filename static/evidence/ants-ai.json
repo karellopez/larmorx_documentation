@@ -3,7 +3,7 @@
  "tool": "ants-ai",
  "title": "antsAI, antsAffineInitializer",
  "provenance": {
-  "exporter": "b6d0d35dd37ba82fda3cba9945536cc1de269e72",
+  "exporter": "ecb2fcf093f2d736487ede765dcfe71384061a98",
   "records": [
    {
     "path": "docs/validation/ants-ai.json",
@@ -7600,7 +7600,7 @@
       },
       {
        "head": "replica of antsAffineInitializer, fix − reproduce",
-       "sub": "ANTS-54, ITK-21 corrected (D13)",
+       "sub": "ANTS-54, ITK-21 corrected by default",
        "cells": [
         {
          "text": "differ"
@@ -8019,7 +8019,7 @@
     ]
    },
    "shows": {
-    "text": "In `reproduce`, on 1 and 8 threads, the replica of antsAI writes ANTs' one-thread transform byte for byte, as built and with correctly rounded maths, and so does the replica of antsAffineInitializer with niworkflows' arguments. fMRIPrep's transform, ANTs 2.6.2's at 8 threads, sends the template's brain at most 2.5e-13 mm from the replica's, where ANTs 2.6.5's own 8 and 1 threads differ by 3.2e-13 mm; the placed images are the same bytes. No correction by default changes antsAI's call; antsAffineInitializer's default, `fix`, moves the brain by up to 0.059 mm (mean 0.054 mm) from `reproduce`.",
+    "text": "In `reproduce`, on 1 and 8 threads, the replica of antsAI writes ANTs' one-thread transform byte for byte, as built and with correctly rounded maths, and so does the replica of antsAffineInitializer with niworkflows' arguments. fMRIPrep's transform, ANTs 2.6.2's at 8 threads, sends the template's brain at most 2.5e-13 mm from the replica's, where ANTs 2.6.5's own 8 and 1 threads differ by 3.2e-13 mm; the placed images are the same bytes. No correction by default changes antsAI's call; antsAffineInitializer's default, `fix`, corrects [ANTS-54](repo:docs/findings/upstream-defects.md#summary) and [ITK-21](repo:docs/findings/upstream-defects.md#summary) here and moves the brain by up to 0.059 mm (mean 0.054 mm) from `reproduce`.",
     "verdicts": [
      {
       "diff": "lx-ants1",
