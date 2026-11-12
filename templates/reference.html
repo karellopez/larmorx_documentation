@@ -10,17 +10,17 @@
   <h1>{{ page.title | md_inline }}</h1>
   {% if page.meta.get('lede') %}<p class="lede">{{ page.meta.lede | md_inline }}</p>{% endif %}
   <dl class="facts ref-facts">
-    <dt>Original</dt><dd>{{ r.original }}</dd>
+    <dt>Original</dt><dd><span class="port port--original"><span class="port-mark" aria-hidden="true"></span>{{ r.original }}</span></dd>
     <dt>Command line</dt><dd><code>{{ r.command }}</code></dd>
     <dt>Python</dt><dd><code>{{ r.python }}</code></dd>
     <dt>Ports</dt><dd><ul class="ref-ports">
       {%- for p in r.ports %}
-      <li class="port port--{{ p.kind }}"><span class="port-name">{{ p.name }}</span> <code>{{ p.package }}</code> <span class="port-licence">{{ p.licence }}</span>{% if p.status %} <span class="status-tag{% if p.status == 'experimental' %} status-tag--experimental{% else %} eco-{{ r.group }}{% endif %}">{{ p.status }}</span>{% endif %}</li>
+      <li class="port port--{{ p.kind }}"><span class="port-name">{{ p.name }}</span> <code>{{ p.package }}</code> <span class="port-licence">{{ p.licence }}</span>{% if p.status %} <span class="status-tag {% if p.status == 'experimental' %}status-tag--experimental{% else %}status-tag--plain{% endif %}">{{ p.status }}</span>{% endif %}</li>
       {%- endfor %}
     </ul></dd>
     {%- if r.get('evidence') %}
-    <dt>Evidence</dt><dd><a href="{{ link(r.evidence) }}">every comparison with {{ r.original }}</a></dd>
+    <dt>Evidence</dt><dd><a href="{{ link(r.evidence) }}">every comparison with {{ r.get('software') or r.original }}</a></dd>
     {%- endif %}
-    <dt>Source</dt><dd><a href="{{ repo(r.api) }}">{{ r.api }}</a> and the code, through the exporter</dd>
+    <dt>Source</dt><dd>made from <a href="{{ repo(r.api) }}">{{ r.api }}</a> and the code</dd>
   </dl>
 </header>{% endblock %}

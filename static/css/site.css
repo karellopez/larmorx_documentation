@@ -662,7 +662,13 @@ code, kbd, pre { font-family: var(--mono); font-variant-ligatures: none; }
 .port--replica .port-name::before { clip-path: polygon(50% 0, 100% 100%, 0 100%); width: 10px; }
 .port--clean-room .port-name::before, .port--own .port-name::before { border-radius: 50%; }
 .port-licence { color: var(--ink-3); font-size: 0.9em; }
-.opt-help { display: block; margin-top: 4px; font-size: 0.86em; line-height: 1.45; color: var(--ink-3); }
+/* The original's point, a square, beside its name in a reference page's header. */
+.port-mark { display: inline-block; width: 9px; height: 9px; margin-right: 8px; background: var(--pc); vertical-align: 0; }
+/* A port's status beside it: neutral, so that software colours stay with the software. */
+.status-tag--plain { background: transparent; color: var(--ink); border: 1px solid var(--ink-3); }
+/* FSL's own help, quoted as FSL prints it: Inter's contextual alternates would draw "->" as an arrow. */
+.opt-help { display: block; margin-top: 4px; font-size: 0.86em; line-height: 1.45; color: var(--ink-3);
+  font-feature-settings: "cv11", "ss01", "calt" 0; }
 .prose details.usage { margin: 18px 0; }
 .prose details.usage > summary { cursor: pointer; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--ink-2); }
 .prose details.usage > summary:hover { color: var(--ink); }

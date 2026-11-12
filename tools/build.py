@@ -15,6 +15,9 @@ next to this one, ../larmorx, or given with --main-repo), one h1 per page,
 heading levels that do not skip, leftovers of the template language, and
 comments in the shell blocks people copy (zsh, macOS's default shell, does not
 take a `#` typed at its prompt as a comment, nor does Windows' Command Prompt).
+With the main repository at hand it also checks that every program's reference
+page is current: the exporter names each file the page is made from with the
+start of its SHA-256, and a file that changed since makes the page stale.
 Problems stop the build (exit status 1).
 
 Two kinds of page besides the documents:
@@ -35,6 +38,7 @@ from __future__ import annotations
 
 import argparse
 import base64
+import hashlib
 import html
 import json
 import re
@@ -216,7 +220,11 @@ def make_markdown(site: dict, repo_paths: set) -> MarkdownIt:
                 lines.append(html.escape(line))
         attr = f' data-lang="{lang}"' if lang else ""
         label = f'<span class="code-lang">{lang}</span>' if lang else ""
-        return (f'<div class="code"{attr}>{label}<button class="code-copy" type="button">Copy</button>'
+        # A synopsis (```text synopsis: a command line with placeholders) does not run as it
+        # stands, so it has nothing to copy.
+        copy = ("" if "synopsis" in t.info.split()[1:]
+                else '<button class="code-copy" type="button">Copy</button>')
+        return (f'<div class="code"{attr}>{label}{copy}'
                 f'<pre><code>{chr(10).join(lines)}</code></pre></div>\n')
 
     md.add_render_rule("fence", fence)
@@ -339,6 +347,7 @@ class Site:
         shutil.copytree(STATIC, OUT / "static")
         (OUT / ".nojekyll").write_text("", encoding="utf-8")
         pages = [read_page(p) for p in sorted(CONTENT.rglob("*.md"))]
+        self.check_references(pages)
         tenv = self.env()
         for page in pages:
             h = self.helpers(page)
@@ -381,6 +390,34 @@ class Site:
             print(f"PROBLEM: {p}")
         print(f"built {len(pages)} pages in {time.time() - t0:.2f} s; {len(problems)} problems")
         return 1 if problems else 0
+
+    def check_references(self, pages) -> None:
+        """A program's reference page (template: reference) is written by the main repository's
+        exporter (python -m larmorx_validation reference), whose front matter names each file it
+        is made from with the start of its SHA-256. With the main repository at hand, a file that
+        changed since, or is missing, makes the page stale: a problem, until it is exported
+        again."""
+        repo = self.main_repo
+        if not repo or not (repo / ".git").exists():
+            return
+        for page in pages:
+            ref = page.meta.get("reference") if page.meta.get("template") == "reference" else None
+            if not ref:
+                continue
+            where = page.source.relative_to(ROOT).as_posix()
+            sources = ref.get("sources") or {}
+            if not sources:
+                self.page_problems.append(f"{where}: a reference page that names no source")
+            for rel, digest in sources.items():
+                f = repo / rel
+                if not f.is_file():
+                    self.page_problems.append(f"{where}: its source {rel} is not in {repo}")
+                    continue
+                now = hashlib.sha256(f.read_bytes()).hexdigest()[: len(str(digest))]
+                if now != str(digest):
+                    self.page_problems.append(
+                        f"{where}: {rel} changed since the page was exported ({digest}, now {now}): "
+                        f"export it again (python -m larmorx_validation reference all --site <site>)")
 
     def out_of(self, target: str) -> tuple[Path, str]:
         """The file a site path ("/evidence/fsl-bet/#speed") is written to, and its anchor."""

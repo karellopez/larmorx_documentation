@@ -1,11 +1,13 @@
 ---
 title: "`bet`"
 kicker: "Programs · FSL"
+lede: "`bet` finds the brain in a head image."
 description: "LARMORX reference for FSL 6.0.7.23 `bet`: its command line, its Python call, every option, tested examples and its ports."
 template: reference
 reference:
   group: fsl
   original: "FSL 6.0.7.23"
+  software: "FSL"
   command: "larmorx fsl bet"
   python: "lx.fsl.bet"
   api: "docs/api/fsl-bet.md"
@@ -14,33 +16,39 @@ reference:
     - {kind: replica, name: "replica", package: larmorx-nc, licence: "FSL Licence: non-commercial use only", status: "validated"}
     - {kind: clean-room, name: "clean room", package: larmorx, licence: "Apache-2.0", status: "experimental"}
   sources:
-    crates/larmorx-cli/src/replica.rs: bdcff4968024a104
-    crates/larmorx-core/src/cli.rs: 01fa0015abc1a111
-    crates/larmorx-fsl/src/cli/bet.rs: da8dac774b79a854
-    docs/api/fsl-bet.md: c59408e34012b405
-    python/larmorx/fsl/bet.py: 24b8fa0168bd33f6
-    validation/tools.toml: 2502f59cd0e3640d
+    CHANGELOG.md: "2e982878694e2b59"
+    crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
+    crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
+    crates/larmorx-core/src/defects.rs: "54f1863ded1d5cef"
+    crates/larmorx-fsl/src/cli/bet.rs: "da8dac774b79a854"
+    docs/api/fsl-bet.md: "2d69785aafd8d362"
+    python/larmorx/fsl/bet.py: "f3c4fc349d3092b9"
+    validation/tools.toml: "2502f59cd0e3640d"
 ---
 
 ## What it does {#what-it-does}
 
-FSL's `bet` script: `bet2` itself, or one of its variations (below).
+`bet` finds the brain in a head image. It writes the brain and, on request, its mask, its
+outline, an approximate skull and the brain's surface as a mesh. It runs FSL's brain extraction,
+`bet2`, alone or inside one of seven variations (below).
 
 ## Command line {#command-line}
 
-```text
+```text synopsis
 larmorx fsl bet <input> <output> [options]
 ```
 
 Everything after `larmorx fsl bet` is the original's command line: the arguments of FSL 6.0.7.23's `bet`, as FSL takes them. LARMORX's own options stand between `larmorx` and the family `fsl`, so they never meet the original's ([below](#larmorx-options)):
 
-```text
+```text synopsis
 larmorx
         [--n-threads N]
         [--implementation auto|replica|clean-room]
         [--upstream-defects fix|reproduce]
         fsl bet ...
 ```
+
+**From the next release.** In 0.1.0rc1, set the variables instead: `OMP_NUM_THREADS`, `LARMORX_IMPLEMENTATION` (`original` for the clean room) and `LARMORX_UPSTREAM_DEFECTS`.
 
 <details class="usage"><summary><code>bet</code>'s usage text, as the clean room prints it</summary>
 
@@ -109,29 +117,27 @@ Where `Variation` is one of `"robust"`, `"small_fov"`, `"fmri"`, `"eyes"`, `"bia
 
 The brain, as FSL's `bet2` (or, with `variation`, the `bet` script) extracts it.
 
-Returns a `BetResult`: `brain` (float32: the input times the mask; 4D with `"fmri"`), `mask`
-(int16, 1 inside), `outline` (float32), `skull` (int16) and `mesh` (a `Surface`: `vertices`
-`(n, 3)` in FSL's millimetre coordinates, `triangles` `(m, 3)`), each `None` unless asked for.
 `image` is a path (any image FSL reads: NIfTI-1 or -2, single file or pair, gzipped or not,
-ANALYZE) or an in-memory image. Without `variation` it runs `bet2`; with `"robust"` (`-R`),
-`"small_fov"` (`-Z`) or `"fmri"` (`-F`) the `bet` script; `"eyes"` (`-S`), `"bias"` (`-B`),
-`"surfaces"` (`-A`) and `"surfaces_t2"` (`-A2`, with `t2`) run the script with FLIRT,
-standard_space_roi, FAST, fslmaths, fslstats and betsurf (the replica since 2026-11-04, the
-clean-room original since 2026-11-05: each implementation runs its own programs, in its
-process); `"surfaces"` and `"surfaces_t2"` also return betsurf's surfaces
-(`BetResult.surfaces`, a `BetsurfResult` with the masks, the skull's mask and the outlines). They
-read FSL's standard images (FSL's data under the FSL Licence, which this package never ships)
-from `fsl_data` (a directory laid out as `$FSLDIR/data`; the variable `LARMORX_FSL_DATA`
-otherwise; when given, the only place looked). Otherwise the original reads them from the copy
-`larmorx-nc` installs (as data), else `$FSLDIR/data`, else larmorx's data cache, filled once by
-a checksum-verified download of FSL's `fsl-data_standard` package (`larmorx fetch fsl-standard`
-fetches it ahead; [fsl-roi.md](repo:docs/api/fsl-roi.md), "FSL's standard images"); the replica reads
-`$FSLDIR/data`, else its own copy. An image found nowhere is refused before anything runs
-(`RuntimeError` from the original, naming the image and every place looked). The
-arguments are checked first (`ValueError`); FSL's
-settings are the call's: the outputs are written as NIfTI-1 and read back, `FSLOUTPUTTYPE`,
-`FSL_LOAD_NIFTI_EXTENSIONS` and every other `FSL*` variable of the process are never passed, and no
-FSL program is looked for on the `PATH` (CLAUDE.md rule 6).
+ANALYZE) or an in-memory image. Without `variation` it runs `bet2`. With `"robust"` (`-R`),
+`"small_fov"` (`-Z`) or `"fmri"` (`-F`) it runs the `bet` script. `"eyes"` (`-S`), `"bias"`
+(`-B`), `"surfaces"` (`-A`) and `"surfaces_t2"` (`-A2`, with `t2`) run the script with FLIRT,
+standard_space_roi, FAST, fslmaths, fslstats and betsurf; each port runs its own copies of those
+programs, in its own process. `"surfaces"` and `"surfaces_t2"` also return betsurf's surfaces
+(`BetResult.surfaces`, a `BetsurfResult` with the masks, the skull's mask and the outlines).
+
+These four read FSL's standard images, which are FSL's data under the FSL Licence and which this
+package never ships. They come from `fsl_data` (a directory laid out as `$FSLDIR/data`), else from
+the variable `LARMORX_FSL_DATA`; when given, that is the only place looked. Otherwise the clean
+room reads them from the copy `larmorx-nc` installs (as data), else `$FSLDIR/data`, else
+larmorx's data cache, filled once by a checksum-verified download of FSL's `fsl-data_standard`
+package (`larmorx fetch fsl-standard` fetches it ahead; [fsl-roi.md](repo:docs/api/fsl-roi.md), "FSL's standard
+images"). The replica reads `$FSLDIR/data`, else its own copy. An image found nowhere is refused
+before anything runs, naming the image and every place looked (a `RuntimeError` from the clean
+room).
+
+The arguments are checked first (`ValueError`). FSL's settings belong to the call: the outputs are
+written as NIfTI-1 and read back; `FSLOUTPUTTYPE`, `FSL_LOAD_NIFTI_EXTENSIONS` and every other
+`FSL*` variable of the process are never passed; and no FSL program is looked for on the `PATH`.
 
 Its result, `BetResult`, holds what `bet` computed (`None` for what was not asked for).
 
@@ -141,7 +147,7 @@ Its result, `BetResult`, holds what `bet` computed (`None` for what was not aske
 | <code><span class="nw">mask</span></code> | <code><span class="nw">Image</span> <span class="nw">&#124;</span> <span class="nw">None</span></code> | The brain mask (int16, 1 inside). |
 | <code><span class="nw">outline</span></code> | <code><span class="nw">Image</span> <span class="nw">&#124;</span> <span class="nw">None</span></code> | The surface drawn on the input at its maximum (float32; <code><span class="nw">&#45;o</span></code>). |
 | <code><span class="nw">skull</span></code> | <code><span class="nw">Image</span> <span class="nw">&#124;</span> <span class="nw">None</span></code> | An approximate skull (int16; <code><span class="nw">&#45;s</span></code>). |
-| <code><span class="nw">mesh</span></code> | <code><span class="nw">Surface</span> <span class="nw">&#124;</span> <span class="nw">None</span></code> | The brain's surface (<code><span class="nw">&#45;e</span></code>). |
+| <code><span class="nw">mesh</span></code> | <code><span class="nw">Surface</span> <span class="nw">&#124;</span> <span class="nw">None</span></code> | The brain's surface (<code><span class="nw">&#45;e</span></code>): its <code><span class="nw">vertices</span></code> <code><span class="nw">&#40;n&#44;</span> <span class="nw">3&#41;</span></code> in FSL's millimetre coordinates and its <code><span class="nw">triangles</span></code> <code><span class="nw">&#40;m&#44;</span> <span class="nw">3&#41;</span></code>. |
 | <code><span class="nw">surfaces</span></code> | <code><span class="nw">BetsurfResult</span> <span class="nw">&#124;</span> <span class="nw">None</span></code> | The inner skull, outer skull and scalp surfaces, their masks, the skull's mask and the surfaces' outlines (<code><span class="nw">&#34;surfaces&#34;</span></code> and <code><span class="nw">&#34;surfaces&#95;t2&#34;</span></code>: betsurf <code><span class="nw">&#45;o</span> <span class="nw">&#45;m</span> <span class="nw">&#45;s</span></code>). |
 
 ## Options {#options}
@@ -154,7 +160,7 @@ Each row joins an option of the original's command line with the Python argument
 | <code><span class="nw">&#45;f</span> <span class="nw">&#60;f&#62;</span></code> | <code><span class="nw">frac</span></code> | <code><span class="nw">0&#46;5</span></code> | 0 to 1; smaller gives a larger brain<span class="opt-help">FSL: “fractional intensity threshold (0-&gt;1); default=0.5; smaller values give larger brain outline estimates”</span> |
 | <code><span class="nw">&#45;g</span> <span class="nw">&#60;g&#62;</span></code> | <code><span class="nw">gradient</span></code> | <code><span class="nw">0&#46;0</span></code> | -1 to 1; positive gives a larger brain at the bottom<span class="opt-help">FSL: “vertical gradient in fractional intensity threshold (-1-&gt;1); default=0; positive values give larger brain outline at bottom, smaller at top”</span> |
 | <code><span class="nw">&#45;r</span> <span class="nw">&#60;r&#62;</span></code> | <code><span class="nw">radius</span></code> | <code><span class="nw">None</span></code> | mm; the initial sphere is half of it<span class="opt-help">FSL: “head radius (mm not voxels); initial surface sphere is set to half of this”</span> |
-| <code><span class="nw">&#45;c</span> <span class="nw">&#60;x</span> <span class="nw">y</span> <span class="nw">z&#62;</span></code> | <code><span class="nw">centre</span></code> | <code><span class="nw">None</span></code> | voxels of the file as stored; <code><span class="nw">0</span> <span class="nw">0</span> <span class="nw">0</span></code> is "not given" (the centre of gravity), as in FSL (observed)<span class="opt-help">FSL: “centre-of-gravity (voxels not mm) of initial mesh surface.”</span> |
+| <code><span class="nw">&#45;c</span> <span class="nw">&#60;x</span> <span class="nw">y</span> <span class="nw">z&#62;</span></code> | <code><span class="nw">centre</span></code> | <code><span class="nw">None</span></code> | voxels of the file as stored; <code><span class="nw">0</span> <span class="nw">0</span> <span class="nw">0</span></code> is "not given" (the centre of gravity), as in FSL<span class="opt-help">FSL: “centre-of-gravity (voxels not mm) of initial mesh surface.”</span> |
 | <code><span class="nw">&#45;t</span></code> | <code><span class="nw">threshold&#61;True</span></code> | <code><span class="nw">False</span></code> | also thresholds the brain and mask<span class="opt-help">FSL: “apply thresholding to segmented brain image and mask”</span> |
 | <code><span class="nw">&#45;m</span></code> | <code><span class="nw">mask&#61;True</span></code> | <code><span class="nw">False</span></code> | <span class="opt-help">FSL: “generate binary brain mask”</span> |
 | <code><span class="nw">&#45;o</span></code> | <code><span class="nw">outline&#61;True</span></code> | <code><span class="nw">False</span></code> | <span class="opt-help">FSL: “generate brain surface outline overlaid onto original image”</span> |
@@ -163,7 +169,7 @@ Each row joins an option of the original's command line with the Python argument
 | <code><span class="nw">&#45;e</span></code> | <code><span class="nw">mesh&#61;True</span></code> | <code><span class="nw">False</span></code> | VTK; also switches the self-intersection test to the exact one<span class="opt-help">FSL: “generates brain surface as mesh in .vtk format”</span> |
 | <code><span class="nw">&#45;v</span></code> | (command line only) |  | <span class="opt-help">FSL: “verbose (switch on diagnostic messages)”</span> |
 | <code><span class="nw">&#45;h</span></code> | (command line only) |  | <span class="opt-help">FSL: “display this help, then exits”</span> |
-| <code><span class="nw">&#45;&#45;tanh&#61;correctly&#45;rounded</span></code> (larmorx's own; also <code><span class="nw">&#45;&#45;tanh</span> <span class="nw">correctly&#45;rounded</span></code>, and passed on by <code><span class="nw">bet</span></code>) | <code><span class="nw">tanh&#61;&#34;correctly&#45;rounded&#34;</span></code> | <code><span class="nw">&#34;glibc&#34;</span></code> | the surface's smoothness weight with the correctly rounded <code><span class="nw">tanh</span></code> (CORE-MATH's, <code><span class="nw">larmorx&#95;core&#58;&#58;math&#58;&#58;tanh</span></code>) instead of glibc 2.35's bits, which FSL calls (<code><span class="nw">glibc</span></code>, the default). **GLIBC-06, the user's decision of 2026-10-31**: glibc's bits by default, the correctly rounded one on request (no notice: it is asked for). Where a surface self-intersects and is found again, the last bit can change the result (4 of the standard tier's 13 real images: findings). The clean-room original only (<code><span class="nw">implementation&#61;&#34;replica&#34;</span></code> refuses it; <code><span class="nw">&#34;auto&#34;</span></code> runs the original) |
+| <code><span class="nw">&#45;&#45;tanh&#61;correctly&#45;rounded</span></code> (LARMORX's own option; also <code><span class="nw">&#45;&#45;tanh</span> <span class="nw">correctly&#45;rounded</span></code>, and passed on by <code><span class="nw">bet</span></code>) | <code><span class="nw">tanh&#61;&#34;correctly&#45;rounded&#34;</span></code> | <code><span class="nw">&#34;glibc&#34;</span></code> | computes the surface's smoothness weight with the correctly rounded <code><span class="nw">tanh</span></code> (CORE-MATH's, <code><span class="nw">larmorx&#95;core&#58;&#58;math&#58;&#58;tanh</span></code>) instead of glibc 2.35's, which FSL calls and which is the default (<code><span class="nw">glibc</span></code>; decision GLIBC-06). No notice: it is asked for. Where a surface self-intersects and is found again, the last bit can change the result (4 of the 13 real images of the clean room's standard comparison: [its findings](repo:docs/findings/fsl-bet-original.md)). Clean room only: <code><span class="nw">implementation&#61;&#34;replica&#34;</span></code> refuses it, and <code><span class="nw">&#34;auto&#34;</span></code> runs the clean room |
 | (<code><span class="nw">bet2</span></code>'s <code><span class="nw">&#45;w</span></code>) | <code><span class="nw">smoothness</span></code> | <code><span class="nw">1&#46;0</span></code> | bet2 only (<code><span class="nw">bet</span></code> does not pass it) |
 | (<code><span class="nw">bet2</span></code>'s <code><span class="nw">&#45;&#45;ct</span></code>) | <code><span class="nw">head&#95;ct&#61;True</span></code> | <code><span class="nw">False</span></code> | bet2 only: the input in Hounsfield units |
 | <code><span class="nw">LARMORX&#95;FSL&#95;DATA</span></code> | <code><span class="nw">fsl&#95;data</span></code> | <code><span class="nw">None</span></code> | where <code><span class="nw">&#45;S</span></code>, <code><span class="nw">&#45;B</span></code>, <code><span class="nw">&#45;A</span></code> and <code><span class="nw">&#45;A2</span></code> read FSL's standard images ([<code><span class="nw">bet</span></code>'s Python call](/programs/fsl/bet/#python)) |
@@ -184,13 +190,15 @@ Each row joins an option of the original's command line with the Python argument
 
 ### LARMORX's own options {#larmorx-options}
 
-They stand between `larmorx` and `fsl` on the command line (`larmorx --n-threads 4 fsl bet ...`) and are arguments of `lx.fsl.bet`. Each one given wins over the environment variable it replaces.
+**From the next release.** In 0.1.0rc1, set the variables instead: `OMP_NUM_THREADS`, `LARMORX_IMPLEMENTATION` (`original` for the clean room) and `LARMORX_UPSTREAM_DEFECTS`.
+
+They stand between `larmorx` and `fsl` on the command line (`larmorx --n-threads 4 fsl bet ...`) and are arguments of `lx.fsl.bet`. Each one given wins over its environment variable, which keeps working.
 
 | Command line, then Python | What it does |
 |---|---|
-| <code><span class="nw">&#45;&#45;n&#45;threads</span></code> <code><span class="nw">N</span></code><br><code><span class="nw">n&#95;threads&#61;1</span></code> | Replaces <code><span class="nw">OMP&#95;NUM&#95;THREADS</span></code>. Threads (0 = all); the result does not depend on it. |
-| <code><span class="nw">&#45;&#45;implementation</span></code> <code><span class="nw">auto&#124;replica&#124;clean&#45;room</span></code><br><code><span class="nw">implementation&#61;&#34;auto&#34;</span></code> | Replaces <code><span class="nw">LARMORX&#95;IMPLEMENTATION</span></code>. <code><span class="nw">&#34;auto&#34;</span></code> (default): the replica in <code><span class="nw">larmorx&#45;nc</span></code> when it is installed, else the clean-room original (always the original with <code><span class="nw">tanh&#61;&#34;correctly&#45;rounded&#34;</span></code>); <code><span class="nw">&#34;replica&#34;</span></code>: the replica (<code><span class="nw">ReplicaNotFoundError</span></code> without it); <code><span class="nw">&#34;clean&#45;room&#34;</span></code>: the clean-room original (FSL's behaviour within the thresholds of its validation record, <code><span class="nw">docs&#47;validation&#47;fsl&#45;bet&#46;md</span></code>). |
-| <code><span class="nw">&#45;&#45;upstream&#45;defects</span></code> <code><span class="nw">fix&#124;reproduce</span></code><br><code><span class="nw">upstream&#95;defects&#61;&#34;fix&#34;</span></code> | Replaces <code><span class="nw">LARMORX&#95;UPSTREAM&#95;DEFECTS</span></code>. <code><span class="nw">&#34;fix&#34;</span></code> (default) or <code><span class="nw">&#34;reproduce&#34;</span></code> (FSL's output); a <code><span class="nw">UpstreamDefectWarning</span></code> names each defect that changed the result. |
+| <code><span class="nw">&#45;&#45;n&#45;threads</span></code> <code><span class="nw">N</span></code><br><code><span class="nw">n&#95;threads&#61;1</span></code> | Threads (0 = all); the result does not depend on it. Default: every logical CPU on the command line (<code><span class="nw">0</span></code>), <code><span class="nw">1</span></code> in Python. The variable <code><span class="nw">OMP&#95;NUM&#95;THREADS</span></code> in 0.1.0rc1. |
+| <code><span class="nw">&#45;&#45;implementation</span></code> <code><span class="nw">auto&#124;replica&#124;clean&#45;room</span></code><br><code><span class="nw">implementation&#61;&#34;auto&#34;</span></code> | <code><span class="nw">&#34;auto&#34;</span></code> (default): the replica in <code><span class="nw">larmorx&#45;nc</span></code> when it is installed, else the clean room (always the clean room with <code><span class="nw">tanh&#61;&#34;correctly&#45;rounded&#34;</span></code>); <code><span class="nw">&#34;replica&#34;</span></code>: the replica (<code><span class="nw">ReplicaNotFoundError</span></code> without it); <code><span class="nw">&#34;clean&#45;room&#34;</span></code>: the clean room (FSL's behaviour within the thresholds of its validation record, <code><span class="nw">docs&#47;validation&#47;fsl&#45;bet&#46;md</span></code>). The variable <code><span class="nw">LARMORX&#95;IMPLEMENTATION</span></code> in 0.1.0rc1. |
+| <code><span class="nw">&#45;&#45;upstream&#45;defects</span></code> <code><span class="nw">fix&#124;reproduce</span></code><br><code><span class="nw">upstream&#95;defects&#61;&#34;fix&#34;</span></code> | <code><span class="nw">&#34;fix&#34;</span></code> (default) or <code><span class="nw">&#34;reproduce&#34;</span></code> (FSL's output); a <code><span class="nw">UpstreamDefectWarning</span></code> names each defect that changed the result. The variable <code><span class="nw">LARMORX&#95;UPSTREAM&#95;DEFECTS</span></code> in 0.1.0rc1. |
 
 ## Examples {#examples}
 
@@ -202,7 +210,12 @@ import larmorx as lx
 # As fMRIPrep calls BET on its BOLD reference.
 r = lx.fsl.bet("boldref.nii.gz", frac=0.2, mask=True)
 r.brain, r.mask
-r.mask.implementation   # Implementation(kind='replica', package='larmorx-nc', ...)
+# The port that ran: the clean room of larmorx, or the replica once larmorx-nc is installed.
+r.mask.implementation
+
+# The same call, the clean room chosen.
+c = lx.fsl.bet("boldref.nii.gz", frac=0.2, mask=True, implementation="clean-room")
+c.mask.implementation.kind  # -> 'clean-room'
 ```
 
 ```bash
@@ -215,62 +228,36 @@ larmorx fsl bet boldref.nii.gz boldref_brain.nii.gz -f 0.20 -m
 
 | Port | Package | Licence | Status | Records |
 |---|---|---|---|---|
-| replica | `larmorx-nc` | FSL Licence: non-commercial use only | validated | [fsl-bet-replica](repo:docs/validation/fsl-bet-replica.md), [fsl-bet-replica-full](repo:docs/validation/fsl-bet-replica-full.md) |
-| clean room | `larmorx` | Apache-2.0 | experimental | [fsl-bet](repo:docs/validation/fsl-bet.md) |
+| replica | <code><span class="nw">larmorx&#45;nc</span></code> | FSL Licence: non-commercial use only | validated | [fsl-bet-replica](repo:docs/validation/fsl-bet-replica.md), [fsl-bet-replica-full](repo:docs/validation/fsl-bet-replica-full.md) |
+| clean room | <code><span class="nw">larmorx</span></code> | Apache-2.0 | experimental | [fsl-bet](repo:docs/validation/fsl-bet.md) |
 
-**Two implementations.** FSL is distributed under the FSL Licence (non-commercial use only), so
-larmorx keeps its FSL tools in two implementations ([licensing](repo:docs/licensing.md)): the bit-exact
-**replica**, `larmorx-nc fsl bet|bet2|betsurf` (package `larmorx-nc`, `crates-nc/`, under the FSL
-Licence's terms; translated from FSL's source:
-[PROVENANCE](repo:crates-nc/larmorx-nc-bet/PROVENANCE.md)), and the clean-room **original** in
-the main package (Apache-2.0, `crates/larmorx-fsl`), written from
-[`specs/bet.md`](repo:specs/bet.md), the BET paper and black-box runs of FSL
-([PROVENANCE](repo:crates/larmorx-fsl/PROVENANCE.md); since 2026-10-30 `bet2` and the `bet`
-script, since 2026-10-31 `betsurf`). `implementation="auto"` runs the replica, as a separate
-program, when `larmorx-nc` is installed (`pip install larmorx-nc`), else the clean-room original;
-`"replica"` and `"clean-room"` (`"original"`, 0.1.0rc1's spelling, still works) choose.
-Each image's `implementation` names the one that ran. The command line chooses alike
-(`--implementation auto|replica|clean-room` before the family, or `LARMORX_IMPLEMENTATION`).
+The replica gives FSL 6.0.7.23's exit status, messages and files byte for byte in 201 of the 263
+cases of its record, which holds `bet`, `bet2` and `betsurf`; 47 more are rejected by both. The
+clean room is within the thresholds in 198 of its 200 compared cases. One of the two others is
+`bet`'s: a 3.5-year-old's `bet -B`, whose mask has a Dice coefficient of 0.9983 and a boundary
+distance of 1.0 voxel at the 95th percentile but 2.24 voxels at most, where the threshold is 2.
 
-**Status: `validated`** (the replica), against FSL 6.0.7.23 itself
-([record](repo:docs/validation/fsl-bet-replica.md), standard tier, re-made 2026-11-04 with `-S`, `-B`,
-`-A`, `-A2`, standard_space_roi and fslroi: 263 cases, 201 compared, every one bit-identical, 600
-of 600 files byte for byte, FSL's own step from 6.0.7.17 in every case;
-[full tier](repo:docs/validation/fsl-bet-replica-full.md), against FSL 6.0.7.17: 173 cases, 129
-compared, 364 of 364 files byte for byte): every compared case gives FSL's exit status, messages and files byte
-for byte (images: header and data; meshes as text), fMRIPrep's 29 BET calls on its twelve oracle
-runs with BOLD runs included (the data panel's), whose outputs also have the values of fMRIPrep's
-own (and of fMRIPrep's build of FSL in its image). 47 cases are rejected by both alike; in 13, FSL
-crashes on what it leaves undefined and `reproduce` fills it (below); 1 waits for fslpy's `imcp`
-conversion (standard_space_roi, below). The records include random testing's permanent cases (17 in the standard tier) (`difftest/...`; BET's
-random testing: [docs/validation/difftest.md](repo:docs/validation/difftest.md)), and the replica needs no
-more memory than FSL in any measured call (`tests/parity/test_memory_peak.py`).
+FSL's licence allows non-commercial use only, so the two ports of `bet`, `bet2` and `betsurf`, a
+replica and a clean room, live in different packages ([licensing](repo:docs/licensing.md) says what each
+package holds):
 
-**Status: `experimental`** ([record](repo:docs/validation/fsl-bet.md), standard tier against FSL
-6.0.7.23, re-made 2026-11-05 in the clean-room catch-up: **198 of the 200 compared cases within the
-thresholds**, the other two missing one (below); of its 252 cases 46 more are rejected by both
-alike, 6 are where `reproduce` fills what FSL leaves undefined, none pending; the 164 cases kept
-from part 2b's record (2026-10-31, 168 cases) unchanged in status and details, the 88 new ones
-`standard_space_roi`'s and `fslroi`'s 57 (45 within the thresholds, every one FSL's bit for bit, 12
-rejected by both: [fsl-roi.md](repo:docs/api/fsl-roi.md)) and the options' 31: `-S` and `-B` FSL's bit for bit on
-every case (every output and every `-d` file; an adult, a tumour, an 82-year-old with the neck,
-`-S -n`, a NaN head, a pair output) but a 3.5-year-old's `-B`, `-A` and `-A2` with bet2's outputs and
-FLIRT's matrices FSL's and betsurf's masks within its thresholds, `-F` and `-Z` of int8 heads FSL's;
-part 2b's numbers follow): exit statuses and messages FSL's byte
-for byte; 217 of 217
-brains, masks and outlines of `bet2` and `bet` bit-identical to FSL's (part 2a's record
-counted 12 reported Dice values with phantoms' known brains among them, as "within the
-thresholds"), 13 of 13 skull images bit-identical, the meshes FSL's to the file's 6 decimals, the
-surfaces that rerun after a self-intersecting first pass (a 75-year-old's T1w, 7 T, a tumour)
-bit for bit, fMRIPrep's 29 BET calls on its oracle runs all bit-identical (and with fMRIPrep's
-own outputs' values); headers FSL's byte for byte but for `descrip` (`larmorx fsl bet2`), the
-qform's quaternion included. The 142 cases of part 2a's record are unchanged; the 26 new ones
-are betsurf's (its options, messages and failure cases, FSL-48, -52, -53, -54 among them, and
-five real heads with bet2's meshes and FLIRT's matrices made by FSL).
+- **The replica** is translated from FSL's source. The package `larmorx-nc` holds it, under FSL's
+  licence, and `larmorx` runs it as a separate program, `larmorx-nc fsl bet|bet2|betsurf`, when
+  `larmorx-nc` is installed (`pip install larmorx-nc`).
+- **The clean room** is written from [`specs/bet.md`](repo:specs/bet.md), the BET paper and runs
+  of FSL, without FSL's source or the replica. It is part of `larmorx`, under Apache-2.0
+  (`crates/larmorx-fsl`, with its [PROVENANCE](repo:crates/larmorx-fsl/PROVENANCE.md)).
+
+`implementation="auto"` runs the replica when `larmorx-nc` is installed, and the clean room
+otherwise. `"replica"` and `"clean-room"` choose one (`"original"`, 0.1.0rc1's spelling of
+`"clean-room"`, still works). Each image's `implementation` names the port that ran. On the
+command line, `--implementation auto|replica|clean-room` before the family chooses alike, from the
+next release; in 0.1.0rc1 the variable `LARMORX_IMPLEMENTATION` chooses (`original` for the clean
+room).
 
 ## Evidence {#evidence}
 
-How `bet`'s ports compare with FSL 6.0.7.23, case by case: [its evidence](/evidence/fsl-bet/).
+How each of `bet`'s ports was measured against FSL, case by case: [its evidence](/evidence/fsl-bet/).
 
 On the same page, for `bet`: [The standard images the variations read](/evidence/fsl-bet/#data).
 
@@ -278,9 +265,11 @@ On the same page, for `bet`: [The standard images the variations read](/evidence
 
 The API page [docs/api/fsl-bet.md](repo:docs/api/fsl-bet.md) holds what `bet` shares with the page's other programs:
 
-- [Upstream defects (D13)](repo:docs/api/fsl-bet.md#upstream-defects-d13)
+- [The records](repo:docs/api/fsl-bet.md#the-records)
+- [Defects of the original, corrected by default](repo:docs/api/fsl-bet.md#defects-of-the-original-corrected-by-default)
 - [Deliberate differences](repo:docs/api/fsl-bet.md#deliberate-differences)
 - [Known last-bit differences](repo:docs/api/fsl-bet.md#known-last-bit-differences)
 - [Speed](repo:docs/api/fsl-bet.md#speed)
 - [Rust](repo:docs/api/fsl-bet.md#rust)
-- [The clean-room original (crates/larmorx-fsl)](repo:docs/api/fsl-bet.md#the-clean-room-original-crateslarmorx-fsl)
+- [The clean room (crates/larmorx-fsl)](repo:docs/api/fsl-bet.md#the-clean-room-crateslarmorx-fsl)
+- [History](repo:docs/api/fsl-bet.md#history)
