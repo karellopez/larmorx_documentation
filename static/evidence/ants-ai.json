@@ -3,19 +3,19 @@
  "tool": "ants-ai",
  "title": "antsAI, antsAffineInitializer",
  "provenance": {
-  "exporter": "7e73202873630562b940bf0500715a6e9086b51c",
+  "exporter": "b6d0d35dd37ba82fda3cba9945536cc1de269e72",
   "records": [
    {
     "path": "docs/validation/ants-ai.json",
-    "sha256": "2bf6195a31f439af092c9b549f6395b7c147c3ab623f2ea3699070d65ee1d509",
-    "generated": "2026-10-24",
-    "larmorx_commit": "6bf2860fb745"
+    "sha256": "bf6f595f283ee6597a58ffeb1f490ed8c13288930ecac5a2228ae7b322502285",
+    "generated": "2026-10-28",
+    "larmorx_commit": "9b9fe9aa5232"
    },
    {
     "path": "docs/validation/ants-ai.md",
-    "sha256": "48a8850a596fb893b5e6b322714a7db8947edc2ed5b6d752214608697c4c4077",
-    "generated": "2026-10-24",
-    "larmorx_commit": "6bf2860fb745"
+    "sha256": "3be4016a45c062491feadb8b306851bd1247547197d13787e943862fdf0dbf1b",
+    "generated": "2026-10-28",
+    "larmorx_commit": "9b9fe9aa5232"
    },
    {
     "path": "docs/validation/ants-ai-panel.json",
@@ -31,15 +31,15 @@
    },
    {
     "path": "docs/validation/ants-affine-initializer.json",
-    "sha256": "3fcc9e6256529812bf6d64d5ff878b92248f0624fb7ab6c0e71bf4f860d8f294",
-    "generated": "2026-10-17",
-    "larmorx_commit": "61309dd10e0e"
+    "sha256": "e9e68bd9c4dd00135d03a54e95598d37b8090378afabd15c1fca7b712830bd80",
+    "generated": "2026-10-28",
+    "larmorx_commit": "9b9fe9aa5232"
    },
    {
     "path": "docs/validation/ants-affine-initializer.md",
-    "sha256": "c76d4a6c0dbf25338fc98c8f71ea26506230788af90076ba747e46908193b1c6",
-    "generated": "2026-10-17",
-    "larmorx_commit": "61309dd10e0e"
+    "sha256": "c8f2b4a562bd6efabcee20a56bf73a53b0ed8a9b3066ee3b5d5204e3707fa5cf",
+    "generated": "2026-10-28",
+    "larmorx_commit": "9b9fe9aa5232"
    },
    {
     "path": "docs/validation/ants-affine-initializer-panel.json",
@@ -2260,14 +2260,14 @@
  "implementations": [
   {
    "id": "ai",
-   "label": "antsAI (port)",
-   "short": "antsAI",
+   "label": "replica against the original: ANTs antsAI 2.6.5 (standard comparison and data panel)",
+   "short": "replica",
    "record": "docs/validation/ants-ai.md",
    "status": "validated",
    "summary": {
-    "cases": 171,
+    "cases": 172,
     "verdicts": {
-     "bit-identical": 112,
+     "bit-identical": 113,
      "identical-cr": 3,
      "both-reject": 52,
      "divergence": 4
@@ -2316,6 +2316,12 @@
      }
     },
     {
+     "category": "difftest",
+     "counts": {
+      "bit-identical": 1
+     }
+    },
+    {
      "category": "panel-fmriprep",
      "counts": {
       "bit-identical": 35,
@@ -2330,12 +2336,15 @@
      }
     }
    ],
-   "name": "ants-ai"
+   "name": "ants-ai",
+   "title": "Agreement, replica against the original: ANTs `antsAI` 2.6.5",
+   "comparison": "standard comparison and data panel",
+   "port": "replica"
   },
   {
    "id": "init",
-   "label": "antsAffineInitializer (port)",
-   "short": "antsAffineInitializer",
+   "label": "replica against the original: ANTs antsAffineInitializer 2.6.5 (standard comparison and data panel)",
+   "short": "replica",
    "record": "docs/validation/ants-affine-initializer.md",
    "status": "validated",
    "summary": {
@@ -2374,7 +2383,10 @@
      }
     }
    ],
-   "name": "ants-affine-initializer"
+   "name": "ants-affine-initializer",
+   "title": "Agreement, replica against the original: ANTs `antsAffineInitializer` 2.6.5",
+   "comparison": "standard comparison and data panel",
+   "port": "replica"
   }
  ],
  "cases_per_impl": true,
@@ -2515,7 +2527,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+     "reason": "exit status, standard output, standard error, every file; the replica − ANTs at 1 thread: 0 in a parameter"
     }
    }
   },
@@ -2543,7 +2555,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+     "reason": "exit status, standard output, standard error, every file; the replica − ANTs at 1 thread: 0 in a parameter"
     }
    }
   },
@@ -2557,7 +2569,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+     "reason": "exit status, standard output, standard error, every file; the replica − ANTs at 1 thread: 0 in a parameter"
     }
    }
   },
@@ -2655,7 +2667,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+     "reason": "exit status, standard output, standard error, every file; the replica − ANTs at 1 thread: 0 in a parameter"
     }
    }
   },
@@ -3327,7 +3339,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3341,7 +3353,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3355,7 +3367,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3369,7 +3381,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3383,7 +3395,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3397,7 +3409,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3411,7 +3423,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3425,7 +3437,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3439,7 +3451,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3453,7 +3465,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3481,7 +3493,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3495,7 +3507,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3509,7 +3521,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3523,7 +3535,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3607,7 +3619,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3621,7 +3633,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3635,7 +3647,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3663,7 +3675,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3733,7 +3745,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "2/2",
-     "reason": "ANTs never finishes (class (a)); larmorx refuses"
+     "reason": "ANTs never finishes (class (a)); the replica refuses"
     }
    }
   },
@@ -3747,7 +3759,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "2/2",
-     "reason": "ANTs never finishes (class (a)); larmorx refuses"
+     "reason": "ANTs never finishes (class (a)); the replica refuses"
     }
    }
   },
@@ -3761,7 +3773,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "3/3",
-     "reason": "ANTs seeds from the clock (ANTS-58): two runs differ; larmorx is repeatable"
+     "reason": "ANTs seeds from the clock (ANTS-58): two runs differ; the replica is repeatable"
     }
    }
   },
@@ -3775,7 +3787,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "3/3",
-     "reason": "ANTs seeds from the clock (ANTS-58): two runs differ; larmorx is repeatable"
+     "reason": "ANTs seeds from the clock (ANTS-58): two runs differ; the replica is repeatable"
     }
    }
   },
@@ -3789,7 +3801,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+     "reason": "exit status, standard output, standard error, every file; the replica − ANTs at 1 thread: 0 in a parameter"
     }
    },
    "example": "init-aff"
@@ -3804,7 +3816,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+     "reason": "exit status, standard output, standard error, every file; the replica − ANTs at 1 thread: 0 in a parameter"
     }
    }
   },
@@ -3818,7 +3830,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "9/9",
-     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 0 mm mean, 0 mm largest"
+     "reason": "exit status, standard output, standard error, every file; the replica − ANTs at 1 thread: 0 in a parameter; from the known transform: ANTs 0 mm mean, 0 mm largest, the replica's default, `fix`, 0 mm mean, 0 mm largest"
     }
    }
   },
@@ -3832,7 +3844,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 1.11e-14 mm mean, 2.2e-14 mm largest, larmorx's default 6.69e-15 mm mean, 1.04e-14 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 1.11e-14 mm mean, 2.2e-14 mm largest, the replica's default, `fix`, 6.69e-15 mm mean, 1.04e-14 mm largest"
     }
    }
   },
@@ -3846,7 +3858,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 0 mm mean, 0 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, the replica's default, `fix`, 0 mm mean, 0 mm largest"
     }
    }
   },
@@ -3860,7 +3872,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 34 mm mean, 66.8 mm largest, larmorx's default 0.495 mm mean, 0.647 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 34 mm mean, 66.8 mm largest, the replica's default, `fix`, 0.495 mm mean, 0.647 mm largest"
     }
    }
   },
@@ -3874,7 +3886,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 654 mm mean, 1.52e+03 mm largest, larmorx's default 1.41 mm mean, 2.89 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 654 mm mean, 1.52e+03 mm largest, the replica's default, `fix`, 1.41 mm mean, 2.89 mm largest"
     }
    }
   },
@@ -3888,7 +3900,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs nan mm mean, nan mm largest, larmorx's default 2.44 mm mean, 5.5 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs nan mm mean, nan mm largest, the replica's default, `fix`, 2.44 mm mean, 5.5 mm largest"
     }
    }
   },
@@ -3902,7 +3914,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -3916,7 +3928,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 2.66e-15 mm mean, 7.11e-15 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, the replica's default, `fix`, 2.66e-15 mm mean, 7.11e-15 mm largest"
     }
    }
   },
@@ -3930,7 +3942,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 5.81e-14 mm mean, 2.07e-13 mm largest, larmorx's default 2.61e-14 mm mean, 7.03e-14 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 5.81e-14 mm mean, 2.07e-13 mm largest, the replica's default, `fix`, 2.61e-14 mm mean, 7.03e-14 mm largest"
     }
    }
   },
@@ -3944,7 +3956,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 6.2 mm mean, 12.3 mm largest, larmorx's default 0.85 mm mean, 1.24 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 6.2 mm mean, 12.3 mm largest, the replica's default, `fix`, 0.85 mm mean, 1.24 mm largest"
     }
    }
   },
@@ -3958,7 +3970,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 45.4 mm mean, 125 mm largest, larmorx's default 1.44 mm mean, 4.39 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 45.4 mm mean, 125 mm largest, the replica's default, `fix`, 1.44 mm mean, 4.39 mm largest"
     }
    }
   },
@@ -3972,7 +3984,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 6.2 mm mean, 12.3 mm largest, larmorx's default 0.85 mm mean, 1.24 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 6.2 mm mean, 12.3 mm largest, the replica's default, `fix`, 0.85 mm mean, 1.24 mm largest"
     }
    }
   },
@@ -3986,7 +3998,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 8.88e-17 mm mean, 4.44e-16 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, the replica's default, `fix`, 8.88e-17 mm mean, 4.44e-16 mm largest"
     }
    }
   },
@@ -4000,7 +4012,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 3.83 mm mean, 7.99 mm largest, larmorx's default 3.83 mm mean, 7.99 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 3.83 mm mean, 7.99 mm largest, the replica's default, `fix`, 3.83 mm mean, 7.99 mm largest"
     }
    }
   },
@@ -4014,7 +4026,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 603 mm mean, 1.25e+03 mm largest, larmorx's default 4.48 mm mean, 7.33 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 603 mm mean, 1.25e+03 mm largest, the replica's default, `fix`, 4.48 mm mean, 7.33 mm largest"
     }
    }
   },
@@ -4056,7 +4068,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -4112,7 +4124,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -4126,7 +4138,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -4140,7 +4152,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAI: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -4154,7 +4166,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, larmorx's default 0 mm mean, 0 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs 0 mm mean, 0 mm largest, the replica's default, `fix`, 0 mm mean, 0 mm largest"
     }
    }
   },
@@ -4168,7 +4180,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "9/9",
-     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter; from the known transform: ANTs 5.92e-16 mm mean, 1.78e-15 mm largest, larmorx's default 1.78e-15 mm mean, 4.07e-15 mm largest"
+     "reason": "exit status, standard output, standard error, every file; the replica − ANTs at 1 thread: 0 in a parameter; from the known transform: ANTs 5.92e-16 mm mean, 1.78e-15 mm largest, the replica's default, `fix`, 1.78e-15 mm mean, 4.07e-15 mm largest"
     }
    },
    "example": "blobs-shift"
@@ -4183,7 +4195,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs nan mm mean, nan mm largest, larmorx's default 1.08 mm mean, 1.95 mm largest"
+     "reason": "exit status, standard output, standard error, every file; from the known transform: ANTs nan mm mean, nan mm largest, the replica's default, `fix`, 1.08 mm mean, 1.95 mm largest"
     }
    },
    "example": "blobs-rotated"
@@ -4217,37 +4229,51 @@
    }
   },
   {
+   "id": "antsAI/difftest/scales-warnings-before-multistart",
+   "category": "difftest",
+   "description": "random testing's permanent case: antsAI's start points that throw: each start point's scales warnings before its multi-start warning, in ITK's order",
+   "command": "",
+   "results": {
+    "ai": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "6/6",
+     "reason": "exit status, standard output, standard error, every file"
+    }
+   }
+  },
+  {
    "id": "antsAI/panel/fmriprep/ds000005-sub-01/anat_fit/brain_extraction/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds000005-sub-01 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the fMRIPrep run ds000005-sub-01 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+     "reason": "exit status, standard output, standard error, every file; the replica − ANTs at 1 thread: 0 in a parameter"
     }
    }
   },
   {
    "id": "antsAI/panel/fmriprep/ds000005-sub-01/bold[task_mixedgamblestask_run_01]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_mixedgamblestask_run_01]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds000005-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_mixedgamblestask_run_01]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds000005-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "8/8",
-     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+     "reason": "exit status, standard output, standard error, every file; the replica − ANTs at 1 thread: 0 in a parameter"
     }
    }
   },
   {
    "id": "antsAI/panel/fmriprep/ds000005-sub-01/bold[task_mixedgamblestask_run_02]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_mixedgamblestask_run_02]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds000005-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_mixedgamblestask_run_02]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds000005-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4261,7 +4287,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds000005-sub-01/bold[task_mixedgamblestask_run_03]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_mixedgamblestask_run_03]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds000005-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_mixedgamblestask_run_03]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds000005-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4275,7 +4301,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds000228-sub-pixar008/anat_fit/brain_extraction/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds000228-sub-pixar008 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the fMRIPrep run ds000228-sub-pixar008 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4289,7 +4315,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds000228-sub-pixar008/bold[task_pixar]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_pixar]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds000228-sub-pixar008 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_pixar]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds000228-sub-pixar008 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4303,7 +4329,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds000256-sub-CTS203/anat_fit/brain_extraction/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds000256-sub-CTS203 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the fMRIPrep run ds000256-sub-CTS203 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4317,7 +4343,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds000256-sub-CTS203/bold[task_restbaseline]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_restbaseline]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds000256-sub-CTS203 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_restbaseline]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds000256-sub-CTS203 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4331,7 +4357,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds000256-sub-CTS203/bold[task_restfixationfixed]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_restfixationfixed]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds000256-sub-CTS203 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_restfixationfixed]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds000256-sub-CTS203 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4345,7 +4371,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds000256-sub-CTS203/bold[task_restfixationnofeedback]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_restfixationnofeedback]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds000256-sub-CTS203 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_restfixationnofeedback]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds000256-sub-CTS203 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4359,7 +4385,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds001600-sub-1/anat_fit/brain_extraction/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds001600-sub-1 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the fMRIPrep run ds001600-sub-1 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4373,7 +4399,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds002422-sub-02/anat_fit/brain_extraction/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds002422-sub-02 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the fMRIPrep run ds002422-sub-02 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4387,7 +4413,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds002422-sub-02/bold[task_arithm_run_01]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_arithm_run_01]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds002422-sub-02 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_arithm_run_01]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds002422-sub-02 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4401,7 +4427,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds002422-sub-02/bold[task_arithm_run_02]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_arithm_run_02]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds002422-sub-02 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_arithm_run_02]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds002422-sub-02 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4415,7 +4441,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds002422-sub-02/bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds002422-sub-02 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds002422-sub-02 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4429,7 +4455,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds002603-sub-01/anat_fit/brain_extraction/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds002603-sub-01 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the fMRIPrep run ds002603-sub-01 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4443,7 +4469,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds002603-sub-01/bold[task_wm_acq_Mb4Mm3Tr550]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_wm_acq_Mb4Mm3Tr550]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds002603-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_wm_acq_Mb4Mm3Tr550]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds002603-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4457,7 +4483,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds002603-sub-01/bold[task_wm_acq_SeqMm3Tr2000]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_wm_acq_SeqMm3Tr2000]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds002603-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_wm_acq_SeqMm3Tr2000]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds002603-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4471,7 +4497,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds003592-sub-280/anat_fit/brain_extraction/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds003592-sub-280 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the fMRIPrep run ds003592-sub-280 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4485,7 +4511,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds003592-sub-280/bold[ses_1_task_rest_echo_1]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_1_task_rest_echo_1]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds003592-sub-280 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_1_task_rest_echo_1]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds003592-sub-280 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4499,7 +4525,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds004173-sub-603309/anat_fit/brain_extraction/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds004173-sub-603309 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the fMRIPrep run ds004173-sub-603309 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4513,7 +4539,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds004884-sub-M2079/anat_fit/brain_extraction/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds004884-sub-M2079 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the fMRIPrep run ds004884-sub-M2079 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4527,7 +4553,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds004884-sub-M2079/bold[ses_217_task_naming40_acq_epfid2_dir_AP_run_2]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_217_task_naming40_acq_epfid2_dir_AP_run_2]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds004884-sub-M2079 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_217_task_naming40_acq_epfid2_dir_AP_run_2]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds004884-sub-M2079 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4541,7 +4567,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds004884-sub-M2079/bold[ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds004884-sub-M2079 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds004884-sub-M2079 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4555,7 +4581,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds004958-sub-fsm64ps/anat_fit/brain_extraction/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds004958-sub-fsm64ps (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the fMRIPrep run ds004958-sub-fsm64ps (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4569,7 +4595,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds004958-sub-fsm64ps/bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds004958-sub-fsm64ps (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds004958-sub-fsm64ps (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4583,7 +4609,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds005003-sub-RS001/anat_fit/brain_extraction/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds005003-sub-RS001 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the fMRIPrep run ds005003-sub-RS001 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4597,7 +4623,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds005003-sub-RS001/bold[ses_1_task_motor]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_1_task_motor]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds005003-sub-RS001 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_1_task_motor]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds005003-sub-RS001 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4611,7 +4637,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds005003-sub-RS001/bold[ses_1_task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_1_task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds005003-sub-RS001 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_1_task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds005003-sub-RS001 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4625,7 +4651,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds005040-sub-002/anat_fit/brain_extraction/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds005040-sub-002 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the fMRIPrep run ds005040-sub-002 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4639,7 +4665,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds005040-sub-002/bold[task_clip_run_1]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_clip_run_1]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds005040-sub-002 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_clip_run_1]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds005040-sub-002 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4653,7 +4679,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds005454-sub-16/anat_fit/brain_extraction/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds005454-sub-16 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the fMRIPrep run ds005454-sub-16 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4667,7 +4693,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds005454-sub-16/bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds005454-sub-16 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds005454-sub-16 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4681,7 +4707,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds005752-sub-ON01016/anat_fit/brain_extraction/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the oracle run ds005752-sub-ON01016 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `anat_fit/brain_extraction/init_aff` of the fMRIPrep run ds005752-sub-ON01016 (anat_fit_wf/brain_extraction_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4695,7 +4721,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds005752-sub-ON01016/bold[ses_01_task_rest_dir_forward]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_01_task_rest_dir_forward]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds005752-sub-ON01016 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_01_task_rest_dir_forward]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds005752-sub-ON01016 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4709,7 +4735,7 @@
   {
    "id": "antsAI/panel/fmriprep/ds005752-sub-ON01016/bold[ses_01_task_rest_dir_reverse]/bold_fit/enhance_and_skullstrip_bold/init_aff",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_01_task_rest_dir_reverse]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the oracle run ds005752-sub-ON01016 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's antsAI node `bold[ses_01_task_rest_dir_reverse]/bold_fit/enhance_and_skullstrip_bold/init_aff` of the fMRIPrep run ds005752-sub-ON01016 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/init_aff): its command.txt replayed, its inputs from the run's working directory",
    "command": "",
    "results": {
     "ai": {
@@ -4814,7 +4840,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -4828,7 +4854,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -4842,7 +4868,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -4856,7 +4882,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -4898,7 +4924,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -4912,7 +4938,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -4926,7 +4952,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -4940,7 +4966,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -4954,7 +4980,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -4968,7 +4994,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -4982,7 +5008,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); larmorx stops with exit 1"
+     "reason": "larmorx: antsAffineInitializer: ANTs aborts here (an uncaught exception); the replica stops with exit 1"
     }
    }
   },
@@ -4996,7 +5022,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "2/2",
-     "reason": "ANTs never finishes (class (a)); larmorx refuses"
+     "reason": "ANTs never finishes (class (a)); the replica refuses"
     }
    }
   },
@@ -5010,7 +5036,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "2/2",
-     "reason": "ANTs never finishes (class (a)); larmorx refuses"
+     "reason": "ANTs never finishes (class (a)); the replica refuses"
     }
    }
   },
@@ -5052,7 +5078,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "exit status, standard output, standard error, every file"
+     "reason": "exit status, standard output, standard error, every file; the replica − ANTs at 1 thread: 0 in a parameter"
     }
    }
   },
@@ -5080,7 +5106,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "exit status, standard output, standard error, every file"
+     "reason": "exit status, standard output, standard error, every file; the replica − ANTs at 1 thread: 0 in a parameter"
     }
    }
   },
@@ -5234,7 +5260,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "exit status, standard output, standard error, every file"
+     "reason": "exit status, standard output, standard error, every file; the replica − ANTs at 1 thread: 0 in a parameter"
     }
    }
   },
@@ -5346,7 +5372,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "exit status, standard output, standard error, every file"
+     "reason": "exit status, standard output, standard error, every file; the replica − ANTs at 1 thread: 0 in a parameter"
     }
    }
   },
@@ -5360,7 +5386,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "exit status, standard output, standard error, every file; larmorx − ANTs at 1 thread: 0 in a parameter"
+     "reason": "exit status, standard output, standard error, every file; the replica − ANTs at 1 thread: 0 in a parameter"
     }
    }
   },
@@ -5547,7 +5573,7 @@
    }
   }
  ],
- "cases_total": 226,
+ "cases_total": 227,
  "tables": [
   {
    "id": "ants-116",
@@ -5603,7 +5629,7 @@
     },
     {
      "head": "",
-     "sub": "larmorx",
+     "sub": "The replica",
      "cells": [
       {
        "text": "13 of 13"
@@ -5648,7 +5674,7 @@
     },
     {
      "head": "",
-     "sub": "larmorx",
+     "sub": "The replica",
      "cells": [
       {
        "text": "–"
@@ -5695,7 +5721,7 @@
     },
     {
      "head": "",
-     "sub": "larmorx",
+     "sub": "The replica",
      "cells": [
       {
        "text": "19 of 19"
@@ -5742,7 +5768,7 @@
     },
     {
      "head": "",
-     "sub": "larmorx",
+     "sub": "The replica",
      "cells": [
       {
        "text": "–"
@@ -5789,7 +5815,7 @@
     },
     {
      "head": "",
-     "sub": "larmorx",
+     "sub": "The replica",
      "cells": [
       {
        "text": "28 of 28"
@@ -5836,7 +5862,7 @@
     },
     {
      "head": "",
-     "sub": "larmorx",
+     "sub": "The replica",
      "cells": [
       {
        "text": "–"
@@ -5859,11 +5885,11 @@
      "verdict": "d13"
     }
    ],
-   "note": "From `validation/investigations/ants-116-blob-orientation/results.json` (measure.py: `lx.ants.blob_alignment` at 30 blobs in both modes; larmorx's default also corrects ANTS-110, -111, -112, -114 and ITK-60, reproduce mode is ANTs' result bit for bit). Identical pairs: the blobs found at the same voxel in both images whose patches fit in both; a pair is true when the moving blob lies within two voxels of where the known transform sends the fixed one; the distances are those of the brain's (or the phantom's) points from where the true transform sends them."
+   "note": "From `validation/investigations/ants-116-blob-orientation/results.json` (measure.py: `lx.ants.blob_alignment` at 30 blobs in both modes; the replica's default, `fix`, also corrects ANTS-110, -111, -112, -114 and ITK-60, `reproduce` is ANTs' result bit for bit). Identical pairs: the blobs found at the same voxel in both images whose patches fit in both; a pair is true when the moving blob lies within two voxels of where the known transform sends the fixed one; the distances are those of the brain's (or the phantom's) points from where the true transform sends them."
   },
   {
    "id": "panel-nodes",
-   "title": "fMRIPrep's antsAI nodes in the fourteen oracle runs, and what the panel record compares of them",
+   "title": "fMRIPrep's antsAI nodes in the fourteen fMRIPrep runs, and what the panel record compares of them",
    "columns": [
     {
      "label": "Node (normalised path)"
@@ -5949,7 +5975,7 @@
      ]
     }
    ],
-   "note": "From the panel record (docs/validation/ants-ai-panel.md): every node of the finished fMRIPrep 25.2.6 oracle runs that ran the program, grouped by its path with the subject, run, space and item removed; a call repeated word for word is compared once."
+   "note": "From the panel record (docs/validation/ants-ai-panel.md): every node of the finished fMRIPrep 25.2.6 runs that ran the program, grouped by its path with the subject, run, space and item removed; a call repeated word for word is compared once."
   },
   {
    "id": "panel-init-aff-tumour-transforms",
@@ -6015,7 +6041,7 @@
    ],
    "rows": [
     {
-     "head": "ANTs 2.6.5, 1 thread (as built (GCC 14.3), glibc's maths)",
+     "head": "ANTs antsAI 2.6.5",
      "cells": [
       {
        "text": "AffineTransform_double_3_3"
@@ -6071,10 +6097,11 @@
       {
        "text": "109.387505 156.142776 -127.291084"
       }
-     ]
+     ],
+     "sub": "1 thread · as built (GCC 14.3), glibc's maths"
     },
     {
-     "head": "ANTs 2.6.5, correctly rounded maths (1 thread, CORE-MATH preloaded)",
+     "head": "ANTs antsAI 2.6.5, correctly rounded maths",
      "cells": [
       {
        "text": "AffineTransform_double_3_3"
@@ -6130,10 +6157,11 @@
       {
        "text": "109.387505 156.142776 -127.291084"
       }
-     ]
+     ],
+     "sub": "1 thread, CORE-MATH preloaded"
     },
     {
-     "head": "ANTs 2.6.5, 8 threads (as built)",
+     "head": "ANTs antsAI 2.6.5",
      "cells": [
       {
        "text": "AffineTransform_double_3_3"
@@ -6189,10 +6217,11 @@
       {
        "text": "109.387505 156.142776 -127.291084"
       }
-     ]
+     ],
+     "sub": "8 threads · as built"
     },
     {
-     "head": "larmorx (port) (reproduce mode, 8 threads)",
+     "head": "replica",
      "cells": [
       {
        "text": "AffineTransform_double_3_3"
@@ -6248,10 +6277,11 @@
       {
        "text": "109.387505 156.142776 -127.291084"
       }
-     ]
+     ],
+     "sub": "larmorx, Apache-2.0 · reproduce, 8 threads"
     },
     {
-     "head": "larmorx (port) (reproduce mode, 1 thread)",
+     "head": "replica",
      "cells": [
       {
        "text": "AffineTransform_double_3_3"
@@ -6307,10 +6337,11 @@
       {
        "text": "109.387505 156.142776 -127.291084"
       }
-     ]
+     ],
+     "sub": "larmorx, Apache-2.0 · reproduce, 1 thread"
     },
     {
-     "head": "larmorx (port) (default mode, 8 threads)",
+     "head": "replica",
      "cells": [
       {
        "text": "AffineTransform_double_3_3"
@@ -6366,7 +6397,8 @@
       {
        "text": "109.387505 156.142776 -127.291084"
       }
-     ]
+     ],
+     "sub": "larmorx, Apache-2.0 · fix (the default), 8 threads"
     }
    ],
    "note": "Every parameter as stored (the shortest float64 that reads back exactly)."
@@ -6435,7 +6467,7 @@
    ],
    "rows": [
     {
-     "head": "ANTs 2.6.5, 1 thread (as built (GCC 14.3), glibc's maths)",
+     "head": "ANTs antsAffineInitializer 2.6.5",
      "cells": [
       {
        "text": "AffineTransform_double_3_3"
@@ -6491,10 +6523,11 @@
       {
        "text": "0.235927808 21.9994855 9.74520071"
       }
-     ]
+     ],
+     "sub": "1 thread · as built (GCC 14.3), glibc's maths"
     },
     {
-     "head": "ANTs 2.6.5, correctly rounded maths (1 thread, CORE-MATH preloaded)",
+     "head": "ANTs antsAffineInitializer 2.6.5, correctly rounded maths",
      "cells": [
       {
        "text": "AffineTransform_double_3_3"
@@ -6550,10 +6583,11 @@
       {
        "text": "0.235927808 21.9994855 9.74520071"
       }
-     ]
+     ],
+     "sub": "1 thread, CORE-MATH preloaded"
     },
     {
-     "head": "ANTs 2.6.5, 8 threads (as built)",
+     "head": "ANTs antsAffineInitializer 2.6.5",
      "cells": [
       {
        "text": "AffineTransform_double_3_3"
@@ -6609,10 +6643,11 @@
       {
        "text": "0.235927808 21.9994855 9.74520071"
       }
-     ]
+     ],
+     "sub": "8 threads · as built"
     },
     {
-     "head": "larmorx (port) (reproduce mode, 8 threads)",
+     "head": "replica",
      "cells": [
       {
        "text": "AffineTransform_double_3_3"
@@ -6668,10 +6703,11 @@
       {
        "text": "0.235927808 21.9994855 9.74520071"
       }
-     ]
+     ],
+     "sub": "larmorx, Apache-2.0 · reproduce, 8 threads"
     },
     {
-     "head": "larmorx (port) (reproduce mode, 1 thread)",
+     "head": "replica",
      "cells": [
       {
        "text": "AffineTransform_double_3_3"
@@ -6727,10 +6763,11 @@
       {
        "text": "0.235927808 21.9994855 9.74520071"
       }
-     ]
+     ],
+     "sub": "larmorx, Apache-2.0 · reproduce, 1 thread"
     },
     {
-     "head": "larmorx (port) (default mode, 8 threads)",
+     "head": "replica",
      "cells": [
       {
        "text": "AffineTransform_double_3_3"
@@ -6786,7 +6823,8 @@
       {
        "text": "0.235927808 21.9994855 9.74520071"
       }
-     ]
+     ],
+     "sub": "larmorx, Apache-2.0 · fix (the default), 8 threads"
     }
    ],
    "note": "Every parameter as stored (the shortest float64 that reads back exactly)."
@@ -6795,7 +6833,7 @@
  "examples": [
   {
    "id": "init-aff",
-   "title": "The initial transform of sMRIPrep's brain extraction, by fMRIPrep, ANTs and larmorx",
+   "title": "In sMRIPrep: the initial transform of the brain extraction",
    "summary": "fMRIPrep 25.2.6's `init_aff` node (antsAI's multi-start search: rotations around the principal axes, an Affine local search with Mattes MI) on OpenNeuro ds000005 sub-01, with its arguments, inputs and seed; and niworkflows' antsAffineInitializer call on the same images. Each transform is shown as the T1w it places on the template (resampled by ANTs as built, linear), as its parameters and as distances in mm.",
    "facts": [
     {
@@ -6816,7 +6854,7 @@
     },
     {
      "label": "Programs",
-     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0, ANTS_RANDOM_SEED=50495 (fMRIPrep's, from the node's report); larmorx at commit `1dfe56c0dc60`"
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0, ANTS_RANDOM_SEED=50495 (fMRIPrep's, from the node's report); the replica at commit `1dfe56c0dc60`"
     },
     {
      "label": "Grid",
@@ -6941,7 +6979,8 @@
      "window": [
       0.0,
       14.205178761482223
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "moving",
@@ -6958,13 +6997,14 @@
      "window": [
       0.0,
       0.0
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "larmorx",
      "role": "larmorx",
-     "label": "antsAI: larmorx (port)",
-     "sub": "the T1w placed by its transform; reproduce mode, 8 threads",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · the T1w placed by its transform; reproduce, 8 threads · against ANTs antsAI 2.6.5",
      "arrays": {
       "placed": {
        "blob": "27fb94e09683185147b190dd.bin",
@@ -6977,13 +7017,14 @@
        0.0,
        306.8763328552246
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "ants-1",
      "role": "original",
-     "label": "antsAI: ANTs 2.6.5, 1 thread",
-     "sub": "the T1w placed by its transform",
+     "label": "ANTs antsAI 2.6.5",
+     "sub": "1 thread · the T1w placed by its transform",
      "arrays": {
       "placed": {
        "same": "larmorx:placed",
@@ -6995,13 +7036,14 @@
        0.0,
        306.8763328552246
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "ants-8",
      "role": "original",
-     "label": "antsAI: ANTs 2.6.5, 8 threads",
-     "sub": "the T1w placed by its transform",
+     "label": "ANTs antsAI 2.6.5",
+     "sub": "8 threads · the T1w placed by its transform",
      "arrays": {
       "placed": {
        "same": "larmorx:placed",
@@ -7013,13 +7055,14 @@
        0.0,
        306.8763328552246
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "fmriprep",
      "role": "fmriprep",
-     "label": "antsAI: fMRIPrep 25.2.6, as it ran",
-     "sub": "the T1w placed by fMRIPrep's transform (ANTs 2.6.2, 8 threads)",
+     "label": "fMRIPrep's output",
+     "sub": "fMRIPrep 25.2.6, as it ran: the T1w placed by fMRIPrep's transform (ANTs 2.6.2, 8 threads)",
      "arrays": {
       "placed": {
        "same": "larmorx:placed",
@@ -7031,13 +7074,14 @@
        0.0,
        306.8763328552246
       ]
-     }
+     },
+     "port": "fmriprep"
     },
     {
      "id": "init-larmorx",
      "role": "larmorx",
-     "label": "antsAffineInitializer: larmorx",
-     "sub": "niworkflows' arguments; the T1w placed by its transform",
+     "label": "antsAffineInitializer: replica",
+     "sub": "larmorx, Apache-2.0 · reproduce, 8 threads · niworkflows' arguments; the T1w placed by its transform · against ANTs antsAffineInitializer 2.6.5",
      "arrays": {
       "placed": {
        "blob": "d3ef42ab6a122287b65b3010.bin",
@@ -7050,12 +7094,13 @@
        0.0,
        306.8998001098633
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "init-ants-1",
      "role": "original",
-     "label": "antsAffineInitializer: ANTs 2.6.5",
+     "label": "ANTs antsAffineInitializer 2.6.5",
      "sub": "niworkflows' arguments, 1 thread; the T1w placed",
      "arrays": {
       "placed": {
@@ -7068,7 +7113,8 @@
        0.0,
        306.8998001098633
       ]
-     }
+     },
+     "port": "original"
     }
    ],
    "diffs": [
@@ -7077,8 +7123,8 @@
      "a": "larmorx",
      "b": "ants-1",
      "kind": "main",
-     "label": "antsAI: larmorx − ANTs, 1 thread (placed T1w)",
-     "role_label": "larmorx against the original",
+     "label": "replica − ANTs antsAI 2.6.5, 1 thread (placed T1w)",
+     "role_label": "the replica against the original",
      "metrics": {
       "placed": {
        "identical": true,
@@ -7115,15 +7161,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "The same transform, byte for byte (the .mat file), so the same placed image."
+     "reason": "The same transform, byte for byte (the .mat file), so the same placed image.",
+     "port": "replica"
     },
     {
      "id": "lx-fmriprep",
      "a": "larmorx",
      "b": "fmriprep",
      "kind": "fmriprep",
-     "label": "antsAI: larmorx − fMRIPrep (placed T1w)",
-     "role_label": "larmorx against fMRIPrep",
+     "label": "replica − fMRIPrep's output (placed T1w)",
+     "role_label": "the replica against fMRIPrep's output",
      "metrics": {
       "placed": {
        "identical": true,
@@ -7160,15 +7207,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "The placed images are the same bytes. The transforms themselves differ: fMRIPrep's is ANTs at 8 threads, larmorx's ANTs' one-thread result; they send the brain at most 2.5e-13 mm apart, ANTs' own 8 and 1 threads 3.2e-13 mm (the table below), far below what the interpolation sees."
+     "reason": "The placed images are the same bytes. The transforms themselves differ: fMRIPrep's is ANTs at 8 threads, the replica's ANTs' one-thread result; they send the brain at most 2.5e-13 mm apart, ANTs' own 8 and 1 threads 3.2e-13 mm (the table below), far below what the interpolation sees.",
+     "port": "replica"
     },
     {
      "id": "init-lx-ants",
      "a": "init-larmorx",
      "b": "init-ants-1",
      "kind": "main",
-     "label": "antsAffineInitializer: larmorx − ANTs (placed T1w)",
-     "role_label": "larmorx against the original",
+     "label": "replica − ANTs antsAffineInitializer 2.6.5 (placed T1w)",
+     "role_label": "the replica against the original",
      "metrics": {
       "placed": {
        "identical": true,
@@ -7205,15 +7253,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "The same transform, byte for byte (the .mat file), so the same placed image."
+     "reason": "The same transform, byte for byte (the .mat file), so the same placed image.",
+     "port": "replica"
     },
     {
      "id": "ants8-ants1",
      "a": "ants-8",
      "b": "ants-1",
      "kind": "variability",
-     "label": "antsAI: ANTs 8 threads − 1 thread (placed T1w)",
-     "role_label": "the original against itself",
+     "label": "ANTs antsAI 2.6.5, 8 threads − 1 thread (placed T1w)",
+     "role_label": "the original against itself: 1 and 8 threads",
      "metrics": {
       "placed": {
        "identical": true,
@@ -7250,15 +7299,16 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The same placed image."
+     "reason": "The same placed image.",
+     "port": "original"
     },
     {
      "id": "fmriprep-ants8",
      "a": "fmriprep",
      "b": "ants-8",
      "kind": "variability",
-     "label": "antsAI: fMRIPrep − ANTs 2.6.5, 8 threads (placed T1w)",
-     "role_label": "the original against itself",
+     "label": "fMRIPrep's output − ANTs antsAI 2.6.5, 8 threads (placed T1w)",
+     "role_label": "the original against itself: fMRIPrep's run and the repository's build",
      "metrics": {
       "placed": {
        "identical": true,
@@ -7295,7 +7345,8 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The same placed image."
+     "reason": "The same placed image.",
+     "port": "fmriprep"
     }
    ],
    "default": {
@@ -7313,9 +7364,9 @@
      "larmorx"
     ],
     "diffs": [
-     "lx-fmriprep",
+     "ants8-ants1",
      "lx-ants1",
-     "ants8-ants1"
+     "lx-fmriprep"
     ],
     "compare": {
      "a": "fixed",
@@ -7364,7 +7415,7 @@
      ],
      "rows": [
       {
-       "head": "antsAI: larmorx − ANTs, 1 thread",
+       "head": "replica − ANTs antsAI, 1 thread",
        "cells": [
         {
          "text": "identical file"
@@ -7384,7 +7435,7 @@
        ]
       },
       {
-       "head": "antsAI: larmorx − ANTs with CORE-MATH",
+       "head": "replica − ANTs antsAI, correctly rounded maths",
        "cells": [
         {
          "text": "identical file"
@@ -7404,7 +7455,7 @@
        ]
       },
       {
-       "head": "antsAI: larmorx − fMRIPrep's own",
+       "head": "replica − fMRIPrep's output",
        "cells": [
         {
          "text": "differ"
@@ -7424,7 +7475,7 @@
        ]
       },
       {
-       "head": "antsAI: larmorx 1 thread − 8 threads",
+       "head": "replica, 1 thread − 8 threads",
        "cells": [
         {
          "text": "identical file"
@@ -7444,7 +7495,7 @@
        ]
       },
       {
-       "head": "antsAI: larmorx default − reproduce",
+       "head": "replica, fix − reproduce",
        "sub": "no correction applies",
        "cells": [
         {
@@ -7465,7 +7516,7 @@
        ]
       },
       {
-       "head": "antsAI: ANTs 8 threads − 1 thread",
+       "head": "ANTs antsAI, 8 threads − 1 thread",
        "class": "is-sep is-yardstick",
        "cells": [
         {
@@ -7486,7 +7537,7 @@
        ]
       },
       {
-       "head": "antsAI: fMRIPrep − ANTs 2.6.5, 8 threads",
+       "head": "fMRIPrep's output − ANTs antsAI 2.6.5, 8 threads",
        "class": "is-yardstick",
        "cells": [
         {
@@ -7507,7 +7558,7 @@
        ]
       },
       {
-       "head": "antsAffineInitializer: larmorx − ANTs",
+       "head": "replica − ANTs antsAffineInitializer",
        "class": "is-sep",
        "cells": [
         {
@@ -7528,7 +7579,7 @@
        ]
       },
       {
-       "head": "antsAffineInitializer: larmorx − ANTs with CORE-MATH",
+       "head": "replica − ANTs antsAffineInitializer, correctly rounded maths",
        "cells": [
         {
          "text": "identical file"
@@ -7548,7 +7599,7 @@
        ]
       },
       {
-       "head": "antsAffineInitializer: larmorx default − reproduce",
+       "head": "replica of antsAffineInitializer, fix − reproduce",
        "sub": "ANTS-54, ITK-21 corrected (D13)",
        "cells": [
         {
@@ -7569,7 +7620,7 @@
        ]
       },
       {
-       "head": "antsAffineInitializer: ANTs 8 threads − 1 thread",
+       "head": "ANTs antsAffineInitializer, 8 threads − 1 thread",
        "class": "is-yardstick",
        "cells": [
         {
@@ -7608,15 +7659,15 @@
        "num": true
       },
       {
-       "label": "larmorx",
+       "label": "replica",
        "num": true
       },
       {
-       "label": "larmorx − fMRIPrep",
+       "label": "replica − fMRIPrep's output",
        "num": true
       },
       {
-       "label": "larmorx − ANTs, 1 thread",
+       "label": "replica − ANTs, 1 thread",
        "num": true
       }
      ],
@@ -7931,6 +7982,52 @@
     "Inputs: fixed (sha256 8265828adf534c2e…); moving (sha256 4fc9d00a945155a9…); fMRIPrep's transform (sha256 f223fa5f0aade78e…)",
     "Runs: figures cache entry `ants-ai/fmriprep-ds000005-init-aff and ants-ai/fmriprep-ds000005-init-aff-placed`, computed 2026-10-21T15:17:05+00:00 with larmorx `1dfe56c0dc60`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
+   "order": {
+    "panels": [
+     "fixed",
+     "moving",
+     "ants-1",
+     "ants-8",
+     "init-ants-1",
+     "fmriprep",
+     "larmorx",
+     "init-larmorx"
+    ],
+    "diffs": [
+     "ants8-ants1",
+     "fmriprep-ants8",
+     "lx-ants1",
+     "init-lx-ants",
+     "lx-fmriprep"
+    ],
+    "groups": [
+     [
+      "The original against itself: the yardstick",
+      [
+       "ants8-ants1",
+       "fmriprep-ants8"
+      ]
+     ],
+     [
+      "The replica against the original and fMRIPrep's output",
+      [
+       "lx-ants1",
+       "init-lx-ants",
+       "lx-fmriprep"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "In `reproduce`, on 1 and 8 threads, the replica of antsAI writes ANTs' one-thread transform byte for byte, as built and with correctly rounded maths, and so does the replica of antsAffineInitializer with niworkflows' arguments. fMRIPrep's transform, ANTs 2.6.2's at 8 threads, sends the template's brain at most 2.5e-13 mm from the replica's, where ANTs 2.6.5's own 8 and 1 threads differ by 3.2e-13 mm; the placed images are the same bytes. No correction by default changes antsAI's call; antsAffineInitializer's default, `fix`, moves the brain by up to 0.059 mm (mean 0.054 mm) from `reproduce`.",
+    "verdicts": [
+     {
+      "diff": "lx-ants1",
+      "port": "replica",
+      "verdict": "bit-identical"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds000005",
     "templateflow-OASIS30ANTs"
@@ -7938,7 +8035,7 @@
   },
   {
    "id": "blobs-found",
-   "title": "The blobs ANTs and larmorx find in a T1w",
+   "title": "The blobs ANTs and the replica find in a T1w",
    "summary": "antsAI `-b 30` keeps the 30 strongest maxima of the scale-normalised Laplacian of Gaussian over 53 scales; here they lie at the edges of ventricles, vessels and sulci, with radii from 1.7 to 6 mm. Each is drawn as a filled sphere of its radius around its voxel, over the T1w at half its intensity.",
    "facts": [
     {
@@ -7947,7 +8044,7 @@
     },
     {
      "label": "Programs",
-     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs' blobs from the blob probe (`validation/probes/ants-ai-blobs`, antsAI's code with prints, built against the same ITK); larmorx's from `lx.ants.blob_alignment` at commit `e22378b480f4`"
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs' blobs from the blob probe (`validation/probes/ants-ai-blobs`, antsAI's code with prints, built against the same ITK); the replica's from `lx.ants.blob_alignment` at commit `e22378b480f4`"
     },
     {
      "label": "Grid",
@@ -8072,13 +8169,14 @@
      "window": [
       7.338375039100648,
       1076.4802709960936
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "ants",
      "role": "original",
-     "label": "ANTs 2.6.5's blobs",
-     "sub": "antsAI's code with prints (the probe)",
+     "label": "ANTs antsAI 2.6.5",
+     "sub": "its blobs · antsAI's code with prints (the probe)",
      "arrays": {
       "blobs": {
        "blob": "f2906197ba74b4e6a1dc0d73.bin",
@@ -8093,13 +8191,14 @@
        7.524986526966098,
        588.7126400756833
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "larmorx",
      "role": "larmorx",
-     "label": "larmorx's blobs",
-     "sub": "reproduce mode, 6 threads",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · its blobs, reproduce, 6 threads · against ANTs antsAI 2.6.5",
      "arrays": {
       "blobs": {
        "same": "ants:blobs",
@@ -8111,13 +8210,14 @@
        7.524986526966098,
        588.7126400756833
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-fix",
      "role": "larmorx",
-     "label": "larmorx's blobs",
-     "sub": "default mode (ANTS-112 corrected)",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · its blobs, fix (the default, ANTS-112 corrected) · against ANTs antsAI 2.6.5",
      "arrays": {
       "blobs": {
        "same": "ants:blobs",
@@ -8129,7 +8229,8 @@
        7.524986526966098,
        588.7126400756833
       ]
-     }
+     },
+     "port": "replica"
     }
    ],
    "diffs": [
@@ -8138,8 +8239,8 @@
      "a": "larmorx",
      "b": "ants",
      "kind": "main",
-     "label": "larmorx (reproduce) − ANTs",
-     "role_label": "larmorx against the original",
+     "label": "replica, reproduce − ANTs antsAI",
+     "role_label": "the replica against the original",
      "metrics": {
       "blobs": {
        "identical": true,
@@ -8176,15 +8277,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "The same 30 blobs, each at the same voxel with the same radius and the same Laplacian value, bit for bit, as ANTs' own code finds them."
+     "reason": "The same 30 blobs, each at the same voxel with the same radius and the same Laplacian value, bit for bit, as ANTs' own code finds them.",
+     "port": "replica"
     },
     {
      "id": "fix-ants",
      "a": "larmorx-fix",
      "b": "ants",
      "kind": "main",
-     "label": "larmorx's default − ANTs",
-     "role_label": "larmorx against the original",
+     "label": "replica, fix − ANTs antsAI",
+     "role_label": "the replica against the original",
      "metrics": {
       "blobs": {
        "identical": true,
@@ -8226,7 +8328,8 @@
       }
      ],
      "verdict": "bit-identical",
-     "reason": "ANTS-112's correction keeps the strongest maxima; here the largest scales fill the list before ANTs' early threshold can drop one, so both lists are the same."
+     "reason": "ANTS-112's correction keeps the strongest maxima; here the largest scales fill the list before ANTs' early threshold can drop one, so both lists are the same.",
+     "port": "replica"
     }
    ],
    "default": {
@@ -8268,12 +8371,6 @@
     "caption": "Axial slice 66 of 111; each program's blobs, filled spheres over the fixed T1w at half its intensity (the crosshair at the largest blob this slice cuts)."
    },
    "chain": null,
-   "groups": [
-    [
-     "main",
-     "LARMORX against ANTs"
-    ]
-   ],
    "tables": [],
    "metrics_note": "Δ is A − B between the drawn blobs, over every voxel of the 160 × 192 × 192 grid.",
    "provenance": [
@@ -8281,13 +8378,44 @@
     "Inputs: fixed: fMRIPrep's preprocessed T1w (sha256 8e977ad0c954252d…); fMRIPrep's T1w brain mask (sha256 726851b7736940c8…); moving (sha256 2885195494bbf915…)",
     "Runs: figures cache entry `ants-ai/blobs-t1w`, computed 2026-10-23T10:41:20+00:00 with larmorx `e22378b480f4`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
+   "order": {
+    "panels": [
+     "fixed",
+     "ants",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "lx-ants",
+     "fix-ants"
+    ],
+    "groups": [
+     [
+      "The replica against the original",
+      [
+       "lx-ants",
+       "fix-ants"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "In `reproduce` the replica finds ANTs' 30 blobs bit for bit: each at the same voxel, with the same radius and the same Laplacian value as ANTs' own code finds them. Its default, `fix`, corrects [ANTS-112](repo:docs/findings/upstream-defects.md#summary) to keep the strongest maxima; here the largest scales fill the list before ANTs' early threshold can drop one, so both lists are the same.",
+    "verdicts": [
+     {
+      "diff": "lx-ants",
+      "port": "replica",
+      "verdict": "bit-identical"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds000005"
    ]
   },
   {
    "id": "blobs-shift",
-   "title": "Blob alignment of a T1w and its shifted copy, by ANTs and larmorx",
+   "title": "Blob alignment of a T1w and its shifted copy",
    "summary": "antsAI's blob alignment (`-b 30`) between fMRIPrep's T1w of ds000005 sub-01 and the same voxels with the origin moved by (6, −4, 3) mm, so the true transform is known. Each program's pairs and landmarks are listed, and its transform places the copy back on the fixed grid.",
    "facts": [
     {
@@ -8300,7 +8428,7 @@
     },
     {
      "label": "Programs",
-     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs' steps from the blob probe (`validation/probes/ants-ai-blobs`, antsAI's code with prints, built against the same ITK); larmorx at commit `e22378b480f4`"
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs' steps from the blob probe (`validation/probes/ants-ai-blobs`, antsAI's code with prints, built against the same ITK); the replica at commit `e22378b480f4`"
     },
     {
      "label": "Grid",
@@ -8425,7 +8553,8 @@
      "window": [
       7.338375039100648,
       1076.4802709960936
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "moving",
@@ -8442,7 +8571,8 @@
      "window": [
       0.0,
       1015.2936669921866
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "truth",
@@ -8461,13 +8591,14 @@
      "window": [
       0.0,
       1025.1132336425778
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "ants",
      "role": "original",
-     "label": "antsAI: ANTs 2.6.5, 1 thread",
-     "sub": "the copy placed by its transform",
+     "label": "ANTs antsAI 2.6.5",
+     "sub": "1 thread · the copy placed by its transform",
      "arrays": {
       "placed": {
        "same": "truth:all",
@@ -8479,13 +8610,14 @@
        0.0,
        1025.1132336425778
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "larmorx",
      "role": "larmorx",
-     "label": "antsAI: larmorx (port)",
-     "sub": "the copy placed by its transform; reproduce mode, 6 threads",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · the copy placed by its transform; reproduce, 6 threads · against ANTs antsAI 2.6.5",
      "arrays": {
       "placed": {
        "same": "truth:all",
@@ -8497,13 +8629,14 @@
        0.0,
        1025.1132336425778
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-fix",
      "role": "larmorx",
-     "label": "antsAI: larmorx (port)",
-     "sub": "the copy placed by its transform; default mode (ANTS-110 and ANTS-116 corrected), 6 threads",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · the copy placed by its transform; fix (the default, ANTS-110 and ANTS-116 corrected), 6 threads · against ANTs antsAI 2.6.5",
      "arrays": {
       "placed": {
        "same": "truth:all",
@@ -8515,7 +8648,8 @@
        0.0,
        1025.1132336425778
       ]
-     }
+     },
+     "port": "replica"
     }
    ],
    "diffs": [
@@ -8524,8 +8658,8 @@
      "a": "larmorx",
      "b": "ants",
      "kind": "main",
-     "label": "larmorx (reproduce) − ANTs, 1 thread",
-     "role_label": "larmorx against the original",
+     "label": "replica, reproduce − ANTs antsAI, 1 thread",
+     "role_label": "the replica against the original",
      "metrics": {
       "placed": {
        "identical": true,
@@ -8562,15 +8696,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "The same transform file, byte for byte, and the same blobs, correlations, pairs and landmarks as ANTs' own code computes them (the probe)."
+     "reason": "The same transform file, byte for byte, and the same blobs, correlations, pairs and landmarks as ANTs' own code computes them (the probe).",
+     "port": "replica"
     },
     {
      "id": "fix-ants",
      "a": "larmorx-fix",
      "b": "ants",
      "kind": "main",
-     "label": "larmorx's default − ANTs, 1 thread",
-     "role_label": "larmorx against the original",
+     "label": "replica, fix − ANTs antsAI, 1 thread",
+     "role_label": "the replica against the original",
      "metrics": {
       "placed": {
        "identical": true,
@@ -8612,15 +8747,16 @@
       }
      ],
      "verdict": "bit-identical",
-     "reason": "The same placed image: both transforms send the copy where the truth does (4.1e-15 and 1.8e-15 mm off at most). ANTS-116, corrected by default, changes the pairs and landmarks: larmorx keeps 13 landmarks of 13 pairs and ANTs 10 of 11 (the tables below); the patches are compared in the orientation that matches best (proper rotations, every sign combination of their principal axes), where ANTs may compare identical patches reflected or turned. For a rotation ANTs keeps no landmark (the next example)."
+     "reason": "The same placed image: both transforms send the copy where the truth does (4.1e-15 and 1.8e-15 mm off at most). ANTS-116, corrected by default, changes the pairs and landmarks: the replica keeps 13 landmarks of 13 pairs and ANTs 10 of 11 (the tables below); the patches are compared in the orientation that matches best (proper rotations, every sign combination of their principal axes), where ANTs may compare identical patches reflected or turned. For a rotation ANTs keeps no landmark (the next example).",
+     "port": "replica"
     },
     {
      "id": "ants-truth",
      "a": "ants",
      "b": "truth",
      "kind": "reference",
-     "label": "ANTs − the true transform",
-     "role_label": "against the truth",
+     "label": "ANTs antsAI − the true transform",
+     "role_label": "the original against the known answer",
      "metrics": {
       "placed": {
        "identical": true,
@@ -8657,15 +8793,16 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The same placed image as the true transform's."
+     "reason": "The same placed image as the true transform's.",
+     "port": "original"
     },
     {
      "id": "larmorx-fix-truth",
      "a": "larmorx-fix",
      "b": "truth",
      "kind": "reference",
-     "label": "larmorx's default − the true transform",
-     "role_label": "against the truth",
+     "label": "replica, fix − the true transform",
+     "role_label": "the replica against the known answer",
      "metrics": {
       "placed": {
        "identical": true,
@@ -8702,7 +8839,8 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The same placed image as the true transform's."
+     "reason": "The same placed image as the true transform's.",
+     "port": "replica"
     }
    ],
    "default": {
@@ -8720,9 +8858,9 @@
      "larmorx-fix"
     ],
     "diffs": [
+     "ants-truth",
      "lx-ants",
-     "fix-ants",
-     "ants-truth"
+     "fix-ants"
     ],
     "compare": {
      "a": "fixed",
@@ -8745,16 +8883,6 @@
     "caption": "Axial slice 67 of 111; the fixed T1w, its copy before and after each transform; Checkerboard (under Compare) overlays the fixed T1w and a placed copy."
    },
    "chain": null,
-   "groups": [
-    [
-     "main",
-     "LARMORX against ANTs"
-    ],
-    [
-     "reference",
-     "Each against the true transform (known by construction)"
-    ]
-   ],
    "tables": [
     {
      "id": "blobs-shift-distance",
@@ -8781,7 +8909,7 @@
      ],
      "rows": [
       {
-       "head": "larmorx (reproduce) − ANTs, 1 thread",
+       "head": "replica, reproduce − ANTs antsAI, 1 thread",
        "cells": [
         {
          "text": "identical file"
@@ -8801,7 +8929,7 @@
        ]
       },
       {
-       "head": "larmorx (reproduce) − ANTs with CORE-MATH",
+       "head": "replica, reproduce − ANTs antsAI, correctly rounded maths",
        "cells": [
         {
          "text": "identical file"
@@ -8821,7 +8949,7 @@
        ]
       },
       {
-       "head": "larmorx 1 thread − 6 threads",
+       "head": "replica, 1 thread − 6 threads",
        "cells": [
         {
          "text": "identical file"
@@ -8841,7 +8969,7 @@
        ]
       },
       {
-       "head": "larmorx's default − ANTs",
+       "head": "replica, fix − ANTs antsAI",
        "cells": [
         {
          "text": "differ"
@@ -8882,7 +9010,7 @@
        ]
       },
       {
-       "head": "larmorx's default − the true transform",
+       "head": "replica, fix − the true transform",
        "cells": [
         {
          "text": "differ"
@@ -8923,7 +9051,7 @@
        ]
       },
       {
-       "head": "ANTs with CORE-MATH − as built",
+       "head": "ANTs antsAI: correctly rounded maths − as built",
        "class": "is-yardstick",
        "cells": [
         {
@@ -9029,7 +9157,7 @@
        "label": "ANTs"
       },
       {
-       "label": "larmorx's default"
+       "label": "replica, fix"
       }
      ],
      "rows": [
@@ -9440,7 +9568,7 @@
        ]
       }
      ],
-     "note": "ANTs' blobs, correlations, pairs and landmarks from the probe (antsAI's own code); larmorx's default from lx.ants.blob_alignment. A pair is a landmark when its distances to at least 3 other pairs are preserved within 10 % (squared); ANTs tests the lengths of the pairs' displacements instead (ANTS-110), so a rotation leaves it no landmark. larmorx compares the patches in the orientation that matches best, ANTs in the one its eigenvectors' signs give, reflected or not (ANTS-116). 'Off the true transform': how far the moving blob is from where the true transform sends the fixed blob's centre."
+     "note": "ANTs' blobs, correlations, pairs and landmarks from the probe (antsAI's own code); the replica's default, `fix`, from lx.ants.blob_alignment. A pair is a landmark when its distances to at least 3 other pairs are preserved within 10 % (squared); ANTs tests the lengths of the pairs' displacements instead (ANTS-110), so a rotation leaves it no landmark. The replica compares the patches in the orientation that matches best, ANTs in the one its eigenvectors' signs give, reflected or not (ANTS-116). 'Off the true transform': how far the moving blob is from where the true transform sends the fixed blob's centre."
     },
     {
      "id": "blobs-shift-params",
@@ -9458,11 +9586,11 @@
        "num": true
       },
       {
-       "label": "larmorx (reproduce)",
+       "label": "replica, reproduce",
        "num": true
       },
       {
-       "label": "larmorx's default",
+       "label": "replica, fix",
        "num": true
       }
      ],
@@ -9729,6 +9857,48 @@
     "Inputs: fixed: fMRIPrep's preprocessed T1w (sha256 8e977ad0c954252d…); fMRIPrep's T1w brain mask (sha256 726851b7736940c8…); moving (sha256 2885195494bbf915…)",
     "Runs: figures cache entry `ants-ai/blobs-t1w`, computed 2026-10-23T10:41:20+00:00 with larmorx `e22378b480f4`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
+   "order": {
+    "panels": [
+     "fixed",
+     "moving",
+     "truth",
+     "ants",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "ants-truth",
+     "lx-ants",
+     "fix-ants",
+     "larmorx-fix-truth"
+    ],
+    "groups": [
+     [
+      "The original against the known answer",
+      [
+       "ants-truth"
+      ]
+     ],
+     [
+      "The replica against the original and the known answer",
+      [
+       "lx-ants",
+       "fix-ants",
+       "larmorx-fix-truth"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "In `reproduce`, on 6 threads, the replica writes ANTs' transform file byte for byte, with the same blobs, correlations, pairs and landmarks as ANTs' own code. Its default, `fix`, changes the pairs and landmarks ([ANTS-116](repo:docs/findings/upstream-defects.md#summary)): it keeps 13 landmarks of 13 pairs, ANTs 10 of 11. Both transforms send the copy where the truth does (4.1e-15 and 1.8e-15 mm off at most), so the placed images are the same.",
+    "verdicts": [
+     {
+      "diff": "lx-ants",
+      "port": "replica",
+      "verdict": "bit-identical"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds000005"
    ]
@@ -9736,7 +9906,7 @@
   {
    "id": "blobs-rotated",
    "title": "Blob alignment of a T1w and its rotated copy: ANTs finds no landmark",
-   "summary": "The same T1w against a copy rotated by 8° and shifted: ANTs' distance test keeps no landmark and its transform is NaN; larmorx's corrected test keeps the pairs whose distances are preserved and finds a rotation close to the truth.",
+   "summary": "The same T1w against a copy rotated by 8° and shifted: ANTs' distance test keeps no landmark and its transform is NaN; the replica's corrected test keeps the pairs whose distances are preserved and finds a rotation close to the truth.",
    "facts": [
     {
      "label": "Data",
@@ -9748,7 +9918,7 @@
     },
     {
      "label": "Programs",
-     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs' steps from the blob probe (`validation/probes/ants-ai-blobs`, antsAI's code with prints, built against the same ITK); larmorx at commit `e22378b480f4`"
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs' steps from the blob probe (`validation/probes/ants-ai-blobs`, antsAI's code with prints, built against the same ITK); the replica at commit `e22378b480f4`"
     },
     {
      "label": "Grid",
@@ -9756,7 +9926,7 @@
     },
     {
      "label": "ANTs",
-     "text": "no pair keeps the lengths of its displacement (ANTS-110), so no landmark: ANTs' rigid fit divides 0 by 0 and antsAI writes a transform of NaNs (ANTS-114), which places nothing. larmorx's reproduce mode writes the same file."
+     "text": "no pair keeps the lengths of its displacement (ANTS-110), so no landmark: ANTs' rigid fit divides 0 by 0 and antsAI writes a transform of NaNs (ANTS-114), which places nothing. The replica's `reproduce` writes the same file."
     }
    ],
    "grid": {
@@ -9877,7 +10047,8 @@
      "window": [
       7.338375039100648,
       1076.4802709960936
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "moving",
@@ -9894,7 +10065,8 @@
      "window": [
       0.0,
       1012.5620770263671
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "truth",
@@ -9911,13 +10083,14 @@
      "window": [
       0.0,
       1006.3815191650389
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "larmorx-fix",
      "role": "larmorx",
-     "label": "antsAI: larmorx (port)",
-     "sub": "the copy placed by its transform; default mode (ANTS-110 and ANTS-116 corrected), 6 threads",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · the copy placed by its transform; fix (the default, ANTS-110 and ANTS-116 corrected), 6 threads",
      "arrays": {
       "placed": {
        "blob": "beabbd6c28ed020fe989f5f1.bin",
@@ -9932,7 +10105,8 @@
        0.0,
        998.3696612548827
       ]
-     }
+     },
+     "port": "replica"
     }
    ],
    "diffs": [
@@ -9941,8 +10115,8 @@
      "a": "larmorx-fix",
      "b": "truth",
      "kind": "reference",
-     "label": "larmorx's default − the true transform",
-     "role_label": "against the truth",
+     "label": "replica, fix − the true transform",
+     "role_label": "the replica against the known answer",
      "metrics": {
       "placed": {
        "identical": false,
@@ -9983,7 +10157,8 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "A rotation of 8.18° (the truth: 8.00°); it sends the brain at most 1.2 mm (mean 0.62 mm) from where the true transform does."
+     "reason": "A rotation of 8.18° (the truth: 8.00°); it sends the brain at most 1.2 mm (mean 0.62 mm) from where the true transform does.",
+     "port": "replica"
     }
    ],
    "default": {
@@ -10028,16 +10203,6 @@
     "caption": "Axial slice 67 of 111; the fixed T1w, its copy before and after each transform; Checkerboard (under Compare) overlays the fixed T1w and a placed copy."
    },
    "chain": null,
-   "groups": [
-    [
-     "main",
-     "LARMORX against ANTs"
-    ],
-    [
-     "reference",
-     "Each against the true transform (known by construction)"
-    ]
-   ],
    "tables": [
     {
      "id": "blobs-rotated-distance",
@@ -10064,7 +10229,7 @@
      ],
      "rows": [
       {
-       "head": "larmorx (reproduce) − ANTs, 1 thread",
+       "head": "replica, reproduce − ANTs antsAI, 1 thread",
        "cells": [
         {
          "text": "identical file"
@@ -10081,7 +10246,7 @@
        ]
       },
       {
-       "head": "larmorx (reproduce) − ANTs with CORE-MATH",
+       "head": "replica, reproduce − ANTs antsAI, correctly rounded maths",
        "cells": [
         {
          "text": "identical file"
@@ -10098,7 +10263,7 @@
        ]
       },
       {
-       "head": "larmorx 1 thread − 6 threads",
+       "head": "replica, 1 thread − 6 threads",
        "cells": [
         {
          "text": "identical file"
@@ -10115,7 +10280,7 @@
        ]
       },
       {
-       "head": "larmorx's default − ANTs",
+       "head": "replica, fix − ANTs antsAI",
        "cells": [
         {
          "text": "differ"
@@ -10150,7 +10315,7 @@
        ]
       },
       {
-       "head": "larmorx's default − the true transform",
+       "head": "replica, fix − the true transform",
        "cells": [
         {
          "text": "differ"
@@ -10188,7 +10353,7 @@
        ]
       },
       {
-       "head": "ANTs with CORE-MATH − as built",
+       "head": "ANTs antsAI: correctly rounded maths − as built",
        "class": "is-yardstick",
        "cells": [
         {
@@ -10291,7 +10456,7 @@
        "label": "ANTs"
       },
       {
-       "label": "larmorx's default"
+       "label": "replica, fix"
       }
      ],
      "rows": [
@@ -10615,7 +10780,7 @@
        ]
       }
      ],
-     "note": "ANTs' blobs, correlations, pairs and landmarks from the probe (antsAI's own code); larmorx's default from lx.ants.blob_alignment. A pair is a landmark when its distances to at least 3 other pairs are preserved within 10 % (squared); ANTs tests the lengths of the pairs' displacements instead (ANTS-110), so a rotation leaves it no landmark. larmorx compares the patches in the orientation that matches best, ANTs in the one its eigenvectors' signs give, reflected or not (ANTS-116). 'Off the true transform': how far the moving blob is from where the true transform sends the fixed blob's centre."
+     "note": "ANTs' blobs, correlations, pairs and landmarks from the probe (antsAI's own code); the replica's default, `fix`, from lx.ants.blob_alignment. A pair is a landmark when its distances to at least 3 other pairs are preserved within 10 % (squared); ANTs tests the lengths of the pairs' displacements instead (ANTS-110), so a rotation leaves it no landmark. The replica compares the patches in the orientation that matches best, ANTs in the one its eigenvectors' signs give, reflected or not (ANTS-116). 'Off the true transform': how far the moving blob is from where the true transform sends the fixed blob's centre."
     },
     {
      "id": "blobs-rotated-params",
@@ -10629,7 +10794,7 @@
        "num": true
       },
       {
-       "label": "larmorx's default",
+       "label": "replica, fix",
        "num": true
       }
      ],
@@ -10800,6 +10965,29 @@
     "Inputs: fixed: fMRIPrep's preprocessed T1w (sha256 8e977ad0c954252d…); fMRIPrep's T1w brain mask (sha256 726851b7736940c8…); moving (sha256 2885195494bbf915…)",
     "Runs: figures cache entry `ants-ai/blobs-t1w`, computed 2026-10-23T10:41:20+00:00 with larmorx `e22378b480f4`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
+   "order": {
+    "panels": [
+     "fixed",
+     "moving",
+     "truth",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "larmorx-fix-truth"
+    ],
+    "groups": [
+     [
+      "The replica against the known answer",
+      [
+       "larmorx-fix-truth"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "ANTs keeps no landmark ([ANTS-110](repo:docs/findings/upstream-defects.md#summary)) and writes a transform of NaNs ([ANTS-114](repo:docs/findings/upstream-defects.md#summary)); the replica's `reproduce` writes the same file. Its default, `fix`, keeps the pairs whose distances are preserved and finds a rotation of 8.18° (the truth: 8.00°), which sends the brain at most 1.2 mm (mean 0.62 mm) from where the true transform does.",
+    "verdicts": []
+   },
    "credits": [
     "openneuro-ds000005"
    ]
@@ -10815,7 +11003,7 @@
     },
     {
      "label": "Node",
-     "text": "`anat_fit/brain_extraction/init_aff` of the oracle run ds005003-sub-RS001-noreconall"
+     "text": "`anat_fit/brain_extraction/init_aff` of the fMRIPrep run ds005003-sub-RS001-noreconall"
     },
     {
      "label": "Command",
@@ -10823,7 +11011,7 @@
     },
     {
      "label": "Programs",
-     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; larmorx at commit `349d3f781431`"
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; the replica at commit `349d3f781431`"
     },
     {
      "label": "Grid",
@@ -10948,13 +11136,14 @@
      "window": [
       0.0,
       12.711753153800968
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "ants-1",
      "role": "original",
-     "label": "ANTs 2.6.5, 1 thread",
-     "sub": "as built (GCC 14.3), glibc's maths",
+     "label": "ANTs antsAI 2.6.5",
+     "sub": "1 thread · as built (GCC 14.3), glibc's maths",
      "arrays": {
       "placed": {
        "blob": "a91a981aff327fab730aa3ae.bin",
@@ -10967,12 +11156,13 @@
        0.0,
        537.0228779318525
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "ants-1-cr",
      "role": "reference",
-     "label": "ANTs 2.6.5, correctly rounded maths",
+     "label": "ANTs antsAI 2.6.5, correctly rounded maths",
      "sub": "1 thread, CORE-MATH preloaded",
      "arrays": {
       "placed": {
@@ -10985,13 +11175,14 @@
        0.0,
        537.0228779318525
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "larmorx",
      "role": "larmorx",
-     "label": "larmorx (port)",
-     "sub": "reproduce mode, 8 threads",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · reproduce, 8 threads · against ANTs antsAI 2.6.5",
      "arrays": {
       "placed": {
        "same": "ants-1:placed",
@@ -11003,13 +11194,14 @@
        0.0,
        537.0228779318525
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-fix",
      "role": "larmorx",
-     "label": "larmorx (port)",
-     "sub": "default mode, 8 threads",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · fix (the default), 8 threads",
      "arrays": {
       "placed": {
        "same": "ants-1:placed",
@@ -11021,13 +11213,14 @@
        0.0,
        537.0228779318525
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "ants-8",
      "role": "original",
-     "label": "ANTs 2.6.5, 8 threads",
-     "sub": "as built",
+     "label": "ANTs antsAI 2.6.5",
+     "sub": "8 threads · as built",
      "arrays": {
       "placed": {
        "blob": "6a391bbf4472e51bb9770b3a.bin",
@@ -11042,7 +11235,8 @@
        0.0,
        537.0228799274369
       ]
-     }
+     },
+     "port": "original"
     }
    ],
    "diffs": [
@@ -11051,8 +11245,8 @@
      "a": "larmorx",
      "b": "ants-1",
      "kind": "main",
-     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
-     "role_label": "larmorx against the original",
+     "label": "replica − ANTs antsAI 2.6.5, 1 thread, as built",
+     "role_label": "the replica against the original",
      "metrics": {
       "placed": {
        "identical": true,
@@ -11093,15 +11287,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "larmorx gives the unmodified ANTs program's bytes."
+     "reason": "The replica gives the unmodified ANTs program's bytes.",
+     "port": "replica"
     },
     {
      "id": "lx-cr",
      "a": "larmorx",
      "b": "ants-1-cr",
      "kind": "main",
-     "label": "larmorx − ANTs 2.6.5, correctly rounded maths",
-     "role_label": "larmorx against the original",
+     "label": "replica − ANTs antsAI 2.6.5, correctly rounded maths",
+     "role_label": "the replica against the original: correctly rounded maths",
      "metrics": {
       "placed": {
        "identical": true,
@@ -11142,15 +11337,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "larmorx gives ANTs' bytes with correctly rounded maths."
+     "reason": "The replica gives ANTs' bytes with correctly rounded maths.",
+     "port": "replica"
     },
     {
      "id": "lx1-lx",
      "a": "larmorx-1",
      "b": "larmorx",
      "kind": "check",
-     "label": "larmorx, 1 thread − 8 threads (reproduce)",
-     "role_label": "larmorx against itself",
+     "label": "replica, 1 thread − 8 threads (reproduce)",
+     "role_label": "the replica against itself: 1 and 8 threads",
      "metrics": {
       "placed": {
        "identical": true,
@@ -11173,15 +11369,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "larmorx's result does not depend on its thread count."
+     "reason": "The replica's result does not depend on its thread count.",
+     "port": "replica"
     },
     {
      "id": "fix-lx",
      "a": "larmorx-fix",
      "b": "larmorx",
      "kind": "check",
-     "label": "larmorx, default − reproduce mode",
-     "role_label": "larmorx against itself",
+     "label": "replica, fix − reproduce",
+     "role_label": "the replica against itself: fix and reproduce",
      "metrics": {
       "placed": {
        "identical": true,
@@ -11222,15 +11419,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "No correction of the defect register changes this call."
+     "reason": "No correction of the defect register changes this call.",
+     "port": "replica"
     },
     {
      "id": "ants8-ants1",
      "a": "ants-8",
      "b": "ants-1",
      "kind": "variability",
-     "label": "ANTs 2.6.5, 8 threads − 1 thread",
-     "role_label": "the original against itself",
+     "label": "ANTs antsAI 2.6.5, 8 threads − 1 thread",
+     "role_label": "the original against itself: 1 and 8 threads",
      "metrics": {
       "placed": {
        "identical": false,
@@ -11271,7 +11469,8 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "ANTs' own result moves with its thread count (placed): the yardstick for any difference above."
+     "reason": "ANTs' own result moves with its thread count (placed): the yardstick for any difference above.",
+     "port": "original"
     }
    ],
    "default": {
@@ -11320,6 +11519,55 @@
     "Inputs: input 1 (sha256 8265828adf534c2e…)",
     "Runs: figures cache entry `ants-ai/panel-fmriprep-init-aff-tumour`, computed 2026-10-26T21:59:46+00:00 with larmorx `349d3f781431`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
+   "order": {
+    "panels": [
+     "template",
+     "ants-1",
+     "ants-8",
+     "ants-1-cr",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "ants8-ants1",
+     "lx-ants",
+     "lx-cr",
+     "fix-lx",
+     "lx1-lx"
+    ],
+    "groups": [
+     [
+      "The original against itself: the yardstick",
+      [
+       "ants8-ants1"
+      ]
+     ],
+     [
+      "The replica against the original",
+      [
+       "lx-ants",
+       "lx-cr"
+      ]
+     ],
+     [
+      "The replica against itself: thread counts, fix and reproduce",
+      [
+       "fix-lx",
+       "lx1-lx"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "In `reproduce`, on 1 and 8 threads, the replica gives ANTs' bytes, as built and with correctly rounded maths. No correction by default changes this call.",
+    "verdicts": [
+     {
+      "diff": "lx-ants",
+      "port": "replica",
+      "verdict": "bit-identical"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds005003",
     "templateflow-OASIS30ANTs"
@@ -11336,7 +11584,7 @@
     },
     {
      "label": "Node",
-     "text": "inside `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of the oracle run ds004884-sub-M2079-noreconall"
+     "text": "inside `anat_fit/register_template[MNI152NLin2009cAsym]/registration` of the fMRIPrep run ds004884-sub-M2079-noreconall"
     },
     {
      "label": "Command",
@@ -11344,7 +11592,7 @@
     },
     {
      "label": "Programs",
-     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; larmorx at commit `1fa019a08fbb`"
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; the replica at commit `1fa019a08fbb`"
     },
     {
      "label": "Grid",
@@ -11515,13 +11763,14 @@
      "window": [
       0.0,
       9107.01456105709
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "ants-1",
      "role": "original",
-     "label": "ANTs 2.6.5, 1 thread",
-     "sub": "as built (GCC 14.3), glibc's maths",
+     "label": "ANTs antsAffineInitializer 2.6.5",
+     "sub": "1 thread · as built (GCC 14.3), glibc's maths",
      "arrays": {
       "placed": {
        "blob": "de6fe1fde25db0e2c461f8e6.bin",
@@ -11534,12 +11783,13 @@
        0.0,
        989.0722672523259
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "ants-1-cr",
      "role": "reference",
-     "label": "ANTs 2.6.5, correctly rounded maths",
+     "label": "ANTs antsAffineInitializer 2.6.5, correctly rounded maths",
      "sub": "1 thread, CORE-MATH preloaded",
      "arrays": {
       "placed": {
@@ -11552,13 +11802,14 @@
        0.0,
        989.0722672523259
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "larmorx",
      "role": "larmorx",
-     "label": "larmorx (port)",
-     "sub": "reproduce mode, 8 threads",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · reproduce, 8 threads · against ANTs antsAffineInitializer 2.6.5",
      "arrays": {
       "placed": {
        "same": "ants-1:placed",
@@ -11570,13 +11821,14 @@
        0.0,
        989.0722672523259
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-fix",
      "role": "larmorx",
-     "label": "larmorx (port)",
-     "sub": "default mode, 8 threads",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · fix (the default), 8 threads",
      "arrays": {
       "placed": {
        "blob": "21802393eebb56e4bd33c606.bin",
@@ -11589,13 +11841,14 @@
        0.0,
        983.0924249433396
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "ants-8",
      "role": "original",
-     "label": "ANTs 2.6.5, 8 threads",
-     "sub": "as built",
+     "label": "ANTs antsAffineInitializer 2.6.5",
+     "sub": "8 threads · as built",
      "arrays": {
       "placed": {
        "blob": "0ca1d547d8ed7b3aecc6594e.bin",
@@ -11608,7 +11861,8 @@
        0.0,
        988.9570620680444
       ]
-     }
+     },
+     "port": "original"
     }
    ],
    "diffs": [
@@ -11617,8 +11871,8 @@
      "a": "larmorx",
      "b": "ants-1",
      "kind": "main",
-     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
-     "role_label": "larmorx against the original",
+     "label": "replica − ANTs antsAffineInitializer 2.6.5, 1 thread, as built",
+     "role_label": "the replica against the original",
      "metrics": {
       "placed": {
        "identical": true,
@@ -11660,15 +11914,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "larmorx gives the unmodified ANTs program's bytes."
+     "reason": "The replica gives the unmodified ANTs program's bytes.",
+     "port": "replica"
     },
     {
      "id": "lx-cr",
      "a": "larmorx",
      "b": "ants-1-cr",
      "kind": "main",
-     "label": "larmorx − ANTs 2.6.5, correctly rounded maths",
-     "role_label": "larmorx against the original",
+     "label": "replica − ANTs antsAffineInitializer 2.6.5, correctly rounded maths",
+     "role_label": "the replica against the original: correctly rounded maths",
      "metrics": {
       "placed": {
        "identical": true,
@@ -11710,15 +11965,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "larmorx gives ANTs' bytes with correctly rounded maths."
+     "reason": "The replica gives ANTs' bytes with correctly rounded maths.",
+     "port": "replica"
     },
     {
      "id": "lx1-lx",
      "a": "larmorx-1",
      "b": "larmorx",
      "kind": "check",
-     "label": "larmorx, 1 thread − 8 threads (reproduce)",
-     "role_label": "larmorx against itself",
+     "label": "replica, 1 thread − 8 threads (reproduce)",
+     "role_label": "the replica against itself: 1 and 8 threads",
      "metrics": {
       "placed": {
        "identical": true,
@@ -11741,15 +11997,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "larmorx's result does not depend on its thread count."
+     "reason": "The replica's result does not depend on its thread count.",
+     "port": "replica"
     },
     {
      "id": "fix-lx",
      "a": "larmorx-fix",
      "b": "larmorx",
      "kind": "check",
-     "label": "larmorx, default − reproduce mode",
-     "role_label": "larmorx against itself",
+     "label": "replica, fix − reproduce",
+     "role_label": "the replica against itself: fix and reproduce",
      "metrics": {
       "placed": {
        "identical": false,
@@ -11791,15 +12048,16 @@
      },
      "links": [],
      "verdict": "d13",
-     "reason": "larmorx's default corrects ANTS-54, ITK-21 ([register](repo:docs/findings/upstream-defects.md)); reproduce mode gives ANTs' result. Changed: placed."
+     "reason": "The replica's default, `fix`, corrects ANTS-54, ITK-21 ([register](repo:docs/findings/upstream-defects.md)); `reproduce` gives ANTs' result. Changed: placed.",
+     "port": "replica"
     },
     {
      "id": "ants8-ants1",
      "a": "ants-8",
      "b": "ants-1",
      "kind": "variability",
-     "label": "ANTs 2.6.5, 8 threads − 1 thread",
-     "role_label": "the original against itself",
+     "label": "ANTs antsAffineInitializer 2.6.5, 8 threads − 1 thread",
+     "role_label": "the original against itself: 1 and 8 threads",
      "metrics": {
       "placed": {
        "identical": false,
@@ -11841,7 +12099,8 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "ANTs' own result moves with its thread count (placed): the yardstick for any difference above."
+     "reason": "ANTs' own result moves with its thread count (placed): the yardstick for any difference above.",
+     "port": "original"
     }
    ],
    "default": {
@@ -11894,12 +12153,79 @@
     "Inputs: input 1 (sha256 da7037c3cb139408…)",
     "Runs: figures cache entry `ants-ai/panel-affine-initializer-stroke`, computed 2026-10-26T23:21:01+00:00 with larmorx `1fa019a08fbb`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
+   "order": {
+    "panels": [
+     "template",
+     "ants-1",
+     "ants-8",
+     "ants-1-cr",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "ants8-ants1",
+     "lx-ants",
+     "lx-cr",
+     "fix-lx",
+     "lx1-lx"
+    ],
+    "groups": [
+     [
+      "The original against itself: the yardstick",
+      [
+       "ants8-ants1"
+      ]
+     ],
+     [
+      "The replica against the original",
+      [
+       "lx-ants",
+       "lx-cr"
+      ]
+     ],
+     [
+      "The replica against itself: thread counts, fix and reproduce",
+      [
+       "fix-lx",
+       "lx1-lx"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "In `reproduce`, on 1 and 8 threads, the replica gives ANTs' bytes, as built and with correctly rounded maths. Its default, `fix`, corrects [ANTS-54](repo:docs/findings/upstream-defects.md#summary) and [ITK-21](repo:docs/findings/upstream-defects.md#summary) here.",
+    "verdicts": [
+     {
+      "diff": "lx-ants",
+      "port": "replica",
+      "verdict": "bit-identical"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds004884",
     "templateflow-MNI152NLin2009cAsym"
    ]
   }
  ],
+ "random_testing": {
+  "title": "Random testing, the replica against the original: ANTs `antsAI` and `antsAffineInitializer` 2.6.5",
+  "names": {
+   "port": "replica"
+  }
+ },
+ "category_labels": {
+  "initial": "initial alignments",
+  "search": "the multi-start search",
+  "messages": "messages",
+  "random": "random sampling",
+  "real": "real images",
+  "blobs": "the blob alignment",
+  "difftest": "random testing",
+  "panel-fmriprep": "data panel: fMRIPrep's calls",
+  "panel-images": "data panel: other images"
+ },
+ "presentation": "writing-guide",
  "cases_credits": [
   "openneuro-ds000005",
   "openneuro-ds005003",

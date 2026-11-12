@@ -3,7 +3,7 @@
  "tool": "ants-atropos",
  "title": "Atropos",
  "provenance": {
-  "exporter": "0b63260ce0e4945462ddaf895a1d108e365631a1",
+  "exporter": "a012c97ed02f601ea0b5b25c308dc596c1b0131a",
   "records": [
    {
     "path": "docs/validation/ants-atropos.json",
@@ -2063,7 +2063,7 @@
      "outcome": "pass",
      "verdict": "divergence",
      "checks": "20/20",
-     "reason": "ANTs weighs part of its samples with memory it never wrote (ANTS-107): its values depend on the heap and change with the output paths' length; the replica weighs them 0. Everything else (exit status, headers, types, shapes) is compared."
+     "reason": "ANTs weighs part of its samples with memory it never wrote (ANTS-107): its values depend on the heap and change with the output paths' length; the replica weighs them 0. Everything else (exit status, headers, types, shapes) is compared; the record passes the case on it, the heap's values not required, and this page counts it with the expected divergences."
     }
    }
   },
@@ -5950,7 +5950,7 @@
     },
     {
      "label": "Command",
-     "text": "`Atropos -d 3 -a <fMRIPrep oracle run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz -x <fMRIPrep oracle run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz -i PriorProbabilityImages[3,<workspace>/oracles/figures-cache/ants-atropos/ds000005-oasis-priors/prior%02d.nii.gz,0.25] -k Gaussian -m [0.1,1x1x1] -c [5,0] -g 1 -p Socrates[1] -r 0 -e 0 -o [out.nii.gz,out-post%02d.nii.gz]`"
+     "text": "`Atropos -d 3 -a <fMRIPrep run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/inu_n4/mapflow/_inu_n40/sub-01_T1w_noise_corrected_maths_corrected.nii.gz -x <fMRIPrep run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/get_brainmask/tpl-OASIS30ANTs_res-01_label-brain_probseg_trans_resampled_maths_maths.nii.gz -i PriorProbabilityImages[3,<the OASIS30ANTs priors in the T1w's space>/prior%02d.nii.gz,0.25] -k Gaussian -m [0.1,1x1x1] -c [5,0] -g 1 -p Socrates[1] -r 0 -e 0 -o [out.nii.gz,out-post%02d.nii.gz]`"
     },
     {
      "label": "Programs",
@@ -7153,7 +7153,7 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "ANTs labels 94.0% of the voxels as the truth; it gives the partial-volume classes 237 and 106 voxels, the truth has 1368 and 408.",
+     "reason": "ANTs labels 94.0% of the mask's 23,984 voxels as the truth; it gives the partial-volume classes 237 and 106 voxels, the truth has 1368 and 408.",
      "port": "original"
     },
     {
@@ -7203,7 +7203,7 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The replica's default, `fix`, labels 97.7% of the voxels as the truth; 1418 and 454 voxels in the partial-volume classes.",
+     "reason": "The replica's default, `fix`, labels 97.7% of the mask's 23,984 voxels as the truth; 1418 and 454 voxels in the partial-volume classes.",
      "port": "replica"
     },
     {
@@ -7361,7 +7361,7 @@
     ]
    },
    "shows": {
-    "text": "In `reproduce` the replica gives ANTs' labels voxel for voxel, as built and with correctly rounded maths. Its default, `fix`, corrects [ANTS-106](repo:docs/findings/upstream-defects.md#summary) (with [ITK-50](repo:docs/findings/upstream-defects.md#summary) and [ANTS-96](repo:docs/findings/upstream-defects.md#summary)): against the known fractions it labels 97.7 % of the voxels as the truth, ANTs 94.0 %. The two partial-volume classes get 1,418 and 454 voxels; the truth has 1,368 and 408, and ANTs gives them 237 and 106.",
+    "text": "In `reproduce` the replica gives ANTs' labels voxel for voxel, as built and with correctly rounded maths. Its default, `fix`, corrects [ANTS-106](repo:docs/findings/upstream-defects.md#summary) (with [ITK-50](repo:docs/findings/upstream-defects.md#summary) and [ANTS-96](repo:docs/findings/upstream-defects.md#summary)): against the known fractions it labels 97.7 % of the voxels inside the phantom's mask as the truth, ANTs 94.0 %. The two partial-volume classes get 1,418 and 454 voxels; the truth has 1,368 and 408, and ANTs gives them 237 and 106.",
     "verdicts": [
      {
       "diff": "lx-ants",
@@ -10112,7 +10112,7 @@
  "tables": [
   {
    "id": "ants-106",
-   "title": "Partial-volume classes with the MRF on the phantom of known fractions: Dice per class and the share of voxels labelled as the truth (the record's cases)",
+   "title": "Partial-volume classes with the MRF on the phantom of known fractions: Dice per class and the share of the mask's voxels labelled as the truth (the record's cases)",
    "columns": [
     {
      "label": "Run"
@@ -10138,7 +10138,7 @@
      "num": true
     },
     {
-     "label": "voxels as the truth",
+     "label": "voxels of the mask as the truth",
      "num": true
     },
     {

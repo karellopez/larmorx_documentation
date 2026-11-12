@@ -3,7 +3,7 @@
  "tool": "ants-registration",
  "title": "antsRegistration",
  "provenance": {
-  "exporter": "7842e841c58e2fe0211b4abd94c0364c31d43b29",
+  "exporter": "b6d0d35dd37ba82fda3cba9945536cc1de269e72",
   "records": [
    {
     "path": "docs/validation/ants-registration.json",
@@ -10700,7 +10700,7 @@
   {
    "id": "difftest/empty-sample-set-exception",
    "category": "difftest",
-   "description": "",
+   "description": "random testing's permanent case: a stage whose sampled point set is empty: ITK's exception at itkImageToImageMetricv4.hxx:263 with the metric's class (the replica printed line 268 and the base class)",
    "command": "",
    "results": {
     "port": {
@@ -10714,7 +10714,7 @@
   {
    "id": "difftest/field-under-a-mat-name",
    "category": "difftest",
-   "description": "",
+   "description": "random testing's permanent case: -z 0 with a Translation stage whose Demons metric throws (no transform added) before a Gaussian displacement-field stage: ANTs writes the field under the Translation stage's .mat name as its own GaussianSmoothingOnUpdateDisplacementFieldTransform; the replica wrote a plain DisplacementFieldTransform",
    "command": "",
    "results": {
     "port": {
@@ -10728,7 +10728,7 @@
   {
    "id": "difftest/float-field-jacobian-index",
    "category": "difftest",
-   "description": "",
+   "description": "random testing's permanent case: an Exponential stage after a deformable one with --float 1: the displacement field's Jacobian at the voxel nearest a float point, indexed in float (the replica indexed in double; half-way points rounded differently)",
    "command": "",
    "results": {
     "port": {
@@ -10742,7 +10742,7 @@
   {
    "id": "difftest/four-dimensional-field-parameters",
    "category": "difftest",
-   "description": "",
+   "description": "random testing's permanent case: a 4D B-spline displacement-field stage: the runner reads the 4D composite by its HDF5 parameters",
    "command": "",
    "results": {
     "port": {
@@ -10756,7 +10756,7 @@
   {
    "id": "difftest/mattes-later-level-one-intensity",
    "category": "difftest",
-   "description": "",
+   "description": "random testing's permanent case: a BSpline stage with MI and a sparse mask where the full-resolution fixed image has one intensity: ITK keeps the first level's joint histogram images, so the second level's bin size of 0 is used silently (the metric 0) where the first level would refuse (ITK-100, reproduced)",
    "command": "",
    "results": {
     "port": {
@@ -10770,7 +10770,7 @@
   {
    "id": "difftest/mattes-nan-bin-svd-warning",
    "category": "difftest",
-   "description": "",
+   "description": "random testing's permanent case: Mattes on images with NaN values (a time-varying velocity field stage): the joint histogram's NaN bin size makes vnl's SVD fail and print its warning, once per stage (the replica printed none). Dense sampling (`None`) since 2026-10-28: this stage seeds `Random` and `Regular` sampling from the clock in ANTs (ANTS-82), and its metric values then vary from run to run (0 or ±2.2e-16 here); found with `Random,0.25`",
    "command": "",
    "results": {
     "port": {
@@ -10784,7 +10784,7 @@
   {
    "id": "difftest/sampled-derivatives-aliased",
    "category": "difftest",
-   "description": "",
+   "description": "random testing's permanent case: a sampled B-spline displacement-field stage with a shrink factor: the derivatives of sample points outside the shrunk virtual region, aliased by ITK (ITK-97, reproduced)",
    "command": "",
    "results": {
     "port": {
@@ -10798,7 +10798,7 @@
   {
    "id": "difftest/syn-float-metric-sum-overflow",
    "category": "difftest",
-   "description": "",
+   "description": "random testing's permanent case: B-spline SyN with --float 1 and a mask leaving no valid point: ITK sums the two halves' FLT_MAX metric values in float (inf) before halving them; the replica summed in double",
    "command": "",
    "results": {
     "port": {
@@ -16226,7 +16226,7 @@
     ]
    },
    "shows": {
-    "text": "In `reproduce`, on 1 and 12 threads, the replica gives ANTs' one-thread result with correctly rounded maths bit for bit: the warped T1w, every value of the displacement field and all 865 lines of its output. ANTs as built differs only where glibc's `exp`, `log`, `sin` or `cos` is not correctly rounded, and the optimiser's iterations carry the change: up to 117 in the warped T1w, and a voxel's displacement moves by up to 1.08 mm in the brain. ANTs' own thread counts move its result further: up to 240 and 1.49 mm, 4 threads against one. No correction by default changes this call.",
+    "text": "In `reproduce`, on 1 and 12 threads, the replica gives ANTs' one-thread result with correctly rounded maths bit for bit: the warped T1w, every value of the displacement field and all 865 lines of its output (addresses, times and paths masked, as the record compares them). ANTs as built differs only where glibc's `exp`, `log`, `sin` or `cos` is not correctly rounded, and the optimiser's iterations carry the change: up to 117 in the warped T1w, and a voxel's displacement moves by up to 1.08 mm in the brain. ANTs' own thread counts move its result further: up to 240 and 1.49 mm, 4 threads against one. No correction by default changes this call.",
     "verdicts": [
      {
       "diff": "lx-ants1",
@@ -18697,7 +18697,7 @@
     ]
    },
    "shows": {
-    "text": "In `reproduce`, on 1 and 12 threads, the replica gives ANTs' one-thread result with correctly rounded maths bit for bit: the warped T1w, the B-spline smoothed field and all 857 lines of its output. ANTs as built differs only where glibc's maths is not correctly rounded: up to 57 in the warped T1w, and a voxel's displacement moves by up to 0.51 mm in the brain. ANTs' own thread counts move its result further: up to 232 at 2 threads and 1.05 mm at 4 threads, against one. No correction by default changes this call.",
+    "text": "In `reproduce`, on 1 and 12 threads, the replica gives ANTs' one-thread result with correctly rounded maths bit for bit: the warped T1w, the B-spline smoothed field and all 857 lines of its output (addresses, times and paths masked, as the record compares them). ANTs as built differs only where glibc's maths is not correctly rounded: up to 57 in the warped T1w, and a voxel's displacement moves by up to 0.51 mm in the brain. ANTs' own thread counts move its result further: up to 232 at 2 threads and 1.05 mm at 4 threads, against one. No correction by default changes this call.",
     "verdicts": [
      {
       "diff": "lx-ants1",
@@ -21168,7 +21168,7 @@
     ]
    },
    "shows": {
-    "text": "In `reproduce`, on 1 and 12 threads, the replica gives ANTs' one-thread result with correctly rounded maths bit for bit: the warped T1w, the field integrated from the velocity field and all 988 lines of its output. ANTs as built differs only where glibc's maths is not correctly rounded: up to 53 in the warped T1w, and a voxel's displacement moves by up to 0.27 mm in the brain. ANTs' own thread counts move its result further: up to 283 and 0.92 mm, 4 threads against one. No correction by default changes this call.",
+    "text": "In `reproduce`, on 1 and 12 threads, the replica gives ANTs' one-thread result with correctly rounded maths bit for bit: the warped T1w, the field integrated from the velocity field and all 988 lines of its output (addresses, times and paths masked, as the record compares them). ANTs as built differs only where glibc's maths is not correctly rounded: up to 53 in the warped T1w, and a voxel's displacement moves by up to 0.27 mm in the brain. ANTs' own thread counts move its result further: up to 283 and 0.92 mm, 4 threads against one. No correction by default changes this call.",
     "verdicts": [
      {
       "diff": "lx-ants1",

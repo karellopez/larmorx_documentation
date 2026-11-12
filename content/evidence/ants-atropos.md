@@ -8,9 +8,11 @@ lede: >-
   bit in every compared case of its two records once ANTs uses correctly rounded maths (58 of
   58 and 17 of 17). With ANTs as built, 27 of the 58 and 3 of the 17 match bit for bit, and the
   classified image matches in all of them; the others' posteriors differ only where glibc's
-  `expf`, `logf`, `exp`, `log` or `pow` is not correctly rounded. sMRIPrep's own call, in five
-  fMRIPrep runs, is among them. Its default, `fix`, corrects ITK-50 and nineteen other defects
-  of ANTs and ITK, among them partial-volume classes that the MRF shut out (ANTS-106).
+  `expf`, `logf`, `exp`, `log` or `pow` is not correctly rounded. sMRIPrep's own call on five
+  fMRIPrep runs is among the 58: identical with correctly rounded maths in all five, and as
+  built in one. Its default, `fix`, corrects ITK-50 and eighteen other defects of ANTs and ITK
+  (ITK-51, ANTS-90 to ANTS-106), among them partial-volume classes that the MRF shut out
+  (ANTS-106).
 description: >-
   How LARMORX's replica of ANTs' Atropos compares with ANTs 2.6.5 and fMRIPrep 25.2.6:
   sMRIPrep's segmentation of a real T1w by ANTs at 1 to 8 threads and with the clock's seed, a
@@ -104,7 +106,7 @@ Each case of the two records, the standard comparison and the data panel, with w
 
 ## Corrections by default {#corrections}
 
-Where ANTs has a deterministic defect that changes a result, the replica corrects it by default, `fix`, and warns. `upstream_defects="reproduce"` (on the command line `--upstream-defects reproduce` from the next release, `LARMORX_UPSTREAM_DEFECTS=reproduce` in 0.1.0rc1) gives ANTs' behaviour, and the records compare with it. The record's list of what `fix` changed meets ITK-50, ITK-51 and ANTS-90 to ANTS-106, each corrected by default ([register](repo:docs/findings/upstream-defects.md)). ITK-50 changes sMRIPrep's own call, as the worked example measures; ANTS-106 changes partial-volume classes with an MRF, as the phantom above measures. ANTS-107, where ANTs weighs part of its samples with memory it never wrote, is not met by default and is filled deterministically when reproduced.
+Where ANTs has a deterministic defect that changes a result, the replica corrects it by default, `fix`, and warns. `upstream_defects="reproduce"` (on the command line `--upstream-defects reproduce` from the next release, `LARMORX_UPSTREAM_DEFECTS=reproduce` in 0.1.0rc1) gives ANTs' behaviour, and the records compare with it. Every Atropos defect of the [register](repo:docs/findings/upstream-defects.md) but ANTS-107 is corrected by default: ITK-50, ITK-51 and ANTS-90 to ANTS-106. The record's list of what `fix` changed meets fifteen of them (ANTS-90, ANTS-92, ANTS-94 to ANTS-96, ANTS-98, ANTS-100 to ANTS-106, ITK-50 and ITK-51). ITK-50 changes sMRIPrep's own call, as the worked example measures; ANTS-106 changes partial-volume classes with an MRF, as the phantom above measures. ANTS-107, where ANTs weighs part of its samples with memory it never wrote, is not met by default and is filled deterministically when reproduced.
 
 ## Random testing {#random-testing}
 
