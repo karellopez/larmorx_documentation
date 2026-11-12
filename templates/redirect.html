@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{#- A redirect page (`redirect:` in the front matter): an old address that names the new one.
+    Its script sends the reader on before the page paints, with the anchor kept, or to the page
+    that now holds the anchor (`anchors:`); a plain meta refresh would drop the anchor. Readers
+    without scripts follow the link. -#}
+{% block head %}
+<meta name="robots" content="noindex">
+<script type="application/json" id="redirect-map">{{ redirect.map }}</script>
+<script>
+(function () {
+  var m = JSON.parse(document.getElementById('redirect-map').textContent);
+  var id = decodeURIComponent(location.hash.slice(1));
+  var to = (id && m.anchors[id]) || (m.to + (id ? '#' + encodeURIComponent(id) : ''));
+  location.replace(to);
+})();
+</script>{% endblock %}
+{% block body_class %}page-404 page-redirect{% endblock %}
+{% block main %}
+<div class="doc-layout">
+  <main id="main" class="doc-main" tabindex="-1" style="grid-column: 1 / -1; max-width: var(--content-w); margin: 0 auto; padding-top: 96px;">
+    <header class="doc-header">
+      <p class="kicker">Moved</p>
+      <h1>{{ page.title | md_inline }} has moved</h1>
+      <p class="lede">{% if page.meta.get('lede') %}{{ page.meta.lede | md_inline }}{% else %}This address is kept so that old links keep working.{% endif %}</p>
+    </header>
+    <div class="prose">
+      <p>Its new address: <a href="{{ redirect.to }}">{{ redirect.target }}</a>.</p>
+      {%- if redirect.moved %}
+      <p>Sections that moved to another page:</p>
+      <ul>
+        {%- for m in redirect.moved %}
+        <li><code>#{{ m.id }}</code>: <a href="{{ m.href }}">{{ m.to }}</a></li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+    </div>
+  </main>
+</div>
+{% endblock %}

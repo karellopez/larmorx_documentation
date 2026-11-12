@@ -84,6 +84,9 @@
   --deep-ants: #467dea; --deep-afni: #987e2e; --deep-fsl: #438c84;
   --deep-freesurfer: #9860f6; --deep-workbench: #d8489f; --deep-larmorx: #c76717;
   --num-ink: #9f4e05;      /* the outlined numerals: the accent's hue at 4.5:1 */
+  /* The original and its two kinds of port, the same everywhere (docs/writing-guide.md §5):
+     always with a name and a mark (a square, a triangle, a circle), never colour alone. */
+  --port-original: #4a453e; --port-replica: #467dea; --port-clean-room: #c76717;
   --still-light: block; --still-dark: none;
 }
 
@@ -102,6 +105,7 @@
     --deep-freesurfer: var(--c-freesurfer); --deep-workbench: var(--c-workbench); --deep-larmorx: var(--c-larmorx);
     --num-ink: var(--accent);
     --still-light: none; --still-dark: block;
+    --port-original: #b6b0a3; --port-replica: #5890fa; --port-clean-room: #d97530;
   }
 }
 :root[data-theme="dark"] {
@@ -116,6 +120,7 @@
   --deep-freesurfer: var(--c-freesurfer); --deep-workbench: var(--c-workbench); --deep-larmorx: var(--c-larmorx);
   --num-ink: var(--accent);
   --still-light: none; --still-dark: block;
+  --port-original: #b6b0a3; --port-replica: #5890fa; --port-clean-room: #d97530;
 }
 
 /* Each ecosystem as a pair: --kc its pastel, --kd its mark on this paper. */
@@ -626,4 +631,39 @@ code, kbd, pre { font-family: var(--mono); font-variant-ligatures: none; }
   .site-header, .sidebar, .toc, .hero-canvas, .hero-hud, .site-footer .footer-links { display: none !important; }
   body { background: #fff; color: #000; }
   body::after { display: none; }
+}
+
+/* ------------------------------------------------------- reference pages */
+/* A program's reference (templates/reference.html): its ports at a glance, each with its
+   colour, its mark and its name; the original's help under each option; its usage text. */
+.ref-facts { margin-top: 26px; }
+.ref-facts a { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+/* In a reference page's tables code breaks only between its words (the exporter wraps each
+   word in .nw), never inside one, so a column takes the width of its longest word. */
+.page-reference .table-wrap td code { overflow-wrap: normal; }
+.page-reference .nw { white-space: nowrap; }
+.ref-ports { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.prose .ref-ports li, .ref-ports li { margin: 0; }
+.port { --pc: var(--port-original); }
+.port--replica { --pc: var(--port-replica); }
+.port--clean-room { --pc: var(--port-clean-room); }
+.port-name { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
+.port-name::before { content: ""; display: inline-block; width: 9px; height: 9px; margin-right: 8px; background: var(--pc); vertical-align: 0; }
+.port--replica .port-name::before { clip-path: polygon(50% 0, 100% 100%, 0 100%); width: 10px; }
+.port--clean-room .port-name::before { border-radius: 50%; }
+.port-licence { color: var(--ink-3); font-size: 0.9em; }
+.opt-help { display: block; margin-top: 4px; font-size: 0.86em; line-height: 1.45; color: var(--ink-3); }
+.prose details.usage { margin: 18px 0; }
+.prose details.usage > summary { cursor: pointer; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--ink-2); }
+.prose details.usage > summary:hover { color: var(--ink); }
+.prose details.usage[open] > summary { margin-bottom: 10px; }
+/* On a phone a reference table's row stacks: its names on one line, its description below. */
+@media (max-width: 640px) {
+  .page-reference .table-wrap thead { display: none; }
+  .page-reference .table-wrap table, .page-reference .table-wrap tbody { display: block; }
+  .page-reference .table-wrap tr { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; padding: 12px 14px; border-top: 1px solid var(--line-soft); }
+  .page-reference .table-wrap tr:first-child { border-top: 0; }
+  .page-reference .table-wrap td { padding: 0; border: 0; }
+  .page-reference .table-wrap td:last-child { flex: 1 1 100%; }
+  .page-reference .table-wrap td:empty { display: none; }
 }

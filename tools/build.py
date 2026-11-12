@@ -16,6 +16,19 @@ heading levels that do not skip, leftovers of the template language, and
 comments in the shell blocks people copy (zsh, macOS's default shell, does not
 take a `#` typed at its prompt as a comment, nor does Windows' Command Prompt).
 Problems stop the build (exit status 1).
+
+Two kinds of page besides the documents:
+
+- A redirect page (`redirect: /new/address/` in its front matter) keeps an old
+  address working: it names the new address, sends the reader there with the
+  anchor kept, and maps the anchors listed under `anchors:` (`data:
+  /programs/fsl/bet/#data`) to the pages that now hold them. A link from
+  another page to an anchor of a redirect page is checked where it lands.
+- The 404 page, which GitHub Pages serves for every missing address, holds the
+  site's addresses: an address typed in another letter case
+  (`/programs/ants/antsregistration/`) sends the reader to the one that
+  matches in lower case, anchor kept. No page is written twice in two letter
+  cases (the usual file systems of macOS and Windows would make them one).
 """
 
 from __future__ import annotations
@@ -79,6 +92,11 @@ class Page:
     def title(self) -> str:
         return self.meta.get("title", "")
 
+    @property
+    def redirect(self) -> str | None:
+        """The new address of a redirect page ("/evidence/fsl-bet/"), else None."""
+        return self.meta.get("redirect")
+
 
 def read_page(path: Path) -> Page:
     text = path.read_text(encoding="utf-8")
@@ -105,6 +123,11 @@ def slug(text: str) -> str:
     s = re.sub(r"<[^>]+>", "", text).lower()
     s = re.sub(r"[^\w\s-]", "", s)
     return re.sub(r"[\s_]+", "-", s).strip("-")
+
+
+def json_script(data) -> str:
+    """JSON that is safe inside a <script> element."""
+    return json.dumps(data, ensure_ascii=False, sort_keys=True).replace("</", "<\\/")
 
 
 # -------------------------------------------------------------- markdown
@@ -337,12 +360,20 @@ class Site:
             page.meta.setdefault("description", self.site["description"])
             ctx = dict(h)
             ctx["page"] = PageView(page, self.site)
-            template = page.meta.get("template", "404" if page.url == "404.html" else "doc")
+            if page.redirect:
+                ctx["redirect"] = self.redirect_context(page, h["link"], pages)
+            if page.url == "404.html":
+                ctx["addresses"] = Markup(json_script(
+                    {"base": self.base_path, "addresses": sorted(p.url for p in pages if p.url != "404.html")}))
+            template = page.meta.get("template", "404" if page.url == "404.html"
+                                     else "redirect" if page.redirect else "doc")
             out = tenv.get_template(f"{template}.html").render(**ctx)
             page.out.parent.mkdir(parents=True, exist_ok=True)
             page.out.write_text(out, encoding="utf-8")
         self.sitemap(pages)
-        problems, notes = check(OUT, self.base_path, self.repo_paths, self.main_repo)
+        redirects = {p.out: {"to": self.out_of(p.redirect), "anchors": {
+            k: self.out_of(v) for k, v in (p.meta.get("anchors") or {}).items()}} for p in pages if p.redirect}
+        problems, notes = check(OUT, self.base_path, self.repo_paths, self.main_repo, redirects)
         problems = sorted(set(self.evidence_problems)) + self.page_problems + problems
         for n in notes:
             print(f"note: {n}")
@@ -351,8 +382,30 @@ class Site:
         print(f"built {len(pages)} pages in {time.time() - t0:.2f} s; {len(problems)} problems")
         return 1 if problems else 0
 
+    def out_of(self, target: str) -> tuple[Path, str]:
+        """The file a site path ("/evidence/fsl-bet/#speed") is written to, and its anchor."""
+        path, _, frag = target.partition("#")
+        rel = path.lstrip("/")
+        return (OUT / (rel + "index.html" if rel == "" or rel.endswith("/") else rel)), frag
+
+    def redirect_context(self, page: Page, link, pages) -> dict:
+        """What a redirect page's layout needs: the new address, the moved anchors (each a
+        link from this page) and their map for the page's script."""
+        if not page.redirect.startswith("/"):
+            raise SystemExit(f"{page.source}: redirect must be a path on this site, not {page.redirect!r}")
+        anchors = page.meta.get("anchors") or {}
+        targets = {p.path for p in pages}
+        for t in [page.redirect, *anchors.values()]:
+            if t.partition("#")[0] not in targets:
+                self.page_problems.append(f"{page.source.relative_to(ROOT).as_posix()}: redirect to {t}, "
+                                          "which is not a page of this site")
+        moved = [{"id": k, "href": link(v), "to": v} for k, v in anchors.items()]
+        data = {"to": link(page.redirect), "anchors": {m["id"]: m["href"] for m in moved}}
+        return {"to": link(page.redirect), "target": page.redirect, "moved": moved,
+                "map": Markup(json_script(data))}
+
     def sitemap(self, pages) -> None:
-        urls = [self.site["base_url"] + p.url for p in pages if p.url != "404.html"]
+        urls = [self.site["base_url"] + p.url for p in pages if p.url != "404.html" and not p.redirect]
         body = "".join(f"<url><loc>{html.escape(u)}</loc></url>" for u in urls)
         (OUT / "sitemap.xml").write_text(
             '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -371,6 +424,8 @@ class PageView:
         self.title = page.meta.get("title", site["title"])
         self.description = page.meta.get("description") or site["description"]
         self.canonical = site["base_url"] + page.url if page.url != "404.html" else ""
+        if page.redirect:
+            self.canonical = site["base_url"] + page.redirect.lstrip("/")
 
 
 # ---------------------------------------------------------------- checks
@@ -408,7 +463,11 @@ class Collector(HTMLParser):
             self.text.append(data)
 
 
-def check(out: Path, base_path: str, repo_paths: set, main_repo: Path | None):
+def check(out: Path, base_path: str, repo_paths: set, main_repo: Path | None, redirects: dict | None = None):
+    """Checks every page written in `out`; `redirects` maps each redirect page's file to its
+    new address and moved anchors ({"to": (file, anchor), "anchors": {id: (file, anchor)}}), so
+    that a link to an anchor of an old address is checked where the reader lands."""
+    redirects = redirects or {}
     problems, notes = [], []
     pages = {}
     for f in sorted(out.rglob("*.html")):
@@ -448,9 +507,14 @@ def check(out: Path, base_path: str, repo_paths: set, main_repo: Path | None):
                 problems.append(f"{rel}: <{tag}> {ref}: {path.relative_to(out).as_posix()} does not exist")
                 continue
             if parts.fragment and path.suffix == ".html":
-                ids = pages[path].ids if path in pages else set()
-                if parts.fragment not in ids:
-                    problems.append(f"{rel}: <{tag}> {ref}: no id {parts.fragment!r} in {path.relative_to(out).as_posix()}")
+                frag, land = parts.fragment, path
+                if path in redirects:
+                    r = redirects[path]
+                    land, frag = r["anchors"].get(frag, (r["to"][0], frag))
+                ids = pages[land].ids if land in pages else set()
+                if frag and frag not in ids:
+                    via = f" (through the redirect {path.relative_to(out).as_posix()})" if land != path else ""
+                    problems.append(f"{rel}: <{tag}> {ref}: no id {frag!r} in {land.relative_to(out).as_posix()}{via}")
     if main_repo and (main_repo / ".git").exists():
         for p in sorted(repo_paths):
             if not (main_repo / p).exists():

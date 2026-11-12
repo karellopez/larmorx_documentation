@@ -30,11 +30,11 @@
     {%- endif %}
   </nav>
   <main id="main" class="doc-main" tabindex="-1">
-    <header class="doc-header">
+    {% block doc_header %}<header class="doc-header">
       {% if page.meta.get('kicker') %}<p class="kicker">{{ page.meta.kicker }}</p>{% endif %}
       <h1>{{ page.title | md_inline }}</h1>
       {% if page.meta.get('lede') %}<p class="lede">{{ page.meta.lede | md_inline }}</p>{% endif %}
-    </header>
+    </header>{% endblock %}
     <div class="prose">
 {{ page.html }}
 {{ ev.page_credits() }}

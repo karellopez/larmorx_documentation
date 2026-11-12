@@ -1,4 +1,23 @@
 {% extends "base.html" %}
+{% block head %}
+<script type="application/json" id="site-addresses">{{ addresses }}</script>
+<script>
+/* GitHub Pages serves this page for every missing address. An address typed in
+   another letter case (/programs/ants/antsregistration/) goes to the address
+   that matches it in lower case, with its anchor and query kept. */
+(function () {
+  var d = JSON.parse(document.getElementById('site-addresses').textContent);
+  var p = location.pathname;
+  if (p.indexOf(d.base) !== 0) return;
+  p = decodeURIComponent(p.slice(d.base.length));
+  var want = p.toLowerCase();
+  if (want !== '' && !/\/$|\.html$/.test(want)) want += '/';
+  for (var i = 0; i < d.addresses.length; i++) {
+    var a = d.addresses[i];
+    if (a.toLowerCase() === want && a !== p) { location.replace(d.base + a + location.search + location.hash); return; }
+  }
+})();
+</script>{% endblock %}
 {% block body_class %}page-404{% endblock %}
 {% block main %}
 <div class="doc-layout">

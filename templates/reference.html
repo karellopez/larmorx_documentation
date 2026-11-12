@@ -1,0 +1,26 @@
+{% extends "doc.html" %}
+{% block body_class %}page-doc page-reference{% endblock %}
+{#- A program's reference page (content/programs/<group>/<program>.md), written by the main
+    repository's exporter (python -m larmorx_validation reference) from docs/api/ and the code:
+    never edited here. Its header holds the facts at a glance: the original, the command line,
+    the Python call, the ports, the evidence and the page's source. -#}
+{% block doc_header %}{% set r = page.meta.reference %}
+<header class="doc-header ref-header">
+  <p class="kicker">{{ page.meta.kicker }}</p>
+  <h1>{{ page.title | md_inline }}</h1>
+  {% if page.meta.get('lede') %}<p class="lede">{{ page.meta.lede | md_inline }}</p>{% endif %}
+  <dl class="facts ref-facts">
+    <dt>Original</dt><dd>{{ r.original }}</dd>
+    <dt>Command line</dt><dd><code>{{ r.command }}</code></dd>
+    <dt>Python</dt><dd><code>{{ r.python }}</code></dd>
+    <dt>Ports</dt><dd><ul class="ref-ports">
+      {%- for p in r.ports %}
+      <li class="port port--{{ p.kind }}"><span class="port-name">{{ p.name }}</span> <code>{{ p.package }}</code> <span class="port-licence">{{ p.licence }}</span>{% if p.status %} <span class="status-tag{% if p.status == 'experimental' %} status-tag--experimental{% else %} eco-{{ r.group }}{% endif %}">{{ p.status }}</span>{% endif %}</li>
+      {%- endfor %}
+    </ul></dd>
+    {%- if r.get('evidence') %}
+    <dt>Evidence</dt><dd><a href="{{ link(r.evidence) }}">every comparison with {{ r.original }}</a></dd>
+    {%- endif %}
+    <dt>Source</dt><dd><a href="{{ repo(r.api) }}">{{ r.api }}</a> and the code, through the exporter</dd>
+  </dl>
+</header>{% endblock %}
