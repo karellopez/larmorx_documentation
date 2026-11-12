@@ -6,7 +6,8 @@ lede: >-
   alike, with a Rician or Gaussian noise model. LARMORX's port is a replica of ANTs 2.6.5's
   program on ITK 5.4.5. In `reproduce` it gives ANTs' one-thread output bit for bit in every
   compared case of its two records once ANTs uses correctly rounded maths (40 of 40 and 21 of
-  21), and in 7 and 0 of them as ANTs is built, where glibc's `expf` is not correctly rounded.
+  21). With ANTs as built, 7 of the 40 and none of the 21 match bit for bit; the others differ
+  only where glibc's `expf` is not correctly rounded.
   ANTs' own result changes with its thread count, in 85 % of a T1w's voxels at 12 threads; the
   replica gives ANTs' one-thread result on any number of threads. Its default, `fix`, corrects
   ANTS-43 and ANTS-44.

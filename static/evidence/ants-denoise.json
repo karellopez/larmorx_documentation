@@ -3,7 +3,7 @@
  "tool": "ants-denoise",
  "title": "DenoiseImage",
  "provenance": {
-  "exporter": "0af6900f05af494edaaaba6721b89c90cdc961ed",
+  "exporter": "241a2a27c687e46d76a22158b744f845d4fd6974",
   "records": [
    {
     "path": "docs/validation/ants-denoise.json",
@@ -2327,7 +2327,7 @@
  ],
  "cases_total": 72,
  "band": {
-  "title": "Variability, the replica against the original divided by the original against itself between thread counts: ANTs `DenoiseImage` 2.6.5, the 32 cases that differ from it as built (log scale)",
+  "title": "Variability, the replica against the original divided by the original against itself between thread counts: ANTs `DenoiseImage` 2.6.5, 32 of the 33 cases that differ from it as built (log scale)",
   "axis": [
    1e-16,
    0.001
@@ -2781,7 +2781,7 @@
   {
    "id": "fmriprep-denoise",
    "title": "fMRIPrep's denoising of a real T1w",
-   "summary": "The first step of fMRIPrep 25.2.6's anatomical workflow on OpenNeuro ds000005 sub-01: the raw T1w and the arguments it gave DenoiseImage (sMRIPrep's Rician model), given to the repository's ANTs 2.6.5 at 1 to 12 threads (twice at 8), with correctly rounded maths, to fMRIPrep's own ANTs at one thread, and to the replica in both modes.",
+   "summary": "The first step of fMRIPrep 25.2.6's anatomical workflow on OpenNeuro ds000005 sub-01: the raw T1w and the arguments it gave DenoiseImage (sMRIPrep's Rician model), given to the repository's ANTs 2.6.5 at 1 to 12 threads (six times at 8 and three at 12; two of the runs at 8 shown), with correctly rounded maths, to fMRIPrep's own ANTs at one thread, and to the replica in both modes.",
    "facts": [
     {
      "label": "Data",
@@ -4212,7 +4212,7 @@
     ]
    },
    "shows": {
-    "text": "In `reproduce`, on 1 and 12 threads, the replica gives ANTs' output at one thread with correctly rounded maths, bit for bit; ANTs as built differs from it only where glibc's `expf` is not correctly rounded (5,522 of 5,898,240 voxels, by at most 0.0002). ANTs' own result moves with its thread count, by up to 271 at 8 threads against one; fMRIPrep's output, made by its ANTs 2.6.2 at 8 threads, differs from ANTs 2.6.5's at 8 threads by up to 73, although the two builds agree bit for bit at one thread. The default, `fix`, corrects [ANTS-43](repo:docs/findings/upstream-defects.md#summary) in this call: 437,915 voxels change, by up to 2.81.",
+    "text": "In `reproduce`, on 1 and 12 threads, the replica gives ANTs' output at one thread with correctly rounded maths, bit for bit; ANTs as built differs from it only where glibc's `expf` is not correctly rounded (5,522 of 5,898,240 voxels, by at most 0.0002). ANTs' own result moves with its thread count, by up to 271 at 8 threads against one; fMRIPrep's output, made by its ANTs 2.6.2 at 8 threads, differs from ANTs 2.6.5's at 8 threads by up to 73, although the two builds agree bit for bit at one thread; so the replica differs from fMRIPrep's output by up to 271, within ANTs' own variability between thread counts. The default, `fix`, corrects [ANTS-43](repo:docs/findings/upstream-defects.md#summary) in this call: 437,915 voxels change, by up to 2.81.",
     "verdicts": [
      {
       "diff": "lx-ants1",
@@ -5057,7 +5057,7 @@
     ]
    },
    "shows": {
-    "text": "The replica's default, `fix`, gives the voxels just outside the mask that the patches reach the smoothed and corrected bias ([ANTS-44](repo:docs/findings/upstream-defects.md#summary)) and corrects [ANTS-43](repo:docs/findings/upstream-defects.md#summary) inside the mask: 611,567 of the denoised image's 5,898,240 values change, by up to 177. In `reproduce` it gives ANTs' output bit for bit with correctly rounded maths.",
+    "text": "The replica's default, `fix`, gives the smoothed and corrected bias to the voxels just outside the mask that the patches reach ([ANTS-44](repo:docs/findings/upstream-defects.md#summary)), and corrects [ANTS-43](repo:docs/findings/upstream-defects.md#summary) inside the mask: 611,567 of the denoised image's 5,898,240 values change, by up to 177. In `reproduce` it gives ANTs' output bit for bit with correctly rounded maths.",
     "verdicts": [
      {
       "diff": "fix-ants",

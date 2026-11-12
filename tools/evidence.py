@@ -660,9 +660,23 @@ class Evidence:
         )
         cases = self.num(tool, ptr("implementations", k, "summary", "cases"), fmt_count(im["summary"]["cases"]))
         if doc.get("presentation") == PRESENTATION:  # the writing guide's title (section 4)
+            # a chart over two records ("standard comparison and data panel") links both, by
+            # their names: the record and its data panel's (<record>-panel.md, in the
+            # provenance)
+            comparison, whose = esc(im["comparison"]), f'the <a href="{self.href(im["record"])}">record</a>'
+            panel = im["record"].removesuffix(".md") + "-panel.md"
+            if " and " in im["comparison"] and panel in {
+                r["path"] for r in doc.get("provenance", {}).get("records", [])
+            }:
+                first, second = im["comparison"].split(" and ", 1)
+                comparison = (
+                    f'<a href="{self.href(im["record"])}">{esc(first)}</a> and '
+                    f'<a href="{self.href(panel)}">{esc(second)}</a>'
+                )
+                whose = "the two records"
             title = (
-                f'{pmark(im["port"])}{self.text(im["title"])} ({esc(im["comparison"])}, {cases} cases of the '
-                f'<a href="{self.href(im["record"])}">record</a>), by category and verdict'
+                f'{pmark(im["port"])}{self.text(im["title"])} ({comparison}, {cases} cases of '
+                f'{whose}), by category and verdict'
             )
         else:
             title = (
@@ -892,8 +906,14 @@ class Evidence:
         )
         ticks = "".join(f'<span style="left:{x(t):.3f}%">{esc(lbl)}</span>' for t, lbl in s["ticks"])
         cls = "ev-speed" if any(r.get("ratio") is not None for r in s["rows"]) else "ev-dots"
+        if self.doc(tool).get("presentation") == PRESENTATION:
+            # the writing guide's title (with its code spans); each series in its port's mark
+            cls += " ev-ported"
+            title = self.text(s["title"])
+        else:
+            title = esc(s["title"])
         return Markup(
-            f'<figure class="ev-chart {cls}"><figcaption class="ev-chart-title">{esc(s["title"])}</figcaption>'
+            f'<figure class="ev-chart {cls}"><figcaption class="ev-chart-title">{title}</figcaption>'
             f'<ul class="ev-band-key">{key}</ul><ol class="ev-band-rows">{"".join(rows)}</ol>'
             f'<div class="ev-band-axis"><span class="ev-band-pad"></span><span class="ev-band-ticks">{ticks}</span></div>'
             f'<p class="ev-chart-note">{self.text(s["note"])}</p></figure>'

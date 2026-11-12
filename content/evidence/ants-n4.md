@@ -6,7 +6,8 @@ lede: >-
   part of an image than in another, and divides it out. LARMORX's port is a replica of ANTs
   2.6.5's program on ITK 5.4.5. In `reproduce` it gives ANTs' output bit for bit in every
   compared case of its two records once ANTs uses correctly rounded maths (46 of 46 and 69 of
-  69), and in 29 and 20 of them as ANTs is built, where glibc's maths is not correctly rounded.
+  69). With ANTs as built, 29 of the 46 and 20 of the 69 match bit for bit; the others differ
+  only where glibc's maths is not correctly rounded.
   On fMRIPrep's own N4 of a real T1w, on any number of threads, it gives ANTs' one-thread
   result with correctly rounded maths. Its default, `fix`, leaves the zero and negative voxels out of the fit
   (ANTS-40), a correction measured on fMRIPrep's 25 N4 calls.

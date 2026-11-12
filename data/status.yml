@@ -57,7 +57,7 @@ implemented:
     validation: "bit-identical in every compared case ([threshold](repo:docs/validation/ants-threshold-image.md), [multiply](repo:docs/validation/ants-multiply-images.md), [smooth](repo:docs/validation/ants-smooth-image.md), [resample](repo:docs/validation/ants-resample-image.md), [by spacing](repo:docs/validation/ants-resample-image-by-spacing.md)); data panel: [threshold](repo:docs/validation/ants-threshold-image-panel.md), [multiply](repo:docs/validation/ants-multiply-images-panel.md), [smooth](repo:docs/validation/ants-smooth-image-panel.md), [resample](repo:docs/validation/ants-resample-image-panel.md), [by spacing](repo:docs/validation/ants-resample-image-by-spacing-panel.md), every compared case bit-identical"
   - eco: ants
     tool: "antsRegistration (every stage: linear, SyN, B-spline SyN, B-spline, displacement-field, exponential and time-varying velocity-field; image and point-set metrics)"
-    page: /tools/ants-registration/
+    page: /evidence/ants-registration/
     use: ["larmorx ants antsRegistration", "lx.ants.registration"]
     how: "replica"
     validation: "[513 cases](repo:docs/validation/ants-registration.md): 355 of 399 compared identical to ANTs (outputs and messages), 44 more with correctly rounded maths; [the corrections' effects](repo:docs/validation/ants-registration-corrections.md); data panel: [71 compared](repo:docs/validation/ants-registration-panel.md), 16 identical as built, 55 more with correctly rounded maths, and [the 14 whole template registrations](repo:docs/validation/ants-registration-panel-template.md) at full size, 14 of 14 identical with correctly rounded maths"
@@ -69,7 +69,7 @@ implemented:
     validation: "[antsAI](repo:docs/validation/ants-ai.md): 76 of 76 compared identical (75 as built, 1 with correctly rounded maths), the blob alignment (`-b`) included (its corrections, ANTS-116 among them, by default); [antsAffineInitializer](repo:docs/validation/ants-affine-initializer.md): 26 of 26; data panel: [antsAI](repo:docs/validation/ants-ai-panel.md) 40 of 40, [antsAffineInitializer](repo:docs/validation/ants-affine-initializer-panel.md) 14 of 14"
   - eco: ants
     tool: "Atropos (every initialization, likelihood model, MRF, outlier and partial-volume option)"
-    page: /tools/ants-atropos/
+    page: /evidence/ants-atropos/
     use: ["larmorx ants Atropos", "lx.ants.atropos"]
     how: "replica"
     validation: "[97 cases](repo:docs/validation/ants-atropos.md): 27 of 58 compared bit-identical to ANTs, 58 of 58 with correctly rounded maths, sMRIPrep's call in five of fMRIPrep's runs included; partial-volume classes with the MRF corrected (ANTS-106); data panel: [3 of 17](repo:docs/validation/ants-atropos-panel.md) as built, 17 of 17 with correctly rounded maths, the classes identical in all"

@@ -6,8 +6,8 @@ lede: >-
   precision or with `--float 1`, and writes transforms too. LARMORX's port is a replica of ANTs
   2.6.5's program on ITK 5.4.5. In `reproduce` it gives ANTs' output data bit for bit in every
   compared case of its two records once ANTs uses correctly rounded maths (200 of 200 and 425
-  of 425), and in 185 and 329 of them as ANTs is built, where glibc's `exp`, `sin` or `cos` is
-  not correctly rounded. With `--float 1`, as fMRIPrep runs many of its calls, every case gives
+  of 425). With ANTs as built, 185 of the 200 and 329 of the 425 match bit for bit; the others
+  differ only where glibc's `exp`, `log`, `sin` or `cos` is not correctly rounded. With `--float 1`, as fMRIPrep runs many of its calls, every case gives
   ANTs' data as built (102 of 102 and 167 of 167), and fMRIPrep's own T1w-to-MNI resampling
   bit for bit. The transforms it writes are ANTs' files (34 of 34).
 description: >-
@@ -32,7 +32,7 @@ wide: true
 
 `antsApplyTransforms` maps every voxel of a reference grid through a list of transforms (matrices, displacement fields, B-spline transforms, composite `.h5` files) into an input image and interpolates it there: linear, nearest neighbour, B-spline, Gaussian, windowed sinc, label-preserving. fMRIPrep uses it for every resampling of its anatomical outputs and masks, many of them with `--float 1`.
 
-The replica runs beside ANTs 2.6.5's `antsApplyTransforms` on the same files with the same arguments. ANTs is the repository's build (GCC 14.3), run as built and with correctly rounded maths, at one thread and at more for its own variability. fMRIPrep's own ANTs 2.6.2 runs too, in fMRIPrep's image.
+The replica runs beside ANTs 2.6.5's `antsApplyTransforms` on the same files with the same arguments. ANTs is the repository's build (GCC 14.3), run as built and with correctly rounded maths: at 4 threads in the records, at 1 and 8 in the worked examples; its thread count changes nothing in this program, which resamples each voxel on its own. fMRIPrep's own ANTs 2.6.2 runs too, in fMRIPrep's image.
 
 ```bash
 larmorx ants antsApplyTransforms -d 3 --float 1 -i sub-01_desc-preproc_T1w.nii.gz -r tpl-MNI152NLin2009cAsym_res-02_T1w.nii.gz -t sub-01_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5 -n LanczosWindowedSinc -o t1w_mni.nii.gz
@@ -61,7 +61,7 @@ The replica computes the C library's maths (`exp`, `log`, `sin`, `cos`) correctl
 
 {{ ev.agreement('ants-apply-transforms', 'port') }}
 
-In `reproduce`, image outputs give the unmodified ANTs binary's data bit for bit, or, where glibc's `exp`, `sin` or `cos` is not correctly rounded (Gaussian and windowed-sinc weights, Euler and versor matrices), the same binary's with CORE-MATH preloaded. Every `--float 1` case gives ANTs' data as built. The cases that write transforms (`-o Linear[...]`, `CompositeTransform[...]`, `DisplacementField[...]`) write ANTs' content: text and MATLAB files byte for byte, NIfTI fields bit for bit, HDF5 files dataset for dataset and attribute for attribute (their compressed bytes are ITK's given ITK's chunks). The four expected divergences are crashes of ANTs that the replica refuses with a message.
+In `reproduce`, image outputs give the unmodified ANTs binary's data bit for bit, or, where glibc's `exp`, `log`, `sin` or `cos` is not correctly rounded (Gaussian and windowed-sinc weights, Euler and versor matrices), the same binary's with CORE-MATH preloaded. Every `--float 1` case gives ANTs' data as built. The cases that write transforms (`-o Linear[...]`, `CompositeTransform[...]`, `DisplacementField[...]`) write ANTs' content: text and MATLAB files byte for byte, NIfTI fields bit for bit, HDF5 files dataset for dataset and attribute for attribute (their compressed bytes are ITK's given ITK's chunks). The four expected divergences are crashes of ANTs that the replica refuses with a message.
 
 ## In fMRIPrep: the T1w in MNI space {#example}
 
@@ -79,7 +79,7 @@ Why 104 mm and not antsRegistrationSyN.sh's 26 mm: the mesh doubles at each leve
 
 ## On the data panel {#data-panel}
 
-The [data panel](/data-panel/) is the fixed set of fourteen OpenNeuro subjects on which LARMORX's programs are validated: 1.5, 3 and 7 T; Siemens, GE and Philips; single-band, multiband and multi-echo BOLD; a 3.5-year-old to an 82-year-old; a tumour, a stroke with its lesion mask, strong motion. Its record replays every call fMRIPrep 25.2.6 made of the program in its fourteen runs on these subjects, the node's own `command.txt` with its inputs from the run's working directory (calls repeated word for word are compared once), and runs the program on panel images fMRIPrep never gives it. ANTs runs at one thread, as built and with correctly rounded maths, and at 2 and 3 threads for its own variability where it has any; the replica in `reproduce`, and in `fix` for the corrections. The panel's cases are in the case explorer below (the categories *data panel: fMRIPrep's calls* and *data panel: other images*).
+The [data panel](/data-panel/) is the fixed set of fourteen OpenNeuro subjects on which LARMORX's programs are validated: 1.5, 3 and 7 T; Siemens, GE and Philips; single-band, multiband and multi-echo BOLD; a 3.5-year-old to an 82-year-old; a tumour, a stroke with its lesion mask, strong motion. Its record replays every call fMRIPrep 25.2.6 made of the program in its fourteen runs on these subjects, the node's own `command.txt` with its inputs from the run's working directory (calls repeated word for word are compared once), and runs the program on panel images fMRIPrep never gives it. ANTs runs at 4 threads, as built and with correctly rounded maths; the replica in `reproduce`, and in `fix` for the corrections. The panel's cases are in the case explorer below (the categories *data panel: fMRIPrep's calls* and *data panel: other images*).
 
 **425 of 425 bit-identical to ANTs with correctly rounded maths, 329 to ANTs as built**: every `antsApplyTransforms` node of the fourteen runs (421 calls; 179 through fMRIPrep's `.h5` composites, 166 with `--float 1`; Gaussian, MultiLabel, windowed sinc, linear and nearest-neighbour interpolation) and four calls fMRIPrep never makes (the 600-volume multiband-8 series onto the T1w, the raw 7 T MP2RAGE and the stroke's lesion mask to MNI, the 82-year-old's FLAIR onto its T1w). The others differ only where ITK calls glibc's `exp`, `log`, `sin` or `cos`.
 

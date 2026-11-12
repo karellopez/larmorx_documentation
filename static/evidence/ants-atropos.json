@@ -3,7 +3,7 @@
  "tool": "ants-atropos",
  "title": "Atropos",
  "provenance": {
-  "exporter": "7e73202873630562b940bf0500715a6e9086b51c",
+  "exporter": "0b63260ce0e4945462ddaf895a1d108e365631a1",
   "records": [
    {
     "path": "docs/validation/ants-atropos.json",
@@ -1438,8 +1438,8 @@
  "implementations": [
   {
    "id": "port",
-   "label": "larmorx (port)",
-   "short": "port",
+   "label": "replica against the original: ANTs Atropos 2.6.5 (standard comparison and data panel)",
+   "short": "replica",
    "record": "docs/validation/ants-atropos.md",
    "status": "validated",
    "summary": {
@@ -1570,7 +1570,10 @@
       "both-reject": 1
      }
     }
-   ]
+   ],
+   "title": "Agreement, replica against the original: ANTs `Atropos` 2.6.5",
+   "comparison": "standard comparison and data panel",
+   "port": "replica"
   }
  ],
  "cases": [
@@ -1766,7 +1769,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "4/4",
-     "reason": "ANTs aborts; larmorx exits 1 with its text"
+     "reason": "ANTs aborts; the replica exits 1 with its text"
     }
    }
   },
@@ -2060,7 +2063,7 @@
      "outcome": "pass",
      "verdict": "divergence",
      "checks": "20/20",
-     "reason": "ANTs weighs part of its samples with memory it never wrote (ANTS-107): its values depend on the heap and change with the output paths' length; larmorx weighs them 0. Everything else (exit status, headers, types, shapes) is compared."
+     "reason": "ANTs weighs part of its samples with memory it never wrote (ANTS-107): its values depend on the heap and change with the output paths' length; the replica weighs them 0. Everything else (exit status, headers, types, shapes) is compared."
     }
    }
   },
@@ -2088,7 +2091,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: '\\nSLATEC/DGAMMA: X SO BIG GAMMA OVERFLOWS\\nSLATEC/DGAMMA: X SO BIG GAMMA OVERFLOWS\\nSLATEC/DGAMMA: X SO BIG GAMMA OVERFLOWS\\nSLATEC/DGAMMA: X SO BIG GAMMA OVERFLOWS'; larmorx exit 1: \"x: upstream defect ANTS-94 (Atropos) reproduced: the outlier …"
+     "reason": "ANTs exit 1: '\\nSLATEC/DGAMMA: X SO BIG GAMMA OVERFLOWS\\nSLATEC/DGAMMA: X SO BIG GAMMA OVERFLOWS\\nSLATEC/DGAMMA: X SO BIG GAMMA OVERFLOWS\\nSLATEC/DGAMMA: X SO BIG GAMMA OVERFLOWS'; the replica exit 1: \"x: upstream defect ANTS-94 (Atropos) reproduced: the outlier …"
     }
    }
   },
@@ -2130,7 +2133,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: ''; larmorx exit 1: 'rrects it]\\nlarmorx: upstream defect ANTS-96 (Atropos) reproduced: the partial-volume classes keep their initial means [LARMORX_UPSTREAM_DEFECTS=fix corrects it]'"
+     "reason": "ANTs exit 1: ''; the replica exit 1: 'rrects it]\\nlarmorx: upstream defect ANTS-96 (Atropos) reproduced: the partial-volume classes keep their initial means [LARMORX_UPSTREAM_DEFECTS=fix corrects it]'"
     }
    }
   },
@@ -2172,7 +2175,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "6/6",
-     "reason": "ANTs exit 1: ''; larmorx exit 1: 'rrects it]\\nlarmorx: upstream defect ANTS-96 (Atropos) reproduced: the partial-volume classes keep their initial means [LARMORX_UPSTREAM_DEFECTS=fix corrects it]'"
+     "reason": "ANTs exit 1: ''; the replica exit 1: 'rrects it]\\nlarmorx: upstream defect ANTS-96 (Atropos) reproduced: the partial-volume classes keep their initial means [LARMORX_UPSTREAM_DEFECTS=fix corrects it]'"
     }
    }
   },
@@ -2214,7 +2217,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'nListSampleFunction.hxx, line 105\\nGaussianListSampleFunction (0x5c9d89232f10): The input list sample has <= 1 element. Function evaluations will be equal to 0.'; larmorx exit 1: \"x: upstream defect ANTS-98 (Atropos) reproduced: the first image'…"
+     "reason": "ANTs exit 1: 'nListSampleFunction.hxx, line 105\\nGaussianListSampleFunction (0x5c9d89232f10): The input list sample has <= 1 element. Function evaluations will be equal to 0.'; the replica exit 1: \"x: upstream defect ANTS-98 (Atropos) reproduced: the first image'…"
     }
    }
   },
@@ -2256,7 +2259,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: ' ). \\n\\n -v, --verbose (0)/1\\n Verbose output. \\n\\n -h \\n Print the help menu (short version). \\n\\n --help \\n Print the help menu.'; larmorx exit 1: ' ). \\n\\n -v, --verbose (0)/1\\n Verbose output. \\n\\n -h \\n Print the help menu (short version). …"
+     "reason": "ANTs exit 1: ' ). \\n\\n -v, --verbose (0)/1\\n Verbose output. \\n\\n -h \\n Print the help menu (short version). \\n\\n --help \\n Print the help menu.'; the replica exit 1: ' ). \\n\\n -v, --verbose (0)/1\\n Verbose output. \\n\\n -h \\n Print the help menu (short version). …"
     }
    }
   },
@@ -2298,7 +2301,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'No initialization option specified.'; larmorx exit 1: 'No initialization option specified.'"
+     "reason": "ANTs exit 1: 'No initialization option specified.'; the replica exit 1: 'No initialization option specified.'"
     }
    }
   },
@@ -2312,7 +2315,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'usage option (see -m). With that option one can specify a prior probability threshold in which only those pixels exceeding that threshold are stored in memory.'; larmorx exit 1: 'usage option (see -m). With that option one can specify a prior pr…"
+     "reason": "ANTs exit 1: 'usage option (see -m). With that option one can specify a prior probability threshold in which only those pixels exceeding that threshold are stored in memory.'; the replica exit 1: 'usage option (see -m). With that option one can specify a prior pr…"
     }
    }
   },
@@ -2326,7 +2329,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'Unrecognized initialization strategy request.'; larmorx exit 1: 'Unrecognized initialization strategy request.'"
+     "reason": "ANTs exit 1: 'Unrecognized initialization strategy request.'; the replica exit 1: 'Unrecognized initialization strategy request.'"
     }
    }
   },
@@ -2340,7 +2343,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "4/4",
-     "reason": "ANTs aborts; larmorx exits 1 with its text"
+     "reason": "ANTs aborts; the replica exits 1 with its text"
     }
    }
   },
@@ -2354,7 +2357,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'The cluster center vector size does not equal the specified number of classes.'; larmorx exit 1: 'The cluster center vector size does not equal the specified number of classes.'"
+     "reason": "ANTs exit 1: 'The cluster center vector size does not equal the specified number of classes.'; the replica exit 1: 'The cluster center vector size does not equal the specified number of classes.'"
     }
    }
   },
@@ -2368,7 +2371,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'usage option (see -m). With that option one can specify a prior probability threshold in which only those pixels exceeding that threshold are stored in memory.'; larmorx exit 1: 'usage option (see -m). With that option one can specify a prior pr…"
+     "reason": "ANTs exit 1: 'usage option (see -m). With that option one can specify a prior probability threshold in which only those pixels exceeding that threshold are stored in memory.'; the replica exit 1: 'usage option (see -m). With that option one can specify a prior pr…"
     }
    }
   },
@@ -2382,7 +2385,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'file <tmp>/nope01.nii.gz does not exist .'; larmorx exit 1: 'file <tmp>/nope01.nii.gz does not exist .'"
+     "reason": "ANTs exit 1: 'file <tmp>/nope01.nii.gz does not exist .'; the replica exit 1: 'file <tmp>/nope01.nii.gz does not exist .'"
     }
    }
   },
@@ -2396,7 +2399,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'file <tmp>/nope.nii.gz does not exist .'; larmorx exit 1: 'file <tmp>/nope.nii.gz does not exist .'"
+     "reason": "ANTs exit 1: 'file <tmp>/nope.nii.gz does not exist .'; the replica exit 1: 'file <tmp>/nope.nii.gz does not exist .'"
     }
    }
   },
@@ -2410,7 +2413,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'An image mask is required. Specify a mask image with the -x option.'; larmorx exit 1: 'An image mask is required. Specify a mask image with the -x option.'"
+     "reason": "ANTs exit 1: 'An image mask is required. Specify a mask image with the -x option.'; the replica exit 1: 'An image mask is required. Specify a mask image with the -x option.'"
     }
    }
   },
@@ -2424,7 +2427,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'file <tmp>/nope.nii.gz does not exist .'; larmorx exit 1: 'file <tmp>/nope.nii.gz does not exist .'"
+     "reason": "ANTs exit 1: 'file <tmp>/nope.nii.gz does not exist .'; the replica exit 1: 'file <tmp>/nope.nii.gz does not exist .'"
     }
    }
   },
@@ -2438,7 +2441,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'No input images were specified. Specify an input image with the -a option.'; larmorx exit 1: 'No input images were specified. Specify an input image with the -a option.'"
+     "reason": "ANTs exit 1: 'No input images were specified. Specify an input image with the -a option.'; the replica exit 1: 'No input images were specified. Specify an input image with the -a option.'"
     }
    }
   },
@@ -2452,7 +2455,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'file <tmp>/nope.nii.gz does not exist .'; larmorx exit 1: 'file <tmp>/nope.nii.gz does not exist .'"
+     "reason": "ANTs exit 1: 'file <tmp>/nope.nii.gz does not exist .'; the replica exit 1: 'file <tmp>/nope.nii.gz does not exist .'"
     }
    }
   },
@@ -2466,7 +2469,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'Unsupported dimension'; larmorx exit 1: 'Unsupported dimension'"
+     "reason": "ANTs exit 1: 'Unsupported dimension'; the replica exit 1: 'Unsupported dimension'"
     }
    }
   },
@@ -2480,7 +2483,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'Annealing temperature must be positive.'; larmorx exit 1: 'Annealing temperature must be positive.'"
+     "reason": "ANTs exit 1: 'Annealing temperature must be positive.'; the replica exit 1: 'Annealing temperature must be positive.'"
     }
    }
   },
@@ -2494,7 +2497,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'Annealing rate must be in the range [0, 1].'; larmorx exit 1: 'Annealing rate must be in the range [0, 1].'"
+     "reason": "ANTs exit 1: 'Annealing rate must be in the range [0, 1].'; the replica exit 1: 'Annealing rate must be in the range [0, 1].'"
     }
    }
   },
@@ -2508,7 +2511,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'Incorrect number of levels'; larmorx exit 1: 'Incorrect number of levels'"
+     "reason": "ANTs exit 1: 'Incorrect number of levels'; the replica exit 1: 'Incorrect number of levels'"
     }
    }
   },
@@ -2522,7 +2525,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'Incorrect mesh resolution'; larmorx exit 1: 'Incorrect mesh resolution'"
+     "reason": "ANTs exit 1: 'Incorrect mesh resolution'; the replica exit 1: 'Incorrect mesh resolution'"
     }
    }
   },
@@ -2536,7 +2539,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'MRF radius size needs to be equal to the image dimension.'; larmorx exit 1: 'MRF radius size needs to be equal to the image dimension.'"
+     "reason": "ANTs exit 1: 'MRF radius size needs to be equal to the image dimension.'; the replica exit 1: 'MRF radius size needs to be equal to the image dimension.'"
     }
    }
   },
@@ -2550,7 +2553,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'Unrecognized likelihood model request.'; larmorx exit 1: 'Unrecognized likelihood model request.'"
+     "reason": "ANTs exit 1: 'Unrecognized likelihood model request.'; the replica exit 1: 'Unrecognized likelihood model request.'"
     }
    }
   },
@@ -2564,7 +2567,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'Expect images in upper triangular order \\n xx xy xz yy yz zz \\nIncorrect number of intensity images specified.'; larmorx exit 1: 'Expect images in upper triangular order \\n xx xy xz yy yz zz \\nIncorrect number of intensity images specified.'"
+     "reason": "ANTs exit 1: 'Expect images in upper triangular order \\n xx xy xz yy yz zz \\nIncorrect number of intensity images specified.'; the replica exit 1: 'Expect images in upper triangular order \\n xx xy xz yy yz zz \\nIncorrect number of intensity images specified.'"
     }
    }
   },
@@ -2578,7 +2581,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'Error: Currently Atropos only supports partial volume label sets of size equal to 2.'; larmorx exit 1: 'Error: Currently Atropos only supports partial volume label sets of size equal to 2.'"
+     "reason": "ANTs exit 1: 'Error: Currently Atropos only supports partial volume label sets of size equal to 2.'; the replica exit 1: 'Error: Currently Atropos only supports partial volume label sets of size equal to 2.'"
     }
    }
   },
@@ -2606,7 +2609,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'Unrecognized outlier handling strategy request.'; larmorx exit 1: 'Unrecognized outlier handling strategy request.'"
+     "reason": "ANTs exit 1: 'Unrecognized outlier handling strategy request.'; the replica exit 1: 'Unrecognized outlier handling strategy request.'"
     }
    }
   },
@@ -2620,7 +2623,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "4/4",
-     "reason": "ANTs aborts; larmorx exits 1 with its text"
+     "reason": "ANTs aborts; the replica exits 1 with its text"
     }
    }
   },
@@ -2634,7 +2637,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "4/4",
-     "reason": "ANTs aborts; larmorx exits 1 with its text"
+     "reason": "ANTs aborts; the replica exits 1 with its text"
     }
    }
   },
@@ -2662,7 +2665,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "3/4",
-     "reason": "ANTs aborts; larmorx exits 1 with its text"
+     "reason": "ANTs aborts; the replica exits 1 with its text"
     }
    }
   },
@@ -2753,14 +2756,14 @@
   {
    "id": "clock-seed",
    "category": "random seeds",
-   "description": "--use-random-seed 1: ANTs seeds from the clock (two runs); larmorx uses the seed 121212",
+   "description": "--use-random-seed 1: ANTs seeds from the clock (two runs); the replica uses the seed 121212",
    "command": "Atropos -i KMeans[3] -d 3 -a '<generated: atropos-t1>' -x '<generated: atropos-mask>' -c [3,0] -r 1 -m [0.1,1x1x1] -o [seg.nii.gz,post%02d.nii.gz]",
    "results": {
     "port": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "7/7",
-     "reason": "ANTs draws its seed from the clock; larmorx uses 121212"
+     "reason": "ANTs draws its seed from the clock; the replica uses 121212"
     }
    }
   },
@@ -2774,7 +2777,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "7/7",
-     "reason": "ANTs draws its seed from the clock; larmorx uses 121212"
+     "reason": "ANTs draws its seed from the clock; the replica uses 121212"
     }
    }
   },
@@ -2888,7 +2891,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "ANTs exit 1: ''; larmorx exit 1: 'rrects it]\\nlarmorx: upstream defect ANTS-96 (Atropos) reproduced: the partial-volume classes keep their initial means [LARMORX_UPSTREAM_DEFECTS=fix corrects it]'"
+     "reason": "ANTs exit 1: ''; the replica exit 1: 'rrects it]\\nlarmorx: upstream defect ANTS-96 (Atropos) reproduced: the partial-volume classes keep their initial means [LARMORX_UPSTREAM_DEFECTS=fix corrects it]'"
     }
    }
   },
@@ -2930,14 +2933,14 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "7/7",
-     "reason": "ANTs draws its seed from the clock; larmorx uses 121212"
+     "reason": "ANTs draws its seed from the clock; the replica uses 121212"
     }
    }
   },
   {
    "id": "panel/fmriprep/ds000005-sub-01/anat_fit/brain_extraction/atropos/01_atropos",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the oracle run ds000005-sub-01 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the fMRIPrep run ds000005-sub-01 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
    "command": "Atropos <fMRIPrep's command line: ds000005-sub-01-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
    "results": {
     "port": {
@@ -2951,7 +2954,7 @@
   {
    "id": "panel/fmriprep/ds000228-sub-pixar008/anat_fit/brain_extraction/atropos/01_atropos",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the oracle run ds000228-sub-pixar008 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the fMRIPrep run ds000228-sub-pixar008 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
    "command": "Atropos <fMRIPrep's command line: ds000228-sub-pixar008-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
    "results": {
     "port": {
@@ -2965,7 +2968,7 @@
   {
    "id": "panel/fmriprep/ds000256-sub-CTS203/anat_fit/brain_extraction/atropos/01_atropos",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the oracle run ds000256-sub-CTS203 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the fMRIPrep run ds000256-sub-CTS203 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
    "command": "Atropos <fMRIPrep's command line: ds000256-sub-CTS203-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
    "results": {
     "port": {
@@ -2979,7 +2982,7 @@
   {
    "id": "panel/fmriprep/ds001600-sub-1/anat_fit/brain_extraction/atropos/01_atropos",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the oracle run ds001600-sub-1 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the fMRIPrep run ds001600-sub-1 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
    "command": "Atropos <fMRIPrep's command line: ds001600-sub-1-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
    "results": {
     "port": {
@@ -2993,7 +2996,7 @@
   {
    "id": "panel/fmriprep/ds002422-sub-02/anat_fit/brain_extraction/atropos/01_atropos",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the oracle run ds002422-sub-02 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the fMRIPrep run ds002422-sub-02 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
    "command": "Atropos <fMRIPrep's command line: ds002422-sub-02-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
    "results": {
     "port": {
@@ -3007,7 +3010,7 @@
   {
    "id": "panel/fmriprep/ds002603-sub-01/anat_fit/brain_extraction/atropos/01_atropos",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the oracle run ds002603-sub-01 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the fMRIPrep run ds002603-sub-01 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
    "command": "Atropos <fMRIPrep's command line: ds002603-sub-01-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
    "results": {
     "port": {
@@ -3021,7 +3024,7 @@
   {
    "id": "panel/fmriprep/ds003592-sub-280/anat_fit/brain_extraction/atropos/01_atropos",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the oracle run ds003592-sub-280 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the fMRIPrep run ds003592-sub-280 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
    "command": "Atropos <fMRIPrep's command line: ds003592-sub-280-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
    "results": {
     "port": {
@@ -3035,7 +3038,7 @@
   {
    "id": "panel/fmriprep/ds004173-sub-603309/anat_fit/brain_extraction/atropos/01_atropos",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the oracle run ds004173-sub-603309 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the fMRIPrep run ds004173-sub-603309 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
    "command": "Atropos <fMRIPrep's command line: ds004173-sub-603309-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
    "results": {
     "port": {
@@ -3049,7 +3052,7 @@
   {
    "id": "panel/fmriprep/ds004884-sub-M2079/anat_fit/brain_extraction/atropos/01_atropos",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the oracle run ds004884-sub-M2079 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the fMRIPrep run ds004884-sub-M2079 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
    "command": "Atropos <fMRIPrep's command line: ds004884-sub-M2079-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
    "results": {
     "port": {
@@ -3063,7 +3066,7 @@
   {
    "id": "panel/fmriprep/ds004958-sub-fsm64ps/anat_fit/brain_extraction/atropos/01_atropos",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the oracle run ds004958-sub-fsm64ps (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the fMRIPrep run ds004958-sub-fsm64ps (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
    "command": "Atropos <fMRIPrep's command line: ds004958-sub-fsm64ps-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
    "results": {
     "port": {
@@ -3077,7 +3080,7 @@
   {
    "id": "panel/fmriprep/ds005003-sub-RS001/anat_fit/brain_extraction/atropos/01_atropos",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the oracle run ds005003-sub-RS001 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the fMRIPrep run ds005003-sub-RS001 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
    "command": "Atropos <fMRIPrep's command line: ds005003-sub-RS001-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
    "results": {
     "port": {
@@ -3091,7 +3094,7 @@
   {
    "id": "panel/fmriprep/ds005040-sub-002/anat_fit/brain_extraction/atropos/01_atropos",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the oracle run ds005040-sub-002 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the fMRIPrep run ds005040-sub-002 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
    "command": "Atropos <fMRIPrep's command line: ds005040-sub-002-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
    "results": {
     "port": {
@@ -3105,7 +3108,7 @@
   {
    "id": "panel/fmriprep/ds005454-sub-16/anat_fit/brain_extraction/atropos/01_atropos",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the oracle run ds005454-sub-16 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the fMRIPrep run ds005454-sub-16 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
    "command": "Atropos <fMRIPrep's command line: ds005454-sub-16-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
    "results": {
     "port": {
@@ -3119,7 +3122,7 @@
   {
    "id": "panel/fmriprep/ds005752-sub-ON01016/anat_fit/brain_extraction/atropos/01_atropos",
    "category": "panel-fmriprep",
-   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the oracle run ds005752-sub-ON01016 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
+   "description": "fMRIPrep 25.2.6's Atropos node `anat_fit/brain_extraction/atropos/01_atropos` of the fMRIPrep run ds005752-sub-ON01016 (anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos): its command.txt replayed, its inputs from the run's working directory",
    "command": "Atropos <fMRIPrep's command line: ds005752-sub-ON01016-noreconall/anat_fit_wf/brain_extraction_wf/atropos_wf/01_atropos/command.txt>",
    "results": {
     "port": {
@@ -3133,7 +3136,7 @@
   {
    "id": "panel/images/stroke/outside-lesion",
    "category": "panel-images",
-   "description": "sMRIPrep's options on the stroke's N4-corrected T1w (the oracle run's), its brain mask without the manual lesion mask (ds004884 sub-M2079: the stroke's T1w; ds004884 sub-M2079: the stroke's manual lesion mask, drawn on the T2w (uint8))",
+   "description": "sMRIPrep's options on the stroke's N4-corrected T1w (the fMRIPrep run's), its brain mask without the manual lesion mask (ds004884 sub-M2079: the stroke's T1w; ds004884 sub-M2079: the stroke's manual lesion mask, drawn on the T2w (uint8))",
    "command": "Atropos -d 3 -a '<ds004884-sub-M2079-noreconall: N4-corrected T1w>' -x '<generated: atropos-panel-stroke-mask>' -i KMeans[3] -k Gaussian -m [0.1,1x1x1] -c [3,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
    "results": {
     "port": {
@@ -3147,7 +3150,7 @@
   {
    "id": "panel/images/child/t1w-t2w",
    "category": "panel-images",
-   "description": "sMRIPrep's options with two channels: a child's N4-corrected T1w (the oracle run's) and its T2w on the same grid, in its brain mask (ds000256 sub-CTS203: a 7.5-year-old's low-quality 0.8 mm T1w; ds000256 sub-CTS203: a 7.5-year-old's 0.8 mm T2w)",
+   "description": "sMRIPrep's options with two channels: a child's N4-corrected T1w (the fMRIPrep run's) and its T2w on the same grid, in its brain mask (ds000256 sub-CTS203: a 7.5-year-old's low-quality 0.8 mm T1w; ds000256 sub-CTS203: a 7.5-year-old's 0.8 mm T2w)",
    "command": "Atropos -d 3 -a '<ds000256-sub-CTS203-noreconall: N4-corrected T1w>' -a '<generated: atropos-panel-child-t2w>' -x '<ds000256-sub-CTS203-noreconall: brain mask>' -i KMeans[3] -k Gaussian -m [0.1,1x1x1] -c [3,0] -r 0 -o [seg.nii.gz,post%02d.nii.gz]",
    "results": {
     "port": {
@@ -3182,7 +3185,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "ANTs exit 1: 'InputImage Spacing: [4.2187500e-01, 4.2187500e-01, 3.0000000e+00], InputImage_1 Spacing: [4.2187503e-01, 4.2187500e-01, 2.9999971e+00]\\n\\tTolerance: 4.2187500e-07'; larmorx exit 1: 'InputImage Spacing: [4.2187500e-01, 4.2187500e-01, 3.0000000e+0…"
+     "reason": "ANTs exit 1: 'InputImage Spacing: [4.2187500e-01, 4.2187500e-01, 3.0000000e+00], InputImage_1 Spacing: [4.2187503e-01, 4.2187500e-01, 2.9999971e+00]\\n\\tTolerance: 4.2187500e-07'; the replica exit 1: 'InputImage Spacing: [4.2187500e-01, 4.2187500e-01, 3.0000000e+0…"
     }
    }
   }
@@ -3191,8 +3194,8 @@
  "examples": [
   {
    "id": "fmriprep-atropos",
-   "title": "sMRIPrep's segmentation of a real T1w, by fMRIPrep, ANTs and larmorx",
-   "summary": "fMRIPrep 25.2.6's brain extraction on OpenNeuro ds000005 sub-01 segments the N4-corrected T1w into three classes with Atropos; its inputs and arguments given to the repository's ANTs 2.6.5 at 1 to 8 threads, with correctly rounded maths, with the clock's seed, to fMRIPrep's own ANTs at one thread, and to larmorx in both modes.",
+   "title": "sMRIPrep's segmentation of a real T1w",
+   "summary": "fMRIPrep 25.2.6's brain extraction on OpenNeuro ds000005 sub-01 segments the N4-corrected T1w into three classes with Atropos; its inputs and arguments given to the repository's ANTs 2.6.5 at 1 to 8 threads, with correctly rounded maths, with the clock's seed, to fMRIPrep's own ANTs at one thread, and to the replica in both modes.",
    "facts": [
     {
      "label": "Data",
@@ -3208,11 +3211,11 @@
     },
     {
      "label": "Programs",
-     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs 2.6.2.dev1-gff61a3d (conda-forge) in fMRIPrep's image; CORE-MATH preloaded where stated; larmorx at commit `d065bb4d4727`"
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs 2.6.2.dev1-gff61a3d (conda-forge) in fMRIPrep's image; CORE-MATH preloaded where stated; the replica at commit `d065bb4d4727`"
     },
     {
      "label": "ITK-50",
-     "text": "larmorx's default mode changes 1 of 5,898,240 labels and the posteriors by up to 0.0383; ANTs' own runs with the clock's seed differ in up to 307 labels"
+     "text": "The replica's default, `fix`, changes 1 of 5,898,240 labels and the posteriors by up to 0.0383; ANTs' own runs with the clock's seed differ in up to 307 labels"
     },
     {
      "label": "Grid",
@@ -3412,13 +3415,14 @@
      "window": [
       1.9839863985776915,
       331.61787200927677
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "larmorx",
      "role": "larmorx",
-     "label": "larmorx (port), 1 thread",
-     "sub": "reproduce mode",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 1 thread, reproduce · against ANTs Atropos 2.6.5",
      "arrays": {
       "labels": {
        "blob": "7c70edb596cd696741c87527.bin",
@@ -3458,13 +3462,14 @@
        0.0,
        0.99998539686203
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-6",
      "role": "larmorx",
-     "label": "larmorx (port), 6 threads",
-     "sub": "reproduce",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 6 threads, reproduce",
      "arrays": {
       "labels": {
        "same": "larmorx:labels",
@@ -3500,13 +3505,14 @@
        0.0,
        0.99998539686203
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-fix",
      "role": "larmorx",
-     "label": "larmorx (port), 1 thread",
-     "sub": "default mode: ITK-50 corrected",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 1 thread, fix (the default): ITK-50 corrected",
      "arrays": {
       "labels": {
        "blob": "472a09188e6b212262922956.bin",
@@ -3554,13 +3560,14 @@
        0.0,
        0.99998539686203
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-6-fix",
      "role": "larmorx",
-     "label": "larmorx (port), 6 threads",
-     "sub": "default mode",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 6 threads, fix (the default)",
      "arrays": {
       "labels": {
        "same": "larmorx-fix:labels",
@@ -3596,13 +3603,14 @@
        0.0,
        0.99998539686203
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "ants-1-cr",
      "role": "reference",
-     "label": "ANTs 2.6.5, 1 thread, correctly rounded maths",
-     "sub": "the same binary, CORE-MATH preloaded",
+     "label": "ANTs Atropos 2.6.5, correctly rounded maths",
+     "sub": "1 thread · the same binary, CORE-MATH preloaded",
      "arrays": {
       "labels": {
        "same": "larmorx:labels",
@@ -3638,13 +3646,14 @@
        0.0,
        0.99998539686203
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "ants-1",
      "role": "original",
-     "label": "ANTs 2.6.5, 1 thread, as built",
-     "sub": "the repository's oracle build (GCC 14.3), glibc's maths",
+     "label": "ANTs Atropos 2.6.5",
+     "sub": "1 thread, as built · the repository's build (GCC 14.3), glibc's maths",
      "arrays": {
       "labels": {
        "same": "larmorx:labels",
@@ -3689,13 +3698,14 @@
        0.0,
        0.99998539686203
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "image-1",
      "role": "original",
-     "label": "ANTs 2.6.2.dev1-gff61a3d (fMRIPrep's image), 1 thread",
-     "sub": "conda-forge's build, glibc's maths",
+     "label": "ANTs Atropos 2.6.2.dev1-gff61a3d, fMRIPrep's build",
+     "sub": "1 thread · conda-forge's build, glibc's maths",
      "arrays": {
       "labels": {
        "same": "larmorx:labels",
@@ -3731,13 +3741,14 @@
        0.0,
        0.99998539686203
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "ants-8",
      "role": "original",
-     "label": "ANTs 2.6.5, 8 threads",
-     "sub": "as built (fMRIPrep ran 8)",
+     "label": "ANTs Atropos 2.6.5",
+     "sub": "8 threads · as built (fMRIPrep ran 8)",
      "arrays": {
       "labels": {
        "same": "larmorx:labels",
@@ -3773,13 +3784,14 @@
        0.0,
        0.99998539686203
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "ants-seed-1",
      "role": "original",
-     "label": "ANTs 2.6.5, --use-random-seed 1",
-     "sub": "the clock's seed (one of three runs)",
+     "label": "ANTs Atropos 2.6.5",
+     "sub": "--use-random-seed 1 · the clock's seed (one of three runs)",
      "arrays": {
       "labels": {
        "blob": "498ebdb1f7a8059398fcaa70.bin",
@@ -3827,13 +3839,14 @@
        0.0,
        0.99998539686203
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "fmriprep",
      "role": "fmriprep",
-     "label": "fMRIPrep 25.2.6, as it ran",
-     "sub": "ANTs in its image, 8 threads",
+     "label": "fMRIPrep's output",
+     "sub": "fMRIPrep 25.2.6, as it ran: ANTs in its image, 8 threads",
      "arrays": {
       "labels": {
        "same": "larmorx:labels",
@@ -3869,7 +3882,8 @@
        0.0,
        0.99998539686203
       ]
-     }
+     },
+     "port": "fmriprep"
     }
    ],
    "diffs": [
@@ -3878,8 +3892,8 @@
      "a": "larmorx",
      "b": "ants-1",
      "kind": "main",
-     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
-     "role_label": "larmorx against the original",
+     "label": "replica − ANTs Atropos 2.6.5, 1 thread, as built",
+     "role_label": "the replica against the original",
      "metrics": {
       "labels": {
        "identical": true,
@@ -4017,21 +4031,22 @@
       }
      },
      "verdict": "identical-cr",
-     "reason": "The classified images are identical; a few posteriors differ in their last bits where glibc's expf and logf are not correctly rounded for a value the run meets: with CORE-MATH preloaded, the same ANTs binary gives larmorx's output bit for bit.",
+     "reason": "The classified images are identical; a few posteriors differ in their last bits where glibc's expf and logf are not correctly rounded for a value the run meets: with CORE-MATH preloaded, the same ANTs binary gives the replica's output bit for bit.",
      "links": [
       {
        "label": "platform maths",
        "href": "docs/findings/platform-math.md"
       }
-     ]
+     ],
+     "port": "replica"
     },
     {
      "id": "lx-cr",
      "a": "larmorx",
      "b": "ants-1-cr",
      "kind": "main",
-     "label": "larmorx − ANTs 2.6.5, 1 thread, correctly rounded maths",
-     "role_label": "larmorx against the original",
+     "label": "replica − ANTs Atropos 2.6.5, 1 thread, correctly rounded maths",
+     "role_label": "the replica against the original: correctly rounded maths",
      "metrics": {
       "labels": {
        "identical": true,
@@ -4157,16 +4172,17 @@
       }
      },
      "verdict": "bit-identical",
-     "reason": "With correctly rounded maths, ANTs computes exactly what larmorx computes.",
-     "links": []
+     "reason": "With correctly rounded maths, ANTs computes exactly what the replica computes.",
+     "links": [],
+     "port": "replica"
     },
     {
      "id": "lx-fmriprep",
      "a": "larmorx",
      "b": "fmriprep",
      "kind": "fmriprep",
-     "label": "larmorx − fMRIPrep's own output",
-     "role_label": "larmorx against fMRIPrep",
+     "label": "replica − fMRIPrep's output",
+     "role_label": "the replica against fMRIPrep's output",
      "metrics": {
       "labels": {
        "identical": true,
@@ -4304,21 +4320,22 @@
       }
      },
      "verdict": "identical-cr",
-     "reason": "The classified images are identical; a few posteriors differ in their last bits where glibc's expf and logf are not correctly rounded for a value the run meets: with CORE-MATH preloaded, the same ANTs binary gives larmorx's output bit for bit. fMRIPrep's own output is ANTs 2.6.5's at 8 threads, which is its result at one thread.",
+     "reason": "The classified images are identical; a few posteriors differ in their last bits where glibc's expf and logf are not correctly rounded for a value the run meets: with CORE-MATH preloaded, the same ANTs binary gives the replica's output bit for bit. fMRIPrep's own output is ANTs 2.6.5's at 8 threads, which is its result at one thread.",
      "links": [
       {
        "label": "platform maths",
        "href": "docs/findings/platform-math.md"
       }
-     ]
+     ],
+     "port": "replica"
     },
     {
      "id": "fix-lx",
      "a": "larmorx-fix",
      "b": "larmorx",
      "kind": "main",
-     "label": "larmorx default mode − reproduce mode (ITK-50)",
-     "role_label": "larmorx's correction",
+     "label": "replica, fix − reproduce (ITK-50)",
+     "role_label": "the replica against itself: fix and reproduce (ITK-50)",
      "metrics": {
       "labels": {
        "identical": false,
@@ -4460,21 +4477,22 @@
       }
      },
      "verdict": "d13",
-     "reason": "ITK-50, corrected by default with a warning: ITK's k-means leaves out the point each divided k-d tree node is split at, so the starting centres miss those points; larmorx counts every point. Reproduce mode gives ANTs' result.",
+     "reason": "ITK-50, corrected by default with a warning: ITK's k-means leaves out the point each divided k-d tree node is split at, so the starting centres miss those points; the replica counts every point. In `reproduce`, the replica gives ANTs' result.",
      "links": [
       {
        "label": "ITK-50",
        "href": "docs/findings/upstream-defects.md#itk-50-k-means-leaves-out-the-k-d-trees-split-points--c"
       }
-     ]
+     ],
+     "port": "replica"
     },
     {
      "id": "lxseed-seed1",
      "a": "larmorx-seed",
      "b": "ants-seed-1",
      "kind": "main",
-     "label": "larmorx, seed 121212 − ANTs, the clock's seed (run 1)",
-     "role_label": "larmorx against the original",
+     "label": "replica, seed 121212 − ANTs Atropos, the clock's seed (run 1)",
+     "role_label": "the replica against the original: a fixed seed and the clock's",
      "metrics": {
       "labels": {
        "identical": false,
@@ -4550,16 +4568,17 @@
       }
      },
      "verdict": "within-variability",
-     "reason": "With --use-random-seed 1 ANTs draws its seed from the clock and larmorx uses 121212: another draw. larmorx's labels differ from ANTs' run 1 in 304 voxels, ANTs' own runs from each other in up to 307; the posteriors by up to 0.119, ANTs' own by up to 0.182.",
-     "links": []
+     "reason": "With --use-random-seed 1 ANTs draws its seed from the clock and the replica uses 121212: another draw. The replica's labels differ from ANTs' run 1 in 304 voxels, ANTs' own runs from each other in up to 307; the posteriors by up to 0.119, ANTs' own by up to 0.182.",
+     "links": [],
+     "port": "replica"
     },
     {
      "id": "lx6-lx1",
      "a": "larmorx-6",
      "b": "larmorx",
      "kind": "check",
-     "label": "larmorx, 6 threads − 1 thread",
-     "role_label": "larmorx against itself",
+     "label": "replica, 6 threads − 1 thread",
+     "role_label": "the replica against itself: 1 and 6 threads",
      "metrics": {
       "labels": {
        "identical": true,
@@ -4685,16 +4704,17 @@
       }
      },
      "verdict": "bit-identical",
-     "reason": "larmorx's result does not depend on its thread count.",
-     "links": []
+     "reason": "The replica's result does not depend on its thread count.",
+     "links": [],
+     "port": "replica"
     },
     {
      "id": "fix6-fix1",
      "a": "larmorx-6-fix",
      "b": "larmorx-fix",
      "kind": "check",
-     "label": "larmorx default mode, 6 threads − 1 thread",
-     "role_label": "larmorx against itself",
+     "label": "replica, fix, 6 threads − 1 thread",
+     "role_label": "the replica against itself: 1 and 6 threads",
      "metrics": {
       "labels": {
        "identical": true,
@@ -4821,15 +4841,16 @@
      },
      "verdict": "bit-identical",
      "reason": "The same bytes on any number of threads.",
-     "links": []
+     "links": [],
+     "port": "replica"
     },
     {
      "id": "ants2-ants1",
      "a": "ants-2",
      "b": "ants-1",
      "kind": "variability",
-     "label": "ANTs 2.6.5, 2 threads − 1 thread",
-     "role_label": "the original against itself",
+     "label": "ANTs Atropos 2.6.5, 2 threads − 1 thread",
+     "role_label": "the original against itself: 1 and 2 threads",
      "metrics": {
       "labels": {
        "identical": true,
@@ -4906,15 +4927,16 @@
      },
      "verdict": null,
      "reason": "The same bytes: Atropos' result does not depend on ANTs' thread count.",
-     "links": []
+     "links": [],
+     "port": "original"
     },
     {
      "id": "ants4-ants1",
      "a": "ants-4",
      "b": "ants-1",
      "kind": "variability",
-     "label": "ANTs 2.6.5, 4 threads − 1 thread",
-     "role_label": "the original against itself",
+     "label": "ANTs Atropos 2.6.5, 4 threads − 1 thread",
+     "role_label": "the original against itself: 1 and 4 threads",
      "metrics": {
       "labels": {
        "identical": true,
@@ -4991,15 +5013,16 @@
      },
      "verdict": null,
      "reason": "The same bytes: Atropos' result does not depend on ANTs' thread count.",
-     "links": []
+     "links": [],
+     "port": "original"
     },
     {
      "id": "ants8-ants1",
      "a": "ants-8",
      "b": "ants-1",
      "kind": "variability",
-     "label": "ANTs 2.6.5, 8 threads − 1 thread",
-     "role_label": "the original against itself",
+     "label": "ANTs Atropos 2.6.5, 8 threads − 1 thread",
+     "role_label": "the original against itself: 1 and 8 threads",
      "metrics": {
       "labels": {
        "identical": true,
@@ -5126,15 +5149,16 @@
      },
      "verdict": null,
      "reason": "The same bytes: Atropos' result does not depend on ANTs' thread count.",
-     "links": []
+     "links": [],
+     "port": "original"
     },
     {
      "id": "seed2-seed1",
      "a": "ants-seed-2",
      "b": "ants-seed-1",
      "kind": "variability",
-     "label": "ANTs 2.6.5, the clock's seed: run 2 − run 1",
-     "role_label": "the original against itself",
+     "label": "ANTs Atropos 2.6.5, the clock's seed: run 2 − run 1",
+     "role_label": "the original against itself: two runs of the same command",
      "metrics": {
       "labels": {
        "identical": false,
@@ -5211,15 +5235,16 @@
      },
      "verdict": null,
      "reason": "Atropos seeds its generator from the clock unless --use-random-seed 0 (sMRIPrep passes 0): the ICM visiting order and the random tie-breaks change from run to run.",
-     "links": []
+     "links": [],
+     "port": "original"
     },
     {
      "id": "seed3-seed1",
      "a": "ants-seed-3",
      "b": "ants-seed-1",
      "kind": "variability",
-     "label": "ANTs 2.6.5, the clock's seed: run 3 − run 1",
-     "role_label": "the original against itself",
+     "label": "ANTs Atropos 2.6.5, the clock's seed: run 3 − run 1",
+     "role_label": "the original against itself: two runs of the same command",
      "metrics": {
       "labels": {
        "identical": false,
@@ -5296,15 +5321,16 @@
      },
      "verdict": null,
      "reason": "Atropos seeds its generator from the clock unless --use-random-seed 0 (sMRIPrep passes 0): the ICM visiting order and the random tie-breaks change from run to run.",
-     "links": []
+     "links": [],
+     "port": "original"
     },
     {
      "id": "seed1-ants1",
      "a": "ants-seed-1",
      "b": "ants-1",
      "kind": "variability",
-     "label": "ANTs 2.6.5: the clock's seed − sMRIPrep's fixed seed",
-     "role_label": "the original against itself",
+     "label": "ANTs Atropos 2.6.5: the clock's seed − sMRIPrep's fixed seed",
+     "role_label": "the original against itself: the clock's seed and a fixed seed",
      "metrics": {
       "labels": {
        "identical": false,
@@ -5447,15 +5473,16 @@
      },
      "verdict": null,
      "reason": "Atropos seeds its generator from the clock unless --use-random-seed 0 (sMRIPrep passes 0): the ICM visiting order and the random tie-breaks change from run to run.",
-     "links": []
+     "links": [],
+     "port": "original"
     },
     {
      "id": "image1-ants1",
      "a": "image-1",
      "b": "ants-1",
      "kind": "variability",
-     "label": "ANTs in fMRIPrep's image − ANTs 2.6.5, 1 thread each, as built",
-     "role_label": "the original against itself",
+     "label": "ANTs Atropos in fMRIPrep's image − 2.6.5, 1 thread each, as built",
+     "role_label": "the original against itself: fMRIPrep's build and the repository's",
      "metrics": {
       "labels": {
        "identical": true,
@@ -5582,15 +5609,16 @@
      },
      "verdict": null,
      "reason": "ANTs' version and build play no part at one thread.",
-     "links": []
+     "links": [],
+     "port": "original"
     },
     {
      "id": "fmriprep-ants8",
      "a": "fmriprep",
      "b": "ants-8",
      "kind": "variability",
-     "label": "fMRIPrep's own output − ANTs 2.6.5, 8 threads",
-     "role_label": "the original against itself",
+     "label": "fMRIPrep's output − ANTs Atropos 2.6.5, 8 threads",
+     "role_label": "the original against itself: fMRIPrep's run and the repository's build",
      "metrics": {
       "labels": {
        "identical": true,
@@ -5717,7 +5745,8 @@
      },
      "verdict": null,
      "reason": "fMRIPrep's own run gives the repository's ANTs result bit for bit.",
-     "links": []
+     "links": [],
+     "port": "fmriprep"
     }
    ],
    "default": {
@@ -5731,13 +5760,13 @@
     "panels": [
      "t1w",
      "ants-1",
-     "larmorx",
-     "fmriprep"
+     "fmriprep",
+     "larmorx"
     ],
     "diffs": [
+     "seed1-ants1",
      "lx-ants1",
-     "fix-lx",
-     "seed1-ants1"
+     "fix-lx"
     ],
     "compare": {
      "a": "ants-seed-1",
@@ -5768,42 +5797,47 @@
     "caption": "Axial slice 67 of 111; the crosshair where ANTs with the clock's seed differs most from its fixed-seed run in it; the differences on one symmetric log scale over six decades below the largest."
    },
    "chain": {
-    "title": "What separates fMRIPrep's output from larmorx's",
+    "title": "What separates fMRIPrep's output from the replica's",
     "steps": [
      {
       "nodes": [
        {
         "label": "fMRIPrep 25.2.6, as it ran",
         "sub": "ANTs in its image, 8 threads",
-        "role": "fmriprep"
+        "role": "fmriprep",
+        "port": "fmriprep"
        }
       ]
      },
      {
       "nodes": [
        {
-        "label": "ANTs 2.6.5, 8 threads",
+        "label": "ANTs Atropos 2.6.5, 8 threads",
         "sub": "as built (fMRIPrep ran 8)",
-        "role": "original"
+        "role": "original",
+        "port": "original"
        },
        {
-        "label": "ANTs 2.6.5, 1 thread, as built",
+        "label": "ANTs Atropos 2.6.5, 1 thread, as built",
         "sub": "1, 2, 4 and 8 threads: the same bytes",
-        "role": "original"
+        "role": "original",
+        "port": "original"
        }
       ]
      },
      {
       "nodes": [
        {
-        "label": "ANTs 2.6.5, 1 thread, correctly rounded maths",
+        "label": "ANTs Atropos 2.6.5, correctly rounded maths, 1 thread",
         "sub": "the same binary, CORE-MATH preloaded",
-        "role": "reference"
+        "role": "reference",
+        "port": "original"
        },
        {
-        "label": "larmorx (port), reproduce mode",
+        "label": "replica, reproduce",
         "sub": "1 and 6 threads",
-        "role": "larmorx"
+        "role": "larmorx",
+        "port": "replica"
        }
       ]
      }
@@ -5818,7 +5852,7 @@
       "max_abs": 1.1920928955078125e-07
      }
     ],
-    "note": "Each box holds runs that give the same bytes. Atropos' result does not depend on ANTs' thread count, and fMRIPrep's own run is the repository's ANTs result; larmorx differs from it only where glibc's maths is not correctly rounded, in the last bits of a few posteriors. Its default mode then corrects ITK-50 (the metrics below), a change smaller than ANTs' own spread when it seeds from the clock."
+    "note": "Each box holds runs that give the same bytes. Atropos' result does not depend on ANTs' thread count, and fMRIPrep's own run is the repository's ANTs result; the replica differs from it only where glibc's maths is not correctly rounded, in the last bits of a few posteriors. Its default, `fix`, then corrects ITK-50 (the metrics below), a change smaller than ANTs' own spread when it seeds from the clock."
    },
    "metrics_note": "Δ is A − B. Every number is computed in float64 over all 5,898,240 voxels of the 160 × 192 × 192 outputs, not only the brain shown; the range is B's maximum minus its minimum. The rows *the original against itself* are ANTs' own variability on this input: its thread counts, its builds and its runs with the clock's seed.",
    "provenance": [
@@ -5826,6 +5860,80 @@
     "Inputs: N4-corrected T1w (sha256 3f9a610cd436863c…); brain mask (sha256 88951bc71271901f…); fMRIPrep's POSTERIOR_01.nii.gz (sha256 f3c1068ede36eaca…); fMRIPrep's POSTERIOR_02.nii.gz (sha256 aa3556ba097eb997…); fMRIPrep's POSTERIOR_03.nii.gz (sha256 6ad6730b100f5887…); fMRIPrep's sub-01_T1w_noise_corrected_maths_corrected_labeled.nii.gz (sha256 8adb20583f8430fe…)",
     "Runs: figures cache entry `ants-atropos/fmriprep-ds000005-atropos`, computed 2026-10-22T17:36:55+00:00 with larmorx `d065bb4d4727`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; ANTs Version: 2.6.2.dev1-gff61a3d Compiled: Jul 31 2025 06:55:26; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
+   "order": {
+    "panels": [
+     "t1w",
+     "ants-1",
+     "ants-8",
+     "ants-seed-1",
+     "image-1",
+     "ants-1-cr",
+     "fmriprep",
+     "larmorx",
+     "larmorx-6",
+     "larmorx-fix",
+     "larmorx-6-fix"
+    ],
+    "diffs": [
+     "ants8-ants1",
+     "seed1-ants1",
+     "image1-ants1",
+     "ants2-ants1",
+     "ants4-ants1",
+     "seed2-seed1",
+     "seed3-seed1",
+     "fmriprep-ants8",
+     "lx-ants1",
+     "lx-cr",
+     "lxseed-seed1",
+     "lx-fmriprep",
+     "lx6-lx1",
+     "fix-lx",
+     "fix6-fix1"
+    ],
+    "groups": [
+     [
+      "The original against itself: the yardstick",
+      [
+       "ants8-ants1",
+       "seed1-ants1",
+       "image1-ants1",
+       "ants2-ants1",
+       "ants4-ants1",
+       "seed2-seed1",
+       "seed3-seed1",
+       "fmriprep-ants8"
+      ]
+     ],
+     [
+      "The replica against the original and fMRIPrep's output",
+      [
+       "lx-ants1",
+       "lx-cr",
+       "lxseed-seed1",
+       "lx-fmriprep"
+      ]
+     ],
+     [
+      "The replica against itself: thread counts, fix and reproduce",
+      [
+       "lx6-lx1",
+       "fix-lx",
+       "fix6-fix1"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "In `reproduce`, on 1 and 6 threads, the replica gives ANTs' one-thread result with correctly rounded maths bit for bit. ANTs as built, and fMRIPrep's output, give the same classified image; a few posteriors differ in their last bits (by at most 1.2e-07), where glibc's `expf` and `logf` are not correctly rounded. Atropos does not depend on ANTs' thread count, and fMRIPrep's output is ANTs 2.6.5's at 8 threads bit for bit. With the clock's seed, ANTs' own runs differ from each other in up to 307 labels; the replica with its fixed seed differs from ANTs' first run in 304. The default, `fix`, corrects [ITK-50](repo:docs/findings/upstream-defects.md#summary) in this call: 1 of 5,898,240 labels changes, and the posteriors by up to 0.038.",
+    "verdicts": [
+     {
+      "diff": "lx-ants1",
+      "port": "replica",
+      "verdict": "identical-cr"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds000005",
     "templateflow-OASIS30ANTs"
@@ -5833,7 +5941,7 @@
   },
   {
    "id": "oasis-priors",
-   "title": "A segmentation with tissue priors, by ANTs and larmorx",
+   "title": "A segmentation of the same T1w with tissue priors",
    "summary": "The same T1w segmented as antsCorticalThickness segments one: OASIS30ANTs' CSF, cortical grey matter and white matter priors, brought into the T1w's space with the transform fMRIPrep's brain extraction computed, weigh 0.25 against the likelihoods; MRF 0.1, five iterations. Shown: the classified image and the grey matter's posterior, beside its prior.",
    "facts": [
     {
@@ -5846,7 +5954,7 @@
     },
     {
      "label": "Programs",
-     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; CORE-MATH preloaded where stated; larmorx at commit `dc5e4b828079`"
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; CORE-MATH preloaded where stated; the replica at commit `dc5e4b828079`"
     },
     {
      "label": "Grid",
@@ -5996,7 +6104,8 @@
      "window": [
       1.9839863985776915,
       331.61787200927677
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "prior2",
@@ -6013,13 +6122,14 @@
      "window": [
       0.0,
       0.9645597916328026
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "larmorx",
      "role": "larmorx",
-     "label": "larmorx (port), 1 thread",
-     "sub": "reproduce mode",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 1 thread, reproduce · against ANTs Atropos 2.6.5",
      "arrays": {
       "labels": {
        "blob": "19bc8661723d5a2777291734.bin",
@@ -6041,13 +6151,14 @@
        0.0,
        0.9995754957199097
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-6",
      "role": "larmorx",
-     "label": "larmorx (port), 6 threads",
-     "sub": "reproduce",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 6 threads, reproduce",
      "arrays": {
       "labels": {
        "same": "larmorx:labels",
@@ -6067,13 +6178,14 @@
        0.0,
        0.9995754957199097
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-fix",
      "role": "larmorx",
-     "label": "larmorx (port), 1 thread",
-     "sub": "default mode",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 1 thread, fix (the default)",
      "arrays": {
       "labels": {
        "same": "larmorx:labels",
@@ -6093,13 +6205,14 @@
        0.0,
        0.9995754957199097
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "ants-1-cr",
      "role": "reference",
-     "label": "ANTs 2.6.5, 1 thread, correctly rounded maths",
-     "sub": "the same binary, CORE-MATH preloaded",
+     "label": "ANTs Atropos 2.6.5, correctly rounded maths",
+     "sub": "1 thread · the same binary, CORE-MATH preloaded",
      "arrays": {
       "labels": {
        "same": "larmorx:labels",
@@ -6119,13 +6232,14 @@
        0.0,
        0.9995754957199097
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "ants-1",
      "role": "original",
-     "label": "ANTs 2.6.5, 1 thread, as built",
-     "sub": "the repository's oracle build (GCC 14.3), glibc's maths",
+     "label": "ANTs Atropos 2.6.5",
+     "sub": "1 thread, as built · the repository's build (GCC 14.3), glibc's maths",
      "arrays": {
       "labels": {
        "same": "larmorx:labels",
@@ -6148,7 +6262,8 @@
        0.0,
        0.9995754957199097
       ]
-     }
+     },
+     "port": "original"
     }
    ],
    "diffs": [
@@ -6157,8 +6272,8 @@
      "a": "larmorx",
      "b": "ants-1",
      "kind": "main",
-     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
-     "role_label": "larmorx against the original",
+     "label": "replica − ANTs Atropos 2.6.5, 1 thread, as built",
+     "role_label": "the replica against the original",
      "metrics": {
       "labels": {
        "identical": true,
@@ -6234,15 +6349,16 @@
       }
      ],
      "verdict": "identical-cr",
-     "reason": "The classified images are identical; some posteriors differ in their last bits where glibc's expf and logf are not correctly rounded for a value the run meets; with CORE-MATH preloaded the outputs are bit-identical."
+     "reason": "The classified images are identical; some posteriors differ in their last bits where glibc's expf and logf are not correctly rounded for a value the run meets; with CORE-MATH preloaded the outputs are bit-identical.",
+     "port": "replica"
     },
     {
      "id": "lx-cr",
      "a": "larmorx",
      "b": "ants-1-cr",
      "kind": "main",
-     "label": "larmorx − ANTs 2.6.5, 1 thread, correctly rounded maths",
-     "role_label": "larmorx against the original",
+     "label": "replica − ANTs Atropos 2.6.5, 1 thread, correctly rounded maths",
+     "role_label": "the replica against the original: correctly rounded maths",
      "metrics": {
       "labels": {
        "identical": true,
@@ -6309,15 +6425,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "With correctly rounded maths, ANTs computes exactly what larmorx computes."
+     "reason": "With correctly rounded maths, ANTs computes exactly what the replica computes.",
+     "port": "replica"
     },
     {
      "id": "fix-lx",
      "a": "larmorx-fix",
      "b": "larmorx",
      "kind": "main",
-     "label": "larmorx default mode − reproduce mode",
-     "role_label": "larmorx's correction",
+     "label": "replica, fix − reproduce",
+     "role_label": "the replica against itself: fix and reproduce",
      "metrics": {
       "labels": {
        "identical": true,
@@ -6384,15 +6501,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "No defect larmorx corrects is met: the default mode gives ANTs' result."
+     "reason": "No defect the replica corrects is met: the default, `fix`, gives ANTs' result.",
+     "port": "replica"
     },
     {
      "id": "lx6-lx1",
      "a": "larmorx-6",
      "b": "larmorx",
      "kind": "check",
-     "label": "larmorx, 6 threads − 1 thread",
-     "role_label": "larmorx against itself",
+     "label": "replica, 6 threads − 1 thread",
+     "role_label": "the replica against itself: 1 and 6 threads",
      "metrics": {
       "labels": {
        "identical": true,
@@ -6459,7 +6577,8 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "larmorx's result does not depend on its thread count."
+     "reason": "The replica's result does not depend on its thread count.",
+     "port": "replica"
     }
    ],
    "default": {
@@ -6501,7 +6620,7 @@
     "ranges": {
      "lx-ants1": 1.1920928955078125e-07
     },
-    "caption": "Axial slice 67 of 111; the crosshair where larmorx and ANTs as built differ most in it."
+    "caption": "Axial slice 67 of 111; the crosshair where the replica and ANTs as built differ most in it."
    },
    "metrics_note": "Δ is A − B. Every number is computed in float64 over all 5,898,240 voxels of the outputs, not only the brain shown.",
    "provenance": [
@@ -6509,6 +6628,49 @@
     "Inputs: OASIS30ANTs CSF prior (sha256 ebbe851b6d5898c5…); OASIS30ANTs CGM prior (sha256 c4be7df569fa12d0…); OASIS30ANTs WM prior (sha256 3579a79d197cb3e8…); N4-corrected T1w (sha256 3f9a610cd436863c…); brain mask (sha256 88951bc71271901f…)",
     "Runs: figures cache entry `ants-atropos/ds000005-oasis-priors`, computed 2026-10-22T17:08:39+00:00 with larmorx `dc5e4b828079`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
+   "order": {
+    "panels": [
+     "t1w",
+     "prior2",
+     "ants-1",
+     "ants-1-cr",
+     "larmorx",
+     "larmorx-6",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "lx-ants1",
+     "lx-cr",
+     "lx6-lx1",
+     "fix-lx"
+    ],
+    "groups": [
+     [
+      "The replica against the original",
+      [
+       "lx-ants1",
+       "lx-cr"
+      ]
+     ],
+     [
+      "The replica against itself: thread counts, fix and reproduce",
+      [
+       "lx6-lx1",
+       "fix-lx"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "In `reproduce`, on 1 and 6 threads, the replica gives ANTs' result with correctly rounded maths bit for bit. ANTs as built gives the same classified image; the grey matter's posterior differs in its last bits (by at most 1.2e-07), where glibc's `expf` and `logf` are not correctly rounded. No correction by default changes this call.",
+    "verdicts": [
+     {
+      "diff": "lx-ants1",
+      "port": "replica",
+      "verdict": "identical-cr"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds000005",
     "templateflow-OASIS30ANTs"
@@ -6516,12 +6678,12 @@
   },
   {
    "id": "pv-phantom",
-   "title": "Partial-volume classes with the MRF: ANTs and larmorx's correction",
-   "summary": "The record's partial-volume phantom segmented with classes 1x2 and 2x3, their likelihoods and an MRF of 0.1: ANTs gives the partial-volume classes few voxels (ANTS-106); larmorx's default, with a partial-volume label a member of its own set, labels the boundaries between tissues as their mixtures. The truth comes from the fractions the phantom was built with.",
+   "title": "Partial-volume classes with the MRF, on a phantom of known fractions",
+   "summary": "The record's partial-volume phantom segmented with classes 1x2 and 2x3, their likelihoods and an MRF of 0.1: ANTs gives the partial-volume classes few voxels (ANTS-106); the replica's default, `fix`,, with a partial-volume label a member of its own set, labels the boundaries between tissues as their mixtures. The truth comes from the fractions the phantom was built with.",
    "facts": [
     {
      "label": "Data",
-     "text": "synthetic (the parity suite's `atropos-pv`): nested spheres of radii 8.3, 13.7 and 17.9 voxels (200, 130, 60 over 0), 40³ voxels of 1 mm"
+     "text": "synthetic (the comparison suite's `atropos-pv`): nested spheres of radii 8.3, 13.7 and 17.9 voxels (200, 130, 60 over 0), 40³ voxels of 1 mm"
     },
     {
      "label": "Command",
@@ -6529,7 +6691,7 @@
     },
     {
      "label": "Programs",
-     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; larmorx at commit `15fd54702655`"
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; the replica at commit `15fd54702655`"
     },
     {
      "label": "Classes",
@@ -6654,7 +6816,8 @@
      "window": [
       -8.224650135040283,
       208.30984924316408
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "truth",
@@ -6671,13 +6834,14 @@
      "window": [
       0.0,
       5.0
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "ants",
      "role": "original",
-     "label": "Atropos: ANTs 2.6.5, 1 thread",
-     "sub": "as built",
+     "label": "ANTs Atropos 2.6.5",
+     "sub": "1 thread · as built",
      "arrays": {
       "labels": {
        "blob": "531fcc9176f6aff01b867675.bin",
@@ -6690,13 +6854,14 @@
        0.0,
        4.0
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "ants-cr",
      "role": "original",
-     "label": "Atropos: ANTs 2.6.5, 1 thread",
-     "sub": "CORE-MATH",
+     "label": "ANTs Atropos 2.6.5, correctly rounded maths",
+     "sub": "1 thread · CORE-MATH",
      "arrays": {
       "labels": {
        "same": "ants:labels",
@@ -6708,13 +6873,14 @@
        0.0,
        4.0
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "larmorx",
      "role": "larmorx",
-     "label": "Atropos: larmorx (port)",
-     "sub": "reproduce mode",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · reproduce · against ANTs Atropos 2.6.5",
      "arrays": {
       "labels": {
        "same": "ants:labels",
@@ -6726,13 +6892,14 @@
        0.0,
        4.0
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-fix",
      "role": "larmorx",
-     "label": "Atropos: larmorx (port)",
-     "sub": "default mode, 6 threads",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · fix (the default), 6 threads · against ANTs Atropos 2.6.5",
      "arrays": {
       "labels": {
        "blob": "22f28077e40a49858aacf128.bin",
@@ -6747,7 +6914,8 @@
        0.0,
        5.0
       ]
-     }
+     },
+     "port": "replica"
     }
    ],
    "diffs": [
@@ -6756,8 +6924,8 @@
      "a": "larmorx",
      "b": "ants-cr",
      "kind": "main",
-     "label": "larmorx (reproduce) − ANTs with CORE-MATH",
-     "role_label": "larmorx against the original",
+     "label": "replica, reproduce − ANTs Atropos 2.6.5, correctly rounded maths",
+     "role_label": "the replica against the original: correctly rounded maths",
      "metrics": {
       "labels": {
        "identical": true,
@@ -6798,15 +6966,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "The same labels, voxel for voxel."
+     "reason": "The same labels, voxel for voxel.",
+     "port": "replica"
     },
     {
      "id": "lx-ants",
      "a": "larmorx",
      "b": "ants",
      "kind": "main",
-     "label": "larmorx (reproduce) − ANTs as built",
-     "role_label": "larmorx against the original",
+     "label": "replica, reproduce − ANTs Atropos as built",
+     "role_label": "the replica against the original",
      "metrics": {
       "labels": {
        "identical": true,
@@ -6847,15 +7016,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "The same labels, voxel for voxel."
+     "reason": "The same labels, voxel for voxel.",
+     "port": "replica"
     },
     {
      "id": "fix-ants",
      "a": "larmorx-fix",
      "b": "ants",
      "kind": "main",
-     "label": "larmorx's default − ANTs as built",
-     "role_label": "larmorx against the original",
+     "label": "replica, fix − ANTs Atropos as built",
+     "role_label": "the replica against the original",
      "metrics": {
       "labels": {
        "identical": false,
@@ -6901,15 +7071,16 @@
       }
      ],
      "verdict": "d13",
-     "reason": "ANTS-106 corrected by default (with ITK-50 and ANTS-96): a partial-volume label is a member of its own set in the MRF, so the boundary voxels between two tissues can take it. Against the known fractions: ANTs 94.0%, larmorx's default 97.7% of the voxels (the table below has the Dice per class)."
+     "reason": "ANTS-106 corrected by default (with ITK-50 and ANTS-96): a partial-volume label is a member of its own set in the MRF, so the boundary voxels between two tissues can take it. Against the known fractions: ANTs 94.0%, the replica's default, `fix`, 97.7% of the voxels (the table below has the Dice per class).",
+     "port": "replica"
     },
     {
      "id": "fix-1-6",
      "a": "larmorx-fix-1",
      "b": "larmorx-fix",
      "kind": "check",
-     "label": "larmorx's default: 1 thread − 6 threads",
-     "role_label": "larmorx against itself",
+     "label": "replica, fix: 1 thread − 6 threads",
+     "role_label": "the replica against itself: 1 and 6 threads",
      "metrics": {
       "labels": {
        "identical": true,
@@ -6932,15 +7103,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "The same labels at any thread count."
+     "reason": "The same labels at any thread count.",
+     "port": "replica"
     },
     {
      "id": "ants-truth",
      "a": "ants",
      "b": "truth",
      "kind": "reference",
-     "label": "ANTs − the truth",
-     "role_label": "against the truth",
+     "label": "ANTs Atropos − the truth",
+     "role_label": "the original against the known answer",
      "metrics": {
       "labels": {
        "identical": false,
@@ -6981,15 +7153,16 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "ANTs labels 94.0% of the voxels as the truth; it gives the partial-volume classes 237 and 106 voxels, the truth has 1368 and 408."
+     "reason": "ANTs labels 94.0% of the voxels as the truth; it gives the partial-volume classes 237 and 106 voxels, the truth has 1368 and 408.",
+     "port": "original"
     },
     {
      "id": "fix-truth",
      "a": "larmorx-fix",
      "b": "truth",
      "kind": "reference",
-     "label": "larmorx's default − the truth",
-     "role_label": "against the truth",
+     "label": "replica, fix − the truth",
+     "role_label": "the replica against the known answer",
      "metrics": {
       "labels": {
        "identical": false,
@@ -7030,15 +7203,16 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "larmorx's default labels 97.7% of the voxels as the truth; 1418 and 454 voxels in the partial-volume classes."
+     "reason": "The replica's default, `fix`, labels 97.7% of the voxels as the truth; 1418 and 454 voxels in the partial-volume classes.",
+     "port": "replica"
     },
     {
      "id": "antscr-ants",
      "a": "ants-cr",
      "b": "ants",
      "kind": "variability",
-     "label": "ANTs with CORE-MATH − as built",
-     "role_label": "the original against itself",
+     "label": "ANTs Atropos with CORE-MATH − as built",
+     "role_label": "the original against itself: correctly rounded maths and glibc's",
      "metrics": {
       "labels": {
        "identical": true,
@@ -7079,7 +7253,8 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The same labels."
+     "reason": "The same labels.",
+     "port": "original"
     }
    ],
    "default": {
@@ -7097,8 +7272,8 @@
      "larmorx-fix"
     ],
     "diffs": [
-     "fix-ants",
      "ants-truth",
+     "fix-ants",
      "fix-truth"
     ],
     "compare": {
@@ -7130,24 +7305,6 @@
     "caption": "Axial slice 20 of 40; the phantom, the truth and each program's labels."
    },
    "chain": null,
-   "groups": [
-    [
-     "main",
-     "LARMORX against ANTs"
-    ],
-    [
-     "check",
-     "LARMORX against itself"
-    ],
-    [
-     "reference",
-     "Each against the truth (known by construction)"
-    ],
-    [
-     "variability",
-     "ANTs against itself"
-    ]
-   ],
    "tables": [],
    "metrics_note": "Δ is A − B between the label images, over every voxel of the 40³ grid.",
    "provenance": [
@@ -7155,12 +7312,70 @@
     "Inputs: the partial-volume phantom (sha256 db2e464ca8ebec17…); its mask (sha256 1fa2300b4f927cd6…); the truth from the known fractions (sha256 e8a727207c3a7e66…)",
     "Runs: figures cache entry `ants-atropos/pv-phantom`, computed 2026-10-23T10:06:35+00:00 with larmorx `15fd54702655`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
+   "order": {
+    "panels": [
+     "phantom",
+     "truth",
+     "ants",
+     "ants-cr",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "ants-truth",
+     "antscr-ants",
+     "lx-ants",
+     "lx-ants-cr",
+     "fix-ants",
+     "fix-truth",
+     "fix-1-6"
+    ],
+    "groups": [
+     [
+      "The original against the known answer",
+      [
+       "ants-truth"
+      ]
+     ],
+     [
+      "The original against itself: the yardstick",
+      [
+       "antscr-ants"
+      ]
+     ],
+     [
+      "The replica against the original and the known answer",
+      [
+       "lx-ants",
+       "lx-ants-cr",
+       "fix-ants",
+       "fix-truth"
+      ]
+     ],
+     [
+      "The replica against itself: thread counts",
+      [
+       "fix-1-6"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "In `reproduce` the replica gives ANTs' labels voxel for voxel, as built and with correctly rounded maths. Its default, `fix`, corrects [ANTS-106](repo:docs/findings/upstream-defects.md#summary) (with [ITK-50](repo:docs/findings/upstream-defects.md#summary) and [ANTS-96](repo:docs/findings/upstream-defects.md#summary)): against the known fractions it labels 97.7 % of the voxels as the truth, ANTs 94.0 %. The two partial-volume classes get 1,418 and 454 voxels; the truth has 1,368 and 408, and ANTs gives them 237 and 106.",
+    "verdicts": [
+     {
+      "diff": "lx-ants",
+      "port": "replica",
+      "verdict": "bit-identical"
+     }
+    ]
+   },
    "credits": []
   },
   {
    "id": "panel-tumour",
    "title": "Data panel: fMRIPrep's Atropos on a brain with a tumour",
-   "summary": "fMRIPrep 25.2.6's own call (sMRIPrep's brain extraction, 01_atropos: K-means initialisation, 3 classes, MRF 0.1, 3 iterations) on ds005003 sub-RS001's N4-corrected T1w with a 70 mL right frontal oligodendroglioma, in the brain extraction's mask: its command.txt and inputs from the oracle run.",
+   "summary": "fMRIPrep 25.2.6's own call (sMRIPrep's brain extraction, 01_atropos: K-means initialisation, 3 classes, MRF 0.1, 3 iterations) on ds005003 sub-RS001's N4-corrected T1w with a 70 mL right frontal oligodendroglioma, in the brain extraction's mask: its command.txt and inputs from the fMRIPrep run.",
    "facts": [
     {
      "label": "Data",
@@ -7168,7 +7383,7 @@
     },
     {
      "label": "Node",
-     "text": "`anat_fit/brain_extraction/atropos/01_atropos` of the oracle run ds005003-sub-RS001-noreconall"
+     "text": "`anat_fit/brain_extraction/atropos/01_atropos` of the fMRIPrep run ds005003-sub-RS001-noreconall"
     },
     {
      "label": "Command",
@@ -7176,7 +7391,7 @@
     },
     {
      "label": "Programs",
-     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; larmorx at commit `1fa019a08fbb`"
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; the replica at commit `1fa019a08fbb`"
     },
     {
      "label": "Grid",
@@ -7420,13 +7635,14 @@
      "window": [
       0.1551525580137968,
       610.1614639282224
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "ants-1",
      "role": "original",
-     "label": "ANTs 2.6.5, 1 thread",
-     "sub": "as built (GCC 14.3), glibc's maths",
+     "label": "ANTs Atropos 2.6.5",
+     "sub": "1 thread · as built (GCC 14.3), glibc's maths",
      "arrays": {
       "seg": {
        "blob": "32454242df538e1a7b72b28a.bin",
@@ -7475,12 +7691,13 @@
        0.0,
        0.9997685551643372
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "ants-1-cr",
      "role": "reference",
-     "label": "ANTs 2.6.5, correctly rounded maths",
+     "label": "ANTs Atropos 2.6.5, correctly rounded maths",
      "sub": "1 thread, CORE-MATH preloaded",
      "arrays": {
       "seg": {
@@ -7535,13 +7752,14 @@
        0.0,
        0.9997685551643372
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "larmorx",
      "role": "larmorx",
-     "label": "larmorx (port)",
-     "sub": "reproduce mode, 8 threads",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · reproduce, 8 threads · against ANTs Atropos 2.6.5",
      "arrays": {
       "seg": {
        "same": "ants-1:seg",
@@ -7586,13 +7804,14 @@
        0.0,
        0.9997685551643372
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-fix",
      "role": "larmorx",
-     "label": "larmorx (port)",
-     "sub": "default mode, 8 threads",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · fix (the default), 8 threads",
      "arrays": {
       "seg": {
        "blob": "30899e6fc3bf07816987a716.bin",
@@ -7649,13 +7868,14 @@
        0.0,
        0.9997685551643372
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "ants-8",
      "role": "original",
-     "label": "ANTs 2.6.5, 8 threads",
-     "sub": "as built",
+     "label": "ANTs Atropos 2.6.5",
+     "sub": "8 threads · as built",
      "arrays": {
       "seg": {
        "same": "ants-1:seg",
@@ -7700,7 +7920,8 @@
        0.0,
        0.9997685551643372
       ]
-     }
+     },
+     "port": "original"
     }
    ],
    "diffs": [
@@ -7709,8 +7930,8 @@
      "a": "larmorx",
      "b": "ants-1",
      "kind": "main",
-     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
-     "role_label": "larmorx against the original",
+     "label": "replica − ANTs Atropos 2.6.5, 1 thread, as built",
+     "role_label": "the replica against the original",
      "metrics": {
       "seg": {
        "identical": true,
@@ -7857,15 +8078,16 @@
      },
      "links": [],
      "verdict": "identical-cr",
-     "reason": "Only where glibc's maths is not correctly rounded (post1, post2, post3): with CORE-MATH preloaded, ANTs gives larmorx's bytes."
+     "reason": "Only where glibc's maths is not correctly rounded (post1, post2, post3): with CORE-MATH preloaded, ANTs gives the replica's bytes.",
+     "port": "replica"
     },
     {
      "id": "lx-cr",
      "a": "larmorx",
      "b": "ants-1-cr",
      "kind": "main",
-     "label": "larmorx − ANTs 2.6.5, correctly rounded maths",
-     "role_label": "larmorx against the original",
+     "label": "replica − ANTs Atropos 2.6.5, correctly rounded maths",
+     "role_label": "the replica against the original: correctly rounded maths",
      "metrics": {
       "seg": {
        "identical": true,
@@ -8012,15 +8234,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "larmorx gives ANTs' bytes with correctly rounded maths."
+     "reason": "The replica gives ANTs' bytes with correctly rounded maths.",
+     "port": "replica"
     },
     {
      "id": "lx1-lx",
      "a": "larmorx-1",
      "b": "larmorx",
      "kind": "check",
-     "label": "larmorx, 1 thread − 8 threads (reproduce)",
-     "role_label": "larmorx against itself",
+     "label": "replica, 1 thread − 8 threads (reproduce)",
+     "role_label": "the replica against itself: 1 and 8 threads",
      "metrics": {
       "seg": {
        "identical": true,
@@ -8097,15 +8320,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "larmorx's result does not depend on its thread count."
+     "reason": "The replica's result does not depend on its thread count.",
+     "port": "replica"
     },
     {
      "id": "fix-lx",
      "a": "larmorx-fix",
      "b": "larmorx",
      "kind": "check",
-     "label": "larmorx, default − reproduce mode",
-     "role_label": "larmorx against itself",
+     "label": "replica, fix − reproduce",
+     "role_label": "the replica against itself: fix and reproduce",
      "metrics": {
       "seg": {
        "identical": false,
@@ -8252,15 +8476,16 @@
      },
      "links": [],
      "verdict": "d13",
-     "reason": "larmorx's default corrects ITK-50 ([register](repo:docs/findings/upstream-defects.md)); reproduce mode gives ANTs' result. Changed: seg, post1, post2, post3."
+     "reason": "The replica's default, `fix`, corrects ITK-50 ([register](repo:docs/findings/upstream-defects.md)); `reproduce` gives ANTs' result. Changed: seg, post1, post2, post3.",
+     "port": "replica"
     },
     {
      "id": "ants8-ants1",
      "a": "ants-8",
      "b": "ants-1",
      "kind": "variability",
-     "label": "ANTs 2.6.5, 8 threads − 1 thread",
-     "role_label": "the original against itself",
+     "label": "ANTs Atropos 2.6.5, 8 threads − 1 thread",
+     "role_label": "the original against itself: 1 and 8 threads",
      "metrics": {
       "seg": {
        "identical": true,
@@ -8407,7 +8632,8 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The same bytes: ANTs' thread count changes nothing in this call."
+     "reason": "The same bytes: ANTs' thread count changes nothing in this call.",
+     "port": "original"
     }
    ],
    "default": {
@@ -8451,7 +8677,7 @@
     "ranges": {
      "fix-lx": 0.0
     },
-    "caption": "Axial slice 128 of 256; the crosshair where larmorx differs most from ANTs as built; the three slices through it are stored at full resolution."
+    "caption": "Axial slice 128 of 256; the crosshair where the replica differs most from ANTs as built; the three slices through it are stored at full resolution."
    },
    "chain": null,
    "metrics_note": "Δ is A − B over all 9,437,184 values of each output.",
@@ -8460,6 +8686,55 @@
     "Inputs: input 1 (sha256 0fb91c1cc56dc134…)",
     "Runs: figures cache entry `ants-atropos/panel-fmriprep-tumour`, computed 2026-10-26T23:26:17+00:00 with larmorx `1fa019a08fbb`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
+   "order": {
+    "panels": [
+     "input",
+     "ants-1",
+     "ants-8",
+     "ants-1-cr",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "ants8-ants1",
+     "lx-ants",
+     "lx-cr",
+     "fix-lx",
+     "lx1-lx"
+    ],
+    "groups": [
+     [
+      "The original against itself: the yardstick",
+      [
+       "ants8-ants1"
+      ]
+     ],
+     [
+      "The replica against the original",
+      [
+       "lx-ants",
+       "lx-cr"
+      ]
+     ],
+     [
+      "The replica against itself: thread counts, fix and reproduce",
+      [
+       "fix-lx",
+       "lx1-lx"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "In `reproduce`, on 1 and 8 threads, the replica gives ANTs' bytes with correctly rounded maths; ANTs as built differs only where glibc's maths is not correctly rounded (largest difference 1.2e-07). Its default, `fix`, corrects [ITK-50](repo:docs/findings/upstream-defects.md#summary) here.",
+    "verdicts": [
+     {
+      "diff": "lx-ants",
+      "port": "replica",
+      "verdict": "identical-cr"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds005003",
     "templateflow-OASIS30ANTs"
@@ -8476,7 +8751,7 @@
     },
     {
      "label": "Node",
-     "text": "`anat_fit/brain_extraction/atropos/01_atropos` of the oracle run ds004884-sub-M2079-noreconall"
+     "text": "`anat_fit/brain_extraction/atropos/01_atropos` of the fMRIPrep run ds004884-sub-M2079-noreconall"
     },
     {
      "label": "Command",
@@ -8484,7 +8759,7 @@
     },
     {
      "label": "Programs",
-     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; larmorx at commit `1fa019a08fbb`"
+     "text": "ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; the replica at commit `1fa019a08fbb`"
     },
     {
      "label": "Grid",
@@ -8728,13 +9003,14 @@
      "window": [
       2.2255699634552,
       426.6686672973633
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "ants-1",
      "role": "original",
-     "label": "ANTs 2.6.5, 1 thread",
-     "sub": "as built (GCC 14.3), glibc's maths",
+     "label": "ANTs Atropos 2.6.5",
+     "sub": "1 thread · as built (GCC 14.3), glibc's maths",
      "arrays": {
       "seg": {
        "blob": "e8f2944bd6077286bbc69c14.bin",
@@ -8783,12 +9059,13 @@
        0.0,
        0.9996016621589661
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "ants-1-cr",
      "role": "reference",
-     "label": "ANTs 2.6.5, correctly rounded maths",
+     "label": "ANTs Atropos 2.6.5, correctly rounded maths",
      "sub": "1 thread, CORE-MATH preloaded",
      "arrays": {
       "seg": {
@@ -8843,13 +9120,14 @@
        0.0,
        0.9996016621589661
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "larmorx",
      "role": "larmorx",
-     "label": "larmorx (port)",
-     "sub": "reproduce mode, 8 threads",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · reproduce, 8 threads · against ANTs Atropos 2.6.5",
      "arrays": {
       "seg": {
        "same": "ants-1:seg",
@@ -8894,13 +9172,14 @@
        0.0,
        0.9996016621589661
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-fix",
      "role": "larmorx",
-     "label": "larmorx (port)",
-     "sub": "default mode, 8 threads",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · fix (the default), 8 threads",
      "arrays": {
       "seg": {
        "blob": "775cd4b234d24c18bf09bcf4.bin",
@@ -8957,13 +9236,14 @@
        0.0,
        0.9996016621589661
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "ants-8",
      "role": "original",
-     "label": "ANTs 2.6.5, 8 threads",
-     "sub": "as built",
+     "label": "ANTs Atropos 2.6.5",
+     "sub": "8 threads · as built",
      "arrays": {
       "seg": {
        "same": "ants-1:seg",
@@ -9008,7 +9288,8 @@
        0.0,
        0.9996016621589661
       ]
-     }
+     },
+     "port": "original"
     }
    ],
    "diffs": [
@@ -9017,8 +9298,8 @@
      "a": "larmorx",
      "b": "ants-1",
      "kind": "main",
-     "label": "larmorx − ANTs 2.6.5, 1 thread, as built",
-     "role_label": "larmorx against the original",
+     "label": "replica − ANTs Atropos 2.6.5, 1 thread, as built",
+     "role_label": "the replica against the original",
      "metrics": {
       "seg": {
        "identical": true,
@@ -9165,15 +9446,16 @@
      },
      "links": [],
      "verdict": "identical-cr",
-     "reason": "Only where glibc's maths is not correctly rounded (post1, post2, post3): with CORE-MATH preloaded, ANTs gives larmorx's bytes."
+     "reason": "Only where glibc's maths is not correctly rounded (post1, post2, post3): with CORE-MATH preloaded, ANTs gives the replica's bytes.",
+     "port": "replica"
     },
     {
      "id": "lx-cr",
      "a": "larmorx",
      "b": "ants-1-cr",
      "kind": "main",
-     "label": "larmorx − ANTs 2.6.5, correctly rounded maths",
-     "role_label": "larmorx against the original",
+     "label": "replica − ANTs Atropos 2.6.5, correctly rounded maths",
+     "role_label": "the replica against the original: correctly rounded maths",
      "metrics": {
       "seg": {
        "identical": true,
@@ -9320,15 +9602,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "larmorx gives ANTs' bytes with correctly rounded maths."
+     "reason": "The replica gives ANTs' bytes with correctly rounded maths.",
+     "port": "replica"
     },
     {
      "id": "lx1-lx",
      "a": "larmorx-1",
      "b": "larmorx",
      "kind": "check",
-     "label": "larmorx, 1 thread − 8 threads (reproduce)",
-     "role_label": "larmorx against itself",
+     "label": "replica, 1 thread − 8 threads (reproduce)",
+     "role_label": "the replica against itself: 1 and 8 threads",
      "metrics": {
       "seg": {
        "identical": true,
@@ -9405,15 +9688,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "larmorx's result does not depend on its thread count."
+     "reason": "The replica's result does not depend on its thread count.",
+     "port": "replica"
     },
     {
      "id": "fix-lx",
      "a": "larmorx-fix",
      "b": "larmorx",
      "kind": "check",
-     "label": "larmorx, default − reproduce mode",
-     "role_label": "larmorx against itself",
+     "label": "replica, fix − reproduce",
+     "role_label": "the replica against itself: fix and reproduce",
      "metrics": {
       "seg": {
        "identical": false,
@@ -9560,15 +9844,16 @@
      },
      "links": [],
      "verdict": "d13",
-     "reason": "larmorx's default corrects ITK-50 ([register](repo:docs/findings/upstream-defects.md)); reproduce mode gives ANTs' result. Changed: seg, post1, post2, post3."
+     "reason": "The replica's default, `fix`, corrects ITK-50 ([register](repo:docs/findings/upstream-defects.md)); `reproduce` gives ANTs' result. Changed: seg, post1, post2, post3.",
+     "port": "replica"
     },
     {
      "id": "ants8-ants1",
      "a": "ants-8",
      "b": "ants-1",
      "kind": "variability",
-     "label": "ANTs 2.6.5, 8 threads − 1 thread",
-     "role_label": "the original against itself",
+     "label": "ANTs Atropos 2.6.5, 8 threads − 1 thread",
+     "role_label": "the original against itself: 1 and 8 threads",
      "metrics": {
       "seg": {
        "identical": true,
@@ -9715,7 +10000,8 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The same bytes: ANTs' thread count changes nothing in this call."
+     "reason": "The same bytes: ANTs' thread count changes nothing in this call.",
+     "port": "original"
     }
    ],
    "default": {
@@ -9759,7 +10045,7 @@
     "ranges": {
      "fix-lx": 0.0
     },
-    "caption": "Axial slice 128 of 256; the crosshair where larmorx differs most from ANTs as built; the three slices through it are stored at full resolution."
+    "caption": "Axial slice 128 of 256; the crosshair where the replica differs most from ANTs as built; the three slices through it are stored at full resolution."
    },
    "chain": null,
    "metrics_note": "Δ is A − B over all 12,582,912 values of each output.",
@@ -9768,6 +10054,55 @@
     "Inputs: input 1 (sha256 744689d057da9c5e…)",
     "Runs: figures cache entry `ants-atropos/panel-fmriprep-stroke`, computed 2026-10-26T23:29:29+00:00 with larmorx `1fa019a08fbb`; ANTs v2.6.5 (fdce4d2f84) on ITK v5.4.5 (f51594ad88), x86_64-conda-linux-gnu-g++ (conda-forge gcc 14.3.0-20) 14.3.0; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
+   "order": {
+    "panels": [
+     "input",
+     "ants-1",
+     "ants-8",
+     "ants-1-cr",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "ants8-ants1",
+     "lx-ants",
+     "lx-cr",
+     "fix-lx",
+     "lx1-lx"
+    ],
+    "groups": [
+     [
+      "The original against itself: the yardstick",
+      [
+       "ants8-ants1"
+      ]
+     ],
+     [
+      "The replica against the original",
+      [
+       "lx-ants",
+       "lx-cr"
+      ]
+     ],
+     [
+      "The replica against itself: thread counts, fix and reproduce",
+      [
+       "fix-lx",
+       "lx1-lx"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "In `reproduce`, on 1 and 8 threads, the replica gives ANTs' bytes with correctly rounded maths; ANTs as built differs only where glibc's maths is not correctly rounded (largest difference 6e-08). Its default, `fix`, corrects [ITK-50](repo:docs/findings/upstream-defects.md#summary) here.",
+    "verdicts": [
+     {
+      "diff": "lx-ants",
+      "port": "replica",
+      "verdict": "identical-cr"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds004884",
     "templateflow-OASIS30ANTs"
@@ -9844,7 +10179,7 @@
      ]
     },
     {
-     "head": "MRF 0: larmorx's default",
+     "head": "MRF 0: the replica, `fix`",
      "cells": [
       {
        "v": 0.971,
@@ -9910,7 +10245,7 @@
      "class": "is-sep"
     },
     {
-     "head": "MRF 0.1: larmorx's default",
+     "head": "MRF 0.1: the replica, `fix`",
      "cells": [
       {
        "v": 0.991,
@@ -9970,7 +10305,7 @@
      "class": "is-sep"
     },
     {
-     "head": "MRF 0.3: larmorx's default",
+     "head": "MRF 0.3: the replica, `fix`",
      "cells": [
       {
        "v": 0.991,
@@ -10003,11 +10338,11 @@
      ]
     }
    ],
-   "note": "Classes 1-3 are the tissues, 4 and 5 the partial-volume classes 1x2 and 2x3. ANTS-106: in ANTs' MRF a partial-volume label is +1 against every neighbour, its own tissues included; corrected, it is a member of its own set (−1 with its tissues, −2 with itself, +1 with any other label). larmorx's default also corrects ITK-50 and ANTS-96 (the k-means split points, the partial-volume means), which alone change the MRF-0 row. ANTs stops when a class wins no voxel."
+   "note": "Classes 1-3 are the tissues, 4 and 5 the partial-volume classes 1x2 and 2x3. ANTS-106: in ANTs' MRF a partial-volume label is +1 against every neighbour, its own tissues included; corrected, it is a member of its own set (−1 with its tissues, −2 with itself, +1 with any other label). The replica's default, `fix`, also corrects ITK-50 and ANTS-96 (the k-means split points, the partial-volume means), which alone change the MRF-0 row. ANTs stops when a class wins no voxel."
   },
   {
    "id": "panel-nodes",
-   "title": "fMRIPrep's Atropos nodes in the fourteen oracle runs, and what the panel record compares of them",
+   "title": "fMRIPrep's Atropos nodes in the fourteen fMRIPrep runs, and what the panel record compares of them",
    "columns": [
     {
      "label": "Node (normalised path)"
@@ -10066,9 +10401,35 @@
      ]
     }
    ],
-   "note": "From the panel record (docs/validation/ants-atropos-panel.md): every node of the finished fMRIPrep 25.2.6 oracle runs that ran the program, grouped by its path with the subject, run, space and item removed; a call repeated word for word is compared once."
+   "note": "From the panel record (docs/validation/ants-atropos-panel.md): every node of the finished fMRIPrep 25.2.6 runs that ran the program, grouped by its path with the subject, run, space and item removed; a call repeated word for word is compared once."
   }
  ],
+ "random_testing": {
+  "title": "Random testing, the replica against the original: ANTs `Atropos` 2.6.5",
+  "names": {
+   "port": "replica"
+  }
+ },
+ "category_labels": {
+  "initialization": "initializations",
+  "posteriors": "posteriors",
+  "likelihood": "likelihood models",
+  "mrf": "the MRF",
+  "outliers": "outliers",
+  "partial volume": "partial-volume classes",
+  "dimensions": "dimensions",
+  "inputs": "inputs",
+  "messages": "messages",
+  "verbose": "verbose output",
+  "random seeds": "random seeds",
+  "real (sMRIPrep)": "real images: sMRIPrep's call",
+  "real (priors)": "real images: tissue priors",
+  "real (partial volume)": "real images: partial-volume classes",
+  "real (other)": "real images: other calls",
+  "panel-fmriprep": "data panel: fMRIPrep's calls",
+  "panel-images": "data panel: other images"
+ },
+ "presentation": "writing-guide",
  "cases_credits": [
   "openneuro-ds000005",
   "openneuro-ds005003",
