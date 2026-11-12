@@ -53,9 +53,10 @@
   short: deliberate correction
   means: >-
     The original has a deterministic defect that changes its result, recorded in the register
-    of upstream defects. LARMORX's default corrects it and warns; its reproduce mode
-    (upstream_defects="reproduce", LARMORX_UPSTREAM_DEFECTS=reproduce) gives the original's
-    result, and the parity records compare in that mode.
+    of the originals' defects. LARMORX's default, fix, corrects it and warns; reproduce
+    (upstream_defects="reproduce" in Python; on the command line --upstream-defects reproduce
+    from the next release, LARMORX_UPSTREAM_DEFECTS=reproduce in 0.1.0rc1) gives the
+    original's result, and the comparisons with the original run with it.
   matters: Expected; an improvement.
   light: "#2e8b6a"
   dark: "#3fa37f"

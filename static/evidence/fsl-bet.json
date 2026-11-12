@@ -3,7 +3,7 @@
  "tool": "fsl-bet",
  "title": "BET",
  "provenance": {
-  "exporter": "5df9b57dd7472b8b288d10e02df7255f1b7135de",
+  "exporter": "67ed21b016b2b8de534c179776e3bd3d114cc4a3",
   "records": [
    {
     "path": "docs/validation/fsl-bet-replica-full.json",
@@ -10806,7 +10806,7 @@
     "Inputs: BOLD reference, N4-corrected (sha256 e2edb4ebea7836d2…); T1w (sha256 75c615d7cce397be…)",
     "Runs: figures cache entry `fsl-bet/fmriprep-ds000005-run-01-fsl-6.0.7.23`, computed 2026-10-29T10:13:59+00:00 with larmorx `caefd642193a`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4); larmorx-nc 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Inputs: BOLD reference, N4-corrected (sha256 e2edb4ebea7836d2…); T1w (sha256 75c615d7cce397be…)",
-    "Runs: figures cache entry `fsl-bet/fmriprep-ds000005-run-01-original`, computed 2026-11-05T12:47:51+00:00 with larmorx `73c3baf9c975`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); larmorx 0.0.1 (crate larmorx-fsl: the clean-room original); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-bet/fmriprep-ds000005-run-01-original`, computed 2026-11-05T12:47:51+00:00 with larmorx `73c3baf9c975`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original)”, as the cache entry records it; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "order": {
     "panels": [
@@ -11975,7 +11975,7 @@
     "Inputs: BOLD reference, N4-corrected (sha256 e2edb4ebea7836d2…); T1w (sha256 75c615d7cce397be…)",
     "Runs: figures cache entry `fsl-bet/fmriprep-ds000005-run-01-fsl-6.0.7.23`, computed 2026-10-29T10:13:59+00:00 with larmorx `caefd642193a`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4); larmorx-nc 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Inputs: BOLD reference, N4-corrected (sha256 e2edb4ebea7836d2…); T1w (sha256 75c615d7cce397be…)",
-    "Runs: figures cache entry `fsl-bet/fmriprep-ds000005-run-01-original`, computed 2026-11-05T12:47:51+00:00 with larmorx `73c3baf9c975`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); larmorx 0.0.1 (crate larmorx-fsl: the clean-room original); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-bet/fmriprep-ds000005-run-01-original`, computed 2026-11-05T12:47:51+00:00 with larmorx `73c3baf9c975`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original)”, as the cache entry records it; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "order": {
     "panels": [
@@ -12046,11 +12046,11 @@
   {
    "id": "betsurf-head",
    "title": "betsurf: the skull and the scalp",
-   "summary": "`betsurf` with a T2 (the call `bet -A2` makes, after FLIRT) on the comparison's synthetic head, from FSL bet2's surface of it: profiles along the surface's normals through both images find the inner skull, the outer skull and the scalp; three surfaces are deformed onto them in turn. A synthetic head shows them whole: on a real head the scalp would show a face. FSL 6.0.7.17, fMRIPrep's FSL and the replica in both modes; choose the mask above the panels. FSL 6.0.7.23's output, and the replica's run compared with it, are shown beside them (the replica's reference since the version update of 2026-10-29). LARMORX's clean room (Apache-2.0, written from the specification without FSL's source) runs the same call in `fix` and in `reproduce`, compared with FSL 6.0.7.23, its reference.",
+   "summary": "`betsurf` with a T2 (the call `bet -A2` makes, after FLIRT) on the comparison suite's synthetic head, from FSL bet2's surface of it: profiles along the surface's normals through both images find the inner skull, the outer skull and the scalp; three surfaces are deformed onto them in turn. A synthetic head shows them whole: on a real head the scalp would show a face. FSL 6.0.7.17, fMRIPrep's FSL and the replica in both modes; choose the mask above the panels. FSL 6.0.7.23's output, and the replica's run compared with it, are shown beside them (the replica's reference since the version update of 2026-10-29). LARMORX's clean room (Apache-2.0, written from the specification without FSL's source) runs the same call in `fix` and in `reproduce`, compared with FSL 6.0.7.23, its reference.",
    "facts": [
     {
      "label": "Data",
-     "text": "the comparison's synthetic head (96 × 112 × 84 voxels of 2 mm: ellipsoidal shells of brain, CSF, skull and scalp, an intensity ramp, seeded noise), T1- and T2-like"
+     "text": "the comparison suite's synthetic head (96 × 112 × 84 voxels of 2 mm: ellipsoidal shells of brain, CSF, skull and scalp, an intensity ramp, seeded noise), T1- and T2-like"
     },
     {
      "label": "Command",
@@ -14456,13 +14456,13 @@
    "chain": null,
    "metrics_note": "Δ is A − B: for the masks +1 where only A holds a voxel, −1 where only B does. Computed in float64 over all 903,168 voxels of the outputs, not only those shown. The replica's records' threshold: every file bit-identical to FSL's (header and data), with its exit status and messages. The clean room's record (specs/bet.md §11): exit status and messages FSL's, each file bit-identical or, for the masks, within a Dice coefficient and a boundary distance (betsurf's: Dice >= 0.99, the boundary distance's 95th percentile <= 1 voxel).",
    "provenance": [
-    "Data: the parity suite's synthetic head (larmorx_validation.parity.fsl_bet: shells of brain, CSF, skull and scalp, 2 mm voxels, seeded noise), generated",
+    "Data: the comparison suite's synthetic head (larmorx_validation.parity.fsl_bet: shells of brain, CSF, skull and scalp, 2 mm voxels, seeded noise), generated",
     "Inputs: synthetic head, T1-like (sha256 263003478288d934…); synthetic head, T2-like (sha256 0127039ce996f183…); FSL bet2's surface of it (sha256 bc4cfb4c522c5d37…); its matrix to MNI152 (sha256 da3e076989f8c9ca…); its known brain (sha256 353dc873a376fafa…)",
     "Runs: figures cache entry `fsl-bet/betsurf-synthetic-head`, computed 2026-10-25T22:38:36+00:00 with larmorx `ccbec9978309`; FSL 6.0.7.17 (fsl-bet2 2111.8, fsl-newimage 2203.12, fsl-meshclass 2111.0); FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4); larmorx-nc 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Inputs: synthetic head, T1-like (sha256 263003478288d934…); synthetic head, T2-like (sha256 0127039ce996f183…); FSL bet2's surface of it (sha256 bc4cfb4c522c5d37…); its matrix to MNI152 (sha256 da3e076989f8c9ca…)",
     "Runs: figures cache entry `fsl-bet/betsurf-synthetic-head-fsl-6.0.7.23`, computed 2026-10-29T10:14:07+00:00 with larmorx `caefd642193a`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4); larmorx-nc 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Inputs: synthetic head, T1-like (sha256 263003478288d934…); synthetic head, T2-like (sha256 0127039ce996f183…); FSL bet2's surface of it (sha256 bc4cfb4c522c5d37…); its matrix to MNI152 (sha256 da3e076989f8c9ca…)",
-    "Runs: figures cache entry `fsl-bet/betsurf-synthetic-head-original`, computed 2026-11-05T12:47:55+00:00 with larmorx `73c3baf9c975`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); larmorx 0.0.1 (crate larmorx-fsl: the clean-room original); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-bet/betsurf-synthetic-head-original`, computed 2026-11-05T12:47:55+00:00 with larmorx `73c3baf9c975`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original)”, as the cache entry records it; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "order": {
     "panels": [
@@ -16000,7 +16000,7 @@
     "Inputs: BOLD reference, N4-corrected (sha256 4537975eac27fbce…)",
     "Runs: figures cache entry `fsl-bet/panel-ds000228-pixar008-fsl-6.0.7.23`, computed 2026-10-29T10:14:09+00:00 with larmorx `caefd642193a`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); FSL in fMRIPrep 25.2.6's image (fsl-bet2 2111.8, fsl-newimage 2501.4, fsl-miscmaths 2412.4); larmorx-nc 0.0.1; 7f84379b40f399876909ecf7c236105d6b7c43fdec5111fb7b03f8dee204ac10; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Inputs: BOLD reference, N4-corrected (sha256 4537975eac27fbce…)",
-    "Runs: figures cache entry `fsl-bet/panel-ds000228-pixar008-original`, computed 2026-11-05T12:47:52+00:00 with larmorx `73c3baf9c975`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); larmorx 0.0.1 (crate larmorx-fsl: the clean-room original); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-bet/panel-ds000228-pixar008-original`, computed 2026-11-05T12:47:52+00:00 with larmorx `73c3baf9c975`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original)”, as the cache entry records it; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "order": {
     "panels": [
@@ -17658,7 +17658,7 @@
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: T1w (sha256 75c615d7cce397be…)",
     "Runs: figures cache entry `fsl-bet/options-adult-ds000005-S`, computed 2026-11-04T20:37:02+00:00 with larmorx `73451f78a400`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
-    "Runs of the clean-room original: figures cache entry `fsl-bet/options-adult-ds000005-S-original`, computed 2026-11-05T12:48:24+00:00 with larmorx `73c3baf9c975`; larmorx 0.0.1 (crate larmorx-fsl: the clean-room original); every command, its environment and exit status in its `RUN_INFO.json`"
+    "Runs of the clean room: figures cache entry `fsl-bet/options-adult-ds000005-S-original`, computed 2026-11-05T12:48:24+00:00 with larmorx `73c3baf9c975`; “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original)”, as the cache entry records it; every command, its environment and exit status in its `RUN_INFO.json`"
    ],
    "order": {
     "panels": [
@@ -19309,7 +19309,7 @@
     "Data: OpenNeuro ds005003 (Leuthardt et al.), version 2.0.0, sub-RS001 ses-1 (a brain tumour), CC0-1.0",
     "Inputs: T1w (sha256 cf629160e24ea365…)",
     "Runs: figures cache entry `fsl-bet/options-tumour-S`, computed 2026-11-04T20:38:01+00:00 with larmorx `73451f78a400`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
-    "Runs of the clean-room original: figures cache entry `fsl-bet/options-tumour-S-original`, computed 2026-11-05T12:49:05+00:00 with larmorx `73c3baf9c975`; larmorx 0.0.1 (crate larmorx-fsl: the clean-room original); every command, its environment and exit status in its `RUN_INFO.json`"
+    "Runs of the clean room: figures cache entry `fsl-bet/options-tumour-S-original`, computed 2026-11-05T12:49:05+00:00 with larmorx `73c3baf9c975`; “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original)”, as the cache entry records it; every command, its environment and exit status in its `RUN_INFO.json`"
    ],
    "order": {
     "panels": [
@@ -20624,7 +20624,7 @@
     "Data: OpenNeuro ds000228 (Richardson et al., 2018), version 1.1.1, sub-pixar008 (3.5 years), CC0-1.0",
     "Inputs: T1w (sha256 676a3d6f7583199a…)",
     "Runs: figures cache entry `fsl-bet/options-child-3y-B`, computed 2026-11-04T20:38:34+00:00 with larmorx `73451f78a400`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
-    "Runs of the clean-room original: figures cache entry `fsl-bet/options-child-3y-B-original`, computed 2026-11-05T12:49:45+00:00 with larmorx `73c3baf9c975`; larmorx 0.0.1 (crate larmorx-fsl: the clean-room original); every command, its environment and exit status in its `RUN_INFO.json`"
+    "Runs of the clean room: figures cache entry `fsl-bet/options-child-3y-B-original`, computed 2026-11-05T12:49:45+00:00 with larmorx `73c3baf9c975`; “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original)”, as the cache entry records it; every command, its environment and exit status in its `RUN_INFO.json`"
    ],
    "order": {
     "panels": [
@@ -22300,7 +22300,7 @@
     "Data: OpenNeuro ds003592 (Spreng et al.), version 1.0.13, sub-280 ses-1 (82 years), CC0-1.0",
     "Inputs: T1w (sha256 d3a7785714277f42…)",
     "Runs: figures cache entry `fsl-bet/options-older-82y-B`, computed 2026-11-04T20:40:54+00:00 with larmorx `73451f78a400`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
-    "Runs of the clean-room original: figures cache entry `fsl-bet/options-older-82y-B-original`, computed 2026-11-05T12:51:22+00:00 with larmorx `6bd495946451`; larmorx 0.0.1 (crate larmorx-fsl: the clean-room original); every command, its environment and exit status in its `RUN_INFO.json`"
+    "Runs of the clean room: figures cache entry `fsl-bet/options-older-82y-B-original`, computed 2026-11-05T12:51:22+00:00 with larmorx `6bd495946451`; “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original)”, as the cache entry records it; every command, its environment and exit status in its `RUN_INFO.json`"
    ],
    "order": {
     "panels": [
@@ -24515,7 +24515,7 @@
     "Data: OpenNeuro ds002422 (Panikratova et al.), version 1.1.0, sub-02 (75 years, 1.5 T), CC0-1.0",
     "Inputs: T1w (sha256 0a408fc318742c97…)",
     "Runs: figures cache entry `fsl-bet/options-older-75y-A`, computed 2026-11-04T20:37:41+00:00 with larmorx `73451f78a400`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
-    "Runs of the clean-room original: figures cache entry `fsl-bet/options-older-75y-A-original`, computed 2026-11-05T12:51:58+00:00 with larmorx `6bd495946451`; larmorx 0.0.1 (crate larmorx-fsl: the clean-room original); every command, its environment and exit status in its `RUN_INFO.json`"
+    "Runs of the clean room: figures cache entry `fsl-bet/options-older-75y-A-original`, computed 2026-11-05T12:51:58+00:00 with larmorx `6bd495946451`; “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original)”, as the cache entry records it; every command, its environment and exit status in its `RUN_INFO.json`"
    ],
    "order": {
     "panels": [
@@ -27070,7 +27070,7 @@
     "Data: OpenNeuro ds000256 (Greene et al., 2018), snapshot 00002, sub-CTS203 (7.5 years, a child of the head-motion study), PDDL-1.0",
     "Inputs: T1w (sha256 185492d24fba8de9…); T2w (sha256 ecc1c76bc4c2f1fd…)",
     "Runs: figures cache entry `fsl-bet/options-child-7y-A2`, computed 2026-11-04T20:39:47+00:00 with larmorx `73451f78a400`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
-    "Runs of the clean-room original: figures cache entry `fsl-bet/options-child-7y-A2-original`, computed 2026-11-05T12:53:35+00:00 with larmorx `6bd495946451`; larmorx 0.0.1 (crate larmorx-fsl: the clean-room original); every command, its environment and exit status in its `RUN_INFO.json`"
+    "Runs of the clean room: figures cache entry `fsl-bet/options-child-7y-A2-original`, computed 2026-11-05T12:53:35+00:00 with larmorx `6bd495946451`; “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original)”, as the cache entry records it; every command, its environment and exit status in its `RUN_INFO.json`"
    ],
    "order": {
     "panels": [
@@ -27864,7 +27864,7 @@
     "Data: OpenNeuro ds000228 (Richardson et al., 2018), version 1.1.1, sub-pixar008 (3.5 years), CC0-1.0",
     "Inputs: T1w (sha256 676a3d6f7583199a…)",
     "Runs: figures cache entry `fsl-bet/options-ssroi-child-b`, computed 2026-11-04T20:41:52+00:00 with larmorx `0b43410950ad`; FSL 6.0.7.23 (fsl-bet2 2111.9, fsl-newimage 2601.0, fsl-meshclass 2111.0); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
-    "Runs of the clean-room original: figures cache entry `fsl-bet/options-ssroi-child-b-original`, computed 2026-11-05T12:53:52+00:00 with larmorx `6bd495946451`; larmorx 0.0.1 (crate larmorx-fsl: the clean-room original); every command, its environment and exit status in its `RUN_INFO.json`"
+    "Runs of the clean room: figures cache entry `fsl-bet/options-ssroi-child-b-original`, computed 2026-11-05T12:53:52+00:00 with larmorx `6bd495946451`; “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original)”, as the cache entry records it; every command, its environment and exit status in its `RUN_INFO.json`"
    ],
    "order": {
     "panels": [
