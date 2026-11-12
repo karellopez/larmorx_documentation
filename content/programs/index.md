@@ -14,7 +14,7 @@ A **port** is a **replica**, translated from the original's source to give its r
 - *validated*: every case of its record passes, and those extensive tests have been run;
 - *stable*: validated, and its Python and command-line interface no longer change.
 
-Since 2026-10-28 each port is tested where it matters as it is written, and the extensive tests wait for the final validation phase, so a recent port is *experimental* even where every case of its record agrees. The ports marked *validated* earlier keep their status: ANTs' programs with their data panel (2026-10-27), and the others because every case of their record passed; the final validation phase gives them the rest. In full: [what each status means](/validation/#statuses).
+From now on a port's part leaves it *experimental*, even where every case of its record agrees, and the final validation phase makes it *validated*. The ports marked *validated* before this definition (2026-11-12) keep their status, since every case of their record passed: ANTs' programs, which have their data panel since 2026-10-27, and others, among them most of AFNI's, sdcflows' and the replicas of `mcflirt` and `bet` ([the full list](/validation/#validated-before)). The final validation phase gives them the rest of the evidence. Most ports since 2026-10-28 were left *experimental* even where every case agrees. In full: [what each status means](/validation/#statuses).
 
 <div class="prog-tools" hidden data-prog-tools><button type="button" class="btn btn--secondary" data-prog-all="open">Open every group</button><button type="button" class="btn btn--secondary" data-prog-all="close">Close every group</button></div>
 

@@ -767,3 +767,14 @@ groups:
     planned: "Surface tools compatible with Connectome Workbench and MSM."
     ports: []
     programs: []
+# The ports marked validated before the statuses' present definition, which keep their
+# status (programs.py: DEFINED, VALIDATED_BEFORE; Validation's #statuses).
+validated_before:
+  date: "2026-11-12"
+  groups:
+    - {id: ants, name: "ANTs and ITK", text: "the replicas of `antsRegistration`, `N4BiasFieldCorrection`, `DenoiseImage`, `antsApplyTransforms`, `ImageMath`, `ThresholdImage`, `MultiplyImages`, `SmoothImage`, `ResampleImage`, `ResampleImageBySpacing`, `antsAI`, `antsAffineInitializer`, `Atropos` and `transforms-hdf5`"}
+    - {id: afni, name: "AFNI", text: "the replica and the clean room of `3dTshift`, `3dAutomask` and `3dUnifize`; the replica of `3dvolreg`"}
+    - {id: fsl, name: "FSL", text: "the replicas of `mcflirt`, `bet`, `bet2`, `betsurf`, `fslroi` and `standard_space_roi`"}
+    - {id: sdcflows, name: "sdcflows", text: "the replicas of `sdcflows`, `fieldmap`, `niworkflows-helpers` and `bids`"}
+    - {id: fmriprep, name: "fMRIPrep", text: "the replicas of `resample-series`, `ndimage-filters` and `skimage`"}
+    - {id: larmorx, name: "LARMORX's own", text: "`io`"}

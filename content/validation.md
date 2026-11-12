@@ -137,7 +137,13 @@ Each port has the status its record states, one of three:
 - *validated*: every case of its record passes, and those extensive tests have been run;
 - *stable*: validated, and its Python and command-line interface no longer change.
 
-Since 2026-10-28 each port is tested where it matters as it is written: every code path once and the original's real use. The extensive tests wait for the final validation phase, so a recent port is *experimental* even where every case of its record agrees. The ports marked *validated* before this definition keep their status: ANTs' programs, which have their data panel since 2026-10-27, and the other ports whose parts marked them *validated* when every case of their record passed. The final validation phase gives them the rest of the extensive tests.
+Since 2026-10-28 each port is tested as it is written: every code path once and the original's real use. The extensive tests wait for the final validation phase. From now on a port's part leaves it *experimental*, even where every case of its record agrees, and the final validation phase makes it *validated*. The ports marked *validated* before this definition ({{ data.programs.validated_before.date }}) keep their status, since every case of their record passed: ANTs' programs, which have their data panel since 2026-10-27, and others, among them most of AFNI's, sdcflows' and the replicas of `mcflirt` and `bet` (all of them below). The final validation phase gives them the rest of the evidence. Most ports since 2026-10-28 were left *experimental* even where every case agrees.
+
+<p id="validated-before">Marked <em>validated</em> before {{ data.programs.validated_before.date }}, by software (<a href="{{ link('/programs/') }}">Programs</a>):</p>
+
+{% for g in data.programs.validated_before.groups %}
+- <span class="eco-chip eco-{{ g.id }}">{{ g.name }}</span> {{ g.text }}
+{%- endfor %}
 
 ## Random testing {#random-testing}
 
