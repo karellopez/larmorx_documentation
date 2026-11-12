@@ -99,7 +99,7 @@ implemented:
     validation: "replica: [62 of 62](repo:docs/validation/tedana-t2smap-replica.md) compared cases bit-identical to tedana 26.0.3 in both kept library environments (every file, message and exit status): fMRIPrep's 5 multi-echo calls in three of fMRIPrep's runs (also against fMRIPrep's own files), every option, data type and failure; 40 more rejected by both alike; 44 % of tedana's peak memory on fMRIPrep's calls, [3.0 to 4.2 times its speed](repo:docs/benchmarks/tedana-t2smap.md) at 14 threads on fMRIPrep's curve-fit calls; clean room: [124 of 124](repo:docs/validation/tedana-t2smap-original.md) compared cases within `specs/t2smap.md` §17.3's thresholds against tedana 26.0.3 (`reproduce`: exit status, messages and files tedana's) and the replica's default (by default): fMRIPrep's 6 multi-echo calls in three of fMRIPrep's runs, every option, data type, image format and failure, threads; 1 expected divergence (a chaotic curve fit of noise voxels); 25 % of tedana's peak memory"
   - eco: afni
     tool: "3dTshift (slice timing)"
-    page: /tools/afni-tshift/
+    page: /evidence/afni-tshift/
     use: ["larmorx afni 3dTshift", "lx.afni.tshift"]
     how: "replica and clean room, both in larmorx (the replica with CC BY 4.0's attribution)"
     validation: "replica: [282 of 282](repo:docs/validation/afni-tshift-replica.md) bit-identical; clean room: [282 of 282](repo:docs/validation/afni-tshift.md) compared agree, 180 bit-identical, [2–6× faster](repo:docs/benchmarks/afni-tshift.md)"

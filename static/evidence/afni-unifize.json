@@ -3,7 +3,7 @@
  "tool": "afni-unifize",
  "title": "3dUnifize",
  "provenance": {
-  "exporter": "8d31327b3f2038129bf77c42f2ed0037a62362be",
+  "exporter": "92f2074c9a230738291b494e72a63771c12a22e2",
   "records": [
    {
     "path": "docs/validation/afni-unifize.json",
@@ -2120,7 +2120,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "3/3",
-     "reason": "AFNI reads memory it never wrote (AFNI-47): this run crashed (Fatal Signal 11) after the same messages; the replica fills the read with 0 in `reproduce` and corrects it by default"
+     "reason": "AFNI reads memory it never wrote (AFNI-47): this run crashed (Fatal Signal 11) after the same messages; the clean room fills the read with 0 in `reproduce` and corrects it by default"
     },
     "replica": {
      "outcome": "expected-divergence",
@@ -2260,7 +2260,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Can't compute Unifize-d dataset for some reason :-(; the replica exit 1: ** FATAL ERROR: Can't compute Unifize-d dataset for some reason :-( (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Can't compute Unifize-d dataset for some reason :-(; the clean room exit 1: ** FATAL ERROR: Can't compute Unifize-d dataset for some reason :-( (the same messages)"
     },
     "replica": {
      "outcome": "both-error",
@@ -2280,7 +2280,7 @@
      "outcome": "both-error",
      "verdict": "divergence",
      "checks": "3/3",
-     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); the replica refuses (exit 1: ** FATAL ERROR: the automask of a 2D image smaller than 16 x 16 is empty (NULL): AFNI crashes inverting the contrast with it (AFNI-46)), after the same messages"
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); the clean room refuses (exit 1: ** FATAL ERROR: the automask of a 2D image smaller than 16 x 16 is empty (NULL): AFNI crashes inverting the contrast with it (AFNI-46)), after the same messages"
     },
     "replica": {
      "outcome": "both-error",
@@ -2300,7 +2300,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal value 3.000000 after option -Urad; the replica exit 1: ** FATAL ERROR: Illegal value 3.000000 after option -Urad (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal value 3.000000 after option -Urad; the clean room exit 1: ** FATAL ERROR: Illegal value 3.000000 after option -Urad (the same messages)"
     },
     "replica": {
      "outcome": "both-error",
@@ -2320,7 +2320,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal value 120.000000 after option -Urad; the replica exit 1: ** FATAL ERROR: Illegal value 120.000000 after option -Urad (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal value 120.000000 after option -Urad; the clean room exit 1: ** FATAL ERROR: Illegal value 120.000000 after option -Urad (the same messages)"
     },
     "replica": {
      "outcome": "both-error",
@@ -2340,7 +2340,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt'; the replica exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt' (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt'; the clean room exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt' (the same messages)"
     },
     "replica": {
      "outcome": "both-error",
@@ -2360,7 +2360,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt'; the replica exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt' (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt'; the clean room exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt' (the same messages)"
     },
     "replica": {
      "outcome": "both-error",
@@ -2380,7 +2380,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt'; the replica exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt' (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt'; the clean room exit 1: ** FATAL ERROR: Illegal values (R pb pt) after '-rbt' (the same messages)"
     },
     "replica": {
      "outcome": "both-error",
@@ -2400,7 +2400,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Need 3 arguments (R pb pt) after '-rbt'; the replica exit 1: ** FATAL ERROR: Need 3 arguments (R pb pt) after '-rbt' (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Need 3 arguments (R pb pt) after '-rbt'; the clean room exit 1: ** FATAL ERROR: Need 3 arguments (R pb pt) after '-rbt' (the same messages)"
     },
     "replica": {
      "outcome": "both-error",
@@ -2420,7 +2420,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "AFNI exit 1: ** FATAL ERROR: -clfrac value 0.050000 is illegal!; the replica exit 1: ** FATAL ERROR: -clfrac value 0.050000 is illegal! (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: -clfrac value 0.050000 is illegal!; the clean room exit 1: ** FATAL ERROR: -clfrac value 0.050000 is illegal! (the same messages)"
     },
     "replica": {
      "outcome": "both-error",
@@ -2440,7 +2440,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Need argument after '-clfrac'; the replica exit 1: ** FATAL ERROR: Need argument after '-clfrac' (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Need argument after '-clfrac'; the clean room exit 1: ** FATAL ERROR: Need argument after '-clfrac' (the same messages)"
     },
     "replica": {
      "outcome": "both-error",
@@ -2460,7 +2460,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "AFNI exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-(; the replica exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-( (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-(; the clean room exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-( (the same messages)"
     },
     "replica": {
      "outcome": "both-error",
@@ -2480,7 +2480,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "AFNI exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-(; the replica exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-( (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-(; the clean room exit 1: ** FATAL ERROR: -T2up value is out of range 90..100 :-( (the same messages)"
     },
     "replica": {
      "outcome": "both-error",
@@ -2500,7 +2500,7 @@
      "outcome": "both-error",
      "verdict": "divergence",
      "checks": "3/3",
-     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); the replica refuses (exit 1: ** FATAL ERROR: -T2up needs a value: AFNI crashes (Fatal Signal 11) when an option's value is missing (AFNI-40)), after the same messages"
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); the clean room refuses (exit 1: ** FATAL ERROR: -T2up needs a value: AFNI crashes (Fatal Signal 11) when an option's value is missing (AFNI-40)), after the same messages"
     },
     "replica": {
      "outcome": "both-error",
@@ -2520,7 +2520,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Need argument after '-prefix'; the replica exit 1: ** FATAL ERROR: Need argument after '-prefix' (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Need argument after '-prefix'; the clean room exit 1: ** FATAL ERROR: Need argument after '-prefix' (the same messages)"
     },
     "replica": {
      "outcome": "both-error",
@@ -2540,7 +2540,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Need argument after '-ssave'; the replica exit 1: ** FATAL ERROR: Need argument after '-ssave' (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Need argument after '-ssave'; the clean room exit 1: ** FATAL ERROR: Need argument after '-ssave' (the same messages)"
     },
     "replica": {
      "outcome": "both-error",
@@ -2560,7 +2560,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Can't use '-input' twice; the replica exit 1: ** FATAL ERROR: Can't use '-input' twice (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Can't use '-input' twice; the clean room exit 1: ** FATAL ERROR: Can't use '-input' twice (the same messages)"
     },
     "replica": {
      "outcome": "both-error",
@@ -2580,7 +2580,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Unknown option: -bogus; the replica exit 1: ** FATAL ERROR: Unknown option: -bogus (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Unknown option: -bogus; the clean room exit 1: ** FATAL ERROR: Unknown option: -bogus (the same messages)"
     },
     "replica": {
      "outcome": "both-error",
@@ -2600,7 +2600,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "AFNI exit 1: ** FATAL ERROR: No dataset name on command line?; the replica exit 1: ** FATAL ERROR: No dataset name on command line? (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: No dataset name on command line?; the clean room exit 1: ** FATAL ERROR: No dataset name on command line? (the same messages)"
     },
     "replica": {
      "outcome": "both-error",
@@ -2620,7 +2620,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Can't open dataset '/nonexistent/x.nii'; the replica exit 1: ** FATAL ERROR: Can't open dataset '/nonexistent/x.nii' (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Can't open dataset '/nonexistent/x.nii'; the clean room exit 1: ** FATAL ERROR: Can't open dataset '/nonexistent/x.nii' (the same messages)"
     },
     "replica": {
      "outcome": "both-error",
@@ -2640,7 +2640,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "2/2",
-     "reason": "AFNI's default prefix 'Unifized' is its own dataset format, which the replica does not write: it refuses (NIfTI only)."
+     "reason": "AFNI's default prefix 'Unifized' is its own dataset format, which the clean room does not write: it refuses (NIfTI only)."
     },
     "replica": {
      "outcome": "expected-divergence",
