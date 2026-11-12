@@ -3,7 +3,7 @@
  "tool": "itk-hdf5",
  "title": "ITK transform files",
  "provenance": {
-  "exporter": "f82992b55fd6ca5b48682b959a546aedc5331326",
+  "exporter": "73db893c1001248065b2f50a0c57296c48a54f01",
   "records": [
    {
     "path": "docs/validation/itk-hdf5.json",
@@ -141,8 +141,8 @@
  "implementations": [
   {
    "id": "port",
-   "label": "larmorx (port)",
-   "short": "port",
+   "label": "replica against the original: ITK 5.4.5's transform files (standard comparison)",
+   "short": "replica",
    "record": "docs/validation/itk-hdf5.md",
    "status": "validated",
    "summary": {
@@ -198,7 +198,10 @@
       "divergence": 1
      }
     }
-   ]
+   ],
+   "title": "Agreement, replica against the original: ITK 5.4.5's transform files, and HDF5 as h5py reads it",
+   "comparison": "standard comparison",
+   "port": "replica"
   }
  ],
  "cases": [
@@ -233,28 +236,28 @@
   {
    "id": "errors/h5py/external-link",
    "category": "errors",
-   "description": "written by h5py, read by ITK, refused by larmorx: a transform behind an external link to another HDF5 file",
+   "description": "written by h5py, read by ITK, refused by the replica: a transform behind an external link to another HDF5 file",
    "command": "",
    "results": {
     "port": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "5/5",
-     "reason": "a transform behind an external link to another HDF5 file: ITK's HDF5 follows it; larmorx refuses the file"
+     "reason": "a transform behind an external link to another HDF5 file: ITK's HDF5 follows it; the replica refuses the file"
     }
    }
   },
   {
    "id": "errors/h5py/external-storage",
    "category": "errors",
-   "description": "written by h5py, read by ITK, refused by larmorx: parameters in an external raw file (H5Pset_external)",
+   "description": "written by h5py, read by ITK, refused by the replica: parameters in an external raw file (H5Pset_external)",
    "command": "",
    "results": {
     "port": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "5/5",
-     "reason": "parameters in an external raw file (H5Pset_external): ITK's HDF5 follows it; larmorx refuses the file"
+     "reason": "parameters in an external raw file (H5Pset_external): ITK's HDF5 follows it; the replica refuses the file"
     }
    }
   },
@@ -352,7 +355,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "3/3",
-     "reason": "ITK-17: ITK casts the 2-D component to a 3-D transform (undefined behaviour) and antsApplyTransforms exits 0; larmorx refuses the file"
+     "reason": "ITK-17: ITK casts the 2-D component to a 3-D transform (undefined behaviour) and antsApplyTransforms exits 0; the replica refuses the file"
     }
    }
   },
@@ -471,14 +474,14 @@
   {
    "id": "errors/h5py/virtual",
    "category": "errors",
-   "description": "written by h5py, read by ITK, refused by larmorx: parameters in a virtual dataset (mapping another dataset of the same file)",
+   "description": "written by h5py, read by ITK, refused by the replica: parameters in a virtual dataset (mapping another dataset of the same file)",
    "command": "",
    "results": {
     "port": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "5/5",
-     "reason": "parameters in a virtual dataset (mapping another dataset of the same file): ITK's HDF5 follows it; larmorx refuses the file"
+     "reason": "parameters in a virtual dataset (mapping another dataset of the same file): ITK's HDF5 follows it; the replica refuses the file"
     }
    }
   },
@@ -2046,7 +2049,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: 78899 bytes differ; ITK, h5py and nitransforms read larmorx's file as ITK's"
+     "reason": "byte for byte given ITK's compressed chunks and object times; with the replica's own deflate: 78899 bytes differ; ITK, h5py and nitransforms read the replica's file as ITK's"
     }
    }
   },
@@ -2060,7 +2063,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: 79355 bytes differ; ITK, h5py and nitransforms read larmorx's file as ITK's"
+     "reason": "byte for byte given ITK's compressed chunks and object times; with the replica's own deflate: 79355 bytes differ; ITK, h5py and nitransforms read the replica's file as ITK's"
     }
    }
   },
@@ -2074,7 +2077,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+     "reason": "byte for byte given ITK's compressed chunks and object times; with the replica's own deflate: identical; ITK, h5py and nitransforms read the replica's file as ITK's"
     }
    }
   },
@@ -2088,7 +2091,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+     "reason": "byte for byte given ITK's compressed chunks and object times; with the replica's own deflate: identical; ITK, h5py and nitransforms read the replica's file as ITK's"
     }
    }
   },
@@ -2102,7 +2105,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "6/6",
-     "reason": "39 links do not fit the first block of TransformGroup's fractal heap: HDF5 adds an indirect block, which larmorx's writer does not cover; larmorx keeps the links as link messages (a group info storing 39 compact links), a layout HDF5 itself writes for such a …"
+     "reason": "39 links do not fit the first block of TransformGroup's fractal heap: HDF5 adds an indirect block, which the replica's writer does not cover; the replica keeps the links as link messages (a group info storing 39 compact links), a layout HDF5 itself writes for such a …"
     }
    }
   },
@@ -2116,7 +2119,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+     "reason": "byte for byte given ITK's compressed chunks and object times; with the replica's own deflate: identical; ITK, h5py and nitransforms read the replica's file as ITK's"
     }
    }
   },
@@ -2130,7 +2133,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+     "reason": "byte for byte given ITK's compressed chunks and object times; with the replica's own deflate: identical; ITK, h5py and nitransforms read the replica's file as ITK's"
     }
    }
   },
@@ -2144,7 +2147,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+     "reason": "byte for byte given ITK's compressed chunks and object times; with the replica's own deflate: identical; ITK, h5py and nitransforms read the replica's file as ITK's"
     }
    }
   },
@@ -2158,7 +2161,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+     "reason": "byte for byte given ITK's compressed chunks and object times; with the replica's own deflate: identical; ITK, h5py and nitransforms read the replica's file as ITK's"
     }
    }
   },
@@ -2172,7 +2175,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+     "reason": "byte for byte given ITK's compressed chunks and object times; with the replica's own deflate: identical; ITK, h5py and nitransforms read the replica's file as ITK's"
     }
    }
   },
@@ -2186,7 +2189,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+     "reason": "byte for byte given ITK's compressed chunks and object times; with the replica's own deflate: identical; ITK, h5py and nitransforms read the replica's file as ITK's"
     }
    }
   },
@@ -2200,7 +2203,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: 78899 bytes differ; ITK, h5py and nitransforms read larmorx's file as ITK's"
+     "reason": "byte for byte given ITK's compressed chunks and object times; with the replica's own deflate: 78899 bytes differ; ITK, h5py and nitransforms read the replica's file as ITK's"
     }
    }
   },
@@ -2214,7 +2217,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+     "reason": "byte for byte given ITK's compressed chunks and object times; with the replica's own deflate: identical; ITK, h5py and nitransforms read the replica's file as ITK's"
     }
    }
   },
@@ -2228,7 +2231,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: 104442002 bytes differ; ITK, h5py and nitransforms read larmorx's file as ITK's"
+     "reason": "byte for byte given ITK's compressed chunks and object times; with the replica's own deflate: 104442002 bytes differ; ITK, h5py and nitransforms read the replica's file as ITK's"
     }
    }
   },
@@ -2242,7 +2245,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "ITK fails (ITK-15) and leaves a partial file; larmorx in reproduce mode fails alike and leaves the same file, byte for byte; by default it stores the empty parameters, a file ANTs reads"
+     "reason": "ITK fails (ITK-15) and leaves a partial file; the replica in `reproduce` fails alike and leaves the same file, byte for byte; in `fix`, its default, it stores the empty parameters, a file ANTs reads"
     }
    }
   },
@@ -2256,7 +2259,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+     "reason": "byte for byte given ITK's compressed chunks and object times; with the replica's own deflate: identical; ITK, h5py and nitransforms read the replica's file as ITK's"
     }
    }
   },
@@ -2270,7 +2273,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+     "reason": "byte for byte given ITK's compressed chunks and object times; with the replica's own deflate: identical; ITK, h5py and nitransforms read the replica's file as ITK's"
     }
    }
   },
@@ -2284,7 +2287,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "byte for byte given ITK's compressed chunks and object times; with larmorx's own deflate: identical; ITK, h5py and nitransforms read larmorx's file as ITK's"
+     "reason": "byte for byte given ITK's compressed chunks and object times; with the replica's own deflate: identical; ITK, h5py and nitransforms read the replica's file as ITK's"
     }
    }
   }
@@ -2305,7 +2308,7 @@
  "tables": [
   {
    "id": "objects",
-   "title": "Every group and dataset of the file, as larmorx reads it, against h5py on the HDF5 C library",
+   "title": "Every group and dataset of the file, as the replica reads it, against h5py on the HDF5 C library",
    "columns": [
     {
      "label": "Object"
@@ -2317,13 +2320,13 @@
      "label": "Shape"
     },
     {
-     "label": "Values (larmorx's reading)"
+     "label": "Values (the replica's reading)"
     },
     {
      "label": "SHA-256 of the values"
     },
     {
-     "label": "h5py ↔ larmorx"
+     "label": "h5py ↔ replica"
     }
    ],
    "rows": [
@@ -2647,7 +2650,7 @@
   },
   {
    "id": "transforms",
-   "title": "The transforms as ITK reads them, against larmorx's reading",
+   "title": "The transforms as ITK reads them, against the replica's reading",
    "columns": [
     {
      "label": "As ITK reads the file"
@@ -2665,7 +2668,7 @@
      "num": true
     },
     {
-     "label": "ITK ↔ larmorx"
+     "label": "ITK ↔ replica"
     }
    ],
    "rows": [
@@ -2758,11 +2761,11 @@
      ]
     }
    ],
-   "note": "ITK 5.4.5 (ANTs 2.6.5's antsApplyTransforms) reads the composite and writes back what it read (`-o CompositeTransform[...]`), in double and with `--float 1`, where ITK converts the stored floats to its precision and renames the transforms; larmorx reads the file in the same precision. The composite's own entry (`CompositeTransform`) is a container without parameters."
+   "note": "ITK 5.4.5 (ANTs 2.6.5's antsApplyTransforms) reads the composite and writes back what it read (`-o CompositeTransform[...]`), in double and with `--float 1`, where ITK converts the stored floats to its precision and renames the transforms; the replica reads the file in the same precision. The composite's own entry (`CompositeTransform`) is a container without parameters."
   },
   {
    "id": "written",
-   "title": "The file larmorx writes, read back by ITK, and its bytes against ITK's own file",
+   "title": "The file the replica writes, read back by ITK, and its bytes against ITK's own file",
    "columns": [
     {
      "label": "What"
@@ -2776,7 +2779,7 @@
    ],
    "rows": [
     {
-     "head": "ITK reads larmorx's file",
+     "head": "ITK reads the replica's file",
      "cells": [
       {
        "text": "2 transforms, as ITK reads fMRIPrep's file"
@@ -2788,7 +2791,7 @@
      ]
     },
     {
-     "head": "antsApplyTransforms through larmorx's file",
+     "head": "antsApplyTransforms through the replica's file",
      "cells": [
       {
        "text": "fMRIPrep's T1w on the 2 mm MNI grid, linear: 1,082,035 voxels"
@@ -2800,10 +2803,10 @@
      ]
     },
     {
-     "head": "larmorx writes ITK's own file again",
+     "head": "The replica writes ITK's own file again",
      "cells": [
       {
-       "text": "ITK's file: 105,141,337 bytes; given ITK's compressed chunks and object times, larmorx's file is"
+       "text": "ITK's file: 105,141,337 bytes; given ITK's compressed chunks and object times, the replica's file is"
       },
       {
        "verdict": "bit-identical",
@@ -2812,10 +2815,10 @@
      ]
     },
     {
-     "head": "… with larmorx's own deflate",
+     "head": "… with the replica's own deflate",
      "cells": [
       {
-       "text": "104,598,162 bytes differ: zlib-rs (larmorx) and zlib-ng 2.1.6 (ITK's HDF5) choose other matches, so the compressed chunks, their sizes and the addresses after them differ; the content does not"
+       "text": "104,598,162 bytes differ: zlib-rs (the replica) and zlib-ng 2.1.6 (ITK's HDF5) choose other matches, so the compressed chunks, their sizes and the addresses after them differ; the content does not"
       },
       {
        "verdict": "bit-identical",
@@ -2824,10 +2827,26 @@
      ]
     }
    ],
-   "note": "larmorx writes the transforms it read from fMRIPrep's file (`lx.transforms.write`). ITK's own file is the one antsApplyTransforms wrote above; `itk_h5_replay` rewrites it with larmorx's writer, ITK's strings and times and, first, ITK's compressed chunks."
+   "note": "The replica writes the transforms it read from fMRIPrep's file (`lx.transforms.write`). ITK's own file is the one antsApplyTransforms wrote above; `itk_h5_replay` rewrites it with the replica's writer, ITK's strings and times and, first, ITK's compressed chunks."
   }
  ],
  "examples": [],
+ "random_testing": {
+  "title": "Random testing, the replica against the original: ITK 5.4.5's transform files",
+  "names": {
+   "port": "replica"
+  }
+ },
+ "category_labels": {
+  "errors": "files refused",
+  "hdf5": "HDF5's storage features",
+  "read/catalog": "reading: the test data's files",
+  "read/fmriprep-25.2.6": "reading: fMRIPrep 25.2.6's files",
+  "read/h5py": "reading: files h5py wrote",
+  "read/itk": "reading: files ITK wrote",
+  "write": "writing"
+ },
+ "presentation": "writing-guide",
  "cases_credits": [
   "openneuro-ds000005",
   "openneuro-ds001600",
