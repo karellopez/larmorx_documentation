@@ -689,6 +689,9 @@ class Evidence:
             return 100 * (math.log10(v) - math.log10(lo)) / span
 
         ported = doc.get("presentation") == PRESENTATION
+        # the original's software, by its name (the band's own field; ANTs' pages before it)
+        sw = b.get("software", "ANTs")
+        sws = f"{sw}'" if sw.endswith("s") else f"{sw}'s"
         # on a page in the writing guide's words, the port's two ratios in its mark (filled: the
         # largest |Δ|; open: 1 − NCC), the original's variability a wash of its ink
         marks = (
@@ -704,7 +707,7 @@ class Evidence:
                 pp = ptr("band", "rows", i, key)
                 dots.append(
                     f'<span class="dot {marks.get(cls, cls)}" style="left:{x(v):.3f}%" title="{esc(name)}: '
-                    f'{fmt_sig(v, 2)} × ANTs\' band"><b class="visually-hidden">{esc(name)} '
+                    f'{fmt_sig(v, 2)} × {esc(sws)} band"><b class="visually-hidden">{esc(name)} '
                     f'{self.num(tool, pp, fmt_sig(v, 2))} × the band</b></span>'
                 )
             rows.append(
@@ -720,9 +723,9 @@ class Evidence:
             return Markup(
                 f'<figure class="ev-chart ev-band ev-ported" style="--one:{one:.3f}%">'
                 f'<figcaption class="ev-chart-title">{self.text(b["title"])}</figcaption>'
-                f'<ul class="ev-band-key"><li><span class="dot {marks["d-max"]}"></span>the {esc(who)}\'s largest |Δ| from ANTs ÷ ANTs\' largest |Δ| between its thread counts</li>'
-                f'<li><span class="dot {marks["d-ncc"]}"></span>the {esc(who)}\'s (1 − NCC) with ANTs ÷ ANTs\' (1 − NCC) between its thread counts</li>'
-                f'<li><span class="band-swatch"></span>inside the original\'s own variability, ANTs between its thread counts (&lt; 1)</li></ul>'
+                f'<ul class="ev-band-key"><li><span class="dot {marks["d-max"]}"></span>the {esc(who)}\'s largest |Δ| from {esc(sw)} ÷ {esc(sws)} largest |Δ| between its thread counts</li>'
+                f'<li><span class="dot {marks["d-ncc"]}"></span>the {esc(who)}\'s (1 − NCC) with {esc(sw)} ÷ {esc(sws)} (1 − NCC) between its thread counts</li>'
+                f'<li><span class="band-swatch"></span>inside the original\'s own variability, {esc(sw)} between its thread counts (&lt; 1)</li></ul>'
                 f'<ol class="ev-band-rows">{"".join(rows)}</ol>'
                 f'<div class="ev-band-axis"><span class="ev-band-pad"></span><span class="ev-band-ticks">{ticks}</span></div>'
                 f'<p class="ev-chart-note">{self.text(b["note"])}</p></figure>'

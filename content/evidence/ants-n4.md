@@ -7,8 +7,8 @@ lede: >-
   2.6.5's program on ITK 5.4.5. In `reproduce` it gives ANTs' output bit for bit in every
   compared case of its two records once ANTs uses correctly rounded maths (46 of 46 and 69 of
   69), and in 29 and 20 of them as ANTs is built, where glibc's maths is not correctly rounded.
-  On fMRIPrep's own N4 of a real T1w it is ANTs at one thread with correctly rounded maths, at
-  any thread count. Its default, `fix`, leaves the zero and negative voxels out of the fit
+  On fMRIPrep's own N4 of a real T1w, on any number of threads, it gives ANTs' one-thread
+  result with correctly rounded maths. Its default, `fix`, leaves the zero and negative voxels out of the fit
   (ANTS-40), a correction measured on fMRIPrep's 25 N4 calls.
 description: >-
   How LARMORX's replica of ANTs' N4BiasFieldCorrection compares with ANTs 2.6.5 and fMRIPrep
@@ -124,7 +124,7 @@ The wall time of the whole command on six command lines of fMRIPrep, sMRIPrep an
 
 ## Corrections by default {#corrections}
 
-Where ANTs has a deterministic defect that changes a result, the replica corrects it by default, `fix`, and warns. `upstream_defects="reproduce"` (on the command line `--upstream-defects reproduce` from the next release, `LARMORX_UPSTREAM_DEFECTS=reproduce` in 0.1.0rc1) gives ANTs' behaviour, and the records compare with it. The record's list of what `fix` changed meets ANTS-35, ANTS-36, ANTS-38, ANTS-40 and ITK-02 ([register](repo:docs/findings/upstream-defects.md), [findings](repo:docs/findings/ants-n4.md)). Of them, ANTS-40 is the one measured on fMRIPrep's calls in the five runs (above); the measurement and its code are in the repository ([investigation](repo:validation/investigations/ants-40-n4-nonpositive/README.md)). On the data panel, fMRIPrep's final N4 of the brain with a tumour meets ANTS-36 as well, and its example names both.
+Where ANTs has a deterministic defect that changes a result, the replica corrects it by default, `fix`, and warns. `upstream_defects="reproduce"` (on the command line `--upstream-defects reproduce` from the next release, `LARMORX_UPSTREAM_DEFECTS=reproduce` in 0.1.0rc1) gives ANTs' behaviour, and the records compare with it. The record's list of what `fix` changed meets ANTS-35, ANTS-36, ANTS-38, ANTS-40 and ITK-02 ([register](repo:docs/findings/upstream-defects.md), [findings](repo:docs/findings/ants-n4.md)). Of them, ANTS-40 is the one measured on fMRIPrep's calls in the five runs (above); the measurement and its code are in the repository ([investigation](repo:validation/investigations/ants-40-n4-nonpositive/README.md)). Many of the data panel's calls pass `-r` without a mask (ANTS-36): the replica, like ANTs, does nothing with it in either mode, and warns. The panel's record names it in 36 cases. In the tumour example the values change through ANTS-40 alone.
 
 ## Random testing {#random-testing}
 

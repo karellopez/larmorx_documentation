@@ -51,10 +51,10 @@ tools:
       summary: "Linear, SyN, B-spline SyN, B-spline and displacement-field stages; image and point-set metrics. Port." }
   - { title: N4BiasFieldCorrection, url: "/evidence/ants-n4/", eco: ants,
       summary: "Bias-field correction, as fMRIPrep, sMRIPrep and sdcflows call it: a replica in larmorx, ANTs' output bit for bit in reproduce, with correctly rounded maths." }
-  - { title: DenoiseImage, url: "/tools/ants-denoise/", eco: ants,
-      summary: "Non-local means denoising; ANTs' single-thread result at any thread count. Port." }
-  - { title: antsApplyTransforms, url: "/tools/ants-apply-transforms/", eco: ants,
-      summary: "Resampling through ITK transforms, in double and with --float 1; transform outputs. Port." }
+  - { title: DenoiseImage, url: "/evidence/ants-denoise/", eco: ants,
+      summary: "Non-local means denoising: a replica in larmorx, ANTs' single-thread result on any number of threads, with correctly rounded maths." }
+  - { title: antsApplyTransforms, url: "/evidence/ants-apply-transforms/", eco: ants,
+      summary: "Resampling through ITK transforms, in double precision and with --float 1, and the transforms it writes: a replica in larmorx." }
   - { title: "ImageMath and the filters", url: "/tools/ants-programs/", eco: ants,
       summary: "ImageMath, ThresholdImage, MultiplyImages, SmoothImage, ResampleImage, ResampleImageBySpacing. Ports." }
   - { title: "antsAI, antsAffineInitializer", url: "/tools/ants-ai/", eco: ants,

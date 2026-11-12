@@ -3,7 +3,7 @@
  "tool": "ants-n4",
  "title": "N4BiasFieldCorrection",
  "provenance": {
-  "exporter": "c77d187059e76b58a574eb7a1634b8dd32b0fd5b",
+  "exporter": "5a107b2f7b346ea9a389d35f808ce754ffb667d0",
   "records": [
    {
     "path": "docs/validation/ants-n4.json",
@@ -3988,7 +3988,8 @@
    }
   ],
   "note": "From the record's table: ANTs at 2, 3, 4, 8 and 12 threads against 1 thread give ANTs' thread band for each case and output; a ratio below 1 lies inside it. Every one of these differences vanishes with correctly rounded maths.",
-  "port": "replica"
+  "port": "replica",
+  "software": "ANTs"
  },
  "speed": {
   "title": "Speed, the replica against the original: ANTs `N4BiasFieldCorrection` 2.6.5",
@@ -8870,7 +8871,7 @@
     },
     {
      "label": "Command",
-     "text": "`N4BiasFieldCorrection -d 3 --bspline-fitting [ 200 ] --convergence [ 50x50x50x50x50, 1e-07 ] --shrink-factor 4 --input-image openneurosub-16_acq-mp2rage_T1w.nii.gz --output [ corrected.nii.gz, bias.nii.gz ]`"
+     "text": "`N4BiasFieldCorrection -d 3 --bspline-fitting [ 200 ] --convergence [ 50x50x50x50x50, 1e-07 ] --shrink-factor 4 --input-image sub-16_acq-mp2rage_T1w.nii.gz --output [ corrected.nii.gz, bias.nii.gz ]`"
     },
     {
      "label": "Programs",
@@ -10406,7 +10407,7 @@
      },
      "links": [],
      "verdict": "d13",
-     "reason": "The replica's default, `fix`, corrects ANTS-36, ANTS-40 ([register](repo:docs/findings/upstream-defects.md)); `reproduce` gives ANTs' result. Changed: corrected, bias.",
+     "reason": "The replica's default, `fix`, corrects ANTS-40 ([register](repo:docs/findings/upstream-defects.md)) and warns that `-r` does nothing without a mask (ANTS-36); `reproduce` gives ANTs' result. Changed: corrected, bias.",
      "port": "replica"
     },
     {
@@ -10588,7 +10589,7 @@
     ]
    },
    "shows": {
-    "text": "In `reproduce`, on 1 and 8 threads, the replica gives ANTs' bytes with correctly rounded maths; ANTs as built differs only where glibc's maths is not correctly rounded (largest difference 0.0068). Its default, `fix`, corrects [ANTS-36](repo:docs/findings/upstream-defects.md#summary) and [ANTS-40](repo:docs/findings/upstream-defects.md#summary) here.",
+    "text": "In `reproduce`, on 1 and 8 threads, the replica gives ANTs' bytes with correctly rounded maths; ANTs as built differs only where glibc's maths is not correctly rounded (largest difference 0.0068). Its default, `fix`, leaves the zero and negative voxels out of the fit ([ANTS-40](repo:docs/findings/upstream-defects.md#summary)) and warns that `-r` does nothing without a mask ([ANTS-36](repo:docs/findings/upstream-defects.md#summary)).",
     "verdicts": [
      {
       "diff": "lx-ants",
@@ -10612,7 +10613,7 @@
     },
     {
      "label": "Command",
-     "text": "`N4BiasFieldCorrection -d 3 --bspline-fitting [ 200 ] --convergence [ 50x50x50x50x50, 1e-07 ] --shrink-factor 4 --input-image openneurosub-280_ses-1_FLAIR.nii.gz --output [ corrected.nii.gz, bias.nii.gz ]`"
+     "text": "`N4BiasFieldCorrection -d 3 --bspline-fitting [ 200 ] --convergence [ 50x50x50x50x50, 1e-07 ] --shrink-factor 4 --input-image sub-280_ses-1_FLAIR.nii.gz --output [ corrected.nii.gz, bias.nii.gz ]`"
     },
     {
      "label": "Programs",
@@ -11471,7 +11472,7 @@
     },
     {
      "label": "Command",
-     "text": "`N4BiasFieldCorrection -d 3 --bspline-fitting [ 200 ] --convergence [ 50x50x50x50x50, 1e-07 ] --shrink-factor 4 --input-image openneurosub-RS001_ses-1_T2w.nii.gz --output [ corrected.nii.gz, bias.nii.gz ]`"
+     "text": "`N4BiasFieldCorrection -d 3 --bspline-fitting [ 200 ] --convergence [ 50x50x50x50x50, 1e-07 ] --shrink-factor 4 --input-image sub-RS001_ses-1_T2w.nii.gz --output [ corrected.nii.gz, bias.nii.gz ]`"
     },
     {
      "label": "Programs",
@@ -12340,7 +12341,7 @@
     },
     {
      "label": "Command",
-     "text": "`N4BiasFieldCorrection -d 3 --bspline-fitting [ 200 ] --convergence [ 50x50x50x50x50, 1e-07 ] --shrink-factor 4 --input-image openneurosub-fsm64ps_acq-mp2rage_UNIT1.nii.gz --output [ corrected.nii.gz, bias.nii.gz ]`"
+     "text": "`N4BiasFieldCorrection -d 3 --bspline-fitting [ 200 ] --convergence [ 50x50x50x50x50, 1e-07 ] --shrink-factor 4 --input-image sub-fsm64ps_acq-mp2rage_UNIT1.nii.gz --output [ corrected.nii.gz, bias.nii.gz ]`"
     },
     {
      "label": "Programs",

@@ -21,7 +21,7 @@ implemented:
     validation: "[257 files](repo:docs/validation/nifti-io.md), data bit-identical to nibabel; [4–8× faster](repo:docs/benchmarks/nifti-io.md) on compressed writes with threads"
   - eco: ants
     tool: "antsApplyTransforms"
-    page: /tools/ants-apply-transforms/
+    page: /evidence/ants-apply-transforms/
     use: ["larmorx ants antsApplyTransforms", "lx.ants.apply_transforms"]
     how: "replica (ANTs/ITK)"
     validation: "[258 cases](repo:docs/validation/ants-apply-transforms.md): 185 of 200 compared bit-identical to ANTs, the rest differ only through glibc's maths; B-spline transforms included; data panel: [329 of 425](repo:docs/validation/ants-apply-transforms-panel.md) as built, all with correctly rounded maths (fMRIPrep's 421 calls in fMRIPrep's fourteen runs)"
@@ -39,7 +39,7 @@ implemented:
     validation: "[29 of 46](repo:docs/validation/ants-n4.md) bit-identical to ANTs, 46 of 46 with correctly rounded maths; ANTS-40 corrected by default; data panel: [20 of 69](repo:docs/validation/ants-n4-panel.md) as built, 69 of 69 with correctly rounded maths"
   - eco: ants
     tool: "DenoiseImage"
-    page: /tools/ants-denoise/
+    page: /evidence/ants-denoise/
     use: ["larmorx ants DenoiseImage", "lx.ants.denoise_image"]
     how: "replica"
     validation: "[7 of 40](repo:docs/validation/ants-denoise.md) bit-identical to ANTs, 40 of 40 with correctly rounded maths; ANTS-43 and ANTS-44 corrected by default; data panel: [0 of 21](repo:docs/validation/ants-denoise-panel.md) as built, 21 of 21 with correctly rounded maths"
