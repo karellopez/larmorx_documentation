@@ -3,7 +3,7 @@
  "tool": "ants-n4",
  "title": "N4BiasFieldCorrection",
  "provenance": {
-  "exporter": "9c9121e99a45402f4323ee06548b621c53281d98",
+  "exporter": "c77d187059e76b58a574eb7a1634b8dd32b0fd5b",
   "records": [
    {
     "path": "docs/validation/ants-n4.json",
@@ -2853,7 +2853,7 @@
    "id": "panel/fmriprep/ds000005-sub-01/anat_fit/brain_extraction/atropos/inu_n4_final[0]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/atropos/inu_n4_final[0]` of the fMRIPrep run ds000005-sub-01 (anat_fit_wf/brain_extraction_wf/atropos_wf/inu_n4_final): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-01_T1w_noise_corrected_corrected.nii.gz, sub-01_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep oracle run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-01_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-01_T1w_noise_corrected_corrected.nii.gz, sub-01_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -2867,7 +2867,7 @@
    "id": "panel/fmriprep/ds000005-sub-01/anat_fit/brain_extraction/inu_n4[40]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/inu_n4[40]` of the fMRIPrep run ds000005-sub-01 (anat_fit_wf/brain_extraction_wf/inu_n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-01_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-01_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-01_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-01_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -2881,7 +2881,7 @@
    "id": "panel/fmriprep/ds000005-sub-01/bold[task_mixedgamblestask_run_01]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[task_mixedgamblestask_run_01]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds000005-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds000005-sub-01-noreconall/out/sub-01/func/sub-01_task-mixedgamblestask_run-01_desc-hmc_boldref.nii.gz' --output sub-01_task-mixedgamblestask_run-01_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_mixedgamblestask_run_01_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds000005-sub-01-noreconall/out/sub-01/func/sub-01_task-mixedgamblestask_run-01_desc-hmc_boldref.nii.gz' --output sub-01_task-mixedgamblestask_run-01_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_mixedgamblestask_run_01_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -2895,7 +2895,7 @@
    "id": "panel/fmriprep/ds000005-sub-01/bold[task_mixedgamblestask_run_02]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[task_mixedgamblestask_run_02]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds000005-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds000005-sub-01-noreconall/out/sub-01/func/sub-01_task-mixedgamblestask_run-02_desc-hmc_boldref.nii.gz' --output sub-01_task-mixedgamblestask_run-02_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_mixedgamblestask_run_02_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds000005-sub-01-noreconall/out/sub-01/func/sub-01_task-mixedgamblestask_run-02_desc-hmc_boldref.nii.gz' --output sub-01_task-mixedgamblestask_run-02_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_mixedgamblestask_run_02_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -2909,7 +2909,7 @@
    "id": "panel/fmriprep/ds000005-sub-01/bold[task_mixedgamblestask_run_03]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[task_mixedgamblestask_run_03]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds000005-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds000005-sub-01-noreconall/out/sub-01/func/sub-01_task-mixedgamblestask_run-03_desc-hmc_boldref.nii.gz' --output sub-01_task-mixedgamblestask_run-03_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_mixedgamblestask_run_03_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds000005-sub-01-noreconall/out/sub-01/func/sub-01_task-mixedgamblestask_run-03_desc-hmc_boldref.nii.gz' --output sub-01_task-mixedgamblestask_run-03_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds000005-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_mixedgamblestask_run_03_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -2923,7 +2923,7 @@
    "id": "panel/fmriprep/ds000228-sub-pixar008/anat_fit/brain_extraction/atropos/inu_n4_final[0]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/atropos/inu_n4_final[0]` of the fMRIPrep run ds000228-sub-pixar008 (anat_fit_wf/brain_extraction_wf/atropos_wf/inu_n4_final): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds000228-sub-pixar008-noreconall/work/fmriprep_25_2_wf/sub_pixar008_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-pixar008_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-pixar008_T1w_noise_corrected_corrected.nii.gz, sub-pixar008_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep oracle run>/ds000228-sub-pixar008-noreconall/work/fmriprep_25_2_wf/sub_pixar008_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds000228-sub-pixar008-noreconall/work/fmriprep_25_2_wf/sub_pixar008_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-pixar008_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-pixar008_T1w_noise_corrected_corrected.nii.gz, sub-pixar008_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep run>/ds000228-sub-pixar008-noreconall/work/fmriprep_25_2_wf/sub_pixar008_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -2937,7 +2937,7 @@
    "id": "panel/fmriprep/ds000228-sub-pixar008/anat_fit/brain_extraction/inu_n4[40]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/inu_n4[40]` of the fMRIPrep run ds000228-sub-pixar008 (anat_fit_wf/brain_extraction_wf/inu_n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds000228-sub-pixar008-noreconall/work/fmriprep_25_2_wf/sub_pixar008_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-pixar008_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-pixar008_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds000228-sub-pixar008-noreconall/work/fmriprep_25_2_wf/sub_pixar008_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-pixar008_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-pixar008_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -2951,7 +2951,7 @@
    "id": "panel/fmriprep/ds000228-sub-pixar008/bold[task_pixar]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[task_pixar]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds000228-sub-pixar008 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds000228-sub-pixar008-noreconall/out/sub-pixar008/func/sub-pixar008_task-pixar_desc-hmc_boldref.nii.gz' --output sub-pixar008_task-pixar_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds000228-sub-pixar008-noreconall/work/fmriprep_25_2_wf/sub_pixar008_wf/bold_task_pixar_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds000228-sub-pixar008-noreconall/out/sub-pixar008/func/sub-pixar008_task-pixar_desc-hmc_boldref.nii.gz' --output sub-pixar008_task-pixar_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds000228-sub-pixar008-noreconall/work/fmriprep_25_2_wf/sub_pixar008_wf/bold_task_pixar_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -2965,7 +2965,7 @@
    "id": "panel/fmriprep/ds000256-sub-CTS203/anat_fit/brain_extraction/atropos/inu_n4_final[0]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/atropos/inu_n4_final[0]` of the fMRIPrep run ds000256-sub-CTS203 (anat_fit_wf/brain_extraction_wf/atropos_wf/inu_n4_final): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds000256-sub-CTS203-noreconall/work/fmriprep_25_2_wf/sub_CTS203_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-CTS203_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-CTS203_T1w_noise_corrected_corrected.nii.gz, sub-CTS203_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep oracle run>/ds000256-sub-CTS203-noreconall/work/fmriprep_25_2_wf/sub_CTS203_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds000256-sub-CTS203-noreconall/work/fmriprep_25_2_wf/sub_CTS203_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-CTS203_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-CTS203_T1w_noise_corrected_corrected.nii.gz, sub-CTS203_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep run>/ds000256-sub-CTS203-noreconall/work/fmriprep_25_2_wf/sub_CTS203_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -2979,7 +2979,7 @@
    "id": "panel/fmriprep/ds000256-sub-CTS203/anat_fit/brain_extraction/inu_n4[40]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/inu_n4[40]` of the fMRIPrep run ds000256-sub-CTS203 (anat_fit_wf/brain_extraction_wf/inu_n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds000256-sub-CTS203-noreconall/work/fmriprep_25_2_wf/sub_CTS203_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-CTS203_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-CTS203_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds000256-sub-CTS203-noreconall/work/fmriprep_25_2_wf/sub_CTS203_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-CTS203_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-CTS203_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -2993,7 +2993,7 @@
    "id": "panel/fmriprep/ds000256-sub-CTS203/bold[task_restbaseline]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[task_restbaseline]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds000256-sub-CTS203 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds000256-sub-CTS203-noreconall/out/sub-CTS203/func/sub-CTS203_task-restbaseline_desc-hmc_boldref.nii.gz' --output sub-CTS203_task-restbaseline_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds000256-sub-CTS203-noreconall/work/fmriprep_25_2_wf/sub_CTS203_wf/bold_task_restbaseline_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds000256-sub-CTS203-noreconall/out/sub-CTS203/func/sub-CTS203_task-restbaseline_desc-hmc_boldref.nii.gz' --output sub-CTS203_task-restbaseline_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds000256-sub-CTS203-noreconall/work/fmriprep_25_2_wf/sub_CTS203_wf/bold_task_restbaseline_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3007,7 +3007,7 @@
    "id": "panel/fmriprep/ds000256-sub-CTS203/bold[task_restfixationfixed]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[task_restfixationfixed]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds000256-sub-CTS203 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds000256-sub-CTS203-noreconall/out/sub-CTS203/func/sub-CTS203_task-restfixationfixed_desc-hmc_boldref.nii.gz' --output sub-CTS203_task-restfixationfixed_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds000256-sub-CTS203-noreconall/work/fmriprep_25_2_wf/sub_CTS203_wf/bold_task_restfixationfixed_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds000256-sub-CTS203-noreconall/out/sub-CTS203/func/sub-CTS203_task-restfixationfixed_desc-hmc_boldref.nii.gz' --output sub-CTS203_task-restfixationfixed_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds000256-sub-CTS203-noreconall/work/fmriprep_25_2_wf/sub_CTS203_wf/bold_task_restfixationfixed_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3021,7 +3021,7 @@
    "id": "panel/fmriprep/ds000256-sub-CTS203/bold[task_restfixationnofeedback]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[task_restfixationnofeedback]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds000256-sub-CTS203 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds000256-sub-CTS203-noreconall/out/sub-CTS203/func/sub-CTS203_task-restfixationnofeedback_desc-hmc_boldref.nii.gz' --output sub-CTS203_task-restfixationnofeedback_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds000256-sub-CTS203-noreconall/work/fmriprep_25_2_wf/sub_CTS203_wf/bold_task_restfixationnofeedback_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds000256-sub-CTS203-noreconall/out/sub-CTS203/func/sub-CTS203_task-restfixationnofeedback_desc-hmc_boldref.nii.gz' --output sub-CTS203_task-restfixationnofeedback_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds000256-sub-CTS203-noreconall/work/fmriprep_25_2_wf/sub_CTS203_wf/bold_task_restfixationnofeedback_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3035,7 +3035,7 @@
    "id": "panel/fmriprep/ds001600-sub-1/anat_fit/brain_extraction/atropos/inu_n4_final[0]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/atropos/inu_n4_final[0]` of the fMRIPrep run ds001600-sub-1 (anat_fit_wf/brain_extraction_wf/atropos_wf/inu_n4_final): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds001600-sub-1-noreconall/work/fmriprep_25_2_wf/sub_1_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-1_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-1_T1w_noise_corrected_corrected.nii.gz, sub-1_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep oracle run>/ds001600-sub-1-noreconall/work/fmriprep_25_2_wf/sub_1_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds001600-sub-1-noreconall/work/fmriprep_25_2_wf/sub_1_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-1_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-1_T1w_noise_corrected_corrected.nii.gz, sub-1_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep run>/ds001600-sub-1-noreconall/work/fmriprep_25_2_wf/sub_1_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3049,7 +3049,7 @@
    "id": "panel/fmriprep/ds001600-sub-1/anat_fit/brain_extraction/inu_n4[40]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/inu_n4[40]` of the fMRIPrep run ds001600-sub-1 (anat_fit_wf/brain_extraction_wf/inu_n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds001600-sub-1-noreconall/work/fmriprep_25_2_wf/sub_1_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-1_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-1_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds001600-sub-1-noreconall/work/fmriprep_25_2_wf/sub_1_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-1_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-1_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3063,7 +3063,7 @@
    "id": "panel/fmriprep/ds001600-sub-1/fmap_preproc/wf_auto_00000/magnitude/brainextraction/n4",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `fmap_preproc/wf_auto_00000/magnitude/brainextraction/n4` of the fMRIPrep run ds001600-sub-1 (fmap_preproc_wf/wf_auto_00000/magnitude_wf/brainextraction_wf/n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep oracle run>/ds001600-sub-1-noreconall/work/fmriprep_25_2_wf/sub_1_wf/fmap_preproc_wf/wf_auto_00000/magnitude_wf/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep run>/ds001600-sub-1-noreconall/work/fmriprep_25_2_wf/sub_1_wf/fmap_preproc_wf/wf_auto_00000/magnitude_wf/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3077,7 +3077,7 @@
    "id": "panel/fmriprep/ds001600-sub-1/fmap_preproc/wf_auto_00001/magnitude/brainextraction/n4",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `fmap_preproc/wf_auto_00001/magnitude/brainextraction/n4` of the fMRIPrep run ds001600-sub-1 (fmap_preproc_wf/wf_auto_00001/magnitude_wf/brainextraction_wf/n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep oracle run>/ds001600-sub-1-noreconall/work/fmriprep_25_2_wf/sub_1_wf/fmap_preproc_wf/wf_auto_00001/magnitude_wf/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep run>/ds001600-sub-1-noreconall/work/fmriprep_25_2_wf/sub_1_wf/fmap_preproc_wf/wf_auto_00001/magnitude_wf/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3091,7 +3091,7 @@
    "id": "panel/fmriprep/ds001600-sub-1/fmap_preproc/wf_auto_00002/magnitude/brainextraction/n4",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `fmap_preproc/wf_auto_00002/magnitude/brainextraction/n4` of the fMRIPrep run ds001600-sub-1 (fmap_preproc_wf/wf_auto_00002/magnitude_wf/brainextraction_wf/n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep oracle run>/ds001600-sub-1-noreconall/work/fmriprep_25_2_wf/sub_1_wf/fmap_preproc_wf/wf_auto_00002/magnitude_wf/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep run>/ds001600-sub-1-noreconall/work/fmriprep_25_2_wf/sub_1_wf/fmap_preproc_wf/wf_auto_00002/magnitude_wf/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3105,7 +3105,7 @@
    "id": "panel/fmriprep/ds001600-sub-1/fmap_preproc/wf_auto_00003/brainextraction/n4",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `fmap_preproc/wf_auto_00003/brainextraction/n4` of the fMRIPrep run ds001600-sub-1 (fmap_preproc_wf/wf_auto_00003/brainextraction_wf/n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep oracle run>/ds001600-sub-1-noreconall/work/fmriprep_25_2_wf/sub_1_wf/fmap_preproc_wf/wf_auto_00003/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep run>/ds001600-sub-1-noreconall/work/fmriprep_25_2_wf/sub_1_wf/fmap_preproc_wf/wf_auto_00003/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3119,7 +3119,7 @@
    "id": "panel/fmriprep/ds002422-sub-02/anat_fit/brain_extraction/atropos/inu_n4_final[0]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/atropos/inu_n4_final[0]` of the fMRIPrep run ds002422-sub-02 (anat_fit_wf/brain_extraction_wf/atropos_wf/inu_n4_final): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds002422-sub-02-noreconall/work/fmriprep_25_2_wf/sub_02_wf/anat_fit_wf/anat_validate/sub-02_T1w_noise_corrected_ras_valid.nii' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-02_T1w_noise_corrected_ras_valid_corrected.nii, sub-02_T1w_noise_corrected_ras_valid_bias.nii ] -r --shrink-factor 4 --weight-image '<fMRIPrep oracle run>/ds002422-sub-02-noreconall/work/fmriprep_25_2_wf/sub_02_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds002422-sub-02-noreconall/work/fmriprep_25_2_wf/sub_02_wf/anat_fit_wf/anat_validate/sub-02_T1w_noise_corrected_ras_valid.nii' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-02_T1w_noise_corrected_ras_valid_corrected.nii, sub-02_T1w_noise_corrected_ras_valid_bias.nii ] -r --shrink-factor 4 --weight-image '<fMRIPrep run>/ds002422-sub-02-noreconall/work/fmriprep_25_2_wf/sub_02_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3133,7 +3133,7 @@
    "id": "panel/fmriprep/ds002422-sub-02/anat_fit/brain_extraction/inu_n4[40]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/inu_n4[40]` of the fMRIPrep run ds002422-sub-02 (anat_fit_wf/brain_extraction_wf/inu_n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds002422-sub-02-noreconall/work/fmriprep_25_2_wf/sub_02_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-02_T1w_noise_corrected_ras_valid_maths.nii' --convergence [ 50x50x50x50, 1e-07 ] --output sub-02_T1w_noise_corrected_ras_valid_maths_corrected.nii --shrink-factor 4",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds002422-sub-02-noreconall/work/fmriprep_25_2_wf/sub_02_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-02_T1w_noise_corrected_ras_valid_maths.nii' --convergence [ 50x50x50x50, 1e-07 ] --output sub-02_T1w_noise_corrected_ras_valid_maths_corrected.nii --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3147,7 +3147,7 @@
    "id": "panel/fmriprep/ds002422-sub-02/bold[task_arithm_run_01]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[task_arithm_run_01]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds002422-sub-02 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds002422-sub-02-noreconall/out/sub-02/func/sub-02_task-arithm_run-01_desc-hmc_boldref.nii.gz' --output sub-02_task-arithm_run-01_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds002422-sub-02-noreconall/work/fmriprep_25_2_wf/sub_02_wf/bold_task_arithm_run_01_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds002422-sub-02-noreconall/out/sub-02/func/sub-02_task-arithm_run-01_desc-hmc_boldref.nii.gz' --output sub-02_task-arithm_run-01_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds002422-sub-02-noreconall/work/fmriprep_25_2_wf/sub_02_wf/bold_task_arithm_run_01_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3161,7 +3161,7 @@
    "id": "panel/fmriprep/ds002422-sub-02/bold[task_arithm_run_02]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[task_arithm_run_02]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds002422-sub-02 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds002422-sub-02-noreconall/out/sub-02/func/sub-02_task-arithm_run-02_desc-hmc_boldref.nii.gz' --output sub-02_task-arithm_run-02_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds002422-sub-02-noreconall/work/fmriprep_25_2_wf/sub_02_wf/bold_task_arithm_run_02_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds002422-sub-02-noreconall/out/sub-02/func/sub-02_task-arithm_run-02_desc-hmc_boldref.nii.gz' --output sub-02_task-arithm_run-02_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds002422-sub-02-noreconall/work/fmriprep_25_2_wf/sub_02_wf/bold_task_arithm_run_02_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3175,7 +3175,7 @@
    "id": "panel/fmriprep/ds002422-sub-02/bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds002422-sub-02 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds002422-sub-02-noreconall/out/sub-02/func/sub-02_task-rest_desc-hmc_boldref.nii.gz' --output sub-02_task-rest_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds002422-sub-02-noreconall/work/fmriprep_25_2_wf/sub_02_wf/bold_task_rest_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds002422-sub-02-noreconall/out/sub-02/func/sub-02_task-rest_desc-hmc_boldref.nii.gz' --output sub-02_task-rest_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds002422-sub-02-noreconall/work/fmriprep_25_2_wf/sub_02_wf/bold_task_rest_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3189,7 +3189,7 @@
    "id": "panel/fmriprep/ds002422-sub-02/fmap_preproc/wf_auto_00000/magnitude/brainextraction/n4",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `fmap_preproc/wf_auto_00000/magnitude/brainextraction/n4` of the fMRIPrep run ds002422-sub-02 (fmap_preproc_wf/wf_auto_00000/magnitude_wf/brainextraction_wf/n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep oracle run>/ds002422-sub-02-noreconall/work/fmriprep_25_2_wf/sub_02_wf/fmap_preproc_wf/wf_auto_00000/magnitude_wf/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep run>/ds002422-sub-02-noreconall/work/fmriprep_25_2_wf/sub_02_wf/fmap_preproc_wf/wf_auto_00000/magnitude_wf/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3203,7 +3203,7 @@
    "id": "panel/fmriprep/ds002422-sub-02/fmap_preproc/wf_auto_00001/magnitude/brainextraction/n4",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `fmap_preproc/wf_auto_00001/magnitude/brainextraction/n4` of the fMRIPrep run ds002422-sub-02 (fmap_preproc_wf/wf_auto_00001/magnitude_wf/brainextraction_wf/n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep oracle run>/ds002422-sub-02-noreconall/work/fmriprep_25_2_wf/sub_02_wf/fmap_preproc_wf/wf_auto_00001/magnitude_wf/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep run>/ds002422-sub-02-noreconall/work/fmriprep_25_2_wf/sub_02_wf/fmap_preproc_wf/wf_auto_00001/magnitude_wf/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3217,7 +3217,7 @@
    "id": "panel/fmriprep/ds002603-sub-01/anat_fit/brain_extraction/atropos/inu_n4_final[0]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/atropos/inu_n4_final[0]` of the fMRIPrep run ds002603-sub-01 (anat_fit_wf/brain_extraction_wf/atropos_wf/inu_n4_final): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_validate/sub-01_acq-SaggitalNsig1Mm1_T1w_noise_corrected_ras_valid.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-01_acq-SaggitalNsig1Mm1_T1w_noise_corrected_ras_valid_corrected.nii.gz, sub-01_acq-SaggitalNsig1Mm1_T1w_noise_corrected_ras_valid_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep oracle run>/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/anat_validate/sub-01_acq-SaggitalNsig1Mm1_T1w_noise_corrected_ras_valid.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-01_acq-SaggitalNsig1Mm1_T1w_noise_corrected_ras_valid_corrected.nii.gz, sub-01_acq-SaggitalNsig1Mm1_T1w_noise_corrected_ras_valid_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep run>/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3231,7 +3231,7 @@
    "id": "panel/fmriprep/ds002603-sub-01/anat_fit/brain_extraction/inu_n4[40]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/inu_n4[40]` of the fMRIPrep run ds002603-sub-01 (anat_fit_wf/brain_extraction_wf/inu_n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-01_acq-SaggitalNsig1Mm1_T1w_noise_corrected_ras_valid_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-01_acq-SaggitalNsig1Mm1_T1w_noise_corrected_ras_valid_maths_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-01_acq-SaggitalNsig1Mm1_T1w_noise_corrected_ras_valid_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-01_acq-SaggitalNsig1Mm1_T1w_noise_corrected_ras_valid_maths_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3245,7 +3245,7 @@
    "id": "panel/fmriprep/ds002603-sub-01/bold[task_wm_acq_Mb4Mm3Tr550]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[task_wm_acq_Mb4Mm3Tr550]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds002603-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds002603-sub-01-noreconall/out/sub-01/func/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref.nii.gz' --output sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds002603-sub-01-noreconall/out/sub-01/func/sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref.nii.gz' --output sub-01_task-wm_acq-Mb4Mm3Tr550_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_Mb4Mm3Tr550_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3259,7 +3259,7 @@
    "id": "panel/fmriprep/ds002603-sub-01/bold[task_wm_acq_SeqMm3Tr2000]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[task_wm_acq_SeqMm3Tr2000]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds002603-sub-01 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds002603-sub-01-noreconall/out/sub-01/func/sub-01_task-wm_acq-SeqMm3Tr2000_desc-hmc_boldref.nii.gz' --output sub-01_task-wm_acq-SeqMm3Tr2000_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_SeqMm3Tr2000_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds002603-sub-01-noreconall/out/sub-01/func/sub-01_task-wm_acq-SeqMm3Tr2000_desc-hmc_boldref.nii.gz' --output sub-01_task-wm_acq-SeqMm3Tr2000_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/bold_task_wm_acq_SeqMm3Tr2000_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3273,7 +3273,7 @@
    "id": "panel/fmriprep/ds002603-sub-01/fmap_preproc/wf_auto_00000/magnitude/brainextraction/n4",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `fmap_preproc/wf_auto_00000/magnitude/brainextraction/n4` of the fMRIPrep run ds002603-sub-01 (fmap_preproc_wf/wf_auto_00000/magnitude_wf/brainextraction_wf/n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep oracle run>/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/fmap_preproc_wf/wf_auto_00000/magnitude_wf/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep run>/ds002603-sub-01-noreconall/work/fmriprep_25_2_wf/sub_01_wf/fmap_preproc_wf/wf_auto_00000/magnitude_wf/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3287,7 +3287,7 @@
    "id": "panel/fmriprep/ds003592-sub-280/anat_fit/brain_extraction/atropos/inu_n4_final[0]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/atropos/inu_n4_final[0]` of the fMRIPrep run ds003592-sub-280 (anat_fit_wf/brain_extraction_wf/atropos_wf/inu_n4_final): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds003592-sub-280-noreconall/work/fmriprep_25_2_wf/sub_280_ses_1_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-280_ses-1_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-280_ses-1_T1w_noise_corrected_corrected.nii.gz, sub-280_ses-1_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep oracle run>/ds003592-sub-280-noreconall/work/fmriprep_25_2_wf/sub_280_ses_1_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds003592-sub-280-noreconall/work/fmriprep_25_2_wf/sub_280_ses_1_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-280_ses-1_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-280_ses-1_T1w_noise_corrected_corrected.nii.gz, sub-280_ses-1_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep run>/ds003592-sub-280-noreconall/work/fmriprep_25_2_wf/sub_280_ses_1_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3301,7 +3301,7 @@
    "id": "panel/fmriprep/ds003592-sub-280/anat_fit/brain_extraction/inu_n4[40]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/inu_n4[40]` of the fMRIPrep run ds003592-sub-280 (anat_fit_wf/brain_extraction_wf/inu_n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds003592-sub-280-noreconall/work/fmriprep_25_2_wf/sub_280_ses_1_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-280_ses-1_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-280_ses-1_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds003592-sub-280-noreconall/work/fmriprep_25_2_wf/sub_280_ses_1_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-280_ses-1_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-280_ses-1_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3315,7 +3315,7 @@
    "id": "panel/fmriprep/ds003592-sub-280/bold[ses_1_task_rest_echo_1]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[ses_1_task_rest_echo_1]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds003592-sub-280 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds003592-sub-280-noreconall/out/sub-280/ses-1/func/sub-280_ses-1_task-rest_desc-hmc_boldref.nii.gz' --output sub-280_ses-1_task-rest_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds003592-sub-280-noreconall/work/fmriprep_25_2_wf/sub_280_ses_1_wf/bold_ses_1_task_rest_echo_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds003592-sub-280-noreconall/out/sub-280/ses-1/func/sub-280_ses-1_task-rest_desc-hmc_boldref.nii.gz' --output sub-280_ses-1_task-rest_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds003592-sub-280-noreconall/work/fmriprep_25_2_wf/sub_280_ses_1_wf/bold_ses_1_task_rest_echo_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3329,7 +3329,7 @@
    "id": "panel/fmriprep/ds004173-sub-603309/anat_fit/anat_template/n4_correct[0]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/anat_template/n4_correct[0]` of the fMRIPrep run ds004173-sub-603309 (anat_fit_wf/anat_template_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep oracle run>/ds004173-sub-603309-noreconall/work/fmriprep_25_2_wf/sub_603309_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-603309_acq-headmotion1_T1w_noise_corrected.nii.gz' --output sub-603309_acq-headmotion1_T1w_noise_corrected_corrected.nii.gz",
+   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep run>/ds004173-sub-603309-noreconall/work/fmriprep_25_2_wf/sub_603309_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-603309_acq-headmotion1_T1w_noise_corrected.nii.gz' --output sub-603309_acq-headmotion1_T1w_noise_corrected_corrected.nii.gz",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3343,7 +3343,7 @@
    "id": "panel/fmriprep/ds004173-sub-603309/anat_fit/anat_template/n4_correct[1]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/anat_template/n4_correct[1]` of the fMRIPrep run ds004173-sub-603309 (anat_fit_wf/anat_template_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep oracle run>/ds004173-sub-603309-noreconall/work/fmriprep_25_2_wf/sub_603309_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise1/sub-603309_acq-headmotion2_T1w_noise_corrected.nii.gz' --output sub-603309_acq-headmotion2_T1w_noise_corrected_corrected.nii.gz",
+   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep run>/ds004173-sub-603309-noreconall/work/fmriprep_25_2_wf/sub_603309_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise1/sub-603309_acq-headmotion2_T1w_noise_corrected.nii.gz' --output sub-603309_acq-headmotion2_T1w_noise_corrected_corrected.nii.gz",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3357,7 +3357,7 @@
    "id": "panel/fmriprep/ds004173-sub-603309/anat_fit/anat_template/n4_correct[2]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/anat_template/n4_correct[2]` of the fMRIPrep run ds004173-sub-603309 (anat_fit_wf/anat_template_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep oracle run>/ds004173-sub-603309-noreconall/work/fmriprep_25_2_wf/sub_603309_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise2/sub-603309_acq-standard_T1w_noise_corrected.nii.gz' --output sub-603309_acq-standard_T1w_noise_corrected_corrected.nii.gz",
+   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep run>/ds004173-sub-603309-noreconall/work/fmriprep_25_2_wf/sub_603309_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise2/sub-603309_acq-standard_T1w_noise_corrected.nii.gz' --output sub-603309_acq-standard_T1w_noise_corrected_corrected.nii.gz",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3371,7 +3371,7 @@
    "id": "panel/fmriprep/ds004173-sub-603309/anat_fit/brain_extraction/atropos/inu_n4_final[0]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/atropos/inu_n4_final[0]` of the fMRIPrep run ds004173-sub-603309 (anat_fit_wf/brain_extraction_wf/atropos_wf/inu_n4_final): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds004173-sub-603309-noreconall/work/fmriprep_25_2_wf/sub_603309_wf/anat_fit_wf/anat_template_wf/anat_merge/sub-603309_acq-headmotion1_T1w_noise_corrected_template.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-603309_acq-headmotion1_T1w_noise_corrected_template_corrected.nii.gz, sub-603309_acq-headmotion1_T1w_noise_corrected_template_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep oracle run>/ds004173-sub-603309-noreconall/work/fmriprep_25_2_wf/sub_603309_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds004173-sub-603309-noreconall/work/fmriprep_25_2_wf/sub_603309_wf/anat_fit_wf/anat_template_wf/anat_merge/sub-603309_acq-headmotion1_T1w_noise_corrected_template.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-603309_acq-headmotion1_T1w_noise_corrected_template_corrected.nii.gz, sub-603309_acq-headmotion1_T1w_noise_corrected_template_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep run>/ds004173-sub-603309-noreconall/work/fmriprep_25_2_wf/sub_603309_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3385,7 +3385,7 @@
    "id": "panel/fmriprep/ds004173-sub-603309/anat_fit/brain_extraction/inu_n4[40]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/inu_n4[40]` of the fMRIPrep run ds004173-sub-603309 (anat_fit_wf/brain_extraction_wf/inu_n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds004173-sub-603309-noreconall/work/fmriprep_25_2_wf/sub_603309_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-603309_acq-headmotion1_T1w_noise_corrected_template_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-603309_acq-headmotion1_T1w_noise_corrected_template_maths_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds004173-sub-603309-noreconall/work/fmriprep_25_2_wf/sub_603309_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-603309_acq-headmotion1_T1w_noise_corrected_template_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-603309_acq-headmotion1_T1w_noise_corrected_template_maths_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3399,7 +3399,7 @@
    "id": "panel/fmriprep/ds004884-sub-M2079/anat_fit/brain_extraction/atropos/inu_n4_final[0]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/atropos/inu_n4_final[0]` of the fMRIPrep run ds004884-sub-M2079 (anat_fit_wf/brain_extraction_wf/atropos_wf/inu_n4_final): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds004884-sub-M2079-noreconall/work/fmriprep_25_2_wf/sub_M2079_ses_217_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-M2079_ses-217_acq-tfl3p2_run-3_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-M2079_ses-217_acq-tfl3p2_run-3_T1w_noise_corrected_corrected.nii.gz, sub-M2079_ses-217_acq-tfl3p2_run-3_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep oracle run>/ds004884-sub-M2079-noreconall/work/fmriprep_25_2_wf/sub_M2079_ses_217_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds004884-sub-M2079-noreconall/work/fmriprep_25_2_wf/sub_M2079_ses_217_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-M2079_ses-217_acq-tfl3p2_run-3_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-M2079_ses-217_acq-tfl3p2_run-3_T1w_noise_corrected_corrected.nii.gz, sub-M2079_ses-217_acq-tfl3p2_run-3_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep run>/ds004884-sub-M2079-noreconall/work/fmriprep_25_2_wf/sub_M2079_ses_217_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3413,7 +3413,7 @@
    "id": "panel/fmriprep/ds004884-sub-M2079/anat_fit/brain_extraction/inu_n4[40]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/inu_n4[40]` of the fMRIPrep run ds004884-sub-M2079 (anat_fit_wf/brain_extraction_wf/inu_n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds004884-sub-M2079-noreconall/work/fmriprep_25_2_wf/sub_M2079_ses_217_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-M2079_ses-217_acq-tfl3p2_run-3_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-M2079_ses-217_acq-tfl3p2_run-3_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds004884-sub-M2079-noreconall/work/fmriprep_25_2_wf/sub_M2079_ses_217_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-M2079_ses-217_acq-tfl3p2_run-3_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-M2079_ses-217_acq-tfl3p2_run-3_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3427,7 +3427,7 @@
    "id": "panel/fmriprep/ds004884-sub-M2079/bold[ses_217_task_naming40_acq_epfid2_dir_AP_run_2]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[ses_217_task_naming40_acq_epfid2_dir_AP_run_2]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds004884-sub-M2079 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds004884-sub-M2079-noreconall/out/sub-M2079/ses-217/func/sub-M2079_ses-217_task-naming40_acq-epfid2_dir-AP_run-2_desc-hmc_boldref.nii.gz' --output sub-M2079_ses-217_task-naming40_acq-epfid2_dir-AP_run-2_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds004884-sub-M2079-noreconall/work/fmriprep_25_2_wf/sub_M2079_ses_217_wf/bold_ses_217_task_naming40_acq_epfid2_dir_AP_run_2_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds004884-sub-M2079-noreconall/out/sub-M2079/ses-217/func/sub-M2079_ses-217_task-naming40_acq-epfid2_dir-AP_run-2_desc-hmc_boldref.nii.gz' --output sub-M2079_ses-217_task-naming40_acq-epfid2_dir-AP_run-2_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds004884-sub-M2079-noreconall/work/fmriprep_25_2_wf/sub_M2079_ses_217_wf/bold_ses_217_task_naming40_acq_epfid2_dir_AP_run_2_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3441,7 +3441,7 @@
    "id": "panel/fmriprep/ds004884-sub-M2079/bold[ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds004884-sub-M2079 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds004884-sub-M2079-noreconall/out/sub-M2079/ses-217/func/sub-M2079_ses-217_task-rest_acq-epfidp2p2_dir-AP_run-9_desc-hmc_boldref.nii.gz' --output sub-M2079_ses-217_task-rest_acq-epfidp2p2_dir-AP_run-9_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds004884-sub-M2079-noreconall/work/fmriprep_25_2_wf/sub_M2079_ses_217_wf/bold_ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds004884-sub-M2079-noreconall/out/sub-M2079/ses-217/func/sub-M2079_ses-217_task-rest_acq-epfidp2p2_dir-AP_run-9_desc-hmc_boldref.nii.gz' --output sub-M2079_ses-217_task-rest_acq-epfidp2p2_dir-AP_run-9_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds004884-sub-M2079-noreconall/work/fmriprep_25_2_wf/sub_M2079_ses_217_wf/bold_ses_217_task_rest_acq_epfidp2p2_dir_AP_run_9_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3455,7 +3455,7 @@
    "id": "panel/fmriprep/ds004958-sub-fsm64ps/anat_fit/brain_extraction/atropos/inu_n4_final[0]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/atropos/inu_n4_final[0]` of the fMRIPrep run ds004958-sub-fsm64ps (anat_fit_wf/brain_extraction_wf/atropos_wf/inu_n4_final): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds004958-sub-fsm64ps-noreconall/work/fmriprep_25_2_wf/sub_fsm64ps_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-fsm64ps_acq-mprageVnav_echo-1_part-mag_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-fsm64ps_acq-mprageVnav_echo-1_part-mag_T1w_noise_corrected_corrected.nii.gz, sub-fsm64ps_acq-mprageVnav_echo-1_part-mag_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep oracle run>/ds004958-sub-fsm64ps-noreconall/work/fmriprep_25_2_wf/sub_fsm64ps_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds004958-sub-fsm64ps-noreconall/work/fmriprep_25_2_wf/sub_fsm64ps_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-fsm64ps_acq-mprageVnav_echo-1_part-mag_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-fsm64ps_acq-mprageVnav_echo-1_part-mag_T1w_noise_corrected_corrected.nii.gz, sub-fsm64ps_acq-mprageVnav_echo-1_part-mag_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep run>/ds004958-sub-fsm64ps-noreconall/work/fmriprep_25_2_wf/sub_fsm64ps_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3469,7 +3469,7 @@
    "id": "panel/fmriprep/ds004958-sub-fsm64ps/anat_fit/brain_extraction/inu_n4[40]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/inu_n4[40]` of the fMRIPrep run ds004958-sub-fsm64ps (anat_fit_wf/brain_extraction_wf/inu_n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds004958-sub-fsm64ps-noreconall/work/fmriprep_25_2_wf/sub_fsm64ps_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-fsm64ps_acq-mprageVnav_echo-1_part-mag_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-fsm64ps_acq-mprageVnav_echo-1_part-mag_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds004958-sub-fsm64ps-noreconall/work/fmriprep_25_2_wf/sub_fsm64ps_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-fsm64ps_acq-mprageVnav_echo-1_part-mag_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-fsm64ps_acq-mprageVnav_echo-1_part-mag_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3483,7 +3483,7 @@
    "id": "panel/fmriprep/ds004958-sub-fsm64ps/bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds004958-sub-fsm64ps (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image <workspace>/oracles/bids-views/ds004958/sub-fsm64ps/func/sub-fsm64ps_task-rest_sbref.nii.gz --output sub-fsm64ps_task-rest_sbref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds004958-sub-fsm64ps-noreconall/work/fmriprep_25_2_wf/sub_fsm64ps_wf/bold_task_rest_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image <workspace>/oracles/bids-views/ds004958/sub-fsm64ps/func/sub-fsm64ps_task-rest_sbref.nii.gz --output sub-fsm64ps_task-rest_sbref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds004958-sub-fsm64ps-noreconall/work/fmriprep_25_2_wf/sub_fsm64ps_wf/bold_task_rest_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3497,7 +3497,7 @@
    "id": "panel/fmriprep/ds005003-sub-RS001/anat_fit/brain_extraction/atropos/inu_n4_final[0]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/atropos/inu_n4_final[0]` of the fMRIPrep run ds005003-sub-RS001 (anat_fit_wf/brain_extraction_wf/atropos_wf/inu_n4_final): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-RS001_ses-1_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-RS001_ses-1_T1w_noise_corrected_corrected.nii.gz, sub-RS001_ses-1_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep oracle run>/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-RS001_ses-1_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-RS001_ses-1_T1w_noise_corrected_corrected.nii.gz, sub-RS001_ses-1_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep run>/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3511,7 +3511,7 @@
    "id": "panel/fmriprep/ds005003-sub-RS001/anat_fit/brain_extraction/inu_n4[40]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/inu_n4[40]` of the fMRIPrep run ds005003-sub-RS001 (anat_fit_wf/brain_extraction_wf/inu_n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-RS001_ses-1_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-RS001_ses-1_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-RS001_ses-1_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-RS001_ses-1_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3525,7 +3525,7 @@
    "id": "panel/fmriprep/ds005003-sub-RS001/bold[ses_1_task_motor]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[ses_1_task_motor]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds005003-sub-RS001 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds005003-sub-RS001-noreconall/out/sub-RS001/ses-1/func/sub-RS001_ses-1_task-motor_desc-hmc_boldref.nii.gz' --output sub-RS001_ses-1_task-motor_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/bold_ses_1_task_motor_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds005003-sub-RS001-noreconall/out/sub-RS001/ses-1/func/sub-RS001_ses-1_task-motor_desc-hmc_boldref.nii.gz' --output sub-RS001_ses-1_task-motor_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/bold_ses_1_task_motor_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3539,7 +3539,7 @@
    "id": "panel/fmriprep/ds005003-sub-RS001/bold[ses_1_task_rest]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[ses_1_task_rest]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds005003-sub-RS001 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds005003-sub-RS001-noreconall/out/sub-RS001/ses-1/func/sub-RS001_ses-1_task-rest_desc-hmc_boldref.nii.gz' --output sub-RS001_ses-1_task-rest_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/bold_ses_1_task_rest_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds005003-sub-RS001-noreconall/out/sub-RS001/ses-1/func/sub-RS001_ses-1_task-rest_desc-hmc_boldref.nii.gz' --output sub-RS001_ses-1_task-rest_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds005003-sub-RS001-noreconall/work/fmriprep_25_2_wf/sub_RS001_ses_1_wf/bold_ses_1_task_rest_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3553,7 +3553,7 @@
    "id": "panel/fmriprep/ds005040-sub-002/anat_fit/brain_extraction/atropos/inu_n4_final[0]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/atropos/inu_n4_final[0]` of the fMRIPrep run ds005040-sub-002 (anat_fit_wf/brain_extraction_wf/atropos_wf/inu_n4_final): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-002_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-002_T1w_noise_corrected_corrected.nii.gz, sub-002_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep oracle run>/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-002_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-002_T1w_noise_corrected_corrected.nii.gz, sub-002_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep run>/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3567,7 +3567,7 @@
    "id": "panel/fmriprep/ds005040-sub-002/anat_fit/brain_extraction/inu_n4[40]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/inu_n4[40]` of the fMRIPrep run ds005040-sub-002 (anat_fit_wf/brain_extraction_wf/inu_n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-002_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-002_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-002_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-002_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3581,7 +3581,7 @@
    "id": "panel/fmriprep/ds005040-sub-002/bold[task_clip_run_1]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[task_clip_run_1]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds005040-sub-002 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds005040-sub-002-noreconall/out/sub-002/func/sub-002_task-clip_run-1_desc-hmc_boldref.nii.gz' --output sub-002_task-clip_run-1_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds005040-sub-002-noreconall/out/sub-002/func/sub-002_task-clip_run-1_desc-hmc_boldref.nii.gz' --output sub-002_task-clip_run-1_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/bold_task_clip_run_1_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3595,7 +3595,7 @@
    "id": "panel/fmriprep/ds005040-sub-002/fmap_preproc/wf_auto_00000/brainextraction/n4",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `fmap_preproc/wf_auto_00000/brainextraction/n4` of the fMRIPrep run ds005040-sub-002 (fmap_preproc_wf/wf_auto_00000/brainextraction_wf/n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep oracle run>/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/fmap_preproc_wf/wf_auto_00000/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep run>/ds005040-sub-002-noreconall/work/fmriprep_25_2_wf/sub_002_wf/fmap_preproc_wf/wf_auto_00000/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3609,7 +3609,7 @@
    "id": "panel/fmriprep/ds005454-sub-16/anat_fit/anat_template/n4_correct[0]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/anat_template/n4_correct[0]` of the fMRIPrep run ds005454-sub-16 (anat_fit_wf/anat_template_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep oracle run>/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-16_acq-denoised_T1w_noise_corrected.nii.gz' --output sub-16_acq-denoised_T1w_noise_corrected_corrected.nii.gz",
+   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep run>/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-16_acq-denoised_T1w_noise_corrected.nii.gz' --output sub-16_acq-denoised_T1w_noise_corrected_corrected.nii.gz",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3623,7 +3623,7 @@
    "id": "panel/fmriprep/ds005454-sub-16/anat_fit/anat_template/n4_correct[1]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/anat_template/n4_correct[1]` of the fMRIPrep run ds005454-sub-16 (anat_fit_wf/anat_template_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep oracle run>/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise1/sub-16_acq-mp2rage_T1w_noise_corrected.nii.gz' --output sub-16_acq-mp2rage_T1w_noise_corrected_corrected.nii.gz",
+   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep run>/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise1/sub-16_acq-mp2rage_T1w_noise_corrected.nii.gz' --output sub-16_acq-mp2rage_T1w_noise_corrected_corrected.nii.gz",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3637,7 +3637,7 @@
    "id": "panel/fmriprep/ds005454-sub-16/anat_fit/brain_extraction/atropos/inu_n4_final[0]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/atropos/inu_n4_final[0]` of the fMRIPrep run ds005454-sub-16 (anat_fit_wf/brain_extraction_wf/atropos_wf/inu_n4_final): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/anat_template_wf/anat_merge/sub-16_acq-denoised_T1w_noise_corrected_template.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-16_acq-denoised_T1w_noise_corrected_template_corrected.nii.gz, sub-16_acq-denoised_T1w_noise_corrected_template_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep oracle run>/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/anat_template_wf/anat_merge/sub-16_acq-denoised_T1w_noise_corrected_template.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-16_acq-denoised_T1w_noise_corrected_template_corrected.nii.gz, sub-16_acq-denoised_T1w_noise_corrected_template_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep run>/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3651,7 +3651,7 @@
    "id": "panel/fmriprep/ds005454-sub-16/anat_fit/brain_extraction/inu_n4[40]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/inu_n4[40]` of the fMRIPrep run ds005454-sub-16 (anat_fit_wf/brain_extraction_wf/inu_n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-16_acq-denoised_T1w_noise_corrected_template_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-16_acq-denoised_T1w_noise_corrected_template_maths_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-16_acq-denoised_T1w_noise_corrected_template_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-16_acq-denoised_T1w_noise_corrected_template_maths_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3665,7 +3665,7 @@
    "id": "panel/fmriprep/ds005454-sub-16/bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[task_rest]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds005454-sub-16 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds005454-sub-16-noreconall/out/sub-16/func/sub-16_task-rest_desc-hmc_boldref.nii.gz' --output sub-16_task-rest_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/bold_task_rest_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds005454-sub-16-noreconall/out/sub-16/func/sub-16_task-rest_desc-hmc_boldref.nii.gz' --output sub-16_task-rest_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/bold_task_rest_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3679,7 +3679,7 @@
    "id": "panel/fmriprep/ds005454-sub-16/fmap_preproc/wf_gre16/magnitude/brainextraction/n4",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `fmap_preproc/wf_gre16/magnitude/brainextraction/n4` of the fMRIPrep run ds005454-sub-16 (fmap_preproc_wf/wf_gre16/magnitude_wf/brainextraction_wf/n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep oracle run>/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/fmap_preproc_wf/wf_gre16/magnitude_wf/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection -d 3 --input-image '<fMRIPrep run>/ds005454-sub-16-noreconall/work/fmriprep_25_2_wf/sub_16_wf/fmap_preproc_wf/wf_gre16/magnitude_wf/brainextraction_wf/clipper_pre/clipped.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output clipped_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3693,7 +3693,7 @@
    "id": "panel/fmriprep/ds005752-sub-ON01016/anat_fit/brain_extraction/atropos/inu_n4_final[0]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/atropos/inu_n4_final[0]` of the fMRIPrep run ds005752-sub-ON01016 (anat_fit_wf/brain_extraction_wf/atropos_wf/inu_n4_final): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds005752-sub-ON01016-noreconall/work/fmriprep_25_2_wf/sub_ON01016_ses_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-ON01016_ses-01_acq-FSPGR_rec-SCIC_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-ON01016_ses-01_acq-FSPGR_rec-SCIC_T1w_noise_corrected_corrected.nii.gz, sub-ON01016_ses-01_acq-FSPGR_rec-SCIC_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep oracle run>/ds005752-sub-ON01016-noreconall/work/fmriprep_25_2_wf/sub_ON01016_ses_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds005752-sub-ON01016-noreconall/work/fmriprep_25_2_wf/sub_ON01016_ses_01_wf/anat_fit_wf/anat_template_wf/denoise/mapflow/_denoise0/sub-ON01016_ses-01_acq-FSPGR_rec-SCIC_T1w_noise_corrected.nii.gz' --convergence [ 50x50x50x50x50, 1e-07 ] --output [ sub-ON01016_ses-01_acq-FSPGR_rec-SCIC_T1w_noise_corrected_corrected.nii.gz, sub-ON01016_ses-01_acq-FSPGR_rec-SCIC_T1w_noise_corrected_bias.nii.gz ] -r --shrink-factor 4 --weight-image '<fMRIPrep run>/ds005752-sub-ON01016-noreconall/work/fmriprep_25_2_wf/sub_ON01016_ses_01_wf/anat_fit_wf/brain_extraction_wf/atropos_wf/apply_wm_prior/prodmap.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3707,7 +3707,7 @@
    "id": "panel/fmriprep/ds005752-sub-ON01016/anat_fit/brain_extraction/inu_n4[40]",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `anat_fit/brain_extraction/inu_n4[40]` of the fMRIPrep run ds005752-sub-ON01016 (anat_fit_wf/brain_extraction_wf/inu_n4): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds005752-sub-ON01016-noreconall/work/fmriprep_25_2_wf/sub_ON01016_ses_01_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-ON01016_ses-01_acq-FSPGR_rec-SCIC_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-ON01016_ses-01_acq-FSPGR_rec-SCIC_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds005752-sub-ON01016-noreconall/work/fmriprep_25_2_wf/sub_ON01016_ses_01_wf/anat_fit_wf/brain_extraction_wf/truncate_images/mapflow/_truncate_images0/sub-ON01016_ses-01_acq-FSPGR_rec-SCIC_T1w_noise_corrected_maths.nii.gz' --convergence [ 50x50x50x50, 1e-07 ] --output sub-ON01016_ses-01_acq-FSPGR_rec-SCIC_T1w_noise_corrected_maths_corrected.nii.gz --shrink-factor 4",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3721,7 +3721,7 @@
    "id": "panel/fmriprep/ds005752-sub-ON01016/bold[ses_01_task_rest_dir_forward]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[ses_01_task_rest_dir_forward]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds005752-sub-ON01016 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds005752-sub-ON01016-noreconall/out/sub-ON01016/ses-01/func/sub-ON01016_ses-01_task-rest_dir-forward_desc-hmc_boldref.nii.gz' --output sub-ON01016_ses-01_task-rest_dir-forward_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds005752-sub-ON01016-noreconall/work/fmriprep_25_2_wf/sub_ON01016_ses_01_wf/bold_ses_01_task_rest_dir_forward_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds005752-sub-ON01016-noreconall/out/sub-ON01016/ses-01/func/sub-ON01016_ses-01_task-rest_dir-forward_desc-hmc_boldref.nii.gz' --output sub-ON01016_ses-01_task-rest_dir-forward_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds005752-sub-ON01016-noreconall/work/fmriprep_25_2_wf/sub_ON01016_ses_01_wf/bold_ses_01_task_rest_dir_forward_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -3735,7 +3735,7 @@
    "id": "panel/fmriprep/ds005752-sub-ON01016/bold[ses_01_task_rest_dir_reverse]/bold_fit/enhance_and_skullstrip_bold/n4_correct",
    "category": "panel-fmriprep",
    "description": "fMRIPrep 25.2.6's N4BiasFieldCorrection node `bold[ses_01_task_rest_dir_reverse]/bold_fit/enhance_and_skullstrip_bold/n4_correct` of the fMRIPrep run ds005752-sub-ON01016 (bold_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/n4_correct): its command.txt replayed, its inputs from the run's working directory",
-   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep oracle run>/ds005752-sub-ON01016-noreconall/out/sub-ON01016/ses-01/func/sub-ON01016_ses-01_task-rest_dir-reverse_desc-hmc_boldref.nii.gz' --output sub-ON01016_ses-01_task-rest_dir-reverse_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep oracle run>/ds005752-sub-ON01016-noreconall/work/fmriprep_25_2_wf/sub_ON01016_ses_01_wf/bold_ses_01_task_rest_dir_reverse_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
+   "command": "N4BiasFieldCorrection --bspline-fitting [ 200 ] -d 3 --input-image '<fMRIPrep run>/ds005752-sub-ON01016-noreconall/out/sub-ON01016/ses-01/func/sub-ON01016_ses-01_task-rest_dir-reverse_desc-hmc_boldref.nii.gz' --output sub-ON01016_ses-01_task-rest_dir-reverse_desc-hmc_boldref_corrected.nii.gz -r --weight-image '<fMRIPrep run>/ds005752-sub-ON01016-noreconall/work/fmriprep_25_2_wf/sub_ON01016_ses_01_wf/bold_ses_01_task_rest_dir_reverse_wf/bold_fit_wf/enhance_and_skullstrip_bold_wf/fix_header/tpl-MNI152NLin2009cAsym_res-01_label-brain_probseg_trans_fixhdr.nii.gz'",
    "results": {
     "port": {
      "outcome": "pass",
@@ -7166,7 +7166,7 @@
      "ants8-ants1": 133.951171875,
      "fix-lx": 133.951171875
     },
-    "caption": "Axial slice 67 of 111 of the shown grid (the one with the most brain), the crosshair where larmorx and ANTs as built differ most in it; the corrected image, in the brain's 0.5–99.5 % window; the differences on one symmetric log scale over six decades below ±134, any non-zero difference tinted."
+    "caption": "Axial slice 67 of 111 of the shown grid (the one with the most brain), the crosshair where the replica and ANTs as built differ most in it; the corrected image, in the brain's 0.5–99.5 % window; the differences on one symmetric log scale over six decades below ±134, any non-zero difference tinted."
    },
    "chain": {
     "title": "What separates fMRIPrep's output from the replica's (the corrected image)",
@@ -8213,7 +8213,7 @@
     "ranges": {
      "fix-repro": 1346.4832763671875
     },
-    "caption": "Axial slice 109 of 172; the crosshair where larmorx's correction changes the output most in it."
+    "caption": "Axial slice 109 of 172; the crosshair where the replica's correction changes the output most in it."
    },
    "chain": null,
    "metrics_note": "Δ is A − B, over all 17,547,264 voxels of each output file; the rows *the original against itself* are ANTs' own variability on this input.",
@@ -9666,7 +9666,7 @@
      "lx-ants": 1135.33056640625,
      "fix-lx": 1135.33056640625
     },
-    "caption": "Axial slice 64 of 288; the crosshair where larmorx differs most from ANTs as built; the three slices through it are stored at full resolution."
+    "caption": "Axial slice 64 of 288; the crosshair where the replica differs most from ANTs as built; the three slices through it are stored at full resolution."
    },
    "chain": null,
    "metrics_note": "Δ is A − B over all 17,547,264 values of each output.",
@@ -10539,7 +10539,7 @@
      "lx-ants": 169.66650390625,
      "fix-lx": 169.66650390625
     },
-    "caption": "Axial slice 179 of 256; the crosshair where larmorx differs most from ANTs as built; the three slices through it are stored at full resolution."
+    "caption": "Axial slice 179 of 256; the crosshair where the replica differs most from ANTs as built; the three slices through it are stored at full resolution."
    },
    "chain": null,
    "metrics_note": "Δ is A − B over all 9,437,184 values of each output.",
@@ -12267,7 +12267,7 @@
      "lx-ants": 138.8973388671875,
      "fix-lx": 138.8973388671875
     },
-    "caption": "Axial slice 9 of 30; the crosshair where larmorx differs most from ANTs as built; the three slices through it are stored at full resolution."
+    "caption": "Axial slice 9 of 30; the crosshair where the replica differs most from ANTs as built; the three slices through it are stored at full resolution."
    },
    "chain": null,
    "metrics_note": "Δ is A − B over all 3,072,000 values of each output.",
@@ -13128,7 +13128,7 @@
     "ranges": {
      "lx-ants": 0.01513671875
     },
-    "caption": "Axial slice 114 of 256; the crosshair where larmorx differs most from ANTs as built; the three slices through it are stored at full resolution."
+    "caption": "Axial slice 114 of 256; the crosshair where the replica differs most from ANTs as built; the three slices through it are stored at full resolution."
    },
    "chain": null,
    "metrics_note": "Δ is A − B over all 10,813,440 values of each output.",

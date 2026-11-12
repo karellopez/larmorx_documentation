@@ -1037,10 +1037,10 @@ class Evidence:
 
     #: Random testing's outcomes (its own, not the verdict taxonomy), in table order.
     DIFFTEST_COLUMNS = (
-        ("agree", "Agree", "the parity runner passed: bit-identical where the tool must be, within the record's thresholds for a clean-room original, or both programs rejected the input alike"),
+        ("agree", "Agree", "the comparison passed: bit-identical where the port must be, within the record's thresholds for a clean room, or both programs rejected the input alike"),
         ("explained", "glibc", "differs from the original as built only through glibc's maths: identical once it runs with correctly rounded functions"),
-        ("notice", "Notices", "a correction named where it changed nothing this input shows (D13 notices are meant to fire exactly where the result differs)"),
-        ("undefined", "Undefined", "the original's values depend on memory it never wrote or on the clock: not comparable (a defect larmorx names)"),
+        ("notice", "Notices", "a correction named where it changed nothing this input shows (the notice of a correction by default is meant to fire exactly where the result differs)"),
+        ("undefined", "Undefined", "the original's values depend on memory it never wrote or on the clock: not comparable (a defect LARMORX names)"),
         ("differ", "Differ", "a difference: shrunk to its smallest reproducer, then fixed, registered or reported"),
         ("memory", "Heavy", "a run exceeded the case's memory limit (3 GiB, no swap), or was predicted to: queued as a heavy case and run to its end later, one at a time, in a large box"),
         ("guard", "Guard", "predicted over the case's memory limit: not compared; LARMORX's default stopped at once with its guard's clear error (ANTS-162, AFNI-75), the original's predicted need recorded"),
@@ -1048,7 +1048,7 @@ class Evidence:
     DIFFTEST_STATUS = {
         "fixed": "fixed in LARMORX",
         "register": "a defect of the original, in the register",
-        "open": "open (a clean-room original's difference, reported for its agent)",
+        "open": "open (a clean room's difference, reported for its agent)",
         "harness": "the comparison's own mistake, corrected",
         "explained": "an expected difference, measured and explained (no mistake, no defect)",
         "unclear": "not yet triaged",
