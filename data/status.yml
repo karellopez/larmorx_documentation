@@ -45,13 +45,13 @@ implemented:
     validation: "[7 of 40](repo:docs/validation/ants-denoise.md) bit-identical to ANTs, 40 of 40 with correctly rounded maths; ANTS-43 and ANTS-44 corrected by default; data panel: [0 of 21](repo:docs/validation/ants-denoise-panel.md) as built, 21 of 21 with correctly rounded maths"
   - eco: ants
     tool: "ImageMath (every operation fMRIPrep, sMRIPrep and sdcflows call)"
-    page: /tools/ants-programs/
+    page: /evidence/ants-programs/
     use: ["larmorx ants ImageMath", "lx.ants.image_math"]
     how: "replica"
     validation: "[334 cases](repo:docs/validation/ants-image-math.md): values bit-identical in 303 of 308, headers in 308 of 308; ANTS-17, -22 and -23 corrected, checked against known results; data panel: [374 of 374](repo:docs/validation/ants-image-math-panel.md) bit-identical"
   - eco: ants
     tool: "ThresholdImage, MultiplyImages, SmoothImage, ResampleImage, ResampleImageBySpacing"
-    page: /tools/ants-programs/
+    page: /evidence/ants-programs/
     use: ["larmorx ants ..."]
     how: "replica"
     validation: "bit-identical in every compared case ([threshold](repo:docs/validation/ants-threshold-image.md), [multiply](repo:docs/validation/ants-multiply-images.md), [smooth](repo:docs/validation/ants-smooth-image.md), [resample](repo:docs/validation/ants-resample-image.md), [by spacing](repo:docs/validation/ants-resample-image-by-spacing.md)); data panel: [threshold](repo:docs/validation/ants-threshold-image-panel.md), [multiply](repo:docs/validation/ants-multiply-images-panel.md), [smooth](repo:docs/validation/ants-smooth-image-panel.md), [resample](repo:docs/validation/ants-resample-image-panel.md), [by spacing](repo:docs/validation/ants-resample-image-by-spacing-panel.md), every compared case bit-identical"
