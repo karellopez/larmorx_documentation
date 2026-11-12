@@ -97,7 +97,7 @@ releases, each with its reason. AFNI 25.2.09 to 26.3.05 was the first (2026-10-2
 
 ## How to read the evidence {#reading}
 
-Each tool's page under [Tools](/tools/) leads with its record's cases by verdict, then shows **worked examples** on real data:
+Each program's evidence page (the [Programs](/programs/) page lists them) leads with its records' cases by verdict, then shows **worked examples** on real data:
 
 - **What was run, on what.** The dataset and subject, the exact command (fMRIPrep's own, read from its working directory, where the pipeline calls the tool), and every program with its version, build, thread count and mode.
 - **Whole volumes, and three slices for panel cases.** Every example is a whole volume, except
@@ -110,6 +110,10 @@ Each tool's page under [Tools](/tools/) leads with its record's cases by verdict
 - **The chain of causes.** Where LARMORX and fMRIPrep's output differ, the runs between them are lined up, each step changing one thing (threads, maths library, version), so the cause of every difference is shown, not asserted.
 - **Metrics.** One row per comparison, computed offline in float64 over every voxel of the outputs: the largest |Δ|, how many values differ, the RMS of Δ, the largest |Δ| relative to the image's range, 1 − the normalised cross-correlation. Each comparison of LARMORX with an original gets a verdict and its reason, with links to the finding or register entry; the rows *the original against itself* are the yardstick. Provenance (inputs with their checksums, the commands, the commit) is under each example.
 - **Every case.** The case explorer lists every case of the records: what it tests, its command line, its verdict (one per implementation) and reason. Search, filter, sort, and link to one case with `#case=<name>`.
+- **Agreement.** One bar per category of a record's cases, as shares of the category, each case coloured by its verdict. *Bit-identical* means the same bits as the original as built. *Identical with correctly rounded maths* means the same bits once the original's maths library is replaced by CORE-MATH's, which LARMORX uses on every platform: glibc's `exp`, `log`, `sin` and `cos` are not always correctly rounded. *Within the thresholds* means within the record's stated tolerance, not bit-identity. *Rejected by both* means both programs refuse the input, compared by exit status and messages. *Expected divergence* means a documented, deliberate difference. [The verdicts](#verdicts) defines every one.
+- **The original's own variability.** Where the original's result depends on its thread count, the record measures that spread, and the figures place each port's differences beside it.
+- **Images.** Masked to the brain, or the whole head where its dataset removed the face; from OpenNeuro's datasets and the MNI ICBM 152 template ([its notice](/static/hero/LICENSE-MNI.txt)), each credited. Difference maps are on a symmetric scale whose range is stated.
+- **Speed.** Medians from the benchmark reports, on the machine each report names. Where a program has no benchmark report yet, its page says so.
 
 Everything is computed by the main repository's code from its committed records and from cached runs of the original programs ([docs/figures.md](repo:docs/figures.md)); the site only displays it, and a check compares every number a page shows with the data it comes from.
 

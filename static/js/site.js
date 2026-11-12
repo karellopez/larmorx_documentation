@@ -120,4 +120,28 @@
     }, { rootMargin: '-60px 0px -55% 0px' });
     heads.forEach(function (h) { io.observe(h); });
   }
+
+  /* ------------------------------------------------- the Programs page */
+  /* A link to a group (#fsl) or to one of its programs (#fsl-bet) opens its toggle; two buttons
+     open or close every group. Without scripts every group still opens by hand. */
+  var groups = Array.prototype.slice.call(document.querySelectorAll('details.prog-group'));
+  if (groups.length) {
+    var openHash = function () {
+      var id = decodeURIComponent(location.hash.slice(1)), el = id && document.getElementById(id);
+      var g = el && (el.matches('details.prog-group') ? el : el.closest('details.prog-group'));
+      if (g && !g.open) { g.open = true; el.scrollIntoView(); }
+    };
+    openHash();
+    window.addEventListener('hashchange', openHash);
+    var tools = document.querySelector('[data-prog-tools]');
+    if (tools) {
+      tools.hidden = false;
+      tools.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-prog-all]');
+        if (!b) return;
+        var open = b.getAttribute('data-prog-all') === 'open';
+        groups.forEach(function (g) { g.open = open; });
+      });
+    }
+  }
 })();
