@@ -76,7 +76,7 @@ Each case of the two records, with what it tests, its command line, the verdict 
 
 {{ ev.speed('afni-automask') }}
 
-3dAutomask is quick in every implementation: its time is mostly reading and writing compressed NIfTI, and AFNI's is single-threaded. These are informal timings on a shared machine ([findings](repo:docs/findings/afni-masks-original.md)); there is no benchmark report yet.
+3dAutomask is quick in every implementation: its time is mostly reading and writing compressed NIfTI, and AFNI's is single-threaded. These are informal timings on a shared machine ([findings](repo:docs/findings/afni-masks-clean-room.md)); there is no benchmark report yet.
 
 ## Corrections by default {#corrections}
 

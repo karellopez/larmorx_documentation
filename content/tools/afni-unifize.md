@@ -73,7 +73,7 @@ Each case of the two records, with what it tests, its command line, the verdict 
 
 {{ ev.speed('afni-unifize') }}
 
-The clean-room original is 4 to 25 times faster than AFNI at the same thread count, and 3 to 10 times faster than the replica, which computes as AFNI does: its ball percentiles slide from voxel to voxel instead of being gathered and sorted at every voxel. On the half-size path the ball works on an eighth of the voxels, and reading and writing the full-size compressed images takes a larger share of the time. These are informal timings on a shared machine ([findings](repo:docs/findings/afni-masks-original.md)); there is no benchmark report yet.
+The clean-room original is 4 to 25 times faster than AFNI at the same thread count, and 3 to 10 times faster than the replica, which computes as AFNI does: its ball percentiles slide from voxel to voxel instead of being gathered and sorted at every voxel. On the half-size path the ball works on an eighth of the voxels, and reading and writing the full-size compressed images takes a larger share of the time. These are informal timings on a shared machine ([findings](repo:docs/findings/afni-masks-clean-room.md)); there is no benchmark report yet.
 
 ## Corrections by default {#corrections}
 

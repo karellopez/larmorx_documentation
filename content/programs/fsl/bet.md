@@ -19,11 +19,11 @@ reference:
     CHANGELOG.md: "2e982878694e2b59"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "54f1863ded1d5cef"
+    crates/larmorx-core/src/defects.rs: "1b2d6885ad466bdb"
     crates/larmorx-fsl/src/cli/bet.rs: "da8dac774b79a854"
-    docs/api/fsl-bet.md: "540d33885a35ffc4"
+    docs/api/fsl-bet.md: "d31d9c8db88492e7"
     python/larmorx/fsl/bet.py: "14e2e5d5c68509eb"
-    validation/tools.toml: "7bc9e1d1e145357d"
+    validation/tools.toml: "a32d2c0465a1423f"
 ---
 
 ## What it does {#what-it-does}
@@ -169,7 +169,7 @@ Each row joins an option of the original's command line with the Python argument
 | <code><span class="nw">&#45;e</span></code> | <code><span class="nw">mesh&#61;True</span></code> | <code><span class="nw">False</span></code> | VTK; also switches the self-intersection test to the exact one<span class="opt-help">FSL: “generates brain surface as mesh in .vtk format”</span> |
 | <code><span class="nw">&#45;v</span></code> | (command line only) |  | <span class="opt-help">FSL: “verbose (switch on diagnostic messages)”</span> |
 | <code><span class="nw">&#45;h</span></code> | (command line only) |  | <span class="opt-help">FSL: “display this help, then exits”</span> |
-| <code><span class="nw">&#45;&#45;tanh&#61;correctly&#45;rounded</span></code> (LARMORX's own option; also <code><span class="nw">&#45;&#45;tanh</span> <span class="nw">correctly&#45;rounded</span></code>, and passed on by <code><span class="nw">bet</span></code>) | <code><span class="nw">tanh&#61;&#34;correctly&#45;rounded&#34;</span></code> | <code><span class="nw">&#34;glibc&#34;</span></code> | computes the surface's smoothness weight with the correctly rounded <code><span class="nw">tanh</span></code> (CORE-MATH's, <code><span class="nw">larmorx&#95;core&#58;&#58;math&#58;&#58;tanh</span></code>) instead of glibc 2.35's, which FSL calls and which is the default (<code><span class="nw">glibc</span></code>; decision GLIBC-06). No notice: it is asked for. Where a surface self-intersects and is found again, the last bit can change the result (4 of the 13 real images of the clean room's standard comparison: [its findings](repo:docs/findings/fsl-bet-original.md)). Clean room only: <code><span class="nw">implementation&#61;&#34;replica&#34;</span></code> refuses it, and <code><span class="nw">&#34;auto&#34;</span></code> runs the clean room |
+| <code><span class="nw">&#45;&#45;tanh&#61;correctly&#45;rounded</span></code> (LARMORX's own option; also <code><span class="nw">&#45;&#45;tanh</span> <span class="nw">correctly&#45;rounded</span></code>, and passed on by <code><span class="nw">bet</span></code>) | <code><span class="nw">tanh&#61;&#34;correctly&#45;rounded&#34;</span></code> | <code><span class="nw">&#34;glibc&#34;</span></code> | computes the surface's smoothness weight with the correctly rounded <code><span class="nw">tanh</span></code> (CORE-MATH's, <code><span class="nw">larmorx&#95;core&#58;&#58;math&#58;&#58;tanh</span></code>) instead of glibc 2.35's, which FSL calls and which is the default (<code><span class="nw">glibc</span></code>; decision GLIBC-06). No notice: it is asked for. Where a surface self-intersects and is found again, the last bit can change the result (4 of the 13 real images of the clean room's standard comparison: [its findings](repo:docs/findings/fsl-bet-clean-room.md)). Clean room only: <code><span class="nw">implementation&#61;&#34;replica&#34;</span></code> refuses it, and <code><span class="nw">&#34;auto&#34;</span></code> runs the clean room |
 | (<code><span class="nw">bet2</span></code>'s <code><span class="nw">&#45;w</span></code>) | <code><span class="nw">smoothness</span></code> | <code><span class="nw">1&#46;0</span></code> | bet2 only (<code><span class="nw">bet</span></code> does not pass it) |
 | (<code><span class="nw">bet2</span></code>'s <code><span class="nw">&#45;&#45;ct</span></code>) | <code><span class="nw">head&#95;ct&#61;True</span></code> | <code><span class="nw">False</span></code> | bet2 only: the input in Hounsfield units |
 | <code><span class="nw">LARMORX&#95;FSL&#95;DATA</span></code> | <code><span class="nw">fsl&#95;data</span></code> | <code><span class="nw">None</span></code> | where <code><span class="nw">&#45;S</span></code>, <code><span class="nw">&#45;B</span></code>, <code><span class="nw">&#45;A</span></code> and <code><span class="nw">&#45;A2</span></code> read FSL's standard images ([<code><span class="nw">bet</span></code>'s Python call](/programs/fsl/bet/#python)) |

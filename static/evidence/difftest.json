@@ -1691,7 +1691,7 @@
        "reproducer": "mri-hmc:20261025:3",
        "status": "explained",
        "explanation": "measured on all 782 findings of the first long random-testing run (2026-10-25) with validation/investigations/cleanroom-fixes/hmc_alignment.py (the corrected series' temporal standard deviation, larmorx over mcflirt): every cost but -cost normmi as well aligned as mcflirt (691 findings, median ratio 1.000): large motions on small phantoms with a cost of several minima (permanent case mri-hmc/phantom-several-minima, an expected divergence); -cost normmi aligned worse (median 1.033) until 2026-10-29, when the clean-room alignment (next-steps 3b) computed normmi and mutualinfo exactly as specs/mcflirt.md appendix B (the 91 normmi findings: median 1.051 -> 1.000 against mcflirt 6.0.7.23, 55 within 1 %; the 78 mutualinfo findings: 0.983 -> 1.000); that part's 30-minute trial: 1,732 phantoms beyond the record's thresholds, as well aligned as mcflirt for every cost (median ratios 0.999 to 1.001)",
-       "link": "docs/findings/mri-hmc-original.md"
+       "link": "docs/findings/mri-hmc-clean-room.md"
       }
      ],
      "notices": [],
@@ -1804,6 +1804,6 @@
  "triage": "validation/difftest/triage.toml",
  "provenance": {
   "summary": "oracles/difftest/2026-10-25/summary.json",
-  "exporter": "8035ad782ae6aa0fcc2d7008192b781adb9f3e15"
+  "exporter": "55c4f958b6649446eacd7761470f2f39f30a03ec"
  }
 }
