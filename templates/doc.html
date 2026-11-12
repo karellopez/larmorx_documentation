@@ -22,10 +22,19 @@
     {%- endif %}
     {%- if tools_nav %}
     <p class="side-group">Evidence</p>
-    <ul class="side-list side-list--tools">
-      {%- for item in tools_nav %}
-      <li class="eco-{{ item.eco }}"><a href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %}><span class="dot" aria-hidden="true"></span>{{ item.title }}</a></li>
-      {%- endfor %}
+    {%- set ns = namespace(eco=None) %}
+    {%- for item in tools_nav %}
+    {%- if item.eco != ns.eco %}
+    {%- if ns.eco is not none %}
+    </ul>
+    {%- endif %}
+    {%- set group = data.programs.groups | selectattr('id', 'equalto', item.eco) | first %}
+    <p class="side-eco eco-{{ item.eco }}"><span class="eco-chip">{{ group.name }}</span></p>
+    <ul class="side-list side-list--tools" aria-label="{{ group.name }}">
+    {%- set ns.eco = item.eco %}
+    {%- endif %}
+      <li><a href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+    {%- endfor %}
     </ul>
     {%- endif %}
   </nav>

@@ -18,6 +18,9 @@ wide: true
 | 3 | **Surfaces** | Surface tools compatible with Connectome Workbench and MSM | Planned |
 | 4 | **larmorprepx** | The pipeline: BIDS in, fMRIPrep-compatible derivatives and HTML reports out | Planned |
 | 5 | **Clean-room originals of the permissive ports** | A clean-room original, built for speed, of every tool ported from permissively licensed code (sdcflows' field maps, ANTs and ITK, fMRIPrep's resampler, nitransforms, the confounds, fMRIPrep's Python steps): after FreeSurfer, in one block, before the final validation phase | Planned |
+| 6 | **The completeness parts** | FSL's FNIRT, `applywarp`, `convertwarp` and `fugue`, each with a replica and a clean room, then FLIRT's `-warp`, `epi_reg` and `flirt_average`, which wait for them; ANTs' missing operations; FreeSurfer's optional streams: after FreeSurfer | Planned |
+
+**Later** (decided on 2026-10-19): two optional AFNI paths of fMRIPrep's libraries, 3dQwarp (sdcflows' other PEPOLAR estimator) and 3dSkullStrip with 3dcalc (niworkflows' older skull strip), and an AFNI analysis track outside fMRIPrep (3dTproject, 3dDespike, 3dReHo, 3dRSFC, 3dDeconvolve/3dREMLfit, 3dFWHMx/3dClustSim, 3dAllineate, 3dcalc, 3dTstat, 3dROIstats/3dmaskave, 3dresample).
 
 New releases of the originals are followed as they come out: a weekly check lists every newer release and the files it changes, and each update is a step of its own.
 

@@ -1048,10 +1048,12 @@
     this.impls = (box.getAttribute('data-impls') || '').split(',');
     this.f = { q: '', category: '', verdict: '', impl: this.impls[0] };
     var cats = uniq(this.rows.map(function (r) { return r.getAttribute('data-category'); }));
+    var catLabel = {};  // a category's name on the page, where it has one (its id filters)
+    this.rows.forEach(function (r) { var l = r.getAttribute('data-category-label'); if (l) catLabel[r.getAttribute('data-category')] = l; });
     var verdicts = uniq([].concat.apply([], this.rows.map(function (r) { return self.impls.map(function (i) { return r.getAttribute('data-v-' + i); }); })).filter(Boolean));
     var q = el('input', { type: 'search', placeholder: 'Search cases, options, reasons', 'aria-label': 'Search the cases' });
     q.addEventListener('input', function () { self.f.q = q.value.trim().toLowerCase(); self.apply(); });
-    var cat = el('select', { 'aria-label': 'Category' }, [el('option', { value: '', text: 'every category' })].concat(cats.map(function (c) { return el('option', { value: c, text: c }); })));
+    var cat = el('select', { 'aria-label': 'Category' }, [el('option', { value: '', text: 'every category' })].concat(cats.map(function (c) { return el('option', { value: c, text: catLabel[c] || c }); })));
     cat.addEventListener('change', function () { self.f.category = cat.value; self.apply(); });
     var labels = {};
     box.querySelectorAll('.verdict').forEach(function (v) { var m = v.className.match(/v-([\w-]+)/); if (m) labels[m[1]] = v.textContent; });

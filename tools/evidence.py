@@ -625,9 +625,11 @@ class Evidence:
         rows = im["agreement"]
         target = f"cases-{impl}" if len(doc["implementations"]) > 1 and doc.get("cases_per_impl") else "cases"
         top = max(sum(r["counts"].values()) for r in rows) or 1
+        labels = doc.get("category_labels") or {}  # a category's name on the page; its id filters
         out = []
         for ri, r in enumerate(rows):
             total = sum(r["counts"].values())
+            cat = labels.get(r["category"], r["category"])
             segs = []
             parts = []
             for v in self.order:
@@ -640,13 +642,13 @@ class Evidence:
                 segs.append(
                     f'<a class="seg v-{esc(v)}" style="flex-grow:{n}" href="#{esc(target)}" '
                     f'data-filter-category="{esc(r["category"])}" data-filter-verdict="{esc(v)}" '
-                    f'data-filter-impl="{esc(impl)}" title="{esc(r["category"])}: {n} {esc(label.lower())}">'
+                    f'data-filter-impl="{esc(impl)}" title="{esc(cat)}: {n} {esc(label.lower())}">'
                     f'<span class="seg-n">{self.num(tool, pp, fmt_count(n))}</span></a>'
                 )
             out.append(
-                f'<div class="ev-agree-row"><span class="ev-agree-cat">{esc(r["category"]).replace("/", "/<wbr>")}</span>'
+                f'<div class="ev-agree-row"><span class="ev-agree-cat">{esc(cat).replace("/", "/<wbr>").replace("_", "_<wbr>")}</span>'
                 f'<div class="ev-agree-track"><div class="ev-bar" style="width:{100 * total / top:.3f}%" '
-                f'role="group" aria-label="{esc(r["category"])}: {total} cases: {esc(", ".join(parts))}">{"".join(segs)}</div></div>'
+                f'role="group" aria-label="{esc(cat)}: {total} cases: {esc(", ".join(parts))}">{"".join(segs)}</div></div>'
                 f'<span class="ev-agree-n">{total}</span></div>'
             )
         present = [v for v in self.order if any(v in r["counts"] for r in rows)]
@@ -957,8 +959,10 @@ class Evidence:
             + "<th scope=col>Checks</th></tr>"
         )
         rows = []
+        labels = doc.get("category_labels") or {}
         listed = [c for c in doc["cases"] if impl is None or impl in c["results"]]
         for c in listed:
+            cat = labels.get(c["category"], c["category"])
             cells = [
                 f'<th scope="row" class="cid"><code>{esc(c["id"])}</code>'
                 + (
@@ -967,7 +971,7 @@ class Evidence:
                     else ""
                 )
                 + "</th>",
-                f"<td class=cat>{esc(c['category'])}</td>",
+                f"<td class=cat>{esc(cat).replace('_', '_<wbr>')}</td>",
                 f'<td class=what><span>{esc(c["description"])}</span>'
                 + (
                     f'<details class="cmd"><summary>command line</summary><code class="cmdline">'
@@ -978,6 +982,8 @@ class Evidence:
                 + "</td>",
             ]
             data = [f'data-category="{esc(c["category"])}"']
+            if cat != c["category"]:
+                data.append(f'data-category-label="{esc(cat)}"')
             checks = []
             for i in impls:
                 r = c["results"].get(i["id"])

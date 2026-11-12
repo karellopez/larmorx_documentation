@@ -187,12 +187,15 @@ planned:
   - eco: [ants, sdcflows, fmriprep]
     title: Clean rooms for the programs that have only a replica
     text: A clean room, built for speed, of every program that has only a replica (ANTs and ITK, sdcflows' field maps, fMRIPrep's resampler and Python steps, nitransforms, the confounds), after FreeSurfer, before the final validation phase.
-  - eco: [afni]
-    title: AFNI
-    text: 3dQwarp, 3dSkullStrip, 3dcalc and an analysis track (3dTproject, 3dDespike, 3dReHo, 3dRSFC, 3dDeconvolve/3dREMLfit, 3dFWHMx/3dClustSim, ...). 3dTshift, 3dAutomask, 3dUnifize and 3dvolreg are done, each with a replica and a clean room.
-  - eco: [fsl]
-    title: FSL
-    text: FNIRT, applywarp, convertwarp and fugue, with FLIRT's `-warp`, epi_reg and flirt_average, after FreeSurfer. mcflirt, BET with every option, FLIRT, FAST, topup, `fslmaths`, `fslstats`, `standard_space_roi`, `fslroi` and prelude are done, each with a replica and a clean room (mcflirt's is `larmorx mri hmc`).
+  - eco: [fsl, ants, freesurfer]
+    title: The completeness parts
+    text: FSL's FNIRT, `applywarp`, `convertwarp` and `fugue`, each with a replica and a clean room, then FLIRT's `-warp`, `epi_reg` and `flirt_average`, which wait for them; ANTs' missing operations; FreeSurfer's optional streams. After FreeSurfer. FSL's mcflirt, BET with every option, FLIRT, FAST, topup, `fslmaths`, `fslstats`, `standard_space_roi`, `fslroi` and prelude are done, each with a replica and a clean room (mcflirt's is `larmorx mri hmc`).
+  - eco: [larmorx, fmriprep]
+    title: The final validation phase
+    text: The extensive tests of every program at once (the data panel, long random-testing runs, the full comparisons, an independent review of every large port), then the comparisons with fMRIPrep, stage by stage and end to end.
   - eco: [larmorx]
     title: Release 0.1.0
-    text: The next release, once the full pipeline, larmorprepx, exists; 0.1.0rc1 is a pre-release. Until then the main branch collects what comes with it (its changelog's "Unreleased").
+    text: The next release, once the full pipeline, larmorprepx, exists; 0.1.0rc1 is a pre-release. Until then the code in development (the repository's main branch) collects what comes with it (its changelog's "Unreleased").
+  - eco: [afni]
+    title: Later, AFNI
+    text: Two optional AFNI paths of fMRIPrep's libraries, 3dQwarp (sdcflows' other PEPOLAR estimator) and 3dSkullStrip with 3dcalc (niworkflows' older skull strip), and an analysis track outside fMRIPrep (3dTproject, 3dDespike, 3dReHo, 3dRSFC, 3dDeconvolve/3dREMLfit, 3dFWHMx/3dClustSim, ...), planned for later. 3dTshift, 3dAutomask, 3dUnifize and 3dvolreg are done, each with a replica and a clean room.

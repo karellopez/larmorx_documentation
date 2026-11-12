@@ -111,8 +111,8 @@ Each program's evidence page (the [Programs](/programs/) page lists them) leads 
 - **Metrics.** One row per comparison, computed offline in float64 over every voxel of the outputs: the largest |Δ|, how many values differ, the RMS of Δ, the largest |Δ| relative to the image's range, 1 − the normalised cross-correlation. Each comparison of LARMORX with an original gets a verdict and its reason, with links to the finding or register entry; the rows *the original against itself* are the yardstick. Provenance (inputs with their checksums, the commands, the commit) is under each example.
 - **Every case.** The case explorer lists every case of the records: what it tests, its command line, its verdict (one per implementation) and reason. Search, filter, sort, and link to one case with `#case=<name>`.
 - **Agreement.** One bar per category of a record's cases, as shares of the category, each case coloured by its verdict. *Bit-identical* means the same bits as the original as built. *Identical with correctly rounded maths* means the same bits once the original's maths library is replaced by CORE-MATH's, which LARMORX uses on every platform: glibc's `exp`, `log`, `sin` and `cos` are not always correctly rounded. *Within the thresholds* means within the record's stated tolerance, not bit-identity. *Rejected by both* means both programs refuse the input, compared by exit status and messages. *Expected divergence* means a documented, deliberate difference. [The verdicts](#verdicts) defines every one.
-- **The original's own variability.** Where the original's result depends on its thread count, the record measures that spread, and the figures place each port's differences beside it.
-- **Images.** Masked to the brain, or the whole head where its dataset removed the face; from OpenNeuro's datasets and the MNI ICBM 152 template ([its notice](/static/hero/LICENSE-MNI.txt)), each credited. Difference maps are on a symmetric scale whose range is stated.
+- **The original's own variability.** How much the original differs from itself: between its thread counts, its builds or its versions, or, for a deterministic original, when its input changes imperceptibly. The record measures it, and the figures place each port's differences beside it ([the verdicts](#verdicts)).
+- **Images.** Masked to the brain, or the whole head where its dataset removed the face, from OpenNeuro datasets in the public domain (CC0-1.0, PDDL-1.0) or under CC-BY or CC-BY-SA, and the MNI ICBM 152 template ([its notice](/static/hero/LICENSE-MNI.txt)), each credited, with the share-alike notice where it applies. Difference maps are on a symmetric scale whose range is stated.
 - **Speed.** Medians from the benchmark reports, on the machine each report names. Where a program has no benchmark report yet, its page says so.
 
 Everything is computed by the main repository's code from its committed records and from cached runs of the original programs ([docs/figures.md](repo:docs/figures.md)); the site only displays it, and a check compares every number a page shows with the data it comes from.
@@ -128,6 +128,16 @@ One taxonomy for the whole site. Every comparison of LARMORX with an original, a
 Every tool ported so far, each implementation, and how many cases of its record have each verdict, each case's verdict decided from what its record reports and measures.
 
 {{ ev.matrix(site.tools) }}
+
+### What each status means {#statuses}
+
+Each port has the status its record states, one of three:
+
+- *experimental*: the tests of its part pass, but the extensive tests of the final validation phase are still to come: the [data panel](/data-panel/), long random-testing runs of several hours and the full comparison ([now, and before the first release](#levels-plan)); or a case of its record still fails, however small the miss;
+- *validated*: every case of its record passes, and those extensive tests have been run;
+- *stable*: validated, and its Python and command-line interface no longer change.
+
+Since 2026-10-28 each port is tested where it matters as it is written: every code path once and the original's real use. The extensive tests wait for the final validation phase, so a recent port is *experimental* even where every case of its record agrees. The ports marked *validated* before this definition keep their status: ANTs' programs, which have their data panel since 2026-10-27, and the other ports whose parts marked them *validated* when every case of their record passed. The final validation phase gives them the rest of the extensive tests.
 
 ## Random testing {#random-testing}
 

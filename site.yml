@@ -40,8 +40,12 @@ docs:
   - { title: Programs, url: "/programs/" }
   - { title: Roadmap, url: "/roadmap/" }
 
-# The tool pages (content/tools/<page>.md), listed under "Tools" in the sidebar
-# in the order of the status table; `eco` colours the dot beside each.
+# The evidence pages (content/tools/<page>.md, content/evidence/<page>.md),
+# listed under "Evidence" in the sidebar in the Programs page's order of the
+# software; `eco` is a page's software (its group on the Programs page), and the
+# sidebar lists the pages under a chip with that group's name and pastel (the
+# main repository's docs/writing-guide.md, section 5: never a dot of its deep
+# colour beside a program).
 tools:
   - { title: antsRegistration, url: "/tools/ants-registration/", eco: ants,
       summary: "Linear, SyN, B-spline SyN, B-spline and displacement-field stages; image and point-set metrics. Port." }
@@ -83,13 +87,13 @@ tools:
       summary: "Phase unwrapping (prelude) of field maps' phase differences and complex images: a clean-room original built for speed (since 2026-11-07: fMRIPrep's two large calls 97 and 211 times FSL's speed, FSL's bytes in its reproduce mode) and an exact replica in larmorx-nc, fMRIPrep's seven calls bit for bit in both." }
   - { title: Head-motion correction, url: "/tools/mri-hmc/", eco: fsl,
       summary: "mcflirt: a clean-room original (experimental; its centres of mass as mcflirt's blocked sums since 2026-11-05, its correlation's count per point and least squares as FLIRT's since 2026-11-07), and an exact replica in larmorx-nc." }
-  - { title: One-shot BOLD resampler, url: "/tools/resample-series/", eco: larmorx,
-      summary: "fMRIPrep's ResampleSeries, with nitransforms' chains and SciPy's interpolation. Port." }
-  - { title: t2smap, url: "/tools/tedana-t2smap/", eco: larmorx,
+  - { title: t2smap, url: "/tools/tedana-t2smap/", eco: tedana,
       summary: "tedana's T2* and S0 maps of multi-echo fMRI and the echoes' optimal combination: a clean-room original (experimental) within the specification's thresholds of tedana, 10 to 15 times its speed at one thread, and an exact replica in larmorx-gpl (experimental), every file bit for bit in both library environments, fMRIPrep's calls included." }
-  - { title: "sdcflows' field-map estimation", url: "/tools/sdcflows-fieldmap/", eco: larmorx,
+  - { title: "sdcflows' field-map estimation", url: "/tools/sdcflows-fieldmap/", eco: sdcflows,
       summary: "sdcflows' B-spline field fit, the field evaluated and applied, and the phase-difference preparation: a port of sdcflows 2.17.1, fMRIPrep's seven phase-difference estimators bit for bit, the fit 6.5 to 7.8 times faster at 14 threads. Port." }
-  - { title: "sdcflows' PEPOLAR, direct and fieldmap-less estimation", url: "/tools/sdcflows-estimation/", eco: larmorx,
+  - { title: "sdcflows' PEPOLAR, direct and fieldmap-less estimation", url: "/tools/sdcflows-estimation/", eco: sdcflows,
       summary: "sdcflows' PEPOLAR, direct and fieldmap-less (SyN) estimation, its masks and BIDS app, niworkflows' helpers and fMRIPrep's own field-map steps: a port of sdcflows 2.17.1 and niworkflows 1.15.4, the app's every derivative bit for bit on its eight oracle datasets. Port." }
+  - { title: One-shot BOLD resampler, url: "/tools/resample-series/", eco: fmriprep,
+      summary: "fMRIPrep's ResampleSeries, with nitransforms' chains and SciPy's interpolation. Port." }
   - { title: NIfTI I/O, url: "/tools/nifti-io/", eco: larmorx,
       summary: "NIfTI-1 and NIfTI-2 reading and writing, against nibabel. LARMORX's own." }

@@ -9,7 +9,7 @@ groups:
     count: "13 programs and 1 module"
     summary: "Transforms and their files, N4, denoising, `ImageMath` and its filters, registration (linear and deformable stages), `antsAI`, `Atropos`."
     ports:
-      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0", count: 14}
+      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0", count: 14, next_release: false}
     programs:
       - name: "antsRegistration"
         kind: program
@@ -185,8 +185,8 @@ groups:
     count: "4 programs"
     summary: "`3dTshift`, `3dAutomask`, `3dUnifize` and `3dvolreg`. AFNI 26.3.05 released the Medical College of Wisconsin's code under CC BY 4.0, so the replicas are in `larmorx` beside the clean rooms."
     ports:
-      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0, with AFNI's CC BY 4.0 credit", count: 4}
-      - {kind: clean-room, name: "clean room", package: larmorx, licence: "Apache-2.0", count: 4}
+      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0, with AFNI's CC BY 4.0 credit", count: 4, next_release: false}
+      - {kind: clean-room, name: "clean room", package: larmorx, licence: "Apache-2.0", count: 4, next_release: false}
     programs:
       - name: "3dTshift"
         kind: program
@@ -246,8 +246,8 @@ groups:
     count: "26 programs"
     summary: "`mcflirt`, BET, FLIRT and its programs, FAST, `topup`, `fslmaths`, `fslstats`, `fslroi`, `standard_space_roi` and `prelude`."
     ports:
-      - {kind: replica, name: "replica", package: larmorx-nc, licence: "FSL Licence: non-commercial use only", count: 26}
-      - {kind: clean-room, name: "clean room", package: larmorx, licence: "Apache-2.0", count: 26}
+      - {kind: replica, name: "replica", package: larmorx-nc, licence: "FSL Licence: non-commercial use only", count: 26, next_release: false}
+      - {kind: clean-room, name: "clean room", package: larmorx, licence: "Apache-2.0", count: 26, next_release: false}
     programs:
       - name: "mcflirt"
         kind: program
@@ -267,7 +267,7 @@ groups:
         command: "larmorx fsl bet"
         also: ""
         python: "lx.fsl.bet"
-        does: "FSL's `bet` script: `bet2` itself, or one of its variations (`-R`, `-F`, `-Z`, `-S`, `-B`, `-A`, `-A2`)."
+        does: "`bet` finds the brain in a head image."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-bet.md"
         evidence: "/evidence/fsl-bet/"
@@ -280,7 +280,7 @@ groups:
         command: "larmorx fsl bet2"
         also: ""
         python: "lx.fsl.bet2"
-        does: "FSL's brain extraction itself, which the `bet` script runs."
+        does: "`bet2` is FSL's brain extraction itself, which the `bet` script runs."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-bet.md"
         evidence: "/evidence/fsl-bet/"
@@ -293,7 +293,7 @@ groups:
         command: "larmorx fsl betsurf"
         also: ""
         python: "lx.fsl.betsurf"
-        does: "The inner skull, outer skull and scalp surfaces, as FSL's `betsurf` finds them."
+        does: "`betsurf` finds the inner skull, the outer skull and the scalp of a head, from `bet2`'s brain surface (`-e`), the T1 image (and a T2) and the T1's registration to MNI152."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-bet.md"
         evidence: "/evidence/fsl-bet/"
@@ -593,8 +593,8 @@ groups:
     count: "1 program"
     summary: "`t2smap`: the T2* and S0 maps of multi-echo fMRI and the echoes' optimal combination."
     ports:
-      - {kind: replica, name: "replica", package: larmorx-gpl, licence: "GPL-3.0", count: 1}
-      - {kind: clean-room, name: "clean room", package: larmorx, licence: "Apache-2.0", count: 1}
+      - {kind: replica, name: "replica", package: larmorx-gpl, licence: "GPL-3.0", count: 1, next_release: false}
+      - {kind: clean-room, name: "clean room", package: larmorx, licence: "Apache-2.0", count: 1, next_release: true}
     programs:
       - name: "t2smap"
         kind: program
@@ -615,7 +615,7 @@ groups:
     count: "1 program and 3 modules"
     summary: "Field-map estimation: the B-spline fit, PEPOLAR, direct and fieldmap-less (SyN), sdcflows' BIDS app, with niworkflows' helpers and pybids' BIDS index."
     ports:
-      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0", count: 4}
+      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0", count: 4, next_release: false}
     programs:
       - name: "sdcflows"
         kind: program
@@ -671,7 +671,7 @@ groups:
     count: "5 modules"
     summary: "fMRIPrep's one-shot BOLD resampler and its field-map steps, SciPy's and scikit-image's routines under them, and the confounds, being ported."
     ports:
-      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0", count: 5}
+      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0", count: 5, next_release: false}
     programs:
       - name: "resample-series"
         kind: module
@@ -739,7 +739,7 @@ groups:
     count: "1 module"
     summary: "Its NIfTI reader and writer. The larmorprepx pipeline is planned."
     ports:
-      - {kind: own, name: "LARMORX's own", package: larmorx, licence: "Apache-2.0", count: 1}
+      - {kind: own, name: "LARMORX's own", package: larmorx, licence: "Apache-2.0", count: 1, next_release: false}
     programs:
       - name: "io"
         kind: module
