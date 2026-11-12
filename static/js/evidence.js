@@ -651,7 +651,9 @@
     if (!p.window && w.id === 'own' && p.own && p.own[this.s.output]) w = { lo: p.own[this.s.output][0], hi: p.own[this.s.output][1] };
     var lo = w.lo, k = 255 / ((w.hi - w.lo) || 1);
     return this.slice(function (i, px, o) {
-      var g = clamp((val(i) - lo) * k, 0, 255);
+      var x = val(i);
+      if (x !== x) { px[o + 3] = 0; return; } // NaN: a voxel without a value is not drawn
+      var g = clamp((x - lo) * k, 0, 255);
       px[o] = px[o + 1] = px[o + 2] = g; px[o + 3] = 255;
     });
   };
@@ -686,8 +688,13 @@
     var L = Math.log(range / lo), self = this;
     this.sliceDiffer = 0;
     return this.slice(function (i, px, o) {
-      var dv = va(i) - vb(i), t = 0;
-      if (dv !== 0) self.sliceDiffer++;
+      var xa = va(i), xb = vb(i), dv = xa - xb, t = 0;
+      if (dv !== dv) {
+        // NaN in both, or the same infinity in both: no difference; NaN in one only: a
+        // difference without a size, drawn in full
+        if (xa === xb || (xa !== xa && xb !== xb)) dv = 0;
+        else { self.sliceDiffer++; dv = range > 0 ? range : 1; }
+      } else if (dv !== 0) self.sliceDiffer++;
       if (dv !== 0 && range > 0) {
         var a = Math.abs(dv);
         t = log ? Math.max(0.12, a <= lo ? 0 : Math.log(a / lo) / L) : Math.min(1, a / range);
