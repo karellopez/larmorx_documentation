@@ -3,7 +3,7 @@
  "tool": "tedana-t2smap",
  "title": "t2smap",
  "provenance": {
-  "exporter": "f3c829ee2d73f5926a7ac285aa85ea0e00d423fc",
+  "exporter": "f7914146a2caebaff39cb0d5d9ccaca49e9350a2",
   "records": [
    {
     "path": "docs/validation/tedana-t2smap-replica.json",
@@ -1159,7 +1159,7 @@
     "entry": "tedana-t2smap/fmriprep-ds003592-curvefit-original",
     "description": "fMRIPrep 25.2.6's t2smap call on ds003592 sub-280's rest run with --fittype curvefit: tedana 26.0.3, the replica's default and the clean-room original in both modes",
     "computed": "2026-11-11T22:22:43+00:00",
-    "larmorx_commit": "84d42e184bb685c16adc37d90a5b83b67a1ede0c",
+    "larmorx_commit": "55dace9da91f79557ed9de91916fe9de9e466789",
     "commands": [
      {
       "label": "tedana",
@@ -1194,7 +1194,7 @@
      {
       "label": "replica",
       "argv": [
-       "<scratch>/t2smap-cr/c4/target-gpl/release/larmorx-gpl",
+       "<scratch>/t2smap-cr/target/release/larmorx-gpl",
        "tedana",
        "t2smap",
        "-d",
@@ -1221,7 +1221,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "fix"
       },
       "exit": 0,
-      "seconds": 10.21
+      "seconds": 14.58
      },
      {
       "label": "original-reproduce",
@@ -1255,7 +1255,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "reproduce"
       },
       "exit": 0,
-      "seconds": 3.17
+      "seconds": 3.32
      },
      {
       "label": "original",
@@ -1289,7 +1289,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "fix"
       },
       "exit": 0,
-      "seconds": 1.56
+      "seconds": 1.66
      },
      {
       "label": "original-1",
@@ -1323,7 +1323,7 @@
        "LARMORX_UPSTREAM_DEFECTS": "fix"
       },
       "exit": 0,
-      "seconds": 3.09
+      "seconds": 3.25
      }
     ],
     "versions": {
@@ -1365,7 +1365,7 @@
    }
   ],
   "command": "python -m larmorx_validation evidence tedana-t2smap --site <site>",
-  "original_exporter": "fa5df8e5914bf30ac6fc04e1bed3e56f3392d68b"
+  "original_exporter": "e02237544c202872bf4f5708fe9cde776af6293b"
  },
  "implementations": [
   {
@@ -3071,7 +3071,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 11515/11526 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 11515/11526 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -3085,7 +3085,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 13363/13812 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 13363/13812 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -3113,7 +3113,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 44306/46892 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 44306/46892 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -3477,7 +3477,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 11515/11526 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 11515/11526 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -3631,7 +3631,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 11515/11526 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 11515/11526 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -3645,7 +3645,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 11515/11526 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 11515/11526 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -3855,7 +3855,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 13390/14036 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 13390/14036 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -3869,7 +3869,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 44169/48236 values identical; the curve fit's (b)/(c) share 0.088 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 44169/48236 values identical; the curve fit's (b)/\\(c) share 0.088 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -3883,7 +3883,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 9531/9967 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 9531/9967 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -3897,7 +3897,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 13757/13812 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 13757/13812 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -3925,7 +3925,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 10751/10757 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 10751/10757 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -3939,7 +3939,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 6643/6654 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 6643/6654 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -3953,7 +3953,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 13424/13812 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 13424/13812 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -3967,7 +3967,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 44567/46892 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 44567/46892 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -3995,7 +3995,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 33156/33206 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 33156/33206 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -4485,7 +4485,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 13387/13812 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 13387/13812 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -4499,7 +4499,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 44258/46892 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 44258/46892 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -4583,7 +4583,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 11381033/11406278 values identical; the curve fit's (b)/(c) share 0.305 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 11381033/11406278 values identical; the curve fit's (b)/\\(c) share 0.305 %; exit status, files and messages tedana's"
     }
    },
    "example": "fmriprep-ds003592-curvefit-original"
@@ -4598,7 +4598,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 11486292/11569034 values identical; the curve fit's (b)/(c) share 0.305 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 11486292/11569034 values identical; the curve fit's (b)/\\(c) share 0.305 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -4612,7 +4612,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 9430950/9436299 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 9430950/9436299 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -4626,7 +4626,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 13935546/13946060 values identical; the curve fit's (b)/(c) share 0.0 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 13935546/13946060 values identical; the curve fit's (b)/\\(c) share 0.0 %; exit status, files and messages tedana's"
     }
    }
   },
@@ -4640,7 +4640,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "15/15",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 7311090/7342822 values identical; the curve fit's (b)/(c) share 0.124 %; exit status, files and messages tedana's"
+     "reason": "specs/t2smap.md §17.3 by its check.py: 7311090/7342822 values identical; the curve fit's (b)/\\(c) share 0.124 %; exit status, files and messages tedana's"
     }
    }
   }
@@ -5152,7 +5152,7 @@
    ],
    "rows": [
     {
-     "head": "--n-threads 4",
+     "head": "`--n-threads 4`",
      "cells": [
       {
        "v": 1,
@@ -5220,7 +5220,7 @@
      ]
     },
     {
-     "head": "larmorx (replica) at --n-threads 4",
+     "head": "larmorx (replica) at `--n-threads 4`",
      "cells": [
       {
        "v": 0,
@@ -5241,7 +5241,7 @@
   },
   {
    "id": "corrections",
-   "title": "tedana's defects found by the replica (TED-01 to TED-18) and the maths entries",
+   "title": "tedana's defects (TED-01 to TED-18 found by the replica, TED-31 and TED-46 by the clean-room part) and the maths entries",
    "columns": [
     {
      "label": "Entry"
@@ -5321,7 +5321,7 @@
        "text": "B"
       },
       {
-       "text": "nilearn's own \"Mask affine ... is different from img affine\" error, mask against the first echo"
+       "text": "nilearn's own `Mask affine ... is different from img affine` error, mask against the first echo"
       },
       {
        "text": "fail/10-ted-04 and 6 more"
@@ -6735,7 +6735,7 @@
      "head": "register",
      "cells": [
       {
-       "text": "--exclude removing every volume: tedana fits nothing (T2* 500 ms, S0 1 everywhere) and exits 0 with a curve fit's or the dropout method's unrelated errors otherwise; registered TED-16 (rule B): a clear error by default, reproduce follows tedana"
+       "text": "`--exclude` removing every volume: tedana fits nothing (T2* 500 ms, S0 1 everywhere) and exits 0 with a curve fit's or the dropout method's unrelated errors otherwise; registered TED-16 (rule B): a clear error by default, reproduce follows tedana"
       },
       {
        "text": "TED-16"
@@ -7017,7 +7017,7 @@
      ]
     }
    ],
-   "note": "specs/t2smap.md §17.3's thresholds by its check.py; (b)/(c): the curve-fit voxels whose fit the other run's is no better than (b), or whose start lies on the feasibility boundary (c), at most 3 % allowed. The log-linear call's values are tedana's bit for bit but for one float32 unit in the combined series."
+   "note": "specs/t2smap.md §17.3's thresholds by its check.py; (b)/\\(c): the curve-fit voxels whose fit the other run's is no better than (b), or whose start lies on the feasibility boundary \\(c), at most 3 % allowed. The log-linear call's values are tedana's bit for bit but for one float32 unit in the combined series."
   },
   {
    "id": "difftest-original",
@@ -7058,7 +7058,7 @@
      ]
     },
     {
-     "head": "(A) values (§N.N)",
+     "head": "(A) values (§17.3)",
      "sub": "Trial 2026-11-11-t2smap-original-2 (1,742 cases, 50 differ): 23 runs that both programs stop with the same error before the combination (e.g. PAID's zero weights in reproduce, findings 46, 175, 278), whose partial outputs were compared exactly; now file by file within 1e-5 relative, the confounds table number by number, a curve-fit run's maps reported (§17.3 judges them only with the model's full…",
      "verdict": "within-variability",
      "cells": [
@@ -7074,7 +7074,7 @@
      ]
     },
     {
-     "head": "(B) messages, (B) notices, (B) values (§N.N)",
+     "head": "(B) messages, (B) notices, (B) values (§17.3)",
      "sub": "Trial 2026-11-11-t2smap-original-2: 13 cases with equal log-linear observations (uint8 saturated, e.g. findings 11, 348, 548, 999): TED-46's correction in the original's default moves the cap (TED-05's count), the curve fit's failures and messages, while the replica's default does not take TED-46 yet; explained by the suite (relay 3c, 2026-11-11: the same defects named, their counts aside), until…",
      "verdict": "divergence",
      "cells": [
@@ -7122,7 +7122,7 @@
      ]
     },
     {
-     "head": "(B) messages, (B) values (§N.N)",
+     "head": "(B) messages, (B) values (§17.3)",
      "sub": "Trial 2026-11-11-t2smap-original-2: 7 cases whose (B) failures combined the replica's known message gaps (its zero-padded thresholds, its single traceback) with a stopped run's values or the two causes above (e.g. findings 278, 701, 879, 1060); with those fixed, the gaps are explained as in every other case (relay 3c, 2026-11-11).",
      "verdict": "within-variability",
      "cells": [
@@ -7138,7 +7138,7 @@
      ]
     },
     {
-     "head": "(B) values (§N.N)",
+     "head": "(B) values (§17.3)",
      "sub": "Trial 2026-11-11-t2smap-original-2: 1 case outside check.py's model (TED-01's NaN mean stops the model as it stops tedana; finding 1449) whose confounds table, compared as text, differed in its last digits; now number by number within 1e-5 (relay 3c, 2026-11-11).",
      "verdict": "within-variability",
      "cells": [
@@ -12878,7 +12878,7 @@
     },
     {
      "label": "Programs",
-     "text": "tedana 26.0.3's t2smap (through the oracle-output cache); the replica: larmorx-gpl built from the clean-room part's branch, its program as a black box; LARMORX's clean-room original (crate larmorx-tedana, experimental) from larmorx at commit `84d42e184bb6`"
+     "text": "tedana 26.0.3's t2smap (through the oracle-output cache); the replica: larmorx-gpl built from the clean-room part's branch, its program as a black box; LARMORX's clean-room original (crate larmorx-tedana, experimental) from larmorx at commit `55dace9da91f`"
     },
     {
      "label": "Grid",
@@ -13470,7 +13470,7 @@
       }
      },
      "verdict": "within-variability",
-     "reason": "specs/t2smap.md §17.3 by its check.py: 11,381,033 of 11,406,278 compared values identical; the curve fit's (b)/(c) share 0.305% of the fit voxels (the original's own trust-region solver, its log-linear fit in closed form: the fitted numbers within the thresholds, not bit for bit, decided 2026-11-11)",
+     "reason": "specs/t2smap.md §17.3 by its check.py: 11,381,033 of 11,406,278 compared values identical; the curve fit's (b)/\\(c) share 0.305% of the fit voxels (the original's own trust-region solver, its log-linear fit in closed form: the fitted numbers within the thresholds, not bit for bit, decided 2026-11-11)",
      "links": [
       {
        "label": "§17.3",
@@ -13920,7 +13920,7 @@
       }
      },
      "verdict": "within-variability",
-     "reason": "The two implementations' defaults by §17.3 (check.py): 11,380,746 of 11,406,278 compared values identical; the (b)/(c) share 0.259%."
+     "reason": "The two implementations' defaults by §17.3 (check.py): 11,380,746 of 11,406,278 compared values identical; the (b)/\\(c) share 0.259%."
     },
     {
      "id": "original1-original",
@@ -14108,7 +14108,7 @@
    "provenance": [
     "Data: OpenNeuro ds003592, sub-280, CC0-1.0",
     "Inputs: echo 1 (sha256 2181945e16c46e0c…); echo 2 (sha256 81aa91a1100b9abb…); echo 3 (sha256 38c75634bf28d967…); fMRIPrep's dilated brain mask (sha256 0b43353da4487e08…)",
-    "Runs: figures cache entry `tedana-t2smap/fmriprep-ds003592-curvefit-original`, computed 2026-11-11T22:22:43+00:00 with larmorx `84d42e184bb6`; tedana 26.0.3 (oracles/python-newest, the launcher of the spec's probe; through the oracle-output cache); larmorx-gpl built from the clean-room part's branch, its program as a black box; the clean-room original (crate larmorx-tedana) through larmorx._core.tedana_t2smap_cleanroom; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `tedana-t2smap/fmriprep-ds003592-curvefit-original`, computed 2026-11-11T22:22:43+00:00 with larmorx `55dace9da91f`; tedana 26.0.3 (oracles/python-newest, the launcher of the spec's probe; through the oracle-output cache); larmorx-gpl built from the clean-room part's branch, its program as a black box; the clean-room original (crate larmorx-tedana) through larmorx._core.tedana_t2smap_cleanroom; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "credits": [
     "openneuro-ds003592"
