@@ -8,8 +8,9 @@ lede: >-
   LARMORX's port of each is a replica of ANTs 2.6.5's program on ITK 5.4.5. In `reproduce`,
   ImageMath's replica gives ANTs' values bit for bit in 306 of the 308 compared cases of its
   standard comparison once ANTs uses correctly rounded maths, and in all 374 of its data panel;
-  in the other two only the sign of a zero differs. With ANTs as built, 303 of the 308 match; the
-  other three differ where glibc's `powf` is not correctly rounded. The other five replicas give
+  in the other two only the sign of a zero differs. With ANTs as built, 303 of the 308 match;
+  three more differ only where glibc's `powf` is not correctly rounded, and the two signed zeros
+  as above. The other five replicas give
   ANTs' values and header bytes bit for bit in every compared case of their records, and
   sMRIPrep's own calls in fMRIPrep's brain extraction give ANTs' and fMRIPrep's bytes. Their
   default, `fix`, corrects 22 defects of ANTs and ITK, none of which changes those calls.
@@ -82,7 +83,7 @@ fMRIPrep 25.2.6 calls ImageMath, ThresholdImage and MultiplyImages in sMRIPrep's
 
 ## Corrections checked against known results {#deliberate}
 
-Where the input makes sense and ANTs' result is wrong, the replica corrects it by default, warns where the correction changes the output, and keeps ANTs' result one switch away (`upstream_defects="reproduce"`, or `--upstream-defects reproduce` before the family on the command line). Each of these four corrections is checked against a result computed another way, bit for bit, in its record:
+Where the input makes sense and ANTs' result is wrong, the replica corrects it by default, warns where the correction changes the output, and keeps ANTs' result one switch away: `upstream_defects="reproduce"` (on the command line `--upstream-defects reproduce` from the next release, `LARMORX_UPSTREAM_DEFECTS=reproduce` in 0.1.0rc1). Each of these four corrections is checked against a result computed another way, bit for bit, in its record:
 
 - **ANTS-17** (`ME`, `MO` with a value): `ME r v` keeps every voxel above 0.5 after eroding the voxels of `v`, so on a label map the other labels survive as 1; the replica gives the eroded mask of `v` (SciPy's binary erosion gives the same voxels: `ME-labels-known`, `ME-value-0.3-known`). `MO r 0` erodes nothing (ITK's opening erodes with the background 0) and is a dilation of the zeros; the replica opens the zeros (`MO-value-0-known`).
 - **ANTS-22** (`PadImage` with a fractional pad): ANTs grows each axis by ⌊2p⌋ voxels and shifts the data by ⌊p⌋, an asymmetric pad (a negative one also misplaces the data by a voxel); the replica pads the whole part of p on each side (crops it, for a negative p), the data where the new origin says (NumPy's `pad` and slicing: `pad-fraction-known`, `depad-fraction-known`).
