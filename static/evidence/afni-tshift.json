@@ -3,19 +3,19 @@
  "tool": "afni-tshift",
  "title": "3dTshift",
  "provenance": {
-  "exporter": "c2ef0e7819ba6a78845200b0787c9d05fb3c53f5",
+  "exporter": "8d31327b3f2038129bf77c42f2ed0037a62362be",
   "records": [
    {
     "path": "docs/validation/afni-tshift-replica.json",
-    "sha256": "57ff6c176a7f37b8e895a868cca6491418674f77f1365b8e63a9131ae7f398e0",
-    "generated": "2026-10-30",
-    "larmorx_commit": "b6c7066c2dc2"
+    "sha256": "b13975c125e10c3576470ac9f16abc67ded8fce1bfe4bf391671cf24079c5dff",
+    "generated": "2026-11-04",
+    "larmorx_commit": "3a795ff019fb-dirty"
    },
    {
     "path": "docs/validation/afni-tshift-replica.md",
-    "sha256": "9ae9d5393d915c41245fd3030b948cd17eab8728022beba67284097114eecd18",
-    "generated": "2026-10-30",
-    "larmorx_commit": "b6c7066c2dc2"
+    "sha256": "881545b706c9ee5f1647289d719ec83223a863eacb113196baeac29d86b7103d",
+    "generated": "2026-11-04",
+    "larmorx_commit": "3a795ff019fb-dirty"
    },
    {
     "path": "docs/validation/afni-tshift.json",
@@ -442,15 +442,15 @@
  "implementations": [
   {
    "id": "replica",
-   "label": "larmorx replica",
+   "label": "replica against the original: AFNI 3dTshift 26.3.05 (standard comparison)",
    "short": "replica",
    "name": "afni-tshift-replica",
    "record": "docs/validation/afni-tshift-replica.md",
    "status": "validated",
    "summary": {
-    "cases": 315,
+    "cases": 317,
     "verdicts": {
-     "bit-identical": 280,
+     "bit-identical": 282,
      "both-reject": 32,
      "divergence": 3
     }
@@ -465,7 +465,7 @@
     {
      "category": "methods",
      "counts": {
-      "bit-identical": 84
+      "bit-identical": 86
      }
     },
     {
@@ -543,12 +543,15 @@
       "bit-identical": 1
      }
     }
-   ]
+   ],
+   "title": "Agreement, replica against the original: AFNI `3dTshift` 26.3.05",
+   "comparison": "standard comparison",
+   "port": "replica"
   },
   {
    "id": "original",
-   "label": "larmorx clean-room original",
-   "short": "original",
+   "label": "clean room against the original: AFNI 3dTshift 26.3.05 (standard comparison)",
+   "short": "clean room",
    "name": "afni-tshift",
    "record": "docs/validation/afni-tshift.md",
    "status": "validated",
@@ -657,7 +660,10 @@
       "bit-identical": 1
      }
     }
-   ]
+   ],
+   "title": "Agreement, clean room against the original: AFNI `3dTshift` 26.3.05",
+   "comparison": "standard comparison",
+   "port": "clean-room"
   }
  ],
  "cases": [
@@ -677,7 +683,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "8 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "8 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -717,7 +723,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "2,713 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "2,713 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -737,7 +743,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "1,218 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "1,218 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -757,7 +763,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "230 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "230 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -777,7 +783,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "14/14",
-     "reason": "167 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "167 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -797,7 +803,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -817,7 +823,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "14/14",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -857,7 +863,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "14/14",
-     "reason": "162 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "162 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -917,7 +923,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "14/14",
-     "reason": "167 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "167 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -1197,7 +1203,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "1 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "1 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -1257,7 +1263,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "2 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "2 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -1297,7 +1303,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "1 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "1 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -1317,7 +1323,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "2 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "2 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3017,7 +3023,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "170 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "170 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3037,7 +3043,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "117 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "117 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3057,7 +3063,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "113 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "113 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3077,7 +3083,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "117 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "117 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3097,7 +3103,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "113 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "113 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3117,7 +3123,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "139 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "139 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3137,7 +3143,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "2,970 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "2,970 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3157,7 +3163,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3177,7 +3183,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3217,7 +3223,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "158 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "158 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3237,7 +3243,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3257,7 +3263,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "159 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "159 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3277,7 +3283,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "13/13",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3297,7 +3303,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "13/13",
-     "reason": "113 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "113 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3317,7 +3323,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3857,7 +3863,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3877,7 +3883,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3897,7 +3903,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "154 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "154 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3917,7 +3923,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "148 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "148 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3937,7 +3943,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "148 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "148 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3957,7 +3963,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "153 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "153 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3977,7 +3983,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "165 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "165 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -3997,7 +4003,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "165 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "165 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -4017,7 +4023,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "151 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "151 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -4037,7 +4043,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "151 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "151 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -4097,7 +4103,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "13/13",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -4117,7 +4123,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "13/13",
-     "reason": "148 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "148 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -4137,7 +4143,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "13/13",
-     "reason": "148 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "148 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -4157,7 +4163,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "13/13",
-     "reason": "171 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "171 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -4177,7 +4183,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "13/13",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -4197,7 +4203,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "13/13",
-     "reason": "165 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "165 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -4217,7 +4223,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "13/13",
-     "reason": "182 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "182 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -4237,7 +4243,47 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "13/13",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
+    }
+   }
+  },
+  {
+   "id": "methods/glibc-sinf-wsinc5",
+   "category": "methods",
+   "description": "-wsinc5 -tpattern '@1D: 0 0.543 0.102 0.728': weights where glibc's sinf and cosf differ from the correctly rounded ones (GLIBC-07)",
+   "command": "3dTshift -tpattern '@1D: 0 0.543 0.102 0.728' -wsinc5 -prefix out.nii synthetic/tshift/dtypes/float32.nii.gz",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": ""
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": ""
+    }
+   }
+  },
+  {
+   "id": "methods/glibc-sinf-wsinc9",
+   "category": "methods",
+   "description": "-wsinc9 -tpattern '@1D: 0 0.911 1.821 0.603': weights where glibc's sinf and cosf differ from the correctly rounded ones (GLIBC-07)",
+   "command": "3dTshift -tpattern '@1D: 0 0.911 1.821 0.603' -wsinc9 -prefix out.nii synthetic/tshift/dtypes/float32.nii.gz",
+   "results": {
+    "replica": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": ""
+    },
+    "original": {
+     "outcome": "pass",
+     "verdict": "bit-identical",
+     "checks": "13/13",
+     "reason": ""
     }
    }
   },
@@ -4497,7 +4543,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "151 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "151 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -4557,7 +4603,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -4617,7 +4663,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -4657,7 +4703,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -4677,7 +4723,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -4697,7 +4743,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -4717,7 +4763,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -4891,13 +4937,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: Unknown option: -bogus; larmorx: ** FATAL ERROR: Unknown option: -bogus"
+     "reason": "AFNI: ** FATAL ERROR: Unknown option: -bogus; the replica: ** FATAL ERROR: Unknown option: -bogus"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: Unknown option: -bogus; larmorx: ** FATAL ERROR: Unknown option: -bogus"
+     "reason": "AFNI: ** FATAL ERROR: Unknown option: -bogus; the replica: ** FATAL ERROR: Unknown option: -bogus"
     }
    }
   },
@@ -4911,13 +4957,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: found -no_detrend, changing default to -heptic; larmorx: ** FATAL ERROR: found -no_detrend, changing default to -heptic"
+     "reason": "AFNI: ** FATAL ERROR: found -no_detrend, changing default to -heptic; the replica: ** FATAL ERROR: found -no_detrend, changing default to -heptic"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: found -no_detrend, changing default to -heptic; larmorx: ** FATAL ERROR: found -no_detrend, changing default to -heptic"
+     "reason": "AFNI: ** FATAL ERROR: found -no_detrend, changing default to -heptic; the replica: ** FATAL ERROR: found -no_detrend, changing default to -heptic"
     }
    }
   },
@@ -4931,13 +4977,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: cannot use both -rlt and -no_detrend; larmorx: ** FATAL ERROR: cannot use both -rlt and -no_detrend"
+     "reason": "AFNI: ** FATAL ERROR: cannot use both -rlt and -no_detrend; the replica: ** FATAL ERROR: cannot use both -rlt and -no_detrend"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: cannot use both -rlt and -no_detrend; larmorx: ** FATAL ERROR: cannot use both -rlt and -no_detrend"
+     "reason": "AFNI: ** FATAL ERROR: cannot use both -rlt and -no_detrend; the replica: ** FATAL ERROR: cannot use both -rlt and -no_detrend"
     }
    }
   },
@@ -4951,13 +4997,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** ERROR: Unknown tpattern = ALT+Z; larmorx: ** ERROR: Unknown tpattern = ALT+Z"
+     "reason": "AFNI: ** ERROR: Unknown tpattern = ALT+Z; the replica: ** ERROR: Unknown tpattern = ALT+Z"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** ERROR: Unknown tpattern = ALT+Z; larmorx: ** ERROR: Unknown tpattern = ALT+Z"
+     "reason": "AFNI: ** ERROR: Unknown tpattern = ALT+Z; the replica: ** ERROR: Unknown tpattern = ALT+Z"
     }
    }
   },
@@ -4971,13 +5017,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: -slice value is too large (4 >= 4); larmorx: ** FATAL ERROR: -slice value is too large (4 >= 4)"
+     "reason": "AFNI: ** FATAL ERROR: -slice value is too large (4 >= 4); the replica: ** FATAL ERROR: -slice value is too large (4 >= 4)"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: -slice value is too large (4 >= 4); larmorx: ** FATAL ERROR: -slice value is too large (4 >= 4)"
+     "reason": "AFNI: ** FATAL ERROR: -slice value is too large (4 >= 4); the replica: ** FATAL ERROR: -slice value is too large (4 >= 4)"
     }
    }
   },
@@ -4991,13 +5037,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: -ignore value 96 is too large; larmorx: ** FATAL ERROR: -ignore value 96 is too large"
+     "reason": "AFNI: ** FATAL ERROR: -ignore value 96 is too large; the replica: ** FATAL ERROR: -ignore value 96 is too large"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: -ignore value 96 is too large; larmorx: ** FATAL ERROR: -ignore value 96 is too large"
+     "reason": "AFNI: ** FATAL ERROR: -ignore value 96 is too large; the replica: ** FATAL ERROR: -ignore value 96 is too large"
     }
    }
   },
@@ -5011,13 +5057,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: illegal value '-1' after -tzero!; larmorx: ** FATAL ERROR: illegal value '-1' after -tzero!"
+     "reason": "AFNI: ** FATAL ERROR: illegal value '-1' after -tzero!; the replica: ** FATAL ERROR: illegal value '-1' after -tzero!"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: illegal value '-1' after -tzero!; larmorx: ** FATAL ERROR: illegal value '-1' after -tzero!"
+     "reason": "AFNI: ** FATAL ERROR: illegal value '-1' after -tzero!; the replica: ** FATAL ERROR: illegal value '-1' after -tzero!"
     }
    }
   },
@@ -5031,13 +5077,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: -ignore value -1 is negative!; larmorx: ** FATAL ERROR: -ignore value -1 is negative!"
+     "reason": "AFNI: ** FATAL ERROR: -ignore value -1 is negative!; the replica: ** FATAL ERROR: -ignore value -1 is negative!"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: -ignore value -1 is negative!; larmorx: ** FATAL ERROR: -ignore value -1 is negative!"
+     "reason": "AFNI: ** FATAL ERROR: -ignore value -1 is negative!; the replica: ** FATAL ERROR: -ignore value -1 is negative!"
     }
    }
   },
@@ -5051,13 +5097,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: illegal value '0' after -TR!; larmorx: ** FATAL ERROR: illegal value '0' after -TR!"
+     "reason": "AFNI: ** FATAL ERROR: illegal value '0' after -TR!; the replica: ** FATAL ERROR: illegal value '0' after -TR!"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: illegal value '0' after -TR!; larmorx: ** FATAL ERROR: illegal value '0' after -TR!"
+     "reason": "AFNI: ** FATAL ERROR: illegal value '0' after -TR!; the replica: ** FATAL ERROR: illegal value '0' after -TR!"
     }
    }
   },
@@ -5071,13 +5117,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: illegal value 'abc' after -TR!; larmorx: ** FATAL ERROR: illegal value 'abc' after -TR!"
+     "reason": "AFNI: ** FATAL ERROR: illegal value 'abc' after -TR!; the replica: ** FATAL ERROR: illegal value 'abc' after -TR!"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: illegal value 'abc' after -TR!; larmorx: ** FATAL ERROR: illegal value 'abc' after -TR!"
+     "reason": "AFNI: ** FATAL ERROR: illegal value 'abc' after -TR!; the replica: ** FATAL ERROR: illegal value 'abc' after -TR!"
     }
    }
   },
@@ -5091,13 +5137,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: Can't read tpattern file <tmp>/none.1D; larmorx: ** FATAL ERROR: Can't read tpattern file <tmp>/none.1D"
+     "reason": "AFNI: ** FATAL ERROR: Can't read tpattern file <tmp>/none.1D; the replica: ** FATAL ERROR: Can't read tpattern file <tmp>/none.1D"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: Can't read tpattern file <tmp>/none.1D; larmorx: ** FATAL ERROR: Can't read tpattern file <tmp>/none.1D"
+     "reason": "AFNI: ** FATAL ERROR: Can't read tpattern file <tmp>/none.1D; the replica: ** FATAL ERROR: Can't read tpattern file <tmp>/none.1D"
     }
    }
   },
@@ -5111,13 +5157,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: tpattern file <tmp>/st.1D has 3 values but have 4 slices; larmorx: ** FATAL ERROR: tpattern file <tmp>/st.1D has 3 values but have 4 slices"
+     "reason": "AFNI: ** FATAL ERROR: tpattern file <tmp>/st.1D has 3 values but have 4 slices; the replica: ** FATAL ERROR: tpattern file <tmp>/st.1D has 3 values but have 4 slices"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: tpattern file <tmp>/st.1D has 3 values but have 4 slices; larmorx: ** FATAL ERROR: tpattern file <tmp>/st.1D has 3 values but have 4 slices"
+     "reason": "AFNI: ** FATAL ERROR: tpattern file <tmp>/st.1D has 3 values but have 4 slices; the replica: ** FATAL ERROR: tpattern file <tmp>/st.1D has 3 values but have 4 slices"
     }
    }
   },
@@ -5131,13 +5177,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: Illegal value 2.5 in tpattern file <tmp>/st.1D; larmorx: ** FATAL ERROR: Illegal value 2.5 in tpattern file <tmp>/st.1D"
+     "reason": "AFNI: ** FATAL ERROR: Illegal value 2.5 in tpattern file <tmp>/st.1D; the replica: ** FATAL ERROR: Illegal value 2.5 in tpattern file <tmp>/st.1D"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: Illegal value 2.5 in tpattern file <tmp>/st.1D; larmorx: ** FATAL ERROR: Illegal value 2.5 in tpattern file <tmp>/st.1D"
+     "reason": "AFNI: ** FATAL ERROR: Illegal value 2.5 in tpattern file <tmp>/st.1D; the replica: ** FATAL ERROR: Illegal value 2.5 in tpattern file <tmp>/st.1D"
     }
    }
   },
@@ -5151,13 +5197,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: Illegal value -0.5 in tpattern file <tmp>/st.1D; larmorx: ** FATAL ERROR: Illegal value -0.5 in tpattern file <tmp>/st.1D"
+     "reason": "AFNI: ** FATAL ERROR: Illegal value -0.5 in tpattern file <tmp>/st.1D; the replica: ** FATAL ERROR: Illegal value -0.5 in tpattern file <tmp>/st.1D"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: Illegal value -0.5 in tpattern file <tmp>/st.1D; larmorx: ** FATAL ERROR: Illegal value -0.5 in tpattern file <tmp>/st.1D"
+     "reason": "AFNI: ** FATAL ERROR: Illegal value -0.5 in tpattern file <tmp>/st.1D; the replica: ** FATAL ERROR: Illegal value -0.5 in tpattern file <tmp>/st.1D"
     }
    }
   },
@@ -5171,13 +5217,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: Can't read tpattern file <tmp>/st.1D; larmorx: ** FATAL ERROR: Can't read tpattern file <tmp>/st.1D"
+     "reason": "AFNI: ** FATAL ERROR: Can't read tpattern file <tmp>/st.1D; the replica: ** FATAL ERROR: Can't read tpattern file <tmp>/st.1D"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: Can't read tpattern file <tmp>/st.1D; larmorx: ** FATAL ERROR: Can't read tpattern file <tmp>/st.1D"
+     "reason": "AFNI: ** FATAL ERROR: Can't read tpattern file <tmp>/st.1D; the replica: ** FATAL ERROR: Can't read tpattern file <tmp>/st.1D"
     }
    }
   },
@@ -5191,53 +5237,53 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: Can't open input dataset '<generated>/does-not-exist.nii'; larmorx: ** FATAL ERROR: Can't open input dataset '<generated>/does-not-exist.nii'"
+     "reason": "AFNI: ** FATAL ERROR: Can't open input dataset '<generated>/does-not-exist.nii'; the replica: ** FATAL ERROR: Can't open input dataset '<generated>/does-not-exist.nii'"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: Can't open input dataset '<generated>/does-not-exist.nii'; larmorx: ** FATAL ERROR: Can't open input dataset '<generated>/does-not-exist.nii'"
+     "reason": "AFNI: ** FATAL ERROR: Can't open input dataset '<generated>/does-not-exist.nii'; the replica: ** FATAL ERROR: Can't open input dataset '<generated>/does-not-exist.nii'"
     }
    }
   },
   {
    "id": "errors/existing-output",
    "category": "errors",
-   "description": "an output that exists already (AFNI exits 0 without writing; larmorx exits 1, AFNI-11)",
+   "description": "an output that exists already (AFNI exits 0 without writing; the replica exits 1, AFNI-11)",
    "command": "3dTshift -tpattern alt+z -prefix out.nii synthetic/tshift/dtypes/float32.nii.gz",
    "results": {
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** ERROR: dataset NOT written to disk!; larmorx: ** ERROR: dataset NOT written to disk!"
+     "reason": "AFNI: ** ERROR: dataset NOT written to disk!; the replica: ** ERROR: dataset NOT written to disk!"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** ERROR: dataset NOT written to disk!; larmorx: ** ERROR: dataset NOT written to disk!"
+     "reason": "AFNI: ** ERROR: dataset NOT written to disk!; the replica: ** ERROR: dataset NOT written to disk!"
     }
    }
   },
   {
    "id": "errors/prefix-with-blank",
    "category": "errors",
-   "description": "a -prefix with a blank (AFNI refuses it; larmorx writes it, AFNI-12)",
+   "description": "a -prefix with a blank (AFNI refuses it; the replica writes it, AFNI-12)",
    "command": "3dTshift -tpattern alt+z -prefix 'out put.nii' synthetic/tshift/dtypes/float32.nii.gz",
    "results": {
     "replica": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: illegal value '<tmp>/afni-out put.nii' after -prefix; larmorx: ** FATAL ERROR: illegal value '<tmp>/larmorx-out put.nii' after -prefix"
+     "reason": "AFNI: ** FATAL ERROR: illegal value '<tmp>/afni-out put.nii' after -prefix; the replica: ** FATAL ERROR: illegal value '<tmp>/larmorx-out put.nii' after -prefix"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "AFNI: ** FATAL ERROR: illegal value '<tmp>/afni-out put.nii' after -prefix; larmorx: ** FATAL ERROR: illegal value '<tmp>/larmorx-out put.nii' after -prefix"
+     "reason": "AFNI: ** FATAL ERROR: illegal value '<tmp>/afni-out put.nii' after -prefix; the replica: ** FATAL ERROR: illegal value '<tmp>/larmorx-out put.nii' after -prefix"
     }
    }
   },
@@ -5257,7 +5303,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5277,7 +5323,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5317,7 +5363,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5337,7 +5383,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5357,7 +5403,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5371,13 +5417,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: output dataset already exists './out.nii'; larmorx exit 1: ** FATAL ERROR: output dataset already exists './out.nii' (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: output dataset already exists './out.nii'; the replica exit 1: ** FATAL ERROR: output dataset already exists './out.nii' (the same messages)"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: output dataset already exists './out.nii'; larmorx exit 1: ** FATAL ERROR: output dataset already exists './out.nii' (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: output dataset already exists './out.nii'; the replica exit 1: ** FATAL ERROR: output dataset already exists './out.nii' (the same messages)"
     }
    }
   },
@@ -5397,7 +5443,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5417,7 +5463,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5437,7 +5483,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5457,7 +5503,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5477,7 +5523,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5491,13 +5537,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix; larmorx exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix; the replica exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix (the same messages)"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix; larmorx exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix; the replica exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix (the same messages)"
     }
    }
   },
@@ -5511,13 +5557,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix; larmorx exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix; the replica exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix (the same messages)"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix; larmorx exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix; the replica exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix (the same messages)"
     }
    }
   },
@@ -5531,13 +5577,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix; larmorx exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix; the replica exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix (the same messages)"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix; larmorx exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix; the replica exit 1: ** FATAL ERROR: illegal value 'out put.nii' after -prefix (the same messages)"
     }
    }
   },
@@ -5551,13 +5597,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Unknown option: -DAFNI_ALLOW_ARBITRARY_FILENAMES; larmorx exit 1: ** FATAL ERROR: Unknown option: -DAFNI_ALLOW_ARBITRARY_FILENAMES (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Unknown option: -DAFNI_ALLOW_ARBITRARY_FILENAMES; the replica exit 1: ** FATAL ERROR: Unknown option: -DAFNI_ALLOW_ARBITRARY_FILENAMES (the same messages)"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Unknown option: -DAFNI_ALLOW_ARBITRARY_FILENAMES; larmorx exit 1: ** FATAL ERROR: Unknown option: -DAFNI_ALLOW_ARBITRARY_FILENAMES (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Unknown option: -DAFNI_ALLOW_ARBITRARY_FILENAMES; the replica exit 1: ** FATAL ERROR: Unknown option: -DAFNI_ALLOW_ARBITRARY_FILENAMES (the same messages)"
     }
    }
   },
@@ -5571,13 +5617,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Unknown option: -D; larmorx exit 1: ** FATAL ERROR: Unknown option: -D (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Unknown option: -D; the replica exit 1: ** FATAL ERROR: Unknown option: -D (the same messages)"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Unknown option: -D; larmorx exit 1: ** FATAL ERROR: Unknown option: -D (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Unknown option: -D; the replica exit 1: ** FATAL ERROR: Unknown option: -D (the same messages)"
     }
    }
   },
@@ -5591,13 +5637,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Unknown option: -dAFNI_ALLOW_ARBITRARY_FILENAMES=YES; larmorx exit 1: ** FATAL ERROR: Unknown option: -dAFNI_ALLOW_ARBITRARY_FILENAMES=YES (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Unknown option: -dAFNI_ALLOW_ARBITRARY_FILENAMES=YES; the replica exit 1: ** FATAL ERROR: Unknown option: -dAFNI_ALLOW_ARBITRARY_FILENAMES=YES (the same messages)"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Unknown option: -dAFNI_ALLOW_ARBITRARY_FILENAMES=YES; larmorx exit 1: ** FATAL ERROR: Unknown option: -dAFNI_ALLOW_ARBITRARY_FILENAMES=YES (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Unknown option: -dAFNI_ALLOW_ARBITRARY_FILENAMES=YES; the replica exit 1: ** FATAL ERROR: Unknown option: -dAFNI_ALLOW_ARBITRARY_FILENAMES=YES (the same messages)"
     }
    }
   },
@@ -5637,7 +5683,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5657,7 +5703,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "169 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "169 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5677,7 +5723,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5697,7 +5743,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5717,7 +5763,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5731,13 +5777,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 0: ** ERROR: dataset NOT written to disk!; larmorx exit 0: ** ERROR: dataset NOT written to disk! (the same messages)"
+     "reason": "AFNI exit 0: ** ERROR: dataset NOT written to disk!; the replica exit 0: ** ERROR: dataset NOT written to disk! (the same messages)"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 0: ** ERROR: dataset NOT written to disk!; larmorx exit 0: ** ERROR: dataset NOT written to disk! (the same messages)"
+     "reason": "AFNI exit 0: ** ERROR: dataset NOT written to disk!; the replica exit 0: ** ERROR: dataset NOT written to disk! (the same messages)"
     }
    }
   },
@@ -5757,7 +5803,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5771,13 +5817,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Can't open input dataset '<generated>/with blank/in.nii'; larmorx exit 1: ** FATAL ERROR: Can't open input dataset '<generated>/with blank/in.nii' (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Can't open input dataset '<generated>/with blank/in.nii'; the replica exit 1: ** FATAL ERROR: Can't open input dataset '<generated>/with blank/in.nii' (the same messages)"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Can't open input dataset '<generated>/with blank/in.nii'; larmorx exit 1: ** FATAL ERROR: Can't open input dataset '<generated>/with blank/in.nii' (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Can't open input dataset '<generated>/with blank/in.nii'; the replica exit 1: ** FATAL ERROR: Can't open input dataset '<generated>/with blank/in.nii' (the same messages)"
     }
    }
   },
@@ -5797,7 +5843,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5817,7 +5863,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5837,7 +5883,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5937,7 +5983,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5957,7 +6003,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5977,7 +6023,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -5997,7 +6043,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6017,7 +6063,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6037,7 +6083,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6057,7 +6103,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6077,7 +6123,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "169 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "169 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6091,13 +6137,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Can't read tpattern file st.1D; larmorx exit 1: ** FATAL ERROR: Can't read tpattern file st.1D (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Can't read tpattern file st.1D; the replica exit 1: ** FATAL ERROR: Can't read tpattern file st.1D (the same messages)"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Can't read tpattern file st.1D; larmorx exit 1: ** FATAL ERROR: Can't read tpattern file st.1D (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Can't read tpattern file st.1D; the replica exit 1: ** FATAL ERROR: Can't read tpattern file st.1D (the same messages)"
     }
    }
   },
@@ -6111,13 +6157,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal value 9 in tpattern file st.1D; larmorx exit 1: ** FATAL ERROR: Illegal value 9 in tpattern file st.1D (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal value 9 in tpattern file st.1D; the replica exit 1: ** FATAL ERROR: Illegal value 9 in tpattern file st.1D (the same messages)"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal value 9 in tpattern file st.1D; larmorx exit 1: ** FATAL ERROR: Illegal value 9 in tpattern file st.1D (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal value 9 in tpattern file st.1D; the replica exit 1: ** FATAL ERROR: Illegal value 9 in tpattern file st.1D (the same messages)"
     }
    }
   },
@@ -6137,7 +6183,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "148 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "148 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6157,7 +6203,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6177,7 +6223,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6197,7 +6243,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6217,7 +6263,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6277,14 +6323,14 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "16/16",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
   {
    "id": "environment/quiet-startup",
    "category": "environment",
-   "description": "AFNI_QUIET_STARTUP=YES: no version banner (larmorx prints none)",
+   "description": "AFNI_QUIET_STARTUP=YES: no version banner (the replica prints none)",
    "command": "AFNI_QUIET_STARTUP=YES 3dTshift -tpattern alt+z -prefix out.nii synthetic/tshift/dtypes/float32.nii.gz",
    "results": {
     "replica": {
@@ -6297,14 +6343,14 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
   {
    "id": "environment/nifti-noext",
    "category": "environment",
-   "description": "AFNI_NIFTI_NOEXT=YES: AFNI writes no header extension, as larmorx: the whole file",
+   "description": "AFNI_NIFTI_NOEXT=YES: AFNI writes no header extension, as the replica: the whole file",
    "command": "AFNI_NIFTI_NOEXT=YES 3dTshift -tpattern alt+z -prefix out.nii synthetic/tshift/dtypes/float32.nii.gz",
    "results": {
     "replica": {
@@ -6317,7 +6363,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "18/18",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6331,13 +6377,13 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "4/5",
-     "reason": "AFNI writes a dataset of one row as a 1D text file under the NIfTI name, with a random identifier (AFNI-20, unless AFNI_WRITE_1D_AS_PREFIX is YES); larmorx writes NIfTI in both modes, as AFNI does with that variable set (environment/write-1D-as-prefix)"
+     "reason": "AFNI writes a dataset of one row as a 1D text file under the NIfTI name, with a random identifier (AFNI-20, unless AFNI_WRITE_1D_AS_PREFIX is YES); the replica writes NIfTI in `fix` and in `reproduce`, as AFNI does with that variable set (environment/write-1D-as-prefix)"
     },
     "original": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "4/5",
-     "reason": "AFNI writes a dataset of one row as a 1D text file under the NIfTI name, with a random identifier (AFNI-20, unless AFNI_WRITE_1D_AS_PREFIX is YES); larmorx writes NIfTI in both modes, as AFNI does with that variable set (environment/write-1D-as-prefix)"
+     "reason": "AFNI writes a dataset of one row as a 1D text file under the NIfTI name, with a random identifier (AFNI-20, unless AFNI_WRITE_1D_AS_PREFIX is YES); the replica writes NIfTI in `fix` and in `reproduce`, as AFNI does with that variable set (environment/write-1D-as-prefix)"
     }
    }
   },
@@ -6371,13 +6417,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii'; larmorx exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii' (the same messages)"
+     "reason": "AFNI exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii'; the replica exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii' (the same messages)"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii'; larmorx exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii' (the same messages)"
+     "reason": "AFNI exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii'; the replica exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii' (the same messages)"
     }
    }
   },
@@ -6391,13 +6437,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii'; larmorx exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii' (the same messages)"
+     "reason": "AFNI exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii'; the replica exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii' (the same messages)"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii'; larmorx exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii' (the same messages)"
+     "reason": "AFNI exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii'; the replica exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii' (the same messages)"
     }
    }
   },
@@ -6411,13 +6457,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii'; larmorx exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii' (the same messages)"
+     "reason": "AFNI exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii'; the replica exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii' (the same messages)"
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "3/3",
-     "reason": "AFNI exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii'; larmorx exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii' (the same messages)"
+     "reason": "AFNI exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii'; the replica exit 0: ** ERROR (nifti_image_write_engine): cannot open output file 'nodir/out.nii' (the same messages)"
     }
    }
   },
@@ -6437,7 +6483,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6457,7 +6503,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6477,7 +6523,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "17/17",
-     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "168 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6511,13 +6557,13 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "2/2",
-     "reason": "larmorx writes NIfTI only; it rejects a -prefix that does not end in .nii or .nii.gz, where AFNI writes its own format."
+     "reason": "The replica writes NIfTI only; it rejects a -prefix that does not end in .nii or .nii.gz, where AFNI writes its own format."
     },
     "original": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "2/2",
-     "reason": "larmorx writes NIfTI only; it rejects a -prefix that does not end in .nii or .nii.gz, where AFNI writes its own format."
+     "reason": "The replica writes NIfTI only; it rejects a -prefix that does not end in .nii or .nii.gz, where AFNI writes its own format."
     }
    }
   },
@@ -6531,13 +6577,13 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "2/2",
-     "reason": "-voxshift is not supported by larmorx (fMRIPrep does not use it)."
+     "reason": "-voxshift is not supported by the replica (fMRIPrep does not use it)."
     },
     "original": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "2/2",
-     "reason": "-voxshift is not supported by larmorx (fMRIPrep does not use it)."
+     "reason": "-voxshift is not supported by the replica (fMRIPrep does not use it)."
     }
    }
   },
@@ -6637,7 +6683,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "240 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "240 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6657,7 +6703,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "173 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "173 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6677,7 +6723,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "146 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "146 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6697,7 +6743,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "31 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "31 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6717,7 +6763,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "14/14",
-     "reason": "23,875,172 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "23,875,172 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6737,7 +6783,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "177 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "177 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6757,7 +6803,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "1,808 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "1,808 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6897,7 +6943,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "15/15",
-     "reason": "137 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "137 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6917,7 +6963,7 @@
      "outcome": "pass",
      "verdict": "open",
      "checks": "13/13",
-     "reason": "222 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the original's double precision."
+     "reason": "222 values differ from AFNI's, within the record's thresholds: AFNI's Fourier shift is float32, the clean room's double precision."
     }
    }
   },
@@ -6956,34 +7002,6 @@
    }
   },
   {
-   "id": "methods/glibc-sinf-wsinc5",
-   "category": "methods",
-   "description": "-wsinc5 -tpattern '@1D: 0 0.543 0.102 0.728': weights where glibc's sinf and cosf differ from the correctly rounded ones (GLIBC-07)",
-   "command": "3dTshift -tpattern '@1D: 0 0.543 0.102 0.728' -wsinc5 -prefix out.nii synthetic/tshift/dtypes/float32.nii.gz",
-   "results": {
-    "original": {
-     "outcome": "pass",
-     "verdict": "bit-identical",
-     "checks": "13/13",
-     "reason": ""
-    }
-   }
-  },
-  {
-   "id": "methods/glibc-sinf-wsinc9",
-   "category": "methods",
-   "description": "-wsinc9 -tpattern '@1D: 0 0.911 1.821 0.603': weights where glibc's sinf and cosf differ from the correctly rounded ones (GLIBC-07)",
-   "command": "3dTshift -tpattern '@1D: 0 0.911 1.821 0.603' -wsinc9 -prefix out.nii synthetic/tshift/dtypes/float32.nii.gz",
-   "results": {
-    "original": {
-     "outcome": "pass",
-     "verdict": "bit-identical",
-     "checks": "13/13",
-     "reason": ""
-    }
-   }
-  },
-  {
    "id": "difftest/header-milliseconds-toffset",
    "category": "difftest",
    "description": "",
@@ -7000,7 +7018,7 @@
  ],
  "cases_total": 318,
  "speed": {
-  "title": "Seconds for the whole command (read, shift, write), median of repeated runs, log scale; the factor is the clean-room original's speed-up over AFNI at one thread",
+  "title": "Speed, both ports against the original: AFNI `3dTshift`",
   "axis": [
    0.1,
    100.0
@@ -7026,28 +7044,33 @@
   "series": [
    {
     "id": "AFNI 25.2.09|1 thread",
-    "label": "AFNI (single-threaded)",
-    "mark": "original"
+    "label": "AFNI 3dTshift, 1 thread",
+    "mark": "original",
+    "port": "original"
    },
    {
     "id": "larmorx-gpl (replica, CLI)|1 thread",
     "label": "replica, 1 thread",
-    "mark": "replica"
+    "mark": "replica",
+    "port": "replica"
    },
    {
     "id": "larmorx-gpl (replica, CLI)|12 threads",
     "label": "replica, 12 threads",
-    "mark": "replica-open"
+    "mark": "replica-open",
+    "port": "replica"
    },
    {
     "id": "larmorx (CLI)|1 thread",
-    "label": "original, 1 thread",
-    "mark": "larmorx"
+    "label": "clean room, 1 thread",
+    "mark": "clean-room",
+    "port": "clean-room"
    },
    {
     "id": "larmorx (CLI)|12 threads",
-    "label": "original, 12 threads",
-    "mark": "larmorx-open"
+    "label": "clean room, 12 threads",
+    "mark": "clean-room-open",
+    "port": "clean-room"
    }
   ],
   "rows": [
@@ -7088,13 +7111,14 @@
     "speedup": 2.2928253095108047
    }
   ],
-  "note": "From the benchmark report `docs/benchmarks/afni-tshift.json` (Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz, 12 logical CPUs)."
+  "note": "From the benchmark report `docs/benchmarks/afni-tshift.json` (Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz, 12 logical CPUs).",
+  "caption": "Seconds for the whole command (reading, shifting, writing), the median of repeated runs, on a log scale. The factor is how many times faster the clean room is than AFNI, both on one thread."
  },
  "examples": [
   {
    "id": "fmriprep-stc",
    "title": "fMRIPrep's slice-timing correction of a real BOLD run",
-   "summary": "The 3dTshift node fMRIPrep 25.2.6 ran on OpenNeuro ds005040 sub-002 (task clip, run 1): its arguments and the slice times it wrote, given to AFNI 25.2.09, to AFNI 26.3.05 (both implementations' reference since 2026-10-29) and to both LARMORX implementations, each in its default and reproduce mode and at 1 and 12 threads. fMRIPrep's own output is the column it produced in its run. The clean-room original is compared with AFNI 25.2.09, its reference until it follows 26.3.05's two fixes.",
+   "summary": "The 3dTshift node fMRIPrep 25.2.6 ran on OpenNeuro ds005040 sub-002 (task clip, run 1): its arguments and the slice times it wrote, given to AFNI 25.2.09, to AFNI 26.3.05 (both ports' reference since 2026-10-29) and to both ports, in `fix` and in `reproduce` and at 1 and 12 threads. fMRIPrep's own output is the column it produced in its run. The clean room is compared with both releases; its record's reference is AFNI 26.3.05.",
    "facts": [
     {
      "label": "Data",
@@ -7114,11 +7138,11 @@
     },
     {
      "label": "Programs",
-     "text": "AFNI 25.2.09 and AFNI 26.3.05 (the repository's oracle builds); larmorx-gpl 0.0.1 (the replica); larmorx's clean-room original at commit `a58978f4dfd1`"
+     "text": "AFNI 25.2.09 and AFNI 26.3.05 (the repository's builds); larmorx-gpl 0.0.1 (the replica); the clean room at commit `a58978f4dfd1`"
     },
     {
      "label": "AFNI versions",
-     "text": "AFNI 26.3.05 (the GPL replica's reference since 2026-10-29) on the same arguments as AFNI 25.2.09: the same bytes in every output of fMRIPrep's call. What changed between the two releases in these programs (header slice code 2, AFNI-03; `-no_detrend`, AFNI-05; both corrected by LARMORX before AFNI fixed them) does not meet this call."
+     "text": "AFNI 26.3.05 (the replica's reference since 2026-10-29) on the same arguments as AFNI 25.2.09: the same bytes in every output of fMRIPrep's call. What changed between the two releases in these programs (header slice code 2, AFNI-03; `-no_detrend`, AFNI-05; both corrected by LARMORX before AFNI fixed them) does not meet this call."
     }
    ],
    "chain": {
@@ -7129,31 +7153,36 @@
        {
         "label": "fMRIPrep 25.2.6, as it ran",
         "sub": "AFNI 25.2.09 in its image",
-        "role": "fmriprep"
+        "role": "fmriprep",
+        "port": "fmriprep"
        },
        {
-        "label": "AFNI 25.2.09",
-        "sub": "the repository's oracle build",
-        "role": "original"
+        "label": "AFNI 3dTshift 25.2.09",
+        "sub": "the repository's build",
+        "role": "original",
+        "port": "original"
        },
        {
-        "label": "AFNI 26.3.05",
-        "sub": "the repository's oracle build",
-        "role": "original"
+        "label": "AFNI 3dTshift 26.3.05",
+        "sub": "the repository's build",
+        "role": "original",
+        "port": "original"
        },
        {
-        "label": "larmorx replica",
+        "label": "replica",
         "sub": "1 and 12 threads, both modes",
-        "role": "larmorx"
+        "role": "larmorx",
+        "port": "replica"
        }
       ]
      },
      {
       "nodes": [
        {
-        "label": "larmorx clean-room original",
+        "label": "clean room",
         "sub": "1 and 12 threads, both modes",
-        "role": "larmorx"
+        "role": "larmorx",
+        "port": "clean-room"
        }
       ]
      }
@@ -7164,7 +7193,7 @@
       "max_abs": 47.666343688964844
      }
     ],
-    "note": "Each box holds runs that give the same values. The clean-room original differs from AFNI in 189 of 10,321,920 values, each by one stored unit."
+    "note": "Each box holds runs that give the same values. The clean room differs from AFNI in 189 of 10,321,920 values, each by one stored unit."
    },
    "series": [
     {
@@ -7184,14 +7213,14 @@
     },
     {
      "panel": "replica",
-     "label": "larmorx replica",
+     "label": "replica",
      "color": "replica",
      "marker": "x",
      "compare": true
     },
     {
      "panel": "original",
-     "label": "clean-room original",
+     "label": "clean room",
      "color": "larmorx",
      "marker": "ring",
      "compare": true
@@ -7245,7 +7274,7 @@
    },
    "metrics_note": "Δ is A − B, in the image's units (stored value × scale factor); the stored units are given in brackets. Computed in float64 over all 10,321,920 values of the 64 × 64 × 40 × 63 series, not only the brain shown. The records' thresholds: integer outputs within one stored unit, with the share that differs reported; bit-identity reported.",
    "provenance": [
-    "Data: OpenNeuro ds005040, task clip run 1, sub-002, CC0-1.0; fMRIPrep 25.2.6's oracle run `ds005040-sub-002-noreconall` for its own output and the brain mask",
+    "Data: OpenNeuro ds005040, task clip run 1, sub-002, CC0-1.0; fMRIPrep 25.2.6's run `ds005040-sub-002-noreconall` for its own output and the brain mask",
     "Inputs: BOLD (sha256 590cda2ebbff3701…); fMRIPrep's output (sha256 ab54f976e126f608…); BOLD with a negative scale factor (made from BOLD) (sha256 d54b58e7c8b2d4c8…)",
     "Runs: figures cache entry `afni-tshift/fmriprep-ds005040-clip-1`, computed 2026-10-21T09:26:38+00:00 with larmorx `a58978f4dfd1`, AFNI 25.2.09, larmorx-gpl 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
@@ -7372,13 +7401,14 @@
      "window": [
       714.9951553344727,
       110681.25004577637
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "afni",
      "role": "original",
-     "label": "AFNI 25.2.09, 3dTshift",
-     "sub": "the repository's oracle build",
+     "label": "AFNI 3dTshift 25.2.09",
+     "sub": "the repository's build",
      "arrays": {
       "series": {
        "blob": "7e9d3f46b969a8cddec78c23.bin",
@@ -7395,13 +7425,14 @@
        714.9951553344727,
        110681.25004577637
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "fmriprep",
      "role": "fmriprep",
-     "label": "fMRIPrep 25.2.6, as it ran",
-     "sub": "AFNI 25.2.09 in its image",
+     "label": "fMRIPrep's output",
+     "sub": "fMRIPrep 25.2.6, as it ran: AFNI 25.2.09 in its image",
      "arrays": {
       "series": {
        "same": "afni:series",
@@ -7415,13 +7446,14 @@
        714.9951553344727,
        110681.25004577637
       ]
-     }
+     },
+     "port": "fmriprep"
     },
     {
      "id": "replica",
      "role": "larmorx",
-     "label": "larmorx replica",
-     "sub": "default mode, 12 threads",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 with CC BY 4.0's attribution · fix (the default), 12 threads · against AFNI 3dTshift 26.3.05, which it follows",
      "arrays": {
       "series": {
        "same": "afni:series",
@@ -7435,13 +7467,14 @@
        714.9951553344727,
        110681.25004577637
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "replica-1",
      "role": "larmorx",
-     "label": "larmorx replica",
-     "sub": "default mode, 1 thread",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 with CC BY 4.0's attribution · fix (the default), 1 thread",
      "arrays": {
       "series": {
        "same": "afni:series",
@@ -7455,13 +7488,14 @@
        714.9951553344727,
        110681.25004577637
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "replica-reproduce",
      "role": "larmorx",
-     "label": "larmorx replica",
-     "sub": "reproduce mode, 12 threads",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 with CC BY 4.0's attribution · reproduce, 12 threads",
      "arrays": {
       "series": {
        "same": "afni:series",
@@ -7475,13 +7509,14 @@
        714.9951553344727,
        110681.25004577637
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "original",
      "role": "larmorx",
-     "label": "larmorx clean-room original",
-     "sub": "default mode, 12 threads",
+     "label": "clean room",
+     "sub": "larmorx, Apache-2.0 · fix (the default), 12 threads · against AFNI 3dTshift 26.3.05, which it follows",
      "arrays": {
       "series": {
        "blob": "9598c262048672d024febac5.bin",
@@ -7498,13 +7533,14 @@
        714.9951553344727,
        110681.25004577637
       ]
-     }
+     },
+     "port": "clean-room"
     },
     {
      "id": "original-1",
      "role": "larmorx",
-     "label": "larmorx clean-room original",
-     "sub": "default mode, 1 thread",
+     "label": "clean room",
+     "sub": "larmorx, Apache-2.0 · fix (the default), 1 thread",
      "arrays": {
       "series": {
        "same": "original:series",
@@ -7518,13 +7554,14 @@
        714.9951553344727,
        110681.25004577637
       ]
-     }
+     },
+     "port": "clean-room"
     },
     {
      "id": "original-reproduce",
      "role": "larmorx",
-     "label": "larmorx clean-room original",
-     "sub": "reproduce mode, 12 threads",
+     "label": "clean room",
+     "sub": "larmorx, Apache-2.0 · reproduce, 12 threads",
      "arrays": {
       "series": {
        "same": "original:series",
@@ -7538,13 +7575,14 @@
        714.9951553344727,
        110681.25004577637
       ]
-     }
+     },
+     "port": "clean-room"
     },
     {
      "id": "afni26",
      "role": "original",
-     "label": "AFNI 26.3.05, 3dTshift",
-     "sub": "the repository's oracle build; both implementations' reference",
+     "label": "AFNI 3dTshift 26.3.05",
+     "sub": "the repository's build; the version both ports follow",
      "arrays": {
       "series": {
        "same": "afni:series",
@@ -7558,7 +7596,8 @@
        714.9951553344727,
        110681.25004577637
       ]
-     }
+     },
+     "port": "original"
     }
    ],
    "diffs": [
@@ -7567,8 +7606,8 @@
      "a": "replica",
      "b": "afni",
      "kind": "main",
-     "label": "replica − AFNI 25.2.09",
-     "role_label": "larmorx against the original",
+     "label": "replica − AFNI 3dTshift 25.2.09",
+     "role_label": "the replica against the original",
      "metrics": {
       "series": {
        "identical": true,
@@ -7608,15 +7647,16 @@
      },
      "verdict": "bit-identical",
      "reason": "The same values, every one.",
-     "links": []
+     "links": [],
+     "port": "replica"
     },
     {
      "id": "original-afni",
      "a": "original",
      "b": "afni",
      "kind": "main",
-     "label": "clean-room original − AFNI 25.2.09",
-     "role_label": "larmorx against the original",
+     "label": "clean room − AFNI 3dTshift 25.2.09",
+     "role_label": "the clean room against the original",
      "metrics": {
       "series": {
        "identical": false,
@@ -7660,16 +7700,17 @@
       }
      },
      "verdict": "open",
-     "reason": "189 stored values differ by one unit (the scale factor), within the record's thresholds. AFNI computes the Fourier shift in float32 with its own FFT, the clean-room original in double precision: float outputs differ in their last bits, integer outputs now and then round the other way, by one unit. AFNI's own builds agree exactly (reference row), so this is not within AFNI's variability; the replica shows it can be closed.",
-     "links": []
+     "reason": "189 stored values differ by one unit (the scale factor), within the record's thresholds. AFNI computes the Fourier shift in float32 with its own FFT, the clean room in double precision: float outputs differ in their last bits, integer outputs now and then round the other way, by one unit. AFNI's own builds agree exactly (reference row), so this is not within AFNI's variability; the replica shows it can be closed.",
+     "links": [],
+     "port": "clean-room"
     },
     {
      "id": "fmriprep-afni",
      "a": "fmriprep",
      "b": "afni",
      "kind": "variability",
-     "label": "fMRIPrep's own AFNI − the repository's AFNI build",
-     "role_label": "the original against itself",
+     "label": "fMRIPrep's output − AFNI 3dTshift 25.2.09",
+     "role_label": "the original against itself: fMRIPrep's run and the repository's build",
      "metrics": {
       "series": {
        "identical": true,
@@ -7709,15 +7750,16 @@
      },
      "verdict": null,
      "reason": "Two builds of AFNI 25.2.09 (fMRIPrep's image and the repository's) give the same values: AFNI's own variability on this run is zero.",
-     "links": []
+     "links": [],
+     "port": "fmriprep"
     },
     {
      "id": "replica-fmriprep",
      "a": "replica",
      "b": "fmriprep",
      "kind": "fmriprep",
-     "label": "replica − fMRIPrep's own output",
-     "role_label": "larmorx against fMRIPrep",
+     "label": "replica − fMRIPrep's output",
+     "role_label": "the replica against fMRIPrep's output",
      "metrics": {
       "series": {
        "identical": true,
@@ -7757,15 +7799,16 @@
      },
      "verdict": "bit-identical",
      "reason": "The same values, every one.",
-     "links": []
+     "links": [],
+     "port": "replica"
     },
     {
      "id": "original-fmriprep",
      "a": "original",
      "b": "fmriprep",
      "kind": "fmriprep",
-     "label": "clean-room original − fMRIPrep's own output",
-     "role_label": "larmorx against fMRIPrep",
+     "label": "clean room − fMRIPrep's output",
+     "role_label": "the clean room against fMRIPrep's output",
      "metrics": {
       "series": {
        "identical": false,
@@ -7810,7 +7853,8 @@
      },
      "verdict": "open",
      "reason": "The same values as against AFNI above: fMRIPrep's AFNI gives the repository AFNI's bytes.",
-     "links": []
+     "links": [],
+     "port": "clean-room"
     },
     {
      "id": "replica-threads",
@@ -7818,7 +7862,7 @@
      "b": "replica-1",
      "kind": "check",
      "label": "replica, 12 threads − 1 thread",
-     "role_label": "larmorx against itself",
+     "role_label": "the replica against itself: 1 and 12 threads",
      "metrics": {
       "series": {
        "identical": true,
@@ -7858,15 +7902,16 @@
      },
      "verdict": "bit-identical",
      "reason": "The same bytes on any number of threads.",
-     "links": []
+     "links": [],
+     "port": "replica"
     },
     {
      "id": "original-threads",
      "a": "original",
      "b": "original-1",
      "kind": "check",
-     "label": "clean-room original, 12 threads − 1 thread",
-     "role_label": "larmorx against itself",
+     "label": "clean room, 12 threads − 1 thread",
+     "role_label": "the clean room against itself: 1 and 12 threads",
      "metrics": {
       "series": {
        "identical": true,
@@ -7906,15 +7951,16 @@
      },
      "verdict": "bit-identical",
      "reason": "The same bytes on any number of threads.",
-     "links": []
+     "links": [],
+     "port": "clean-room"
     },
     {
      "id": "replica-repro",
      "a": "replica",
      "b": "replica-reproduce",
      "kind": "check",
-     "label": "replica, default − reproduce mode",
-     "role_label": "larmorx against itself",
+     "label": "replica, fix − reproduce",
+     "role_label": "the replica against itself: fix and reproduce",
      "metrics": {
       "series": {
        "identical": true,
@@ -7953,16 +7999,17 @@
       }
      },
      "verdict": "bit-identical",
-     "reason": "No correction of the register applies to this run: both modes give the same bytes.",
-     "links": []
+     "reason": "No correction of the register applies to this run: `fix` and `reproduce` give the same bytes.",
+     "links": [],
+     "port": "replica"
     },
     {
      "id": "original-repro",
      "a": "original",
      "b": "original-reproduce",
      "kind": "check",
-     "label": "clean-room original, default − reproduce mode",
-     "role_label": "larmorx against itself",
+     "label": "clean room, fix − reproduce",
+     "role_label": "the clean room against itself: fix and reproduce",
      "metrics": {
       "series": {
        "identical": true,
@@ -8001,16 +8048,17 @@
       }
      },
      "verdict": "bit-identical",
-     "reason": "No correction of the register applies to this run: both modes give the same bytes.",
-     "links": []
+     "reason": "No correction of the register applies to this run: `fix` and `reproduce` give the same bytes.",
+     "links": [],
+     "port": "clean-room"
     },
     {
      "id": "replica-afni26",
      "a": "replica",
      "b": "afni26",
      "kind": "main",
-     "label": "replica − AFNI 26.3.05",
-     "role_label": "larmorx against the original (both implementations' reference)",
+     "label": "replica − AFNI 3dTshift 26.3.05",
+     "role_label": "the replica against the original",
      "metrics": {
       "series": {
        "identical": true,
@@ -8050,15 +8098,16 @@
      },
      "verdict": "bit-identical",
      "reason": "The same values, every one.",
-     "links": []
+     "links": [],
+     "port": "replica"
     },
     {
      "id": "afni26-afni",
      "a": "afni26",
      "b": "afni",
      "kind": "variability",
-     "label": "AFNI 26.3.05 − AFNI 25.2.09",
-     "role_label": "the original against itself: the version step",
+     "label": "AFNI 3dTshift 26.3.05 − 25.2.09",
+     "role_label": "the original against itself: versions 25.2.09 and 26.3.05",
      "metrics": {
       "series": {
        "identical": true,
@@ -8098,15 +8147,16 @@
      },
      "verdict": null,
      "reason": "AFNI 26.3.05 gives AFNI 25.2.09's bytes on this call: the version step changes nothing here (its two changes, AFNI-03 and AFNI-05, need header slice code 2 or -no_detrend).",
-     "links": []
+     "links": [],
+     "port": "original"
     },
     {
      "id": "original-afni26",
      "a": "original",
      "b": "afni26",
      "kind": "main",
-     "label": "clean-room original − AFNI 26.3.05",
-     "role_label": "larmorx against the original (both implementations' reference)",
+     "label": "clean room − AFNI 3dTshift 26.3.05",
+     "role_label": "the clean room against the original",
      "metrics": {
       "series": {
        "identical": false,
@@ -8150,8 +8200,9 @@
       }
      },
      "verdict": "open",
-     "reason": "189 stored values differ by one unit (the scale factor), within the record's thresholds. AFNI computes the Fourier shift in float32 with its own FFT, the clean-room original in double precision: float outputs differ in their last bits, integer outputs now and then round the other way, by one unit. AFNI's own builds agree exactly (reference row), so this is not within AFNI's variability; the replica shows it can be closed.",
-     "links": []
+     "reason": "189 stored values differ by one unit (the scale factor), within the record's thresholds. AFNI computes the Fourier shift in float32 with its own FFT, the clean room in double precision: float outputs differ in their last bits, integer outputs now and then round the other way, by one unit. AFNI's own builds agree exactly (reference row), so this is not within AFNI's variability; the replica shows it can be closed.",
+     "links": [],
+     "port": "clean-room"
     }
    ],
    "default": {
@@ -8170,9 +8221,9 @@
      "original"
     ],
     "diffs": [
+     "fmriprep-afni",
      "replica-afni",
-     "original-afni",
-     "fmriprep-afni"
+     "original-afni"
     ],
     "compare": {
      "a": "afni",
@@ -8197,6 +8248,88 @@
     },
     "caption": "Axial slice 11 of 40, volume 15 of 63, in the window of the brain's 0.5–99.5 %."
    },
+   "order": {
+    "panels": [
+     "bold",
+     "afni",
+     "afni26",
+     "fmriprep",
+     "replica",
+     "replica-1",
+     "replica-reproduce",
+     "original",
+     "original-1",
+     "original-reproduce"
+    ],
+    "diffs": [
+     "afni26-afni",
+     "fmriprep-afni",
+     "replica-afni",
+     "replica-afni26",
+     "replica-fmriprep",
+     "replica-threads",
+     "replica-repro",
+     "original-afni",
+     "original-afni26",
+     "original-fmriprep",
+     "original-threads",
+     "original-repro"
+    ],
+    "groups": [
+     [
+      "The original against itself: the yardstick",
+      [
+       "afni26-afni",
+       "fmriprep-afni"
+      ]
+     ],
+     [
+      "The replica against the original and fMRIPrep's output",
+      [
+       "replica-afni",
+       "replica-afni26",
+       "replica-fmriprep"
+      ]
+     ],
+     [
+      "The replica against itself: thread counts, fix and reproduce",
+      [
+       "replica-threads",
+       "replica-repro"
+      ]
+     ],
+     [
+      "The clean room against the original and fMRIPrep's output",
+      [
+       "original-afni",
+       "original-afni26",
+       "original-fmriprep"
+      ]
+     ],
+     [
+      "The clean room against itself: thread counts, fix and reproduce",
+      [
+       "original-threads",
+       "original-repro"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "On fMRIPrep's call the replica gives AFNI's values, every one, in both releases, on 1 and 12 threads, and fMRIPrep's own output. The clean room differs from AFNI in 189 stored values, each by one unit of the scale factor, within the record's thresholds: AFNI shifts in float32 with its own FFT, the clean room in double precision. No correction by default changes this call.",
+    "verdicts": [
+     {
+      "diff": "replica-afni26",
+      "port": "replica",
+      "verdict": "bit-identical"
+     },
+     {
+      "diff": "original-afni26",
+      "port": "clean-room",
+      "verdict": "open"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds005040"
    ]
@@ -8204,7 +8337,7 @@
   {
    "id": "afni-01",
    "title": "AFNI-01: the same run, stored with a negative scale factor",
-   "summary": "NIfTI lets integer data carry a negative scale factor: the run below holds the same values as above, its stored integers negated and its scale factor −47.67. fMRIPrep's command, given to AFNI 25.2.09, to AFNI 26.3.05 and to both LARMORX implementations in their default and reproduce modes.",
+   "summary": "NIfTI lets integer data carry a negative scale factor: the run below holds the same values as above, its stored integers negated and its scale factor −47.67. fMRIPrep's command, given to AFNI 25.2.09, to AFNI 26.3.05 and to both ports in `fix` and in `reproduce`.",
    "facts": [
     {
      "label": "Input",
@@ -8212,7 +8345,7 @@
     },
     {
      "label": "Defect",
-     "text": "[AFNI-01](repo:docs/findings/upstream-defects.md#afni-01--a-negative-scl_slope-flips-the-data--c): A negative scl_slope flips the data; corrected by default in both implementations, with a warning"
+     "text": "[AFNI-01](repo:docs/findings/upstream-defects.md#afni-01--a-negative-scl_slope-flips-the-data--c): A negative scl_slope flips the data; corrected by default in both ports, with a warning"
     },
     {
      "label": "Command",
@@ -8220,7 +8353,7 @@
     },
     {
      "label": "AFNI versions",
-     "text": "AFNI 26.3.05 (the GPL replica's reference since 2026-10-29) on the same arguments as AFNI 25.2.09: the same bytes in every output of the call on either encoding. What changed between the two releases in these programs (header slice code 2, AFNI-03; `-no_detrend`, AFNI-05; both corrected by LARMORX before AFNI fixed them) does not meet this call."
+     "text": "AFNI 26.3.05 (the replica's reference since 2026-10-29) on the same arguments as AFNI 25.2.09: the same bytes in every output of the call on either encoding. What changed between the two releases in these programs (header slice code 2, AFNI-03; `-no_detrend`, AFNI-05; both corrected by LARMORX before AFNI fixed them) does not meet this call."
     }
    ],
    "chain": null,
@@ -8303,7 +8436,7 @@
    },
    "metrics_note": "Δ is A − B, in the image's units (stored value × scale factor); the stored units are given in brackets. Computed in float64 over all 10,321,920 values of the 64 × 64 × 40 × 63 series, not only the brain shown. The records' thresholds: integer outputs within one stored unit, with the share that differs reported; bit-identity reported.",
    "provenance": [
-    "Data: OpenNeuro ds005040, task clip run 1, sub-002, CC0-1.0; fMRIPrep 25.2.6's oracle run `ds005040-sub-002-noreconall` for its own output and the brain mask",
+    "Data: OpenNeuro ds005040, task clip run 1, sub-002, CC0-1.0; fMRIPrep 25.2.6's run `ds005040-sub-002-noreconall` for its own output and the brain mask",
     "Inputs: BOLD (sha256 590cda2ebbff3701…); fMRIPrep's output (sha256 ab54f976e126f608…); BOLD with a negative scale factor (made from BOLD) (sha256 d54b58e7c8b2d4c8…)",
     "Runs: figures cache entry `afni-tshift/fmriprep-ds005040-clip-1`, computed 2026-10-21T09:26:38+00:00 with larmorx `a58978f4dfd1`, AFNI 25.2.09, larmorx-gpl 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
@@ -8430,7 +8563,8 @@
      "window": [
       714.9951553344727,
       110681.25004577637
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "bold-neg",
@@ -8448,13 +8582,14 @@
      "window": [
       714.9951553344727,
       110681.25004577637
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "afni",
      "role": "original",
-     "label": "AFNI 25.2.09, on the usual encoding",
-     "sub": "the result the data call for",
+     "label": "AFNI 3dTshift 25.2.09",
+     "sub": "on the usual encoding · the result the data call for",
      "arrays": {
       "series": {
        "blob": "7e9d3f46b969a8cddec78c23.bin",
@@ -8471,12 +8606,13 @@
        714.9951553344727,
        110681.25004577637
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "afni-neg",
      "role": "original",
-     "label": "AFNI 25.2.09",
+     "label": "AFNI 3dTshift 25.2.09",
      "sub": "on the negative scale factor",
      "arrays": {
       "series": {
@@ -8492,13 +8628,14 @@
        -2335.6508407592773,
        0.0
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "replica-neg",
      "role": "larmorx",
-     "label": "larmorx replica",
-     "sub": "default mode: corrected",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 with CC BY 4.0's attribution · fix (the default), corrected · against AFNI 3dTshift 25.2.09",
      "arrays": {
       "series": {
        "neg": "afni:series",
@@ -8512,13 +8649,14 @@
        714.9951553344727,
        110681.25004577637
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "replica-neg-reproduce",
      "role": "larmorx",
-     "label": "larmorx replica",
-     "sub": "reproduce mode",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 with CC BY 4.0's attribution · reproduce · against AFNI 3dTshift 25.2.09",
      "arrays": {
       "series": {
        "same": "afni-neg:series",
@@ -8532,13 +8670,14 @@
        -2335.6508407592773,
        0.0
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "original",
      "role": "larmorx",
-     "label": "larmorx clean-room original",
-     "sub": "default mode, on the usual encoding",
+     "label": "clean room",
+     "sub": "larmorx, Apache-2.0 · fix (the default), on the usual encoding",
      "arrays": {
       "series": {
        "blob": "9598c262048672d024febac5.bin",
@@ -8555,13 +8694,14 @@
        714.9951553344727,
        110681.25004577637
       ]
-     }
+     },
+     "port": "clean-room"
     },
     {
      "id": "original-neg",
      "role": "larmorx",
-     "label": "larmorx clean-room original",
-     "sub": "default mode: corrected",
+     "label": "clean room",
+     "sub": "larmorx, Apache-2.0 · fix (the default), corrected · against AFNI 3dTshift 25.2.09",
      "arrays": {
       "series": {
        "neg": "original:series",
@@ -8575,13 +8715,14 @@
        714.9951553344727,
        110681.25004577637
       ]
-     }
+     },
+     "port": "clean-room"
     },
     {
      "id": "original-neg-reproduce",
      "role": "larmorx",
-     "label": "larmorx clean-room original",
-     "sub": "reproduce mode",
+     "label": "clean room",
+     "sub": "larmorx, Apache-2.0 · reproduce · against AFNI 3dTshift 25.2.09",
      "arrays": {
       "series": {
        "blob": "ef50893072d2944f6668b009.bin",
@@ -8598,12 +8739,13 @@
        -2335.6508407592773,
        0.0
       ]
-     }
+     },
+     "port": "clean-room"
     },
     {
      "id": "afni26-neg",
      "role": "original",
-     "label": "AFNI 26.3.05",
+     "label": "AFNI 3dTshift 26.3.05",
      "sub": "on the negative scale factor",
      "arrays": {
       "series": {
@@ -8618,7 +8760,8 @@
        -2335.6508407592773,
        0.0
       ]
-     }
+     },
+     "port": "original"
     }
    ],
    "diffs": [
@@ -8627,8 +8770,8 @@
      "a": "replica-neg",
      "b": "afni-neg",
      "kind": "main",
-     "label": "replica (default) − AFNI, same input",
-     "role_label": "larmorx against the original",
+     "label": "replica (fix) − AFNI 3dTshift 25.2.09, same input",
+     "role_label": "the replica against the original",
      "metrics": {
       "series": {
        "identical": false,
@@ -8678,15 +8821,16 @@
       }
      ],
      "verdict": "d13",
-     "reason": "AFNI-01, corrected by default with a warning: larmorx applies the scale factor to the shifted slices, and gives the values the data call for, those of the usual encoding (next rows); reproduce mode gives AFNI's."
+     "reason": "AFNI-01, corrected by default with a warning: the replica applies the scale factor to the shifted slices, and gives the values the data call for, those of the usual encoding (the rows on the usual encoding); `reproduce` gives AFNI's.",
+     "port": "replica"
     },
     {
      "id": "original-neg-afni-neg",
      "a": "original-neg",
      "b": "afni-neg",
      "kind": "main",
-     "label": "clean-room original (default) − AFNI, same input",
-     "role_label": "larmorx against the original",
+     "label": "clean room (fix) − AFNI 3dTshift 25.2.09, same input",
+     "role_label": "the clean room against the original",
      "metrics": {
       "series": {
        "identical": false,
@@ -8736,15 +8880,16 @@
       }
      ],
      "verdict": "d13",
-     "reason": "AFNI-01, corrected by default with a warning: larmorx applies the scale factor to the shifted slices, and gives the values the data call for, those of the usual encoding (next rows); reproduce mode gives AFNI's."
+     "reason": "AFNI-01, corrected by default with a warning: the clean room applies the scale factor to the shifted slices, and gives the values the data call for, those of the usual encoding (the rows on the usual encoding); `reproduce` gives AFNI's.",
+     "port": "clean-room"
     },
     {
      "id": "replica-neg-afni",
      "a": "replica-neg",
      "b": "afni",
      "kind": "check",
-     "label": "replica (default) − AFNI on the usual encoding",
-     "role_label": "the corrected result",
+     "label": "replica (fix) − AFNI 3dTshift 25.2.09 on the usual encoding",
+     "role_label": "the replica against the original: fix, on the usual encoding",
      "metrics": {
       "series": {
        "identical": true,
@@ -8788,15 +8933,16 @@
       }
      ],
      "verdict": "bit-identical",
-     "reason": "The corrected result is AFNI's own result on the same values stored the usual way."
+     "reason": "The corrected result is AFNI's own result on the same values stored the usual way.",
+     "port": "replica"
     },
     {
      "id": "original-neg-original",
      "a": "original-neg",
      "b": "original",
      "kind": "check",
-     "label": "clean-room original (default) − itself on the usual encoding",
-     "role_label": "the corrected result",
+     "label": "clean room (fix) − itself on the usual encoding",
+     "role_label": "the clean room against itself: two encodings",
      "metrics": {
       "series": {
        "identical": true,
@@ -8840,15 +8986,16 @@
       }
      ],
      "verdict": "bit-identical",
-     "reason": "The corrected result is the original's own result on the same values stored the usual way."
+     "reason": "The corrected result is the clean room's own result on the same values stored the usual way.",
+     "port": "clean-room"
     },
     {
      "id": "replica-repro-afni-neg",
      "a": "replica-neg-reproduce",
      "b": "afni-neg",
      "kind": "main",
-     "label": "replica (reproduce) − AFNI, same input",
-     "role_label": "larmorx against the original",
+     "label": "replica (reproduce) − AFNI 3dTshift 25.2.09, same input",
+     "role_label": "the replica against the original",
      "metrics": {
       "series": {
        "identical": true,
@@ -8893,15 +9040,16 @@
       }
      ],
      "verdict": "bit-identical",
-     "reason": "reproduce mode gives AFNI's result, defect included."
+     "reason": "In `reproduce`, the replica gives AFNI's result, defect included.",
+     "port": "replica"
     },
     {
      "id": "original-repro-afni-neg",
      "a": "original-neg-reproduce",
      "b": "afni-neg",
      "kind": "main",
-     "label": "clean-room original (reproduce) − AFNI, same input",
-     "role_label": "larmorx against the original",
+     "label": "clean room (reproduce) − AFNI 3dTshift 25.2.09, same input",
+     "role_label": "the clean room against the original",
      "metrics": {
       "series": {
        "identical": false,
@@ -8951,7 +9099,8 @@
       }
      ],
      "verdict": "open",
-     "reason": "reproduce mode gives AFNI's result, defect included, but for 2 values off by one stored unit: AFNI computes the Fourier shift in float32 with its own FFT, the clean-room original in double precision: float outputs differ in their last bits, integer outputs now and then round the other way, by one unit."
+     "reason": "In `reproduce`, the clean room gives AFNI's result, defect included, but for 2 values off by one stored unit: AFNI computes the Fourier shift in float32 with its own FFT, the clean room in double precision: float outputs differ in their last bits, integer outputs now and then round the other way, by one unit.",
+     "port": "clean-room"
     },
     {
      "id": "inputs",
@@ -8959,7 +9108,7 @@
      "b": "bold",
      "kind": "variability",
      "label": "the two inputs' values",
-     "role_label": "the same data, two encodings",
+     "role_label": "the input against itself: two encodings",
      "metrics": {
       "series": {
        "identical": true,
@@ -9003,15 +9152,16 @@
       }
      ],
      "verdict": null,
-     "reason": "The two encodings hold the same values, every one."
+     "reason": "The two encodings hold the same values, every one.",
+     "port": "input"
     },
     {
      "id": "afni-neg-afni",
      "a": "afni-neg",
      "b": "afni",
      "kind": "variability",
-     "label": "AFNI on the negative scale factor − AFNI on the usual encoding",
-     "role_label": "the defect, in AFNI",
+     "label": "AFNI 3dTshift 25.2.09 on the negative scale factor − on the usual encoding",
+     "role_label": "the original against itself: the defect (the negative scale factor and the usual encoding)",
      "metrics": {
       "series": {
        "identical": false,
@@ -9060,15 +9210,16 @@
       }
      ],
      "verdict": null,
-     "reason": "AFNI's result changes with the encoding of the same data: AFNI applies the negative scale factor on output only, so the shifted slices come out sign-flipped and scaled (AFNI-01)."
+     "reason": "AFNI's result changes with the encoding of the same data: AFNI applies the negative scale factor on output only, so the shifted slices come out sign-flipped and scaled (AFNI-01).",
+     "port": "original"
     },
     {
      "id": "replica-repro-afni26-neg",
      "a": "replica-neg-reproduce",
      "b": "afni26-neg",
      "kind": "main",
-     "label": "replica (reproduce) − AFNI 26.3.05, same input",
-     "role_label": "larmorx against the original (both implementations' reference)",
+     "label": "replica (reproduce) − AFNI 3dTshift 26.3.05, same input",
+     "role_label": "the replica against the original",
      "metrics": {
       "series": {
        "identical": true,
@@ -9113,15 +9264,16 @@
       }
      ],
      "verdict": "bit-identical",
-     "reason": "reproduce mode gives AFNI 26.3.05's result, defect included (AFNI-01 is unchanged in 26.3.05)."
+     "reason": "In `reproduce`, the replica gives AFNI 26.3.05's result, defect included (AFNI-01 is unchanged in 26.3.05).",
+     "port": "replica"
     },
     {
      "id": "afni26-neg-afni-neg",
      "a": "afni26-neg",
      "b": "afni-neg",
      "kind": "variability",
-     "label": "AFNI 26.3.05 − AFNI 25.2.09, on the negative scale factor",
-     "role_label": "the original against itself: the version step",
+     "label": "AFNI 3dTshift 26.3.05 − 25.2.09, on the negative scale factor",
+     "role_label": "the original against itself: versions 25.2.09 and 26.3.05",
      "metrics": {
       "series": {
        "identical": true,
@@ -9166,15 +9318,16 @@
       }
      ],
      "verdict": null,
-     "reason": "AFNI 26.3.05 gives AFNI 25.2.09's bytes on this call: the version step changes nothing here (its two changes, AFNI-03 and AFNI-05, need header slice code 2 or -no_detrend). AFNI-01 is in both releases."
+     "reason": "AFNI 26.3.05 gives AFNI 25.2.09's bytes on this call: the version step changes nothing here (its two changes, AFNI-03 and AFNI-05, need header slice code 2 or -no_detrend). AFNI-01 is in both releases.",
+     "port": "original"
     },
     {
      "id": "original-repro-afni26-neg",
      "a": "original-neg-reproduce",
      "b": "afni26-neg",
      "kind": "main",
-     "label": "clean-room original (reproduce) − AFNI 26.3.05, same input",
-     "role_label": "larmorx against the original (both implementations' reference)",
+     "label": "clean room (reproduce) − AFNI 3dTshift 26.3.05, same input",
+     "role_label": "the clean room against the original",
      "metrics": {
       "series": {
        "identical": false,
@@ -9224,7 +9377,8 @@
       }
      ],
      "verdict": "open",
-     "reason": "reproduce mode gives AFNI 26.3.05's result, defect included, but for 2 values off by one stored unit: AFNI computes the Fourier shift in float32 with its own FFT, the clean-room original in double precision: float outputs differ in their last bits, integer outputs now and then round the other way, by one unit."
+     "reason": "In `reproduce`, the clean room gives AFNI 26.3.05's result, defect included, but for 2 values off by one stored unit: AFNI computes the Fourier shift in float32 with its own FFT, the clean room in double precision: float outputs differ in their last bits, integer outputs now and then round the other way, by one unit.",
+     "port": "clean-room"
     }
    ],
    "default": {
@@ -9243,8 +9397,8 @@
      "replica-neg-reproduce"
     ],
     "diffs": [
-     "replica-neg-afni-neg",
      "replica-neg-afni",
+     "replica-neg-afni-neg",
      "replica-repro-afni-neg"
     ],
     "compare": {
@@ -9270,11 +9424,120 @@
     },
     "caption": "Axial slice 11 of 40, volume 15 of 63, in the window of the brain's 0.5–99.5 %."
    },
+   "order": {
+    "panels": [
+     "bold",
+     "bold-neg",
+     "afni",
+     "afni-neg",
+     "afni26-neg",
+     "replica-neg",
+     "replica-neg-reproduce",
+     "original",
+     "original-neg",
+     "original-neg-reproduce"
+    ],
+    "diffs": [
+     "inputs",
+     "afni-neg-afni",
+     "afni26-neg-afni-neg",
+     "replica-neg-afni",
+     "replica-neg-afni-neg",
+     "replica-repro-afni-neg",
+     "replica-repro-afni26-neg",
+     "original-neg-afni-neg",
+     "original-repro-afni-neg",
+     "original-repro-afni26-neg",
+     "original-neg-original"
+    ],
+    "groups": [
+     [
+      "The input against itself: two encodings",
+      [
+       "inputs"
+      ]
+     ],
+     [
+      "The original against itself: the defect",
+      [
+       "afni-neg-afni"
+      ]
+     ],
+     [
+      "The original against itself: the yardstick",
+      [
+       "afni26-neg-afni-neg"
+      ]
+     ],
+     [
+      "The replica against the original",
+      [
+       "replica-neg-afni",
+       "replica-neg-afni-neg",
+       "replica-repro-afni-neg",
+       "replica-repro-afni26-neg"
+      ]
+     ],
+     [
+      "The clean room against the original",
+      [
+       "original-neg-afni-neg",
+       "original-repro-afni-neg",
+       "original-repro-afni26-neg"
+      ]
+     ],
+     [
+      "The clean room against itself: two encodings",
+      [
+       "original-neg-original"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "Stored with a negative scale factor, the same values come out of AFNI sign-flipped and scaled, in both releases ([AFNI-01](repo:docs/findings/upstream-defects.md#summary)). In `fix`, their default, both ports correct it with a warning: the replica gives AFNI's result on the usual encoding, the clean room its own. In `reproduce` the replica gives AFNI's result, defect included, and the clean room does too, but for 2 values off by one stored unit.",
+    "verdicts": [
+     {
+      "diff": "replica-neg-afni-neg",
+      "port": "replica",
+      "verdict": "d13"
+     },
+     {
+      "diff": "original-neg-afni-neg",
+      "port": "clean-room",
+      "verdict": "d13"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds005040"
    ]
   }
  ],
+ "random_testing": {
+  "title": "Random testing, both ports against the original: AFNI `3dTshift` 26.3.05",
+  "names": {
+   "replica": "replica",
+   "original": "clean room"
+  }
+ },
+ "category_labels": {
+  "synthetic": "synthetic series",
+  "methods": "interpolation methods",
+  "options": "options",
+  "tpattern": "slice patterns (-tpattern)",
+  "header-timing": "slice times from the header",
+  "defects": "defects of AFNI",
+  "geometry": "geometry",
+  "copy": "copies of the input",
+  "errors": "errors",
+  "global": "global options",
+  "environment": "environment variables",
+  "divergence": "expected divergences",
+  "real": "real images",
+  "difftest": "random testing"
+ },
+ "presentation": "writing-guide",
  "cases_credits": [
   "openneuro-ds005040",
   "openneuro-ds001600",
