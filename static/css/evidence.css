@@ -473,6 +473,16 @@ th[aria-sort="descending"] .ev-sort::after { content: " ↓"; }
 .ev-ported .dot.s-replica-open::after { content: ""; position: absolute; left: 3.2px; right: 3.2px; top: 4.6px; bottom: 1.8px;
   background: var(--bg-elev); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
 .ev-ported .ev-band-key .dot.s-replica, .ev-ported .ev-band-key .dot.s-replica-open { margin: 0; }
+/* the ratio chart of the original's own variability: the band is the original's, a wash of its
+   ink; the port's ratios in its mark */
+.ev-band.ev-ported .ev-band-track { background: linear-gradient(90deg, color-mix(in srgb, var(--port-original) var(--band-mix), transparent) var(--one, 50%), transparent var(--one, 50%)); }
+.ev-band.ev-ported .ev-band-track::after { background: var(--port-original); }
+.ev-band.ev-ported .band-swatch { background: color-mix(in srgb, var(--port-original) var(--band-mix), transparent); border-right-color: var(--port-original); }
+/* a chain of causes: each run in its port's colour, with its mark */
+.ev-ported .ev-chain-nodes .port-original span, .ev-ported .ev-chain-nodes .port-fmriprep span { color: var(--port-original); }
+.ev-ported .ev-chain-nodes .port-replica span { color: var(--port-replica); }
+.ev-ported .ev-chain-nodes .port-clean-room span { color: var(--port-clean-room); }
+.ev-chain-nodes .pmark { margin-right: 6px; }
 /* a title that names programs (FSL bet 6.0.7.23) keeps their letter case: not in capitals */
 .ev-chart.ev-ported > .ev-chart-title, .ev-tablefig.ev-ported .ev-metrics-title { font-family: inherit; font-size: 0.98rem; letter-spacing: 0; text-transform: none;
   color: var(--ink); font-weight: 600; line-height: 1.4; }

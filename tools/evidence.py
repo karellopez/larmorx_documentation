@@ -336,7 +336,8 @@ class Evidence:
         items = []
         for i, step in enumerate(ch["steps"]):
             nodes = "".join(
-                f'<li class="role-{esc(n["role"])}"><span>{esc(n["label"])}</span>'
+                f'<li class="role-{esc(n["role"])}{" port-" + esc(n["port"]) if n.get("port") else ""}">'
+                + f'<span>{pmark(n["port"]) if n.get("port") else ""}{esc(n["label"])}</span>'
                 + (f'<small>{esc(n["sub"])}</small>' if n.get("sub") else "")
                 + "</li>"
                 for n in step["nodes"]
@@ -687,6 +688,12 @@ class Evidence:
             v = min(max(v, lo), hi)
             return 100 * (math.log10(v) - math.log10(lo)) / span
 
+        ported = doc.get("presentation") == PRESENTATION
+        # on a page in the writing guide's words, the port's two ratios in its mark (filled: the
+        # largest |Δ|; open: 1 − NCC), the original's variability a wash of its ink
+        marks = (
+            {"d-max": f"s-{b['port']}", "d-ncc": f"s-{b['port']}-open"} if ported else {}
+        )
         rows = []
         for i, r in enumerate(b["rows"]):
             dots = []
@@ -696,7 +703,7 @@ class Evidence:
                     continue
                 pp = ptr("band", "rows", i, key)
                 dots.append(
-                    f'<span class="dot {cls}" style="left:{x(v):.3f}%" title="{esc(name)}: '
+                    f'<span class="dot {marks.get(cls, cls)}" style="left:{x(v):.3f}%" title="{esc(name)}: '
                     f'{fmt_sig(v, 2)} × ANTs\' band"><b class="visually-hidden">{esc(name)} '
                     f'{self.num(tool, pp, fmt_sig(v, 2))} × the band</b></span>'
                 )
@@ -708,6 +715,18 @@ class Evidence:
             f'<span style="left:{x(t):.3f}%">{esc(lbl)}</span>' for t, lbl in b["ticks"]
         )
         one = x(1.0)
+        if ported:
+            who = PORT_LABELS[b["port"]].lower()
+            return Markup(
+                f'<figure class="ev-chart ev-band ev-ported" style="--one:{one:.3f}%">'
+                f'<figcaption class="ev-chart-title">{self.text(b["title"])}</figcaption>'
+                f'<ul class="ev-band-key"><li><span class="dot {marks["d-max"]}"></span>the {esc(who)}\'s largest |Δ| from ANTs ÷ ANTs\' largest |Δ| between its thread counts</li>'
+                f'<li><span class="dot {marks["d-ncc"]}"></span>the {esc(who)}\'s (1 − NCC) with ANTs ÷ ANTs\' (1 − NCC) between its thread counts</li>'
+                f'<li><span class="band-swatch"></span>inside the original\'s own variability, ANTs between its thread counts (&lt; 1)</li></ul>'
+                f'<ol class="ev-band-rows">{"".join(rows)}</ol>'
+                f'<div class="ev-band-axis"><span class="ev-band-pad"></span><span class="ev-band-ticks">{ticks}</span></div>'
+                f'<p class="ev-chart-note">{self.text(b["note"])}</p></figure>'
+            )
         return Markup(
             f'<figure class="ev-chart ev-band" style="--one:{one:.3f}%">'
             f'<figcaption class="ev-chart-title">{esc(b["title"])}</figcaption>'
@@ -1038,7 +1057,9 @@ class Evidence:
     def _difftest(self) -> dict:
         return self.doc("difftest")
 
-    def _difftest_rows(self, tools: list[tuple[str, int, dict]], with_page: bool) -> str:
+    def _difftest_rows(self, tools: list[tuple[str, int, dict]], with_page: bool, names: dict | None = None) -> str:
+        """The run's rows, one per tool; each tool's implementations by its port's name where
+        the page is in the writing guide's words (``names``)."""
         rows = []
         for pi, ti, t in tools:
             p = ptr("pages", pi, "tools", ti)
@@ -1046,7 +1067,7 @@ class Evidence:
             if with_page:
                 page = self._difftest()["pages"][pi]["page"]
                 name = f'<a href="{self.link(page)}">{name}</a>'
-            impls = ", ".join(t["implementations"])
+            impls = ", ".join((names or {}).get(i, i) for i in t["implementations"])
             cells = [
                 f"<th scope=row>{name}<small>{esc(impls)}</small></th>",
                 f'<td class=n>{self.num("difftest", p + "/cases", fmt_count(t["cases"]))}</td>',
@@ -1092,7 +1113,9 @@ class Evidence:
             f"nothing the input shows (defect, cases): {'; '.join(parts)}.</p>"
         )
 
-    def _difftest_differences(self, tools: list[tuple[str, int, dict]]) -> str:
+    def _difftest_differences(self, tools: list[tuple[str, int, dict]], names: dict | None = None) -> str:
+        """The differences of the run, each with its implementation: by its port's name where
+        the page is in the writing guide's words (``names``)."""
         items = []
         for pi, ti, t in tools:
             for di, d in enumerate(t["differences"]):
@@ -1102,7 +1125,7 @@ class Evidence:
                 checks = ", ".join(d["checks"])
                 items.append(
                     f'<li><span class="ev-dt-status ev-dt-{esc(d["status"])}">{esc(status)}</span> '
-                    f'{esc(t["label"])} ({esc(d["implementation"])}), {self.num("difftest", p + "/cases", fmt_count(d["cases"]))} '
+                    f'{esc(t["label"])} ({esc((names or {}).get(d["implementation"], d["implementation"]))}), {self.num("difftest", p + "/cases", fmt_count(d["cases"]))} '
                     f'case(s): <code>{esc(checks)}</code>: {self.text(d["explanation"])}{link}</li>'
                 )
         if not items:
@@ -1142,32 +1165,49 @@ class Evidence:
             f"queued and run to its end later, one at a time, in a large box): {'; '.join(items)}.</p>"
         )
 
-    def random_testing(self, page: str) -> Markup:
+    def random_testing(self, page: str, tool: str | None = None) -> Markup:
         """A tool page's panel: the latest long run's random cases of the page's tools, their
-        outcomes, and what was done about each difference (``static/evidence/difftest.json``)."""
+        outcomes, and what was done about each difference (``static/evidence/difftest.json``).
+        ``page`` is the run's address of the page; ``tool``, a page in the writing guide's words
+        (its JSON's ``random_testing``: the title, each implementation's port by its name)."""
         d = self._difftest()
         tools = [(pi, ti, t) for pi, pg in enumerate(d["pages"]) if pg["page"] == page for ti, t in enumerate(pg["tools"])]
         if not tools:
             self.problems.append(f"random testing: no tool of {page} in static/evidence/difftest.json")
             return Markup("")
         n = d["night"]
-        title = (
-            f'Random testing, the long run of {esc(n["date"])} (seed <code>{esc(n["seed"])}</code>, '
+        rt = self.doc(tool).get("random_testing") if tool else None
+        if tool and not rt:
+            self.problems.append(f"random testing: {tool}'s JSON names no port for its panel")
+        when = (
+            f'the long run of {esc(n["date"])} (seed <code>{esc(n["seed"])}</code>, '
             f'{self.num("difftest", "/night/hours", fmt_sig(n["hours"]))} h for '
-            f'{self.num("difftest", "/night/tools", fmt_count(n["tools"]))} tools): random valid inputs and '
-            "option combinations through the original program and LARMORX"
+            f'{self.num("difftest", "/night/tools", fmt_count(n["tools"]))} tools)'
         )
+        if rt:
+            each = "both" if len(set(rt["names"].values())) == 1 else "all three"
+            title = (
+                f'{self.text(rt["title"])}, {when}: random valid inputs and option combinations, '
+                f"each run through {each}"
+            )
+        else:
+            title = (
+                f"Random testing, {when}: random valid inputs and "
+                "option combinations through the original program and LARMORX"
+            )
         note = (
             f'Every case is drawn from its tool, the run\'s seed and its number, and replays anywhere: '
             f'<a href="{self.href(d["how"])}">how random testing works</a>; each difference\'s triage: '
             f'<a href="{self.href(d["triage"])}">{esc(d["triage"])}</a>.'
         )
+        ported = " ev-ported" if rt else ""
+        names = (rt or {}).get("names")
         return Markup(
-            f'<figure class="ev-chart ev-tablefig ev-difftest" id="random-testing-panel"><div class="ev-table">'
+            f'<figure class="ev-chart ev-tablefig ev-difftest{ported}" id="random-testing-panel"><div class="ev-table">'
             f'<p class="ev-metrics-title">{title}</p>'
             f'<div class="table-wrap"><table class="ev-ttable"><thead>{self._difftest_head("Tool")}</thead>'
-            f"<tbody>{self._difftest_rows(tools, with_page=False)}</tbody></table></div>"
-            f"{self._difftest_differences(tools)}{self._difftest_notices(tools)}{self._difftest_heavy(tools)}"
+            f"<tbody>{self._difftest_rows(tools, with_page=False, names=names)}</tbody></table></div>"
+            f"{self._difftest_differences(tools, names)}{self._difftest_notices(tools)}{self._difftest_heavy(tools)}"
             f'<p class="ev-metrics-note">{note}</p></div></figure>'
         )
 
@@ -1195,6 +1235,13 @@ class Evidence:
         path = self.root / "static" / "evidence" / "summary.json"
         summary = json.loads(path.read_text(encoding="utf-8"))
         pages = {t["url"]: t for t in tools}
+        # an evidence page moved to /evidence/<page>/ keeps its old address in summary.json
+        # until the summary is made again: the row links the new one
+        moved = {
+            "/tools/" + t["url"].removeprefix("/evidence/"): t["url"]
+            for t in tools
+            if t["url"].startswith("/evidence/")
+        }
         unclassified = any(
             im["verdicts"].get("unclassified") for t in summary["tools"] for im in t["implementations"]
         )
@@ -1221,10 +1268,11 @@ class Evidence:
                 span = f' rowspan="{len(t["implementations"])}"' if len(t["implementations"]) > 1 else ""
                 cells = []
                 if first:
-                    page = pages.get(t["page"])
+                    url = moved.get(t["page"], t["page"])
+                    page = pages.get(url)
                     name = esc(t["title"])
                     if page:
-                        name = f'<a href="{self.link(t["page"])}">{name}</a>'
+                        name = f'<a href="{self.link(url)}">{name}</a>'
                     cells.append(f'<th scope=row{span} class="eco-{esc(t["eco"])}"><span class="tname"><span class="dot"></span><span>{name}</span></span></th>')
                 rec = f'<a href="{self.href(im["record"])}">{esc(im["label"])}</a>'
                 status = (
