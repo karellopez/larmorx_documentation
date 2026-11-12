@@ -44,7 +44,7 @@ On the command line, every ANTs program takes these files, for example `larmorx 
 
 ### Its port {#ports}
 
-ITK comes under the Apache-2.0 licence, as LARMORX does, and HDF5 under a permissive BSD-style one, so the replica is in `larmorx` itself. It is translated from ITK's transform reading and writing and follows HDF5 1.12.1 step by step, so that it reads every dataset as HDF5 does and writes HDF5's bytes. A clean room of ANTs' and ITK's code is planned after FreeSurfer ([roadmap](/roadmap/)).
+ITK comes under the Apache-2.0 licence, as LARMORX does, and HDF5 under a permissive BSD-style one, so the replica is in `larmorx` itself. It is translated from ITK's transform reading and writing and follows HDF5 1.12.1 step by step, so that it reads every dataset as HDF5 does and writes ITK's file byte for byte given ITK's compressed chunks and object times (its own compressed chunks are compared by content). A clean room of ANTs' and ITK's code is planned after FreeSurfer ([roadmap](/roadmap/)).
 
 ## The verdicts at a glance {#verdicts}
 
@@ -72,9 +72,13 @@ Each case of the record, with what it tests, its verdict and the reason. Search,
 
 No benchmark report yet: reading HDF5 against h5py and ANTs is among the planned benchmarks ([next steps](repo:docs/next-steps.md)).
 
+## Corrections by default {#corrections}
+
+Where ITK, HDF5 or nitransforms has a deterministic defect that changes a result, the replica corrects it by default, `fix`, and warns. `upstream_defects="reproduce"` (on the command line `--upstream-defects reproduce` from the next release, `LARMORX_UPSTREAM_DEFECTS=reproduce` in 0.1.0rc1) gives their behaviour, and the record compares with it. In reading: a `TransformType` stored as a fixed-length string, as h5py writes it, is read (ITK-12); a parameter dataset of the wrong class or rank is named in the message (ITK-13); parameters wider than 8 bytes (long double, quadruple) are read in the reader's precision, not through float (ITK-14); non-native floats are converted element by element, without the state HDF5 1.12 carries from one to the next (HDF-01); a composite's transforms are read in numeric order, `2` before `10` (PIPE-04), and a file's first group is read when it is not a composite (PIPE-17). In writing: a transform without parameters has its empty parameters stored uncompressed, where ITK fails and leaves a file it cannot read (ITK-15). ITK-16 (a null `TransformType` string, which crashes ITK) and ITK-17 are refused either way. The [API page](repo:docs/api/transforms-hdf5.md) has the table and the [register](repo:docs/findings/upstream-defects.md) every entry. fMRIPrep's composites meet none of them; PIPE-04 would from eleven transforms on.
+
 ## Random testing {#random-testing}
 
-Random testing runs random valid inputs and option combinations through the original program and the replica, in long runs of several hours: inputs from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind), with options drawn in random combinations from those the program accepts ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest input and fewest options that still show it, then fixed and kept as a comparison case, registered as a defect of the original, or reported. The latest long run:
+Random testing writes random transform files and reads them through ITK, as ANTs' programs do (an ANTs program writes back what it read, in double and in single precision), and through the replica, h5py and nitransforms, in long runs of several hours. The files come from seeded plain arithmetic: text and MATLAB files holding one to four transforms of every linear type ITK reads (in double and float, 2-D and 3-D) and composites, their numbers spelt in many ways, and HDF5 files from the replica's writer, with and without compression, that also hold displacement fields ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest file that still shows it, then fixed and kept as a comparison case, registered as a defect of the original, or reported. The latest long run:
 
 {{ ev.random_testing('/tools/itk-hdf5/', 'itk-hdf5') }}
 
