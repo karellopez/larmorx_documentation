@@ -742,3 +742,26 @@ summary.prog-head:hover .prog-chip { box-shadow: 0 0 0 2px var(--kc); }
   .prog-planned { padding: 0 14px 16px 22px; }
 }
 @media print { .prog-group > :not(summary) { display: block; } }
+
+/* ------------------------------------------- the home page (the writing guide's pilot) */
+.home-intro .intro-note { margin: 28px 0 0; max-width: 760px; font-size: 1.02rem; line-height: 1.65; color: var(--ink-2); text-wrap: pretty; }
+.ways .ex { margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--line); font-size: 0.92rem; color: var(--ink); }
+.ways-note { margin: 22px 0 0; max-width: 860px; color: var(--ink-2); font-size: 0.97rem; line-height: 1.6; }
+.ecos .eco-ports { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 10px; }
+.ecos .eco-ports .port { font-size: 0.8rem; }
+.ecos a.state { text-decoration: none; }
+.ecos a.state:hover { box-shadow: 0 0 0 2px var(--kc); }
+.eco-chip { display: inline-block; padding: 1px 8px 2px; border-radius: 999px; background: var(--kc); color: var(--on-pastel); font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+.plan .plan-eco { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 0; }
+.tools--grouped tr.grp th { padding: 14px 16px 8px; border-top: 1px solid var(--line); background: transparent; }
+.tools--grouped tbody:first-of-type tr.grp th { border-top: 0; }
+.tools--grouped .prog-chip { font-size: 1.15rem; padding: 2px 10px 3px; letter-spacing: 0; text-transform: none; }
+.tools--grouped tr.grp + tr td { border-top: 0; }
+.tools--grouped td a, .table-wrap .tools--grouped .tool-name a { text-decoration-color: var(--accent); }
+.home-intro .lead code { font-size: 0.72em; padding: 0.05em 0.3em; vertical-align: 0.06em; border-radius: var(--r-sm); background: var(--code-bg); color: var(--ink); }
+.ecos--software { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.prose ul.ref-ports { padding-left: 0; }
+.prose .prog-head h2.prog-chip { margin: 0; padding: 4px 11px 5px; border: 0; font-family: var(--serif); font-weight: 400; font-size: 1.35rem; line-height: 1.1; letter-spacing: 0; color: var(--on-pastel); }
+.prose .prog-head h2.prog-chip::before, .prose .prog-head h2.prog-chip::after { content: none; display: none; }
+@media (max-width: 640px) { .prose .prog-head h2.prog-chip { font-size: 1.2rem; } }
+.prose .prog-head h2.prog-chip + * { margin-top: 0; }

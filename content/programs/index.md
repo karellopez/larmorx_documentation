@@ -16,12 +16,12 @@ A **port** is a **replica**, translated from the original's source to give its r
 {%- for g in data.programs.groups %}
 {%- if g.get('planned') %}
 <div class="prog-group prog-group--planned eco-{{ g.id }}" id="{{ g.id }}">
-<div class="prog-head"><span class="prog-chip">{{ g.name }}</span><span class="prog-sum"><span class="prog-count">Planned</span><span class="prog-orig">{{ g.original }}</span></span></div>
+<div class="prog-head"><h2 class="prog-chip">{{ g.name }}</h2><span class="prog-sum"><span class="prog-count">Planned</span><span class="prog-orig">{{ g.original }}</span></span></div>
 <p class="prog-planned">{{ g.planned | md_inline }} <a href="{{ link('/roadmap/') }}">Roadmap</a></p>
 </div>
 {%- else %}
 <details class="prog-group eco-{{ g.id }}" id="{{ g.id }}">
-<summary class="prog-head"><span class="prog-chip">{{ g.name }}</span><span class="prog-sum"><span class="prog-count">{{ g.count }}</span>{% if g.original %}<span class="prog-orig">compared with {{ g.original }}</span>{% endif %}<span class="prog-ports">{% for p in g.ports %}<span class="port port--{{ p.kind }}"><span class="port-name">{{ p.name }}</span> <code>{{ p.package }}</code> <span class="port-licence">{{ p.licence }}</span></span>{% endfor %}</span></span></summary>
+<summary class="prog-head"><h2 class="prog-chip">{{ g.name }}</h2><span class="prog-sum"><span class="prog-count">{{ g.count }}</span>{% if g.original %}<span class="prog-orig">compared with {{ g.original }}</span>{% endif %}<span class="prog-ports">{% for p in g.ports %}<span class="port port--{{ p.kind }}"><span class="port-name">{{ p.name }}</span> <code>{{ p.package }}</code> <span class="port-licence">{{ p.licence }}</span></span>{% endfor %}</span></span></summary>
 <ul class="prog-list">
 {%- for p in g.programs %}
 <li id="{{ g.id }}-{{ p.name | lower }}">

@@ -7,8 +7,9 @@ groups:
     name: "ANTs and ITK"
     original: "ANTs 2.6.5 on ITK 5.4.5"
     count: "13 programs and 1 module"
+    summary: "Transforms and their files, N4, denoising, `ImageMath` and its filters, registration (linear and deformable stages), `antsAI`, `Atropos`."
     ports:
-      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0", programs: 14}
+      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0", count: 14}
     programs:
       - name: "antsRegistration"
         kind: program
@@ -182,9 +183,10 @@ groups:
     name: "AFNI"
     original: "AFNI 26.3.05"
     count: "4 programs"
+    summary: "`3dTshift`, `3dAutomask`, `3dUnifize` and `3dvolreg`. AFNI 26.3.05 released the Medical College of Wisconsin's code under CC BY 4.0, so the replicas are in `larmorx` beside the clean rooms."
     ports:
-      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0, with AFNI's CC BY 4.0 credit", programs: 4}
-      - {kind: clean-room, name: "clean room", package: larmorx, licence: "Apache-2.0", programs: 4}
+      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0, with AFNI's CC BY 4.0 credit", count: 4}
+      - {kind: clean-room, name: "clean room", package: larmorx, licence: "Apache-2.0", count: 4}
     programs:
       - name: "3dTshift"
         kind: program
@@ -242,9 +244,10 @@ groups:
     name: "FSL"
     original: "FSL 6.0.7.23"
     count: "26 programs"
+    summary: "`mcflirt`, BET, FLIRT and its programs, FAST, `topup`, `fslmaths`, `fslstats`, `fslroi`, `standard_space_roi` and `prelude`."
     ports:
-      - {kind: replica, name: "replica", package: larmorx-nc, licence: "FSL Licence: non-commercial use only", programs: 26}
-      - {kind: clean-room, name: "clean room", package: larmorx, licence: "Apache-2.0", programs: 26}
+      - {kind: replica, name: "replica", package: larmorx-nc, licence: "FSL Licence: non-commercial use only", count: 26}
+      - {kind: clean-room, name: "clean room", package: larmorx, licence: "Apache-2.0", count: 26}
     programs:
       - name: "mcflirt"
         kind: program
@@ -588,9 +591,10 @@ groups:
     name: "tedana"
     original: "tedana 26.0.3"
     count: "1 program"
+    summary: "`t2smap`: the T2* and S0 maps of multi-echo fMRI and the echoes' optimal combination."
     ports:
-      - {kind: replica, name: "replica", package: larmorx-gpl, licence: "GPL-3.0", programs: 1}
-      - {kind: clean-room, name: "clean room", package: larmorx, licence: "Apache-2.0", programs: 1}
+      - {kind: replica, name: "replica", package: larmorx-gpl, licence: "GPL-3.0", count: 1}
+      - {kind: clean-room, name: "clean room", package: larmorx, licence: "Apache-2.0", count: 1}
     programs:
       - name: "t2smap"
         kind: program
@@ -609,8 +613,9 @@ groups:
     name: "sdcflows"
     original: "sdcflows 2.17.1, with niworkflows 1.15.4 and pybids 0.22.0"
     count: "1 program and 3 modules"
+    summary: "Field-map estimation: the B-spline fit, PEPOLAR, direct and fieldmap-less (SyN), sdcflows' BIDS app, with niworkflows' helpers and pybids' BIDS index."
     ports:
-      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0", programs: 4}
+      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0", count: 4}
     programs:
       - name: "sdcflows"
         kind: program
@@ -664,8 +669,9 @@ groups:
     name: "fMRIPrep"
     original: "fMRIPrep's own steps, and the libraries they call"
     count: "5 modules"
+    summary: "fMRIPrep's one-shot BOLD resampler and its field-map steps, SciPy's and scikit-image's routines under them, and the confounds, being ported."
     ports:
-      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0", programs: 5}
+      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0", count: 5}
     programs:
       - name: "resample-series"
         kind: module
@@ -731,8 +737,9 @@ groups:
     name: "LARMORX's own"
     original: ""
     count: "1 module"
+    summary: "Its NIfTI reader and writer. The larmorprepx pipeline is planned."
     ports:
-      - {kind: own, name: "LARMORX's own", package: larmorx, licence: "Apache-2.0", programs: 1}
+      - {kind: own, name: "LARMORX's own", package: larmorx, licence: "Apache-2.0", count: 1}
     programs:
       - name: "io"
         kind: module
