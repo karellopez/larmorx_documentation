@@ -17,7 +17,7 @@ reference:
     crates/larmorx-cli/src/replica.rs: bdcff4968024a104
     crates/larmorx-core/src/cli.rs: 01fa0015abc1a111
     crates/larmorx-fsl/src/cli/bet.rs: da8dac774b79a854
-    docs/api/fsl-bet.md: f4f96e777188b16d
+    docs/api/fsl-bet.md: c59408e34012b405
     python/larmorx/fsl/bet.py: 24b8fa0168bd33f6
     validation/tools.toml: f010241e8fae68e6
 ---
@@ -271,6 +271,8 @@ five real heads with bet2's meshes and FLIRT's matrices made by FSL).
 ## Evidence {#evidence}
 
 How `bet`'s ports compare with FSL 6.0.7.23, case by case: [its evidence](/evidence/fsl-bet/).
+
+On the same page, for `bet`: [The standard images the variations read](/evidence/fsl-bet/#data).
 
 ## More in the repository {#more}
 

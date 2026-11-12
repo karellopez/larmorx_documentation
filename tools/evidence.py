@@ -29,6 +29,23 @@ ROLE_LABELS = {
     "larmorx": "LARMORX",
 }
 
+#: The writing guide's names of the ports and the other roles (docs/writing-guide.md, sections
+#: 4 and 5), on a page whose JSON carries ``"presentation": "writing-guide"``: each panel and
+#: comparison names its port (``port``), which the page colours and marks.
+PRESENTATION = "writing-guide"
+PORT_LABELS = {
+    "input": "Input",
+    "original": "Original",
+    "fmriprep": "fMRIPrep's output",
+    "replica": "Replica",
+    "clean-room": "Clean room",
+}
+
+
+def pmark(port: str) -> str:
+    """A port's mark (a square, a triangle, a circle) in its colour, beside its name."""
+    return f'<i class="pmark pmark--{esc(port)}" aria-hidden="true"></i>'
+
 
 def esc(s) -> str:
     return html.escape(str(s), quote=True)
@@ -215,16 +232,21 @@ class Evidence:
         panels = {p["id"]: p for p in ex["panels"]}
         diffs = {d["id"]: d for d in ex["diffs"]}
         out = ex["default"]["output"]
+        ported = doc.get("presentation") == PRESENTATION
         cells = []
         for pid in ex["default"]["panels"]:
             p = panels[pid]
             img = poster["panels"].get(pid)
             role = ROLE_LABELS.get(p["role"], p["role"])
+            port = ""
+            if ported:
+                role = PORT_LABELS[p["port"]]
+                port = f' port-{esc(p["port"])}'
             cells.append(
-                f'<figure class="ev-panel role-{esc(p["role"])}" data-panel="{esc(pid)}">'
+                f'<figure class="ev-panel role-{esc(p["role"])}{port}" data-panel="{esc(pid)}">'
                 f'<div class="ev-canvas" style="aspect-ratio:{poster["aspect"]}">'
                 + (f'<img src="{blobs}{img}" alt="" loading="lazy" decoding="async">' if img else "")
-                + f'</div><figcaption><span class="ev-role">{esc(role)}</span>'
+                + f'</div><figcaption><span class="ev-role">{pmark(p["port"]) if ported else ""}{esc(role)}</span>'
                 f'<span class="ev-label">{esc(p["label"])}</span>'
                 + (f'<span class="ev-sub">{esc(p["sub"])}</span>' if p.get("sub") else "")
                 + "</figcaption></figure>"
@@ -246,10 +268,11 @@ class Evidence:
             scale = ""
             if rng and not m["identical"]:
                 scale = f'<span class="ev-sub ev-range">scale ±{esc(fmt_sig(rng))}</span>'
+            port = f' port-{esc(dd["port"])}' if ported else ""
             cells.append(
-                f'<figure class="ev-panel ev-diff kind-{esc(dd["kind"])}" data-diff="{esc(did)}">'
+                f'<figure class="ev-panel ev-diff kind-{esc(dd["kind"])}{port}" data-diff="{esc(did)}">'
                 f'<div class="ev-canvas" style="aspect-ratio:{poster["aspect"]}">{body}</div>'
-                f'<figcaption><span class="ev-role">{esc(dd["role_label"])}</span>'
+                f'<figcaption><span class="ev-role">{pmark(dd["port"]) if ported else ""}{esc(dd["role_label"])}</span>'
                 f'<span class="ev-label">{esc(dd["label"])}</span>{scale}</figcaption></figure>'
             )
         note = (
@@ -268,12 +291,24 @@ class Evidence:
         facts = "".join(
             f"<dt>{esc(f['label'])}</dt><dd>{self.text(f['text'])}</dd>" for f in ex["facts"]
         )
+        shows = ""
+        if ported:
+            items = "".join(
+                f'<li>{pmark(v["port"])}<span class="ev-shows-who">{esc(PORT_LABELS[v["port"]])} against '
+                f'{esc(panels[diffs[v["diff"]]["b"]]["label"])}</span>{self.verdict(v["verdict"])}</li>'
+                for v in ex["shows"]["verdicts"]
+            )
+            shows = (
+                f'<div class="ev-shows"><p><b>What this shows:</b> {self.text(ex["shows"]["text"])}</p>'
+                f'<ul class="ev-shows-v">{items}</ul></div>'
+            )
         html_ = (
-            f'<section class="ev-example" id="example-{esc(ex_id)}" data-ev-tool="{esc(tool)}" '
+            f'<section class="ev-example{" ev-ported" if ported else ""}" id="example-{esc(ex_id)}" data-ev-tool="{esc(tool)}" '
             f'data-ev-example="{esc(ex_id)}" data-ev-src="{src}" data-ev-blobs="{blobs}">'
             f'<div class="ev-head"><p class="kicker">Worked example</p>'
             f'<p class="ev-title">{esc(ex["title"])}</p>'
-            f'<p class="ev-sum">{self.text(ex["summary"])}</p>'
+            + shows
+            + f'<p class="ev-sum">{self.text(ex["summary"])}</p>'
             f'<dl class="ev-facts">{facts}</dl>'
             + self.credits_html(doc, ex.get("credits", []), "Data shown")
             + "</div>"
@@ -348,8 +383,14 @@ class Evidence:
             "<th scope=col class=n>1 − NCC</th></tr>"
         )
         body = []
-        for kinds, title in ex.get("groups") or self.GROUPS:
-            group = [(j, d) for j, d in enumerate(ex["diffs"]) if d["kind"] in kinds.split()]
+        ordered = ex.get("order", {}).get("groups")
+        index = {d["id"]: j for j, d in enumerate(ex["diffs"])}
+        for kinds, title in ordered or ex.get("groups") or self.GROUPS:
+            if ordered:  # the writing guide's groups: each a title and its comparisons, in order
+                kinds, title = title, kinds
+                group = [(index[i], ex["diffs"][index[i]]) for i in kinds]
+            else:
+                group = [(j, d) for j, d in enumerate(ex["diffs"]) if d["kind"] in kinds.split()]
             if not group:
                 continue
             body.append(
@@ -370,8 +411,9 @@ class Evidence:
                 )
                 rows_n = 1 if same else len(outs)
                 span = f' rowspan="{rows_n}"' if rows_n > 1 else ""
+                mark = pmark(d["port"]) if d.get("port") else ""
                 head_cell = (
-                    f'<th scope="row"{span} class="cmp"><span class="cmp-label">{esc(d["label"])}</span>'
+                    f'<th scope="row"{span} class="cmp"><span class="cmp-label">{mark}{esc(d["label"])}</span>'
                     f'<span class="cmp-verdict">{chip}</span><span class="cmp-why">{self.text(d["reason"])}'
                     + (f' <span class="ev-links">{links}</span>' if links else "")
                     + "</span></th>"
@@ -614,10 +656,20 @@ class Evidence:
             for v in present
         )
         cases = self.num(tool, ptr("implementations", k, "summary", "cases"), fmt_count(im["summary"]["cases"]))
+        if doc.get("presentation") == PRESENTATION:  # the writing guide's title (section 4)
+            title = (
+                f'{pmark(im["port"])}{self.text(im["title"])} ({esc(im["comparison"])}, {cases} cases of the '
+                f'<a href="{self.href(im["record"])}">record</a>), by category and verdict'
+            )
+        else:
+            title = (
+                f'{esc(im["label"])}: {cases} cases of the '
+                f'<a href="{self.href(im["record"])}">record</a>, by category and verdict'
+            )
+        ported = " ev-ported" if doc.get("presentation") == PRESENTATION else ""
         return Markup(
-            f'<figure class="ev-chart ev-agree" data-impl="{esc(impl)}">'
-            f'<figcaption class="ev-chart-title">{esc(im["label"])}: {cases} cases of the '
-            f'<a href="{self.href(im["record"])}">record</a>, by category and verdict</figcaption>'
+            f'<figure class="ev-chart ev-agree{ported}" data-impl="{esc(impl)}">'
+            f'<figcaption class="ev-chart-title">{title}</figcaption>'
             f'<div class="ev-agree-rows">{"".join(out)}</div>'
             f'<ul class="verdict-legend">{legend}</ul>'
             f'<p class="ev-chart-note">Select a segment to list its cases below.</p></figure>'
@@ -704,6 +756,14 @@ class Evidence:
             f'<li><span class="dot s-{esc(ser["mark"])}"></span>{esc(ser["label"])}</li>' for ser in s["series"]
         )
         ticks = "".join(f'<span style="left:{x(t):.3f}%">{esc(lbl)}</span>' for t, lbl in s["ticks"])
+        if doc.get("presentation") == PRESENTATION:  # the writing guide's title and caption
+            return Markup(
+                f'<figure class="ev-chart ev-speed ev-ported"><figcaption class="ev-chart-title">{self.text(s["title"])}</figcaption>'
+                f'<p class="ev-chart-sub">{self.text(s["caption"])}</p>'
+                f'<ul class="ev-band-key">{key}</ul><ol class="ev-band-rows">{"".join(rows)}</ol>'
+                f'<div class="ev-band-axis"><span class="ev-band-pad"></span><span class="ev-band-ticks">{ticks}</span></div>'
+                f'<p class="ev-chart-note">{self.text(s["note"])}</p></figure>'
+            )
         return Markup(
             f'<figure class="ev-chart ev-speed"><figcaption class="ev-chart-title">{esc(s["title"])}</figcaption>'
             f'<ul class="ev-band-key">{key}</ul><ol class="ev-band-rows">{"".join(rows)}</ol>'
@@ -889,7 +949,9 @@ class Evidence:
             "<tr><th scope=col data-sort=id>Case</th><th scope=col data-sort=category>Category</th>"
             "<th scope=col>What it tests</th>"
             + "".join(
-                f'<th scope=col data-sort="v-{esc(i["id"])}">{esc(i["short"]) if multi else "Verdict"}</th>'
+                f'<th scope=col data-sort="v-{esc(i["id"])}">'
+                + (pmark(i["port"]) if doc.get("presentation") == PRESENTATION and multi else "")
+                + f'{esc(i["short"]) if multi else "Verdict"}</th>'
                 for i in impls
             )
             + "<th scope=col>Checks</th></tr>"

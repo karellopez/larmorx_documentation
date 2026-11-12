@@ -306,9 +306,10 @@
     // A/B for swipe, blink, checkerboard
     this.abBox = el('div', { class: 'ev-toolbar ev-ab', hidden: true });
     this.aSel = el('select', { 'aria-label': 'Image A' }); this.bSel = el('select', { 'aria-label': 'Image B' });
-    ex.panels.forEach(function (p) {
-      self.aSel.appendChild(el('option', { value: p.id, text: p.label }));
-      self.bSel.appendChild(el('option', { value: p.id, text: p.label }));
+    shownPanels(ex).forEach(function (p) {
+      var name = p.port ? p.label + (p.sub ? ', ' + p.sub : '') : p.label;
+      self.aSel.appendChild(el('option', { value: p.id, text: name }));
+      self.bSel.appendChild(el('option', { value: p.id, text: name }));
     });
     this.aSel.value = s.a; this.bSel.value = s.b;
     this.aSel.addEventListener('change', function () { s.a = self.aSel.value; self.update(); });
@@ -325,16 +326,16 @@
         var arr = kind === 'p' ? s.panels : s.diffs;
         var at = arr.indexOf(id);
         if (i.checked && at < 0) arr.push(id); else if (!i.checked && at >= 0) arr.splice(at, 1);
-        var order = kind === 'p' ? ex.panels.map(function (p) { return p.id; }) : ex.diffs.map(function (x) { return x.id; });
+        var order = kind === 'p' ? shownPanels(ex).map(function (p) { return p.id; }) : shownDiffs(ex).map(function (x) { return x.id; });
         arr.sort(function (a, b) { return order.indexOf(a) - order.indexOf(b); });
         self.layout(); self.update();
       });
       return el('label', { class: 'ev-check' }, [i, el('span', {}, [label, sub ? el('small', { text: sub }) : null])]);
     }
     list.appendChild(el('p', { class: 'ev-chooser-head', text: 'Images' }));
-    ex.panels.forEach(function (p) { list.appendChild(box('p', p.id, p.label, p.sub, s.panels.indexOf(p.id) >= 0)); });
+    shownPanels(ex).forEach(function (p) { list.appendChild(box('p', p.id, p.label, p.sub, s.panels.indexOf(p.id) >= 0)); });
     list.appendChild(el('p', { class: 'ev-chooser-head', text: 'Differences' }));
-    ex.diffs.forEach(function (x) { if (x.display) list.appendChild(box('d', x.id, x.label, x.role_label, s.diffs.indexOf(x.id) >= 0)); });
+    shownDiffs(ex).forEach(function (x) { if (x.display) list.appendChild(box('d', x.id, x.label, x.role_label, s.diffs.indexOf(x.id) >= 0)); });
     chooser.appendChild(list);
 
     this.status = el('p', { class: 'ev-status', role: 'status', hidden: true });
@@ -449,15 +450,15 @@
     if (kind === 'p') {
       var p = ex.panelById[id];
       label = p.label;
-      cap = el('figcaption', {}, [el('span', { class: 'ev-role', text: roleLabel(p.role) }), el('span', { class: 'ev-label', text: p.label }), p.sub ? el('span', { class: 'ev-sub', text: p.sub }) : null]);
-      fig = el('figure', { class: 'ev-panel role-' + p.role, 'data-panel': id }, [box, cap]);
+      cap = el('figcaption', {}, [el('span', { class: 'ev-role' }, [pmark(p.port), p.port ? PORTS[p.port] : roleLabel(p.role)]), el('span', { class: 'ev-label', text: p.label }), p.sub ? el('span', { class: 'ev-sub', text: p.sub }) : null]);
+      fig = el('figure', { class: 'ev-panel role-' + p.role + (p.port ? ' port-' + p.port : ''), 'data-panel': id }, [box, cap]);
     } else if (kind === 'd') {
       var x = ex.diffById[id];
       label = x.label;
       this.scaleNote = this.scaleNote || {};
       var sc = el('span', { class: 'ev-sub ev-range' });
-      cap = el('figcaption', {}, [el('span', { class: 'ev-role', text: x.role_label }), el('span', { class: 'ev-label', text: x.label }), sc]);
-      fig = el('figure', { class: 'ev-panel ev-diff kind-' + x.kind, 'data-diff': id }, [box, cap]);
+      cap = el('figcaption', {}, [el('span', { class: 'ev-role' }, [pmark(x.port), x.role_label]), el('span', { class: 'ev-label', text: x.label }), sc]);
+      fig = el('figure', { class: 'ev-panel ev-diff kind-' + x.kind + (x.port ? ' port-' + x.port : ''), 'data-diff': id }, [box, cap]);
       fig._range = sc;
     } else {
       label = 'A and B';
@@ -488,6 +489,14 @@
   function roleLabel(r) {
     return { input: 'Input', original: 'Original program', fmriprep: "fMRIPrep's own output", reference: 'Original, as a reference', larmorx: 'LARMORX' }[r] || r;
   }
+  /* The writing guide's ports (docs/writing-guide.md, sections 4 and 5): on a page whose JSON
+     carries "presentation": "writing-guide", every panel and comparison names its port, and
+     ex.order gives the order they are shown in (the lists keep the JSON's order, which the
+     number check addresses). */
+  var PORTS = { input: 'Input', original: 'Original', fmriprep: "fMRIPrep's output", replica: 'Replica', 'clean-room': 'Clean room' };
+  function pmark(port) { return port ? el('i', { class: 'pmark pmark--' + port, 'aria-hidden': 'true' }) : null; }
+  function shownPanels(ex) { return ex.order ? ex.order.panels.map(function (id) { return ex.panelById[id]; }) : ex.panels; }
+  function shownDiffs(ex) { return ex.order ? ex.order.diffs.map(function (id) { return ex.diffById[id]; }) : ex.diffs; }
 
   /* ---------------------------------------------------------- interaction */
   Viewer.prototype.bindPointer = function (canvas, box) {

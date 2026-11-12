@@ -442,3 +442,43 @@ th[aria-sort="descending"] .ev-sort::after { content: " ↓"; }
 .ev-coverage .grp-head th { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); padding-top: 14px !important; }
 .ev-panel-ds { margin: 26px 0 0; }
 .ev-panel-ds .ev-credit-list { font-size: 0.88rem; color: var(--ink-2); margin-bottom: 8px; }
+
+/* The writing guide's ports (docs/writing-guide.md, section 5), on the pages whose evidence
+   carries "presentation": "writing-guide": the original, the replica and the clean room each in
+   its colour, always with its name and its mark (a square, a triangle, a circle); inputs grey;
+   fMRIPrep's output, which the original made in fMRIPrep's run, in the original's colour. */
+.pmark { display: inline-block; width: 8px; height: 8px; margin-right: 6px; vertical-align: 0; flex: none; background: var(--port-original); }
+.pmark--input { background: var(--port-input); border-radius: 1px; }
+.pmark--replica { background: var(--port-replica); width: 9px; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.pmark--clean-room { background: var(--port-clean-room); border-radius: 50%; }
+.ev-ported .ev-panel.port-input .ev-role { color: var(--port-input); }
+.ev-ported .ev-panel.port-original .ev-role, .ev-ported .ev-panel.port-fmriprep .ev-role { color: var(--port-original); }
+.ev-ported .ev-panel.port-replica .ev-role { color: var(--port-replica); }
+.ev-ported .ev-panel.port-clean-room .ev-role { color: var(--port-clean-room); }
+.ev-shows { margin: 10px 0 12px; padding: 10px 14px; border-left: 3px solid var(--line); background: var(--bg-sunk); border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+.ev-shows p { margin: 0; font-size: 0.95rem; line-height: 1.5; }
+.ev-shows-v { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.ev-shows-v li { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: 0.84rem; color: var(--ink-2); }
+.ev-shows-v .pmark { margin-right: 0; }
+.ev-mtable .cmp-label .pmark { margin-right: 7px; }
+.ev-agree .ev-chart-title .pmark, .ev-ctable th .pmark { margin-right: 7px; }
+.ev-chart-sub { margin: 2px 0 10px; font-size: 0.84rem; line-height: 1.5; color: var(--ink-2); }
+/* speed: the ports' marks, filled at one thread, open at more */
+.ev-ported .dot.s-original { background: var(--port-original); border-radius: 1px; }
+.ev-ported .dot.s-original-open { background: var(--bg-elev); border: 2px solid var(--port-original); border-radius: 1px; }
+.ev-ported .dot.s-clean-room { background: var(--port-clean-room); }
+.ev-ported .dot.s-clean-room-open { background: var(--bg-elev); border: 2px solid var(--port-clean-room); }
+.ev-ported .dot.s-replica, .ev-ported .dot.s-replica-open { background: var(--port-replica); border: 0; border-radius: 0; box-shadow: none;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%); width: 12px; height: 11px; margin: -6px 0 0 -6px; }
+.ev-ported .dot.s-replica-open::after { content: ""; position: absolute; left: 3.2px; right: 3.2px; top: 4.6px; bottom: 1.8px;
+  background: var(--bg-elev); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.ev-ported .ev-band-key .dot.s-replica, .ev-ported .ev-band-key .dot.s-replica-open { margin: 0; }
+/* a title that names programs (FSL bet 6.0.7.23) keeps their letter case: not in capitals */
+.ev-chart.ev-ported > .ev-chart-title { font-family: inherit; font-size: 0.98rem; letter-spacing: 0; text-transform: none;
+  color: var(--ink); font-weight: 600; line-height: 1.4; }
+.ev-chart.ev-ported > .ev-chart-title a { font-weight: 400; }
+.ev-chart.ev-ported > .ev-chart-title code { font-size: 0.92em; }
+/* the input, the original and the two ports in one row where the page is wide enough: five
+   panels side by side at the site's widest column (the comparisons follow in the next row) */
+.ev-ported .ev-panels { grid-template-columns: repeat(auto-fill, minmax(min(100%, 184px), 1fr)); }
+@media (max-width: 760px) { .ev-ported .ev-panels { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
