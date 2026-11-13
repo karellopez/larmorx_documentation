@@ -28,7 +28,7 @@ wide: true
 </ul></dd>
 <dt>Status</dt><dd>replica <span class="status-tag status-tag--plain">validated</span>; clean room <span class="status-tag status-tag--experimental">experimental</span></dd>
 <dt>Records</dt><dd>the replica's: <a href="{{ repo('docs/validation/fsl-bet-replica.md') }}">standard comparison</a> (FSL 6.0.7.23; <code>standard_space_roi</code> and <code>fslroi</code> in it), <a href="{{ repo('docs/validation/fsl-bet-replica-full.md') }}">full comparison</a> (FSL 6.0.7.17) · the clean room's: <a href="{{ repo('docs/validation/fsl-bet.md') }}">fsl-bet</a> (FSL 6.0.7.23) · benchmark <a href="{{ repo('docs/benchmarks/fsl-bet.md') }}">fsl-bet</a></dd>
-<dt>Reference</dt><dd><a href="{{ link('/programs/fsl/bet/') }}"><code>bet</code></a>, <a href="{{ link('/programs/fsl/bet2/') }}"><code>bet2</code></a>, <a href="{{ link('/programs/fsl/betsurf/') }}"><code>betsurf</code></a>, <a href="{{ link('/programs/fsl/standard_space_roi/') }}"><code>standard_space_roi</code></a>, <a href="{{ link('/programs/fsl/fslroi/') }}"><code>fslroi</code></a> · API pages <a href="{{ repo('docs/api/fsl-bet.md') }}">fsl-bet</a>, <a href="{{ repo('docs/api/fsl-roi.md') }}">fsl-roi</a></dd>
+<dt>Reference</dt><dd><a href="{{ link('/programs/fsl/bet/') }}"><code>bet</code></a>, <a href="{{ link('/programs/fsl/bet2/') }}"><code>bet2</code></a>, <a href="{{ link('/programs/fsl/betsurf/') }}"><code>betsurf</code></a>, <a href="{{ link('/programs/fsl/standard_space_roi/') }}"><code>standard_space_roi</code></a>, <a href="{{ link('/programs/fsl/fslroi/') }}"><code>fslroi</code></a> · the API pages <a href="{{ repo('docs/api/fsl-bet.md') }}">fsl-bet</a> and <a href="{{ repo('docs/api/fsl-roi.md') }}">fsl-roi</a></dd>
 </dl>
 
 ## What is compared {#what-it-is}
