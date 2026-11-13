@@ -3,7 +3,7 @@
  "tool": "sdcflows-estimation",
  "title": "sdcflows' field-map estimation: PEPOLAR, direct and fieldmap-less, the masks and the BIDS app",
  "provenance": {
-  "exporter": "b536ce5f5d195fa0351b5da2c4241c0b0cb9614c",
+  "exporter": "937992d34c27e156db9d8a07bfe2ab7456c67365",
   "records": [
    {
     "path": "docs/validation/sdcflows-estimation.json",
@@ -1340,8 +1340,8 @@
  "implementations": [
   {
    "id": "port",
-   "label": "LARMORX (port), against sdcflows 2.17.1, niworkflows, nipype, SciPy, scikit-image, numpy and fMRIPrep 25.2.6's own files",
-   "short": "port",
+   "label": "replica against the originals: sdcflows 2.17.1, niworkflows 1.15.4, SciPy, scikit-image and numpy (standard comparison)",
+   "short": "replica",
    "record": "docs/validation/sdcflows-estimation.md",
    "status": "validated",
    "summary": {
@@ -1495,7 +1495,10 @@
       "bit-identical": 1
      }
     }
-   ]
+   ],
+   "title": "Agreement, replica against the originals: sdcflows 2.17.1, niworkflows 1.15.4, SciPy, scikit-image and numpy",
+   "comparison": "standard comparison",
+   "port": "replica"
   }
  ],
  "cases": [
@@ -1530,7 +1533,7 @@
   {
    "id": "epi-mask",
    "category": "check_epi_mask",
-   "description": "sdcflows' epi_mask on synthetic images and four oracle runs' BOLD references",
+   "description": "sdcflows' epi_mask on synthetic images and four fMRIPrep runs' BOLD references",
    "command": "python -P validation/investigations/sdcflows-fieldmap-b/check_epi_mask.py --sections synthetic,real",
    "results": {
     "port": {
@@ -1586,7 +1589,7 @@
   {
    "id": "contract-audit",
    "category": "relay22/audit_contract",
-   "description": "the part's contract: every registered _core function has its stub, every public function of the part's families its API row, every source file its PROVENANCE line",
+   "description": "the contract of every program: every registered _core function has its stub, every public function of these families its API row, every source file its PROVENANCE line",
    "command": "python -P validation/investigations/sdcflows-fieldmap-b/relay22/audit_contract.py",
    "results": {
     "port": {
@@ -1642,7 +1645,7 @@
   {
    "id": "estimators",
    "category": "check_estimators",
-   "description": "lx.bids' index, sdcflows' wrangler and estimators (datasets below folders named like entities too: SDC-45, PIPE-37), fMRIPrep's estimator selection on every oracle run",
+   "description": "lx.bids' index, sdcflows' wrangler and estimators (datasets below folders named like entities too: SDC-45, PIPE-37), fMRIPrep's estimator selection on every fMRIPrep run",
    "command": "python -P validation/investigations/sdcflows-fieldmap-b/check_estimators.py --sections index,wrangler,units,fmriprep,runs,apps,roots",
    "results": {
     "port": {
@@ -2160,7 +2163,7 @@
   {
    "id": "scipy-inv",
    "category": "check_scipy_inv",
-   "description": "SciPy's inv on 20,000 seeded matrices per family, the edge cases and the oracle runs' image affines",
+   "description": "SciPy's inv on 20,000 seeded matrices per family, the edge cases and the fMRIPrep runs' image affines",
    "command": "python -P validation/investigations/sdcflows-fieldmap-b/check_scipy_inv.py --n 20000",
    "results": {
     "port": {
@@ -2258,7 +2261,7 @@
   {
    "id": "nipype-command-lines",
    "category": "check_nipype",
-   "description": "nipype's command lines of every program on these paths against every oracle run's command.txt",
+   "description": "nipype's command lines of every program on these paths against every fMRIPrep run's command.txt",
    "command": "python -P validation/investigations/sdcflows-fieldmap-b/check_nipype.py",
    "results": {
     "port": {
@@ -2300,7 +2303,7 @@
  ],
  "cases_total": 57,
  "speed": {
-  "title": "Seconds per call (median of 3), log scale; the factor is LARMORX's speed-up over the original at one thread",
+  "title": "Speed, the replica against the originals: sdcflows 2.17.1, niworkflows 1.15.4, SciPy, scikit-image and numpy",
   "axis": [
    0.01,
    1000.0
@@ -2335,17 +2338,20 @@
    {
     "id": "original|1",
     "label": "the original, 1 thread",
-    "mark": "original"
+    "mark": "original",
+    "port": "original"
    },
    {
     "id": "larmorx|1",
-    "label": "LARMORX, 1 thread",
-    "mark": "larmorx"
+    "label": "replica, 1 thread",
+    "mark": "replica",
+    "port": "replica"
    },
    {
     "id": "larmorx|14",
-    "label": "LARMORX, 14 threads",
-    "mark": "larmorx-open"
+    "label": "replica, 14 threads",
+    "mark": "replica-open",
+    "port": "replica"
    }
   ],
   "rows": [
@@ -2444,12 +2450,13 @@
     "speedup": 416.26077786830854
    }
   ],
-  "note": "From the benchmark report `docs/benchmarks/sdcflows-estimation.json` (commit 91fb9e73a6d3, 32 logical CPUs, the newest environment, OPENBLAS_NUM_THREADS=1 as fMRIPrep's nodes; every output byte-identical). The originals have no thread option on these calls. The BIDS app: one run each (minutes), sdcflows' programs run fresh (FSL's topup, ANTs' N4, AFNI's 3dvolreg), LARMORX's replicas and ports at one thread. The random walker that does not converge: a NaN system from its first iteration (an image whose grey closing is 0 everywhere), SciPy's conjugate gradients run to their limit; LARMORX stops with SciPy's solution once nothing can change it (210 s before that change)."
+  "note": "From the benchmark report `docs/benchmarks/sdcflows-estimation.json` (commit 91fb9e73a6d3, 32 logical CPUs, the newest environment, OPENBLAS_NUM_THREADS=1 as fMRIPrep's nodes; every output byte-identical). The originals have no thread option on these calls. The BIDS app: one run each (minutes), sdcflows' programs run fresh (FSL's topup, ANTs' N4, AFNI's 3dvolreg), LARMORX's replicas at one thread. The random walker that does not converge: a NaN system from its first iteration (an image whose grey closing is 0 everywhere), SciPy's conjugate gradients run to their limit; the replica stops with SciPy's solution once nothing can change it (210 s before that change).",
+  "caption": "Seconds per call (the median of three runs, one run for the BIDS app) on a log scale; the factor is the original's time divided by the replica's, both on one thread."
  },
  "tables": [
   {
    "id": "records",
-   "title": "The records of the part: every case passes",
+   "title": "The replica's records against the originals: sdcflows 2.17.1, niworkflows 1.15.4, SciPy, scikit-image and numpy (every case passes)",
    "columns": [
     {
      "label": "Record"
@@ -2458,7 +2465,7 @@
      "label": "Suite"
     },
     {
-     "label": "Tier"
+     "label": "Comparison"
     },
     {
      "label": "Environment"
@@ -2661,11 +2668,11 @@
      "verdict": "bit-identical"
     }
    ],
-   "note": "Each record runs the investigation's check scripts (some of their sections) as separate processes of the environment's interpreter, from a clean commit: one check per summary line a script prints (its cases, all identical), its final line and its exit status. newest: numpy 2.5.4 (OpenBLAS 0.3.34), SciPy 1.18.1 (oracles/python-newest, LARMORX's reference); shared: numpy 2.3.5 (OpenBLAS 0.3.30), SciPy 1.15.3 (the shared .venv). The full tier holds the whole workflows and the BIDS app's whole runs (minutes to an hour each). The originals' step: each comparison of the library scripts with the originals' outputs digested in both environments; every change has a known reason (the table below)."
+   "note": "Each record runs the investigation's check scripts (some of their sections) as separate processes of the environment's interpreter, from a clean commit: one check per summary line a script prints (its cases, all identical), its final line and its exit status. newest: numpy 2.5.4 (OpenBLAS 0.3.34), SciPy 1.18.1 (oracles/python-newest, LARMORX's reference); shared: numpy 2.3.5 (OpenBLAS 0.3.30), SciPy 1.15.3 (the shared .venv). The full comparison holds the whole workflows and the BIDS app's whole runs (minutes to an hour each). The originals' step: each comparison of the library scripts with the originals' outputs digested in both environments; every change has a known reason (the table below)."
   },
   {
    "id": "app-runs",
-   "title": "sdcflows' BIDS app run whole on its eight oracle datasets",
+   "title": "sdcflows' BIDS app whole on the eight datasets of its own runs, the replica against the original: sdcflows 2.17.1",
    "columns": [
     {
      "label": "sdcflows' run"
@@ -2684,7 +2691,7 @@
      "num": true
     },
     {
-     "label": "LARMORX (s)",
+     "label": "replica (s)",
      "num": true
     }
    ],
@@ -2868,11 +2875,11 @@
      "verdict": "bit-identical"
     }
    ],
-   "note": "The records' cases `app-run-*` (check_app.py --sections run): sdcflows 2.17.1's own BIDS app and LARMORX's (`larmorx sdcflows sdcflows`, reproduce) at one thread on the datasets of sdcflows' own oracle runs, with `--no-fmapless`: the exit statuses, the command-line logger's lines, the list of derivative files and every file byte for byte (NIfTI decompressed, the JSON sidecars), the logs folder and the settings file, in both environments. The times: the benchmark (docs/benchmarks/sdcflows-estimation.md; the originals' programs run fresh, LARMORX at one thread), where measured."
+   "note": "The records' cases `app-run-*` (check_app.py --sections run): sdcflows 2.17.1's own BIDS app and the replica's (`larmorx sdcflows sdcflows`, reproduce) at one thread on the datasets of sdcflows' own runs, with `--no-fmapless`: the exit statuses, the command-line logger's lines, the list of derivative files and every file byte for byte (NIfTI decompressed, the JSON sidecars), the logs folder and the settings file, in both environments. The times: the benchmark (docs/benchmarks/sdcflows-estimation.md; the originals' programs run fresh, the replica at one thread), where measured."
   },
   {
    "id": "stage",
-   "title": "fMRIPrep's own field-map derivatives, against LARMORX's stage run as fMRIPrep ran it",
+   "title": "fMRIPrep's field-map derivatives, the replica's stage run as fMRIPrep ran it against fMRIPrep's output",
    "columns": [
     {
      "label": "fMRIPrep's run"
@@ -2894,7 +2901,7 @@
      "num": true
     },
     {
-     "label": "LARMORX's stage"
+     "label": "the replica's stage"
     }
    ],
    "rows": [
@@ -3048,11 +3055,11 @@
      "verdict": "within-variability"
     }
    ],
-   "note": "The cache entry `stage-fmriprep` (check_fmap_stage.py --sections fmriprep, ALL OK): larmorprepx's estimate_fieldmaps with fMRIPrep 25.2.6's options, sdcflows 2.15's PEPOLAR wiring, its image's numpy 2.2.6 and SciPy 1.15.2, LAPACK 3.12.0 in the data sinks and the replicas, against the run's own derivatives in `out/`. A file is identical (data and header, decompressed), or its data are and its header differs only by FSL's build string in `descrip` (fMRIPrep's image's FSL 2501.4, the replicas' FSL 6.0.7.23 2601.0: PRELUDE's and TOPUP's outputs and what copies their headers), or it follows an N4 node that ANTs 2.6.5 reproduces at the node's 8 threads with glibc's maths (fMRIPrep's file) and at one thread with correctly rounded maths (LARMORX's): at most one stored value apart in a few hundred voxels (the magnitude and EPI references, and once a brain mask by 3 voxels). Every difference is explained; the field maps and the coefficients are fMRIPrep's in every run."
+   "note": "The cache entry `stage-fmriprep` (check_fmap_stage.py --sections fmriprep, ALL OK): larmorprepx's estimate_fieldmaps with fMRIPrep 25.2.6's options, sdcflows 2.15's PEPOLAR wiring, its image's numpy 2.2.6 and SciPy 1.15.2, LAPACK 3.12.0 in the data sinks and the replicas, against the run's own derivatives in `out/`. A file is identical (data and header, decompressed), or its data are and its header differs only by FSL's build string in `descrip` (fMRIPrep's image's FSL 2501.4, the replicas' FSL 6.0.7.23 2601.0: PRELUDE's and TOPUP's outputs and what copies their headers), or it follows an N4 node that ANTs 2.6.5 reproduces at the node's 8 threads with glibc's maths (fMRIPrep's file) and at one thread with correctly rounded maths (the replica's): at most one stored value apart in a few hundred voxels (the magnitude and EPI references, and once a brain mask by 3 voxels). Every difference is explained; the field maps and the coefficients are fMRIPrep's in every run."
   },
   {
    "id": "epi-mask",
-   "title": "epi_mask on four BOLD references: SciPy's watershed and the corrected one, against fMRIPrep's brain masks",
+   "title": "epi_mask on four BOLD references, the original and the replica's fix against fMRIPrep's brain masks: sdcflows `epi_mask` 2.17.1",
    "columns": [
     {
      "label": "Reference"
@@ -3074,7 +3081,7 @@
      "num": true
     },
     {
-     "label": "default: voxels",
+     "label": "fix: voxels",
      "num": true
     },
     {
@@ -3089,7 +3096,7 @@
      "label": "reproduce = sdcflows"
     },
     {
-     "label": "named by default"
+     "label": "named by fix"
     }
    ],
    "rows": [
@@ -3250,11 +3257,11 @@
      ]
     }
    ],
-   "note": "The cache entry's runs (sdcflows 2.17.1 and LARMORX in both modes, the newest environment) on fMRIPrep 25.2.6's `desc-hmc_boldref` of four oracle runs; fMRIPrep's `desc-brain_mask` of each run is the independent reference (niworkflows' skull stripping; for ds005040's PEPOLAR run it is the corrected reference's). The corrected masks are better on three references and the same on the fourth, worse on none: rule A (docs/findings/sdcflows-estimation.md, \"epi_mask and SciPy's watershed\"). The default masks larger than fMRIPrep's by thousands of voxels are epi_mask's own `ball(2)` dilation around the brain; no sdcflows or fMRIPrep workflow calls epi_mask."
+   "note": "The cache entry's runs (sdcflows 2.17.1 and the replica in `fix` and in `reproduce`, the newest environment) on fMRIPrep 25.2.6's `desc-hmc_boldref` of four fMRIPrep runs; fMRIPrep's `desc-brain_mask` of each run is the independent reference (niworkflows' skull stripping; for ds005040's PEPOLAR run it is the corrected reference's). The corrected masks are better on three references and the same on the fourth, worse on none: rule A (docs/findings/sdcflows-estimation.md, \"epi_mask and SciPy's watershed\"). The masks of `fix` larger than fMRIPrep's by thousands of voxels are epi_mask's own `ball(2)` dilation around the brain; no sdcflows or fMRIPrep workflow calls epi_mask."
   },
   {
    "id": "corrections",
-   "title": "The originals' defects found by the part (SDC-12 to SDC-46, PIPE-18 to PIPE-40, SCI-06 to SCI-32, SKI-01 to SKI-04)",
+   "title": "Corrections by default, the replica: the originals' defects (SDC-12 to SDC-46, PIPE-18 to PIPE-40, SCI-06 to SCI-32, SKI-01 to SKI-04)",
    "columns": [
     {
      "label": "Entry"
@@ -3272,7 +3279,7 @@
      "label": "fMRIPrep's calls"
     },
     {
-     "label": "What LARMORX does"
+     "label": "What the replica does"
     },
     {
      "label": "Switch"
@@ -3364,7 +3371,7 @@
        "text": "every SyN run (dead work)"
       },
       {
-       "text": "rule C: kept as sdcflows (no result depends on it); larmorx does not compute it"
+       "text": "rule C: kept as sdcflows (no result depends on it); the replica does not compute it"
       },
       {
        "text": "–"
@@ -3640,7 +3647,7 @@
        "text": "none (no workflow calls it)"
       },
       {
-       "text": "D13's rule: clamped (NaN to 0) with a warning; reproduce x86-64's casts"
+       "text": "the rule of the corrections by default: clamped (NaN to 0) with a warning; reproduce x86-64's casts"
       },
       {
        "text": "yes"
@@ -3663,7 +3670,7 @@
        "text": "none (no workflow calls it)"
       },
       {
-       "text": "D13's rule: clamped (NaN 0, infinity 65,535) with a warning; reproduce x86-64's 0"
+       "text": "the rule of the corrections by default: clamped (NaN 0, infinity 65,535) with a warning; reproduce x86-64's 0"
       },
       {
        "text": "yes"
@@ -3916,7 +3923,7 @@
        "text": "every phase-difference and PEPOLAR estimate (probabilities in their last bits)"
       },
       {
-       "text": "rule D measured, then C: kept (14 inputs of the oracle runs: probabilities at most 1.7e-06 apart, the masks on no voxel)"
+       "text": "rule D measured, then C: kept (14 inputs of the fMRIPrep runs: probabilities at most 1.7e-06 apart, the masks on no voxel)"
       },
       {
        "text": "–"
@@ -3939,7 +3946,7 @@
        "text": "none"
       },
       {
-       "text": "larmorx writes no database (nothing to reproduce)"
+       "text": "The replica writes no database (nothing to reproduce)"
       },
       {
        "text": "–"
@@ -4212,7 +4219,7 @@
        "text": "a median absolute deviation of 0 makes the values at the median 0/0, NaN outliers: every leading volume non-steady"
       },
       {
-       "text": "none in the oracle runs (a constant or padded series)"
+       "text": "none in the fMRIPrep runs (a constant or padded series)"
       },
       {
        "text": "rule A: a z-score of 0 at the median; reproduce nipype's"
@@ -4350,10 +4357,10 @@
        "text": "values out of the integer type's range and NaN cast with numpy's cast (undefined in C)"
       },
       {
-       "text": "none in the oracle runs"
+       "text": "none in the fMRIPrep runs"
       },
       {
-       "text": "D13's rule: clamped (NaN to 0) with a warning; reproduce x86-64's casts"
+       "text": "the rule of the corrections by default: clamped (NaN to 0) with a warning; reproduce x86-64's casts"
       },
       {
        "text": "yes"
@@ -4560,7 +4567,7 @@
        "text": "none (fMRIPrep and sdcflows use output_image only)"
       },
       {
-       "text": "rule C: nipype's listing kept (larmorx._nipype.denoise_image; nothing larmorx runs reads it)"
+       "text": "rule C: nipype's listing kept (larmorx._nipype.denoise_image; nothing the replica runs reads it)"
       },
       {
        "text": "–"
@@ -4882,7 +4889,7 @@
        "text": "none (sdcflows' epi_mask only)"
       },
       {
-       "text": "rule A, measured (rule D): corrected by default, reproduce SciPy's; epi_mask's masks better on 3 of 4 oracle references against fMRIPrep's own BOLD masks, the same on 1"
+       "text": "rule A, measured (rule D): corrected by default, reproduce SciPy's; epi_mask's masks better on 3 of 4 references from fMRIPrep's runs against fMRIPrep's own BOLD masks, the same on 1"
       },
       {
        "text": "yes"
@@ -4974,7 +4981,7 @@
        "text": "none"
       },
       {
-       "text": "fixed in SciPy 1.18, which larmorx follows in both modes"
+       "text": "fixed in SciPy 1.18, which the replica follows in both modes"
       },
       {
        "text": "–"
@@ -5135,7 +5142,7 @@
        "text": "none"
       },
       {
-       "text": "fixed in SciPy 1.18.1 (it checks PyErr_Occurred), whose error larmorx gives in both modes"
+       "text": "fixed in SciPy 1.18.1 (it checks PyErr_Occurred), whose error the replica gives in both modes"
       },
       {
        "text": "–"
@@ -5331,7 +5338,7 @@
   },
   {
    "id": "step",
-   "title": "The originals' own step: numpy 2.3.5 / SciPy 1.15.3 → numpy 2.5.4 / SciPy 1.18.1",
+   "title": "Changes, the originals against themselves: numpy 2.3.5 / SciPy 1.15.3 and numpy 2.5.4 / SciPy 1.18.1",
    "columns": [
     {
      "label": "Case"
@@ -5478,29 +5485,29 @@
      ]
     }
    ],
-   "note": "The records' step (python_versions): each comparison of a library script whose originals' outputs are digested, in the shared releases (two runs: none varies) and in the newest. Every change has a known reason, LARMORX following each release: LAPACK-3.12.1: numpy's OpenBLAS 0.3.31 and later bundle LAPACK 3.12.1, whose DLARF1F (dorm2r, dorml2, dgebd2) moves the last bits of numpy.linalg.svd and eigh, so nibabel 5.4.2 writes other NIfTI quaternions (quatern_b, c, d) for some oblique affines (every other byte identical; SCIPY-1.18-INV: SciPy 1.18 rewrote scipy.linalg.inv; NUMPY-2.5-PERCENTILE-RANGE: numpy 2.5 checks percentile's q against [0, 100] before dividing it by 100; SCIPY-1.16-ROW-ORDER: SciPy 1.16 onwards sorts every row of a sparse matrix built through COO (1.15 stored the Laplacian's diagonal after each row's other entries), so scikit-image's random_walker adds the conjugate gradients' products in another order; NUMPY-2.4-SCALAR: numpy 2.4 onwards (2.5.4 here) raises TypeError when an array of one element with ndim > 0 is converted to a scalar ('only 0-dimensional arrays can be converted to Python scalars'; NUMPY-2.5-WRITEBACK-TEXT: numpy 2.5 words the warning it gives when a WRITEBACKIFCOPY copy is freed unresolved 'WRITEBACKIFCOPY detected in clearing of array.' (numpy/_core/src/multiarray/arrayobject.c, _clear_array_attributes); SCIPY-1.16-SCI-17: SciPy 1.16.1 onwards (gh-23293) runs the n-dimensional filter for a 1-D input shorter than half the footprint, where 1.15.3's running rank returned zeros before writing (SCI-17, fixed upstream); SCIPY-1.18-SCI-24: SciPy 1.15.3's running rank returns with a Python error set for an unknown type number (numpy's longlong) and a cval its type cannot take, which CPython turns into a SystemError (SCI-24, fixed in 1.18.1, whose TypeError larmorx gives in both) (sdcflows_scripts.CHANGES, with their sources). The workflow scripts carry no step: their originals (sdcflows 2.17.1, niworkflows, nipype) are the same in both environments, and the libraries' step under them is the library scripts'."
+   "note": "The records' step (python_versions): each comparison of a library script whose originals' outputs are digested, in the shared releases (two runs: none varies) and in the newest. Every change has a known reason, the replica following each release: LAPACK-3.12.1: numpy's OpenBLAS 0.3.31 and later bundle LAPACK 3.12.1, whose DLARF1F (dorm2r, dorml2, dgebd2) moves the last bits of numpy.linalg.svd and eigh, so nibabel 5.4.2 writes other NIfTI quaternions (quatern_b, c, d) for some oblique affines (every other byte identical; SCIPY-1.18-INV: SciPy 1.18 rewrote scipy.linalg.inv; NUMPY-2.5-PERCENTILE-RANGE: numpy 2.5 checks percentile's q against [0, 100] before dividing it by 100; SCIPY-1.16-ROW-ORDER: SciPy 1.16 onwards sorts every row of a sparse matrix built through COO (1.15 stored the Laplacian's diagonal after each row's other entries), so scikit-image's random_walker adds the conjugate gradients' products in another order; NUMPY-2.4-SCALAR: numpy 2.4 onwards (2.5.4 here) raises TypeError when an array of one element with ndim > 0 is converted to a scalar ('only 0-dimensional arrays can be converted to Python scalars'; NUMPY-2.5-WRITEBACK-TEXT: numpy 2.5 words the warning it gives when a WRITEBACKIFCOPY copy is freed unresolved 'WRITEBACKIFCOPY detected in clearing of array.' (numpy/_core/src/multiarray/arrayobject.c, _clear_array_attributes); SCIPY-1.16-SCI-17: SciPy 1.16.1 onwards (gh-23293) runs the n-dimensional filter for a 1-D input shorter than half the footprint, where 1.15.3's running rank returned zeros before writing (SCI-17, fixed upstream); SCIPY-1.18-SCI-24: SciPy 1.15.3's running rank returns with a Python error set for an unknown type number (numpy's longlong) and a cval its type cannot take, which CPython turns into a SystemError (SCI-24, fixed in 1.18.1, whose TypeError the replica gives in both) (sdcflows_scripts.CHANGES, with their sources). The workflow scripts carry no step: their originals (sdcflows 2.17.1, niworkflows, nipype) are the same in both environments, and the libraries' step under them is the library scripts'."
   },
   {
    "id": "memory",
-   "title": "Peak memory (MiB): the memory rule's calls of the part, one thread",
+   "title": "Peak memory, the replica against the originals (MiB, the memory rule's calls, one thread)",
    "columns": [
     {
      "label": "Call"
     },
     {
-     "label": "The original",
+     "label": "the original",
      "num": true
     },
     {
-     "label": "LARMORX, reproduce",
+     "label": "replica, reproduce",
      "num": true
     },
     {
-     "label": "LARMORX, default",
+     "label": "replica, fix",
      "num": true
     },
     {
-     "label": "LARMORX ÷ the original",
+     "label": "replica ÷ the original",
      "num": true
     }
    ],
@@ -5590,11 +5597,11 @@
      ]
     }
    ],
-   "note": "Each call in a process of its own (validation/investigations/sdcflows-fieldmap-b/memory_call.py, the calls of tests/parity/test_memory_peak.py), its peak resident memory from /usr/bin/time -v, in the newest environment at one thread. The rule: at most 10 % above the original's peak plus 8 MiB. sdcflows' brain_masker holds the random walker's Laplacian several times (SciPy's sparse matrices, scikit-image's copies), LARMORX once; fMRIPrep's ReconstructFieldmap holds nitransforms' sampling grids in float64."
+   "note": "Each call in a process of its own (validation/investigations/sdcflows-fieldmap-b/memory_call.py, the calls of tests/parity/test_memory_peak.py), its peak resident memory from /usr/bin/time -v, in the newest environment at one thread. The rule: at most 10 % above the original's peak plus 8 MiB. sdcflows' brain_masker holds the random walker's Laplacian several times (SciPy's sparse matrices, scikit-image's copies), the replica once; fMRIPrep's ReconstructFieldmap holds nitransforms' sampling grids in float64."
   },
   {
    "id": "trial",
-   "title": "Random testing: the part's two trials",
+   "title": "Random testing, the replica against the originals: sdcflows 2.17.1, niworkflows 1.15.4, SciPy, scikit-image and numpy (the two runs of 2026-11-09)",
    "columns": [
     {
      "label": ""
@@ -5667,7 +5674,7 @@
      ]
     },
     {
-     "head": "seed, LARMORX commit",
+     "head": "seed, the replica's commit",
      "cells": [
       {
        "text": "fmapb-trial, e88326b608fc"
@@ -5678,11 +5685,11 @@
      ]
     }
    ],
-   "note": "Differential random testing (docs/validation/difftest.md): random inputs and options for SciPy's ndimage and scikit-image (filters, morphology, labels, the random walker, Otsu), numpy's statistics, niworkflows' helpers with nipype's command lines, and sdcflows' estimation steps, masks, readout times and derivatives; the originals in-process, LARMORX in its reproduce mode compared output by output, its default mode checked by D13's rule. `skipped`: calls the descriptor does not compare (an input the original refuses in a way it cannot run twice, or a program not drawn); `timeout`: sdcflows' brain_masker cases whose random walker does not converge, slower than the case's limit in the original (the benchmark's last row): replayed, every one agrees. The second trial turns numpy's AVX-512 kernels off (NPY_DISABLE_CPU_FEATURES)."
+   "note": "The replica's random testing (docs/validation/difftest.md): random inputs and options for SciPy's ndimage and scikit-image (filters, morphology, labels, the random walker, Otsu), numpy's statistics, niworkflows' helpers with nipype's command lines, and sdcflows' estimation steps, masks, readout times and derivatives; the originals in-process, the replica in `reproduce` compared output by output, its default, `fix`, checked by the rule of the corrections by default. `skipped`: calls the descriptor does not compare (an input the original refuses in a way it cannot run twice, or a program not drawn); `timeout`: sdcflows' brain_masker cases whose random walker does not converge, slower than the case's limit in the original (the benchmark's last row): replayed, every one agrees. The second run turns numpy's AVX-512 kernels off (NPY_DISABLE_CPU_FEATURES)."
   },
   {
    "id": "triage",
-   "title": "Random testing: every difference of the part's runs, triaged",
+   "title": "The replica's differences from the originals in the runs of 2026-11-09, triaged",
    "columns": [
     {
      "label": "Status"
@@ -5705,7 +5712,7 @@
        "text": "ndimage-skimage"
       },
       {
-       "text": "an iterated binary_erosion with an int8 mask (try1 120): SciPy's propagation strategy uses the caller's int8 mask as its scratch (np.asarray to int8 does not copy it), so the larmorx side, given the same array after SciPy's call, saw another mask; each side now builds its own arguments, compared afterwards too, and SCI-31 is registered (rule A: the mask left as given; reproduce writes SciPy's values; binary_closing'…"
+       "text": "an iterated binary_erosion with an int8 mask (try1 120): SciPy's propagation strategy uses the caller's int8 mask as its scratch (np.asarray to int8 does not copy it), so the the replica side, given the same array after SciPy's call, saw another mask; each side now builds its own arguments, compared afterwards too, and SCI-31 is registered (rule A: the mask left as given; reproduce writes SciPy's values; binary_closing'…"
       },
       {
        "text": "SCI-31"
@@ -5720,7 +5727,7 @@
        "text": "ndimage-skimage"
       },
       {
-       "text": "fmapb-try1 2984 (binary_propagation with origin [0, -1, 1]) and two worker deaths (fmapb-try1 2721: abort; malloc(): unsorted double linked list corrupted): SciPy's dilation propagation strategy with a non-zero origin reads and writes outside its arrays (relay27/probe_sci32.py, one process per case: results other than its brute force, aborts, segmentation faults; larmorx = the brute force); registered as SCI-32 (mem…"
+       "text": "fmapb-try1 2984 (binary_propagation with origin [0, -1, 1]) and two worker deaths (fmapb-try1 2721: abort; malloc(): unsorted double linked list corrupted): SciPy's dilation propagation strategy with a non-zero origin reads and writes outside its arrays (relay27/probe_sci32.py, one process per case: results other than its brute force, aborts, segmentation faults; the replica = the brute force); registered as SCI-32 (mem…"
       },
       {
        "text": "SCI-32"
@@ -5735,7 +5742,7 @@
        "text": "ndimage-skimage"
       },
       {
-       "text": "random_walker(mode='cg_mg') with no label 0 (try3 380, AVX-512 off): scikit-image returns before it names the mode it replaces (its _solve_linear_system); larmorx warned about pyamg first: the mode warnings now follow the early returns"
+       "text": "random_walker(mode='cg_mg') with no label 0 (try3 380, AVX-512 off): scikit-image returns before it names the mode it replaces (its _solve_linear_system); the replica warned about pyamg first: the mode warnings now follow the early returns"
       },
       {
        "text": "–"
@@ -5750,7 +5757,7 @@
        "text": "ndimage-skimage"
       },
       {
-       "text": "binary_opening with a uint16 mask (fmapb-try2 1211): its erosion step differs between the modes (SCI-10's int8 cast) but the opening does not; larmorx named the step's defect: binary_opening and binary_closing name their steps' defects only where the result (or the caller's mask) changes"
+       "text": "binary_opening with a uint16 mask (fmapb-try2 1211): its erosion step differs between the modes (SCI-10's int8 cast) but the opening does not; the replica named the step's defect: binary_opening and binary_closing name their steps' defects only where the result (or the caller's mask) changes"
       },
       {
        "text": "–"
@@ -5765,7 +5772,7 @@
        "text": "niworkflows-helpers"
       },
       {
-       "text": "DenoiseImage without save_noise (try1 35, 41): nipype lists noise_image (<in>_noise) as it lists every name_source output, a file the program does not write; larmorx's formatter left it out; rule C: nipype's listing kept"
+       "text": "DenoiseImage without save_noise (try1 35, 41): nipype lists noise_image (<in>_noise) as it lists every name_source output, a file the program does not write; the replica's formatter left it out; rule C: nipype's listing kept"
       },
       {
        "text": "PIPE-38"
@@ -5780,7 +5787,7 @@
        "text": "niworkflows-helpers"
       },
       {
-       "text": "antsApplyTransforms with print_out_composite_warp_file and no output_image (fmapb-try1 284, 1719, 1782): nipype's requires check refuses it; larmorx._nipype documents that nipype's requires checks that do not change a line are not ported (nothing larmorx runs reaches them); the draw now gives the option with output_image only"
+       "text": "antsApplyTransforms with print_out_composite_warp_file and no output_image (fmapb-try1 284, 1719, 1782): nipype's requires check refuses it; larmorx._nipype documents that nipype's requires checks that do not change a line are not ported (nothing the replica runs reaches them); the draw now gives the option with output_image only"
       },
       {
        "text": "–"
@@ -5795,7 +5802,7 @@
        "text": "niworkflows-helpers"
       },
       {
-       "text": "IntraModalMerge with to_ras, grand_mean_scaling and in_mask (fmapb-try1 114, 377): niworkflows reorients the series to RAS but not the mask (and its indexing fails anyway: PIPE-18); larmorx's fix raised a ValueError naming no defect; registered as PIPE-40 (rule A: the mask reoriented with the series, named)"
+       "text": "IntraModalMerge with to_ras, grand_mean_scaling and in_mask (fmapb-try1 114, 377): niworkflows reorients the series to RAS but not the mask (and its indexing fails anyway: PIPE-18); the replica's fix raised a ValueError naming no defect; registered as PIPE-40 (rule A: the mask reoriented with the series, named)"
       },
       {
        "text": "PIPE-40"
@@ -5810,7 +5817,7 @@
        "text": "sdcflows-estimation"
       },
       {
-       "text": "GetReadoutTime of a string TotalReadoutTime and of an invalid PhaseEncodingDirection (try1 19, 30, 149): nipype's traits raise TraitError with its message, larmorx a TypeError of its own words or no error; larmorx now checks the outputs as traits do (larmorx._nipype.TraitError; DistortionParameters too), in declared order: nipype's order is a set's (PIPE-39, nondeterministic), so the comparison checks the original's…"
+       "text": "GetReadoutTime of a string TotalReadoutTime and of an invalid PhaseEncodingDirection (try1 19, 30, 149): nipype's traits raise TraitError with its message, the replica a TypeError of its own words or no error; the replica now checks the outputs as traits do (larmorx._nipype.TraitError; DistortionParameters too), in declared order: nipype's order is a set's (PIPE-39, nondeterministic), so the comparison checks the original's…"
       },
       {
        "text": "–"
@@ -5840,7 +5847,7 @@
        "text": "sdcflows-estimation"
       },
       {
-       "text": "UniformGrid of a 4-D image on another grid (try1 59, 103, 181): nitransforms' map_coordinates raises SciPy's RuntimeError('invalid shape for coordinate array'); larmorx refused with NotImplementedError: it now lets its map_coordinates raise SciPy's error"
+       "text": "UniformGrid of a 4-D image on another grid (try1 59, 103, 181): nitransforms' map_coordinates raises SciPy's RuntimeError('invalid shape for coordinate array'); the replica refused with NotImplementedError: it now lets its map_coordinates raise SciPy's error"
       },
       {
        "text": "–"
@@ -5855,7 +5862,7 @@
        "text": "sdcflows-estimation"
       },
       {
-       "text": "brain_masker of an image with no positive value (try1 15, 183): numpy's IndexError of the empty array's percentile; larmorx's binding raised it as ValueError (SdcError::Index now)"
+       "text": "brain_masker of an image with no positive value (try1 15, 183): numpy's IndexError of the empty array's percentile; the replica's binding raised it as ValueError (SdcError::Index now)"
       },
       {
        "text": "–"
@@ -5870,7 +5877,7 @@
        "text": "sdcflows-estimation"
       },
       {
-       "text": "brain_masker with padding=0 (try1 104): sdcflows crops with [..., 0:-0, ...] and writes empty probability and mask images, the brain unmasked; larmorx wrote the whole image's; registered as SDC-46 (rule A, reproduce = sdcflows' files)"
+       "text": "brain_masker with padding=0 (try1 104): sdcflows crops with [..., 0:-0, ...] and writes empty probability and mask images, the brain unmasked; the replica wrote the whole image's; registered as SDC-46 (rule A, reproduce = sdcflows' files)"
       },
       {
        "text": "SDC-46"
@@ -5885,7 +5892,7 @@
        "text": "sdcflows-estimation"
       },
       {
-       "text": "match_histogram of an unsigned image with a float reference, reproduced (try1 134): numpy's bincount message names nibabel's dtype('<f4'), larmorx's native dtype('float32'); larmorx now keeps nibabel's data types (the header's byte order) for unscaled data"
+       "text": "match_histogram of an unsigned image with a float reference, reproduced (try1 134): numpy's bincount message names nibabel's dtype('<f4'), the replica's native dtype('float32'); the replica now keeps nibabel's data types (the header's byte order) for unscaled data"
       },
       {
        "text": "–"
@@ -5900,7 +5907,7 @@
        "text": "sdcflows-estimation"
       },
       {
-       "text": "epi_mask (fmapb-try1: 15 cases): the watershed's labels differ between the modes only where the brain's dilated label is the same, and larmorx named SCI-13, SCI-14 without a change; epi_mask now names them only when its mask changes (check_epi_mask's own rule)"
+       "text": "epi_mask (fmapb-try1: 15 cases): the watershed's labels differ between the modes only where the brain's dilated label is the same, and the replica named SCI-13, SCI-14 without a change; epi_mask now names them only when its mask changes (check_epi_mask's own rule)"
       },
       {
        "text": "–"
@@ -5930,7 +5937,7 @@
        "text": "sdcflows-estimation"
       },
       {
-       "text": "ReorientImageAndMetadata of an affine whose rotation has two equal candidates (fmapb-try2 725): nibabel's io_orientation (numpy's SVD, LAPACK 3.12.1 in the newest environment) picks the axis; larmorx used a platform-independent SVD (another axis: other directions and dim_info); it now uses lx.io.nibabel_header.io_orientation (aff2axcodes too)"
+       "text": "ReorientImageAndMetadata of an affine whose rotation has two equal candidates (fmapb-try2 725): nibabel's io_orientation (numpy's SVD, LAPACK 3.12.1 in the newest environment) picks the axis; the replica used a platform-independent SVD (another axis: other directions and dim_info); it now uses lx.io.nibabel_header.io_orientation (aff2axcodes too)"
       },
       {
        "text": "–"
@@ -5945,7 +5952,7 @@
        "text": "sdcflows-estimation"
       },
       {
-       "text": "brain_masker cases whose random walker does not converge (fmapb-try1 216, 492): SciPy's conjugate gradients run to their limit (2 x 162,120 iterations), 23 s in sdcflows and 209 s in larmorx at one thread (relay27/slow_masker_*.py): no result within the 240 s limit; the limit is 900 s and brain_masker drawn less often; in the trial 8 of 518 brain_masker cases still had no result within 900 s (the walkers that do not…"
+       "text": "brain_masker cases whose random walker does not converge (fmapb-try1 216, 492): SciPy's conjugate gradients run to their limit (2 x 162,120 iterations), 23 s in sdcflows and 209 s in the replica at one thread (relay27/slow_masker_*.py): no result within the 240 s limit; the limit is 900 s and brain_masker drawn less often; in the run 8 of 518 brain_masker cases still had no result within 900 s (the walkers that do not…"
       },
       {
        "text": "–"
@@ -5954,14 +5961,14 @@
      "sub": "validation/investigations/sdcflows-fieldmap-b/relay28/replay_masker_cases.py"
     }
    ],
-   "note": "validation/difftest/triage.toml (the field maps' part B, 2026-11-09): each difference of the short runs before the trials and of the trials themselves, a LARMORX mistake fixed with a permanent case, a defect of the original registered by the rules A to D, or a slow original."
+   "note": "validation/difftest/triage.toml (2026-11-09): each difference of the short runs before the two runs and of the two runs themselves, a mistake of the replica's fixed with a permanent case, a defect of the original registered by the rules A to D, or a slow original."
   }
  ],
  "examples": [
   {
    "id": "app-ds006736",
    "title": "PEPOLAR: sdcflows' BIDS app on ds006736's AP/PA pair (TOPUP)",
-   "summary": "sdcflows' BIDS app on ds006736 (a spin-echo PEPOLAR pair (one AP and one PA volume) at 3 T): the two EPIs' first volumes regridded to one grid, merged and given to FSL's topup (its `b02b0` settings), the field and its coefficients reoriented back, the corrected reference averaged by niworkflows' RobustAverage (AFNI's 3dvolreg) and skull-stripped (IntensityClip, ANTs' N4, sdcflows' brain_masker). sdcflows 2.17.1 and LARMORX run the whole app; fMRIPrep 25.2.6's own derivatives of the same data are compared with LARMORX's field-map stage run as fMRIPrep ran it, and sdcflows' own run at four threads is the original's own spread.",
+   "summary": "sdcflows' BIDS app on ds006736 (a spin-echo PEPOLAR pair (one AP and one PA volume) at 3 T): the two EPIs' first volumes regridded to one grid, merged and given to FSL's topup (its `b02b0` settings), the field and its coefficients reoriented back, the corrected reference averaged by niworkflows' RobustAverage (AFNI's 3dvolreg) and skull-stripped (IntensityClip, ANTs' N4, sdcflows' brain_masker). sdcflows 2.17.1 and the replica run the whole app; fMRIPrep 25.2.6's own derivatives of the same data are compared with the replica's field-map stage run as fMRIPrep ran it, and sdcflows' own run at four threads is the original's own spread.",
    "facts": [
     {
      "label": "Data",
@@ -5969,19 +5976,19 @@
     },
     {
      "label": "Command",
-     "text": "`sdcflows <bids> <out> participant --participant-label 004 --nprocs 1 --omp-nthreads 1 --no-fmapless`; LARMORX: `larmorx sdcflows sdcflows` with the same arguments (`lx.sdcflows.run_app`)"
+     "text": "`sdcflows <bids> <out> participant --participant-label 004 --nprocs 1 --omp-nthreads 1 --no-fmapless`; the replica: `larmorx sdcflows sdcflows` with the same arguments (`lx.sdcflows.run_app`)"
     },
     {
      "label": "Coefficients",
-     "text": "the 74 × 64 × 58 coefficients (`desc-coeff`): LARMORX's equal sdcflows' at one thread, at 14 threads too; the default mode's differ (its corrections, below); as fMRIPrep ran the stage, fMRIPrep's own file, every value (TOPUP's own coefficients on the field map's grid, reoriented by TOPUPCoeffReorient)"
+     "text": "the 74 × 64 × 58 coefficients (`desc-coeff`): the replica's equal sdcflows' at one thread, at 14 threads too; those of `fix`, the default, differ (its corrections, below); as fMRIPrep ran the stage, fMRIPrep's own file, every value (TOPUP's own coefficients on the field map's grid, reoriented by TOPUPCoeffReorient)"
     },
     {
      "label": "Programs",
-     "text": "sdcflows 2.17.1 in its BIDS app (the newest environment), its programs through the oracle cache; LARMORX at commit `682ca1f16151`; numpy's OpenBLAS on its Haswell kernels, one thread"
+     "text": "sdcflows 2.17.1 in its BIDS app (the newest environment), its programs through the cache of the original's runs; the replica at commit `682ca1f16151`; numpy's OpenBLAS on its Haswell kernels, one thread"
     },
     {
      "label": "Time",
-     "text": "both apps at one thread 79 s (check_app.py, sdcflows' programs from the oracle cache); LARMORX at 14 threads 55 s (informal: the benchmark below has the medians)"
+     "text": "both apps at one thread 79 s (check_app.py, sdcflows' programs from the cache of the original's runs); the replica at 14 threads 55 s (informal: the benchmark below has the medians)"
     },
     {
      "label": "Grid",
@@ -6182,7 +6189,8 @@
      "window": [
       12.0,
       1065.800000000003
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "epi-PA",
@@ -6199,13 +6207,14 @@
      "window": [
       12.0,
       1005.0
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "sdcflows",
      "role": "original",
-     "label": "sdcflows 2.17.1, 1 thread",
-     "sub": "its BIDS app; numpy 2.5.4, SciPy 1.18.1; FSL 6.0.7.23's topup, ANTs 2.6.5's N4 (one thread, correctly rounded maths), AFNI 26.3.05's 3dvolreg: LARMORX's reference",
+     "label": "sdcflows 2.17.1",
+     "sub": "1 thread · its BIDS app; numpy 2.5.4, SciPy 1.18.1; FSL 6.0.7.23's topup, ANTs 2.6.5's N4 (one thread, correctly rounded maths), AFNI 26.3.05's 3dvolreg: LARMORX's reference",
      "arrays": {
       "fmap": {
        "blob": "bd52c7598de16cba936f32d8.bin",
@@ -6254,13 +6263,14 @@
        0.0,
        1.0
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "larmorx",
      "role": "larmorx",
-     "label": "LARMORX (port), 1 thread",
-     "sub": "its BIDS app, reproduce mode; LARMORX's replicas and ports underneath",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 1 thread, its BIDS app, reproduce; LARMORX's replicas underneath · against sdcflows 2.17.1",
      "arrays": {
       "fmap": {
        "same": "sdcflows:fmap",
@@ -6305,13 +6315,14 @@
        0.0,
        1.0
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-14",
      "role": "larmorx",
-     "label": "LARMORX (port), 14 threads",
-     "sub": "reproduce mode",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 14 threads, reproduce",
      "arrays": {
       "fmap": {
        "same": "sdcflows:fmap",
@@ -6356,13 +6367,14 @@
        0.0,
        1.0
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-fix",
      "role": "larmorx",
-     "label": "LARMORX (port), 14 threads",
-     "sub": "default mode (D13 corrections)",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 14 threads, fix (the default)",
      "arrays": {
       "fmap": {
        "blob": "a560cbb303aa6d6bb89c0911.bin",
@@ -6419,13 +6431,14 @@
        0.0,
        1.0
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "fmriprep",
      "role": "fmriprep",
-     "label": "fMRIPrep 25.2.6's own files",
-     "sub": "sdcflows 2.15.1 in its image (numpy 2.2.6, SciPy 1.15.2); N4 at 8 threads, glibc's maths",
+     "label": "fMRIPrep's output",
+     "sub": "fMRIPrep 25.2.6's own files: sdcflows 2.15.1 in its image (numpy 2.2.6, SciPy 1.15.2); N4 at 8 threads, glibc's maths",
      "arrays": {
       "fmap": {
        "blob": "173bd54f6f46a2ccad8cb54a.bin",
@@ -6482,13 +6495,14 @@
        0.0,
        1.0
       ]
-     }
+     },
+     "port": "fmriprep"
     },
     {
      "id": "larmorx-fmriprep",
      "role": "larmorx",
-     "label": "LARMORX (port), as fMRIPrep ran the stage",
-     "sub": "sdcflows 2.15's wiring, fMRIPrep's image's numpy and SciPy, the replicas; reproduce mode",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · as fMRIPrep ran the stage, sdcflows 2.15's wiring, fMRIPrep's image's numpy and SciPy, the replicas; reproduce",
      "arrays": {
       "fmap": {
        "same": "fmriprep:fmap",
@@ -6539,13 +6553,14 @@
        0.0,
        1.0
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "sdcflows-4",
      "role": "original",
-     "label": "sdcflows 2.17.1, 4 threads",
-     "sub": "its own oracle run (--nprocs 4 --omp-nthreads 4, RUN_INFO.txt)",
+     "label": "sdcflows 2.17.1",
+     "sub": "4 threads · its own run (--nprocs 4 --omp-nthreads 4, RUN_INFO.txt)",
      "arrays": {
       "fmap": {
        "same": "sdcflows:fmap",
@@ -6596,7 +6611,8 @@
        0.0,
        1.0
       ]
-     }
+     },
+     "port": "original"
     }
    ],
    "diffs": [
@@ -6605,8 +6621,8 @@
      "a": "larmorx",
      "b": "sdcflows",
      "kind": "main",
-     "label": "LARMORX − sdcflows 2.17.1 (both one thread)",
-     "role_label": "larmorx against the original",
+     "label": "replica − sdcflows 2.17.1 (both one thread)",
+     "role_label": "the replica against the original",
      "metrics": {
       "fmap": {
        "identical": true,
@@ -6733,15 +6749,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "Every value of the four outputs is sdcflows' (and every derivative file, byte for byte: the cache entry's check_app.py run), with LARMORX's replicas and ports underneath: FSL's topup, AFNI's 3dvolreg (niworkflows' RobustAverage), ANTs' N4, sdcflows' masks and the TOPUP coefficients' reorientation."
+     "reason": "Every value of the four outputs is sdcflows' (and every derivative file, byte for byte: the cache entry's check_app.py run), with LARMORX's replicas underneath: FSL's topup, AFNI's 3dvolreg (niworkflows' RobustAverage), ANTs' N4, sdcflows' masks and the TOPUP coefficients' reorientation.",
+     "port": "replica"
     },
     {
      "id": "lxf-fmriprep",
      "a": "larmorx-fmriprep",
      "b": "fmriprep",
      "kind": "fmriprep",
-     "label": "LARMORX as fMRIPrep ran the stage − fMRIPrep 25.2.6's own files",
-     "role_label": "larmorx against fMRIPrep",
+     "label": "replica as fMRIPrep ran the stage − fMRIPrep's output",
+     "role_label": "the replica against fMRIPrep's output",
      "metrics": {
       "fmap": {
        "identical": true,
@@ -6872,15 +6889,16 @@
      },
      "links": [],
      "verdict": "within-variability",
-     "reason": "Within the original's own variability: fMRIPrep's N4 node ran at 8 threads with glibc's exp and log, LARMORX's at one thread with correctly rounded maths (as ANTs' at one thread); ANTs 2.6.5 at the node's 8 threads with glibc gives fMRIPrep's N4 output, at one thread with correctly rounded maths LARMORX's (the cache entry's check_fmap_stage.py --sections fmriprep: every derivative identical, its data identical with only FSL's build string in `descrip`, or after such an N4 node: 1 file of this run); the reference, its brain probability and mask follow from N4's output: EPI reference (`desc-epi`): 302 of 274,688 values differ, at most 1 apart; Brain probability (the masker node): 245,722 of 274,688 values differ, at most 0.00755 apart."
+     "reason": "Within the original's own variability: fMRIPrep's N4 node ran at 8 threads with glibc's exp and log, the replica's at one thread with correctly rounded maths (as ANTs' at one thread); ANTs 2.6.5 at the node's 8 threads with glibc gives fMRIPrep's N4 output, at one thread with correctly rounded maths the replica's (the cache entry's check_fmap_stage.py --sections fmriprep: every derivative identical, its data identical with only FSL's build string in `descrip`, or after such an N4 node: 1 file of this run); the reference, its brain probability and mask follow from N4's output: EPI reference (`desc-epi`): 302 of 274,688 values differ, at most 1 apart; Brain probability (the masker node): 245,722 of 274,688 values differ, at most 0.00755 apart.",
+     "port": "replica"
     },
     {
      "id": "lx14-lx1",
      "a": "larmorx-14",
      "b": "larmorx",
      "kind": "check",
-     "label": "LARMORX (reproduce): 14 threads − 1 thread",
-     "role_label": "larmorx against itself",
+     "label": "replica, reproduce: 14 threads − 1 thread",
+     "role_label": "the replica against itself: 1 and 14 threads",
      "metrics": {
       "fmap": {
        "identical": true,
@@ -7007,15 +7025,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "The same bytes at 1 and 14 threads (every sum in sdcflows' order, whatever the thread count)."
+     "reason": "The same bytes at 1 and 14 threads (every sum in sdcflows' order, whatever the thread count).",
+     "port": "replica"
     },
     {
      "id": "fix-lx14",
      "a": "larmorx-fix",
      "b": "larmorx-14",
      "kind": "check",
-     "label": "LARMORX at 14 threads: default − reproduce mode",
-     "role_label": "larmorx against itself",
+     "label": "replica at 14 threads: fix − reproduce",
+     "role_label": "the replica against itself: fix and reproduce",
      "metrics": {
       "fmap": {
        "identical": false,
@@ -7158,7 +7177,8 @@
      },
      "links": [],
      "verdict": "d13",
-     "reason": "The default mode corrects AFNI-99 (3dvolreg: -maxdisp and -savedisp convert the matrix to the dataset's axes with their signs but leave the voxel positions unsigned: for an axis stored L2R, P2A or S2I the…); ANTS-40 (N4BiasFieldCorrection: the voxels N4 uses whose value is 0 or negative stay in its log image as they are (0, the log of an intensity of 1), inside the histogram it sharp…); FSL-201 (topup: with --estmov=1, the derivatives of the predicted volumes with respect to the rotations are forward differences (a step of 1e-5 rad) of rotation matrices built wi…) and names them: Field map (Hz, `desc-preproc`): 274,679 of 274,688 values differ, at most 0.692 apart; EPI reference (`desc-epi`): 106,176 of 274,688 values differ, at most 102 apart; Brain probability (the masker node): 246,692 of 274,688 values differ, at most 0.137 apart; Brain mask (`desc-brain`): 203 of 274,688 values differ, at most 1 apart."
+     "reason": "The default, `fix`, corrects AFNI-99 (3dvolreg: -maxdisp and -savedisp convert the matrix to the dataset's axes with their signs but leave the voxel positions unsigned: for an axis stored L2R, P2A or S2I the…); ANTS-40 (N4BiasFieldCorrection: the voxels N4 uses whose value is 0 or negative stay in its log image as they are (0, the log of an intensity of 1), inside the histogram it sharp…); FSL-201 (topup: with --estmov=1, the derivatives of the predicted volumes with respect to the rotations are forward differences (a step of 1e-5 rad) of rotation matrices built wi…) and names them: Field map (Hz, `desc-preproc`): 274,679 of 274,688 values differ, at most 0.692 apart; EPI reference (`desc-epi`): 106,176 of 274,688 values differ, at most 102 apart; Brain probability (the masker node): 246,692 of 274,688 values differ, at most 0.137 apart; Brain mask (`desc-brain`): 203 of 274,688 values differ, at most 1 apart.",
+     "port": "replica"
     },
     {
      "id": "sdc4-sdc1",
@@ -7166,7 +7186,7 @@
      "b": "sdcflows",
      "kind": "variability",
      "label": "sdcflows: its own run at 4 threads − 1 thread",
-     "role_label": "the original against itself",
+     "role_label": "the original against itself: 1 and 4 threads",
      "metrics": {
       "fmap": {
        "identical": true,
@@ -7301,15 +7321,16 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The original against itself, a reference row: sdcflows' own run of 2026-11-08 at four threads (`--nprocs 4 --omp-nthreads 4`; ANTs' N4 then sums in another order) gives other values than at one thread: EPI reference (`desc-epi`): 8 of 274,688 values differ, at most 1 apart; Brain probability (the masker node): 235,162 of 274,688 values differ, at most 0.00102 apart."
+     "reason": "For reference, the original against itself: sdcflows' own run of 2026-11-08 at four threads (`--nprocs 4 --omp-nthreads 4`; ANTs' N4 then sums in another order) gives other values than at one thread: EPI reference (`desc-epi`): 8 of 274,688 values differ, at most 1 apart; Brain probability (the masker node): 235,162 of 274,688 values differ, at most 0.00102 apart.",
+     "port": "original"
     },
     {
      "id": "fmriprep-sdc",
      "a": "fmriprep",
      "b": "sdcflows",
      "kind": "variability",
-     "label": "fMRIPrep 25.2.6's own files − sdcflows 2.17.1 with the newest releases",
-     "role_label": "the original against itself",
+     "label": "fMRIPrep's output − sdcflows 2.17.1, 1 thread",
+     "role_label": "the original against itself: versions 2.15.1 and 2.17.1, with their libraries",
      "metrics": {
       "fmap": {
        "identical": false,
@@ -7452,7 +7473,8 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The version step, a reference row (the originals against each other): fMRIPrep 25.2.6 runs sdcflows 2.15.1's PEPOLAR wiring with its image's numpy 2.2.6 and SciPy 1.15.2 and N4 at 8 threads with glibc's maths, sdcflows 2.17.1 here its own with the newest releases; LARMORX follows both (the first two rows): Field map (Hz, `desc-preproc`): 274,687 of 274,688 values differ, at most 145 apart; EPI reference (`desc-epi`): 130,359 of 274,688 values differ, at most 187 apart; Brain probability (the masker node): 246,881 of 274,688 values differ, at most 0.168 apart; Brain mask (`desc-brain`): 467 of 274,688 values differ, at most 1 apart."
+     "reason": "For reference, the step between the originals' versions: fMRIPrep 25.2.6 runs sdcflows 2.15.1's PEPOLAR wiring with its image's numpy 2.2.6 and SciPy 1.15.2 and N4 at 8 threads with glibc's maths, sdcflows 2.17.1 here its own with the newest releases; the replica follows both (the first two rows): Field map (Hz, `desc-preproc`): 274,687 of 274,688 values differ, at most 145 apart; EPI reference (`desc-epi`): 130,359 of 274,688 values differ, at most 187 apart; Brain probability (the masker node): 246,881 of 274,688 values differ, at most 0.168 apart; Brain mask (`desc-brain`): 467 of 274,688 values differ, at most 1 apart.",
+     "port": "fmriprep"
     }
    ],
    "default": {
@@ -7466,14 +7488,14 @@
     "panels": [
      "epi-AP",
      "sdcflows",
-     "larmorx",
-     "fmriprep"
+     "fmriprep",
+     "larmorx"
     ],
     "diffs": [
+     "fmriprep-sdc",
      "lx-sdc",
      "lxf-fmriprep",
-     "fix-lx14",
-     "fmriprep-sdc"
+     "fix-lx14"
     ],
     "compare": {
      "a": "sdcflows",
@@ -7502,31 +7524,72 @@
     "caption": "Axial slice 29 of 57; the crosshair where the field is strongest in the slice; choose the output (the field map, the reference, its brain probability, the mask over the input) above the images."
    },
    "chain": null,
-   "groups": [
-    [
-     "main",
-     "LARMORX against sdcflows"
-    ],
-    [
-     "fmriprep",
-     "LARMORX against fMRIPrep's own files"
-    ],
-    [
-     "check",
-     "LARMORX against itself: threads and modes"
-    ],
-    [
-     "variability",
-     "The originals against themselves: threads, versions"
-    ]
-   ],
-   "metrics_note": "Δ is A − B over all 274,688 voxels of each output file, not only those shown (the field map's one volume as its 3-D image).",
+   "metrics_note": "Δ is A − B over all 274,688 voxels of each output file, not only those shown (the field map's one volume as its 3-D image). The records' threshold: in `reproduce`, every output bit-identical to the originals' (or fMRIPrep's own files), their messages, warnings and exit statuses too.",
    "provenance": [
     "Data: OpenNeuro ds006736, sub-004, CC0-1.0",
     "Inputs: sdcflows' run (sha256 a5f693f657d2fde0…); fMRIPrep's run (sha256 e93ba36904104fc7…)",
-    "Runs: figures cache entry `sdcflows-estimation/app-ds006736`, computed 2026-11-09T22:39:58+00:00 with larmorx `682ca1f16151`; sdcflows 2.17.1, niworkflows 1.15.3, nipype 1.12.0, scikit-image 0.26.0, nibabel 5.4.2, numpy 2.5.4 (OpenBLAS 0.3.34), SciPy 1.18.1 (oracles/python-newest: larmorx's reference); FSL 6.0.7.23's topup, ANTs 2.6.5's N4BiasFieldCorrection (the GCC 14.3 build; one thread, correctly rounded maths), AFNI 26.3.05's 3dvolreg, through the oracle cache; LARMORX's replicas and ports; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `sdcflows-estimation/app-ds006736`, computed 2026-11-09T22:39:58+00:00 with larmorx `682ca1f16151`; sdcflows 2.17.1, niworkflows 1.15.3, nipype 1.12.0, scikit-image 0.26.0, nibabel 5.4.2, numpy 2.5.4 (OpenBLAS 0.3.34), SciPy 1.18.1 (oracles/python-newest: larmorx's reference); FSL 6.0.7.23's topup, ANTs 2.6.5's N4BiasFieldCorrection (the GCC 14.3 build; one thread, correctly rounded maths), AFNI 26.3.05's 3dvolreg, through the cache of the original's runs; LARMORX's replicas and ports; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "sdcflows-estimation/stage-fmriprep (LARMORX's stage as fMRIPrep ran it)"
    ],
+   "order": {
+    "panels": [
+     "epi-AP",
+     "epi-PA",
+     "sdcflows",
+     "sdcflows-4",
+     "fmriprep",
+     "larmorx",
+     "larmorx-14",
+     "larmorx-fix",
+     "larmorx-fmriprep"
+    ],
+    "diffs": [
+     "sdc4-sdc1",
+     "fmriprep-sdc",
+     "lx-sdc",
+     "lxf-fmriprep",
+     "lx14-lx1",
+     "fix-lx14"
+    ],
+    "groups": [
+     [
+      "The original against itself: the yardstick",
+      [
+       "sdc4-sdc1",
+       "fmriprep-sdc"
+      ]
+     ],
+     [
+      "The replica against the original",
+      [
+       "lx-sdc"
+      ]
+     ],
+     [
+      "The replica against fMRIPrep's output",
+      [
+       "lxf-fmriprep"
+      ]
+     ],
+     [
+      "The replica against itself: thread counts, fix and reproduce",
+      [
+       "lx14-lx1",
+       "fix-lx14"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "In `reproduce` the replica's BIDS app gives every value of sdcflows 2.17.1's four outputs and every derivative file byte for byte, at 1 and 14 threads alike, with LARMORX's replicas of the programs underneath. Run as fMRIPrep ran the stage, it holds fMRIPrep's own derivatives within the original's own variability: fMRIPrep's N4 ran at 8 threads with glibc's maths, the replica's at one thread with correctly rounded maths. In `fix`, its default, it corrects [AFNI-99](repo:docs/findings/upstream-defects.md#summary), [ANTS-40](repo:docs/findings/upstream-defects.md#summary) and [FSL-201](repo:docs/findings/upstream-defects.md#summary).",
+    "verdicts": [
+     {
+      "diff": "lx-sdc",
+      "port": "replica",
+      "verdict": "bit-identical"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds006736"
    ]
@@ -7534,7 +7597,7 @@
   {
    "id": "app-ds005752",
    "title": "A direct field map: sdcflows' BIDS app on ds005752's field map in Hz",
-   "summary": "sdcflows' BIDS app on ds005752 (a direct field map in Hz with its magnitude (Siemens, 3 T)): the field map in Hz merged, the magnitude skull-stripped (IntensityClip, ANTs' N4, sdcflows' brain_masker), the field map's cubic B-spline fit inside the mask. sdcflows 2.17.1 and LARMORX run the whole app; fMRIPrep 25.2.6's own derivatives of the same data are compared with LARMORX's field-map stage run as fMRIPrep ran it, and sdcflows' own run at four threads is the original's own spread.",
+   "summary": "sdcflows' BIDS app on ds005752 (a direct field map in Hz with its magnitude (Siemens, 3 T)): the field map in Hz merged, the magnitude skull-stripped (IntensityClip, ANTs' N4, sdcflows' brain_masker), the field map's cubic B-spline fit inside the mask. sdcflows 2.17.1 and the replica run the whole app; fMRIPrep 25.2.6's own derivatives of the same data are compared with the replica's field-map stage run as fMRIPrep ran it, and sdcflows' own run at four threads is the original's own spread.",
    "facts": [
     {
      "label": "Data",
@@ -7542,19 +7605,19 @@
     },
     {
      "label": "Command",
-     "text": "`sdcflows <bids> <out> participant --participant-label ON01016 --nprocs 1 --omp-nthreads 1 --no-fmapless`; LARMORX: `larmorx sdcflows sdcflows` with the same arguments (`lx.sdcflows.run_app`)"
+     "text": "`sdcflows <bids> <out> participant --participant-label ON01016 --nprocs 1 --omp-nthreads 1 --no-fmapless`; the replica: `larmorx sdcflows sdcflows` with the same arguments (`lx.sdcflows.run_app`)"
     },
     {
      "label": "Coefficients",
-     "text": "the 16 × 16 × 18 coefficients (`desc-coeff`): LARMORX's equal sdcflows' at one thread, at 14 threads too; the default mode's differ (its corrections, below); as fMRIPrep ran the stage, fMRIPrep's own file, every value (the B-spline fit's, 16 × 16 × 10 mm apart)"
+     "text": "the 16 × 16 × 18 coefficients (`desc-coeff`): the replica's equal sdcflows' at one thread, at 14 threads too; those of `fix`, the default, differ (its corrections, below); as fMRIPrep ran the stage, fMRIPrep's own file, every value (the B-spline fit's, 16 × 16 × 10 mm apart)"
     },
     {
      "label": "Programs",
-     "text": "sdcflows 2.17.1 in its BIDS app (the newest environment), its programs through the oracle cache; LARMORX at commit `682ca1f16151`; numpy's OpenBLAS on its Haswell kernels, one thread"
+     "text": "sdcflows 2.17.1 in its BIDS app (the newest environment), its programs through the cache of the original's runs; the replica at commit `682ca1f16151`; numpy's OpenBLAS on its Haswell kernels, one thread"
     },
     {
      "label": "Time",
-     "text": "both apps at one thread 28 s (check_app.py, sdcflows' programs from the oracle cache); LARMORX at 14 threads 1 s (informal: the benchmark below has the medians)"
+     "text": "both apps at one thread 28 s (check_app.py, sdcflows' programs from the cache of the original's runs); the replica at 14 threads 1 s (informal: the benchmark below has the medians)"
     },
     {
      "label": "Grid",
@@ -7755,7 +7818,8 @@
      "window": [
       -186.0,
       166.0
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "magnitude",
@@ -7772,13 +7836,14 @@
      "window": [
       20.0,
       1283.1900000000023
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "sdcflows",
      "role": "original",
-     "label": "sdcflows 2.17.1, 1 thread",
-     "sub": "its BIDS app; numpy 2.5.4, SciPy 1.18.1; FSL 6.0.7.23's topup, ANTs 2.6.5's N4 (one thread, correctly rounded maths), AFNI 26.3.05's 3dvolreg: LARMORX's reference",
+     "label": "sdcflows 2.17.1",
+     "sub": "1 thread · its BIDS app; numpy 2.5.4, SciPy 1.18.1; FSL 6.0.7.23's topup, ANTs 2.6.5's N4 (one thread, correctly rounded maths), AFNI 26.3.05's 3dvolreg: LARMORX's reference",
      "arrays": {
       "fmap": {
        "blob": "59a43dc3fb12444b4f88deee.bin",
@@ -7827,13 +7892,14 @@
        0.0,
        1.0
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "larmorx",
      "role": "larmorx",
-     "label": "LARMORX (port), 1 thread",
-     "sub": "its BIDS app, reproduce mode; LARMORX's replicas and ports underneath",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 1 thread, its BIDS app, reproduce; LARMORX's replicas underneath · against sdcflows 2.17.1",
      "arrays": {
       "fmap": {
        "same": "sdcflows:fmap",
@@ -7878,13 +7944,14 @@
        0.0,
        1.0
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-14",
      "role": "larmorx",
-     "label": "LARMORX (port), 14 threads",
-     "sub": "reproduce mode",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 14 threads, reproduce",
      "arrays": {
       "fmap": {
        "same": "sdcflows:fmap",
@@ -7929,13 +7996,14 @@
        0.0,
        1.0
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-fix",
      "role": "larmorx",
-     "label": "LARMORX (port), 14 threads",
-     "sub": "default mode (D13 corrections)",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 14 threads, fix (the default)",
      "arrays": {
       "fmap": {
        "blob": "d20e204faa9a6ab71f9f9164.bin",
@@ -7992,13 +8060,14 @@
        0.0,
        1.0
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "fmriprep",
      "role": "fmriprep",
-     "label": "fMRIPrep 25.2.6's own files",
-     "sub": "sdcflows 2.15.1 in its image (numpy 2.2.6, SciPy 1.15.2); N4 at 8 threads, glibc's maths",
+     "label": "fMRIPrep's output",
+     "sub": "fMRIPrep 25.2.6's own files: sdcflows 2.15.1 in its image (numpy 2.2.6, SciPy 1.15.2); N4 at 8 threads, glibc's maths",
      "arrays": {
       "fmap": {
        "same": "sdcflows:fmap",
@@ -8049,13 +8118,14 @@
        0.0,
        1.0
       ]
-     }
+     },
+     "port": "fmriprep"
     },
     {
      "id": "larmorx-fmriprep",
      "role": "larmorx",
-     "label": "LARMORX (port), as fMRIPrep ran the stage",
-     "sub": "sdcflows 2.15's wiring, fMRIPrep's image's numpy and SciPy, the replicas; reproduce mode",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · as fMRIPrep ran the stage, sdcflows 2.15's wiring, fMRIPrep's image's numpy and SciPy, the replicas; reproduce",
      "arrays": {
       "fmap": {
        "same": "sdcflows:fmap",
@@ -8106,13 +8176,14 @@
        0.0,
        1.0
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "sdcflows-4",
      "role": "original",
-     "label": "sdcflows 2.17.1, 4 threads",
-     "sub": "its own oracle run (--nprocs 4 --omp-nthreads 4, RUN_INFO.txt)",
+     "label": "sdcflows 2.17.1",
+     "sub": "4 threads · its own run (--nprocs 4 --omp-nthreads 4, RUN_INFO.txt)",
      "arrays": {
       "fmap": {
        "same": "sdcflows:fmap",
@@ -8163,7 +8234,8 @@
        0.0,
        1.0
       ]
-     }
+     },
+     "port": "original"
     }
    ],
    "diffs": [
@@ -8172,8 +8244,8 @@
      "a": "larmorx",
      "b": "sdcflows",
      "kind": "main",
-     "label": "LARMORX − sdcflows 2.17.1 (both one thread)",
-     "role_label": "larmorx against the original",
+     "label": "replica − sdcflows 2.17.1 (both one thread)",
+     "role_label": "the replica against the original",
      "metrics": {
       "fmap": {
        "identical": true,
@@ -8300,15 +8372,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "Every value of the four outputs is sdcflows' (and every derivative file, byte for byte: the cache entry's check_app.py run), with LARMORX's replicas and ports underneath: ANTs' N4, sdcflows' masks and the B-spline fit of the field map in Hz."
+     "reason": "Every value of the four outputs is sdcflows' (and every derivative file, byte for byte: the cache entry's check_app.py run), with LARMORX's replicas underneath: ANTs' N4, sdcflows' masks and the B-spline fit of the field map in Hz.",
+     "port": "replica"
     },
     {
      "id": "lxf-fmriprep",
      "a": "larmorx-fmriprep",
      "b": "fmriprep",
      "kind": "fmriprep",
-     "label": "LARMORX as fMRIPrep ran the stage − fMRIPrep 25.2.6's own files",
-     "role_label": "larmorx against fMRIPrep",
+     "label": "replica as fMRIPrep ran the stage − fMRIPrep's output",
+     "role_label": "the replica against fMRIPrep's output",
      "metrics": {
       "fmap": {
        "identical": true,
@@ -8443,15 +8516,16 @@
      },
      "links": [],
      "verdict": "within-variability",
-     "reason": "Within the original's own variability: fMRIPrep's N4 node ran at 8 threads with glibc's exp and log, LARMORX's at one thread with correctly rounded maths (as ANTs' at one thread); ANTs 2.6.5 at the node's 8 threads with glibc gives fMRIPrep's N4 output, at one thread with correctly rounded maths LARMORX's (the cache entry's check_fmap_stage.py --sections fmriprep: every derivative identical, its data identical with only FSL's build string in `descrip`, or after such an N4 node: 1 file of this run); the reference, its brain probability and mask follow from N4's output: Magnitude (`desc-magnitude`): 197 of 196,608 values differ, at most 1 apart; Brain probability (the masker node): 179,402 of 196,608 values differ, at most 0.00163 apart."
+     "reason": "Within the original's own variability: fMRIPrep's N4 node ran at 8 threads with glibc's exp and log, the replica's at one thread with correctly rounded maths (as ANTs' at one thread); ANTs 2.6.5 at the node's 8 threads with glibc gives fMRIPrep's N4 output, at one thread with correctly rounded maths the replica's (the cache entry's check_fmap_stage.py --sections fmriprep: every derivative identical, its data identical with only FSL's build string in `descrip`, or after such an N4 node: 1 file of this run); the reference, its brain probability and mask follow from N4's output: Magnitude (`desc-magnitude`): 197 of 196,608 values differ, at most 1 apart; Brain probability (the masker node): 179,402 of 196,608 values differ, at most 0.00163 apart.",
+     "port": "replica"
     },
     {
      "id": "lx14-lx1",
      "a": "larmorx-14",
      "b": "larmorx",
      "kind": "check",
-     "label": "LARMORX (reproduce): 14 threads − 1 thread",
-     "role_label": "larmorx against itself",
+     "label": "replica, reproduce: 14 threads − 1 thread",
+     "role_label": "the replica against itself: 1 and 14 threads",
      "metrics": {
       "fmap": {
        "identical": true,
@@ -8578,15 +8652,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "The same bytes at 1 and 14 threads (every sum in sdcflows' order, whatever the thread count)."
+     "reason": "The same bytes at 1 and 14 threads (every sum in sdcflows' order, whatever the thread count).",
+     "port": "replica"
     },
     {
      "id": "fix-lx14",
      "a": "larmorx-fix",
      "b": "larmorx-14",
      "kind": "check",
-     "label": "LARMORX at 14 threads: default − reproduce mode",
-     "role_label": "larmorx against itself",
+     "label": "replica at 14 threads: fix − reproduce",
+     "role_label": "the replica against itself: fix and reproduce",
      "metrics": {
       "fmap": {
        "identical": false,
@@ -8729,7 +8804,8 @@
      },
      "links": [],
      "verdict": "d13",
-     "reason": "The default mode corrects ANTS-40 (N4BiasFieldCorrection: the voxels N4 uses whose value is 0 or negative stay in its log image as they are (0, the log of an intensity of 1), inside the histogram it sharp…) and names it: Field map (Hz, `desc-preproc`): 196,608 of 196,608 values differ, at most 31.1 apart; Magnitude (`desc-magnitude`): 72,470 of 196,608 values differ, at most 113 apart; Brain probability (the masker node): 180,531 of 196,608 values differ, at most 0.411 apart; Brain mask (`desc-brain`): 852 of 196,608 values differ, at most 1 apart."
+     "reason": "The default, `fix`, corrects ANTS-40 (N4BiasFieldCorrection: the voxels N4 uses whose value is 0 or negative stay in its log image as they are (0, the log of an intensity of 1), inside the histogram it sharp…) and names it: Field map (Hz, `desc-preproc`): 196,608 of 196,608 values differ, at most 31.1 apart; Magnitude (`desc-magnitude`): 72,470 of 196,608 values differ, at most 113 apart; Brain probability (the masker node): 180,531 of 196,608 values differ, at most 0.411 apart; Brain mask (`desc-brain`): 852 of 196,608 values differ, at most 1 apart.",
+     "port": "replica"
     },
     {
      "id": "sdc4-sdc1",
@@ -8737,7 +8813,7 @@
      "b": "sdcflows",
      "kind": "variability",
      "label": "sdcflows: its own run at 4 threads − 1 thread",
-     "role_label": "the original against itself",
+     "role_label": "the original against itself: 1 and 4 threads",
      "metrics": {
       "fmap": {
        "identical": true,
@@ -8872,15 +8948,16 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The original against itself, a reference row: sdcflows' own run of 2026-11-08 at four threads (`--nprocs 4 --omp-nthreads 4`; ANTs' N4 then sums in another order) gives other values than at one thread: Magnitude (`desc-magnitude`): 198 of 196,608 values differ, at most 1 apart; Brain probability (the masker node): 179,346 of 196,608 values differ, at most 0.00163 apart."
+     "reason": "For reference, the original against itself: sdcflows' own run of 2026-11-08 at four threads (`--nprocs 4 --omp-nthreads 4`; ANTs' N4 then sums in another order) gives other values than at one thread: Magnitude (`desc-magnitude`): 198 of 196,608 values differ, at most 1 apart; Brain probability (the masker node): 179,346 of 196,608 values differ, at most 0.00163 apart.",
+     "port": "original"
     },
     {
      "id": "fmriprep-sdc",
      "a": "fmriprep",
      "b": "sdcflows",
      "kind": "variability",
-     "label": "fMRIPrep 25.2.6's own files − sdcflows 2.17.1 with the newest releases",
-     "role_label": "the original against itself",
+     "label": "fMRIPrep's output − sdcflows 2.17.1, 1 thread",
+     "role_label": "the original against itself: versions 2.15.1 and 2.17.1, with their libraries",
      "metrics": {
       "fmap": {
        "identical": true,
@@ -9015,7 +9092,8 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The version step, a reference row (the originals against each other): fMRIPrep 25.2.6 runs sdcflows 2.15.1 with its image's numpy 2.2.6 and SciPy 1.15.2 and N4 at 8 threads with glibc's maths, sdcflows 2.17.1 here its own with the newest releases; LARMORX follows both (the first two rows): Magnitude (`desc-magnitude`): 281 of 196,608 values differ, at most 3 apart; Brain probability (the masker node): 179,850 of 196,608 values differ, at most 0.00381 apart."
+     "reason": "For reference, the step between the originals' versions: fMRIPrep 25.2.6 runs sdcflows 2.15.1 with its image's numpy 2.2.6 and SciPy 1.15.2 and N4 at 8 threads with glibc's maths, sdcflows 2.17.1 here its own with the newest releases; the replica follows both (the first two rows): Magnitude (`desc-magnitude`): 281 of 196,608 values differ, at most 3 apart; Brain probability (the masker node): 179,850 of 196,608 values differ, at most 0.00381 apart.",
+     "port": "fmriprep"
     }
    ],
    "default": {
@@ -9029,14 +9107,14 @@
     "panels": [
      "magnitude",
      "sdcflows",
-     "larmorx",
-     "fmriprep"
+     "fmriprep",
+     "larmorx"
     ],
     "diffs": [
+     "fmriprep-sdc",
      "lx-sdc",
      "lxf-fmriprep",
-     "fix-lx14",
-     "fmriprep-sdc"
+     "fix-lx14"
     ],
     "compare": {
      "a": "sdcflows",
@@ -9063,31 +9141,72 @@
     "caption": "Axial slice 21 of 48; the crosshair where the field is strongest in the slice; choose the output (the field map, the reference, its brain probability, the mask over the input) above the images."
    },
    "chain": null,
-   "groups": [
-    [
-     "main",
-     "LARMORX against sdcflows"
-    ],
-    [
-     "fmriprep",
-     "LARMORX against fMRIPrep's own files"
-    ],
-    [
-     "check",
-     "LARMORX against itself: threads and modes"
-    ],
-    [
-     "variability",
-     "The originals against themselves: threads, versions"
-    ]
-   ],
-   "metrics_note": "Δ is A − B over all 196,608 voxels of each output file, not only those shown (the field map's one volume as its 3-D image).",
+   "metrics_note": "Δ is A − B over all 196,608 voxels of each output file, not only those shown (the field map's one volume as its 3-D image). The records' threshold: in `reproduce`, every output bit-identical to the originals' (or fMRIPrep's own files), their messages, warnings and exit statuses too.",
    "provenance": [
     "Data: OpenNeuro ds005752, sub-ON01016, CC0-1.0",
     "Inputs: sdcflows' run (sha256 1ef89e3f97510323…); fMRIPrep's run (sha256 63a53c3ec9e1f10a…)",
-    "Runs: figures cache entry `sdcflows-estimation/app-ds005752`, computed 2026-11-09T22:36:50+00:00 with larmorx `682ca1f16151`; sdcflows 2.17.1, niworkflows 1.15.3, nipype 1.12.0, scikit-image 0.26.0, nibabel 5.4.2, numpy 2.5.4 (OpenBLAS 0.3.34), SciPy 1.18.1 (oracles/python-newest: larmorx's reference); FSL 6.0.7.23's topup, ANTs 2.6.5's N4BiasFieldCorrection (the GCC 14.3 build; one thread, correctly rounded maths), AFNI 26.3.05's 3dvolreg, through the oracle cache; LARMORX's replicas and ports; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `sdcflows-estimation/app-ds005752`, computed 2026-11-09T22:36:50+00:00 with larmorx `682ca1f16151`; sdcflows 2.17.1, niworkflows 1.15.3, nipype 1.12.0, scikit-image 0.26.0, nibabel 5.4.2, numpy 2.5.4 (OpenBLAS 0.3.34), SciPy 1.18.1 (oracles/python-newest: larmorx's reference); FSL 6.0.7.23's topup, ANTs 2.6.5's N4BiasFieldCorrection (the GCC 14.3 build; one thread, correctly rounded maths), AFNI 26.3.05's 3dvolreg, through the cache of the original's runs; LARMORX's replicas and ports; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "sdcflows-estimation/stage-fmriprep (LARMORX's stage as fMRIPrep ran it)"
    ],
+   "order": {
+    "panels": [
+     "fieldmap",
+     "magnitude",
+     "sdcflows",
+     "sdcflows-4",
+     "fmriprep",
+     "larmorx",
+     "larmorx-14",
+     "larmorx-fix",
+     "larmorx-fmriprep"
+    ],
+    "diffs": [
+     "sdc4-sdc1",
+     "fmriprep-sdc",
+     "lx-sdc",
+     "lxf-fmriprep",
+     "lx14-lx1",
+     "fix-lx14"
+    ],
+    "groups": [
+     [
+      "The original against itself: the yardstick",
+      [
+       "sdc4-sdc1",
+       "fmriprep-sdc"
+      ]
+     ],
+     [
+      "The replica against the original",
+      [
+       "lx-sdc"
+      ]
+     ],
+     [
+      "The replica against fMRIPrep's output",
+      [
+       "lxf-fmriprep"
+      ]
+     ],
+     [
+      "The replica against itself: thread counts, fix and reproduce",
+      [
+       "lx14-lx1",
+       "fix-lx14"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "In `reproduce` the replica's BIDS app gives every value of sdcflows 2.17.1's four outputs and every derivative file byte for byte, at 1 and 14 threads alike, with LARMORX's replicas of the programs underneath. Run as fMRIPrep ran the stage, it holds fMRIPrep's own derivatives within the original's own variability: fMRIPrep's N4 ran at 8 threads with glibc's maths, the replica's at one thread with correctly rounded maths. In `fix`, its default, it corrects [ANTS-40](repo:docs/findings/upstream-defects.md#summary).",
+    "verdicts": [
+     {
+      "diff": "lx-sdc",
+      "port": "replica",
+      "verdict": "bit-identical"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds005752"
    ]
@@ -9095,7 +9214,7 @@
   {
    "id": "syn-ds000228",
    "title": "Fieldmap-less (SyN): sdcflows' syn_sdc_workflow on fMRIPrep's ds000228 estimator",
-   "summary": "sdcflows' fieldmap-less estimation (`init_syn_sdc_wf`, fMRIPrep's `--use-syn-sdc`) on the inputs fMRIPrep 25.2.6 gave it for ds000228's BOLD reference (a child of 3.5 years; the EPI 20.7° oblique): the reference clipped and registered with ANTs' SyN to the anatomical reference brought into its space (two Mattes metrics each, the image and its normalised Laplacian; the deformation restricted to the phase encoding), the displacements turned into Hz, fitted by sdcflows' B-splines and applied to the reference. LARMORX runs the whole workflow; ANTs 2.6.5 runs fMRIPrep's own registration command at one thread with correctly rounded maths (LARMORX's reference), and with glibc's maths at one thread and twice at four (the original's own band), each followed by sdcflows' steps; fMRIPrep's own field is placed against that band.",
+   "summary": "sdcflows' fieldmap-less estimation (`init_syn_sdc_wf`, fMRIPrep's `--use-syn-sdc`) on the inputs fMRIPrep 25.2.6 gave it for ds000228's BOLD reference (a child of 3.5 years; the EPI 20.7° oblique): the reference clipped and registered with ANTs' SyN to the anatomical reference brought into its space (two Mattes metrics each, the image and its normalised Laplacian; the deformation restricted to the phase encoding), the displacements turned into Hz, fitted by sdcflows' B-splines and applied to the reference. The replica runs the whole workflow; ANTs 2.6.5 runs fMRIPrep's own registration command at one thread with correctly rounded maths (LARMORX's reference), and with glibc's maths at one thread and twice at four (the original's own band), each followed by sdcflows' steps; fMRIPrep's own field is placed against that band.",
    "facts": [
     {
      "label": "Data",
@@ -9107,19 +9226,19 @@
     },
     {
      "label": "Warp",
-     "text": "LARMORX's registration against ANTs 2.6.5 at one thread with correctly rounded maths: byte for byte (29,895,327 values); glibc's maths at one thread: 12,788,936 of 29,895,327 values differ, at most 7.41e-08 mm apart (99th percentile 4.21e-10 mm); four threads against one: 29,062,160 of 29,895,327 values differ, at most 0.835 mm apart (99th percentile 0.0262 mm); four threads, run to run: 29,061,772 of 29,895,327 values differ, at most 0.659 mm apart (99th percentile 0.00445 mm); fMRIPrep's own warp against LARMORX's: 29,062,161 of 29,895,327 values differ, at most 0.813 mm apart (99th percentile 0.0277 mm)"
+     "text": "The replica's registration against ANTs 2.6.5 at one thread with correctly rounded maths: byte for byte (29,895,327 values); glibc's maths at one thread: 12,788,936 of 29,895,327 values differ, at most 7.41e-08 mm apart (99th percentile 4.21e-10 mm); four threads against one: 29,062,160 of 29,895,327 values differ, at most 0.835 mm apart (99th percentile 0.0262 mm); four threads, run to run: 29,061,772 of 29,895,327 values differ, at most 0.659 mm apart (99th percentile 0.00445 mm); fMRIPrep's own warp against the replica's: 29,062,161 of 29,895,327 values differ, at most 0.813 mm apart (99th percentile 0.0277 mm)"
     },
     {
      "label": "Coefficients",
-     "text": "the 14 × 14 × 13 coefficients: LARMORX's equal ANTs' one-thread run's; sdcflows' steps on fMRIPrep's own warp give fMRIPrep's own coefficients, field and corrected reference, every value"
+     "text": "the 14 × 14 × 13 coefficients: the replica's equal ANTs' one-thread run's; sdcflows' steps on fMRIPrep's own warp give fMRIPrep's own coefficients, field and corrected reference, every value"
     },
     {
      "label": "Programs",
-     "text": "ANTs 2.6.5's antsRegistration (the GCC 14.3 build) through the oracle cache, the four-thread runs never cached; sdcflows' steps after it by LARMORX's port (= sdcflows' nodes on these inputs, the records' `syn-sdc` case); LARMORX at commit `f786069d2750`, fMRIPrep's image's numpy 2.2.6 for the clip"
+     "text": "ANTs 2.6.5's antsRegistration (the GCC 14.3 build) through the cache of the original's runs, the four-thread runs never cached; sdcflows' steps after it by the replica (= sdcflows' nodes on these inputs, the records' `syn-sdc` case); the replica at commit `f786069d2750`, fMRIPrep's image's numpy 2.2.6 for the clip"
     },
     {
      "label": "Time",
-     "text": "LARMORX's whole workflow 681 s at 14 threads; ANTs' registration 1808 s and 1802 s at one thread, 946 s and 944 s at four (the six runs side by side; informal)"
+     "text": "The replica's whole workflow 681 s at 14 threads; ANTs' registration 1808 s and 1802 s at one thread, 946 s and 944 s at four (the six runs side by side; informal)"
     },
     {
      "label": "Grid",
@@ -9269,13 +9388,14 @@
      "window": [
       0.0,
       255.0
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "larmorx",
      "role": "larmorx",
-     "label": "LARMORX (port), 14 threads",
-     "sub": "lx.sdcflows.syn_sdc_workflow on fMRIPrep's inputs, reproduce mode; its antsRegistration computes ANTs' one-thread result at any thread count",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 14 threads, lx.sdcflows.syn_sdc_workflow on fMRIPrep's inputs, reproduce; its antsRegistration computes ANTs' one-thread result at any thread count · against ANTs antsRegistration 2.6.5, correctly rounded maths",
      "arrays": {
       "fmap": {
        "blob": "23a10f743cee46ad49e57916.bin",
@@ -9297,13 +9417,14 @@
        0.0,
        258.0808037824463
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-fix",
      "role": "larmorx",
-     "label": "LARMORX (port), 4 threads",
-     "sub": "default mode (D13 corrections)",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 4 threads, fix (the default)",
      "arrays": {
       "fmap": {
        "blob": "5c0f85b3554600f83972cf86.bin",
@@ -9329,13 +9450,14 @@
        0.0,
        258.0838885596022
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "ants-cr1",
      "role": "original",
-     "label": "ANTs 2.6.5, 1 thread, correctly rounded maths",
-     "sub": "the GCC 14.3 build with CORE-MATH's functions preloaded, on fMRIPrep's command line; sdcflows' steps after it: LARMORX's reference",
+     "label": "ANTs antsRegistration 2.6.5, correctly rounded maths",
+     "sub": "1 thread · the GCC 14.3 build with CORE-MATH's functions preloaded, on fMRIPrep's command line; sdcflows' steps after it: LARMORX's reference",
      "arrays": {
       "fmap": {
        "same": "larmorx:fmap",
@@ -9355,13 +9477,14 @@
        0.0,
        258.0808037824463
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "ants-g1",
      "role": "original",
-     "label": "ANTs 2.6.5, 1 thread, glibc's maths",
-     "sub": "the same build with the C library's functions",
+     "label": "ANTs antsRegistration 2.6.5",
+     "sub": "1 thread, glibc's maths · the same build with the C library's functions",
      "arrays": {
       "fmap": {
        "blob": "adcf07dbf640b61301e2d4a5.bin",
@@ -9387,13 +9510,14 @@
        0.0,
        258.0837935815798
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "ants-g4a",
      "role": "original",
-     "label": "ANTs 2.6.5, 4 threads, glibc's maths",
-     "sub": "as fMRIPrep's node ran it (--omp-nthreads 4); the first run",
+     "label": "ANTs antsRegistration 2.6.5",
+     "sub": "4 threads, glibc's maths · as fMRIPrep's node ran it (--omp-nthreads 4); the first run",
      "arrays": {
       "fmap": {
        "blob": "1daaca5faf1fe9b87dca4662.bin",
@@ -9419,13 +9543,14 @@
        0.0,
        258.05616371682845
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "ants-g4b",
      "role": "original",
-     "label": "ANTs 2.6.5, 4 threads, glibc's maths",
-     "sub": "the same call again (never cached: the original's own spread)",
+     "label": "ANTs antsRegistration 2.6.5",
+     "sub": "4 threads, glibc's maths · the same call again (never cached: the original's own spread)",
      "arrays": {
       "fmap": {
        "blob": "5f007eaec9976a18192c7a54.bin",
@@ -9451,13 +9576,14 @@
        0.0,
        258.0606791754253
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "fmriprep",
      "role": "fmriprep",
-     "label": "fMRIPrep 25.2.6's own files",
-     "sub": "its image's ANTs 2.6.2.dev1 at 4 threads, glibc's maths",
+     "label": "fMRIPrep's output",
+     "sub": "fMRIPrep 25.2.6's own files: its image's ANTs 2.6.2.dev1 at 4 threads, glibc's maths",
      "arrays": {
       "fmap": {
        "blob": "9e65ebb6173e15c1b1c99182.bin",
@@ -9483,7 +9609,8 @@
        0.0,
        258.0623717777198
       ]
-     }
+     },
+     "port": "fmriprep"
     }
    ],
    "diffs": [
@@ -9492,8 +9619,8 @@
      "a": "larmorx",
      "b": "ants-cr1",
      "kind": "main",
-     "label": "LARMORX (14 threads) − ANTs 2.6.5 at one thread, correctly rounded maths",
-     "role_label": "larmorx against the original",
+     "label": "replica (14 threads) − ANTs antsRegistration 2.6.5, 1 thread, correctly rounded maths",
+     "role_label": "the replica against the original: correctly rounded maths",
      "metrics": {
       "fmap": {
        "identical": true,
@@ -9560,15 +9687,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "Every value of both outputs is ANTs 2.6.5's at one thread with correctly rounded maths followed by sdcflows' steps (the field in Hz from the displacements, its B-spline resampling onto the EPI grid, the B-spline fit 16 × 16 × 10 mm apart, the unwarping): LARMORX's warp is ANTs' byte for byte (29,895,327 values), at 14 threads (its registration computes ANTs' one-thread sums whatever the thread count)."
+     "reason": "Every value of both outputs is ANTs 2.6.5's at one thread with correctly rounded maths followed by sdcflows' steps (the field in Hz from the displacements, its B-spline resampling onto the EPI grid, the B-spline fit 16 × 16 × 10 mm apart, the unwarping): the replica's warp is ANTs' byte for byte (29,895,327 values), at 14 threads (its registration computes ANTs' one-thread sums whatever the thread count).",
+     "port": "replica"
     },
     {
      "id": "lx-fmriprep",
      "a": "larmorx",
      "b": "fmriprep",
      "kind": "fmriprep",
-     "label": "LARMORX − fMRIPrep 25.2.6's own files",
-     "role_label": "larmorx against fMRIPrep",
+     "label": "replica − fMRIPrep's output",
+     "role_label": "the replica against fMRIPrep's output",
      "metrics": {
       "fmap": {
        "identical": false,
@@ -9639,15 +9767,16 @@
      },
      "links": [],
      "verdict": "within-variability",
-     "reason": "fMRIPrep's registration ran its image's ANTs 2.6.2.dev1 at four threads with glibc's maths, LARMORX's gives ANTs 2.6.5's one-thread result with correctly rounded maths (the first row); sdcflows' steps after the registration give fMRIPrep's own files from fMRIPrep's own warp, every value (the cache entry's `fmriprep` run), so the difference is the registration's alone. ANTs 2.6.5's own runs of this call with glibc's maths, as fMRIPrep's image runs ANTs, differ from each other by up to 1.82 Hz (between its one-thread run and its second four-thread run: root mean square 0.141 Hz; the reference rows below), and fMRIPrep's field lies within that band (at most 1.8 Hz from LARMORX's, root mean square 0.136 Hz; its warp: 29,062,161 of 29,895,327 values differ, at most 0.813 mm apart (99th percentile 0.0277 mm)): Field map (Hz, the unwarp node's `_field`): 131,071 of 131,072 values differ, at most 1.8 apart; Corrected EPI reference (`_sdc`): 74,967 of 131,072 values differ, at most 17 apart."
+     "reason": "fMRIPrep's registration ran its image's ANTs 2.6.2.dev1 at four threads with glibc's maths, the replica's gives ANTs 2.6.5's one-thread result with correctly rounded maths (the first row); sdcflows' steps after the registration give fMRIPrep's own files from fMRIPrep's own warp, every value (the cache entry's `fmriprep` run), so the difference is the registration's alone. ANTs 2.6.5's own runs of this call with glibc's maths, as fMRIPrep's image runs ANTs, differ from each other by up to 1.82 Hz (between its one-thread run and its second four-thread run: root mean square 0.141 Hz; the reference rows below), and fMRIPrep's field lies within that band (at most 1.8 Hz from the replica's, root mean square 0.136 Hz; its warp: 29,062,161 of 29,895,327 values differ, at most 0.813 mm apart (99th percentile 0.0277 mm)): Field map (Hz, the unwarp node's `_field`): 131,071 of 131,072 values differ, at most 1.8 apart; Corrected EPI reference (`_sdc`): 74,967 of 131,072 values differ, at most 17 apart.",
+     "port": "replica"
     },
     {
      "id": "fix-lx",
      "a": "larmorx-fix",
      "b": "larmorx",
      "kind": "check",
-     "label": "LARMORX: default mode (4 threads) − reproduce (14 threads)",
-     "role_label": "larmorx against itself",
+     "label": "replica: fix (4 threads) − reproduce (14 threads)",
+     "role_label": "the replica against itself: fix and reproduce",
      "metrics": {
       "fmap": {
        "identical": false,
@@ -9722,15 +9851,16 @@
      },
      "links": [],
      "verdict": "d13",
-     "reason": "The default mode corrects ITK-31 (ITK: SyN sets the metric's resampled masks only for the roles that have one: with a fixed mask and no moving mask (or the reverse), the role without one keeps the mask o…) and names it: Field map (Hz, the unwarp node's `_field`): 131,071 of 131,072 values differ, at most 0.82 apart; Corrected EPI reference (`_sdc`): 74,915 of 131,072 values differ, at most 5.09 apart."
+     "reason": "The default, `fix`, corrects ITK-31 (ITK: SyN sets the metric's resampled masks only for the roles that have one: with a fixed mask and no moving mask (or the reverse), the role without one keeps the mask o…) and names it: Field map (Hz, the unwarp node's `_field`): 131,071 of 131,072 values differ, at most 0.82 apart; Corrected EPI reference (`_sdc`): 74,915 of 131,072 values differ, at most 5.09 apart.",
+     "port": "replica"
     },
     {
      "id": "g1-cr1",
      "a": "ants-g1",
      "b": "ants-cr1",
      "kind": "variability",
-     "label": "ANTs 2.6.5 at one thread: glibc's maths − correctly rounded",
-     "role_label": "the original against itself",
+     "label": "ANTs antsRegistration 2.6.5 at one thread: glibc's maths − correctly rounded",
+     "role_label": "the original against itself: correctly rounded maths and glibc's",
      "metrics": {
       "fmap": {
        "identical": false,
@@ -9797,15 +9927,16 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The original against itself, a reference row: glibc's exp and log are not always correctly rounded, and the registration's iterations grow those last bits (its warp: 12,788,936 of 29,895,327 values differ, at most 7.41e-08 mm apart (99th percentile 4.21e-10 mm)): Field map (Hz, the unwarp node's `_field`): 131,067 of 131,072 values differ, at most 0.0159 apart; Corrected EPI reference (`_sdc`): 74,904 of 131,072 values differ, at most 4 apart."
+     "reason": "For reference, the original against itself: glibc's exp and log are not always correctly rounded, and the registration's iterations grow those last bits (its warp: 12,788,936 of 29,895,327 values differ, at most 7.41e-08 mm apart (99th percentile 4.21e-10 mm)): Field map (Hz, the unwarp node's `_field`): 131,067 of 131,072 values differ, at most 0.0159 apart; Corrected EPI reference (`_sdc`): 74,904 of 131,072 values differ, at most 4 apart.",
+     "port": "original"
     },
     {
      "id": "g4-g1",
      "a": "ants-g4a",
      "b": "ants-g1",
      "kind": "variability",
-     "label": "ANTs 2.6.5 with glibc's maths: 4 threads − 1 thread",
-     "role_label": "the original against itself",
+     "label": "ANTs antsRegistration 2.6.5 with glibc's maths: 4 threads − 1 thread",
+     "role_label": "the original against itself: 1 and 4 threads",
      "metrics": {
       "fmap": {
        "identical": false,
@@ -9876,15 +10007,16 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The original against itself, a reference row: at four threads the Mattes metrics sum their joint histograms per work unit, in another order (its warp: 29,062,160 of 29,895,327 values differ, at most 0.835 mm apart (99th percentile 0.0262 mm)): Field map (Hz, the unwarp node's `_field`): 131,072 of 131,072 values differ, at most 1.7 apart; Corrected EPI reference (`_sdc`): 74,965 of 131,072 values differ, at most 17 apart."
+     "reason": "For reference, the original against itself: at four threads the Mattes metrics sum their joint histograms per work unit, in another order (its warp: 29,062,160 of 29,895,327 values differ, at most 0.835 mm apart (99th percentile 0.0262 mm)): Field map (Hz, the unwarp node's `_field`): 131,072 of 131,072 values differ, at most 1.7 apart; Corrected EPI reference (`_sdc`): 74,965 of 131,072 values differ, at most 17 apart.",
+     "port": "original"
     },
     {
      "id": "g4b-g4a",
      "a": "ants-g4b",
      "b": "ants-g4a",
      "kind": "variability",
-     "label": "ANTs 2.6.5 at 4 threads with glibc's maths: the second run − the first",
-     "role_label": "the original against itself",
+     "label": "ANTs antsRegistration 2.6.5, 4 threads, glibc's maths: the second run − the first",
+     "role_label": "the original against itself: two runs of the same command",
      "metrics": {
       "fmap": {
        "identical": false,
@@ -9955,15 +10087,16 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The original against itself, a reference row: ANTs at four threads does not repeat itself: above one thread its metrics' sums per work unit change from run to run (docs/findings/ants-registration.md; its warp: 29,061,772 of 29,895,327 values differ, at most 0.659 mm apart (99th percentile 0.00445 mm)): Field map (Hz, the unwarp node's `_field`): 131,072 of 131,072 values differ, at most 0.701 apart; Corrected EPI reference (`_sdc`): 74,932 of 131,072 values differ, at most 4 apart."
+     "reason": "For reference, the original against itself: ANTs at four threads does not repeat itself: above one thread its metrics' sums per work unit change from run to run (docs/findings/ants-registration.md; its warp: 29,061,772 of 29,895,327 values differ, at most 0.659 mm apart (99th percentile 0.00445 mm)): Field map (Hz, the unwarp node's `_field`): 131,072 of 131,072 values differ, at most 0.701 apart; Corrected EPI reference (`_sdc`): 74,932 of 131,072 values differ, at most 4 apart.",
+     "port": "original"
     },
     {
      "id": "fmriprep-g4",
      "a": "fmriprep",
      "b": "ants-g4a",
      "kind": "variability",
-     "label": "fMRIPrep's own files (ANTs 2.6.2.dev1) − ANTs 2.6.5, both at 4 threads with glibc's maths",
-     "role_label": "the original against itself",
+     "label": "fMRIPrep's output (ANTs 2.6.2.dev1) − ANTs antsRegistration 2.6.5, both at 4 threads with glibc's maths",
+     "role_label": "the original against itself: fMRIPrep's build and the repository's",
      "metrics": {
       "fmap": {
        "identical": false,
@@ -10038,7 +10171,8 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The originals against each other, a reference row: fMRIPrep's image holds ANTs 2.6.2.dev1 (its own build) where this machine's oracle is ANTs 2.6.5 built with GCC 14.3; both at four threads with glibc's maths (its warp: 29,062,155 of 29,895,327 values differ, at most 0.833 mm apart (99th percentile 0.00492 mm)): Field map (Hz, the unwarp node's `_field`): 131,071 of 131,072 values differ, at most 0.697 apart; Corrected EPI reference (`_sdc`): 74,934 of 131,072 values differ, at most 11 apart."
+     "reason": "For reference, the originals against each other: fMRIPrep's image holds ANTs 2.6.2.dev1 (its own build) where the repository's build is ANTs 2.6.5, made with GCC 14.3; both at four threads with glibc's maths (its warp: 29,062,155 of 29,895,327 values differ, at most 0.833 mm apart (99th percentile 0.00492 mm)): Field map (Hz, the unwarp node's `_field`): 131,071 of 131,072 values differ, at most 0.697 apart; Corrected EPI reference (`_sdc`): 74,934 of 131,072 values differ, at most 11 apart.",
+     "port": "fmriprep"
     }
    ],
    "default": {
@@ -10051,15 +10185,15 @@
     ],
     "panels": [
      "epi",
-     "larmorx",
      "ants-cr1",
-     "fmriprep"
+     "fmriprep",
+     "larmorx"
     ],
     "diffs": [
-     "lx-ants",
-     "lx-fmriprep",
      "g4-g1",
-     "fmriprep-g4"
+     "fmriprep-g4",
+     "lx-ants",
+     "lx-fmriprep"
     ],
     "compare": {
      "a": "ants-cr1",
@@ -10087,33 +10221,75 @@
      "g4-g1": 1.7981168329715729,
      "fmriprep-g4": 1.7981168329715729
     },
-    "caption": "Axial slice 13 of 32; the axial slice with the most brain, the crosshair where fMRIPrep's field differs most from LARMORX's in it; choose the output (the field map, the corrected reference) above the images."
+    "caption": "Axial slice 13 of 32; the axial slice with the most brain, the crosshair where fMRIPrep's field differs most from the replica's in it; choose the output (the field map, the corrected reference) above the images."
    },
    "chain": null,
-   "groups": [
-    [
-     "main",
-     "LARMORX against ANTs 2.6.5 (one thread, correctly rounded maths)"
-    ],
-    [
-     "fmriprep",
-     "LARMORX against fMRIPrep's own files"
-    ],
-    [
-     "check",
-     "LARMORX against itself: modes and threads"
-    ],
-    [
-     "variability",
-     "ANTs against itself: maths, threads, runs, builds"
-    ]
-   ],
-   "metrics_note": "Δ is A − B over all 131,072 voxels of each output file, not only those shown (the field extrapolated over the whole grid).",
+   "metrics_note": "Δ is A − B over all 131,072 voxels of each output file, not only those shown (the field extrapolated over the whole grid). The records' threshold: in `reproduce`, every output bit-identical to the originals' (or fMRIPrep's own files), their messages, warnings and exit statuses too.",
    "provenance": [
     "Data: OpenNeuro ds000228, sub-pixar008, CC0-1.0",
     "Inputs: fMRIPrep's run (sha256 9899afe9e7ce3c95…); the registration's command (sha256 a2e436d7b08baa3e…); fMRIPrep's warp (sha256 36c7cedc7a27b7ae…); fMRIPrep's field (sha256 d06baa15d552c170…)",
-    "Runs: figures cache entry `sdcflows-estimation/syn-ds000228`, computed 2026-11-09T23:28:17+00:00 with larmorx `f786069d2750`; sdcflows 2.17.1, niworkflows 1.15.3, nipype 1.12.0, scikit-image 0.26.0, nibabel 5.4.2, numpy 2.5.4 (OpenBLAS 0.3.34), SciPy 1.18.1 (oracles/python-newest: larmorx's reference); ANTs 2.6.5's antsRegistration (the GCC 14.3 build), through the oracle cache: one thread with CORE-MATH's correctly rounded functions preloaded, one thread and twice four threads with glibc's (never cached: the original's own spread); fMRIPrep 25.2.6's image holds ANTs 2.6.2.dev1 (its own build); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `sdcflows-estimation/syn-ds000228`, computed 2026-11-09T23:28:17+00:00 with larmorx `f786069d2750`; sdcflows 2.17.1, niworkflows 1.15.3, nipype 1.12.0, scikit-image 0.26.0, nibabel 5.4.2, numpy 2.5.4 (OpenBLAS 0.3.34), SciPy 1.18.1 (oracles/python-newest: larmorx's reference); ANTs 2.6.5's antsRegistration (the GCC 14.3 build), through the cache of the original's runs: one thread with CORE-MATH's correctly rounded functions preloaded, one thread and twice four threads with glibc's (never cached: the original's own spread); fMRIPrep 25.2.6's image holds ANTs 2.6.2.dev1 (its own build); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
+   "order": {
+    "panels": [
+     "epi",
+     "ants-g1",
+     "ants-g4a",
+     "ants-g4b",
+     "ants-cr1",
+     "fmriprep",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "g1-cr1",
+     "g4-g1",
+     "g4b-g4a",
+     "fmriprep-g4",
+     "lx-ants",
+     "lx-fmriprep",
+     "fix-lx"
+    ],
+    "groups": [
+     [
+      "The original against itself: the yardstick",
+      [
+       "g1-cr1",
+       "g4-g1",
+       "g4b-g4a",
+       "fmriprep-g4"
+      ]
+     ],
+     [
+      "The replica against the original",
+      [
+       "lx-ants"
+      ]
+     ],
+     [
+      "The replica against fMRIPrep's output",
+      [
+       "lx-fmriprep"
+      ]
+     ],
+     [
+      "The replica against itself: fix and reproduce",
+      [
+       "fix-lx"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "In `reproduce` the replica gives every value of ANTs 2.6.5's registration at one thread with correctly rounded maths, followed by sdcflows' steps, at 14 threads: its warp is ANTs' byte for byte (29,895,327 values). fMRIPrep's own field, made by its image's ANTs 2.6.2.dev1 at four threads with glibc's maths, lies within ANTs' own spread on this call: ANTs' runs differ from each other by up to 1.82 Hz, and fMRIPrep's field is at most 1.8 Hz from the replica's. In `fix`, its default, the replica corrects [ITK-31](repo:docs/findings/upstream-defects.md#summary).",
+    "verdicts": [
+     {
+      "diff": "lx-ants",
+      "port": "replica",
+      "verdict": "bit-identical"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds000228"
    ]
@@ -10121,7 +10297,7 @@
   {
    "id": "masker-ds002603",
    "title": "The magnitude's brain mask: sdcflows' brain_masker on fMRIPrep's ds002603 call",
-   "summary": "sdcflows' `brain_masker` (its `BrainExtraction` interface, the `masker` node of every magnitude's and PEPOLAR reference's brain extraction) on the input fMRIPrep 25.2.6 gave it for ds002603's phase-difference field map: a grey closing and median of the inverted image, Otsu's threshold, a binary opening and the largest component, then scikit-image's random walker between the eroded mask and the padded image's border; its probability, its mask at 0.5 and the masked magnitude. sdcflows 2.17.1 and LARMORX compute every output; fMRIPrep's own files are compared with LARMORX run on its image's libraries.",
+   "summary": "sdcflows' `brain_masker` (its `BrainExtraction` interface, the `masker` node of every magnitude's and PEPOLAR reference's brain extraction) on the input fMRIPrep 25.2.6 gave it for ds002603's phase-difference field map: a grey closing and median of the inverted image, Otsu's threshold, a binary opening and the largest component, then scikit-image's random walker between the eroded mask and the padded image's border; its probability, its mask at 0.5 and the masked magnitude. sdcflows 2.17.1 and the replica compute every output; fMRIPrep's own files are compared with the replica run on its image's libraries.",
    "facts": [
     {
      "label": "Data",
@@ -10133,11 +10309,11 @@
     },
     {
      "label": "Programs",
-     "text": "sdcflows 2.17.1 in process (the newest environment); LARMORX's `lx.sdcflows.brain_masker` at commit `26df46d1a985`; numpy's OpenBLAS on its Haswell kernels, one thread"
+     "text": "sdcflows 2.17.1 in process (the newest environment); the replica's `lx.sdcflows.brain_masker` at commit `26df46d1a985`; numpy's OpenBLAS on its Haswell kernels, one thread"
     },
     {
      "label": "Time",
-     "text": "sdcflows 8.2 s; LARMORX 6.2 s at one thread, 2.6 s at 14 (informal: the benchmark below has the medians)"
+     "text": "sdcflows 8.2 s; the replica 6.2 s at one thread, 2.6 s at 14 (informal: the benchmark below has the medians)"
     },
     {
      "label": "Grid",
@@ -10312,12 +10488,13 @@
      "window": [
       5.0,
       255.0
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "sdcflows",
      "role": "original",
-     "label": "sdcflows 2.17.1",
+     "label": "sdcflows brain_masker 2.17.1",
      "sub": "numpy 2.5.4, SciPy 1.18.1, scikit-image 0.26.0: LARMORX's reference",
      "arrays": {
       "probseg": {
@@ -10360,13 +10537,14 @@
        0.0,
        255.0
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "larmorx",
      "role": "larmorx",
-     "label": "LARMORX (port), 1 thread",
-     "sub": "reproduce mode",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 1 thread, reproduce · against sdcflows brain_masker 2.17.1",
      "arrays": {
       "probseg": {
        "same": "sdcflows:probseg",
@@ -10403,13 +10581,14 @@
        0.0,
        255.0
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-14",
      "role": "larmorx",
-     "label": "LARMORX (port), 14 threads",
-     "sub": "default mode (D13 corrections)",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 14 threads, fix (the default)",
      "arrays": {
       "probseg": {
        "same": "sdcflows:probseg",
@@ -10446,13 +10625,14 @@
        0.0,
        255.0
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "fmriprep",
      "role": "fmriprep",
-     "label": "fMRIPrep 25.2.6's own files",
-     "sub": "sdcflows 2.15.1 in its image: numpy 2.2.6, SciPy 1.15.2",
+     "label": "fMRIPrep's output",
+     "sub": "fMRIPrep 25.2.6's own files: sdcflows 2.15.1 in its image: numpy 2.2.6, SciPy 1.15.2",
      "arrays": {
       "probseg": {
        "blob": "fc36ba22ca6ae7fa8f016216.bin",
@@ -10492,13 +10672,14 @@
        0.0,
        255.0
       ]
-     }
+     },
+     "port": "fmriprep"
     },
     {
      "id": "larmorx-fmriprep",
      "role": "larmorx",
-     "label": "LARMORX (port), fMRIPrep's libraries",
-     "sub": "numpy 2.2.6's sums, SciPy 1.15.2's order; reproduce mode",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · fMRIPrep's libraries, numpy 2.2.6's sums, SciPy 1.15.2's order; reproduce",
      "arrays": {
       "probseg": {
        "same": "fmriprep:probseg",
@@ -10535,7 +10716,8 @@
        0.0,
        255.0
       ]
-     }
+     },
+     "port": "replica"
     }
    ],
    "diffs": [
@@ -10544,8 +10726,8 @@
      "a": "larmorx",
      "b": "sdcflows",
      "kind": "main",
-     "label": "LARMORX − sdcflows 2.17.1",
-     "role_label": "larmorx against the original",
+     "label": "replica − sdcflows brain_masker 2.17.1",
+     "role_label": "the replica against the original",
      "metrics": {
       "probseg": {
        "identical": true,
@@ -10642,15 +10824,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "Every value of the three outputs is sdcflows': the grey closing and median, Otsu's threshold, the binary opening and the largest component (SciPy's ndimage, LARMORX's port of it), scikit-image's random walker (its Laplacian in SciPy 1.18's order, its conjugate gradients with OpenBLAS's dot products), the probabilities cropped back, the mask at 0.5."
+     "reason": "Every value of the three outputs is sdcflows': the grey closing and median, Otsu's threshold, the binary opening and the largest component (SciPy's ndimage, LARMORX's replica of it), scikit-image's random walker (its Laplacian in SciPy 1.18's order, its conjugate gradients with OpenBLAS's dot products), the probabilities cropped back, the mask at 0.5.",
+     "port": "replica"
     },
     {
      "id": "lxf-fmriprep",
      "a": "larmorx-fmriprep",
      "b": "fmriprep",
      "kind": "fmriprep",
-     "label": "LARMORX with fMRIPrep's libraries − fMRIPrep 25.2.6's own files",
-     "role_label": "larmorx against fMRIPrep",
+     "label": "replica with fMRIPrep's libraries − fMRIPrep's output",
+     "role_label": "the replica against fMRIPrep's output",
      "metrics": {
       "probseg": {
        "identical": true,
@@ -10747,15 +10930,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "With numpy 2.2.6's sums and SciPy 1.15.2's Laplacian order (fMRIPrep's image), LARMORX writes fMRIPrep's own masker files, every value."
+     "reason": "With numpy 2.2.6's sums and SciPy 1.15.2's Laplacian order (fMRIPrep's image), the replica writes fMRIPrep's own masker files, every value.",
+     "port": "replica"
     },
     {
      "id": "lx14-lx1",
      "a": "larmorx-14",
      "b": "larmorx",
      "kind": "check",
-     "label": "LARMORX: 14 threads, default − 1 thread, reproduce",
-     "role_label": "larmorx against itself",
+     "label": "replica: 14 threads, fix − 1 thread, reproduce",
+     "role_label": "the replica against itself: 1 and 14 threads, fix and reproduce",
      "metrics": {
       "probseg": {
        "identical": true,
@@ -10852,15 +11036,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "The same bytes at 1 and 14 threads and in both modes (no correction of the register applies to this call)."
+     "reason": "The same bytes at 1 and 14 threads and in `fix` and in `reproduce` (no correction by default applies to this call).",
+     "port": "replica"
     },
     {
      "id": "fmriprep-sdc",
      "a": "fmriprep",
      "b": "sdcflows",
      "kind": "variability",
-     "label": "fMRIPrep's own files − sdcflows 2.17.1 with the newest releases",
-     "role_label": "the original against itself",
+     "label": "fMRIPrep's output − sdcflows brain_masker 2.17.1, the newest releases",
+     "role_label": "the original against itself: fMRIPrep's libraries and the newest releases",
      "metrics": {
       "probseg": {
        "identical": false,
@@ -10961,7 +11146,8 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The libraries' step, a reference row (the original against itself): fMRIPrep's image runs numpy 2.2.6 (its sums in chunks) and SciPy 1.15.2 (the random walker's Laplacian in another row order), so its probabilities differ in their last bits from sdcflows' with numpy 2.5.4 and SciPy 1.18.1; LARMORX follows both (the row above). Brain probability (random walker): 1,891,835 of 2,097,152 values differ, at most 1.19e-06 apart."
+     "reason": "For reference, the originals' own step between releases of the libraries: fMRIPrep's image runs numpy 2.2.6 (its sums in chunks) and SciPy 1.15.2 (the random walker's Laplacian in another row order), so its probabilities differ in their last bits from sdcflows' with numpy 2.5.4 and SciPy 1.18.1; the replica follows both (the row of `reproduce` against FSL in this table). Brain probability (random walker): 1,891,835 of 2,097,152 values differ, at most 1.19e-06 apart.",
+     "port": "fmriprep"
     }
    ],
    "default": {
@@ -10975,13 +11161,13 @@
     "panels": [
      "clipped",
      "sdcflows",
-     "larmorx",
-     "fmriprep"
+     "fmriprep",
+     "larmorx"
     ],
     "diffs": [
+     "fmriprep-sdc",
      "lx-sdc",
-     "lxf-fmriprep",
-     "fmriprep-sdc"
+     "lxf-fmriprep"
     ],
     "compare": {
      "a": "sdcflows",
@@ -11008,30 +11194,64 @@
     "caption": "Axial slice 69 of 84; the crosshair where fMRIPrep's probabilities differ most from sdcflows' with the newest releases; choose the output (the probability, the mask over the input, the masked magnitude) above the images."
    },
    "chain": null,
-   "groups": [
-    [
-     "main",
-     "LARMORX against sdcflows"
-    ],
-    [
-     "fmriprep",
-     "LARMORX against fMRIPrep's own files"
-    ],
-    [
-     "check",
-     "LARMORX against itself: threads and modes"
-    ],
-    [
-     "variability",
-     "sdcflows against itself: the libraries' step"
-    ]
-   ],
-   "metrics_note": "Δ is A − B over all 2,097,152 voxels of each output file, not only those shown.",
+   "metrics_note": "Δ is A − B over all 2,097,152 voxels of each output file, not only those shown. The records' threshold: in `reproduce`, every output bit-identical to the originals' (or fMRIPrep's own files), their messages, warnings and exit statuses too.",
    "provenance": [
     "Data: OpenNeuro ds002603, sub-01, CC0-1.0",
     "Inputs: the clipped, N4-corrected magnitude (sha256 f57cf6848227f2f2…)",
-    "Runs: figures cache entry `sdcflows-estimation/masker-ds002603`, computed 2026-11-09T22:14:30+00:00 with larmorx `26df46d1a985`; sdcflows 2.17.1, niworkflows 1.15.3, nipype 1.12.0, scikit-image 0.26.0, nibabel 5.4.2, numpy 2.5.4 (OpenBLAS 0.3.34), SciPy 1.18.1 (oracles/python-newest: larmorx's reference); FSL 6.0.7.23's topup, ANTs 2.6.5's N4BiasFieldCorrection (the GCC 14.3 build; one thread, correctly rounded maths), AFNI 26.3.05's 3dvolreg, through the oracle cache; LARMORX's replicas and ports; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `sdcflows-estimation/masker-ds002603`, computed 2026-11-09T22:14:30+00:00 with larmorx `26df46d1a985`; sdcflows 2.17.1, niworkflows 1.15.3, nipype 1.12.0, scikit-image 0.26.0, nibabel 5.4.2, numpy 2.5.4 (OpenBLAS 0.3.34), SciPy 1.18.1 (oracles/python-newest: larmorx's reference); FSL 6.0.7.23's topup, ANTs 2.6.5's N4BiasFieldCorrection (the GCC 14.3 build; one thread, correctly rounded maths), AFNI 26.3.05's 3dvolreg, through the cache of the original's runs; LARMORX's replicas and ports; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
+   "order": {
+    "panels": [
+     "clipped",
+     "sdcflows",
+     "fmriprep",
+     "larmorx",
+     "larmorx-14",
+     "larmorx-fmriprep"
+    ],
+    "diffs": [
+     "fmriprep-sdc",
+     "lx-sdc",
+     "lxf-fmriprep",
+     "lx14-lx1"
+    ],
+    "groups": [
+     [
+      "The original against itself: the yardstick",
+      [
+       "fmriprep-sdc"
+      ]
+     ],
+     [
+      "The replica against the original",
+      [
+       "lx-sdc"
+      ]
+     ],
+     [
+      "The replica against fMRIPrep's output",
+      [
+       "lxf-fmriprep"
+      ]
+     ],
+     [
+      "The replica against itself: 1 and 14 threads, fix and reproduce",
+      [
+       "lx14-lx1"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "In `reproduce` the replica gives every value of sdcflows 2.17.1's three outputs, at 1 and 14 threads and in `fix` alike, and with fMRIPrep's libraries (numpy 2.2.6, SciPy 1.15.2) it writes fMRIPrep's own masker files, every value. No correction by default changes this call.",
+    "verdicts": [
+     {
+      "diff": "lx-sdc",
+      "port": "replica",
+      "verdict": "bit-identical"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds002603"
    ]
@@ -11039,7 +11259,7 @@
   {
    "id": "epi-mask-ds003592",
    "title": "SciPy's watershed corrected by default: sdcflows' epi_mask on ds003592's BOLD reference",
-   "summary": "sdcflows' `epi_mask` (`utils/epimanip.py`; no workflow of sdcflows or fMRIPrep calls it) masks an EPI by grey-level morphology and SciPy's `watershed_ift` from two markers, the object at the window's centre of mass and the background at one corner voxel. SciPy's watershed lets a region's front reach across the image's edges (SCI-13) and can leave an element alone in its queue (SCI-14): on this multi-echo BOLD reference the object's region stops early. LARMORX corrects both by default (rule A, measured against fMRIPrep's own brain masks) and gives SciPy's result in its reproduce mode.",
+   "summary": "sdcflows' `epi_mask` (`utils/epimanip.py`; no workflow of sdcflows or fMRIPrep calls it) masks an EPI by grey-level morphology and SciPy's `watershed_ift` from two markers, the object at the window's centre of mass and the background at one corner voxel. SciPy's watershed lets a region's front reach across the image's edges (SCI-13) and can leave an element alone in its queue (SCI-14): on this multi-echo BOLD reference the object's region stops early. The replica corrects both by default (rule A, measured against fMRIPrep's own brain masks) and gives SciPy's result in `reproduce`.",
    "facts": [
     {
      "label": "Data",
@@ -11047,11 +11267,11 @@
     },
     {
      "label": "Masks",
-     "text": "sdcflows 12,843 voxels (Dice 0.464 with fMRIPrep's), LARMORX reproduce 12,843, default 51,162 (Dice 0.904); fMRIPrep's mask 42,464"
+     "text": "sdcflows 12,843 voxels (Dice 0.464 with fMRIPrep's), the replica in `reproduce` 12,843, in `fix` 51,162 (Dice 0.904); fMRIPrep's mask 42,464"
     },
     {
      "label": "Programs",
-     "text": "sdcflows 2.17.1 in process (the newest environment); LARMORX's `lx.sdcflows.epi_mask` at commit `26df46d1a985`"
+     "text": "sdcflows 2.17.1 in process (the newest environment); the replica's `lx.sdcflows.epi_mask` at commit `26df46d1a985`"
     },
     {
      "label": "Grid",
@@ -11176,7 +11396,8 @@
      "window": [
       19.17706505775452,
       1580.1416015625
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "brain",
@@ -11202,12 +11423,13 @@
      "window": [
       0.0,
       1.0
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "sdcflows",
      "role": "original",
-     "label": "sdcflows 2.17.1",
+     "label": "sdcflows epi_mask 2.17.1",
      "sub": "SciPy 1.18.1's watershed_ift: LARMORX's reference",
      "arrays": {
       "mask": {
@@ -11230,13 +11452,14 @@
        0.0,
        1.0
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "larmorx",
      "role": "larmorx",
-     "label": "LARMORX (port)",
-     "sub": "reproduce mode: SciPy's watershed",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · reproduce: SciPy's watershed · against sdcflows epi_mask 2.17.1",
      "arrays": {
       "mask": {
        "same": "sdcflows:mask",
@@ -11257,13 +11480,14 @@
        0.0,
        1.0
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-fix",
      "role": "larmorx",
-     "label": "LARMORX (port)",
-     "sub": "default mode: the corrected watershed (SCI-13, SCI-14)",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · fix (the default): the corrected watershed (SCI-13, SCI-14)",
      "arrays": {
       "mask": {
        "blob": "20058af177d3a897e013b7a2.bin",
@@ -11285,7 +11509,8 @@
        0.0,
        1.0
       ]
-     }
+     },
+     "port": "replica"
     }
    ],
    "diffs": [
@@ -11294,8 +11519,8 @@
      "a": "larmorx",
      "b": "sdcflows",
      "kind": "main",
-     "label": "LARMORX (reproduce) − sdcflows 2.17.1",
-     "role_label": "larmorx against the original",
+     "label": "replica, reproduce − sdcflows epi_mask 2.17.1",
+     "role_label": "the replica against the original",
      "metrics": {
       "mask": {
        "identical": true,
@@ -11332,15 +11557,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "LARMORX's reproduce mode gives sdcflows' mask, every voxel: the non-flat `ball(3)` opening and `ball(2)` closing, numpy's percentiles, SciPy's watershed from the two markers with its defects, the `ball(2)` dilation."
+     "reason": "The replica's `reproduce` gives sdcflows' mask, every voxel: the non-flat `ball(3)` opening and `ball(2)` closing, numpy's percentiles, SciPy's watershed from the two markers with its defects, the `ball(2)` dilation.",
+     "port": "replica"
     },
     {
      "id": "fix-lx",
      "a": "larmorx-fix",
      "b": "larmorx",
      "kind": "check",
-     "label": "LARMORX: default − reproduce mode",
-     "role_label": "larmorx against itself",
+     "label": "replica: fix − reproduce",
+     "role_label": "the replica against itself: fix and reproduce",
      "metrics": {
       "mask": {
        "identical": false,
@@ -11390,7 +11616,8 @@
       }
      ],
      "verdict": "d13",
-     "reason": "The default corrects SciPy's watershed (SCI-13: neighbours across the image's edges; SCI-14: an element left alone in its queue) and names it: the object's region no longer stops early. sdcflows' mask holds 12,843 voxels (Dice 0.464 with fMRIPrep's brain mask), the corrected one 51,162 (Dice 0.904): rule A, measured on four references (the table below)."
+     "reason": "The default corrects SciPy's watershed (SCI-13: neighbours across the image's edges; SCI-14: an element left alone in its queue) and names it: the object's region no longer stops early. sdcflows' mask holds 12,843 voxels (Dice 0.464 with fMRIPrep's brain mask), the corrected one 51,162 (Dice 0.904): rule A, measured on four references (the table below).",
+     "port": "replica"
     }
    ],
    "default": {
@@ -11436,22 +11663,49 @@
     "caption": "Axial slice 17 of 43; each mask over the BOLD reference; the crosshair where the corrected watershed changes the mask."
    },
    "chain": null,
-   "groups": [
-    [
-     "main",
-     "LARMORX against sdcflows"
-    ],
-    [
-     "check",
-     "LARMORX against itself: its default mode (D13)"
-    ]
-   ],
-   "metrics_note": "Δ is A − B over all 176,128 voxels of each mask, not only those shown.",
+   "metrics_note": "Δ is A − B over all 176,128 voxels of each mask, not only those shown. The records' threshold: in `reproduce`, every output bit-identical to the originals' (or fMRIPrep's own files), their messages, warnings and exit statuses too.",
    "provenance": [
     "Data: OpenNeuro ds003592, sub-280, CC0-1.0",
     "Inputs: ds003592-sub-280-noreconall: the BOLD reference (sha256 aafc98faf627c1b7…); ds003592-sub-280-noreconall: fMRIPrep's brain mask (sha256 31c4ce2c435256d2…); ds000228-sub-pixar008-noreconall: the BOLD reference (sha256 b2147ee1102aaf22…); ds000228-sub-pixar008-noreconall: fMRIPrep's brain mask (sha256 f1d80f97a0409743…); ds005040-sub-002-noreconall: the BOLD reference (sha256 0dfb50a6476883b2…); ds005040-sub-002-noreconall: fMRIPrep's brain mask (sha256 3bb43393417fbb28…); ds004958-sub-fsm64ps-noreconall: the BOLD reference (sha256 7e21c93f731468d4…); ds004958-sub-fsm64ps-noreconall: fMRIPrep's brain mask (sha256 254db94b06a2f5ba…)",
-    "Runs: figures cache entry `sdcflows-estimation/epi-mask`, computed 2026-11-09T22:14:38+00:00 with larmorx `26df46d1a985`; sdcflows 2.17.1, niworkflows 1.15.3, nipype 1.12.0, scikit-image 0.26.0, nibabel 5.4.2, numpy 2.5.4 (OpenBLAS 0.3.34), SciPy 1.18.1 (oracles/python-newest: larmorx's reference); FSL 6.0.7.23's topup, ANTs 2.6.5's N4BiasFieldCorrection (the GCC 14.3 build; one thread, correctly rounded maths), AFNI 26.3.05's 3dvolreg, through the oracle cache; LARMORX's replicas and ports; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `sdcflows-estimation/epi-mask`, computed 2026-11-09T22:14:38+00:00 with larmorx `26df46d1a985`; sdcflows 2.17.1, niworkflows 1.15.3, nipype 1.12.0, scikit-image 0.26.0, nibabel 5.4.2, numpy 2.5.4 (OpenBLAS 0.3.34), SciPy 1.18.1 (oracles/python-newest: larmorx's reference); FSL 6.0.7.23's topup, ANTs 2.6.5's N4BiasFieldCorrection (the GCC 14.3 build; one thread, correctly rounded maths), AFNI 26.3.05's 3dvolreg, through the cache of the original's runs; LARMORX's replicas and ports; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
+   "order": {
+    "panels": [
+     "ref",
+     "brain",
+     "sdcflows",
+     "larmorx",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "lx-sdc",
+     "fix-lx"
+    ],
+    "groups": [
+     [
+      "The replica against the original",
+      [
+       "lx-sdc"
+      ]
+     ],
+     [
+      "The replica against itself: fix and reproduce",
+      [
+       "fix-lx"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "In `reproduce` the replica gives sdcflows 2.17.1's mask, every voxel. In `fix`, its default, it corrects SciPy's watershed ([SCI-13](repo:docs/findings/upstream-defects.md#summary) and [SCI-14](repo:docs/findings/upstream-defects.md#summary)): the object's region no longer stops early, and the mask grows from 12,843 to 51,162 voxels, its Dice coefficient with fMRIPrep's brain mask from 0.464 to 0.904.",
+    "verdicts": [
+     {
+      "diff": "lx-sdc",
+      "port": "replica",
+      "verdict": "bit-identical"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds003592",
     "openneuro-ds000228",
@@ -11460,6 +11714,33 @@
    ]
   }
  ],
+ "category_labels": {
+  "check_skimage": "scikit-image and the brain masker",
+  "check_masker_steps": "the brain masker's steps",
+  "check_epi_mask": "epi_mask and the watershed",
+  "check_match_histogram": "histogram matching",
+  "check_workflows": "the field-map workflows",
+  "check_pepolar": "PEPOLAR",
+  "relay22/audit_contract": "the per-program contract",
+  "check_qwarp_steps": "3dQwarp's Python steps",
+  "check_syn_preprocessing": "the fieldmap-less preprocessing",
+  "check_syn_sdc": "the fieldmap-less estimation",
+  "check_estimators": "the estimators of a BIDS dataset",
+  "check_derivatives": "the derivatives",
+  "check_fmap_stage": "fMRIPrep's field-map stage",
+  "check_unwarp": "the unwarping",
+  "check_app": "sdcflows' BIDS app",
+  "check_bold_fmap": "fMRIPrep's BOLD field-map nodes",
+  "check_bold_steps": "fMRIPrep's BOLD field-map steps",
+  "check_bold_stage": "fMRIPrep's BOLD field-map stages",
+  "check_ndimage": "SciPy's ndimage",
+  "check_numpy": "numpy",
+  "check_scipy_inv": "SciPy's inv",
+  "check_regrid": "regridding and Gaussian filters",
+  "check_merge": "niworkflows' IntraModalMerge",
+  "check_nipype": "nipype's command lines"
+ },
+ "presentation": "writing-guide",
  "cases_credits": [
   "openneuro-ds006736",
   "openneuro-ds005752",

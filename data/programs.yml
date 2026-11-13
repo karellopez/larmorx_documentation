@@ -625,7 +625,7 @@ groups:
         does: "sdcflows' BIDS app: the field maps of a BIDS dataset, PEPOLAR, direct and fieldmap-less (SyN), with their derivatives."
         original: "sdcflows 2.17.1, with niworkflows 1.15.4 and pybids 0.22.0"
         api: "docs/api/sdcflows-fieldmap.md"
-        evidence: "/tools/sdcflows-estimation/"
+        evidence: "/evidence/sdcflows-estimation/"
         reference: ""
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
@@ -637,7 +637,7 @@ groups:
         does: "sdcflows' B-spline field fit, the field evaluated and applied, and the phase-difference preparation."
         original: "sdcflows 2.17.1, with niworkflows 1.15.4 and pybids 0.22.0"
         api: "docs/api/sdcflows-fieldmap.md"
-        evidence: "/tools/sdcflows-fieldmap/"
+        evidence: "/evidence/sdcflows-fieldmap/"
         reference: ""
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
@@ -649,7 +649,7 @@ groups:
         does: "The interfaces of niworkflows that sdcflows' and fMRIPrep's field-map steps run."
         original: "niworkflows 1.15.4"
         api: "docs/api/niworkflows-helpers.md"
-        evidence: "/tools/sdcflows-estimation/"
+        evidence: "/evidence/sdcflows-estimation/"
         reference: ""
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
@@ -661,7 +661,7 @@ groups:
         does: "A BIDS dataset's index, as pybids' `BIDSLayout` gives it, in memory, without its database."
         original: "pybids 0.22.0"
         api: "docs/api/bids.md"
-        evidence: "/tools/sdcflows-estimation/"
+        evidence: "/evidence/sdcflows-estimation/"
         reference: ""
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
@@ -693,7 +693,7 @@ groups:
         does: "fMRIPrep's steps between sdcflows' field-map estimators and the one-shot resampler: the field map evaluated on a reference's grid, and the distortion parameters."
         original: "fMRIPrep 25.2.7"
         api: "docs/api/fmriprep-fieldmap-steps.md"
-        evidence: "/tools/sdcflows-estimation/"
+        evidence: "/evidence/sdcflows-estimation/"
         reference: ""
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "experimental", next_release: false}
@@ -717,7 +717,7 @@ groups:
         does: "SciPy's ndimage filters, morphology, labelling and watershed, under sdcflows' and fMRIPrep's steps."
         original: "SciPy 1.18.1"
         api: "docs/api/ndimage-filters.md"
-        evidence: "/tools/sdcflows-estimation/"
+        evidence: "/evidence/sdcflows-estimation/"
         reference: ""
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
@@ -729,7 +729,7 @@ groups:
         does: "scikit-image's ball, Otsu threshold, random walker and histogram matching, under sdcflows' brain mask."
         original: "scikit-image 0.26.0"
         api: "docs/api/skimage.md"
-        evidence: "/tools/sdcflows-estimation/"
+        evidence: "/evidence/sdcflows-estimation/"
         reference: ""
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
