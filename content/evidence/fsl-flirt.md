@@ -3,8 +3,9 @@ title: FLIRT
 kicker: Evidence · FSL
 lede: >-
   `flirt` finds the affine matrix that aligns one image with another, and fMRIPrep uses its
-  boundary-based registration to align every BOLD run with its T1w. FSL ships ten more programs and
-  three scripts with it, from `convert_xfm` to `aff2rigid`. The replica (`larmorx-nc`) gives FSL 6.0.7.23's
+  boundary-based registration to align every BOLD run with its T1w. Both ports also run the ten
+  other programs FSL builds with it, from `convert_xfm` to `applyxfm4D`, and its scripts
+  `pairreg`, `extracttxt` and `aff2rigid`. The replica (`larmorx-nc`) gives FSL 6.0.7.23's
   matrices, images and printed results byte for byte in all 211 of its compared cases, out of
   305, fMRIPrep's own calls among them. The clean room (`larmorx`) is within its record's
   thresholds in 239 of its 240 compared cases, out of 339, and gives FSL's bytes in 209 of them.
@@ -68,7 +69,7 @@ FSL comes under the FSL Licence, which allows non-commercial use only. So LARMOR
 
 `implementation="auto" | "replica" | "clean-room"` chooses between them (`"original"` in 0.1.0rc1). On the command line, `larmorx --implementation clean-room fsl flirt ...` does the same from the next release; in 0.1.0rc1 it is the environment variable `LARMORX_IMPLEMENTATION`. `auto` takes the replica when `larmorx-nc` is installed, else the clean room.
 
-The replica follows FSL 6.0.7.23. It runs none of FSL's programs and needs no FSL installation. Its FSL libraries are those every FSL replica of `larmorx-nc` shares with mcflirt and BET: newimage, its cost functions, and the matrix arithmetic of Armadillo 14.2.1 on OpenBLAS's LAPACK.
+The replica follows FSL 6.0.7.23. It runs none of FSL's programs and needs no FSL installation. Its FSL libraries are the ones the replicas of mcflirt and BET in `larmorx-nc` use too: newimage, its cost functions, and the matrix arithmetic of Armadillo 14.2.1 on OpenBLAS's LAPACK.
 
 The clean room follows FSL 6.0.7.23 too. It has every program, option, message and exit status of the replica. It computes FLIRT's costs, Powell's optimiser and its matrix algebra on the engine that LARMORX's head-motion correction uses ([lx.mri.hmc](/tools/mri-hmc/)), so the two share one piece of code for the correlation ratio and Woods' cost. It is built for speed. The boundary points, the correlation ratio's bins and the search's grid run in parallel and are summed in a fixed order, so the result is the same at any thread count. Its memory peak stays within 10 % of FSL's, plus the interpreter's 8 MiB, on every measured call.
 
@@ -76,10 +77,10 @@ The clean room follows FSL 6.0.7.23 too. It has every program, option, message a
 
 - 41 cases of its record that were within the thresholds without FSL's bytes now give FSL's files byte for byte: FLIRT's default registration and those with 6, 7 and 9 degrees of freedom, mutual information and `normmi`, the windowed sinc, the schedules, the verbose levels up to 3;
 - `-cost normmi` and weighted `normmi` pass, 10 mm off before;
-- fMRIPrep's three boundary-based calls came closer to FSL's matrices: at the 95th percentile of the brain from 0.0101, 0.0011 and 0.006 mm to 0.0065, 0.0002 and under 0.00001 mm, each then within FSL's own variability (ds005040's is 0.0113 mm since the catch-up of 2026-11-05: [the verdicts](#verdicts));
+- fMRIPrep's three boundary-based calls came closer to FSL's matrices: at the 95th percentile of the brain from 0.0101, 0.0011 and 0.006 mm to 0.0065, 0.0002 and under 0.00001 mm, each then within FSL's own variability (ds005040's is 0.0113 mm since the clean-room catch-up of 2026-11-05, when the clean room took in the specification's answers of 2026-11-03 (History): [the verdicts](#verdicts));
 - a registration is an iterative fit, so a few other cases moved the other way, by the size of the fit's own sensitivity to those last bits and within their thresholds: `bbr/default` from 0.020 to 0.069 mm of its 0.1 mm, `real/searchr` from 0.033 to 0.135 mm and `real/weights` from 0.21 to 0.31 mm of their 0.5 mm. The clean room's own two modes part by as much ([findings](repo:docs/findings/fsl-flirt-clean-room.md)).
 
-Its default, `fix`, still computes these functions correctly rounded. That is a *deliberate correction*, GLIBC-07 in the [register](repo:docs/findings/upstream-defects.md), and a registration names it nowhere: whether a registration moved with such last bits cannot be told without running it twice (as decided on 2026-11-04). `avscale`, `makerot` and `convert_xfm -fixscaleskew` name it exactly where their printed or written values differ.
+Its default, `fix`, still computes these functions correctly rounded. That is a *deliberate correction*, GLIBC-07 in the [register](repo:docs/findings/upstream-defects.md), and a registration names it nowhere: whether a registration moved with such last bits cannot be told without running it twice (a decision of the project of 2026-11-04, recorded with GLIBC-07). `avscale`, `makerot` and `convert_xfm -fixscaleskew` name it exactly where their printed or written values differ.
 
 ## The verdicts at a glance {#verdicts}
 
@@ -230,7 +231,7 @@ Where FSL has a deterministic defect, both ports correct it by default, `fix`, a
 
 Both ports are experimental. The records' standard comparison holds fMRIPrep's calls on three fMRIPrep runs. Their full comparison (fMRIPrep's 22 calls on every fMRIPrep run with BOLD runs) and the data panel's other images run in the final validation phase.
 
-Both ports have every program and script of FSL's FLIRT package, with two exceptions. The coordinate programs' `-warp`, FNIRT's warp fields, is refused with a message until FSL's warp-field libraries are ported. The scripts `flirt_average` and `epi_reg` need FSL's other programs (`fslmaths`, FAST, the field maps). `standard_space_roi`, which needs them too, is the replica's since 2026-11-04 and the clean room's since 2026-11-05, with its cases in BET's records ([BET's evidence](/evidence/fsl-bet/#ssroi)).
+Both ports have every command-line program and script of FSL's FLIRT package, with two exceptions. The coordinate programs' `-warp`, FNIRT's warp fields, is refused with a message until FSL's warp-field libraries are ported. The scripts `flirt_average` and `epi_reg` are not ported yet: they need FSL's other programs (`fslmaths`, FAST, the field maps). `standard_space_roi`, which needs them too, is the replica's since 2026-11-04 and the clean room's since 2026-11-05, with its cases in BET's records ([BET's evidence](/evidence/fsl-bet/#ssroi)).
 
 With NaN or infinite input voxels in `reproduce`, a NaN result can carry the other sign than FSL's (`nan` against `-nan`): an all-NaN matrix from a schedule that optimises relative to a row, and NaN voxels of `applyxfm4D`'s spline interpolation. The values are NaN in both.
 
@@ -240,7 +241,8 @@ The cross-platform checks ([how they work](repo:docs/validation/golden.md)) hold
 
 ## History {#history}
 
-- **2026-11-02**: the clean room, `flirt` and `convert_xfm`; in its part 2 the same day, FLIRT's other programs, `-debug`, the verbose levels and the speed. Six of the replica's cases came with the specification's answers to the clean room's questions: FSL-90 to FSL-93 and the order of NaN voxels in FLIRT's padding (FSL-22).
+- **2026-11-01**: the replica, its parts 1 and 2: `flirt` and `convert_xfm` with every cost function, the boundary-based cost and the schedules, and FLIRT's other programs `avscale`, `img2imgcoord`, `std2imgcoord`, `img2stdcoord`, `rmsdiff` and `makerot`.
+- **2026-11-02**: the replica's part 3: `midtrans`, `pointflirt`, `applyxfm4D` in every data type and the scripts `pairreg`, `extracttxt` and `aff2rigid`. The clean room, `flirt` and `convert_xfm`; in its part 2 the same day, FLIRT's other programs, `-debug`, the verbose levels and the speed. Six of the replica's cases came with the specification's answers to the clean room's questions: FSL-90 to FSL-93 and the order of NaN voxels in FLIRT's padding (FSL-22).
 - **2026-11-03**: three of the replica's cases came with the answers to the clean room's part 2's questions: `applyxfm4D` on uint8 images, trilinear and with `-3D` spline (FSL-111), and `pointflirt` with two coordinate files that hold no point, where FSL crashes and the replica refuses in `fix` and in `reproduce` (FSL-204). The replica's record of 305 cases. The specification's answers of that day (§14): the windowed sinc and the paths through the C library's single-precision sine, cosine and arctangent in `reproduce`, `-debug`'s lines and volumes, avscale's residuals, `applyxfm4D`'s spline in double precision, `leastsq`'s sums.
 - **2026-11-04**: the clean room's `reproduce` computes the C library's functions as glibc 2.35 does: 41 cases give FSL's files since, among them the default registration (its matrix 0.033 mm from FSL's before, FSL's own 0.005 mm) and `-applyxfm`'s sinc. fMRIPrep's three calls came from 0.0101, 0.0011 and 0.006 mm to 0.0065, 0.0002 and under 0.00001 mm.
 - **2026-11-05**: the clean-room catch-up. The specification's answers of 2026-11-03 are in the clean room since. `-cost leastsq` passes, the search orders its starting points of equal cost as FSL's sort does, `pointflirt` without points and FSL-241's transforms are refused. ds005040's matrix moved from 0.0065 to 0.0113 mm. The random-testing run of 13,907 calls.
