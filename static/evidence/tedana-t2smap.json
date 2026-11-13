@@ -3,7 +3,7 @@
  "tool": "tedana-t2smap",
  "title": "t2smap",
  "provenance": {
-  "exporter": "671612d37c119901d99d2637bb5453b62659aaef",
+  "exporter": "35126220c3d5dc97742199a85445ee5c8bb1e9d3",
   "records": [
    {
     "path": "docs/validation/tedana-t2smap-replica.json",
@@ -5271,7 +5271,7 @@
   },
   {
    "id": "spread",
-   "title": "The original against itself: tedana `t2smap` 26.0.3 (values that differ from its reference setup)",
+   "title": "The original against itself, and the replica at four threads: tedana `t2smap` 26.0.3 (values that differ from its reference setup)",
    "columns": [
     {
      "label": "Variant"
@@ -5359,7 +5359,7 @@
      ]
     },
     {
-     "head": "The replica (replica) at `--n-threads 4`",
+     "head": "The replica at `--n-threads 4`",
      "cells": [
       {
        "v": 0,
@@ -10792,12 +10792,14 @@
      "tedana",
      "replica",
      "replica-fix",
-     "clean-reproduce"
+     "clean-reproduce",
+     "clean"
     ],
     "diffs": [
      "avx-ted",
      "rep-ted",
-     "fix-rep"
+     "fix-rep",
+     "cr-ted"
     ],
     "compare": {
      "a": "tedana",
@@ -10814,15 +10816,18 @@
      "tedana": "2aa2cfcd3e9fe708b023da7c.webp",
      "replica": "2aa2cfcd3e9fe708b023da7c.webp",
      "replica-fix": "2aa2cfcd3e9fe708b023da7c.webp",
-     "clean-reproduce": "2aa2cfcd3e9fe708b023da7c.webp"
+     "clean-reproduce": "2aa2cfcd3e9fe708b023da7c.webp",
+     "clean": "2aa2cfcd3e9fe708b023da7c.webp"
     },
     "diffs": {
      "fix-rep": "d7c87809e73e9cc2600f85c7.webp",
-     "avx-ted": "995bc5b4bcbbf80541253025.webp"
+     "avx-ted": "995bc5b4bcbbf80541253025.webp",
+     "cr-ted": "89428c6bccc00a8d98ad63cd.webp"
     },
     "ranges": {
      "fix-rep": 239792.8362132311,
-     "avx-ted": 239792.8362132311
+     "avx-ted": 239792.8362132311,
+     "cr-ted": 239792.8362132311
     },
     "caption": "Axial slice 37 of 43; the crosshair where the default's T2* map differs most from reproduce's; choose the output above the images: the full T2* map (fMRIPrep's output) and S0, the limited maps, the adaptive mask (good echoes per voxel), the curve fit's failures."
    },
@@ -12050,12 +12055,14 @@
      "tedana",
      "fmriprep",
      "replica",
-     "clean-reproduce"
+     "clean-reproduce",
+     "clean"
     ],
     "diffs": [
      "rep-ted",
      "rep-fmriprep",
-     "fix-rep"
+     "fix-rep",
+     "cr-ted"
     ],
     "compare": {
      "a": "tedana",
@@ -12072,15 +12079,18 @@
      "tedana": "efc3eeac2c077219ecf6ba8a.webp",
      "replica": "efc3eeac2c077219ecf6ba8a.webp",
      "fmriprep": "efc3eeac2c077219ecf6ba8a.webp",
-     "clean-reproduce": "efc3eeac2c077219ecf6ba8a.webp"
+     "clean-reproduce": "efc3eeac2c077219ecf6ba8a.webp",
+     "clean": "efc3eeac2c077219ecf6ba8a.webp"
     },
     "diffs": {
      "fix-rep": "b83a0e78a10c69bab405c75b.webp",
-     "rep-fmriprep": "fad747b253f65c90811fdaaa.webp"
+     "rep-fmriprep": "fad747b253f65c90811fdaaa.webp",
+     "cr-ted": "5c4681273b8ffc9f9e4db6f1.webp"
     },
     "ranges": {
      "fix-rep": 1.4006195068359375,
-     "rep-fmriprep": 1.4006195068359375
+     "rep-fmriprep": 1.4006195068359375,
+     "cr-ted": 1.4006195068359375
     },
     "caption": "Axial slice 21 of 43, volume 1 of 3; file volume 0; the crosshair where the default's combination differs most from reproduce's."
    },
@@ -15386,12 +15396,14 @@
      "tedana",
      "replica",
      "replica-fix",
-     "clean-reproduce"
+     "clean-reproduce",
+     "clean"
     ],
     "diffs": [
      "avx-ted",
      "rep-ted",
-     "fix-rep"
+     "fix-rep",
+     "cr-ted"
     ],
     "compare": {
      "a": "tedana",
@@ -15408,15 +15420,18 @@
      "tedana": "46d89e3d38991bb9b22c177f.webp",
      "replica": "46d89e3d38991bb9b22c177f.webp",
      "replica-fix": "46d89e3d38991bb9b22c177f.webp",
-     "clean-reproduce": "46d89e3d38991bb9b22c177f.webp"
+     "clean-reproduce": "46d89e3d38991bb9b22c177f.webp",
+     "clean": "46d89e3d38991bb9b22c177f.webp"
     },
     "diffs": {
      "fix-rep": "4cc3baf911ce884b7fe5bbae.webp",
-     "avx-ted": "09691cef3ce25885fa465435.webp"
+     "avx-ted": "09691cef3ce25885fa465435.webp",
+     "cr-ted": "4df22a132be6f40b47e9524c.webp"
     },
     "ranges": {
      "fix-rep": 218065.64810830355,
-     "avx-ted": 218065.64810830355
+     "avx-ted": 218065.64810830355,
+     "cr-ted": 218065.64810830355
     },
     "caption": "Axial slice 18 of 30; the crosshair where the default's T2* map differs most from reproduce's; choose the output above the images: the full T2* map (fMRIPrep's output) and S0, the limited maps, the adaptive mask (good echoes per voxel), the curve fit's failures."
    },

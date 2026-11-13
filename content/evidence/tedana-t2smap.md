@@ -124,7 +124,7 @@ The clean room's [record](repo:docs/validation/tedana-t2smap-original.md) runs 1
 
 - **Bit-identical, 65.** tedana's values bit for bit.
 - **Within the thresholds, 23.** tedana's values within §17.3's thresholds.
-- **Rejected by both, 36.** Both programs refuse the input with the same messages and exit status.
+- **Rejected by both, 36.** Both programs refuse the input with the same messages and exit status. The record counts these 36 among its 124 passes, since both programs' refusals are compared.
 - **Expected divergence, 1.** A chaotic curve fit, inside whose steps SciPy prints its own floating-point warnings; the clean room does not print them, since its solver is its own.
 
 None fails. The cases cover the specification's black-box probe and more:
