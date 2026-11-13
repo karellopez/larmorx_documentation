@@ -2326,6 +2326,130 @@
     "differ": 50
    },
    "unclear": 0
+  },
+  {
+   "page": "/evidence/confounds/",
+   "section": "random-testing",
+   "label": "numpy's and SciPy's linear algebra",
+   "port": "replica",
+   "run": "2026-11-12-confounds-trial",
+   "note": "",
+   "date": "2026-11-12",
+   "minutes": 30.0,
+   "seed": "confounds-trial",
+   "larmorx_commit": "v0.1.0rc1-218-g7ade9fbdd1bd",
+   "cases": 111478,
+   "outcomes": {
+    "agree": 111478
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/confounds/",
+   "section": "random-testing",
+   "label": "nipype's confounds module",
+   "port": "replica",
+   "run": "2026-11-12-confounds-trial",
+   "note": "",
+   "date": "2026-11-12",
+   "minutes": 30.0,
+   "seed": "confounds-trial",
+   "larmorx_commit": "v0.1.0rc1-218-g7ade9fbdd1bd",
+   "cases": 111355,
+   "outcomes": {
+    "agree": 110988,
+    "notice": 339,
+    "differ": 28
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/confounds/",
+   "section": "random-testing",
+   "label": "fMRIPrep's confound steps",
+   "port": "replica",
+   "run": "2026-11-12-confounds-trial",
+   "note": "",
+   "date": "2026-11-12",
+   "minutes": 30.0,
+   "seed": "confounds-trial",
+   "larmorx_commit": "v0.1.0rc1-218-g7ade9fbdd1bd",
+   "cases": 111291,
+   "outcomes": {
+    "agree": 109610,
+    "notice": 189,
+    "skipped": 1492
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/confounds/",
+   "section": "random-testing",
+   "label": "numpy's and SciPy's linear algebra",
+   "port": "replica",
+   "run": "2026-11-12-confounds-check",
+   "note": "the check of the final build",
+   "date": "2026-11-12",
+   "minutes": 10.2,
+   "seed": "confounds-check",
+   "larmorx_commit": "v0.1.0rc1-221-g9892deaf0f24",
+   "cases": 46698,
+   "outcomes": {
+    "agree": 46698
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/confounds/",
+   "section": "random-testing",
+   "label": "nipype's confounds module",
+   "port": "replica",
+   "run": "2026-11-12-confounds-check",
+   "note": "the check of the final build",
+   "date": "2026-11-12",
+   "minutes": 10.2,
+   "seed": "confounds-check",
+   "larmorx_commit": "v0.1.0rc1-221-g9892deaf0f24",
+   "cases": 46658,
+   "outcomes": {
+    "agree": 46658
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/confounds/",
+   "section": "random-testing",
+   "label": "fMRIPrep's confound steps",
+   "port": "replica",
+   "run": "2026-11-12-confounds-check",
+   "note": "the check of the final build",
+   "date": "2026-11-12",
+   "minutes": 10.2,
+   "seed": "confounds-check",
+   "larmorx_commit": "v0.1.0rc1-221-g9892deaf0f24",
+   "cases": 46647,
+   "outcomes": {
+    "agree": 46002,
+    "skipped": 645
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/confounds/",
+   "section": "random-testing",
+   "label": "fMRIPrep's confound steps",
+   "port": "replica",
+   "run": "2026-11-12-confounds-check-noavx512",
+   "note": "the check of the final build, numpy's AVX-512 kernels off",
+   "date": "2026-11-12",
+   "minutes": 5.4,
+   "seed": "confounds-check-noavx512",
+   "larmorx_commit": "v0.1.0rc1-221-g9892deaf0f24",
+   "cases": 40567,
+   "outcomes": {
+    "agree": 40567
+   },
+   "unclear": 0
   }
  ],
  "provenance": {
@@ -2348,8 +2472,11 @@
    "oracles/difftest/2026-11-08-volreg-original-trial/summary.json",
    "oracles/difftest/2026-11-09-fieldmaps-b-noavx512/summary.json",
    "oracles/difftest/2026-11-09-fieldmaps-b/summary.json",
-   "oracles/difftest/2026-11-11-t2smap-original-2/summary.json"
+   "oracles/difftest/2026-11-11-t2smap-original-2/summary.json",
+   "oracles/difftest/2026-11-12-confounds-check-noavx512/summary.json",
+   "oracles/difftest/2026-11-12-confounds-check/summary.json",
+   "oracles/difftest/2026-11-12-confounds-trial/summary.json"
   ],
-  "exporter": "cfa45bc2a5348f89ed9af55603544aea7d1860d9"
+  "exporter": "55728b558632f09693cde2c3a4e30ce2a9d17ca4"
  }
 }
