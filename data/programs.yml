@@ -88,11 +88,11 @@ groups:
         command: "larmorx ants MultiplyImages"
         also: ""
         python: "lx.ants.multiply_images"
-        does: "Multiplies an image by another image or by a number, as sMRIPrep's brain extraction calls it."
+        does: "`MultiplyImages` multiplies an image by another image or by a number."
         original: "ANTs 2.6.5 on ITK 5.4.5"
         api: "docs/api/ants-multiply-images.md"
         evidence: "/evidence/ants-programs/"
-        reference: ""
+        reference: "/programs/ants/MultiplyImages/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
       - name: "SmoothImage"
