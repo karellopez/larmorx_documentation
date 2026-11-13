@@ -128,11 +128,11 @@ It is not an error (the command still ends with exit status 0). It says that a k
 
 LARMORX is published as three packages, one for each family of licences, so that each licence stays with the code it covers ([in full on Concepts](/concepts/#packages)):
 
-- **`larmorx`**: every program on the [Programs](/programs/) page but FSL's and tedana's replicas; [Apache-2.0](repo:LICENSE), any use, commercial use included.
+- **`larmorx`**: every program on the [Programs](/programs/) page but FSL's and tedana's replicas; [Apache-2.0](repo:LICENSE), any use, commercial use included. Its [NOTICE](repo:NOTICE) lists the works it includes.
 - **`larmorx-nc`**: the replicas of FSL's programs; the [FSL Licence](repo:crates-nc/LICENSE), **non-commercial use only**.
 - **`larmorx-gpl`**: the replica of tedana's `t2smap`; the [GNU GPL version 3](repo:crates-gpl/LICENSE).
 
-The two replica packages are installed only when you ask for them by name (`pip install larmorx-nc`) or through `[all]`.
+The two replica packages are installed only when you ask for them by name (`pip install larmorx-nc`) or through `[all]`. Every work LARMORX includes and its licence: the repository's [licensing notes](repo:docs/licensing.md).
 
 ## What your computer needs {#requirements}
 

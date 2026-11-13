@@ -48,7 +48,7 @@ Much of neuroimaging's analysis software is written in Python (nibabel, nilearn,
 
 ## The limits {#limits}
 
-- **The six-platform proof uses small images.** The golden tests' inputs are at most 32³ voxels, so that the whole suite runs in under a minute on each platform. Full-size runs on Windows and macOS come with the final validation phase ([roadmap](/roadmap/#final)) and the checks on clean machines.
+- **The six-platform proof uses small images.** The cross-platform checks' inputs are at most 32³ voxels, so that the whole suite runs in under a minute on each platform. Full-size runs on Windows and macOS come with the final validation phase ([roadmap](/roadmap/#final)) and the checks on clean machines.
 - **The comparisons with the original programs run on one Linux x86-64 machine,** where the originals are built; the other platforms are checked against LARMORX's own Linux x86-64 output ([how each program is validated](/validation/)).
 - **The original programs stay Unix programs.** LARMORX is an alternative beside them, not a fix of them.
 
