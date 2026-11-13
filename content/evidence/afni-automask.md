@@ -5,8 +5,9 @@ lede: >-
   `3dAutomask` makes a brain mask of an EPI series or a skull-stripped image from its
   intensities alone. LARMORX has two ports of it, both in `larmorx` itself, and both give AFNI
   26.3.05's masks bit for bit in every compared case, fMRIPrep's own calls included. The
-  replica's record has 125 cases. The clean room's has 130; in one of them its header differs
-  from AFNI's, in 7 significant digits (AFNI-10), its mask AFNI's.
+  replica's record has 125 cases. The clean room's has 130; in 14 of them, fMRIPrep's calls on
+  images AFNI wrote, its header differs from AFNI's where AFNI reads the geometry from its own
+  header extension, in 7 significant digits (AFNI-10); its masks are AFNI's.
 description: >-
   How LARMORX's two ports of AFNI's 3dAutomask, the replica and the clean room, compare with
   AFNI 26.3.05, AFNI 25.2.09 and fMRIPrep 25.2.6: fMRIPrep's skull strip of a real BOLD
@@ -50,7 +51,7 @@ The call above leaves `implementation` at `"auto"`. The [API page](repo:docs/api
 
 3dAutomask's results depend on AFNI library routines copyrighted by the Medical College of Wisconsin, GPL-2 until AFNI 25.2.09, so LARMORX has two ports of it. Since 2026-10-29 both are part of LARMORX itself (`pip install larmorx`). AFNI 26.3.05 releases the Medical College of Wisconsin's code, which these programs' results depend on, under CC BY 4.0. So the replica moved from the separate GPL package `larmorx-gpl` into LARMORX, under the Apache License with CC BY 4.0's attribution ([NOTICE](repo:NOTICE), [licensing](repo:docs/licensing.md)), and runs in the same process. The replica is translated from AFNI's source. The clean room is written without it, from a description of what the program does ([specs/3dAutomask.md](repo:specs/3dAutomask.md)).
 
-`implementation="auto" | "replica" | "clean-room"` chooses between them (`"original"` in 0.1.0rc1). On the command line, `larmorx --implementation clean-room afni 3dAutomask ...` does the same from the next release; in 0.1.0rc1 it is the environment variable `LARMORX_IMPLEMENTATION`. `auto` takes the replica (until 2026-10-29, when `larmorx-gpl` was installed, and the clean room otherwise). The examples below were computed with the replica as the separate program it was then; its records, made again in the same process on 2026-10-29, agree case for case.
+`implementation="auto" | "replica" | "clean-room"` chooses between them (`"original"` in 0.1.0rc1). On the command line, `larmorx --implementation clean-room afni 3dAutomask ...` does the same from the next release; in 0.1.0rc1 it is the environment variable `LARMORX_IMPLEMENTATION`. `auto` takes the replica (before 2026-10-29 only where `larmorx-gpl` was installed, the clean room otherwise). The examples below were computed with the replica as the separate program it was then; its records, made again in the same process on 2026-10-29, agree case for case.
 
 The clean room decides each pass of its mask operations voxel by voxel in parallel, finds clusters by union-find over runs of voxels, and replaces two of AFNI's repeated sweeps by breadth-first searches with the same result. Its result does not depend on the thread count.
 
@@ -62,7 +63,7 @@ The clean room decides each pass of its mask operations voxel by voxel in parall
 
 The clean room's record runs 130 cases against AFNI 26.3.05, the replica's 125. Since 2026-10-29 both ports follow **AFNI 26.3.05**, AFNI's newest release, and their records run against it, with AFNI 25.2.09 run beside it on every case (*AFNI's own step*): the replica since the version update, the clean room since its alignment the same day. Between the two releases these programs changed in exactly two places, both corrections LARMORX already made by default: header slice code 2 read as NIfTI defines it (AFNI-03), and 3dTshift's `-no_detrend` de-meaning every voxel (AFNI-05). In `reproduce` both ports now give 26.3.05's result there and name neither. The examples below show both versions' outputs: on fMRIPrep's calls they are the same bytes.
 
-The replica gives AFNI's bytes, data and NIfTI header, in every case that writes an output, and AFNI's exit status and messages in every case. So does the clean room, but in one case: fMRIPrep's call on the BOLD reference of ds005454, whose header differs where AFNI reads the input's geometry from its own header extension, in 7 significant digits (AFNI-10, the *deliberate correction*); its masks are AFNI's. Where AFNI crashes on a missing option value (AFNI-40), both ports stop with an error instead: the expected divergences. Each case is also run in `fix`, the default, where LARMORX corrects AFNI's deterministic defects and names them.
+The replica gives AFNI's bytes, data and NIfTI header, in every case that writes an output, and AFNI's exit status and messages in every case. So does the clean room, but in 14 cases: fMRIPrep's calls on its 3dUnifize outputs, which carry AFNI's own header extension, where the header differs in 7 significant digits (AFNI-10, a *deliberate correction*); its masks are AFNI's. Where AFNI crashes on a missing option value (AFNI-40), both ports stop with an error instead: the expected divergences. Each case is also run in `fix`, the default, where LARMORX corrects AFNI's deterministic defects and names them.
 
 ## In fMRIPrep: the BOLD reference's second skull strip {#example}
 
@@ -114,9 +115,10 @@ Random testing runs random valid inputs and option combinations through the orig
 
 ## Known limits {#limits}
 
-LARMORX writes NIfTI only: AFNI's default prefix `automask` is its own dataset format, which both ports refuse (an expected divergence). The clean room ignores AFNI's own header extension in an AFNI-written input (AFNI-10), as 3dTshift's clean room does; the replica reads it as AFNI does. The other five platforms are held to LARMORX's own Linux output by the [golden tests](repo:docs/validation/golden.md).
+LARMORX writes NIfTI only: AFNI's default prefix `automask` is its own dataset format, which both ports refuse (an expected divergence). The clean room ignores AFNI's own header extension in an AFNI-written input (AFNI-10), as 3dTshift's clean room does; the replica reads it as AFNI does. The cross-platform checks ([how they work](repo:docs/validation/golden.md)) hold the other five platforms to LARMORX's own Linux output.
 
 ## History {#history}
 
 - **2026-10-23**: AFNI-41 refused by default, by the project's rule for an input that makes no sense.
 - **2026-10-29**: AFNI 26.3.05 releases the Medical College of Wisconsin's code under CC BY 4.0; the replica moves from `larmorx-gpl` into `larmorx`, and both ports follow AFNI 26.3.05.
+- **2026-10-30**: both records made again against AFNI 26.3.05: 130 and 125 cases.
