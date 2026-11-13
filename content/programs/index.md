@@ -30,7 +30,7 @@ From now on a port's part leaves it *experimental*, even where every case of its
 <summary class="prog-head"><h2 class="prog-chip">{{ g.name }}</h2><span class="prog-sum"><span class="prog-count">{{ g.count }}</span>{% if g.original %}<span class="prog-orig">compared with {{ g.original }}</span>{% endif %}<span class="prog-ports">{% for p in g.ports %}<span class="port port--{{ p.kind }}"><span class="port-name">{{ p.name }}</span> <code>{{ p.package }}</code> <span class="port-licence">{{ p.licence }}</span>{% if p.next_release %} <span class="prog-next">from the next release</span>{% endif %}</span>{% endfor %}</span></span></summary>
 <ul class="prog-list">
 {%- for p in g.programs %}
-<li id="{{ g.id }}-{{ p.name | lower }}">
+<li id="{{ g.id }}-{{ p.name | lower | replace(" ", "-") }}">
 <div class="prog-name">{% if p.reference %}<a href="{{ link(p.reference) }}"><code>{{ p.name }}</code></a>{% else %}<code>{{ p.name }}</code>{% endif %}<span class="prog-kind">{{ p.kind }}</span></div>
 <div class="prog-what"><p class="prog-does">{{ p.does | md_inline }}</p><p class="prog-call">{% if p.command %}<code>{{ p.command }}</code>{% endif %}{% if p.also %} <code>{{ p.also }}</code>{% endif %} <code>{{ p.python }}</code></p>{% if p.original != g.original %}<p class="prog-orig">compared with {{ p.original | md_inline }}</p>{% endif %}</div>
 <ul class="prog-ports" aria-label="Its ports">{% for x in p.ports %}<li class="port port--{{ x.kind }}"><span class="port-name">{{ x.name }}</span> <span class="status-tag{% if x.status == 'experimental' %} status-tag--experimental{% else %} status-tag--plain{% endif %}">{{ x.status }}</span>{% if x.next_release %} <span class="prog-next">from the next release</span>{% endif %}</li>{% endfor %}</ul>
