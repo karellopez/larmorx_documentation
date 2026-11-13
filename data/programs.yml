@@ -28,11 +28,11 @@ groups:
         command: "larmorx ants N4BiasFieldCorrection"
         also: ""
         python: "lx.ants.n4_bias_field_correction"
-        does: "Bias-field correction (N4), as fMRIPrep, sMRIPrep and sdcflows call it."
+        does: "`N4BiasFieldCorrection` removes a smooth intensity bias field from an image."
         original: "ANTs 2.6.5 on ITK 5.4.5"
         api: "docs/api/ants-n4.md"
         evidence: "/evidence/ants-n4/"
-        reference: ""
+        reference: "/programs/ants/N4BiasFieldCorrection/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
       - name: "DenoiseImage"
@@ -40,11 +40,11 @@ groups:
         command: "larmorx ants DenoiseImage"
         also: ""
         python: "lx.ants.denoise_image"
-        does: "Adaptive non-local means denoising; ANTs' single-thread result at any thread count."
+        does: "`DenoiseImage` denoises an image by adaptive non-local means."
         original: "ANTs 2.6.5 on ITK 5.4.5"
         api: "docs/api/ants-denoise.md"
         evidence: "/evidence/ants-denoise/"
-        reference: ""
+        reference: "/programs/ants/DenoiseImage/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
       - name: "antsApplyTransforms"
@@ -136,11 +136,11 @@ groups:
         command: "larmorx ants antsAI"
         also: ""
         python: "lx.ants.ai"
-        does: "The linear transform that best aligns two images: an initial alignment, then a multi-start search over rotations and translations."
+        does: "`antsAI` finds the linear transform that best aligns two images."
         original: "ANTs 2.6.5 on ITK 5.4.5"
         api: "docs/api/ants-ai.md"
         evidence: "/evidence/ants-ai/"
-        reference: ""
+        reference: "/programs/ants/antsAI/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
       - name: "antsAffineInitializer"
@@ -148,11 +148,11 @@ groups:
         command: "larmorx ants antsAffineInitializer"
         also: ""
         python: "lx.ants.affine_initializer"
-        does: "An affine transform that aligns two images' centres of mass (and principal axes), refined by a multi-start search over rotations."
+        does: "`antsAffineInitializer` finds an affine transform that aligns two images."
         original: "ANTs 2.6.5 on ITK 5.4.5"
         api: "docs/api/ants-affine-initializer.md"
         evidence: "/evidence/ants-ai/"
-        reference: ""
+        reference: "/programs/ants/antsAffineInitializer/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
       - name: "Atropos"
@@ -160,11 +160,11 @@ groups:
         command: "larmorx ants Atropos"
         also: ""
         python: "lx.ants.atropos"
-        does: "Finite-mixture segmentation with a Markov random field prior: every initialization, likelihood model, outlier and partial-volume option."
+        does: "`Atropos` segments an image into tissue classes by a finite mixture model with a Markov random field prior."
         original: "ANTs 2.6.5 on ITK 5.4.5"
         api: "docs/api/ants-atropos.md"
         evidence: "/evidence/ants-atropos/"
-        reference: ""
+        reference: "/programs/ants/Atropos/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
       - name: "transforms-hdf5"

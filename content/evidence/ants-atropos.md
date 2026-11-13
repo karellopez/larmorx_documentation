@@ -29,7 +29,7 @@ wide: true
 </ul></dd>
 <dt>Status</dt><dd>replica <span class="status-tag status-tag--plain">validated</span>, with its data panel (<a href="{{ link('/validation/#validated-before') }}">marked before the statuses' definition</a>)</dd>
 <dt>Records</dt><dd><a href="{{ repo('docs/validation/ants-atropos.md') }}">standard comparison</a>, <a href="{{ repo('docs/validation/ants-atropos-full.md') }}">full comparison</a>, <a href="{{ repo('docs/validation/ants-atropos-panel.md') }}">data panel</a>, all against ANTs 2.6.5</dd>
-<dt>Reference</dt><dd>API page <a href="{{ repo('docs/api/ants-atropos.md') }}">ants-atropos</a> · findings <a href="{{ repo('docs/findings/ants-atropos.md') }}">ants-atropos</a></dd>
+<dt>Reference</dt><dd><a href="{{ link('/programs/ants/Atropos/') }}"><code>Atropos</code></a> · API page <a href="{{ repo('docs/api/ants-atropos.md') }}">ants-atropos</a> · findings <a href="{{ repo('docs/findings/ants-atropos.md') }}">ants-atropos</a></dd>
 </dl>
 
 ## What is compared {#what-it-is}

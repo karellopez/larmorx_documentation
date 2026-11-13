@@ -26,7 +26,7 @@ wide: true
 </ul></dd>
 <dt>Status</dt><dd>replica <span class="status-tag status-tag--plain">validated</span>, with its data panel (<a href="{{ link('/validation/#validated-before') }}">marked before the statuses' definition</a>)</dd>
 <dt>Records</dt><dd><a href="{{ repo('docs/validation/ants-n4.md') }}">standard comparison</a> (ANTs 2.6.5), <a href="{{ repo('docs/validation/ants-n4-panel.md') }}">data panel</a> (ANTs 2.6.5) · benchmark <a href="{{ repo('docs/benchmarks/ants-n4.md') }}">ants-n4</a> · findings <a href="{{ repo('docs/findings/ants-n4.md') }}">ants-n4</a></dd>
-<dt>Reference</dt><dd>API page <a href="{{ repo('docs/api/ants-n4.md') }}">ants-n4</a></dd>
+<dt>Reference</dt><dd><a href="{{ link('/programs/ants/N4BiasFieldCorrection/') }}"><code>N4BiasFieldCorrection</code></a> · API page <a href="{{ repo('docs/api/ants-n4.md') }}">ants-n4</a></dd>
 </dl>
 
 ## What is compared {#what-it-is}

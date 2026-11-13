@@ -29,7 +29,7 @@ wide: true
 </ul></dd>
 <dt>Status</dt><dd>replica <span class="status-tag status-tag--plain">validated</span>, each program, with its data panel (<a href="{{ link('/validation/#validated-before') }}">marked before the statuses' definition</a>)</dd>
 <dt>Records</dt><dd>antsAI: <a href="{{ repo('docs/validation/ants-ai.md') }}">standard comparison</a>, <a href="{{ repo('docs/validation/ants-ai-full.md') }}">full comparison</a>, <a href="{{ repo('docs/validation/ants-ai-panel.md') }}">data panel</a>; antsAffineInitializer: <a href="{{ repo('docs/validation/ants-affine-initializer.md') }}">standard comparison</a>, <a href="{{ repo('docs/validation/ants-affine-initializer-full.md') }}">full comparison</a>, <a href="{{ repo('docs/validation/ants-affine-initializer-panel.md') }}">data panel</a>; all against ANTs 2.6.5 · benchmark <a href="{{ repo('docs/benchmarks/ants-ai.md') }}">ants-ai</a></dd>
-<dt>Reference</dt><dd>API pages <a href="{{ repo('docs/api/ants-ai.md') }}">ants-ai</a> · <a href="{{ repo('docs/api/ants-affine-initializer.md') }}">ants-affine-initializer</a> · findings <a href="{{ repo('docs/findings/ants-ai.md') }}">ants-ai</a></dd>
+<dt>Reference</dt><dd><a href="{{ link('/programs/ants/antsAI/') }}"><code>antsAI</code></a>, <a href="{{ link('/programs/ants/antsAffineInitializer/') }}"><code>antsAffineInitializer</code></a> · API pages <a href="{{ repo('docs/api/ants-ai.md') }}">ants-ai</a> · <a href="{{ repo('docs/api/ants-affine-initializer.md') }}">ants-affine-initializer</a> · findings <a href="{{ repo('docs/findings/ants-ai.md') }}">ants-ai</a></dd>
 </dl>
 
 ## What is compared {#what-they-are}
