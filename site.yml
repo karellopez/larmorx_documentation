@@ -83,10 +83,10 @@ tools:
       summary: "Image arithmetic, thresholds, filters, reductions, statistics and TFCE: a replica in larmorx-nc, fMRIPrep's mask combination and goodvoxels calls FSL's bytes, and a clean room in larmorx (experimental, since 2026-11-04), FSL's values in 370 of 391 compared cases, up to 268 times as fast." }
   - { title: fslstats, url: "/evidence/fsl-stats/", eco: fsl,
       summary: "Image statistics, per volume, per label and as JSON: a replica in larmorx-nc, every compared case FSL's text, and a clean room in larmorx (experimental, since 2026-11-04), FSL's numbers in 125 of 126 compared cases." }
-  - { title: prelude, url: "/tools/fsl-prelude/", eco: fsl,
-      summary: "Phase unwrapping (prelude) of field maps' phase differences and complex images: a clean-room original built for speed (since 2026-11-07: fMRIPrep's two large calls 97 and 211 times FSL's speed, FSL's bytes in its reproduce mode) and an exact replica in larmorx-nc, fMRIPrep's seven calls bit for bit in both." }
-  - { title: Head-motion correction, url: "/tools/mri-hmc/", eco: fsl,
-      summary: "mcflirt: a clean-room original (experimental; its centres of mass as mcflirt's blocked sums since 2026-11-05, its correlation's count per point and least squares as FLIRT's since 2026-11-07), and an exact replica in larmorx-nc." }
+  - { title: prelude, url: "/evidence/fsl-prelude/", eco: fsl,
+      summary: "Phase unwrapping (prelude) of field maps' phase differences and complex images: a replica in larmorx-nc and a clean room in larmorx built for speed (since 2026-11-07: fMRIPrep's two large calls 97 and 211 times FSL's speed, FSL's bytes in reproduce), fMRIPrep's seven calls bit for bit in both." }
+  - { title: Head-motion correction, url: "/evidence/mri-hmc/", eco: fsl,
+      summary: "mcflirt: a replica in larmorx-nc, every compared case mcflirt's bytes, and a clean room in larmorx (experimental; its centres of mass as mcflirt's blocked sums since 2026-11-05, its correlation's count per point and least squares as FLIRT's since 2026-11-07)." }
   - { title: t2smap, url: "/tools/tedana-t2smap/", eco: tedana,
       summary: "tedana's T2* and S0 maps of multi-echo fMRI and the echoes' optimal combination: a clean-room original (experimental) within the specification's thresholds of tedana, 10 to 15 times its speed at one thread, and an exact replica in larmorx-gpl (experimental), every file bit for bit in both library environments, fMRIPrep's calls included." }
   - { title: "sdcflows' field-map estimation", url: "/tools/sdcflows-fieldmap/", eco: sdcflows,
