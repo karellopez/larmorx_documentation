@@ -35,7 +35,7 @@ Once every program is ported, the extensive testing runs for every program at on
 
 ## The first release {#release}
 
-The release candidate 0.1.0rc1 is out ([installation](/getting-started/)). The next release follows once the full pipeline, larmorprepx, exists; until then the repository's main branch collects what comes with it (its changelog's "Unreleased"), such as the command line's options `--n-threads`, `--implementation` and `--upstream-defects` and the name `clean-room` for the clean rooms.
+The release candidate 0.1.0rc1 is out ([Getting started](/getting-started/)). The next release follows once the full pipeline, larmorprepx, exists; until then the repository's main branch collects what comes with it (its changelog's "Unreleased"), such as the command line's options `--n-threads`, `--implementation` and `--upstream-defects` and the name `clean-room` for the clean rooms.
 
 ## Completed {#done}
 

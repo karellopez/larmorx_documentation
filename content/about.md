@@ -9,7 +9,7 @@ LARMORX is the *Library of Algorithmic Reimplementations for MRI through Open Ru
 
 ## The licence {#licence}
 
-LARMORX is open source under the [Apache-2.0](repo:LICENSE) licence: any use, commercial use included; keep the licence and the notices. Its two companion packages carry their originals' licences: `larmorx-nc` the FSL Licence (non-commercial use only) and `larmorx-gpl` the GNU GPL version 3. The three packages and what each holds: [Concepts](/concepts/#packages).
+LARMORX is open source under the [Apache-2.0](repo:LICENSE) licence: any use, commercial use included; keep the licence and the notices. Its two companion packages carry the licences their originals require: `larmorx-nc` the FSL Licence (non-commercial use only) and `larmorx-gpl` the GNU GPL version 3, under which tedana's LGPL-2.1 code may be passed on. The three packages and what each holds: [Concepts](/concepts/#packages).
 
 LARMORX is an independent project, not affiliated with or endorsed by the developers of ANTs, AFNI, FSL, FreeSurfer or fMRIPrep.
 

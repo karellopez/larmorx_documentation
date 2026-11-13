@@ -3,7 +3,7 @@
  "tool": "resample-series",
  "title": "One-shot BOLD resampler",
  "provenance": {
-  "exporter": "73b1793338963eb5d4e254e23bf85ed8e5712454",
+  "exporter": "d6f1ebc375b48f352358c8e35591daee37d48a84",
   "records": [
    {
     "path": "docs/validation/resample-series.json",
@@ -42,6 +42,47 @@
     "larmorx_commit": "498069fae31d2133dc7eca353c7f5c4600c3b7c6",
     "commands": [],
     "settings": "the Jacobian factors on the MNI152NLin2009cAsym res-2 grid of fMRIPrep 25.2.6's run ds005040-sub-002-noreconall (task clip, run 1), computed in this process as larmorx_validation.parity.resample_jacobian_oracle computes them: a volume of ones resampled with fMRIPrep's transforms (no head motion), its field map on that grid, its phase encoding and readout; upstream_defects='reproduce' gives fMRIPrep's factor, 'fix' larmorx's; the reference is the factor on the BOLD's own grid (where both agree) carried to the MNI grid by cubic B-splines"
+   },
+   {
+    "entry": "resample-series/fmriprep-ds005040-native-numerics",
+    "description": "fMRIPrep's resampler on ds005040 sub-002's native node, with the newest numerical releases and with the shared environment's",
+    "computed": "2026-10-29T17:18:06+00:00",
+    "larmorx_commit": "5aca86d4f1ce51da6b51591f68b2d05e37c8795a",
+    "commands": [
+     {
+      "label": "fmriprep-newest",
+      "argv": [
+       "<workspace>/oracles/python-newest/bin/python",
+       "-m",
+       "larmorx_validation.evidence.resample_series_run",
+       "<workspace>/oracles/figures-cache/resample-series/fmriprep-ds005040-native-numerics/inputs.json",
+       "<workspace>/oracles/figures-cache/resample-series/fmriprep-ds005040-native-numerics/fmriprep-newest.nii.gz"
+      ],
+      "env": {
+       "PYTHONPATH": "<larmorx>/validation/src",
+       "OPENBLAS_CORETYPE": "Haswell"
+      },
+      "exit": 0,
+      "seconds": 9.06
+     },
+     {
+      "label": "fmriprep-shared",
+      "argv": [
+       "<workspace>/.venv/bin/python",
+       "-m",
+       "larmorx_validation.evidence.resample_series_run",
+       "<workspace>/oracles/figures-cache/resample-series/fmriprep-ds005040-native-numerics/inputs.json",
+       "<workspace>/oracles/figures-cache/resample-series/fmriprep-ds005040-native-numerics/fmriprep-shared.nii.gz"
+      ],
+      "env": {
+       "PYTHONPATH": "<larmorx>/validation/src",
+       "OPENBLAS_CORETYPE": "Haswell"
+      },
+      "exit": 0,
+      "seconds": 9.13
+     }
+    ],
+    "settings": "fMRIPrep's ResampleSeries (nipype, fMRIPrep at 21a490fb as installed in each environment) on the node's own inputs, in oracles/python-newest (numpy 2.5.4 with OpenBLAS 0.3.34, SciPy 1.18.1) and in the shared .venv (numpy 2.3.5 with OpenBLAS 0.3.30, SciPy 1.15.3), OpenBLAS's Haswell kernels"
    }
   ],
   "command": "python -m larmorx_validation evidence resample-series --site <site>"
@@ -2736,6 +2777,7 @@
     "t": 0,
     "panels": [
      "bold",
+     "fmriprep-newest",
      "fmriprep",
      "larmorx",
      "larmorx-fix"
@@ -2770,7 +2812,8 @@
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: BOLD after slice timing (sha256 fdf9b7f121be0832…); BOLD reference (sha256 db30ecbef0f5769a…); field-map coefficients (sha256 2bdeca6a3ea75270…); head motion (sha256 4d9e4f9f9ccd7561…); fMRIPrep's output (sha256 096e37ffd04f2d89…)",
-    "Runs: figures cache entry `resample-series/fmriprep-ds005040-native`, computed 2026-10-21T14:51:43+00:00 with larmorx `1dfe56c0dc60`; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `resample-series/fmriprep-ds005040-native`, computed 2026-10-21T14:51:43+00:00 with larmorx `1dfe56c0dc60`; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
+    "Runs: figures cache entry `resample-series/fmriprep-ds005040-native-numerics` (fMRIPrep's resampler with the newest numerical releases and with the shared environment's), computed 2026-10-29T17:18:06+00:00 with larmorx `5aca86d4f1ce`; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "order": {
     "panels": [

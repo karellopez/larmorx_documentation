@@ -1,7 +1,7 @@
 ---
 title: Concepts
 kicker: Documentation
-lede: The words this site uses for what LARMORX holds (original, port, replica, clean room), its three packages and their licences, the three settings every program takes, and why clean rooms exist and how their cleanliness is shown.
+lede: The words this site uses for what LARMORX holds (original, port, replica, clean room), its three packages and their licences, the three settings LARMORX adds to the original's arguments, and why clean rooms exist and how the clean-room audit checks that they were written without the originals' source.
 description: The concepts behind LARMORX — the original, the port, the replica and the clean room; LARMORX's own work; the three packages larmorx, larmorx-nc and larmorx-gpl and their licences in full; choosing a port (auto, replica, clean-room); the originals' defects (fix and reproduce); threads; why clean rooms exist and how the clean-room audit shows they were written without the originals' source.
 ---
 
@@ -40,7 +40,7 @@ The two replica packages are separate programs (`larmorx-nc`, `larmorx-gpl`) tha
 
 ## Three settings {#settings}
 
-Every program takes three settings of LARMORX's own besides the original's arguments. In Python they are the arguments `n_threads`, `implementation` and `upstream_defects`. On the command line they stand between `larmorx` and the family, from the next release: `larmorx --n-threads 4 --implementation clean-room --upstream-defects reproduce <family> <program> ...`. 0.1.0rc1 reads the environment variables they replace, `OMP_NUM_THREADS`, `LARMORX_IMPLEMENTATION` and `LARMORX_UPSTREAM_DEFECTS` ([Getting started](/getting-started/#first-steps) shows both ways).
+LARMORX adds three settings of its own to the original's arguments: the number of threads, how the originals' defects are handled and, for a program with two ports, which port runs. In Python they are the arguments `n_threads`, `upstream_defects` and, where a program has two ports, `implementation`. On the command line they stand between `larmorx` and the family, from the next release: `larmorx --n-threads 4 --implementation clean-room --upstream-defects reproduce <family> <program> ...`. `--implementation` matters only for a program with two ports. 0.1.0rc1 reads the environment variables they replace, `OMP_NUM_THREADS`, `LARMORX_IMPLEMENTATION` and `LARMORX_UPSTREAM_DEFECTS` ([Getting started](/getting-started/#first-steps) shows both ways).
 
 ### Which port runs: `auto`, `replica`, `clean-room` {#auto}
 
@@ -48,7 +48,7 @@ A program with both ports takes `implementation="replica"` or `"clean-room"` (`"
 
 ### The originals' defects: `fix` and `reproduce` {#defects}
 
-Defects found in an original are registered in the repository's [register](repo:docs/findings/upstream-defects.md), each with a code such as `ANTS-40`, and corrected by default (`fix`), with a notice. A notice says that a known defect of the original would have changed this result and that LARMORX computed the corrected result:
+Defects found in an original are recorded in the repository's [register](repo:docs/findings/upstream-defects.md), each with a code such as `ANTS-40`, and decided by four rules: most are corrected by default (`fix`), with a notice; an input that makes no sense is refused with a clear error; a few that pipelines may rely on are kept and documented. A notice says that a known defect of the original would have changed this result and that LARMORX computed the corrected result:
 
 ```text
 larmorx: upstream defect ANTS-40 (N4BiasFieldCorrection) corrected: 6208 of the 92160 voxels N4 uses have no logarithm (6208 are 0, 0 negative or NaN): they are left out of the histogram and the fit; ITK keeps them in its log image as they are (0 is the log of 1) [LARMORX_UPSTREAM_DEFECTS=reproduce gives N4BiasFieldCorrection's result]
@@ -62,7 +62,7 @@ It is not an error: the command still ends with exit status 0. `upstream_defects
 
 ## Why clean rooms exist {#clean-rooms}
 
-Some originals come under licences that do not allow their code into an Apache-2.0 package: FSL's, AFNI's until its release 26.3.05, and glibc's exact mathematics. For each, LARMORX has a replica, kept in a package under the original's own licence where that licence requires it, and a clean room in `larmorx`, written only from a description of the original's behaviour (the repository's `specs/`), its documentation, published papers and runs of the original program, by agents that never saw the original's source. The clean room lets anyone use the program under Apache-2.0, commercial use included. It is also built for speed, and gives the original's behaviour within the thresholds its record states; each program's evidence page shows its speed beside the original's.
+Some originals come under licences that keep their code out of an Apache-2.0 package: FSL's, tedana's (LGPL-2.1), AFNI's until its release 26.3.05, and the GNU C Library's (glibc's) maths functions, whose exact results `reproduce` needs. FSL's, tedana's and AFNI's programs have a replica, in a package under its original's licence terms where they require it, and a clean room in `larmorx`; glibc's functions have a clean room only. A clean room is written only from a description of the original's behaviour (the repository's `specs/`), its documentation, published papers and runs of the original program. Its authors never saw the original's source or its replica; the audit below shows how this is checked. The clean room lets anyone use the program under Apache-2.0, commercial use included. It is also built for speed, and gives the original's behaviour within the thresholds its record states; each program's evidence page shows its speed beside the original's. The programs that have only a replica (ANTs and ITK, sdcflows, fMRIPrep's steps) get a clean room later, for its speed ([roadmap](/roadmap/)).
 
 **The clean-room audit** shows, from records made at the time, that the clean rooms were written without their original's source. Every agent that worked on LARMORX was an AI agent (Claude Code), launched by one orchestrating session, and Claude Code keeps a transcript of every session: each file read, search, command and edit, with its result. The audit reads every transcript and lists, for each agent, what it read, searched, ran and wrote, each path classified by a restriction table written from the project's rules. Git's history says which agent made each commit of clean-room code. The [audit's page](repo:docs/validation/clean-room-audit.md) gives the verdict for every clean room, every slip with its judgement, and code similarity as extra evidence only, never a pass or a failure.
 

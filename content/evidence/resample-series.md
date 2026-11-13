@@ -6,14 +6,15 @@ lede: >-
   motion, distortion correction and the registrations in one interpolation. LARMORX's port is a
   replica of fMRIPrep's `ResampleSeries` with nitransforms' transform chains and SciPy's
   interpolation, following SciPy 1.18.1 and numpy 2.5.4 since 2026-10-29. In `reproduce` it gives
-  the original's values bit for bit in all 136 compared cases of its record, out of 139, and
-  fMRIPrep's own output of a real run with its field map. Its default, `fix`, corrects
+  the original's values bit for bit in 136 of its 137 compared cases, out of 139, and fMRIPrep's
+  own output of a real run with its field map. In the other, coordinates beyond the range of
+  64-bit integers, SciPy's C code is undefined and the replica returns NaN. Its default, `fix`, corrects
   fMRIPrep's Jacobian on other grids (PIPE-03), with fMRIPrep's result on request. On one thread
   it takes 4.1 to 5.2 times less time than fMRIPrep.
 description: >-
   How LARMORX's replica of fMRIPrep's one-shot BOLD resampler (ResampleSeries, nitransforms'
-  transform chains, SciPy's interpolation) compares with fMRIPrep, nitransforms 25.1.0 and SciPy
-  1.18.1 with numpy 2.5.4 (and the step from SciPy 1.15.3 and numpy 2.3.5): fMRIPrep 25.2.6's
+  transform chains, SciPy's interpolation) compares with fMRIPrep's development version 26.0.0.dev1
+  (ResampleSeries), nitransforms 25.1.0 and SciPy 1.18.1 with numpy 2.5.4 (and the step from SciPy 1.15.3 and numpy 2.3.5): fMRIPrep 25.2.6's
   resampling of a real run with its field map, PIPE-03's Jacobian against a reference computed
   another way, every case of the record with its verdict, random testing and speed.
 evidence: true
@@ -25,7 +26,7 @@ wide: true
 <li class="port port--replica"><span class="port-name">replica</span> <code>larmorx</code> <span class="port-licence">Apache-2.0</span>: crates <code>larmorx-transform</code> and <code>larmorx-interp</code>, <code>lx.transforms.resample_series</code>, translated from fMRIPrep's <code>ResampleSeries</code> (fMRIPrep at commit 21a490fb, Apache-2.0), nitransforms 25.1.0's transform chains (MIT) and SciPy's <code>map_coordinates</code> (BSD-3-Clause)</li>
 </ul></dd>
 <dt>Status</dt><dd>replica <span class="status-tag status-tag--plain">validated</span> (<a href="{{ link('/validation/#validated-before') }}">marked before the statuses' definition</a>)</dd>
-<dt>Records</dt><dd><a href="{{ repo('docs/validation/resample-series.md') }}">standard comparison</a> (fMRIPrep's <code>ResampleSeries</code>, nitransforms 25.1.0, SciPy 1.18.1) · <a href="{{ repo('docs/validation/resample-series-jacobian.md') }}">PIPE-03 on real geometry</a> · benchmark <a href="{{ repo('docs/benchmarks/resample-series.md') }}">resample-series</a></dd>
+<dt>Records</dt><dd><a href="{{ repo('docs/validation/resample-series.md') }}">standard comparison</a> (fMRIPrep 26.0.0.dev1's <code>ResampleSeries</code>, nitransforms 25.1.0, SciPy 1.18.1) · <a href="{{ repo('docs/validation/resample-series-jacobian.md') }}">PIPE-03 on real geometry</a> · benchmark <a href="{{ repo('docs/benchmarks/resample-series.md') }}">resample-series</a></dd>
 <dt>Reference</dt><dd>API page <a href="{{ repo('docs/api/resample-series.md') }}">resample-series</a></dd>
 </dl>
 
@@ -33,7 +34,7 @@ wide: true
 
 fMRIPrep resamples each BOLD volume once, from the original series to every output space. It composes the head-motion transform, the voxel-shift map of the field map along the phase-encoding axis, the registration to the T1w and, for standard spaces, the T1w-to-template warp. It applies them in one cubic B-spline interpolation, with the Jacobian of the distortion correction. This Python code is fMRIPrep's heaviest computation.
 
-The record's original is fMRIPrep's `ResampleSeries` as installed in the comparison's Python environments (fMRIPrep 26.0.0.dev1, at commit 21a490fb), run in-process through nipype, with nitransforms 25.1.0 and SciPy 1.18.1. The worked example also compares the replica with the file fMRIPrep 25.2.6 wrote in its own run.
+The record's original is fMRIPrep's `ResampleSeries` as installed in the comparison's Python environments (fMRIPrep's development version 26.0.0.dev1, at commit 21a490fb), run in-process through nipype, with nitransforms 25.1.0 and SciPy 1.18.1. The worked example also compares the replica with the file fMRIPrep 25.2.6 wrote in its own run.
 
 ```python
 import json
@@ -65,7 +66,7 @@ A clean room of fMRIPrep's steps is planned after FreeSurfer ([roadmap](/roadmap
 
 {{ ev.agreement('resample-series', 'port') }}
 
-The [record](repo:docs/validation/resample-series.md) runs its cases in-process against fMRIPrep's `ResampleSeries`, nitransforms and SciPy, with `upstream_defects="reproduce"`. Every compared case is bit-identical to its original. The expected divergence is a case of coordinates beyond the range of 64-bit integers, where SciPy's C code is undefined; the replica returns NaN there. Two cases, inputs in the wrong order or number, are refused by both with a `ValueError`.
+The [record](repo:docs/validation/resample-series.md) runs its cases in-process against fMRIPrep's `ResampleSeries`, nitransforms and SciPy, with `upstream_defects="reproduce"`. 136 of the 137 compared cases are bit-identical to their original. The other is the expected divergence: coordinates beyond the range of 64-bit integers, where SciPy's C code is undefined; the replica returns NaN there. Two cases, inputs in the wrong order or number, are refused by both with a `ValueError`.
 
 Since the version update of 2026-10-29 the record runs against the newest releases, SciPy 1.18.1 and numpy 2.5.4 with OpenBLAS 0.3.34. They are kept in a Python environment of their own beside the one the other comparisons share (SciPy 1.15.3, numpy 2.3.5). Each case also runs its original under the older releases and says what changed between them, and why:
 
@@ -81,7 +82,7 @@ fMRIPrep's resampler also ran here on the node's inputs, once with the newest re
 
 ## PIPE-03: the Jacobian on another grid {#pipe-03}
 
-On the BOLD's own grid, above, fMRIPrep's Jacobian is the right factor, and `fix` and `reproduce` give the same bytes. fMRIPrep resamples the same run onto T1w and template grids in the same step. There it differentiates the voxel-shift map along the wrong axis and in the wrong units ([register](repo:docs/findings/upstream-defects.md), PIPE-03). By default the replica takes the derivative along the BOLD's phase-encoding axis, in its voxels. The [record](repo:docs/validation/resample-series-jacobian.md) measures both factors against the exact one on every grid of three fMRIPrep runs.
+On the BOLD's own grid, above, fMRIPrep's Jacobian is the right factor, and `fix` and `reproduce` give the same bytes. fMRIPrep resamples the same run onto T1w and template grids in the same step. There it differentiates the voxel-shift map along the wrong axis and in the wrong units ([register](repo:docs/findings/upstream-defects.md), PIPE-03). By default the replica takes the derivative along the BOLD's phase-encoding axis, in its voxels. The [record](repo:docs/validation/resample-series-jacobian.md) measures both factors on every grid of three fMRIPrep runs: against the exact factor of a synthetic field on ds000005's grids, and on ds005040's and ds005454's own field maps against the factor on the BOLD's own grid, carried to each grid.
 
 {{ ev.example('resample-series', 'pipe-03') }}
 
@@ -111,7 +112,7 @@ Random testing runs random valid inputs and option combinations through fMRIPrep
 
 ## Known limits {#limits}
 
-The replica covers fMRIPrep's one-shot path. The field-map estimation before it is sdcflows', on [its own pages](/evidence/sdcflows-fieldmap/) ([PEPOLAR, direct and fieldmap-less](/evidence/sdcflows-estimation/)); the rest of fMRIPrep's BOLD workflow comes with larmorprepx.
+The replica covers fMRIPrep's one-shot path. The field-map estimation before it is sdcflows', on [its own pages](/evidence/sdcflows-fieldmap/) ([PEPOLAR, direct and fieldmap-less](/evidence/sdcflows-estimation/)); the rest of fMRIPrep's BOLD workflow comes with larmorprepx, LARMORX's preprocessing pipeline, still to come ([roadmap](/roadmap/)).
 
 ## History {#history}
 

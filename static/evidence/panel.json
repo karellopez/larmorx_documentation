@@ -179,7 +179,7 @@
   },
   {
    "id": "fmriprep",
-   "label": "An fMRIPrep 25.2.6 oracle run (done or planned)",
+   "label": "An fMRIPrep 25.2.6 run (all fourteen done, exit 0)",
    "group": "Pipeline"
   }
  ],
@@ -192,7 +192,7 @@
    "age": "",
    "sex": "",
    "scanner": "Siemens 3 T (the study's; the files do not record it)",
-   "role": "fMRIPrep's own test subject: single-band BOLD without slice timing or a field map, 4 mm slices; every tool's reference case.",
+   "role": "fMRIPrep's own test subject: single-band BOLD without slice timing or a field map, 4 mm slices; every program's reference case.",
    "covers": [
     "3T",
     "siemens",
@@ -933,7 +933,7 @@
    "fmriprep_run": "ds004884-sub-M2079-noreconall",
    "fmriprep_options": "--fs-no-reconall",
    "fmriprep_status": "finished",
-   "note": "The mask is drawn on the T2w and stored on its grid; the catalog keeps it unchanged, and the oracle run reads a derived copy resampled onto the T1w's grid by nearest neighbour through the scanner coordinates (larmorx validation/investigations/panel-oracle-runs/bids_view.py; accepted 2026-10-24).",
+   "note": "The mask is drawn on the T2w and stored on its grid; the catalog keeps it unchanged, and fMRIPrep's run reads a derived copy resampled onto the T1w's grid by nearest neighbour through the scanner coordinates (larmorx validation/investigations/panel-oracle-runs/bids_view.py; accepted 2026-10-24).",
    "files": 15,
    "images": 5,
    "bytes": 50684095,

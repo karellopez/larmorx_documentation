@@ -4,11 +4,14 @@ kicker: Evidence · LARMORX
 lede: >-
   LARMORX reads and writes NIfTI-1 and NIfTI-2 images with its own code in Rust, compared with
   nibabel 5.4.2 on the files of 41 OpenNeuro datasets, fMRIPrep's derivatives, templates and two
-  test suites. In 166 of its 240 compared cases, out of 257, it reads every value, header field
+  test suites. In 166 of its 235 compared cases, out of 257, it reads every value, header field
   and matrix as nibabel does, and nibabel reads back what it writes. In the other 69 the data and
   every header field are the same and only the matrices differ, by at most 4.2 × 10⁻¹³ mm, where
-  nibabel computes the qform in numpy's 80-bit long double on Linux x86-64 (NIB-04). On one
-  thread it reads a gzipped file in up to 6.0 times less time than nibabel.
+  nibabel computes the qform in numpy's 80-bit long double on Linux x86-64 (NIB-04). In 5 more,
+  one library reads a file the other refuses: RGB data, which LARMORX does not read yet, files
+  whose compression does not match their name, and a single file with `vox_offset` 0. On one
+  thread it reads a gzipped file in 1.0 to 6.0 times less time than nibabel (6.0 on the smallest
+  file).
 description: >-
   How LARMORX's own NIfTI-1 and NIfTI-2 reader and writer compares with nibabel 5.4.2: every
   header field and the data of two real files, every case of the record (41 OpenNeuro datasets,
@@ -27,7 +30,7 @@ wide: true
 
 ## What is compared {#what-it-is}
 
-Every LARMORX program reads and writes images through it: NIfTI-1 and NIfTI-2, single files and header/image pairs, compressed or not, every data type nibabel reads but RGB, with scaling, the qform and sform, and compressed writing on several threads. It is LARMORX's own code, so it is compared with nibabel by its name, never as an original.
+Every LARMORX program reads and writes images through it: NIfTI-1 and NIfTI-2, single files and header/image pairs, compressed or not, every data type nibabel reads but RGB, with scaling, the qform and sform, and compressed writing on several threads. It is LARMORX's own code, not a port, so it is compared with nibabel by its name, never as an original; its verdicts say "nibabel's own variability" where other pages say "the original's".
 
 ```python
 import larmorx as lx
@@ -46,7 +49,7 @@ The [record](repo:docs/validation/nifti-io.md) reads each file with both librari
 
 - The 17 files both refuse are corrupt or malformed.
 - The 5 expected divergences are RGB data (not supported yet), files whose compression does not match their name (LARMORX reads them by their content), and a single file with `vox_offset` 0 (refused; nibabel reads its header as data).
-- In the 69 files whose matrices differ, nibabel's own matrices change with the platform: computed in double, as nibabel computes them where long double is 64 bits (arm64, Windows), they are LARMORX's bit for bit ([NIB-04](repo:docs/findings/upstream-defects.md)).
+- In the 69 files whose matrices differ, nibabel's own matrices change with the platform: computed in double, as nibabel computes them where long double is 64 bits (macOS on Apple silicon, Windows), they are LARMORX's bit for bit ([NIB-04](repo:docs/findings/upstream-defects.md)).
 
 ## Real files, field by field {#example}
 

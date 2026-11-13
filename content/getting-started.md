@@ -1,7 +1,7 @@
 ---
 title: Getting started
 kicker: Documentation
-lede: LARMORX installs with pip on Linux, macOS and Windows, with nothing else to install. This page installs it, runs its first programs on public data, and lists its three packages, what a computer needs, the standalone programs and the container images.
+lede: LARMORX installs with pip on Linux, macOS and Windows, with nothing else to install. This page shows how to install it and run its first programs on public data, and lists its three packages, what a computer needs, the standalone programs and the container images.
 description: How to install LARMORX and run its first programs — with pip from PyPI (larmorx, larmorx[prep], larmorx[all]), as standalone programs from GitHub, or as a container image for Apptainer, Docker and Podman — a first session on public data, what each of its three packages holds and under which licence, what a computer needs, and how to check a download with SHA256SUMS.
 ---
 {%- set v = "0.1.0rc1" %}
@@ -55,7 +55,7 @@ python3 -c "import sysconfig; print(sysconfig.get_path('scripts'))"
 
 After `pip install --user`, the folder is `sysconfig.get_path('scripts', sysconfig.get_preferred_scheme('user'))` instead. `python3 -m larmorx` (`python -m larmorx` on Windows), followed by the same arguments, runs the same command without the folder on the `PATH`.
 
-**Three settings for every program.** In {{ v }} the command line takes them from environment variables, and Python takes the same values as arguments of every function ([Concepts](/concepts/#settings) says what each does):
+**Three settings for every program.** In {{ v }} the command line takes them from environment variables, and Python takes the same values as arguments of its functions (`implementation` where a program has two ports; [Concepts](/concepts/#settings) says what each does):
 
 - **Threads:** `OMP_NUM_THREADS` (ANTs' programs: `ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS`, or `NSLOTS`); in Python `n_threads`. The number of threads; without the variable the command line uses every logical CPU (Python's default is 1).
 - **Port:** `LARMORX_IMPLEMENTATION`; in Python `implementation`. `auto` (the default) runs a program's replica when it is built in or installed, otherwise its clean room; `replica` the replica; `original` the clean room (`clean-room` from the next release).
@@ -63,7 +63,7 @@ After `pip install --user`, the folder is `sysconfig.get_path('scripts', sysconf
 
 In bash and zsh, `NAME=value` before a command sets a variable for that command only, and `export NAME=value` for the rest of the session; in PowerShell, `$env:NAME = "value"` sets it for the session and `Remove-Item Env:NAME` removes it.
 
-**Coming with the next release** (already in the repository's `main`, [First steps](repo:README.md#first-steps) in its README): the same three settings as options between `larmorx` and the family, with the Python arguments' names, `larmorx --n-threads 4 --implementation clean-room --upstream-defects reproduce <family> <tool> ...`, each winning over its variable; and `clean-room` as the name of the clean room, where {{ v }} says `original` (which keeps working). The replica programs `larmorx-nc` and `larmorx-gpl` take `--n-threads` and `--upstream-defects` the same way.
+**Coming with the next release** (already in the repository's `main`, [First steps](repo:README.md#first-steps) in its README): the same three settings as options between `larmorx` and the family, with the Python arguments' names, `larmorx --n-threads 4 --implementation clean-room --upstream-defects reproduce <family> <program> ...`, each winning over its variable; and `clean-room` as the name of the clean room, where {{ v }} says `original` (which keeps working). The replica programs `larmorx-nc` and `larmorx-gpl` take `--n-threads` and `--upstream-defects` the same way.
 
 **An example, start to end**, on one participant of the public OpenNeuro dataset [ds000005](https://openneuro.org/datasets/ds000005) (public domain, PDDL; 21 MB): a new virtual environment, the two images downloaded, then ANTs' bias-field correction on four threads, FSL's brain extraction, head-motion correction and registration, and AFNI's brain mask computed by the replica (the default) and by the clean room. FSL's programs need `FSLOUTPUTTYPE`, as FSL's own do (`NIFTI_GZ`: they write `.nii.gz` files). The last command gives the original N4's result instead of the corrected one. On Linux and macOS (bash or zsh), with Python 3.12 or newer as `python3` (macOS's own `python3` is older: install one from [python.org](https://www.python.org) or Homebrew):
 

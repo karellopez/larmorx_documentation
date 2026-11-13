@@ -204,6 +204,16 @@ class Evidence:
             f'<span>{esc(label or v["label"])}</span>{n}</a>'
         )
 
+    def vl(self, tool: str, vid: str) -> str | None:
+        """A verdict's name on a page: the page's own words where its JSON gives them
+        (``verdict_labels``: NIfTI I/O names nibabel, never "the original"), else the taxonomy's;
+        the link and the colour stay the verdict's."""
+        own = (self.doc(tool).get("verdict_labels") or {}) if tool else {}
+        if vid in own:
+            return own[vid]
+        v = self.verdicts.get(vid)
+        return v["label"] if v else None
+
     def legend(self, ids: list[str] | None = None) -> Markup:
         ids = ids or self.order
         items = "".join(f"<li>{self.verdict(i, label=self.verdicts[i]['label'])}</li>" for i in ids)
@@ -297,7 +307,7 @@ class Evidence:
         if ported:
             items = "".join(
                 f'<li>{pmark(v["port"])}<span class="ev-shows-who">{esc(PORT_LABELS[v["port"]])} against '
-                f'{esc(panels[diffs[v["diff"]]["b"]]["label"])}</span>{self.verdict(v["verdict"])}</li>'
+                f'{esc(panels[diffs[v["diff"]]["b"]]["label"])}</span>{self.verdict(v["verdict"], label=self.vl(tool, v["verdict"]))}</li>'
                 for v in ex["shows"]["verdicts"]
             )
             shows = (
@@ -408,7 +418,7 @@ class Evidence:
                     for lk in d.get("links", [])
                 )
                 chip = (
-                    self.verdict(d["verdict"])
+                    self.verdict(d["verdict"], label=self.vl(tool, d["verdict"]))
                     if d.get("verdict")
                     else Markup('<span class="ev-ref">reference</span>')
                 )
@@ -565,7 +575,7 @@ class Evidence:
             '<div class="table-wrap ev-panel-table"><table class="ev-ttable"><thead><tr>'
             "<th scope=col>Dataset, subject</th><th scope=col>Scanner</th><th scope=col>Why it is in the panel</th>"
             "<th scope=col>Licence</th><th scope=col class=n>Files</th><th scope=col class=n>Size</th>"
-            "<th scope=col>fMRIPrep 25.2.6 oracle run</th></tr></thead>"
+            "<th scope=col>fMRIPrep 25.2.6 run</th></tr></thead>"
             f'<tbody>{"".join(rows)}</tbody></table></div>'
         )
 
@@ -640,7 +650,7 @@ class Evidence:
                 if not n:
                     continue
                 pp = ptr("implementations", k, "agreement", ri, "counts", v)
-                label = self.verdicts[v]["label"]
+                label = self.vl(tool, v)
                 parts.append(f"{n} {label.lower()}")
                 segs.append(
                     f'<a class="seg v-{esc(v)}" style="flex-grow:{n}" href="#{esc(target)}" '
@@ -657,7 +667,7 @@ class Evidence:
         present = [v for v in self.order if any(v in r["counts"] for r in rows)]
         totals = im["summary"]["verdicts"]
         legend = "".join(
-            f"<li>{self.verdict(v, count=totals.get(v, 0), tool=tool, pointer=ptr('implementations', k, 'summary', 'verdicts', v))}</li>"
+            f"<li>{self.verdict(v, count=totals.get(v, 0), label=self.vl(tool, v), tool=tool, pointer=ptr('implementations', k, 'summary', 'verdicts', v))}</li>"
             for v in present
         )
         cases = self.num(tool, ptr("implementations", k, "summary", "cases"), fmt_count(im["summary"]["cases"]))
@@ -830,7 +840,7 @@ class Evidence:
             for j, c in enumerate(r["cells"]):
                 num = cols[j + 1].get("num") if j + 1 < len(cols) else False
                 if "verdict" in c:
-                    inner = str(self.verdict(c["verdict"]))
+                    inner = str(self.verdict(c["verdict"], label=self.vl(tool, c["verdict"])))
                     if c.get("text"):
                         inner += f'<span class="why">{self.text(c["text"])}</span>'
                 elif "v" in c:
@@ -1040,7 +1050,7 @@ class Evidence:
                     continue
                 data.append(f'data-v-{esc(i["id"])}="{esc(r["verdict"])}"')
                 reason = f'<p class="why">{self.text(r["reason"])}</p>' if r.get("reason") else ""
-                cells.append(f"<td class=vd>{self.verdict(r['verdict'])}{reason}</td>")
+                cells.append(f"<td class=vd>{self.verdict(r['verdict'], label=self.vl(tool, r['verdict']))}{reason}</td>")
                 checks.append(r["checks"])
             cells.append(f'<td class="n chk">{esc(" · ".join(dict.fromkeys(checks)))}</td>')
             rows.append(
@@ -1076,7 +1086,7 @@ class Evidence:
     DIFFTEST_STATUS = {
         "fixed": "fixed in LARMORX",
         "register": "a defect of the original, in the register",
-        "open": "open (a clean room's difference, reported for its agent)",
+        "open": "open: not yet fixed or explained (a clean room's difference is reported for its agent)",
         "harness": "the comparison's own mistake, corrected",
         "explained": "an expected difference, measured and explained (no mistake, no defect)",
         "unclear": "not yet triaged",
