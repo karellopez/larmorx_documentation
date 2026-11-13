@@ -553,11 +553,11 @@ groups:
         command: "larmorx fsl fslroi"
         also: ""
         python: "lx.fsl.fslroi"
-        does: "A box of an image, a range of its volumes, or both."
+        does: "`fslroi` takes a box of an image (`xmin xsize ymin ysize zmin zsize`), a range of its volumes (`tmin tsize`) or both."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-roi.md"
         evidence: "/evidence/fsl-bet/"
-        reference: ""
+        reference: "/programs/fsl/fslroi/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "validated", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
@@ -566,11 +566,11 @@ groups:
         command: "larmorx fsl standard_space_roi"
         also: ""
         python: "lx.fsl.standard_space_roi"
-        does: "A script: a head cut with a region of the standard space (MNI152), through FLIRT."
+        does: "`standard_space_roi` is a script that masks an image or cuts it down with a region of a standard space."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-roi.md"
         evidence: "/evidence/fsl-bet/"
-        reference: ""
+        reference: "/programs/fsl/standard_space_roi/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "validated", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
