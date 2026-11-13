@@ -3,7 +3,7 @@
  "tool": "sdcflows-estimation",
  "title": "sdcflows' field-map estimation: PEPOLAR, direct and fieldmap-less, the masks and the BIDS app",
  "provenance": {
-  "exporter": "937992d34c27e156db9d8a07bfe2ab7456c67365",
+  "exporter": "84d30db940cc2665d00890c13d0cf32e1e837295",
   "records": [
    {
     "path": "docs/validation/sdcflows-estimation.json",
@@ -7473,7 +7473,7 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "For reference, the step between the originals' versions: fMRIPrep 25.2.6 runs sdcflows 2.15.1's PEPOLAR wiring with its image's numpy 2.2.6 and SciPy 1.15.2 and N4 at 8 threads with glibc's maths, sdcflows 2.17.1 here its own with the newest releases; the replica follows both (the first two rows): Field map (Hz, `desc-preproc`): 274,687 of 274,688 values differ, at most 145 apart; EPI reference (`desc-epi`): 130,359 of 274,688 values differ, at most 187 apart; Brain probability (the masker node): 246,881 of 274,688 values differ, at most 0.168 apart; Brain mask (`desc-brain`): 467 of 274,688 values differ, at most 1 apart.",
+     "reason": "For reference, the step between the originals' versions: fMRIPrep 25.2.6 runs sdcflows 2.15.1's PEPOLAR wiring with its image's numpy 2.2.6 and SciPy 1.15.2 and N4 at 8 threads with glibc's maths, sdcflows 2.17.1 here its own with the newest releases; the replica follows both (its rows against the original and against fMRIPrep's output): Field map (Hz, `desc-preproc`): 274,687 of 274,688 values differ, at most 145 apart; EPI reference (`desc-epi`): 130,359 of 274,688 values differ, at most 187 apart; Brain probability (the masker node): 246,881 of 274,688 values differ, at most 0.168 apart; Brain mask (`desc-brain`): 467 of 274,688 values differ, at most 1 apart.",
      "port": "fmriprep"
     }
    ],
@@ -9092,7 +9092,7 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "For reference, the step between the originals' versions: fMRIPrep 25.2.6 runs sdcflows 2.15.1 with its image's numpy 2.2.6 and SciPy 1.15.2 and N4 at 8 threads with glibc's maths, sdcflows 2.17.1 here its own with the newest releases; the replica follows both (the first two rows): Magnitude (`desc-magnitude`): 281 of 196,608 values differ, at most 3 apart; Brain probability (the masker node): 179,850 of 196,608 values differ, at most 0.00381 apart.",
+     "reason": "For reference, the step between the originals' versions: fMRIPrep 25.2.6 runs sdcflows 2.15.1 with its image's numpy 2.2.6 and SciPy 1.15.2 and N4 at 8 threads with glibc's maths, sdcflows 2.17.1 here its own with the newest releases; the replica follows both (its rows against the original and against fMRIPrep's output): Magnitude (`desc-magnitude`): 281 of 196,608 values differ, at most 3 apart; Brain probability (the masker node): 179,850 of 196,608 values differ, at most 0.00381 apart.",
      "port": "fmriprep"
     }
    ],
@@ -9767,7 +9767,7 @@
      },
      "links": [],
      "verdict": "within-variability",
-     "reason": "fMRIPrep's registration ran its image's ANTs 2.6.2.dev1 at four threads with glibc's maths, the replica's gives ANTs 2.6.5's one-thread result with correctly rounded maths (the first row); sdcflows' steps after the registration give fMRIPrep's own files from fMRIPrep's own warp, every value (the cache entry's `fmriprep` run), so the difference is the registration's alone. ANTs 2.6.5's own runs of this call with glibc's maths, as fMRIPrep's image runs ANTs, differ from each other by up to 1.82 Hz (between its one-thread run and its second four-thread run: root mean square 0.141 Hz; the reference rows below), and fMRIPrep's field lies within that band (at most 1.8 Hz from the replica's, root mean square 0.136 Hz; its warp: 29,062,161 of 29,895,327 values differ, at most 0.813 mm apart (99th percentile 0.0277 mm)): Field map (Hz, the unwarp node's `_field`): 131,071 of 131,072 values differ, at most 1.8 apart; Corrected EPI reference (`_sdc`): 74,967 of 131,072 values differ, at most 17 apart.",
+     "reason": "fMRIPrep's registration ran its image's ANTs 2.6.2.dev1 at four threads with glibc's maths, the replica's gives ANTs 2.6.5's one-thread result with correctly rounded maths (its row against the original); sdcflows' steps after the registration give fMRIPrep's own files from fMRIPrep's own warp, every value (the cache entry's `fmriprep` run), so the difference is the registration's alone. ANTs 2.6.5's own runs of this call with glibc's maths, as fMRIPrep's image runs ANTs, differ from each other by up to 1.82 Hz (between its one-thread run and its second four-thread run: root mean square 0.141 Hz; the original's rows against itself), and fMRIPrep's field lies within that band (at most 1.8 Hz from the replica's, root mean square 0.136 Hz; its warp: 29,062,161 of 29,895,327 values differ, at most 0.813 mm apart (99th percentile 0.0277 mm)): Field map (Hz, the unwarp node's `_field`): 131,071 of 131,072 values differ, at most 1.8 apart; Corrected EPI reference (`_sdc`): 74,967 of 131,072 values differ, at most 17 apart.",
      "port": "replica"
     },
     {
@@ -11146,7 +11146,7 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "For reference, the originals' own step between releases of the libraries: fMRIPrep's image runs numpy 2.2.6 (its sums in chunks) and SciPy 1.15.2 (the random walker's Laplacian in another row order), so its probabilities differ in their last bits from sdcflows' with numpy 2.5.4 and SciPy 1.18.1; the replica follows both (the row of `reproduce` against FSL in this table). Brain probability (random walker): 1,891,835 of 2,097,152 values differ, at most 1.19e-06 apart.",
+     "reason": "For reference, the originals' own step between releases of the libraries: fMRIPrep's image runs numpy 2.2.6 (its sums in chunks) and SciPy 1.15.2 (the random walker's Laplacian in another row order), so its probabilities differ in their last bits from sdcflows' with numpy 2.5.4 and SciPy 1.18.1; the replica follows both (its row against fMRIPrep's output). Brain probability (random walker): 1,891,835 of 2,097,152 values differ, at most 1.19e-06 apart.",
      "port": "fmriprep"
     }
    ],
