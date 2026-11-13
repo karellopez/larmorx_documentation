@@ -16,11 +16,11 @@ groups:
         command: "larmorx ants antsRegistration"
         also: ""
         python: "lx.ants.registration"
-        does: "Registers one image to another, stage by stage: linear, SyN, B-spline SyN, B-spline, displacement-field, exponential and time-varying velocity-field, with image and point-set metrics."
+        does: "`antsRegistration` registers one image to another, stage by stage."
         original: "ANTs 2.6.5 on ITK 5.4.5"
         api: "docs/api/ants-registration.md"
         evidence: "/evidence/ants-registration/"
-        reference: ""
+        reference: "/programs/ants/antsRegistration/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
       - name: "N4BiasFieldCorrection"
@@ -52,11 +52,11 @@ groups:
         command: "larmorx ants antsApplyTransforms"
         also: ""
         python: "lx.ants.apply_transforms"
-        does: "Resampling through ITK transforms, in double and with `--float 1`; transform outputs."
+        does: "`antsApplyTransforms` resamples an image onto the grid of a reference image through a chain of ITK transforms (linear transforms, displacement fields, B-spline transforms and composites of them), or writes the chain itself as one transform."
         original: "ANTs 2.6.5 on ITK 5.4.5"
         api: "docs/api/ants-apply-transforms.md"
         evidence: "/evidence/ants-apply-transforms/"
-        reference: ""
+        reference: "/programs/ants/antsApplyTransforms/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
       - name: "ImageMath"
