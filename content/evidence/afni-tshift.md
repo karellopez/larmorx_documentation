@@ -25,7 +25,7 @@ wide: true
 </ul></dd>
 <dt>Status</dt><dd>replica <span class="status-tag status-tag--plain">validated</span>; clean room <span class="status-tag status-tag--plain">validated</span> (<a href="{{ link('/validation/#validated-before') }}">marked before the statuses' definition</a>)</dd>
 <dt>Records</dt><dd>the replica's: <a href="{{ repo('docs/validation/afni-tshift-replica.md') }}">standard comparison</a> (AFNI 26.3.05) · the clean room's: <a href="{{ repo('docs/validation/afni-tshift.md') }}">standard comparison</a> (AFNI 26.3.05) · benchmark <a href="{{ repo('docs/benchmarks/afni-tshift.md') }}">afni-tshift</a></dd>
-<dt>Reference</dt><dd>API page <a href="{{ repo('docs/api/afni-tshift.md') }}">afni-tshift</a></dd>
+<dt>Reference</dt><dd><a href="{{ link('/programs/afni/3dTshift/') }}"><code>3dTshift</code></a> · API page <a href="{{ repo('docs/api/afni-tshift.md') }}">afni-tshift</a></dd>
 </dl>
 
 ## What is compared {#what-it-is}

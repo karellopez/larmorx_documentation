@@ -193,11 +193,11 @@ groups:
         command: "larmorx afni 3dTshift"
         also: ""
         python: "lx.afni.tshift"
-        does: "Slice-timing correction of a series."
+        does: "`3dTshift` corrects slice timing: it aligns every slice of a 4D series to one time origin."
         original: "AFNI 26.3.05"
         api: "docs/api/afni-tshift.md"
         evidence: "/evidence/afni-tshift/"
-        reference: ""
+        reference: "/programs/afni/3dTshift/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "validated", next_release: false}
