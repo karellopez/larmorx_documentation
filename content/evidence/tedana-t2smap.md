@@ -84,7 +84,7 @@ The clean room is part of LARMORX itself (`pip install larmorx`, Apache-2.0) and
 
 In `reproduce` it gives tedana's defects exactly and its fitted numbers within the specification's thresholds (its §17.3), not bit for bit. The exception is the voxels whose observations are all equal, where tedana's values are its least squares' rounding noise (TED-46): there it computes them with LARMORX's exact ports of numpy's `lstsq` and SciPy's `curve_fit`.
 
-`implementation="auto" | "replica" | "clean-room"` chooses between them. `auto` (the default, and `larmorx tedana t2smap` without `--implementation`) takes the replica when `larmorx-gpl` is installed, else the clean room.
+From the next release, `implementation="auto" | "replica" | "clean-room"` chooses between them, and `larmorx --implementation clean-room tedana t2smap ...` does the same on the command line. `auto`, the default, and `larmorx tedana t2smap` take the replica when `larmorx-gpl` is installed, else the clean room.
 
 ## The verdicts at a glance {#verdicts}
 
@@ -113,7 +113,7 @@ None differs. The cases cover:
 
 Each case also runs the replica's default, `fix`, where LARMORX corrects tedana's deterministic defects and names them ([below](#corrections)).
 
-The clean room is not a translation but an implementation of the specification, so the question for it is whether it behaves as tedana does within the specification's thresholds (§17.3, by its `check.py`):
+The clean room is written from the specification, not translated from tedana's source, so the question for it is whether it behaves as tedana does within the specification's thresholds (§17.3, by its `check.py`):
 
 - its exit statuses, files, headers, data types, messages and the defects it names are tedana's in `reproduce` (A) and the replica's default's in `fix` (B);
 - its fitted numbers are judged value by value; where a curve fit is ill-conditioned (a flat objective or a start on the feasibility boundary), by the fit's own objective, with at most 3 % of a call's fit voxels judged that way.

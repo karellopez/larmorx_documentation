@@ -3,7 +3,7 @@
  "tool": "tedana-t2smap",
  "title": "t2smap",
  "provenance": {
-  "exporter": "6c79b727761be398b15c2ee51f80a81623f0f677",
+  "exporter": "671612d37c119901d99d2637bb5453b62659aaef",
   "records": [
    {
     "path": "docs/validation/tedana-t2smap-replica.json",
@@ -4913,7 +4913,7 @@
     "speedup": 0.7642911105514983
    }
   ],
-  "note": "From the benchmark report `docs/benchmarks/tedana-t2smap.json` (32 logical CPUs; the best of 2 runs for the replica, tedana once; a machine shared with other work). Both of the replica's modes run the stages from the mask to the combination again with the other mode's maths functions, writing nothing, to name NP-03 and GLIBC-07 exactly where they change a value (up to four passes on these calls): one pass of a curve-fit call takes about a quarter of these times. The clean room, the fast implementation, from its own benchmark (`docs/benchmarks/tedana-t2smap-original.json`, 2026-11-11: the best of two runs at 1 and 8 threads, 8 the threads it was given, on a machine shared with other work; tedana, timed again there, took 6.24 to 49.04 s on these calls).",
+  "note": "From the benchmark report `docs/benchmarks/tedana-t2smap.json` (32 logical CPUs; the best of 2 runs for the replica, tedana once; a machine shared with other work). Both of the replica's modes run the stages from the mask to the combination again with the other mode's maths functions, writing nothing, to name NP-03 and GLIBC-07 exactly where they change a value (up to four passes on these calls): one pass of a curve-fit call takes about a quarter of these times. The clean room, the port built for speed, from its own benchmark (`docs/benchmarks/tedana-t2smap-original.json`, 2026-11-11: the best of two runs at 1 and 8 threads, 8 the threads it was given, on a machine shared with other work; tedana, timed again there, took 6.24 to 49.04 s on these calls).",
   "caption": "Seconds per call (wall time) on a log scale; the factor is tedana's time divided by the replica's at 14 threads."
  },
  "tables": [
