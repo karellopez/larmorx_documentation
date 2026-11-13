@@ -23,7 +23,7 @@ reference:
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
     crates/larmorx-core/src/defects.rs: "035dcd92e164879c"
     docs/api/afni-volreg.md: "2c9bfa921b2e2503"
-    python/larmorx/afni/volreg.py: "97ff12b5cb4ab988"
+    python/larmorx/afni/volreg.py: "2c8280722dd9d4c4"
     validation/tools.toml: "f873f72ba8c4985c"
 ---
 
