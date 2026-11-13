@@ -15,7 +15,7 @@ reference:
   ports:
     - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0", status: "validated"}
   sources:
-    CHANGELOG.md: "fa776d2ea0a17487"
+    CHANGELOG.md: "546736ae45f1a3f5"
     crates/larmorx-ants/src/cli/atropos.rs: "d579dba919dfc29b"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"

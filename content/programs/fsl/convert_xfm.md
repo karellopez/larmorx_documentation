@@ -16,13 +16,13 @@ reference:
     - {kind: replica, name: "replica", package: larmorx-nc, licence: "FSL Licence: non-commercial use only", status: "experimental"}
     - {kind: clean-room, name: "clean room", package: larmorx, licence: "Apache-2.0", status: "experimental"}
   sources:
-    CHANGELOG.md: "fa776d2ea0a17487"
+    CHANGELOG.md: "546736ae45f1a3f5"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
     crates/larmorx-core/src/defects.rs: "035dcd92e164879c"
     crates/larmorx-fsl/src/cli/convert_xfm.rs: "04725ca060b5ef97"
-    docs/api/fsl-flirt.md: "7fe0febecf4edaee"
-    python/larmorx/fsl/flirt.py: "e56d75c44e002475"
+    docs/api/fsl-flirt.md: "abc8e4a5001ff9ef"
+    python/larmorx/fsl/flirt.py: "185eb1b0aa54582c"
     validation/tools.toml: "f873f72ba8c4985c"
 ---
 
@@ -80,6 +80,7 @@ lx.fsl.convert_xfm(
     concat: Any = None,
     fix_scale_skew: Any = None,
     inverse: bool = False,
+    n_threads: int = 1,
     implementation: ImplementationName = "auto",
 ) -> np.ndarray
 ```
@@ -105,11 +106,11 @@ Each row joins an option of the original's command line with the Python argument
 
 **From the next release.** In 0.1.0rc1, set the variables instead: `OMP_NUM_THREADS`, `LARMORX_IMPLEMENTATION` (`original` for the clean room) and `LARMORX_UPSTREAM_DEFECTS`.
 
-They stand between `larmorx` and `fsl` on the command line (`larmorx --n-threads 4 fsl convert_xfm ...`); `lx.fsl.convert_xfm` takes `implementation` as an argument, and the others are the command line's only. Each one given wins over its environment variable, which keeps working.
+They stand between `larmorx` and `fsl` on the command line (`larmorx --n-threads 4 fsl convert_xfm ...`); `lx.fsl.convert_xfm` takes `n_threads` and `implementation` as arguments, and the other is the command line's only. Each one given wins over its environment variable, which keeps working.
 
 | Command line, then Python | What it does |
 |---|---|
-| <code><span class="nw">&#45;&#45;n&#45;threads</span></code> <code><span class="nw">N</span></code><br>(no Python argument) | The command line's only: <code><span class="nw">lx&#46;fsl&#46;convert&#95;xfm</span></code> takes no <code><span class="nw">n&#95;threads</span></code>. Default: every logical CPU on the command line (<code><span class="nw">0</span></code>). The variable <code><span class="nw">OMP&#95;NUM&#95;THREADS</span></code> in 0.1.0rc1. |
+| <code><span class="nw">&#45;&#45;n&#45;threads</span></code> <code><span class="nw">N</span></code><br><code><span class="nw">n&#95;threads&#61;1</span></code> | Threads (0 = all), given to the program as <code><span class="nw">OMP&#95;NUM&#95;THREADS</span></code>; the result does not depend on it. Default: every logical CPU on the command line (<code><span class="nw">0</span></code>), <code><span class="nw">1</span></code> in Python. The variable <code><span class="nw">OMP&#95;NUM&#95;THREADS</span></code> in 0.1.0rc1. |
 | <code><span class="nw">&#45;&#45;implementation</span></code> <code><span class="nw">auto&#124;replica&#124;clean&#45;room</span></code><br><code><span class="nw">implementation&#61;&#34;auto&#34;</span></code> | <code><span class="nw">&#34;auto&#34;</span></code> (default): the replica when <code><span class="nw">larmorx&#45;nc</span></code> is installed, else the clean room; <code><span class="nw">&#34;replica&#34;</span></code> or <code><span class="nw">&#34;clean&#45;room&#34;</span></code> (<code><span class="nw">&#34;original&#34;</span></code>, 0.1.0rc1's spelling, still works). The variable <code><span class="nw">LARMORX&#95;IMPLEMENTATION</span></code> in 0.1.0rc1. |
 | <code><span class="nw">&#45;&#45;upstream&#45;defects</span></code> <code><span class="nw">fix&#124;reproduce</span></code><br>(no Python argument) | The command line's only: <code><span class="nw">lx&#46;fsl&#46;convert&#95;xfm</span></code> takes no <code><span class="nw">upstream&#95;defects</span></code>. The variable <code><span class="nw">LARMORX&#95;UPSTREAM&#95;DEFECTS</span></code> in 0.1.0rc1. |
 

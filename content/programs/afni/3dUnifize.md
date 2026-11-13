@@ -15,7 +15,7 @@ reference:
     - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0 AND CC-BY-4.0", status: "validated"}
     - {kind: clean-room, name: "clean room", package: larmorx, licence: "Apache-2.0", status: "validated"}
   sources:
-    CHANGELOG.md: "fa776d2ea0a17487"
+    CHANGELOG.md: "546736ae45f1a3f5"
     crates/larmorx-afni/src/cli/unifize.rs: "13006a3d0f104de6"
     crates/larmorx-afni/src/settings.rs: "8b2560253b92f512"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
