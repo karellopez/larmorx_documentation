@@ -668,10 +668,10 @@ groups:
   - id: fmriprep
     name: "fMRIPrep"
     original: "fMRIPrep's own steps, and the libraries they call"
-    count: "5 modules"
+    count: "1 program and 5 modules"
     summary: "fMRIPrep's one-shot BOLD resampler, its field-map steps and its confound estimation, and SciPy's and scikit-image's routines under them."
     ports:
-      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0", count: 5, next_release: false}
+      - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0", count: 6, next_release: false}
     programs:
       - name: "resample-series"
         kind: module
@@ -705,6 +705,18 @@ groups:
         does: "fMRIPrep's confound estimation, ported step by step: CompCor, DVARS, framewise displacement, the motion parameters and the rest of fMRIPrep's confounds file."
         original: "nipype 1.12.0, niworkflows 1.15.4 and fMRIPrep 25.2.7"
         api: "docs/api/confounds.md"
+        evidence: ""
+        reference: ""
+        ports:
+          - {kind: replica, name: "replica", package: larmorx, status: "experimental", next_release: true}
+      - name: "nipypecli run"
+        kind: program
+        command: "larmorx nipype run"
+        also: ""
+        python: "lx.nipype.run"
+        does: "nipype's `nipypecli run` for the 37 interfaces of fMRIPrep's confound estimation that LARMORX ports: it lists a module's interfaces, prints an interface's help and runs one from the shell, without nipype."
+        original: "nipype 1.12.0"
+        api: "docs/api/nipype-run.md"
         evidence: ""
         reference: ""
         ports:
