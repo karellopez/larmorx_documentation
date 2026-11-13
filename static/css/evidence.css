@@ -331,7 +331,12 @@ th[aria-sort="descending"] .ev-sort::after { content: " ↓"; }
 .ev-matrix td.impl { min-width: 128px; }
 .ev-matrix td, .ev-matrix th { padding: 8px 6px !important; }
 .ev-matrix td.n { width: 3.6em; }
-.ev-matrix tbody th .dot { margin-right: 8px; }
+/* A software's group: a row with its pastel chip and name (no deep-colour dot beside a program). */
+.table-wrap.ev-matrix tbody tr.grp th { padding: 14px 6px 6px !important; border-top: 1px solid var(--line); min-width: 0; }
+.table-wrap.ev-matrix tbody:first-of-type tr.grp th { border-top: 0; }
+.ev-matrix tr.grp + tr td, .ev-matrix tr.grp + tr th { border-top: 0; }
+/* Links keep the site's accent: a software's deep colour under a link would read as a port's colour. */
+.table-wrap.ev-matrix tbody a { text-decoration-color: var(--accent); }
 .ev-matrix .status-tag { margin-left: 4px; }
 
 /* ------------------------------------------------------------- phones */
@@ -355,8 +360,7 @@ th[aria-sort="descending"] .ev-sort::after { content: " ↓"; }
 @media print {
   .ev-toolbar, .ev-chooser, .ev-help { display: none !important; }
 }
-.ev-matrix .tname { display: flex; gap: 8px; align-items: baseline; }
-.ev-matrix .tname .dot { margin: 0; transform: translateY(-1px); }
+.ev-matrix .tname { display: block; }
 @media (max-width: 760px) { .verdict-legend .verdict { white-space: normal; } }
 .ev-more > summary { display: none; }
 @media (max-width: 760px) {

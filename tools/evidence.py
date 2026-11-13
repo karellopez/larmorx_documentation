@@ -1258,17 +1258,23 @@ class Evidence:
 
     # ------------------------------------------------------- validation page
 
-    def matrix(self, tools: list[dict]) -> Markup:
-        """Every tool × implementation × verdict counts, from ``static/evidence/summary.json``."""
+    def matrix(self, tools: list[dict], groups: list[dict] | None = None) -> Markup:
+        """Every program × port × verdict counts, from ``static/evidence/summary.json``, grouped
+        by software under a pastel chip with the group's name (``groups``: the Programs page's
+        ``data.programs.groups``), in the order of ``tools`` (site.yml's ``tools:``, which follows
+        the Programs page's order of the software); never a dot of a software's deep colour
+        beside a program (the main repository's docs/writing-guide.md, section 5)."""
         path = self.root / "static" / "evidence" / "summary.json"
         summary = json.loads(path.read_text(encoding="utf-8"))
         pages = {t["url"]: t for t in tools}
+        place = {t["url"]: i for i, t in enumerate(tools)}
+        names = {g["id"]: g["name"] for g in (groups or [])}
         unclassified = any(
             im["verdicts"].get("unclassified") for t in summary["tools"] for im in t["implementations"]
         )
         cols = [*self.order, *(["unclassified"] if unclassified else [])]
         head = (
-            "<tr><th scope=col>Tool</th><th scope=col>Implementation</th><th scope=col>Cases</th>"
+            "<tr><th scope=col>Program</th><th scope=col>Port</th><th scope=col>Cases</th>"
             + "".join(
                 f'<th scope=col class="vh"><a class="verdict v-{esc(v)} is-key" href="#verdict-{esc(v)}">'
                 f'<i aria-hidden="true"></i><span>{esc(self.verdicts[v]["short"])}</span></a></th>'
@@ -1282,8 +1288,18 @@ class Evidence:
             )
             + "</tr>"
         )
-        rows = []
-        for ti, t in enumerate(summary["tools"]):
+        # The JSON keeps its order (the number check finds a number by its place); only the
+        # rows are shown in the Programs page's order.
+        shown = sorted(
+            enumerate(summary["tools"]), key=lambda x: (place.get(x[1]["page"], len(place)), x[0])
+        )
+        bodies, rows, eco = [], [], None
+        width = 3 + len(cols)
+        for ti, t in shown:
+            if t["eco"] != eco:
+                if rows:
+                    bodies.append((eco, rows))
+                eco, rows = t["eco"], []
             for ii, im in enumerate(t["implementations"]):
                 first = ii == 0
                 span = f' rowspan="{len(t["implementations"])}"' if len(t["implementations"]) > 1 else ""
@@ -1294,7 +1310,7 @@ class Evidence:
                     name = esc(t["title"])
                     if page:
                         name = f'<a href="{self.link(url)}">{name}</a>'
-                    cells.append(f'<th scope=row{span} class="eco-{esc(t["eco"])}"><span class="tname"><span class="dot"></span><span>{name}</span></span></th>')
+                    cells.append(f'<th scope=row{span}><span class="tname">{name}</span></th>')
                 rec = f'<a href="{self.href(im["record"])}">{esc(im["label"])}</a>'
                 status = (
                     ' <span class="status-tag status-tag--experimental">experimental</span>'
@@ -1312,8 +1328,15 @@ class Evidence:
                         + "</td>"
                     )
                 rows.append(f"<tr>{''.join(cells)}</tr>")
+        if rows:
+            bodies.append((eco, rows))
+        body = "".join(
+            f'<tbody class="eco-{esc(e)}"><tr class="grp"><th scope=rowgroup colspan="{width}">'
+            f'<span class="eco-chip">{esc(names.get(e, e))}</span></th></tr>{"".join(r)}</tbody>'
+            for e, r in bodies
+        )
         note = self.text(summary["note"])
         return Markup(
-            f'<div class="table-wrap ev-matrix"><table><thead>{head}</thead><tbody>{"".join(rows)}</tbody></table></div>'
+            f'<div class="table-wrap ev-matrix"><table><thead>{head}</thead>{body}</table></div>'
             f'<p class="ev-chart-note">{note}</p>'
         )

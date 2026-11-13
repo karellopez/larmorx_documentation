@@ -669,7 +669,7 @@ groups:
     name: "fMRIPrep"
     original: "fMRIPrep's own steps, and the libraries they call"
     count: "5 modules"
-    summary: "fMRIPrep's one-shot BOLD resampler and its field-map steps, SciPy's and scikit-image's routines under them, and the confounds, being ported."
+    summary: "fMRIPrep's one-shot BOLD resampler, its field-map steps and its confound estimation, and SciPy's and scikit-image's routines under them."
     ports:
       - {kind: replica, name: "replica", package: larmorx, licence: "Apache-2.0", count: 5, next_release: false}
     programs:
@@ -702,7 +702,7 @@ groups:
         command: ""
         also: ""
         python: "lx.confounds"
-        does: "fMRIPrep's confound estimation, ported step by step: today nipype's DVARS."
+        does: "fMRIPrep's confound estimation, ported step by step: CompCor, DVARS, framewise displacement, the motion parameters and the rest of fMRIPrep's confounds file."
         original: "nipype 1.12.0, niworkflows 1.15.4 and fMRIPrep 25.2.7"
         api: "docs/api/confounds.md"
         evidence: ""
