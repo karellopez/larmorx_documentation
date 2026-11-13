@@ -232,11 +232,11 @@ groups:
         command: "larmorx afni 3dvolreg"
         also: ""
         python: "lx.afni.volreg"
-        does: "Rigid-body registration of every volume of a series to a base volume."
+        does: "`3dvolreg` registers every volume of a series to a base volume with a rigid-body (6-parameter) transform."
         original: "AFNI 26.3.05"
         api: "docs/api/afni-volreg.md"
         evidence: "/evidence/afni-volreg/"
-        reference: ""
+        reference: "/programs/afni/3dvolreg/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}

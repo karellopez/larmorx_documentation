@@ -29,7 +29,7 @@ wide: true
 </ul></dd>
 <dt>Status</dt><dd>replica <span class="status-tag status-tag--plain">validated</span> (<a href="{{ link('/validation/#validated-before') }}">marked before the statuses' definition</a>); clean room <span class="status-tag status-tag--experimental">experimental</span></dd>
 <dt>Records</dt><dd>the replica's: <a href="{{ repo('docs/validation/afni-volreg-replica.md') }}">standard comparison</a> (AFNI 26.3.05) · the clean room's: <a href="{{ repo('docs/validation/afni-volreg-original.md') }}">standard comparison</a> (AFNI 26.3.05) · benchmark <a href="{{ repo('docs/benchmarks/afni-volreg.md') }}">afni-volreg</a></dd>
-<dt>Reference</dt><dd>API page <a href="{{ repo('docs/api/afni-volreg.md') }}">afni-volreg</a></dd>
+<dt>Reference</dt><dd><a href="{{ link('/programs/afni/3dvolreg/') }}"><code>3dvolreg</code></a> · API page <a href="{{ repo('docs/api/afni-volreg.md') }}">afni-volreg</a></dd>
 </dl>
 
 ## What is compared {#what-it-is}
