@@ -118,6 +118,8 @@ by their SHA-256 so an unchanged export changes nothing. A page places them with
 - `{{ ev.random_testing('<page address>', '<page>') }}` and
   `{{ ev.random_testing_summary() }}`: random testing, from
   `static/evidence/difftest.json`, on an evidence page and on the Validation page;
+- `{{ ev.random_testing_runs() }}`: the table of the runs since the long run, one row per
+  program, port and run, from `difftest.json`'s `runs`;
 - `{{ verdict('<id>') }}`, `{{ ev.legend() }}`, `{{ ev.taxonomy() }}`,
   `{{ ev.matrix(site.tools, data.programs.groups) }}`: the verdicts of
   `data/verdicts.yml`; the matrix is every program's ports and verdicts, grouped by

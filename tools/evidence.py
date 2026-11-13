@@ -44,6 +44,12 @@ PORT_LABELS = {
 }
 
 
+def clean_room_last(name: str) -> bool:
+    """The sort key of one order everywhere: the replica before the clean room (the writing
+    guide, section 4), for a port named in words ("clean room", "replica (larmorx-nc)")."""
+    return name.lower().startswith("clean room")
+
+
 def pmark(port: str) -> str:
     """A port's mark (a square, a triangle, a circle) in its colour, beside its name."""
     return f'<i class="pmark pmark--{esc(port)}" aria-hidden="true"></i>'
@@ -1124,7 +1130,7 @@ class Evidence:
                 page = self._difftest()["pages"][pi]["page"]
                 name = f'<a href="{self.link(page)}">{name}</a>'
             ports = names or t.get("ports") or {}
-            impls = ", ".join(ports.get(i, i) for i in t["implementations"])
+            impls = ", ".join(sorted((ports.get(i, i) for i in t["implementations"]), key=clean_room_last))
             cells = [
                 f"<th scope=row>{name}<small>{esc(impls)}</small></th>",
                 f'<td class=n>{self.num("difftest", p + "/cases", fmt_count(t["cases"]))}</td>',
@@ -1149,7 +1155,7 @@ class Evidence:
             f"<tr><th scope=col>{esc(first)}</th><th scope=col class=n>Random cases</th>"
             "<th scope=col class=n title=\"the cases drawn as the extreme share of the run (odd units, extreme voxel sizes); the others are realistic\">Extreme</th>"
             f'<th scope=col class=n title="distinct options and option values drawn">Options covered</th>{cols}'
-            '<th scope=col class=n title="timed out or crashed: for the orchestrator">Unclear</th></tr>'
+            '<th scope=col class=n title="timed out or crashed: not compared">Unclear</th></tr>'
         )
 
     def _difftest_notices(self, tools: list[tuple[str, int, dict]]) -> str:
@@ -1239,7 +1245,7 @@ class Evidence:
         when = (
             f'the long run of {esc(n["date"])} (seed <code>{esc(n["seed"])}</code>, '
             f'{self.num("difftest", "/night/hours", fmt_sig(n["hours"]))} h for '
-            f'{self.num("difftest", "/night/tools", fmt_count(n["tools"]))} tools)'
+            f'{self.num("difftest", "/night/tools", fmt_count(n["tools"]))} programs)'
         )
         if rt:
             each = "both" if len(set(rt["names"].values())) == 1 else "all three"
@@ -1290,7 +1296,7 @@ class Evidence:
     DIFFTEST_SKIPPED = ("skipped", "Skipped", "drawn, then set aside without a comparison (an input the original cannot take, as the run's descriptor says)")
 
     def random_testing_runs(self) -> Markup:
-        """The Validation page's table of the runs of half an hour since the long run, one row
+        """The Validation page's table of the runs since the long run, one row
         per program, port and run (``difftest.json``'s ``runs``), each linked to the program's
         evidence page, where its differences are triaged."""
         d = self._difftest()
@@ -1304,10 +1310,22 @@ class Evidence:
             "<tr><th scope=col>Program</th><th scope=col>Port</th><th scope=col>Run</th>"
             "<th scope=col class=n>Random cases</th>"
             + "".join(f'<th scope=col class=n title="{esc(m)}">{esc(lab)}</th>' for _, lab, m in cols)
-            + '<th scope=col class=n title="timed out or crashed: for the orchestrator">Unclear</th></tr>'
+            + '<th scope=col class=n title="timed out or crashed: not compared">Unclear</th></tr>'
         )
         rows = []
-        for ri, r in enumerate(runs):
+        # one order of the ports: within a program's runs, by date, the replica's row before the
+        # clean room's (the JSON keeps its order; each row's pointer keeps its place in it)
+        first_seen: dict[str, int] = {}
+        for i, r in enumerate(runs):
+            first_seen.setdefault(r["page"], i)
+
+        def place(i: int) -> tuple:
+            r = runs[i]
+            run = r["run"].replace("original", "").replace("replica", "")
+            return (first_seen[r["page"]], run, clean_room_last(r["port"]), i)
+
+        for ri in sorted(range(len(runs)), key=place):
+            r = runs[ri]
             p = ptr("runs", ri)
             name = f'<a href="{self.link(r["page"] + "#" + r["section"])}">{esc(r["label"])}</a>'
             note = f'<small>{esc(r["note"])}</small>' if r.get("note") else ""
@@ -1327,10 +1345,12 @@ class Evidence:
             n = r["unclear"]
             cells.append(f'<td class="n{" zero" if not n else ""}">' + (self.num("difftest", p + "/unclear", fmt_count(n)) if n else "·") + "</td>")
             rows.append(f"<tr>{''.join(cells)}</tr>")
-        total = sum(r["cases"] for r in runs)
+        # a run that tested two ports on the same cases (BET's) counts its cases once
+        total = sum({(r["run"], r["label"]): r["cases"] for r in runs}.values())
         return Markup(
             f'<figure class="ev-chart ev-tablefig ev-difftest" id="random-testing-runs"><div class="ev-table">'
-            f'<p class="ev-metrics-title">The runs since the long run, port by port: {fmt_count(total)} random cases</p>'
+            f'<p class="ev-metrics-title">The runs since the long run, port by port: {fmt_count(total)} random cases '
+            "(a run that tested two ports on the same cases counted once)</p>"
             f'<div class="table-wrap"><table class="ev-ttable"><thead>{head}</thead><tbody>{"".join(rows)}</tbody></table></div>'
             '<p class="ev-metrics-note">Each row is one port in one run, read from the run\'s recorded summary. '
             "<em>Differ</em> counts the cases where one of the run's checks failed: bit-identity where "
@@ -1384,8 +1404,11 @@ class Evidence:
                 if rows:
                     bodies.append((eco, rows))
                 eco, rows = t["eco"], []
-            for ii, im in enumerate(t["implementations"]):
-                first = ii == 0
+            # one order of the ports everywhere: the replica, then the clean room (the JSON keeps
+            # its order; the pointer keeps each port's place in it)
+            impls = sorted(enumerate(t["implementations"]), key=lambda x: (clean_room_last(x[1]["label"]), x[0]))
+            for k, (ii, im) in enumerate(impls):
+                first = k == 0
                 span = f' rowspan="{len(t["implementations"])}"' if len(t["implementations"]) > 1 else ""
                 cells = []
                 if first:
