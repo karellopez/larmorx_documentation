@@ -32,7 +32,7 @@ wide: true
 </ul></dd>
 <dt>Status</dt><dd>replica <span class="status-tag status-tag--experimental">experimental</span>; clean room <span class="status-tag status-tag--experimental">experimental</span></dd>
 <dt>Records</dt><dd>the replica's: <a href="{{ repo('docs/validation/tedana-t2smap-replica.md') }}">standard comparison</a> (tedana 26.0.3) · the clean room's: <a href="{{ repo('docs/validation/tedana-t2smap-original.md') }}">full comparison</a> (tedana 26.0.3) · findings: the replica's <a href="{{ repo('docs/findings/tedana-t2smap.md') }}">tedana-t2smap</a>, the clean room's <a href="{{ repo('docs/findings/tedana-t2smap-clean-room.md') }}">tedana-t2smap-clean-room</a> · benchmark <a href="{{ repo('docs/benchmarks/tedana-t2smap.md') }}">tedana-t2smap</a></dd>
-<dt>Reference</dt><dd>API page <a href="{{ repo('docs/api/tedana-t2smap.md') }}">tedana-t2smap</a></dd>
+<dt>Reference</dt><dd><a href="{{ link('/programs/tedana/t2smap/') }}"><code>t2smap</code></a> · API page <a href="{{ repo('docs/api/tedana-t2smap.md') }}">tedana-t2smap</a></dd>
 </dl>
 
 ## What is compared {#what-it-is}

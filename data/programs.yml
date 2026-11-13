@@ -601,11 +601,11 @@ groups:
         command: "larmorx tedana t2smap"
         also: ""
         python: "lx.tedana.t2smap"
-        does: "T2* and S0 maps of multi-echo fMRI, voxel by voxel, and the echoes' optimal combination."
+        does: "`t2smap` estimates the T2* and S0 of multi-echo fMRI voxel by voxel and combines the echoes into one series."
         original: "tedana 26.0.3"
         api: "docs/api/tedana-t2smap.md"
         evidence: "/evidence/tedana-t2smap/"
-        reference: ""
+        reference: "/programs/tedana/t2smap/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-gpl, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: true}
