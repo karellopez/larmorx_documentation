@@ -28,7 +28,7 @@ wide: true
 </ul></dd>
 <dt>Status</dt><dd>replica <span class="status-tag status-tag--experimental">experimental</span></dd>
 <dt>Records</dt><dd><a href="{{ repo('docs/validation/confounds-fmriprep.md') }}">fMRIPrep's and niworkflows' steps and the workflow</a> · <a href="{{ repo('docs/validation/confounds-nipype.md') }}">nipype's confounds module and command line</a>, with its <a href="{{ repo('docs/validation/confounds-nipype-full.md') }}">full comparison</a> · <a href="{{ repo('docs/validation/confounds-linalg.md') }}">numpy's and SciPy's linear algebra and FFTs</a>, with its <a href="{{ repo('docs/validation/confounds-linalg-full.md') }}">full comparison</a></dd>
-<dt>Reference</dt><dd>API pages <a href="{{ repo('docs/api/confounds.md') }}">confounds</a>, <a href="{{ repo('docs/api/nipype-run.md') }}">nipype-run</a>, <a href="{{ repo('docs/api/niworkflows-helpers.md') }}">niworkflows-helpers</a></dd>
+<dt>Reference</dt><dd><a href="{{ link('/programs/fmriprep/nipypecli-run/') }}"><code>nipypecli run</code></a> · API pages <a href="{{ repo('docs/api/confounds.md') }}">confounds</a>, <a href="{{ repo('docs/api/nipype-run.md') }}">nipype-run</a>, <a href="{{ repo('docs/api/niworkflows-helpers.md') }}">niworkflows-helpers</a></dd>
 </dl>
 
 ## What is compared {#what-it-is}

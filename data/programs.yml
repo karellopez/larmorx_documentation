@@ -714,11 +714,11 @@ groups:
         command: "larmorx nipype run"
         also: ""
         python: "lx.nipype.run"
-        does: "nipype's `nipypecli run` for the 37 interfaces of fMRIPrep's confound estimation that LARMORX ports: it lists a module's interfaces, prints an interface's help and runs one from the shell, without nipype."
+        does: "`nipypecli run` lists a module's interfaces, prints an interface's help, and runs one interface from the shell, in the current folder."
         original: "nipype 1.12.0"
         api: "docs/api/nipype-run.md"
         evidence: "/evidence/confounds/"
-        reference: ""
+        reference: "/programs/fmriprep/nipypecli-run/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "experimental", next_release: true}
       - name: "ndimage-filters"
