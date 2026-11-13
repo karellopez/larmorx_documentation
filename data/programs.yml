@@ -254,11 +254,11 @@ groups:
         command: "larmorx fsl mcflirt"
         also: "larmorx mri hmc"
         python: "lx.mri.hmc"
-        does: "Head-motion correction of a 4D series, with mcflirt's algorithm, options and output files."
+        does: "`mcflirt` corrects head motion in a 4D series."
         original: "FSL 6.0.7.23"
         api: "docs/api/mri-hmc.md"
         evidence: "/evidence/mri-hmc/"
-        reference: ""
+        reference: "/programs/fsl/mcflirt/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "validated", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
