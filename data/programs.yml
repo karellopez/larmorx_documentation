@@ -622,11 +622,11 @@ groups:
         command: "larmorx sdcflows sdcflows"
         also: ""
         python: "lx.sdcflows.run_app"
-        does: "sdcflows' BIDS app: the field maps of a BIDS dataset, PEPOLAR, direct and fieldmap-less (SyN), with their derivatives."
+        does: "`sdcflows` finds the field-map estimators of a BIDS dataset (PEPOLAR, direct and fieldmap-less), runs their workflows and writes their derivatives:"
         original: "sdcflows 2.17.1, with niworkflows 1.15.4 and pybids 0.22.0"
         api: "docs/api/sdcflows-fieldmap.md"
         evidence: "/evidence/sdcflows-estimation/"
-        reference: ""
+        reference: "/programs/sdcflows/sdcflows/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
       - name: "fieldmap"
