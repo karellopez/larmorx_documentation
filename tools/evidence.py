@@ -1092,6 +1092,24 @@ class Evidence:
         "unclear": "not yet triaged",
     }
 
+    #: The random-testing harness's own names of a few checks, shown in words (display only:
+    #: difftest.json and the triage keep the harness's names). "DN" marks the checks of the
+    #: defects' notices; the harness calls the clean room "original".
+    DIFFTEST_CHECKS = {
+        "DN defaults: replica = original": "the defaults: the replica's equals the clean room's",
+        "DN fix pass": "the `fix` pass",
+        "DN notices in both modes": "the notices in `fix` and in `reproduce`",
+        "larmorx panicked": "LARMORX stopped with an internal error",
+    }
+
+    def _difftest_checks(self, checks: list[str]) -> str:
+        """A difference's failed checks: the harness's names in code, the ones it names in its own
+        shorthand (``DIFFTEST_CHECKS``) in words."""
+        return ", ".join(
+            str(self.text(self.DIFFTEST_CHECKS[c])) if c in self.DIFFTEST_CHECKS else f"<code>{esc(c)}</code>"
+            for c in checks
+        )
+
     def _difftest(self) -> dict:
         return self.doc("difftest")
 
@@ -1161,11 +1179,11 @@ class Evidence:
                 p = ptr("pages", pi, "tools", ti, "differences", di)
                 status = self.DIFFTEST_STATUS.get(d["status"], d["status"])
                 link = f' (<a href="{self.href(d["link"])}">{esc(d.get("defect") or "details")}</a>)' if d.get("link") else ""
-                checks = ", ".join(d["checks"])
+                checks = self._difftest_checks(d["checks"])
                 items.append(
                     f'<li><span class="ev-dt-status ev-dt-{esc(d["status"])}">{esc(status)}</span> '
                     f'{esc(t["label"])} ({esc((names or t.get("ports") or {}).get(d["implementation"], d["implementation"]))}), {self.num("difftest", p + "/cases", fmt_count(d["cases"]))} '
-                    f'case(s): <code>{esc(checks)}</code>: {self.text(d["explanation"])}{link}</li>'
+                    f'case(s): {checks}: {self.text(d["explanation"])}{link}</li>'
                 )
         if not items:
             return '<p class="ev-chart-note">No difference.</p>'
