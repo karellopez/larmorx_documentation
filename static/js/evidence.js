@@ -984,7 +984,7 @@
     var NS = 'http://www.w3.org/2000/svg';
     function S(tag, a) { var e = doc.createElementNS(NS, tag); Object.keys(a || {}).forEach(function (k) { e.setAttribute(k, a[k]); }); return e; }
     function X(v) { return ml + (W - ml - mr) * (v - x0) / ((x1 - x0) || 1); }
-    var colour = { original: P.original, larmorx: P.larmorx, replica: P.replica, input: P.input, band: P.replica };
+    var colour = { original: P.original, larmorx: P.larmorx, replica: P.replica, 'replica-reproduce': P.replica, 'clean-room': P.larmorx, 'clean-room-reproduce': P.larmorx, input: P.input, band: P.replica };
     this.box.innerHTML = '';
     this.cursors = [];
     spec.panels.forEach(function (p, pi) {

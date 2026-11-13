@@ -3,7 +3,7 @@
  "tool": "afni-volreg",
  "title": "3dvolreg",
  "provenance": {
-  "exporter": "55c4f958b6649446eacd7761470f2f39f30a03ec",
+  "exporter": "20f01e8fb1e508ab82a9a62e2ac8f2070cb6f5eb-dirty",
   "records": [
    {
     "path": "docs/validation/afni-volreg-replica.json",
@@ -726,12 +726,12 @@
     "sha256": "c0bcbe3cf8deb0c3ecb99b9d88644d7974065ab60a2e3ff19d5f8f3cd3c8d68d"
    }
   ],
-  "original_exporter": "1c4d12b5a9272b93a2955babb74a29686a894369"
+  "original_exporter": "e724561a150dc94016bbd864c00513909cd519d5"
  },
  "implementations": [
   {
    "id": "replica",
-   "label": "larmorx replica",
+   "label": "replica against the original: AFNI 3dvolreg 26.3.05 (standard comparison)",
    "short": "replica",
    "record": "docs/validation/afni-volreg-replica.md",
    "status": "validated",
@@ -864,12 +864,15 @@
       "both-reject": 1
      }
     }
-   ]
+   ],
+   "title": "Agreement, replica against the original: AFNI `3dvolreg` 26.3.05",
+   "comparison": "standard comparison",
+   "port": "replica"
   },
   {
    "id": "original",
-   "label": "LARMORX clean-room original, against AFNI 26.3.05 (standard tier)",
-   "short": "original",
+   "label": "clean room against the original: AFNI 3dvolreg 26.3.05 (standard comparison)",
+   "short": "clean room",
    "record": "docs/validation/afni-volreg-original.md",
    "status": "experimental",
    "summary": {
@@ -999,7 +1002,10 @@
       "within-variability": 10
      }
     }
-   ]
+   ],
+   "title": "Agreement, clean room against the original: AFNI `3dvolreg` 26.3.05",
+   "comparison": "standard comparison",
+   "port": "clean-room"
   }
  ],
  "cases": [
@@ -1363,7 +1369,7 @@
      "outcome": "pass",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+     "reason": "AFNI refuses it (exit 1), and so does the replica in `reproduce`, with AFNI's messages; its default, `fix`, accepts it and names the defect (the record's list of what `fix` changed)."
     }
    }
   },
@@ -1447,7 +1453,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "10/10",
-     "reason": "in its default mode the replica computes with correctly rounded maths where glibc 2.35's is not correctly rounded (GLIBC-07, not named): 53 values change (the record's D13 section)"
+     "reason": "in `fix`, its default, the replica computes with correctly rounded maths where glibc 2.35's is not correctly rounded (GLIBC-07, not named): 53 values change (the record's list of what `fix` changed)"
     }
    }
   },
@@ -1489,7 +1495,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "10/10",
-     "reason": "in its default mode the replica corrects AFNI-86 and names it: 123,278 values change (the record's D13 section)"
+     "reason": "in `fix`, its default, the replica corrects AFNI-86 and names it: 123,278 values change (the record's list of what `fix` changed)"
     }
    }
   },
@@ -1853,7 +1859,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "12/12",
-     "reason": "in its default mode the replica corrects AFNI-99 and names it: 568,675 values change (the record's D13 section)"
+     "reason": "in `fix`, its default, the replica corrects AFNI-99 and names it: 568,675 values change (the record's list of what `fix` changed)"
     }
    }
   },
@@ -1867,7 +1873,7 @@
      "outcome": "pass",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+     "reason": "AFNI refuses it (exit 1), and so does the replica in `reproduce`, with AFNI's messages; its default, `fix`, accepts it and names the defect (the record's list of what `fix` changed)."
     }
    }
   },
@@ -1937,7 +1943,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "10/10",
-     "reason": "in its default mode the replica corrects AFNI-01 and names it: 253,264 values change (the record's D13 section)"
+     "reason": "in `fix`, its default, the replica corrects AFNI-01 and names it: 253,264 values change (the record's list of what `fix` changed)"
     }
    }
   },
@@ -2077,7 +2083,7 @@
      "outcome": "pass",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+     "reason": "AFNI refuses it (exit 1), and so does the replica in `reproduce`, with AFNI's messages; its default, `fix`, accepts it and names the defect (the record's list of what `fix` changed)."
     }
    }
   },
@@ -2091,7 +2097,7 @@
      "outcome": "pass",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+     "reason": "AFNI refuses it (exit 1), and so does the replica in `reproduce`, with AFNI's messages; its default, `fix`, accepts it and names the defect (the record's list of what `fix` changed)."
     }
    }
   },
@@ -2105,7 +2111,7 @@
      "outcome": "pass",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+     "reason": "AFNI refuses it (exit 1), and so does the replica in `reproduce`, with AFNI's messages; its default, `fix`, accepts it and names the defect (the record's list of what `fix` changed)."
     }
    }
   },
@@ -2133,7 +2139,7 @@
      "outcome": "pass",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+     "reason": "AFNI refuses it (exit 1), and so does the replica in `reproduce`, with AFNI's messages; its default, `fix`, accepts it and names the defect (the record's list of what `fix` changed)."
     }
    }
   },
@@ -2147,7 +2153,7 @@
      "outcome": "pass",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+     "reason": "AFNI refuses it (exit 1), and so does the replica in `reproduce`, with AFNI's messages; its default, `fix`, accepts it and names the defect (the record's list of what `fix` changed)."
     }
    }
   },
@@ -2161,7 +2167,7 @@
      "outcome": "pass",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+     "reason": "AFNI refuses it (exit 1), and so does the replica in `reproduce`, with AFNI's messages; its default, `fix`, accepts it and names the defect (the record's list of what `fix` changed)."
     }
    }
   },
@@ -2259,7 +2265,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** -rotparent dataset doesn't have VOLREG attributes!?; larmorx exit 1: ** -rotparent dataset doesn't have VOLREG attributes!? (the same messages)"
+     "reason": "AFNI exit 1: ** -rotparent dataset doesn't have VOLREG attributes!?; the replica exit 1: ** -rotparent dataset doesn't have VOLREG attributes!? (the same messages)"
     }
    }
   },
@@ -2371,7 +2377,7 @@
      "outcome": "pass",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+     "reason": "AFNI refuses it (exit 1), and so does the replica in `reproduce`, with AFNI's messages; its default, `fix`, accepts it and names the defect (the record's list of what `fix` changed)."
     }
    }
   },
@@ -2413,7 +2419,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "10/10",
-     "reason": "in its default mode the replica corrects AFNI-87 and names it: 81,911 values change (the record's D13 section)"
+     "reason": "in `fix`, its default, the replica corrects AFNI-87 and names it: 81,911 values change (the record's list of what `fix` changed)"
     }
    }
   },
@@ -2455,7 +2461,7 @@
      "outcome": "pass",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+     "reason": "AFNI refuses it (exit 1), and so does the replica in `reproduce`, with AFNI's messages; its default, `fix`, accepts it and names the defect (the record's list of what `fix` changed)."
     }
    }
   },
@@ -2497,7 +2503,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "18/18",
-     "reason": "in its default mode the replica corrects AFNI-99 and names it: 10 values change (the record's D13 section)"
+     "reason": "in `fix`, its default, the replica corrects AFNI-99 and names it: 10 values change (the record's list of what `fix` changed)"
     }
    }
   },
@@ -2511,7 +2517,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "18/18",
-     "reason": "in its default mode the replica corrects AFNI-99 and names it: 10 values change (the record's D13 section)"
+     "reason": "in `fix`, its default, the replica corrects AFNI-99 and names it: 10 values change (the record's list of what `fix` changed)"
     }
    }
   },
@@ -2581,7 +2587,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "10/10",
-     "reason": "in its default mode the replica corrects AFNI-87 and names it: 81,911 values change (the record's D13 section)"
+     "reason": "in `fix`, its default, the replica corrects AFNI-87 and names it: 81,911 values change (the record's list of what `fix` changed)"
     }
    }
   },
@@ -2609,7 +2615,7 @@
      "outcome": "pass",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+     "reason": "AFNI refuses it (exit 1), and so does the replica in `reproduce`, with AFNI's messages; its default, `fix`, accepts it and names the defect (the record's list of what `fix` changed)."
     }
    }
   },
@@ -2623,7 +2629,7 @@
      "outcome": "pass",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+     "reason": "AFNI refuses it (exit 1), and so does the replica in `reproduce`, with AFNI's messages; its default, `fix`, accepts it and names the defect (the record's list of what `fix` changed)."
     }
    }
   },
@@ -2693,7 +2699,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "10/10",
-     "reason": "in its default mode the replica corrects AFNI-86 and names it: 121,396 values change (the record's D13 section)"
+     "reason": "in `fix`, its default, the replica corrects AFNI-86 and names it: 121,396 values change (the record's list of what `fix` changed)"
     }
    }
   },
@@ -2735,7 +2741,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "10/10",
-     "reason": "in its default mode the replica corrects AFNI-86 and names it: 120,124 values change (the record's D13 section)"
+     "reason": "in `fix`, its default, the replica corrects AFNI-86 and names it: 120,124 values change (the record's list of what `fix` changed)"
     }
    }
   },
@@ -2805,7 +2811,7 @@
      "outcome": "pass",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+     "reason": "AFNI refuses it (exit 1), and so does the replica in `reproduce`, with AFNI's messages; its default, `fix`, accepts it and names the defect (the record's list of what `fix` changed)."
     }
    }
   },
@@ -2819,7 +2825,7 @@
      "outcome": "pass",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+     "reason": "AFNI refuses it (exit 1), and so does the replica in `reproduce`, with AFNI's messages; its default, `fix`, accepts it and names the defect (the record's list of what `fix` changed)."
     }
    }
   },
@@ -2875,7 +2881,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "10/10",
-     "reason": "in its default mode the replica corrects AFNI-93 and names it: 20,448 values change (the record's D13 section)"
+     "reason": "in `fix`, its default, the replica corrects AFNI-93 and names it: 20,448 values change (the record's list of what `fix` changed)"
     }
    }
   },
@@ -2889,7 +2895,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "10/10",
-     "reason": "in its default mode the replica corrects AFNI-86, AFNI-93 and names it: 20,450 values change (the record's D13 section)"
+     "reason": "in `fix`, its default, the replica corrects AFNI-86, AFNI-93 and names it: 20,450 values change (the record's list of what `fix` changed)"
     }
    }
   },
@@ -2917,7 +2923,7 @@
      "outcome": "both-error",
      "verdict": "divergence",
      "checks": "4/4",
-     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: the base's least squares could not be set up (the messages above say why: all-zero weights, or a base whose rotated and shifted copies do not change under the …"
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); the replica refuses (exit 1: ** FATAL ERROR: the base's least squares could not be set up (the messages above say why: all-zero weights, or a base whose rotated and shifted copies do not change under the …"
     }
    }
   },
@@ -2931,7 +2937,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** Unknown option: -bogus\u0007; larmorx exit 1: ** Unknown option: -bogus\u0007 (the same messages)"
+     "reason": "AFNI exit 1: ** Unknown option: -bogus\u0007; the replica exit 1: ** Unknown option: -bogus\u0007 (the same messages)"
     }
    }
   },
@@ -2945,7 +2951,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** Illegal mode after -final; larmorx exit 1: ** Illegal mode after -final (the same messages)"
+     "reason": "AFNI exit 1: ** Illegal mode after -final; the replica exit 1: ** Illegal mode after -final (the same messages)"
     }
    }
   },
@@ -2959,7 +2965,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** ERROR: value after -twoblur is < 2.0; larmorx exit 1: ** ERROR: value after -twoblur is < 2.0 (the same messages)"
+     "reason": "AFNI exit 1: ** ERROR: value after -twoblur is < 2.0; the replica exit 1: ** ERROR: value after -twoblur is < 2.0 (the same messages)"
     }
    }
   },
@@ -2973,7 +2979,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** ERROR: Can't use -zpad -2; larmorx exit 1: ** ERROR: Can't use -zpad -2 (the same messages)"
+     "reason": "AFNI exit 1: ** ERROR: Can't use -zpad -2; the replica exit 1: ** ERROR: Can't use -zpad -2 (the same messages)"
     }
    }
   },
@@ -2987,7 +2993,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** Dataset ~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/s1.nii.gz doesn't have base brick index = 99; larmorx exit 1: ** Dataset ~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/s1.nii.gz doesn't have base brick index = …"
+     "reason": "AFNI exit 1: ** Dataset ~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/s1.nii.gz doesn't have base brick index = 99; the replica exit 1: ** Dataset ~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/s1.nii.gz doesn't have base brick index = …"
     }
    }
   },
@@ -3001,7 +3007,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal negative number after -base; larmorx exit 1: ** FATAL ERROR: Illegal negative number after -base (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Illegal negative number after -base; the replica exit 1: ** FATAL ERROR: Illegal negative number after -base (the same messages)"
     }
    }
   },
@@ -3015,7 +3021,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** Illegal value after -edging; larmorx exit 1: ** Illegal value after -edging (the same messages)"
+     "reason": "AFNI exit 1: ** Illegal value after -edging; the replica exit 1: ** Illegal value after -edging (the same messages)"
     }
    }
   },
@@ -3029,7 +3035,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** Illegal percentage after -edging; larmorx exit 1: ** Illegal percentage after -edging (the same messages)"
+     "reason": "AFNI exit 1: ** Illegal percentage after -edging; the replica exit 1: ** Illegal percentage after -edging (the same messages)"
     }
    }
   },
@@ -3043,7 +3049,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** Illegal weight dataset after -weight; larmorx exit 1: ** Illegal weight dataset after -weight (the same messages)"
+     "reason": "AFNI exit 1: ** Illegal weight dataset after -weight; the replica exit 1: ** Illegal weight dataset after -weight (the same messages)"
     }
    }
   },
@@ -3057,7 +3063,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** Can't open weight dataset nothere.nii.gz; larmorx exit 1: ** Can't open weight dataset nothere.nii.gz (the same messages)"
+     "reason": "AFNI exit 1: ** Can't open weight dataset nothere.nii.gz; the replica exit 1: ** Can't open weight dataset nothere.nii.gz (the same messages)"
     }
    }
   },
@@ -3071,7 +3077,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Couldn't open -base dataset nothere.nii.gz; larmorx exit 1: ** FATAL ERROR: Couldn't open -base dataset nothere.nii.gz (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Couldn't open -base dataset nothere.nii.gz; the replica exit 1: ** FATAL ERROR: Couldn't open -base dataset nothere.nii.gz (the same messages)"
     }
    }
   },
@@ -3085,7 +3091,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** -tshift parameter is negative!; larmorx exit 1: ** -tshift parameter is negative! (the same messages)"
+     "reason": "AFNI exit 1: ** -tshift parameter is negative!; the replica exit 1: ** -tshift parameter is negative! (the same messages)"
     }
    }
   },
@@ -3099,7 +3105,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Too few arguments!? Last=o.nii; larmorx exit 1: ** FATAL ERROR: Too few arguments!? Last=o.nii (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Too few arguments!? Last=o.nii; the replica exit 1: ** FATAL ERROR: Too few arguments!? Last=o.nii (the same messages)"
     }
    }
   },
@@ -3113,7 +3119,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** Can't open dataset /nonexistent/x.nii; larmorx exit 1: ** Can't open dataset /nonexistent/x.nii (the same messages)"
+     "reason": "AFNI exit 1: ** Can't open dataset /nonexistent/x.nii; the replica exit 1: ** Can't open dataset /nonexistent/x.nii (the same messages)"
     }
    }
   },
@@ -3141,7 +3147,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Too many arguments?! Dataset=~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/s1.nii.gz?; larmorx exit 1: ** FATAL ERROR: Too many arguments?! Dataset=~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/s1.nii.g…"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Too many arguments?! Dataset=~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/s1.nii.gz?; the replica exit 1: ** FATAL ERROR: Too many arguments?! Dataset=~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/s1.nii.g…"
     }
    }
   },
@@ -3155,7 +3161,7 @@
      "outcome": "both-error",
      "verdict": "divergence",
      "checks": "4/4",
-     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: need argument after -maxite (AFNI-88: AFNI crashes here)), after the same messages"
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); the replica refuses (exit 1: ** FATAL ERROR: need argument after -maxite (AFNI-88: AFNI crashes here)), after the same messages"
     }
    }
   },
@@ -3169,7 +3175,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** FATAL ERROR: Can't open input dataset '(null)'; larmorx exit 1: ** FATAL ERROR: Can't open input dataset '(null)' (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: Can't open input dataset '(null)'; the replica exit 1: ** FATAL ERROR: Can't open input dataset '(null)' (the same messages)"
     }
    }
   },
@@ -3183,7 +3189,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ; larmorx exit 1: (the same messages)"
+     "reason": "AFNI exit 1: ; the replica exit 1: (the same messages)"
     }
    }
   },
@@ -3197,7 +3203,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ; larmorx exit 1: (the same messages)"
+     "reason": "AFNI exit 1: ; the replica exit 1: (the same messages)"
     }
    }
   },
@@ -3211,7 +3217,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** FATAL ERROR: no argument after '-1Dmatrix_save'!; larmorx exit 1: ** FATAL ERROR: no argument after '-1Dmatrix_save'! (the same messages)"
+     "reason": "AFNI exit 1: ** FATAL ERROR: no argument after '-1Dmatrix_save'!; the replica exit 1: ** FATAL ERROR: no argument after '-1Dmatrix_save'! (the same messages)"
     }
    }
   },
@@ -3225,7 +3231,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** Dataset ~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/e_one.nii.gz doesn't have base brick index = 1; larmorx exit 1: ** Dataset ~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/e_one.nii.gz doesn't have base brick ind…"
+     "reason": "AFNI exit 1: ** Dataset ~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/e_one.nii.gz doesn't have base brick index = 1; the replica exit 1: ** Dataset ~/VScode_projects/super_fmriprep/oracles/inputs/afni-volreg/e_one.nii.gz doesn't have base brick ind…"
     }
    }
   },
@@ -3239,7 +3245,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** Dataset (null) doesn't have base brick index = 99; larmorx exit 1: ** Dataset (null) doesn't have base brick index = 99 (the same messages)"
+     "reason": "AFNI exit 1: ** Dataset (null) doesn't have base brick index = 99; the replica exit 1: ** Dataset (null) doesn't have base brick index = 99 (the same messages)"
     }
    }
   },
@@ -3253,7 +3259,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI exit 1: ** Dataset stray doesn't have base brick index = 99; larmorx exit 1: ** Dataset stray doesn't have base brick index = 99 (the same messages)"
+     "reason": "AFNI exit 1: ** Dataset stray doesn't have base brick index = 99; the replica exit 1: ** Dataset stray doesn't have base brick index = 99 (the same messages)"
     }
    }
   },
@@ -3267,7 +3273,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "2/3",
-     "reason": "AFNI's default prefix 'volreg' is its own dataset format, which larmorx does not write: it refuses (NIfTI only)."
+     "reason": "AFNI's default prefix 'volreg' is its own dataset format, which the replica does not write: it refuses (NIfTI only)."
     }
    }
   },
@@ -3281,7 +3287,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "2/3",
-     "reason": "-savedisp without .nii/.nii.gz writes AFNI's own dataset format, which larmorx does not write: it refuses (NIfTI only)."
+     "reason": "-savedisp without .nii/.nii.gz writes AFNI's own dataset format, which the replica does not write: it refuses (NIfTI only)."
     }
    }
   },
@@ -3295,7 +3301,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "Neither writes an output; the exit status (0) and the messages are AFNI's. The default mode refuses instead (exit 1) and names AFNI-11 (the record's D13 section)."
+     "reason": "Neither writes an output; the exit status (0) and the messages are AFNI's. The default, `fix`, refuses instead (exit 1) and names AFNI-11 (the record's list of what `fix` changed)."
     }
    }
   },
@@ -3365,7 +3371,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "Neither writes an output; the exit status (0) and the messages are AFNI's. The default mode refuses instead (exit 1) and names AFNI-12 (the record's D13 section)."
+     "reason": "Neither writes an output; the exit status (0) and the messages are AFNI's. The default, `fix`, refuses instead (exit 1) and names AFNI-12 (the record's list of what `fix` changed)."
     }
    }
   },
@@ -3379,7 +3385,7 @@
      "outcome": "pass",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names AFNI-12 (the record's D13 section)."
+     "reason": "AFNI refuses it (exit 1), and so does the replica in `reproduce`, with AFNI's messages; its default, `fix`, accepts it and names AFNI-12 (the record's list of what `fix` changed)."
     }
    }
   },
@@ -3393,7 +3399,7 @@
      "outcome": "pass",
      "verdict": "both-reject",
      "checks": "6/6",
-     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names AFNI-18 (the record's D13 section)."
+     "reason": "AFNI refuses it (exit 1), and so does the replica in `reproduce`, with AFNI's messages; its default, `fix`, accepts it and names AFNI-18 (the record's list of what `fix` changed)."
     }
    }
   },
@@ -3407,7 +3413,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "Neither writes an output; the exit status (0) and the messages are AFNI's. The default mode refuses instead (exit 1) and names AFNI-26 (the record's D13 section)."
+     "reason": "Neither writes an output; the exit status (0) and the messages are AFNI's. The default, `fix`, refuses instead (exit 1) and names AFNI-26 (the record's list of what `fix` changed)."
     }
    }
   },
@@ -3435,7 +3441,7 @@
      "outcome": "both-error",
      "verdict": "divergence",
      "checks": "5/5",
-     "reason": "AFNI crashes (exit 1, Fatal Signal 6 (SIGABRT) received); larmorx refuses (exit 1: ** FATAL ERROR: the -prefix name has 256 bytes; AFNI's buffer holds 255 and AFNI aborts here (*** buffer overflow detected ***, AFNI-90)), after the same messages"
+     "reason": "AFNI crashes (exit 1, Fatal Signal 6 (SIGABRT) received); the replica refuses (exit 1: ** FATAL ERROR: the -prefix name has 256 bytes; AFNI's buffer holds 255 and AFNI aborts here (*** buffer overflow detected ***, AFNI-90)), after the same messages"
     }
    }
   },
@@ -3449,7 +3455,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "21/21",
-     "reason": "fMRIPrep 25.2.6's AFNI give the oracle's bytes; average.nii.gz: fMRIPrep's own output, the same bytes; in its default mode the replica corrects AFNI-99 and names it: 35 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in both modes (the record's D13 section)"
+     "reason": "fMRIPrep 25.2.6's AFNI give the bytes of the repository's build; average.nii.gz: fMRIPrep's own output, the same bytes; in `fix`, its default, the replica corrects AFNI-99 and names it: 35 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in `fix` and in `reproduce` (the record's list of what `fix` changed)"
     }
    },
    "example": "fmriprep-volreg"
@@ -3464,7 +3470,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "20/20",
-     "reason": "fMRIPrep 25.2.6's AFNI give the oracle's bytes; average.nii.gz: fMRIPrep's own output, the same bytes; in its default mode the replica corrects AFNI-99 and names it: 2 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in both modes (the record's D13 section)"
+     "reason": "fMRIPrep 25.2.6's AFNI give the bytes of the repository's build; average.nii.gz: fMRIPrep's own output, the same bytes; in `fix`, its default, the replica corrects AFNI-99 and names it: 2 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in `fix` and in `reproduce` (the record's list of what `fix` changed)"
     }
    }
   },
@@ -3478,7 +3484,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "20/20",
-     "reason": "fMRIPrep 25.2.6's AFNI give the oracle's bytes; average.nii.gz: fMRIPrep's own output, the same bytes; in its default mode the replica corrects AFNI-99 and names it: 32 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in both modes (the record's D13 section)"
+     "reason": "fMRIPrep 25.2.6's AFNI give the bytes of the repository's build; average.nii.gz: fMRIPrep's own output, the same bytes; in `fix`, its default, the replica corrects AFNI-99 and names it: 32 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in `fix` and in `reproduce` (the record's list of what `fix` changed)"
     }
    }
   },
@@ -3492,7 +3498,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "20/20",
-     "reason": "fMRIPrep 25.2.6's AFNI give the oracle's bytes; average.nii.gz: fMRIPrep's own output, the same bytes; in its default mode the replica corrects AFNI-99 and names it: 35 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in both modes (the record's D13 section)"
+     "reason": "fMRIPrep 25.2.6's AFNI give the bytes of the repository's build; average.nii.gz: fMRIPrep's own output, the same bytes; in `fix`, its default, the replica corrects AFNI-99 and names it: 35 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in `fix` and in `reproduce` (the record's list of what `fix` changed)"
     }
    }
   },
@@ -3506,7 +3512,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "20/20",
-     "reason": "fMRIPrep 25.2.6's AFNI give the oracle's bytes; average.nii.gz: fMRIPrep's own output, the same bytes; in its default mode the replica corrects AFNI-99 and names it: 4 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in both modes (the record's D13 section)"
+     "reason": "fMRIPrep 25.2.6's AFNI give the bytes of the repository's build; average.nii.gz: fMRIPrep's own output, the same bytes; in `fix`, its default, the replica corrects AFNI-99 and names it: 4 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in `fix` and in `reproduce` (the record's list of what `fix` changed)"
     }
    }
   },
@@ -3520,7 +3526,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "20/20",
-     "reason": "fMRIPrep 25.2.6's AFNI give the oracle's bytes; average.nii.gz: fMRIPrep's own output, the same bytes; in its default mode the replica corrects AFNI-99 and names it: 22 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in both modes (the record's D13 section)"
+     "reason": "fMRIPrep 25.2.6's AFNI give the bytes of the repository's build; average.nii.gz: fMRIPrep's own output, the same bytes; in `fix`, its default, the replica corrects AFNI-99 and names it: 22 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in `fix` and in `reproduce` (the record's list of what `fix` changed)"
     }
    }
   },
@@ -3534,7 +3540,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "20/20",
-     "reason": "fMRIPrep 25.2.6's AFNI give the oracle's bytes; average.nii.gz: fMRIPrep's own output, the same bytes; in its default mode the replica corrects AFNI-99 and names it: 2 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in both modes (the record's D13 section)"
+     "reason": "fMRIPrep 25.2.6's AFNI give the bytes of the repository's build; average.nii.gz: fMRIPrep's own output, the same bytes; in `fix`, its default, the replica corrects AFNI-99 and names it: 2 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in `fix` and in `reproduce` (the record's list of what `fix` changed)"
     }
    }
   },
@@ -3548,7 +3554,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "20/20",
-     "reason": "fMRIPrep 25.2.6's AFNI give the oracle's bytes; average.nii.gz: fMRIPrep's own output, the same bytes; in its default mode the replica corrects AFNI-99 and names it: 2 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in both modes (the record's D13 section)"
+     "reason": "fMRIPrep 25.2.6's AFNI give the bytes of the repository's build; average.nii.gz: fMRIPrep's own output, the same bytes; in `fix`, its default, the replica corrects AFNI-99 and names it: 2 values change: the maximum displacements of -maxdisp1D, as every fMRIPrep input of the record is stored with its second axis posterior to anterior; the registered volumes, and so fMRIPrep's reference, are the same in `fix` and in `reproduce` (the record's list of what `fix` changed)"
     }
    }
   },
@@ -3590,7 +3596,7 @@
      "outcome": "both-error",
      "verdict": "divergence",
      "checks": "4/4",
-     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: the base's least squares could not be set up (the messages above say why: all-zero weights, or a base whose rotated and shifted copies do not change under the …"
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); the replica refuses (exit 1: ** FATAL ERROR: the base's least squares could not be set up (the messages above say why: all-zero weights, or a base whose rotated and shifted copies do not change under the …"
     }
    }
   },
@@ -3604,7 +3610,7 @@
      "outcome": "both-error",
      "verdict": "divergence",
      "checks": "4/4",
-     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: a Fourier rotation shifted the last of an odd count of rows beyond the row length together with the previous pair's second shift (a rotation far beyond a head'…"
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); the replica refuses (exit 1: ** FATAL ERROR: a Fourier rotation shifted the last of an odd count of rows beyond the row length together with the previous pair's second shift (a rotation far beyond a head'…"
     }
    }
   },
@@ -3618,7 +3624,7 @@
      "outcome": "both-error",
      "verdict": "divergence",
      "checks": "5/5",
-     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: a Fourier rotation shifted the last of an odd count of rows beyond the row length together with the previous pair's second shift (a rotation far beyond a head'…"
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); the replica refuses (exit 1: ** FATAL ERROR: a Fourier rotation shifted the last of an odd count of rows beyond the row length together with the previous pair's second shift (a rotation far beyond a head'…"
     }
    }
   },
@@ -3632,7 +3638,7 @@
      "outcome": "both-error",
      "verdict": "divergence",
      "checks": "5/5",
-     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); larmorx refuses (exit 1: ** FATAL ERROR: a Fourier rotation shifted the last of an odd count of rows beyond the row length together with the previous pair's second shift (a rotation far beyond a head'…"
+     "reason": "AFNI crashes (exit 1, Fatal Signal 11 (SIGSEGV) received); the replica refuses (exit 1: ** FATAL ERROR: a Fourier rotation shifted the last of an odd count of rows beyond the row length together with the previous pair's second shift (a rotation far beyond a head'…"
     }
    }
   },
@@ -3646,7 +3652,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "10/10",
-     "reason": "in its default mode the replica corrects AFNI-92, AFNI-93 and names it: 1,436 values change (the record's D13 section)"
+     "reason": "in `fix`, its default, the replica corrects AFNI-92, AFNI-93 and names it: 1,436 values change (the record's list of what `fix` changed)"
     }
    }
   },
@@ -3660,7 +3666,7 @@
      "outcome": "pass",
      "verdict": "both-reject",
      "checks": "5/5",
-     "reason": "AFNI refuses it (exit 1), and so does the replica in reproduce mode, with AFNI's messages; its default mode accepts it and names the defect (the record's D13 section)."
+     "reason": "AFNI refuses it (exit 1), and so does the replica in `reproduce`, with AFNI's messages; its default, `fix`, accepts it and names the defect (the record's list of what `fix` changed)."
     }
    }
   },
@@ -4738,7 +4744,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "11/11",
-     "reason": "AFNI crashes and the original stops with AFNI's messages and an error"
+     "reason": "AFNI crashes and the clean room stops with AFNI's messages and an error"
     }
    }
   },
@@ -4752,7 +4758,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "11/11",
-     "reason": "AFNI crashes and the original stops with AFNI's messages and an error"
+     "reason": "AFNI crashes and the clean room stops with AFNI's messages and an error"
     }
    }
   },
@@ -4766,7 +4772,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "11/11",
-     "reason": "AFNI crashes and the original stops with AFNI's messages and an error"
+     "reason": "AFNI crashes and the clean room stops with AFNI's messages and an error"
     }
    }
   },
@@ -4780,7 +4786,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "11/11",
-     "reason": "AFNI crashes and the original stops with AFNI's messages and an error"
+     "reason": "AFNI crashes and the clean room stops with AFNI's messages and an error"
     }
    }
   },
@@ -4794,7 +4800,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "11/11",
-     "reason": "AFNI crashes and the original stops with AFNI's messages and an error"
+     "reason": "AFNI crashes and the clean room stops with AFNI's messages and an error"
     }
    }
   },
@@ -4808,7 +4814,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "11/11",
-     "reason": "AFNI crashes and the original stops with AFNI's messages and an error"
+     "reason": "AFNI crashes and the clean room stops with AFNI's messages and an error"
     }
    }
   },
@@ -4822,7 +4828,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "17/17",
-     "reason": "AFNI crashes and the original stops with AFNI's messages and an error"
+     "reason": "AFNI crashes and the clean room stops with AFNI's messages and an error"
     }
    }
   },
@@ -4836,7 +4842,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "17/17",
-     "reason": "AFNI crashes and the original stops with AFNI's messages and an error"
+     "reason": "AFNI crashes and the clean room stops with AFNI's messages and an error"
     }
    }
   },
@@ -4850,7 +4856,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "11/11",
-     "reason": "AFNI crashes and the original stops with AFNI's messages and an error"
+     "reason": "AFNI crashes and the clean room stops with AFNI's messages and an error"
     }
    }
   },
@@ -4948,7 +4954,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "11/11",
-     "reason": "AFNI crashes and the original stops with AFNI's messages and an error"
+     "reason": "AFNI crashes and the clean room stops with AFNI's messages and an error"
     }
    }
   },
@@ -4962,7 +4968,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "11/11",
-     "reason": "AFNI crashes and the original stops with AFNI's messages and an error"
+     "reason": "AFNI crashes and the clean room stops with AFNI's messages and an error"
     }
    }
   },
@@ -4976,7 +4982,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "10/10",
-     "reason": "AFNI-96 (rule B, an error in both modes, spec §12): AFNI reads the third number past the attribute's two and goes on with whatever it finds there; larmorx stops"
+     "reason": "AFNI-96 (rule B, an error in `fix` and in `reproduce`, spec §12): AFNI reads the third number past the attribute's two and goes on with whatever it finds there; the clean room stops"
     }
    }
   },
@@ -5487,14 +5493,14 @@
   {
    "id": "original/prefix-afni-format",
    "category": "errors",
-   "description": "a -prefix in AFNI's own format (larmorx refuses it)",
+   "description": "a -prefix in AFNI's own format (the replica refuses it)",
    "command": "3dvolreg -prefix volreg_out <generated: s1>",
    "results": {
     "original": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "10/10",
-     "reason": "larmorx writes no .HEAD/.BRIK dataset: it stops with an error where AFNI writes its own format (all the larmorx AFNI tools' rule, spec §9.4)"
+     "reason": "The clean room writes no .HEAD/.BRIK dataset: it stops with an error where AFNI writes its own format (all the the clean room AFNI tools' rule, spec §9.4)"
     }
    }
   },
@@ -5508,7 +5514,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "10/10",
-     "reason": "larmorx writes no .HEAD/.BRIK dataset: the default prefix 'volreg' is refused (spec §9.4)"
+     "reason": "The clean room writes no .HEAD/.BRIK dataset: the default prefix 'volreg' is refused (spec §9.4)"
     }
    }
   },
@@ -6992,7 +6998,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "10/10",
-     "reason": "the original and the replica refuse the input alike"
+     "reason": "The clean room and the replica refuse the input alike"
     }
    }
   },
@@ -7183,7 +7189,7 @@
  ],
  "cases_total": 441,
  "speed": {
-  "title": "Seconds for the whole call (read, both passes, write), log scale; the factor is the clean-room original's speed-up over AFNI, both on one thread",
+  "title": "Speed, both ports against the original: AFNI `3dvolreg` 26.3.05",
   "axis": [
    0.1,
    1000.0
@@ -7213,23 +7219,27 @@
   "series": [
    {
     "id": "AFNI 26.3.05|1 thread",
-    "label": "AFNI 26.3.05 (one thread on this path)",
-    "mark": "original"
+    "label": "AFNI 3dvolreg 26.3.05, one thread on this path",
+    "mark": "original",
+    "port": "original"
    },
    {
     "id": "replica|1 thread",
-    "label": "replica (one thread, as AFNI)",
-    "mark": "replica"
+    "label": "replica, one thread, as AFNI",
+    "mark": "replica",
+    "port": "replica"
    },
    {
     "id": "original|1 thread",
-    "label": "clean-room original, 1 thread",
-    "mark": "larmorx"
+    "label": "clean room, 1 thread",
+    "mark": "clean-room",
+    "port": "clean-room"
    },
    {
     "id": "original|14 threads",
-    "label": "clean-room original, 14 threads",
-    "mark": "larmorx-open"
+    "label": "clean room, 14 threads",
+    "mark": "clean-room-open",
+    "port": "clean-room"
    }
   ],
   "rows": [
@@ -7289,13 +7299,14 @@
     "speedup": 2.807600950118765
    }
   ],
-  "note": "From the benchmark report `docs/benchmarks/afni-volreg.md` (the main machine: AMD Ryzen 9 7945HX, 16 cores / 32 threads; 2026-11-08): the median of three runs, AFNI timed afresh (ds005454: one AFNI and replica run, three of the original). The machine was shared with another agent's random testing (load 23 to 26 of 32 threads), so every time is long and the many-thread times most; the ratios between programs measured together are the information. The original's outputs are the same bits at every thread count."
+  "note": "From the benchmark report `docs/benchmarks/afni-volreg.md` (the main machine: AMD Ryzen 9 7945HX, 16 cores / 32 threads; 2026-11-08): the median of three runs, AFNI timed afresh (ds005454: one AFNI and replica run, three of the clean room). The machine was shared with another agent's random testing (load 23 to 26 of 32 threads), so every time is long and the many-thread times most; the ratios between programs measured together are the information. The clean room's outputs are the same bits at every thread count.",
+  "caption": "Seconds for the whole call (reading, both passes, writing), on a log scale. The factor is how many times faster the clean room is than AFNI, both on one thread."
  },
  "examples": [
   {
    "id": "fmriprep-volreg",
    "title": "fMRIPrep's registration of a real BOLD run's reference volumes",
-   "summary": "fMRIPrep's BOLD reference is the median of some of a run's volumes, aligned first: niworkflows' RobustAverage (the gen_avg node of fMRIPrep 25.2.6's hmc_boldref_wf) takes 20 volumes of OpenNeuro ds000005 sub-01's first run (file volumes 20 to 39 of 240), clips them and divides them by the global signal's drift, and gives them to 3dvolreg with -Fourier -twopass -zpad 4. That call, given to AFNI 26.3.05, AFNI 25.2.09, fMRIPrep's build of AFNI and the larmorx replica in both modes. Choose a volume with the slider; the input panels show the run before registration. Beside them LARMORX's clean-room original (Apache-2.0, written from specs/3dvolreg.md), in its default mode at 14 threads and at one and in its reproduce mode, with its parameters' differences from AFNI's and every volume against its limit in the second chart and the table below.",
+   "summary": "fMRIPrep's BOLD reference is the median of some of a run's volumes, aligned first: niworkflows' RobustAverage (the gen_avg node of fMRIPrep 25.2.6's hmc_boldref_wf) takes 20 volumes of OpenNeuro ds000005 sub-01's first run (file volumes 20 to 39 of 240), clips them and divides them by the global signal's drift, and gives them to 3dvolreg with -Fourier -twopass -zpad 4. That call, given to AFNI 26.3.05, AFNI 25.2.09, fMRIPrep's build of AFNI and the replica in `fix` and in `reproduce`. Choose a volume with the slider; the input panels show the run before registration. Beside them LARMORX's clean room (Apache-2.0, written from specs/3dvolreg.md), in `fix`, its default, at 14 threads and at one and in `reproduce`, with its parameters' differences from AFNI's and every volume against its limit in the second chart and the table below.",
    "facts": [
     {
      "label": "Data",
@@ -7311,7 +7322,7 @@
     },
     {
      "label": "Programs",
-     "text": "AFNI_26.3.05, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0 and AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0 (the repository's oracle builds); AFNI AFNI_25.2.09 (Aug 24 2025) [64-bit] in fMRIPrep's image; larmorx 0.0.1 (crate larmorx-afni-replica, built in) at commit `c0fa9881ce74`; LARMORX's clean-room original (crate larmorx-afni, Apache-2.0, experimental), from larmorx at commit `ae74dcb46642`"
+     "text": "AFNI_26.3.05, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0 and AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0 (the repository's builds); AFNI AFNI_25.2.09 (Aug 24 2025) [64-bit] in fMRIPrep's image; LARMORX 0.0.1 (crate larmorx-afni-replica, built in) at commit `c0fa9881ce74`; LARMORX's clean room (crate larmorx-afni, Apache-2.0, experimental), from LARMORX at commit `ae74dcb46642`"
     },
     {
      "label": "Grid",
@@ -7460,7 +7471,8 @@
      "window": [
       0.0,
       817.0
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "sliced",
@@ -7481,13 +7493,14 @@
      "window": [
       0.0,
       794.2404544707388
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "afni26",
      "role": "original",
-     "label": "AFNI 26.3.05, 3dvolreg",
-     "sub": "the repository's build; the replica's reference",
+     "label": "AFNI 3dvolreg 26.3.05",
+     "sub": "the repository's build; the version the replica follows",
      "arrays": {
       "series": {
        "blob": "e52d528bf2b2a6dbd58f8c28.bin",
@@ -7500,12 +7513,13 @@
        0.0,
        793.498291015625
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "afni25",
      "role": "original",
-     "label": "AFNI 25.2.09, 3dvolreg",
+     "label": "AFNI 3dvolreg 25.2.09",
      "sub": "the repository's build; the previous release",
      "arrays": {
       "series": {
@@ -7518,12 +7532,13 @@
        0.0,
        793.498291015625
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "image",
      "role": "original",
-     "label": "AFNI in fMRIPrep's image",
+     "label": "AFNI 3dvolreg 25.2.09, fMRIPrep's build",
      "sub": "fMRIPrep 25.2.6's build (AFNI_25.2.09 (Aug 24 2025) [64-bit])",
      "arrays": {
       "series": {
@@ -7536,13 +7551,14 @@
        0.0,
        793.498291015625
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "replica-1",
      "role": "larmorx",
-     "label": "larmorx replica",
-     "sub": "default mode, 1 thread",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 with CC BY 4.0's attribution · fix (the default), 1 thread · against AFNI 3dvolreg 26.3.05, which it follows",
      "arrays": {
       "series": {
        "same": "afni26:series",
@@ -7554,13 +7570,14 @@
        0.0,
        793.498291015625
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "replica-6",
      "role": "larmorx",
-     "label": "larmorx replica",
-     "sub": "default mode, 6 threads",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 with CC BY 4.0's attribution · fix (the default), 6 threads",
      "arrays": {
       "series": {
        "same": "afni26:series",
@@ -7572,13 +7589,14 @@
        0.0,
        793.498291015625
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "replica-reproduce",
      "role": "larmorx",
-     "label": "larmorx replica",
-     "sub": "reproduce mode, 1 thread",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 with CC BY 4.0's attribution · reproduce, 1 thread · against AFNI 3dvolreg 26.3.05, which it follows",
      "arrays": {
       "series": {
        "same": "afni26:series",
@@ -7590,13 +7608,14 @@
        0.0,
        793.498291015625
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "original",
      "role": "larmorx",
-     "label": "LARMORX clean-room original",
-     "sub": "default mode, 14 threads",
+     "label": "clean room",
+     "sub": "larmorx, Apache-2.0 · fix (the default), 14 threads · against AFNI 3dvolreg 26.3.05, which it follows",
      "arrays": {
       "series": {
        "blob": "71c46bfc2a613df492b03396.bin",
@@ -7611,13 +7630,14 @@
        0.0,
        793.498291015625
       ]
-     }
+     },
+     "port": "clean-room"
     },
     {
      "id": "original-1",
      "role": "larmorx",
-     "label": "LARMORX clean-room original",
-     "sub": "default mode, 1 thread",
+     "label": "clean room",
+     "sub": "larmorx, Apache-2.0 · fix (the default), 1 thread",
      "arrays": {
       "series": {
        "same": "original:series",
@@ -7629,13 +7649,14 @@
        0.0,
        793.498291015625
       ]
-     }
+     },
+     "port": "clean-room"
     },
     {
      "id": "original-reproduce",
      "role": "larmorx",
-     "label": "LARMORX clean-room original",
-     "sub": "reproduce mode, 14 threads",
+     "label": "clean room",
+     "sub": "larmorx, Apache-2.0 · reproduce, 14 threads · against AFNI 3dvolreg 26.3.05, which it follows",
      "arrays": {
       "series": {
        "same": "original:series",
@@ -7647,7 +7668,8 @@
        0.0,
        793.498291015625
       ]
-     }
+     },
+     "port": "clean-room"
     }
    ],
    "diffs": [
@@ -7656,8 +7678,8 @@
      "a": "replica-1",
      "b": "afni26",
      "kind": "main",
-     "label": "replica (default) − AFNI 26.3.05",
-     "role_label": "larmorx against the original",
+     "label": "replica (fix) − AFNI 3dvolreg 26.3.05",
+     "role_label": "the replica against the original",
      "metrics": {
       "series": {
        "identical": true,
@@ -7701,15 +7723,16 @@
       }
      ],
      "verdict": "bit-identical",
-     "reason": "The same values, every one: the registered series, and the parameters and matrices as text; the maximum displacements differ (AFNI-99, corrected by default: the chart below)."
+     "reason": "The same values, every one: the registered series, and the parameters and matrices as text; the maximum displacements differ (AFNI-99, corrected by default: the chart below).",
+     "port": "replica"
     },
     {
      "id": "repro-afni26",
      "a": "replica-reproduce",
      "b": "afni26",
      "kind": "main",
-     "label": "replica (reproduce) − AFNI 26.3.05",
-     "role_label": "larmorx against the original",
+     "label": "replica (reproduce) − AFNI 3dvolreg 26.3.05",
+     "role_label": "the replica against the original",
      "metrics": {
       "series": {
        "identical": true,
@@ -7748,15 +7771,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "The same values, every one, and every text file AFNI writes."
+     "reason": "The same values, every one, and every text file AFNI writes.",
+     "port": "replica"
     },
     {
      "id": "afni25-afni26",
      "a": "afni25",
      "b": "afni26",
      "kind": "variability",
-     "label": "AFNI 25.2.09 − 26.3.05",
-     "role_label": "the original against itself: the version step",
+     "label": "AFNI 3dvolreg 25.2.09 − 26.3.05",
+     "role_label": "the original against itself: versions 25.2.09 and 26.3.05",
      "metrics": {
       "series": {
        "identical": true,
@@ -7795,15 +7819,16 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "AFNI 25.2.09 gives AFNI 26.3.05's bytes on this call (the series and every text file): 3dvolreg did not change between the two releases."
+     "reason": "AFNI 25.2.09 gives AFNI 26.3.05's bytes on this call (the series and every text file): 3dvolreg did not change between the two releases.",
+     "port": "original"
     },
     {
      "id": "image-afni26",
      "a": "image",
      "b": "afni26",
      "kind": "variability",
-     "label": "fMRIPrep's AFNI − AFNI 26.3.05",
-     "role_label": "the original against itself",
+     "label": "AFNI 3dvolreg 25.2.09, fMRIPrep's build − 26.3.05",
+     "role_label": "the original against itself: fMRIPrep's build of 25.2.09 and the repository's 26.3.05",
      "metrics": {
       "series": {
        "identical": true,
@@ -7842,7 +7867,8 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "fMRIPrep's build of AFNI (in its image) gives the repository's AFNI 26.3.05 bytes, the series and every text file."
+     "reason": "fMRIPrep's build of AFNI (in its image) gives the repository's AFNI 26.3.05 bytes, the series and every text file.",
+     "port": "original"
     },
     {
      "id": "replica6-replica1",
@@ -7850,7 +7876,7 @@
      "b": "replica-1",
      "kind": "check",
      "label": "replica, 6 threads − 1 thread",
-     "role_label": "larmorx against itself",
+     "role_label": "the replica against itself: 1 and 6 threads",
      "metrics": {
       "series": {
        "identical": true,
@@ -7889,15 +7915,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "The same bytes on any number of threads (AFNI's 3dvolreg has no parallel loop on this path; neither has the replica's registration)."
+     "reason": "The same bytes on any number of threads (AFNI's 3dvolreg has no parallel loop on this path; neither has the replica's registration).",
+     "port": "replica"
     },
     {
      "id": "replica-repro",
      "a": "replica-1",
      "b": "replica-reproduce",
      "kind": "check",
-     "label": "replica, default − reproduce mode",
-     "role_label": "larmorx against itself",
+     "label": "replica, fix − reproduce",
+     "role_label": "the replica against itself: fix and reproduce",
      "metrics": {
       "series": {
        "identical": true,
@@ -7941,15 +7968,16 @@
       }
      ],
      "verdict": "bit-identical",
-     "reason": "The registered volumes are the same bytes in both modes: AFNI-99 changes only the maximum displacements, which the default computes for the voxels themselves (the chart below)."
+     "reason": "The registered volumes are the same bytes in `fix` and in `reproduce`: AFNI-99 changes only the maximum displacements, which the default computes for the voxels themselves (the chart below).",
+     "port": "replica"
     },
     {
      "id": "original-afni26",
      "a": "original",
      "b": "afni26",
      "kind": "main",
-     "label": "clean-room original (default) − AFNI 26.3.05",
-     "role_label": "larmorx against the original",
+     "label": "clean room (fix) − AFNI 3dvolreg 26.3.05",
+     "role_label": "the clean room against the original",
      "metrics": {
       "series": {
        "identical": false,
@@ -7998,15 +8026,16 @@
       }
      ],
      "verdict": "within-variability",
-     "reason": "Not AFNI's bits by design: where two axes have the same voxel size the shear decomposition's axis orders tie in exact arithmetic, and AFNI decides each tie by its last bits at every resampling, which no specification states (specs/3dvolreg.md §5.3, §16); §14.3's limits allow for either side of every tie, measured from AFNI's own spread when its ties are decided the other way. Here: every one of the 20 volumes within §14.3's limit (the closest, sub-brick 3: mean |Δ| 7e-07 of its largest value against L_v = 0.002, 0.00035 of it; 1 − NCC 9.9e-12, 5e-08 of 50·L_v²); 17 of 20 -1Dfile lines identical, the parameters at most 0.005 of their thresholds (the charts below); 1,670,448 of 2,785,280 values differ, the largest by 0.0148 (1.9e-05 of the range) at a field of view's edge."
+     "reason": "Not AFNI's bits by design: where two axes have the same voxel size the shear decomposition's axis orders tie in exact arithmetic, and AFNI decides each tie by its last bits at every resampling, which no specification states (specs/3dvolreg.md §5.3, §16); §14.3's limits allow for either side of every tie, measured from AFNI's own spread when its ties are decided the other way. Here: every one of the 20 volumes within §14.3's limit (the closest, sub-brick 3: mean |Δ| 7e-07 of its largest value against L_v = 0.002, 0.00035 of it; 1 − NCC 9.9e-12, 5e-08 of 50·L_v²); 17 of 20 -1Dfile lines identical, the parameters at most 0.005 of their thresholds (the charts below); 1,670,448 of 2,785,280 values differ, the largest by 0.0148 (1.9e-05 of the range) at a field of view's edge.",
+     "port": "clean-room"
     },
     {
      "id": "orepro-afni26",
      "a": "original-reproduce",
      "b": "afni26",
      "kind": "main",
-     "label": "clean-room original (reproduce) − AFNI 26.3.05",
-     "role_label": "larmorx against the original",
+     "label": "clean room (reproduce) − AFNI 3dvolreg 26.3.05",
+     "role_label": "the clean room against the original",
      "metrics": {
       "series": {
        "identical": false,
@@ -8055,15 +8084,16 @@
       }
      ],
      "verdict": "within-variability",
-     "reason": "Not AFNI's bits by design: where two axes have the same voxel size the shear decomposition's axis orders tie in exact arithmetic, and AFNI decides each tie by its last bits at every resampling, which no specification states (specs/3dvolreg.md §5.3, §16); §14.3's limits allow for either side of every tie, measured from AFNI's own spread when its ties are decided the other way. Here: every one of the 20 volumes within §14.3's limit (the closest, sub-brick 3: mean |Δ| 7e-07 of its largest value against L_v = 0.002, 0.00035 of it; 1 − NCC 9.9e-12, 5e-08 of 50·L_v²); 17 of 20 -1Dfile lines identical, the parameters at most 0.005 of their thresholds (the charts below); 1,670,448 of 2,785,280 values differ, the largest by 0.0148 (1.9e-05 of the range) at a field of view's edge."
+     "reason": "Not AFNI's bits by design: where two axes have the same voxel size the shear decomposition's axis orders tie in exact arithmetic, and AFNI decides each tie by its last bits at every resampling, which no specification states (specs/3dvolreg.md §5.3, §16); §14.3's limits allow for either side of every tie, measured from AFNI's own spread when its ties are decided the other way. Here: every one of the 20 volumes within §14.3's limit (the closest, sub-brick 3: mean |Δ| 7e-07 of its largest value against L_v = 0.002, 0.00035 of it; 1 − NCC 9.9e-12, 5e-08 of 50·L_v²); 17 of 20 -1Dfile lines identical, the parameters at most 0.005 of their thresholds (the charts below); 1,670,448 of 2,785,280 values differ, the largest by 0.0148 (1.9e-05 of the range) at a field of view's edge.",
+     "port": "clean-room"
     },
     {
      "id": "original-replica",
      "a": "original",
      "b": "replica-1",
      "kind": "check",
-     "label": "clean-room original − replica, both default",
-     "role_label": "larmorx against itself",
+     "label": "clean room − replica, both fix",
+     "role_label": "the clean room against the replica: both fix",
      "metrics": {
       "series": {
        "identical": false,
@@ -8107,15 +8137,16 @@
      },
      "links": [],
      "verdict": "within-variability",
-     "reason": "The two implementations' defaults: the replica's is AFNI's series bit for bit (AFNI-99 changes only the maximum displacements), so the same limits hold: every one of the 20 volumes within §14.3's limit (the closest, sub-brick 3: mean |Δ| 7e-07 of its largest value against L_v = 0.002, 0.00035 of it; 1 − NCC 9.9e-12, 5e-08 of 50·L_v²); 17 of 20 -1Dfile lines identical."
+     "reason": "The two ports' defaults (`fix`): the replica's is AFNI's series bit for bit (AFNI-99 changes only the maximum displacements), so the same limits hold: every one of the 20 volumes within §14.3's limit (the closest, sub-brick 3: mean |Δ| 7e-07 of its largest value against L_v = 0.002, 0.00035 of it; 1 − NCC 9.9e-12, 5e-08 of 50·L_v²); 17 of 20 -1Dfile lines identical.",
+     "port": "clean-room"
     },
     {
      "id": "original1-original",
      "a": "original-1",
      "b": "original",
      "kind": "check",
-     "label": "clean-room original, 1 thread − 14 threads",
-     "role_label": "larmorx against itself",
+     "label": "clean room, 1 thread − 14 threads",
+     "role_label": "the clean room against itself: 1 and 14 threads",
      "metrics": {
       "series": {
        "identical": true,
@@ -8154,15 +8185,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "The thread count changes nothing: the original registers the volumes one after another and divides the work inside each (the shears' planes and rows, the coarse search, the blurs) in fixed pieces, so 1 and 14 threads give the same bits (its record checks 1, 2, 5 and 14)."
+     "reason": "The thread count changes nothing: the clean room registers the volumes one after another and divides the work inside each (the shears' planes and rows, the coarse search, the blurs) in fixed pieces, so 1 and 14 threads give the same bits (its record checks 1, 2, 5 and 14).",
+     "port": "clean-room"
     },
     {
      "id": "original-orepro",
      "a": "original",
      "b": "original-reproduce",
      "kind": "check",
-     "label": "clean-room original, default − reproduce mode",
-     "role_label": "larmorx against itself",
+     "label": "clean room, fix − reproduce",
+     "role_label": "the clean room against itself: fix and reproduce",
      "metrics": {
       "series": {
        "identical": true,
@@ -8206,7 +8238,8 @@
       }
      ],
      "verdict": "bit-identical",
-     "reason": "The registered volumes are the same in both modes: AFNI-99 named by the default changes only the maximum displacements (the chart and table below)."
+     "reason": "The registered volumes are the same in `fix` and in `reproduce`: AFNI-99, named by `fix`, changes only the maximum displacements (the chart and table below).",
+     "port": "clean-room"
     }
    ],
    "default": {
@@ -8226,9 +8259,9 @@
      "original"
     ],
     "diffs": [
-     "replica-afni26",
      "afni25-afni26",
      "image-afni26",
+     "replica-afni26",
      "original-afni26"
     ],
     "compare": {
@@ -8258,7 +8291,7 @@
    },
    "lines": {
     "params": {
-     "title": "The six motion parameters and the maximum displacements over the 20 volumes",
+     "title": "The six motion parameters and the maximum displacements over the 20 volumes, the replica against the original: AFNI `3dvolreg` 26.3.05",
      "x_label": "volume",
      "x": [
       0,
@@ -8288,12 +8321,12 @@
        "mark": "original"
       },
       {
-       "label": "larmorx replica, default mode",
-       "mark": "larmorx"
+       "label": "replica, fix",
+       "mark": "replica"
       },
       {
-       "label": "larmorx replica, reproduce mode (AFNI's bytes)",
-       "mark": "replica"
+       "label": "replica, reproduce (AFNI's bytes)",
+       "mark": "replica-reproduce"
       }
      ],
      "panels": [
@@ -8327,8 +8360,8 @@
          ]
         },
         {
-         "label": "replica, default",
-         "mark": "larmorx",
+         "label": "replica, fix",
+         "mark": "replica",
          "y": [
           -0.0,
           -0.0016,
@@ -8354,7 +8387,7 @@
         },
         {
          "label": "replica, reproduce",
-         "mark": "replica",
+         "mark": "replica-reproduce",
          "y": [
           -0.0,
           -0.0016,
@@ -8410,8 +8443,8 @@
          ]
         },
         {
-         "label": "replica, default",
-         "mark": "larmorx",
+         "label": "replica, fix",
+         "mark": "replica",
          "y": [
           -0.0,
           -0.0066,
@@ -8437,7 +8470,7 @@
         },
         {
          "label": "replica, reproduce",
-         "mark": "replica",
+         "mark": "replica-reproduce",
          "y": [
           -0.0,
           -0.0066,
@@ -8493,8 +8526,8 @@
          ]
         },
         {
-         "label": "replica, default",
-         "mark": "larmorx",
+         "label": "replica, fix",
+         "mark": "replica",
          "y": [
           0.0,
           0.0027,
@@ -8520,7 +8553,7 @@
         },
         {
          "label": "replica, reproduce",
-         "mark": "replica",
+         "mark": "replica-reproduce",
          "y": [
           0.0,
           0.0027,
@@ -8576,8 +8609,8 @@
          ]
         },
         {
-         "label": "replica, default",
-         "mark": "larmorx",
+         "label": "replica, fix",
+         "mark": "replica",
          "y": [
           0.0,
           0.0109,
@@ -8603,7 +8636,7 @@
         },
         {
          "label": "replica, reproduce",
-         "mark": "replica",
+         "mark": "replica-reproduce",
          "y": [
           0.0,
           0.0109,
@@ -8659,8 +8692,8 @@
          ]
         },
         {
-         "label": "replica, default",
-         "mark": "larmorx",
+         "label": "replica, fix",
+         "mark": "replica",
          "y": [
           0.0,
           0.0081,
@@ -8686,7 +8719,7 @@
         },
         {
          "label": "replica, reproduce",
-         "mark": "replica",
+         "mark": "replica-reproduce",
          "y": [
           0.0,
           0.0081,
@@ -8742,8 +8775,8 @@
          ]
         },
         {
-         "label": "replica, default",
-         "mark": "larmorx",
+         "label": "replica, fix",
+         "mark": "replica",
          "y": [
           -0.0,
           -0.0319,
@@ -8769,7 +8802,7 @@
         },
         {
          "label": "replica, reproduce",
-         "mark": "replica",
+         "mark": "replica-reproduce",
          "y": [
           -0.0,
           -0.0319,
@@ -8825,8 +8858,8 @@
          ]
         },
         {
-         "label": "replica, default",
-         "mark": "larmorx",
+         "label": "replica, fix",
+         "mark": "replica",
          "y": [
           0.0,
           0.041,
@@ -8852,7 +8885,7 @@
         },
         {
          "label": "replica, reproduce",
-         "mark": "replica",
+         "mark": "replica-reproduce",
          "y": [
           0.0,
           0.043,
@@ -8908,8 +8941,8 @@
          ]
         },
         {
-         "label": "replica, default",
-         "mark": "larmorx",
+         "label": "replica, fix",
+         "mark": "replica",
          "y": [
           0.0,
           0.041,
@@ -8935,7 +8968,7 @@
         },
         {
          "label": "replica, reproduce",
-         "mark": "replica",
+         "mark": "replica-reproduce",
          "y": [
           0.0,
           0.043,
@@ -8988,7 +9021,7 @@
       ],
       "rows": [
        {
-        "head": "replica (default) − AFNI 26.3.05",
+        "head": "replica (fix) − AFNI 3dvolreg 26.3.05",
         "sub": "AFNI-99 corrected",
         "cells": [
          {
@@ -9009,7 +9042,7 @@
         ]
        },
        {
-        "head": "replica (reproduce) − AFNI 26.3.05",
+        "head": "replica (reproduce) − AFNI 3dvolreg 26.3.05",
         "cells": [
          {
           "v": 0.0,
@@ -9029,7 +9062,7 @@
         ]
        },
        {
-        "head": "replica: default − reproduce",
+        "head": "replica: fix − reproduce",
         "cells": [
          {
           "v": 0.0,
@@ -9069,7 +9102,7 @@
         ]
        },
        {
-        "head": "AFNI 25.2.09 − 26.3.05",
+        "head": "AFNI 3dvolreg 25.2.09 − 26.3.05",
         "sub": "the version step",
         "class": "is-sep is-yardstick",
         "cells": [
@@ -9091,7 +9124,7 @@
         ]
        },
        {
-        "head": "fMRIPrep's AFNI − AFNI 26.3.05",
+        "head": "AFNI 3dvolreg 25.2.09, fMRIPrep's build − 26.3.05",
         "class": "is-yardstick",
         "cells": [
          {
@@ -9112,11 +9145,11 @@
         ]
        }
       ],
-      "note": "Values as the files write them (-1Dfile: 4 decimals; -maxdisp1D: 3). The shaded rows are AFNI against itself. AFNI-99: the maximum displacement AFNI writes is that of the voxel mirrored along every axis stored posterior to anterior (this run's second axis); the default computes it for the voxel itself, reproduce gives AFNI's numbers."
+      "note": "Values as the files write them (-1Dfile: 4 decimals; -maxdisp1D: 3). The shaded rows are AFNI against itself. AFNI-99: the maximum displacement AFNI writes is that of the voxel mirrored along every axis stored posterior to anterior (this run's second axis); `fix`, the default, computes it for the voxel itself; `reproduce` gives AFNI's numbers."
      }
     },
     "params-original": {
-     "title": "The clean-room original against AFNI 26.3.05, volume by volume: the six parameters' differences, the maximum displacement's and each registered volume's share of its limit",
+     "title": "Differences volume by volume, the clean room against the original: AFNI `3dvolreg` 26.3.05 (the six parameters, the maximum displacement and each registered volume's share of its limit)",
      "x_label": "sub-brick (volume, counting from 0)",
      "x": [
       0,
@@ -9142,21 +9175,21 @@
      ],
      "key": [
       {
-       "label": "LARMORX clean-room original (default) − AFNI 26.3.05",
-       "mark": "larmorx"
+       "label": "clean room (fix) − AFNI 3dvolreg 26.3.05",
+       "mark": "clean-room"
       },
       {
-       "label": "specs/3dvolreg.md §14.3's limit for the volume",
+       "label": "the volume's limit (specs/3dvolreg.md §14.3)",
        "mark": "band"
       }
      ],
      "panels": [
       {
-       "label": "roll (°): original − AFNI 26.3.05",
+       "label": "roll (°): clean room − AFNI 26.3.05",
        "series": [
         {
-         "label": "original − AFNI",
-         "mark": "larmorx",
+         "label": "clean room − AFNI",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.0,
@@ -9232,11 +9265,11 @@
        ]
       },
       {
-       "label": "pitch (°): original − AFNI 26.3.05",
+       "label": "pitch (°): clean room − AFNI 26.3.05",
        "series": [
         {
-         "label": "original − AFNI",
-         "mark": "larmorx",
+         "label": "clean room − AFNI",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.0,
@@ -9312,11 +9345,11 @@
        ]
       },
       {
-       "label": "yaw (°): original − AFNI 26.3.05",
+       "label": "yaw (°): clean room − AFNI 26.3.05",
        "series": [
         {
-         "label": "original − AFNI",
-         "mark": "larmorx",
+         "label": "clean room − AFNI",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.0,
@@ -9392,11 +9425,11 @@
        ]
       },
       {
-       "label": "dS (mm): original − AFNI 26.3.05",
+       "label": "dS (mm): clean room − AFNI 26.3.05",
        "series": [
         {
-         "label": "original − AFNI",
-         "mark": "larmorx",
+         "label": "clean room − AFNI",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.0,
@@ -9472,11 +9505,11 @@
        ]
       },
       {
-       "label": "dL (mm): original − AFNI 26.3.05",
+       "label": "dL (mm): clean room − AFNI 26.3.05",
        "series": [
         {
-         "label": "original − AFNI",
-         "mark": "larmorx",
+         "label": "clean room − AFNI",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.0,
@@ -9552,11 +9585,11 @@
        ]
       },
       {
-       "label": "dP (mm): original − AFNI 26.3.05",
+       "label": "dP (mm): clean room − AFNI 26.3.05",
        "series": [
         {
-         "label": "original − AFNI",
-         "mark": "larmorx",
+         "label": "clean room − AFNI",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.0,
@@ -9632,11 +9665,11 @@
        ]
       },
       {
-       "label": "maximum displacement (mm, -maxdisp1D): original (reproduce) − AFNI",
+       "label": "maximum displacement (mm, -maxdisp1D): clean room (reproduce) − AFNI",
        "series": [
         {
-         "label": "original − AFNI",
-         "mark": "larmorx",
+         "label": "clean room − AFNI",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.0,
@@ -9715,8 +9748,8 @@
        "label": "registered volume: mean |Δ| ÷ (L_v · its largest value)",
        "series": [
         {
-         "label": "original − AFNI",
-         "mark": "larmorx",
+         "label": "clean room − AFNI",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.000105,
@@ -9795,8 +9828,8 @@
        "label": "registered volume: (1 − NCC) ÷ (50 · L_v²)",
        "series": [
         {
-         "label": "original − AFNI",
-         "mark": "larmorx",
+         "label": "clean room − AFNI",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.0,
@@ -9872,10 +9905,10 @@
        ]
       }
      ],
-     "note": "Each band is the limit §14.3 sets for that volume (from AFNI's own values): the parameters' thresholds, the maximum displacement's derived bound, and 1 for the registered volumes' shares. The maximum displacements are the reproduce mode's (AFNI's convention; the default's are AFNI-99's correction, the next example). Move the pointer over a chart to read every value at one volume.",
+     "note": "Each band is the limit §14.3 sets for that volume (from AFNI's own values): the parameters' thresholds, the maximum displacement's derived bound, and 1 for the registered volumes' shares. The maximum displacements are those of `reproduce` (AFNI's convention; those of `fix` are AFNI-99's correction, shown in its own example). Move the pointer over a chart to read every value at one volume.",
      "stats": {
       "id": "volreg-params-original",
-      "title": "The clean-room original's text outputs compared, over every volume (the files without their comment line)",
+      "title": "The clean room's text outputs compared, over every volume (the files without their comment line)",
       "columns": [
        {
         "label": "Comparison"
@@ -9902,7 +9935,7 @@
       ],
       "rows": [
        {
-        "head": "original (default) − AFNI 26.3.05",
+        "head": "clean room (fix) − AFNI 3dvolreg 26.3.05",
         "sub": "AFNI-99 named: the maximum displacements of the voxels themselves",
         "cells": [
          {
@@ -9928,7 +9961,7 @@
         "verdict": "within-variability"
        },
        {
-        "head": "original (reproduce) − AFNI 26.3.05",
+        "head": "clean room (reproduce) − AFNI 3dvolreg 26.3.05",
         "sub": "the maximum displacements within their derived bounds",
         "cells": [
          {
@@ -9954,7 +9987,7 @@
         "verdict": "within-variability"
        },
        {
-        "head": "original − replica, both default",
+        "head": "clean room − replica, both fix",
         "cells": [
          {
           "v": 0.00010000000000000026,
@@ -9979,7 +10012,7 @@
         "verdict": "within-variability"
        },
        {
-        "head": "original: 1 thread − 14 threads",
+        "head": "clean room: 1 thread − 14 threads",
         "cells": [
          {
           "v": 0.0,
@@ -10013,12 +10046,12 @@
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: RobustAverage's sliced volumes (sha256 2cce88990bcfbee8…); the raw BOLD run (sha256 609ae0a21822318f…); fMRIPrep's BOLD reference (sha256 ab49738164116b9c…); the sliced volumes stored LPS (sha256 71708c457976d2d1…)",
     "Runs: figures cache entry `afni-volreg/fmriprep-ds000005-run-01`, computed 2026-11-07T01:27:24+00:00 with larmorx `c0fa9881ce74`; AFNI_26.3.05, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx 0.0.1 (crate larmorx-afni-replica, built in); every command, its environment, threads and exit status are in its `RUN_INFO.json`",
-    "Runs of the clean-room original: figures cache entry `afni-volreg/fmriprep-ds000005-run-01-original`, computed 2026-11-08T08:38:25+00:00 with larmorx `ae74dcb46642` (python -m larmorx with LARMORX_IMPLEMENTATION=original: default mode at 14 threads and at one, reproduce mode at 14; on the volumes stored LPS both modes), on the replica's entry's inputs; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs of the clean room: figures cache entry `afni-volreg/fmriprep-ds000005-run-01-original`, computed 2026-11-08T08:38:25+00:00 with larmorx `ae74dcb46642` (python -m larmorx with LARMORX_IMPLEMENTATION=original: `fix`, the default at 14 threads and at one, `reproduce` at 14; on the volumes stored LPS both modes), on the replica's entry's inputs; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "tables": [
     {
      "id": "volreg-volumes-original",
-     "title": "The registered volumes against specs/3dvolreg.md §14.3's limits, volume by volume (the clean-room original's default against AFNI 26.3.05)",
+     "title": "The registered volumes against their limits, volume by volume, the clean room against the original: AFNI `3dvolreg` 26.3.05 (`fix`; specs/3dvolreg.md §14.3)",
      "columns": [
       {
        "label": "Sub-brick"
@@ -10737,6 +10770,87 @@
      "note": "θ_v = |roll| + |pitch| + |yaw| of AFNI's -1Dfile line (degrees); L_v = max(2e-3, 1e-3·θ_v); required: mean |Δ| ≤ L_v times the volume's largest |AFNI| value and NCC ≥ 1 − 50·L_v² (the spec writer's step 3 of 2026-11-08: the limit grows with the rotation, as AFNI's own spread under the ties does); the largest single difference is reported, not required (Fourier's wrap-around at the field of view's edges)."
     }
    ],
+   "order": {
+    "panels": [
+     "bold",
+     "sliced",
+     "afni26",
+     "afni25",
+     "image",
+     "replica-1",
+     "replica-6",
+     "replica-reproduce",
+     "original",
+     "original-1",
+     "original-reproduce"
+    ],
+    "diffs": [
+     "afni25-afni26",
+     "image-afni26",
+     "replica-afni26",
+     "repro-afni26",
+     "replica-repro",
+     "replica6-replica1",
+     "original-afni26",
+     "orepro-afni26",
+     "original-replica",
+     "original-orepro",
+     "original1-original"
+    ],
+    "groups": [
+     [
+      "The original against itself: the yardstick",
+      [
+       "afni25-afni26",
+       "image-afni26"
+      ]
+     ],
+     [
+      "The replica against the original",
+      [
+       "replica-afni26",
+       "repro-afni26"
+      ]
+     ],
+     [
+      "The replica against itself: thread counts, fix and reproduce",
+      [
+       "replica-repro",
+       "replica6-replica1"
+      ]
+     ],
+     [
+      "The clean room against the original and the replica",
+      [
+       "original-afni26",
+       "orepro-afni26",
+       "original-replica"
+      ]
+     ],
+     [
+      "The clean room against itself: thread counts, fix and reproduce",
+      [
+       "original-orepro",
+       "original1-original"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "On fMRIPrep's call the replica gives AFNI's registered series, every value, and its parameters and matrices as text: in both releases, in fMRIPrep's build, on 1 and 6 threads. Its default, `fix`, changes only the maximum displacements, where it corrects [AFNI-99](repo:docs/findings/upstream-defects.md#summary); `reproduce` gives every file AFNI writes. The clean room's values are not AFNI's bits, by design: each of the 20 volumes stays within its limit (specs/3dvolreg.md §14.3), the closest at 0.00035 of it.",
+    "verdicts": [
+     {
+      "diff": "replica-afni26",
+      "port": "replica",
+      "verdict": "bit-identical"
+     },
+     {
+      "diff": "original-afni26",
+      "port": "clean-room",
+      "verdict": "within-variability"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds000005"
    ]
@@ -10744,7 +10858,7 @@
   {
    "id": "fmriprep-boldref",
    "title": "The BOLD reference fMRIPrep makes from the registered volumes",
-   "summary": "RobustAverage's last step: the median, voxel by voxel, of the registered volumes of the first example. fMRIPrep's own reference of the run (the node's output, from AFNI in its image) beside the median of AFNI 26.3.05's, AFNI 25.2.09's and the replica's registered series, computed as RobustAverage computes it. The first panel is the median of the volumes before registration: choose *compare* to see what aligning them changes. Beside them the median of LARMORX's clean-room original's volumes, in both modes, against the limit its volumes imply (the table below).",
+   "summary": "RobustAverage's last step: the median, voxel by voxel, of the registered volumes of the first example. fMRIPrep's own reference of the run (the node's output, from AFNI in its image) beside the median of AFNI 26.3.05's, AFNI 25.2.09's and the replica's registered series, computed as RobustAverage computes it. The first panel is the median of the volumes before registration: choose *compare* to see what aligning them changes. Beside them the median of LARMORX's clean room's volumes, in `fix` and in `reproduce`, against the limit its volumes imply (the table below).",
    "facts": [
     {
      "label": "Data",
@@ -10881,13 +10995,14 @@
      "window": [
       0.0,
       794.6784057617188
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "fmriprep",
      "role": "fmriprep",
-     "label": "fMRIPrep 25.2.6, as it ran",
-     "sub": "the node's BOLD reference (AFNI in its image)",
+     "label": "fMRIPrep's output",
+     "sub": "fMRIPrep 25.2.6, as it ran: the node's BOLD reference (AFNI in its image)",
      "arrays": {
       "average": {
        "blob": "806d8187215d1c7b4ebbb5f4.bin",
@@ -10900,13 +11015,14 @@
        0.0,
        793.574958331883
       ]
-     }
+     },
+     "port": "fmriprep"
     },
     {
      "id": "afni26",
      "role": "original",
-     "label": "AFNI 26.3.05's series, median",
-     "sub": "RobustAverage's median of AFNI's registered volumes",
+     "label": "AFNI 3dvolreg 26.3.05",
+     "sub": "its series, median · RobustAverage's median of AFNI's registered volumes",
      "arrays": {
       "average": {
        "same": "fmriprep:average",
@@ -10918,13 +11034,14 @@
        0.0,
        793.574958331883
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "afni25",
      "role": "original",
-     "label": "AFNI 25.2.09's series, median",
-     "sub": "the previous release",
+     "label": "AFNI 3dvolreg 25.2.09",
+     "sub": "its series, median · the previous release",
      "arrays": {
       "average": {
        "same": "fmriprep:average",
@@ -10936,13 +11053,14 @@
        0.0,
        793.574958331883
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "replica-1",
      "role": "larmorx",
-     "label": "larmorx replica's series, median",
-     "sub": "default mode, 1 thread",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 with CC BY 4.0's attribution · its series, median, fix (the default), 1 thread · against AFNI 3dvolreg 26.3.05",
      "arrays": {
       "average": {
        "same": "fmriprep:average",
@@ -10954,13 +11072,14 @@
        0.0,
        793.574958331883
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "replica-reproduce",
      "role": "larmorx",
-     "label": "larmorx replica's series, median",
-     "sub": "reproduce mode",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 with CC BY 4.0's attribution · its series, median, reproduce · against AFNI 3dvolreg 26.3.05",
      "arrays": {
       "average": {
        "same": "fmriprep:average",
@@ -10972,13 +11091,14 @@
        0.0,
        793.574958331883
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "original",
      "role": "larmorx",
-     "label": "LARMORX clean-room original's series, median",
-     "sub": "default mode, 14 threads",
+     "label": "clean room",
+     "sub": "larmorx, Apache-2.0 · its series, median, fix (the default), 14 threads · against AFNI 3dvolreg 26.3.05",
      "arrays": {
       "average": {
        "blob": "0dd06a044a8d8f90ac279231.bin",
@@ -10993,13 +11113,14 @@
        0.0,
        793.574958331883
       ]
-     }
+     },
+     "port": "clean-room"
     },
     {
      "id": "original-reproduce",
      "role": "larmorx",
-     "label": "LARMORX clean-room original's series, median",
-     "sub": "reproduce mode, 14 threads",
+     "label": "clean room",
+     "sub": "larmorx, Apache-2.0 · its series, median, reproduce, 14 threads",
      "arrays": {
       "average": {
        "same": "original:average",
@@ -11011,7 +11132,8 @@
        0.0,
        793.574958331883
       ]
-     }
+     },
+     "port": "clean-room"
     }
    ],
    "diffs": [
@@ -11020,8 +11142,8 @@
      "a": "replica-1",
      "b": "fmriprep",
      "kind": "fmriprep",
-     "label": "replica − fMRIPrep's own reference",
-     "role_label": "larmorx against fMRIPrep",
+     "label": "replica − fMRIPrep's output",
+     "role_label": "the replica against fMRIPrep's output",
      "metrics": {
       "average": {
        "identical": true,
@@ -11058,15 +11180,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "fMRIPrep's BOLD reference of this run, every value: the replica's registered volumes give the median fMRIPrep computed from AFNI's."
+     "reason": "fMRIPrep's BOLD reference of this run, every value: the replica's registered volumes give the median fMRIPrep computed from AFNI's.",
+     "port": "replica"
     },
     {
      "id": "replica-afni26",
      "a": "replica-1",
      "b": "afni26",
      "kind": "main",
-     "label": "replica (default) − AFNI 26.3.05",
-     "role_label": "larmorx against the original",
+     "label": "replica (fix) − AFNI 3dvolreg 26.3.05",
+     "role_label": "the replica against the original",
      "metrics": {
       "average": {
        "identical": true,
@@ -11103,15 +11226,16 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "The same values, every one."
+     "reason": "The same values, every one.",
+     "port": "replica"
     },
     {
      "id": "repro-afni26",
      "a": "replica-reproduce",
      "b": "afni26",
      "kind": "main",
-     "label": "replica (reproduce) − AFNI 26.3.05",
-     "role_label": "larmorx against the original",
+     "label": "replica (reproduce) − AFNI 3dvolreg 26.3.05",
+     "role_label": "the replica against the original",
      "metrics": {
       "average": {
        "identical": true,
@@ -11148,14 +11272,15 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "The same values, every one."
+     "reason": "The same values, every one.",
+     "port": "replica"
     },
     {
      "id": "afni26-fmriprep",
      "a": "afni26",
      "b": "fmriprep",
      "kind": "variability",
-     "label": "AFNI 26.3.05 − fMRIPrep's own",
+     "label": "AFNI 3dvolreg 26.3.05 − fMRIPrep's output",
      "role_label": "the original against itself: fMRIPrep's AFNI 25.2.09 in its image",
      "metrics": {
       "average": {
@@ -11193,15 +11318,16 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "AFNI 26.3.05 gives the reference fMRIPrep computed with its own AFNI, every value."
+     "reason": "AFNI 26.3.05 gives the reference fMRIPrep computed with its own AFNI, every value.",
+     "port": "original"
     },
     {
      "id": "afni25-afni26",
      "a": "afni25",
      "b": "afni26",
      "kind": "variability",
-     "label": "AFNI 25.2.09 − 26.3.05",
-     "role_label": "the original against itself: the version step",
+     "label": "AFNI 3dvolreg 25.2.09 − 26.3.05",
+     "role_label": "the original against itself: versions 25.2.09 and 26.3.05",
      "metrics": {
       "average": {
        "identical": true,
@@ -11238,15 +11364,16 @@
      },
      "links": [],
      "verdict": null,
-     "reason": "The same bytes: 3dvolreg did not change between the two releases."
+     "reason": "The same bytes: 3dvolreg did not change between the two releases.",
+     "port": "original"
     },
     {
      "id": "original-fmriprep",
      "a": "original",
      "b": "fmriprep",
      "kind": "fmriprep",
-     "label": "clean-room original − fMRIPrep's own reference",
-     "role_label": "larmorx against fMRIPrep",
+     "label": "clean room − fMRIPrep's output",
+     "role_label": "the clean room against fMRIPrep's output",
      "metrics": {
       "average": {
        "identical": false,
@@ -11288,15 +11415,16 @@
       }
      ],
      "verdict": "within-variability",
-     "reason": "fMRIPrep's median of the original's registered volumes: at each voxel the median moves by at most the largest of its volumes' differences there, so §14.3 holds it to the limit its volumes imply (L_med = 0.002, the run's largest L_v, and the stored median's step q = 0.0121): mean |Δ| 2.2e-07 of the largest value, 1 − NCC 1.9e-11: 0.00011 of the limit. 1,979 of 139,264 values differ, the largest by 0.0121 (1.5e-05 of the largest value; reported, not required)."
+     "reason": "fMRIPrep's median of the clean room's registered volumes: at each voxel the median moves by at most the largest of its volumes' differences there, so §14.3 holds it to the limit its volumes imply (L_med = 0.002, the run's largest L_v, and the stored median's step q = 0.0121): mean |Δ| 2.2e-07 of the largest value, 1 − NCC 1.9e-11: 0.00011 of the limit. 1,979 of 139,264 values differ, the largest by 0.0121 (1.5e-05 of the largest value; reported, not required).",
+     "port": "clean-room"
     },
     {
      "id": "original-afni26",
      "a": "original",
      "b": "afni26",
      "kind": "main",
-     "label": "clean-room original (default) − AFNI 26.3.05's median",
-     "role_label": "larmorx against the original",
+     "label": "clean room (fix) − AFNI 3dvolreg 26.3.05's median",
+     "role_label": "the clean room against the original",
      "metrics": {
       "average": {
        "identical": false,
@@ -11338,15 +11466,16 @@
       }
      ],
      "verdict": "within-variability",
-     "reason": "fMRIPrep's median of the original's registered volumes: at each voxel the median moves by at most the largest of its volumes' differences there, so §14.3 holds it to the limit its volumes imply (L_med = 0.002, the run's largest L_v, and the stored median's step q = 0.0121): mean |Δ| 2.2e-07 of the largest value, 1 − NCC 1.9e-11: 0.00011 of the limit. 1,979 of 139,264 values differ, the largest by 0.0121 (1.5e-05 of the largest value; reported, not required). AFNI's median is fMRIPrep's own byte for byte, and so is the replica's."
+     "reason": "fMRIPrep's median of the clean room's registered volumes: at each voxel the median moves by at most the largest of its volumes' differences there, so §14.3 holds it to the limit its volumes imply (L_med = 0.002, the run's largest L_v, and the stored median's step q = 0.0121): mean |Δ| 2.2e-07 of the largest value, 1 − NCC 1.9e-11: 0.00011 of the limit. 1,979 of 139,264 values differ, the largest by 0.0121 (1.5e-05 of the largest value; reported, not required). AFNI's median is fMRIPrep's own byte for byte, and so is the replica's.",
+     "port": "clean-room"
     },
     {
      "id": "original-replica",
      "a": "original",
      "b": "replica-1",
      "kind": "check",
-     "label": "clean-room original − replica, both default",
-     "role_label": "larmorx against itself",
+     "label": "clean room − replica, both fix",
+     "role_label": "the clean room against the replica: both fix",
      "metrics": {
       "average": {
        "identical": false,
@@ -11388,15 +11517,16 @@
       }
      ],
      "verdict": "within-variability",
-     "reason": "fMRIPrep's median of the original's registered volumes: at each voxel the median moves by at most the largest of its volumes' differences there, so §14.3 holds it to the limit its volumes imply (L_med = 0.002, the run's largest L_v, and the stored median's step q = 0.0121): mean |Δ| 2.2e-07 of the largest value, 1 − NCC 1.9e-11: 0.00011 of the limit. 1,979 of 139,264 values differ, the largest by 0.0121 (1.5e-05 of the largest value; reported, not required). AFNI's median is fMRIPrep's own byte for byte, and so is the replica's."
+     "reason": "fMRIPrep's median of the clean room's registered volumes: at each voxel the median moves by at most the largest of its volumes' differences there, so §14.3 holds it to the limit its volumes imply (L_med = 0.002, the run's largest L_v, and the stored median's step q = 0.0121): mean |Δ| 2.2e-07 of the largest value, 1 − NCC 1.9e-11: 0.00011 of the limit. 1,979 of 139,264 values differ, the largest by 0.0121 (1.5e-05 of the largest value; reported, not required). AFNI's median is fMRIPrep's own byte for byte, and so is the replica's.",
+     "port": "clean-room"
     },
     {
      "id": "original-orepro",
      "a": "original",
      "b": "original-reproduce",
      "kind": "check",
-     "label": "clean-room original, default − reproduce mode",
-     "role_label": "larmorx against itself",
+     "label": "clean room, fix − reproduce",
+     "role_label": "the clean room against itself: fix and reproduce",
      "metrics": {
       "average": {
        "identical": true,
@@ -11433,7 +11563,8 @@
      },
      "links": [],
      "verdict": "bit-identical",
-     "reason": "The same median in both modes (the registered volumes are the same)."
+     "reason": "The same median in `fix` and in `reproduce` (the registered volumes are the same).",
+     "port": "clean-room"
     }
    ],
    "default": {
@@ -11451,8 +11582,8 @@
      "original"
     ],
     "diffs": [
-     "replica-fmriprep",
      "afni26-fmriprep",
+     "replica-fmriprep",
      "original-fmriprep"
     ],
     "compare": {
@@ -11485,12 +11616,12 @@
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: RobustAverage's sliced volumes (sha256 2cce88990bcfbee8…); the raw BOLD run (sha256 609ae0a21822318f…); fMRIPrep's BOLD reference (sha256 ab49738164116b9c…); the sliced volumes stored LPS (sha256 71708c457976d2d1…)",
     "Runs: figures cache entry `afni-volreg/fmriprep-ds000005-run-01`, computed 2026-11-07T01:27:24+00:00 with larmorx `c0fa9881ce74`; AFNI_26.3.05, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx 0.0.1 (crate larmorx-afni-replica, built in); every command, its environment, threads and exit status are in its `RUN_INFO.json`",
-    "Runs of the clean-room original: figures cache entry `afni-volreg/fmriprep-ds000005-run-01-original`, computed 2026-11-08T08:38:25+00:00 with larmorx `ae74dcb46642` (python -m larmorx with LARMORX_IMPLEMENTATION=original: default mode at 14 threads and at one, reproduce mode at 14; on the volumes stored LPS both modes), on the replica's entry's inputs; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs of the clean room: figures cache entry `afni-volreg/fmriprep-ds000005-run-01-original`, computed 2026-11-08T08:38:25+00:00 with larmorx `ae74dcb46642` (python -m larmorx with LARMORX_IMPLEMENTATION=original: `fix`, the default at 14 threads and at one, `reproduce` at 14; on the volumes stored LPS both modes), on the replica's entry's inputs; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "tables": [
     {
      "id": "boldref-original",
-     "title": "fMRIPrep's median of the clean-room original's volumes against fMRIPrep's own reference (specs/3dvolreg.md §14.3)",
+     "title": "fMRIPrep's median of the clean room's volumes against fMRIPrep's output, its own reference (specs/3dvolreg.md §14.3)",
      "columns": [
       {
        "label": "Comparison"
@@ -11526,7 +11657,7 @@
      ],
      "rows": [
       {
-       "head": "original (default) − fMRIPrep 25.2.6's reference",
+       "head": "clean room (fix) − fMRIPrep's output",
        "cells": [
         {
          "v": 0.002,
@@ -11563,6 +11694,75 @@
      "note": "Required: mean |Δ| ≤ L_med·max + q and NCC ≥ 1 − 50·L_med², L_med the largest L_v of the run's volumes and q the stored median's step (its scale factor: fMRIPrep stores the reference as int16); the largest difference and the share of voxels beyond 1e-3 of the maximum reported."
     }
    ],
+   "order": {
+    "panels": [
+     "unregistered",
+     "afni26",
+     "afni25",
+     "fmriprep",
+     "replica-1",
+     "replica-reproduce",
+     "original",
+     "original-reproduce"
+    ],
+    "diffs": [
+     "afni26-fmriprep",
+     "afni25-afni26",
+     "replica-afni26",
+     "repro-afni26",
+     "replica-fmriprep",
+     "original-afni26",
+     "original-fmriprep",
+     "original-replica",
+     "original-orepro"
+    ],
+    "groups": [
+     [
+      "The original against itself: the yardstick",
+      [
+       "afni26-fmriprep",
+       "afni25-afni26"
+      ]
+     ],
+     [
+      "The replica against the original and fMRIPrep's output",
+      [
+       "replica-afni26",
+       "repro-afni26",
+       "replica-fmriprep"
+      ]
+     ],
+     [
+      "The clean room against the original, fMRIPrep's output and the replica",
+      [
+       "original-afni26",
+       "original-fmriprep",
+       "original-replica"
+      ]
+     ],
+     [
+      "The clean room against itself: fix and reproduce",
+      [
+       "original-orepro"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "The replica's registered volumes give fMRIPrep's BOLD reference of this run, every value, as AFNI 26.3.05's do. The clean room's give a median that differs in 1,979 of its 139,264 values, at 0.00011 of the limit its volumes imply (specs/3dvolreg.md §14.3).",
+    "verdicts": [
+     {
+      "diff": "replica-fmriprep",
+      "port": "replica",
+      "verdict": "bit-identical"
+     },
+     {
+      "diff": "original-fmriprep",
+      "port": "clean-room",
+      "verdict": "within-variability"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds000005"
    ]
@@ -11570,7 +11770,7 @@
   {
    "id": "afni-99",
    "title": "AFNI-99: the maximum displacement of a mirrored voxel",
-   "summary": "3dvolreg's -maxdisp1D (and -savedisp) convert the registration's rotation and shift to the dataset's axes with each axis's sign, but take the voxel positions without it: for an axis stored left to right, posterior to anterior or superior to inferior, the displacement computed is that of the voxel mirrored about the axis's centre. fMRIPrep's volumes of the first example are stored that way along their second axis. The same volumes stored with that axis reversed (LPS: every axis positive in AFNI's order), registered by AFNI 26.3.05 and the replica in both modes. Beside them LARMORX's clean-room original, stored both ways, in both modes: its default corrects AFNI-99 as the replica's does (the table below).",
+   "summary": "3dvolreg's -maxdisp1D (and -savedisp) convert the registration's rotation and shift to the dataset's axes with each axis's sign, but take the voxel positions without it: for an axis stored left to right, posterior to anterior or superior to inferior, the displacement computed is that of the voxel mirrored about the axis's centre. fMRIPrep's volumes of the first example are stored that way along their second axis. The same volumes stored with that axis reversed (LPS: every axis positive in AFNI's order), registered by AFNI 26.3.05 and the replica in `fix` and in `reproduce`. Beside them LARMORX's clean room, stored both ways, in `fix` and in `reproduce`: its default corrects AFNI-99 as the replica's does (the table below).",
    "facts": [
     {
      "label": "Input",
@@ -11715,13 +11915,14 @@
      "window": [
       0.0,
       794.2404544707388
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "afni26",
      "role": "original",
-     "label": "AFNI 26.3.05, stored LAS",
-     "sub": "as fMRIPrep gives it",
+     "label": "AFNI 3dvolreg 26.3.05",
+     "sub": "stored LAS · as fMRIPrep gives it",
      "arrays": {
       "series": {
        "blob": "e52d528bf2b2a6dbd58f8c28.bin",
@@ -11734,13 +11935,14 @@
        0.0,
        793.498291015625
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "lps-afni26",
      "role": "original",
-     "label": "AFNI 26.3.05, stored LPS",
-     "sub": "the same volumes, the second axis reversed; shown back in place",
+     "label": "AFNI 3dvolreg 26.3.05",
+     "sub": "stored LPS · the same volumes, the second axis reversed; shown back in place",
      "arrays": {
       "series": {
        "blob": "368bea753037a50ad60e1172.bin",
@@ -11755,13 +11957,14 @@
        0.0,
        793.498291015625
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "lps-replica",
      "role": "larmorx",
-     "label": "larmorx replica, stored LPS",
-     "sub": "default mode",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 with CC BY 4.0's attribution · stored LPS, fix (the default) · against AFNI 3dvolreg 26.3.05",
      "arrays": {
       "series": {
        "same": "lps-afni26:series",
@@ -11773,13 +11976,14 @@
        0.0,
        793.498291015625
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "lps-replica-reproduce",
      "role": "larmorx",
-     "label": "larmorx replica, stored LPS",
-     "sub": "reproduce mode",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 with CC BY 4.0's attribution · stored LPS, reproduce · against AFNI 3dvolreg 26.3.05",
      "arrays": {
       "series": {
        "same": "lps-afni26:series",
@@ -11791,13 +11995,14 @@
        0.0,
        793.498291015625
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "original",
      "role": "larmorx",
-     "label": "LARMORX clean-room original",
-     "sub": "stored LAS, as fMRIPrep gives it; default mode",
+     "label": "clean room",
+     "sub": "larmorx, Apache-2.0 · stored LAS, as fMRIPrep gives it; fix (the default)",
      "arrays": {
       "series": {
        "blob": "71c46bfc2a613df492b03396.bin",
@@ -11812,13 +12017,14 @@
        0.0,
        793.498291015625
       ]
-     }
+     },
+     "port": "clean-room"
     },
     {
      "id": "lps-original",
      "role": "larmorx",
-     "label": "LARMORX clean-room original",
-     "sub": "stored LPS, shown back in place; default mode",
+     "label": "clean room",
+     "sub": "larmorx, Apache-2.0 · stored LPS, shown back in place; fix (the default) · against AFNI 3dvolreg 26.3.05",
      "arrays": {
       "series": {
        "blob": "d37586c038a384d15bd7e09a.bin",
@@ -11833,13 +12039,14 @@
        0.0,
        793.498291015625
       ]
-     }
+     },
+     "port": "clean-room"
     },
     {
      "id": "lps-original-reproduce",
      "role": "larmorx",
-     "label": "LARMORX clean-room original",
-     "sub": "stored LPS, shown back in place; reproduce mode",
+     "label": "clean room",
+     "sub": "larmorx, Apache-2.0 · stored LPS, shown back in place; reproduce · against AFNI 3dvolreg 26.3.05",
      "arrays": {
       "series": {
        "same": "lps-original:series",
@@ -11851,7 +12058,8 @@
        0.0,
        793.498291015625
       ]
-     }
+     },
+     "port": "clean-room"
     }
    ],
    "diffs": [
@@ -11860,7 +12068,7 @@
      "a": "lps-afni26",
      "b": "afni26",
      "kind": "variability",
-     "label": "AFNI 26.3.05: stored LPS − LAS",
+     "label": "AFNI 3dvolreg 26.3.05: stored LPS − LAS",
      "role_label": "the original against itself: the same volumes stored another way",
      "metrics": {
       "series": {
@@ -11910,15 +12118,16 @@
       }
      ],
      "verdict": null,
-     "reason": "The same registration in the other storage order: each volume is resampled along the second axis in the other direction, so the parameters differ in their last digits and 1,685,216 of 2,785,280 values by up to 0.0266 (3.3e-05 of the range)."
+     "reason": "The same registration in the other storage order: each volume is resampled along the second axis in the other direction, so the parameters differ in their last digits and 1,685,216 of 2,785,280 values by up to 0.0266 (3.3e-05 of the range).",
+     "port": "original"
     },
     {
      "id": "lps-replica-afni",
      "a": "lps-replica",
      "b": "lps-afni26",
      "kind": "main",
-     "label": "replica (default) − AFNI, LPS",
-     "role_label": "larmorx against the original",
+     "label": "replica (fix) − AFNI 3dvolreg 26.3.05, LPS",
+     "role_label": "the replica against the original",
      "metrics": {
       "series": {
        "identical": true,
@@ -11962,15 +12171,16 @@
       }
      ],
      "verdict": "bit-identical",
-     "reason": "The same values, every one: AFNI-99 changes no registered volume."
+     "reason": "The same values, every one: AFNI-99 changes no registered volume.",
+     "port": "replica"
     },
     {
      "id": "lps-repro-afni",
      "a": "lps-replica-reproduce",
      "b": "lps-afni26",
      "kind": "main",
-     "label": "replica (reproduce) − AFNI, LPS",
-     "role_label": "larmorx against the original",
+     "label": "replica (reproduce) − AFNI 3dvolreg 26.3.05, LPS",
+     "role_label": "the replica against the original",
      "metrics": {
       "series": {
        "identical": true,
@@ -12014,15 +12224,16 @@
       }
      ],
      "verdict": "bit-identical",
-     "reason": "The same values, every one."
+     "reason": "The same values, every one.",
+     "port": "replica"
     },
     {
      "id": "lps-original-afni",
      "a": "lps-original",
      "b": "lps-afni26",
      "kind": "main",
-     "label": "clean-room original (default) − AFNI, LPS",
-     "role_label": "larmorx against the original",
+     "label": "clean room (fix) − AFNI 3dvolreg 26.3.05, LPS",
+     "role_label": "the clean room against the original",
      "metrics": {
       "series": {
        "identical": false,
@@ -12071,15 +12282,16 @@
       }
      ],
      "verdict": "within-variability",
-     "reason": "Not AFNI's bits by design: where two axes have the same voxel size the shear decomposition's axis orders tie in exact arithmetic, and AFNI decides each tie by its last bits at every resampling, which no specification states (specs/3dvolreg.md §5.3, §16); §14.3's limits allow for either side of every tie, measured from AFNI's own spread when its ties are decided the other way. Stored LPS: every one of the 20 volumes within §14.3's limit (the closest, sub-brick 5: mean |Δ| 6.6e-07 of its largest value against L_v = 0.002, 0.00033 of it; 1 − NCC 1.4e-11, 6.9e-08 of 50·L_v²)."
+     "reason": "Not AFNI's bits by design: where two axes have the same voxel size the shear decomposition's axis orders tie in exact arithmetic, and AFNI decides each tie by its last bits at every resampling, which no specification states (specs/3dvolreg.md §5.3, §16); §14.3's limits allow for either side of every tie, measured from AFNI's own spread when its ties are decided the other way. Stored LPS: every one of the 20 volumes within §14.3's limit (the closest, sub-brick 5: mean |Δ| 6.6e-07 of its largest value against L_v = 0.002, 0.00033 of it; 1 − NCC 1.4e-11, 6.9e-08 of 50·L_v²).",
+     "port": "clean-room"
     },
     {
      "id": "lps-orepro-afni",
      "a": "lps-original-reproduce",
      "b": "lps-afni26",
      "kind": "main",
-     "label": "clean-room original (reproduce) − AFNI, LPS",
-     "role_label": "larmorx against the original",
+     "label": "clean room (reproduce) − AFNI 3dvolreg 26.3.05, LPS",
+     "role_label": "the clean room against the original",
      "metrics": {
       "series": {
        "identical": false,
@@ -12128,15 +12340,16 @@
       }
      ],
      "verdict": "within-variability",
-     "reason": "Not AFNI's bits by design: where two axes have the same voxel size the shear decomposition's axis orders tie in exact arithmetic, and AFNI decides each tie by its last bits at every resampling, which no specification states (specs/3dvolreg.md §5.3, §16); §14.3's limits allow for either side of every tie, measured from AFNI's own spread when its ties are decided the other way. Stored LPS: every one of the 20 volumes within §14.3's limit (the closest, sub-brick 5: mean |Δ| 6.6e-07 of its largest value against L_v = 0.002, 0.00033 of it; 1 − NCC 1.4e-11, 6.9e-08 of 50·L_v²)."
+     "reason": "Not AFNI's bits by design: where two axes have the same voxel size the shear decomposition's axis orders tie in exact arithmetic, and AFNI decides each tie by its last bits at every resampling, which no specification states (specs/3dvolreg.md §5.3, §16); §14.3's limits allow for either side of every tie, measured from AFNI's own spread when its ties are decided the other way. Stored LPS: every one of the 20 volumes within §14.3's limit (the closest, sub-brick 5: mean |Δ| 6.6e-07 of its largest value against L_v = 0.002, 0.00033 of it; 1 − NCC 1.4e-11, 6.9e-08 of 50·L_v²).",
+     "port": "clean-room"
     },
     {
      "id": "original-lps-las",
      "a": "lps-original",
      "b": "original",
      "kind": "check",
-     "label": "clean-room original: stored LPS − LAS",
-     "role_label": "larmorx against itself",
+     "label": "clean room: stored LPS − LAS",
+     "role_label": "the clean room against itself: the same volumes stored another way",
      "metrics": {
       "series": {
        "identical": false,
@@ -12180,7 +12393,8 @@
      },
      "links": [],
      "verdict": "within-variability",
-     "reason": "The same volumes stored two ways: with the second axis reversed the shear decomposition meets its ties on other rows, so the original's two registrations differ as each differs from AFNI's, and §14.3's limits hold between them: every one of the 20 volumes within §14.3's limit (the closest, sub-brick 15: mean |Δ| 1.3e-06 of its largest value against L_v = 0.002, 0.00066 of it; 1 − NCC 5.4e-11, 2.7e-07 of 50·L_v²); 1,678,629 values differ, by at most 0.0298. AFNI's own two storages differ by up to 0.0266 (the comparison above): the registration depends on the storage order through its last bits."
+     "reason": "The same volumes stored two ways: with the second axis reversed the shear decomposition meets its ties on other rows, so the clean room's two registrations differ as each differs from AFNI's, and §14.3's limits hold between them: every one of the 20 volumes within §14.3's limit (the closest, sub-brick 15: mean |Δ| 1.3e-06 of its largest value against L_v = 0.002, 0.00066 of it; 1 − NCC 5.4e-11, 2.7e-07 of 50·L_v²); 1,678,629 values differ, by at most 0.0298. AFNI's own two storages differ by up to 0.0266 (the comparison above): the registration depends on the storage order through its last bits.",
+     "port": "clean-room"
     }
    ],
    "default": {
@@ -12228,7 +12442,7 @@
    },
    "lines": {
     "md": {
-     "title": "Maximum displacement over the 20 volumes, in two storage orders",
+     "title": "Maximum displacements over the 20 volumes in two storage orders, the replica against the original: AFNI `3dvolreg` 26.3.05",
      "x_label": "volume",
      "x": [
       0,
@@ -12254,12 +12468,12 @@
      ],
      "key": [
       {
-       "label": "AFNI 26.3.05 (the replica's reproduce mode gives these numbers)",
+       "label": "AFNI 3dvolreg 26.3.05 (the replica in reproduce gives these numbers)",
        "mark": "original"
       },
       {
-       "label": "larmorx replica, default mode",
-       "mark": "larmorx"
+       "label": "replica, fix",
+       "mark": "replica"
       }
      ],
      "panels": [
@@ -12293,8 +12507,8 @@
          ]
         },
         {
-         "label": "replica, default",
-         "mark": "larmorx",
+         "label": "replica, fix",
+         "mark": "replica",
          "y": [
           0.0,
           0.041,
@@ -12350,8 +12564,8 @@
          ]
         },
         {
-         "label": "replica, default",
-         "mark": "larmorx",
+         "label": "replica, fix",
+         "mark": "replica",
          "y": [
           0.0,
           0.041,
@@ -12407,8 +12621,8 @@
          ]
         },
         {
-         "label": "replica, default",
-         "mark": "larmorx",
+         "label": "replica, fix",
+         "mark": "replica",
          "y": [
           0.0,
           0.0,
@@ -12453,7 +12667,7 @@
       ],
       "rows": [
        {
-        "head": "AFNI 26.3.05: LAS − LPS",
+        "head": "AFNI 3dvolreg 26.3.05: LAS − LPS",
         "class": "is-yardstick",
         "sub": "the same volumes; AFNI's maximum displacement depends on the storage order",
         "cells": [
@@ -12467,7 +12681,7 @@
         ]
        },
        {
-        "head": "replica, default: LAS − LPS",
+        "head": "replica, fix: LAS − LPS",
         "verdict": "d13",
         "sub": "the voxels' own displacements, in either storage order",
         "cells": [
@@ -12481,7 +12695,7 @@
         ]
        },
        {
-        "head": "replica, default − AFNI 26.3.05, stored LAS",
+        "head": "replica, fix − AFNI 3dvolreg 26.3.05, stored LAS",
         "verdict": "d13",
         "sub": "the second axis is stored posterior to anterior: AFNI mirrors the voxels along it",
         "cells": [
@@ -12495,7 +12709,7 @@
         ]
        },
        {
-        "head": "replica, default − AFNI 26.3.05, stored LPS",
+        "head": "replica, fix − AFNI 3dvolreg 26.3.05, stored LPS",
         "verdict": "bit-identical",
         "sub": "every axis positive in AFNI's order: nothing to correct",
         "cells": [
@@ -12509,7 +12723,7 @@
         ]
        },
        {
-        "head": "replica, reproduce − AFNI 26.3.05, both storages",
+        "head": "replica, reproduce − AFNI 3dvolreg 26.3.05, both storages",
         "verdict": "bit-identical",
         "sub": "AFNI's numbers, byte for byte",
         "cells": [
@@ -12528,17 +12742,17 @@
     }
    },
    "chain": null,
-   "metrics_note": "Δ is A − B, computed in float64 over every value of the files (2,785,280), not only those shown; the range is B's maximum minus its minimum. The record's threshold: every output bit-identical to AFNI 26.3.05's (the registered series, -1Dfile, -1Dmatrix_save, -maxdisp1D), with its exit status and messages. The rows *the original against itself* are AFNI's own variability on this input: its previous release and fMRIPrep's build.",
+   "metrics_note": "Δ is A − B, computed in float64 over every value of the files (2,785,280), not only those shown; the range is B's maximum minus its minimum. The record's threshold: every output bit-identical to AFNI 26.3.05's (the registered series, -1Dfile, -1Dmatrix_save, -maxdisp1D), with its exit status and messages. The row *the original against itself* is AFNI's own variability on this input: the same volumes stored another way.",
    "provenance": [
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: RobustAverage's sliced volumes (sha256 2cce88990bcfbee8…); the raw BOLD run (sha256 609ae0a21822318f…); fMRIPrep's BOLD reference (sha256 ab49738164116b9c…); the sliced volumes stored LPS (sha256 71708c457976d2d1…)",
     "Runs: figures cache entry `afni-volreg/fmriprep-ds000005-run-01`, computed 2026-11-07T01:27:24+00:00 with larmorx `c0fa9881ce74`; AFNI_26.3.05, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09, gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0; AFNI_25.2.09 (Aug 24 2025) [64-bit]; larmorx 0.0.1 (crate larmorx-afni-replica, built in); every command, its environment, threads and exit status are in its `RUN_INFO.json`",
-    "Runs of the clean-room original: figures cache entry `afni-volreg/fmriprep-ds000005-run-01-original`, computed 2026-11-08T08:38:25+00:00 with larmorx `ae74dcb46642` (python -m larmorx with LARMORX_IMPLEMENTATION=original: default mode at 14 threads and at one, reproduce mode at 14; on the volumes stored LPS both modes), on the replica's entry's inputs; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs of the clean room: figures cache entry `afni-volreg/fmriprep-ds000005-run-01-original`, computed 2026-11-08T08:38:25+00:00 with larmorx `ae74dcb46642` (python -m larmorx with LARMORX_IMPLEMENTATION=original: `fix`, the default at 14 threads and at one, `reproduce` at 14; on the volumes stored LPS both modes), on the replica's entry's inputs; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "tables": [
     {
      "id": "afni99-md-original",
-     "title": "The clean-room original's maximum displacements (-maxdisp1D, over every volume)",
+     "title": "The clean room's maximum displacements (-maxdisp1D, over every volume)",
      "columns": [
       {
        "label": "Comparison"
@@ -12557,7 +12771,7 @@
      ],
      "rows": [
       {
-       "head": "original, default: LAS − LPS",
+       "head": "clean room, fix: LAS − LPS",
        "sub": "the voxels' own displacements, in either storage order",
        "verdict": "d13",
        "cells": [
@@ -12574,7 +12788,7 @@
        ]
       },
       {
-       "head": "original, default − AFNI 26.3.05, stored LAS",
+       "head": "clean room, fix − AFNI 3dvolreg 26.3.05, stored LAS",
        "sub": "AFNI mirrors the voxels along the axis stored posterior to anterior",
        "verdict": "d13",
        "cells": [
@@ -12591,7 +12805,7 @@
        ]
       },
       {
-       "head": "original, default − AFNI 26.3.05, stored LPS",
+       "head": "clean room, fix − AFNI 3dvolreg 26.3.05, stored LPS",
        "sub": "every axis positive in AFNI's order: nothing to correct",
        "verdict": "within-variability",
        "cells": [
@@ -12609,7 +12823,7 @@
        ]
       },
       {
-       "head": "original, reproduce − AFNI 26.3.05, stored LAS",
+       "head": "clean room, reproduce − AFNI 3dvolreg 26.3.05, stored LAS",
        "sub": "AFNI's convention",
        "verdict": "within-variability",
        "cells": [
@@ -12627,7 +12841,7 @@
        ]
       },
       {
-       "head": "original, reproduce − AFNI 26.3.05, stored LPS",
+       "head": "clean room, reproduce − AFNI 3dvolreg 26.3.05, stored LPS",
        "sub": "AFNI's convention",
        "verdict": "within-variability",
        "cells": [
@@ -12645,7 +12859,7 @@
        ]
       },
       {
-       "head": "original − replica, both default, stored LAS",
+       "head": "clean room − replica, both fix, stored LAS",
        "sub": "both correct AFNI-99",
        "verdict": "within-variability",
        "cells": [
@@ -12663,17 +12877,80 @@
        ]
       }
      ],
-     "note": "-maxdisp1D writes 3 decimals. Where the parameters differ (the shear decomposition's ties, the first example), the maximum displacements are held to the bound that follows from each volume's own parameter differences, alpha_v·r + tau_v + 0.001 (§14.3 'Derived quantities'); the default's correction of AFNI-99 changes the numbers where the second axis is stored posterior to anterior, and names it."
+     "note": "-maxdisp1D writes 3 decimals. Where the parameters differ (the shear decomposition's ties, the first example), the maximum displacements are held to the bound that follows from each volume's own parameter differences, alpha_v·r + tau_v + 0.001 (§14.3 'Derived quantities'); the correction of AFNI-99 in `fix` changes the numbers where the second axis is stored posterior to anterior, and names it."
     }
    ],
+   "order": {
+    "panels": [
+     "sliced",
+     "afni26",
+     "lps-afni26",
+     "lps-replica",
+     "lps-replica-reproduce",
+     "original",
+     "lps-original",
+     "lps-original-reproduce"
+    ],
+    "diffs": [
+     "lps-las",
+     "lps-replica-afni",
+     "lps-repro-afni",
+     "lps-original-afni",
+     "lps-orepro-afni",
+     "original-lps-las"
+    ],
+    "groups": [
+     [
+      "The original against itself: the yardstick",
+      [
+       "lps-las"
+      ]
+     ],
+     [
+      "The replica against the original",
+      [
+       "lps-replica-afni",
+       "lps-repro-afni"
+      ]
+     ],
+     [
+      "The clean room against the original",
+      [
+       "lps-original-afni",
+       "lps-orepro-afni"
+      ]
+     ],
+     [
+      "The clean room against itself: the same volumes stored another way",
+      [
+       "original-lps-las"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "AFNI's maximum displacements change with the storage order, by up to 0.011 mm on this run ([AFNI-99](repo:docs/findings/upstream-defects.md#summary)). In `fix`, their default, both ports compute the displacements of the voxels themselves and name [AFNI-99](repo:docs/findings/upstream-defects.md#summary). In `reproduce` the replica gives AFNI's numbers byte for byte; the clean room follows AFNI's convention, within its derived bounds. The registered volumes do not depend on it: the replica's are AFNI's, the clean room's within §14.3's limits.",
+    "verdicts": [
+     {
+      "diff": "lps-replica-afni",
+      "port": "replica",
+      "verdict": "bit-identical"
+     },
+     {
+      "diff": "lps-original-afni",
+      "port": "clean-room",
+      "verdict": "within-variability"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds000005"
    ]
   },
   {
    "id": "fmriprep-ds000256-original",
-   "title": "A child's high-motion run: where the clean-room original comes closest to its limits",
-   "summary": "fMRIPrep 25.2.6's RobustAverage call on OpenNeuro ds000256 sub-CTS203's rest run without feedback (a 7.5-year-old, the most motion of three runs: rotations to 4.7°), given to AFNI 26.3.05, to the replica and to LARMORX's clean-room original. The replica gives AFNI's volumes bit for bit; the original's differ within specs/3dvolreg.md §14.3's limits, closest to them on the volumes that rotate most, where the shear decomposition's ties weigh most. fMRIPrep keeps only the median of the 20 registered volumes (the table below).",
+   "title": "A child's high-motion run: where the clean room comes closest to its limits",
+   "summary": "fMRIPrep 25.2.6's RobustAverage call on OpenNeuro ds000256 sub-CTS203's rest run without feedback (a 7.5-year-old, the most motion of three runs: rotations to 4.7°), given to AFNI 26.3.05, to the replica and to LARMORX's clean room. The replica gives AFNI's volumes bit for bit; the clean room's differ within specs/3dvolreg.md §14.3's limits, closest to them on the volumes that rotate most, where the shear decomposition's ties weigh most. fMRIPrep keeps only the median of the 20 registered volumes (the table below).",
    "facts": [
     {
      "label": "Data",
@@ -12689,7 +12966,7 @@
     },
     {
      "label": "Programs",
-     "text": "AFNI 26.3.05's 3dvolreg (the repository's build, through the oracle-output cache); the replica and LARMORX's clean-room original (crate larmorx-afni, experimental), from larmorx at commit `ae74dcb46642`"
+     "text": "AFNI 26.3.05's 3dvolreg (the repository's build, through the cache of the original's runs); the replica and LARMORX's clean room (crate larmorx-afni, experimental), from LARMORX at commit `ae74dcb46642`"
     },
     {
      "label": "Grid",
@@ -12818,13 +13095,14 @@
      "window": [
       9.039637598209083,
       744.0876271501184
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "afni26",
      "role": "original",
-     "label": "AFNI 26.3.05, 3dvolreg",
-     "sub": "the repository's build, through the oracle-output cache",
+     "label": "AFNI 3dvolreg 26.3.05",
+     "sub": "the repository's build, through the cache of the original's runs",
      "arrays": {
       "series": {
        "blob": "a978ca92532fda540c13774e.bin",
@@ -12837,13 +13115,14 @@
        0.0,
        743.2562695312486
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "replica",
      "role": "larmorx",
-     "label": "larmorx replica",
-     "sub": "default mode, 1 thread",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 with CC BY 4.0's attribution · fix (the default), 1 thread · against AFNI 3dvolreg 26.3.05",
      "arrays": {
       "series": {
        "same": "afni26:series",
@@ -12855,13 +13134,14 @@
        0.0,
        743.2562695312486
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "original",
      "role": "larmorx",
-     "label": "LARMORX clean-room original",
-     "sub": "default mode, 14 threads",
+     "label": "clean room",
+     "sub": "larmorx, Apache-2.0 · fix (the default), 14 threads · against AFNI 3dvolreg 26.3.05",
      "arrays": {
       "series": {
        "blob": "397b992be03221d1c0bc88f7.bin",
@@ -12876,13 +13156,14 @@
        0.0,
        743.2657031249989
       ]
-     }
+     },
+     "port": "clean-room"
     },
     {
      "id": "original-1",
      "role": "larmorx",
-     "label": "LARMORX clean-room original",
-     "sub": "default mode, 1 thread",
+     "label": "clean room",
+     "sub": "larmorx, Apache-2.0 · fix (the default), 1 thread",
      "arrays": {
       "series": {
        "same": "original:series",
@@ -12894,13 +13175,14 @@
        0.0,
        743.2657031249989
       ]
-     }
+     },
+     "port": "clean-room"
     },
     {
      "id": "original-reproduce",
      "role": "larmorx",
-     "label": "LARMORX clean-room original",
-     "sub": "reproduce mode, 14 threads",
+     "label": "clean room",
+     "sub": "larmorx, Apache-2.0 · reproduce, 14 threads · against AFNI 3dvolreg 26.3.05",
      "arrays": {
       "series": {
        "same": "original:series",
@@ -12912,7 +13194,8 @@
        0.0,
        743.2657031249989
       ]
-     }
+     },
+     "port": "clean-room"
     }
    ],
    "diffs": [
@@ -12921,8 +13204,8 @@
      "a": "replica",
      "b": "afni26",
      "kind": "main",
-     "label": "replica (default) − AFNI 26.3.05",
-     "role_label": "larmorx against the original",
+     "label": "replica (fix) − AFNI 3dvolreg 26.3.05",
+     "role_label": "the replica against the original",
      "metrics": {
       "series": {
        "identical": true,
@@ -12960,15 +13243,16 @@
       }
      },
      "verdict": "bit-identical",
-     "reason": "The replica gives AFNI's registered volumes bit for bit (its default corrects AFNI-99, which changes only the maximum displacements)."
+     "reason": "The replica gives AFNI's registered volumes bit for bit (its default corrects AFNI-99, which changes only the maximum displacements).",
+     "port": "replica"
     },
     {
      "id": "original-afni26",
      "a": "original",
      "b": "afni26",
      "kind": "main",
-     "label": "clean-room original (default) − AFNI 26.3.05",
-     "role_label": "larmorx against the original",
+     "label": "clean room (fix) − AFNI 3dvolreg 26.3.05",
+     "role_label": "the clean room against the original",
      "metrics": {
       "series": {
        "identical": false,
@@ -13017,15 +13301,16 @@
        "label": "§14.3",
        "href": "specs/3dvolreg.md"
       }
-     ]
+     ],
+     "port": "clean-room"
     },
     {
      "id": "orepro-afni26",
      "a": "original-reproduce",
      "b": "afni26",
      "kind": "main",
-     "label": "clean-room original (reproduce) − AFNI 26.3.05",
-     "role_label": "larmorx against the original",
+     "label": "clean room (reproduce) − AFNI 3dvolreg 26.3.05",
+     "role_label": "the clean room against the original",
      "metrics": {
       "series": {
        "identical": false,
@@ -13074,15 +13359,16 @@
        "label": "§14.3",
        "href": "specs/3dvolreg.md"
       }
-     ]
+     ],
+     "port": "clean-room"
     },
     {
      "id": "original-replica",
      "a": "original",
      "b": "replica",
      "kind": "check",
-     "label": "clean-room original − replica, both default",
-     "role_label": "larmorx against itself",
+     "label": "clean room − replica, both fix",
+     "role_label": "the clean room against the replica: both fix",
      "metrics": {
       "series": {
        "identical": false,
@@ -13125,15 +13411,16 @@
       }
      },
      "verdict": "within-variability",
-     "reason": "The two implementations' defaults, by the same limits: every one of the 20 volumes within §14.3's limit (the closest, sub-brick 11: mean |Δ| 0.0021 of its largest value against L_v = 0.0032, 0.68 of it; 1 − NCC 7.2e-05, 0.15 of 50·L_v²)."
+     "reason": "The two ports' defaults (`fix`), by the same limits: every one of the 20 volumes within §14.3's limit (the closest, sub-brick 11: mean |Δ| 0.0021 of its largest value against L_v = 0.0032, 0.68 of it; 1 − NCC 7.2e-05, 0.15 of 50·L_v²).",
+     "port": "clean-room"
     },
     {
      "id": "original1-original",
      "a": "original-1",
      "b": "original",
      "kind": "check",
-     "label": "clean-room original, 1 thread − 14 threads",
-     "role_label": "larmorx against itself",
+     "label": "clean room, 1 thread − 14 threads",
+     "role_label": "the clean room against itself: 1 and 14 threads",
      "metrics": {
       "series": {
        "identical": true,
@@ -13171,15 +13458,16 @@
       }
      },
      "verdict": "bit-identical",
-     "reason": "The same bits at 1 and 14 threads."
+     "reason": "The same bits at 1 and 14 threads.",
+     "port": "clean-room"
     },
     {
      "id": "original-orepro",
      "a": "original",
      "b": "original-reproduce",
      "kind": "check",
-     "label": "clean-room original, default − reproduce mode",
-     "role_label": "larmorx against itself",
+     "label": "clean room, fix − reproduce",
+     "role_label": "the clean room against itself: fix and reproduce",
      "metrics": {
       "series": {
        "identical": true,
@@ -13223,7 +13511,8 @@
       }
      ],
      "verdict": "bit-identical",
-     "reason": "The registered volumes are the same in both modes: AFNI-99 named by the default changes only the maximum displacements."
+     "reason": "The registered volumes are the same in `fix` and in `reproduce`: AFNI-99, named by `fix`, changes only the maximum displacements.",
+     "port": "clean-room"
     }
    ],
    "default": {
@@ -13271,7 +13560,7 @@
    },
    "lines": {
     "params": {
-     "title": "The six motion parameters over the 20 volumes: AFNI 26.3.05 and the clean-room original",
+     "title": "The six motion parameters over the 20 volumes, the clean room against the original: AFNI `3dvolreg` 26.3.05",
      "x_label": "sub-brick (volume, counting from 0)",
      "x": [
       0,
@@ -13297,12 +13586,12 @@
      ],
      "key": [
       {
-       "label": "AFNI 26.3.05 (the replica gives these numbers)",
+       "label": "AFNI 3dvolreg 26.3.05 (the replica gives these numbers)",
        "mark": "original"
       },
       {
-       "label": "LARMORX clean-room original, default mode",
-       "mark": "larmorx"
+       "label": "clean room, fix",
+       "mark": "clean-room"
       }
      ],
      "panels": [
@@ -13336,8 +13625,8 @@
          ]
         },
         {
-         "label": "original",
-         "mark": "larmorx",
+         "label": "clean room",
+         "mark": "clean-room",
          "y": [
           -0.0,
           0.1837,
@@ -13393,8 +13682,8 @@
          ]
         },
         {
-         "label": "original",
-         "mark": "larmorx",
+         "label": "clean room",
+         "mark": "clean-room",
          "y": [
           -0.0,
           -0.4365,
@@ -13450,8 +13739,8 @@
          ]
         },
         {
-         "label": "original",
-         "mark": "larmorx",
+         "label": "clean room",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.3587,
@@ -13507,8 +13796,8 @@
          ]
         },
         {
-         "label": "original",
-         "mark": "larmorx",
+         "label": "clean room",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.3137,
@@ -13564,8 +13853,8 @@
          ]
         },
         {
-         "label": "original",
-         "mark": "larmorx",
+         "label": "clean room",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.615,
@@ -13621,8 +13910,8 @@
          ]
         },
         {
-         "label": "original",
-         "mark": "larmorx",
+         "label": "clean room",
+         "mark": "clean-room",
          "y": [
           -0.0,
           0.16,
@@ -13675,28 +13964,7 @@
       ],
       "rows": [
        {
-        "head": "original (default) − AFNI 26.3.05",
-        "verdict": "within-variability",
-        "cells": [
-         {
-          "v": 0.0038000000000000256,
-          "fmt": "sig"
-         },
-         {
-          "v": 0.0014000000000000123,
-          "fmt": "sig"
-         },
-         {
-          "v": 0.12346882412189561,
-          "fmt": "sig"
-         },
-         {
-          "text": "7 of 20 -1Dfile lines"
-         }
-        ]
-       },
-       {
-        "head": "replica (default) − AFNI 26.3.05",
+        "head": "replica (fix) − AFNI 3dvolreg 26.3.05",
         "verdict": "bit-identical",
         "cells": [
          {
@@ -13715,13 +13983,34 @@
           "text": "20 of 20 -1Dfile lines"
          }
         ]
+       },
+       {
+        "head": "clean room (fix) − AFNI 3dvolreg 26.3.05",
+        "verdict": "within-variability",
+        "cells": [
+         {
+          "v": 0.0038000000000000256,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.0014000000000000123,
+          "fmt": "sig"
+         },
+         {
+          "v": 0.12346882412189561,
+          "fmt": "sig"
+         },
+         {
+          "text": "7 of 20 -1Dfile lines"
+         }
+        ]
        }
       ],
-      "note": "§14.3's thresholds as in the first example; the maximum displacements of this run (to about 7 mm) follow AFNI-99 in the default (the record's case fmriprep-ds000256-nofeedback holds them, within the derived bounds in reproduce)."
+      "note": "§14.3's thresholds as in the first example; the maximum displacements of this run (to about 7 mm) follow AFNI-99 in `fix` (the record's case fmriprep-ds000256-nofeedback holds them, within the derived bounds in reproduce)."
      }
     },
     "params-original": {
-     "title": "The clean-room original against AFNI 26.3.05, volume by volume: the parameters' differences and each registered volume's share of its limit",
+     "title": "Differences volume by volume, the clean room against the original: AFNI `3dvolreg` 26.3.05 (the six parameters and each registered volume's share of its limit)",
      "x_label": "sub-brick (volume, counting from 0)",
      "x": [
       0,
@@ -13747,21 +14036,21 @@
      ],
      "key": [
       {
-       "label": "LARMORX clean-room original (default) − AFNI 26.3.05",
-       "mark": "larmorx"
+       "label": "clean room (fix) − AFNI 3dvolreg 26.3.05",
+       "mark": "clean-room"
       },
       {
-       "label": "specs/3dvolreg.md §14.3's limit for the volume",
+       "label": "the volume's limit (specs/3dvolreg.md §14.3)",
        "mark": "band"
       }
      ],
      "panels": [
       {
-       "label": "roll (°): original − AFNI 26.3.05",
+       "label": "roll (°): clean room − AFNI 26.3.05",
        "series": [
         {
-         "label": "original − AFNI",
-         "mark": "larmorx",
+         "label": "clean room − AFNI",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.0,
@@ -13837,11 +14126,11 @@
        ]
       },
       {
-       "label": "pitch (°): original − AFNI 26.3.05",
+       "label": "pitch (°): clean room − AFNI 26.3.05",
        "series": [
         {
-         "label": "original − AFNI",
-         "mark": "larmorx",
+         "label": "clean room − AFNI",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.0,
@@ -13917,11 +14206,11 @@
        ]
       },
       {
-       "label": "yaw (°): original − AFNI 26.3.05",
+       "label": "yaw (°): clean room − AFNI 26.3.05",
        "series": [
         {
-         "label": "original − AFNI",
-         "mark": "larmorx",
+         "label": "clean room − AFNI",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.0,
@@ -13997,11 +14286,11 @@
        ]
       },
       {
-       "label": "dS (mm): original − AFNI 26.3.05",
+       "label": "dS (mm): clean room − AFNI 26.3.05",
        "series": [
         {
-         "label": "original − AFNI",
-         "mark": "larmorx",
+         "label": "clean room − AFNI",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.0,
@@ -14077,11 +14366,11 @@
        ]
       },
       {
-       "label": "dL (mm): original − AFNI 26.3.05",
+       "label": "dL (mm): clean room − AFNI 26.3.05",
        "series": [
         {
-         "label": "original − AFNI",
-         "mark": "larmorx",
+         "label": "clean room − AFNI",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.0,
@@ -14157,11 +14446,11 @@
        ]
       },
       {
-       "label": "dP (mm): original − AFNI 26.3.05",
+       "label": "dP (mm): clean room − AFNI 26.3.05",
        "series": [
         {
-         "label": "original − AFNI",
-         "mark": "larmorx",
+         "label": "clean room − AFNI",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.0,
@@ -14240,8 +14529,8 @@
        "label": "registered volume: mean |Δ| ÷ (L_v · its largest value)",
        "series": [
         {
-         "label": "original − AFNI",
-         "mark": "larmorx",
+         "label": "clean room − AFNI",
+         "mark": "clean-room",
          "y": [
           0.0,
           7e-05,
@@ -14320,8 +14609,8 @@
        "label": "registered volume: (1 − NCC) ÷ (50 · L_v²)",
        "series": [
         {
-         "label": "original − AFNI",
-         "mark": "larmorx",
+         "label": "clean room − AFNI",
+         "mark": "clean-room",
          "y": [
           0.0,
           0.0,
@@ -14400,7 +14689,7 @@
      "note": "Each band is the limit §14.3 sets for that volume, from AFNI's own values. The volumes with the largest rotations come closest: the limit L_v grows with the rotation as AFNI's own spread under the ties does (the spec writer measured AFNI's tie variants on this run up to 0.68 of L_v).",
      "stats": {
       "id": "high-volumes-original",
-      "title": "The registered volumes against specs/3dvolreg.md §14.3's limits, volume by volume (the clean-room original's default against AFNI 26.3.05)",
+      "title": "The registered volumes against their limits, volume by volume, the clean room against the original: AFNI `3dvolreg` 26.3.05 (`fix`; specs/3dvolreg.md §14.3)",
       "columns": [
        {
         "label": "Sub-brick"
@@ -15147,7 +15436,7 @@
      ],
      "rows": [
       {
-       "head": "AFNI 26.3.05's volumes",
+       "head": "AFNI 3dvolreg 26.3.05's volumes",
        "verdict": "bit-identical",
        "sub": "fMRIPrep's own reference byte for byte (its inputs re-made as fMRIPrep made them)",
        "cells": [
@@ -15170,7 +15459,7 @@
        ]
       },
       {
-       "head": "the clean-room original's (default)",
+       "head": "the clean room's (fix)",
        "verdict": "within-variability",
        "sub": "L_med 0.0052, q 0.0114",
        "cells": [
@@ -15201,8 +15490,64 @@
    "provenance": [
     "Data: OpenNeuro ds000256 (Greene et al., 2018), snapshot 00002, sub-CTS203, PDDL-1.0",
     "Inputs: RobustAverage's sliced volumes (sha256 7fc9eb92db4c4301…); fMRIPrep's BOLD reference (sha256 9631b8e6ce78275c…); fMRIPrep's BOLD brain mask (sha256 390ba2dcfcb5e919…)",
-    "Runs: figures cache entry `afni-volreg/fmriprep-ds000256-nofeedback-original`, computed 2026-11-08T08:38:30+00:00 with larmorx `ae74dcb46642`; AFNI_26.3.05 (oracles/afni-26.3.05, through the oracle-output cache); larmorx 0.0.1 (crates larmorx-afni-replica and larmorx-afni, built in); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `afni-volreg/fmriprep-ds000256-nofeedback-original`, computed 2026-11-08T08:38:30+00:00 with larmorx `ae74dcb46642`; AFNI_26.3.05 (oracles/afni-26.3.05, through the cache of the original's runs); larmorx 0.0.1 (crates larmorx-afni-replica and larmorx-afni, built in); every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
+   "order": {
+    "panels": [
+     "sliced",
+     "afni26",
+     "replica",
+     "original",
+     "original-1",
+     "original-reproduce"
+    ],
+    "diffs": [
+     "replica-afni26",
+     "original-afni26",
+     "orepro-afni26",
+     "original-replica",
+     "original-orepro",
+     "original1-original"
+    ],
+    "groups": [
+     [
+      "The replica against the original",
+      [
+       "replica-afni26"
+      ]
+     ],
+     [
+      "The clean room against the original and the replica",
+      [
+       "original-afni26",
+       "orepro-afni26",
+       "original-replica"
+      ]
+     ],
+     [
+      "The clean room against itself: thread counts, fix and reproduce",
+      [
+       "original-orepro",
+       "original1-original"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "On the data panel's run with the most motion the replica gives AFNI's registered volumes bit for bit. The clean room's differ within specs/3dvolreg.md §14.3's limits and come closest to them here: sub-brick 11 at 0.68 of its limit, as close as AFNI's own results come when its ties are decided the other way.",
+    "verdicts": [
+     {
+      "diff": "replica-afni26",
+      "port": "replica",
+      "verdict": "bit-identical"
+     },
+     {
+      "diff": "original-afni26",
+      "port": "clean-room",
+      "verdict": "within-variability"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds000256"
    ]
@@ -15212,7 +15557,7 @@
  "tables": [
   {
    "id": "fmriprep-calls-original",
-   "title": "fMRIPrep's calls: the clean-room original against AFNI 26.3.05 (its record's standard tier)",
+   "title": "fMRIPrep's calls, the clean room against the original: AFNI `3dvolreg` 26.3.05 (its record's standard comparison)",
    "columns": [
     {
      "label": "Call"
@@ -15576,11 +15921,11 @@
      ]
     }
    ],
-   "note": "Each number is the largest share of its limit over the call's volumes (1 = at the limit; specs/3dvolreg.md §14.3): the parameters' thresholds, the maximum displacements' derived bounds (reproduce mode, AFNI's convention), each registered volume's limit L_v, and fMRIPrep's median against fMRIPrep's own reference (the node's output) by the limit its volumes imply; the median's largest single difference is reported. The inputs are re-made from each oracle run's node in fMRIPrep's image, so that AFNI's median is fMRIPrep's own output byte for byte (checked in every case). From the record `docs/validation/afni-volreg-original.md`."
+   "note": "Each number is the largest share of its limit over the call's volumes (1 = at the limit; specs/3dvolreg.md §14.3): the parameters' thresholds, the maximum displacements' derived bounds (`reproduce`, AFNI's convention), each registered volume's limit L_v, and fMRIPrep's median against fMRIPrep's own reference (the node's output) by the limit its volumes imply; the median's largest single difference is reported. The inputs are re-made from each fMRIPrep run's node in fMRIPrep's image, so that AFNI's median is fMRIPrep's own output byte for byte (checked in every case). From the record `docs/validation/afni-volreg-original.md`."
   },
   {
    "id": "limits-original",
-   "title": "How close the clean-room original comes to each limit, over its record's 251 cases",
+   "title": "How close the clean room comes to each limit, over its record's 251 cases",
    "columns": [
     {
      "label": "Quantity"
@@ -15755,7 +16100,7 @@
   },
   {
    "id": "trial-original",
-   "title": "Random testing of the clean-room original: the trial of 2026-11-08",
+   "title": "Random testing, the clean room against the original: AFNI `3dvolreg` 26.3.05 (a run of half an hour, 2026-11-08)",
    "columns": [
     {
      "label": ""
@@ -15766,7 +16111,7 @@
    ],
    "rows": [
     {
-     "head": "random cases, each compared with AFNI 26.3.05 (through the oracle-output cache) and with the replica's default",
+     "head": "random cases, each compared with AFNI 26.3.05 (through the cache of the original's runs) and with the replica's default",
      "cells": [
       {
        "v": 21710,
@@ -15775,7 +16120,7 @@
      ]
     },
     {
-     "head": "agreeing at the trial (§14.3's fixed requirements)",
+     "head": "agreeing in the run (§14.3's fixed requirements)",
      "cells": [
       {
        "v": 11385,
@@ -15784,7 +16129,7 @@
      ]
     },
     {
-     "head": "differing at the trial",
+     "head": "differing in the run",
      "cells": [
       {
        "v": 10325,
@@ -15833,11 +16178,11 @@
      ]
     }
    ],
-   "note": "Differential random testing's trial (seed `volreg-original-trial`, larmorx `6d4f2edb8992`, 4 jobs at 1 thread, 30 minutes, every case in a memory box of 3 GiB): random moving series and every option, each case run by AFNI 26.3.05, the original in both modes and the replica's default, and compared as the record compares. The differences were judged again with the part's final build (the next table)."
+   "note": "The random-testing run (seed `volreg-original-trial`, larmorx `6d4f2edb8992`, 4 jobs at 1 thread, 30 minutes, every case in a memory box of 3 GiB): random moving series and every option, each case run by AFNI 26.3.05, the clean room in `fix` and in `reproduce` and the replica's default, and compared as the record compares. The differences were judged again with the part's final build (the next table)."
   },
   {
    "id": "trial-original-retriage",
-   "title": "A seeded sample of 1,200 of the trial's differences, judged again with the final build",
+   "title": "A seeded sample of 1,200 of the run's differences, judged again with the final build",
    "columns": [
     {
      "label": "Judgement (specs/3dvolreg.md §14.3)"
@@ -15848,7 +16193,7 @@
    ],
    "rows": [
     {
-     "head": "within 3 times the original's own spread under the ties (12 seeded draws, LARMORX_VOLREG_TIES=random:1 to 12; 9 times for 1 − NCC)",
+     "head": "within 3 times the clean room's own spread under the ties (12 seeded draws, LARMORX_VOLREG_TIES=random:1 to 12; 9 times for 1 − NCC)",
      "cells": [
       {
        "v": 860,
@@ -15858,7 +16203,7 @@
      "verdict": "within-variability"
     },
     {
-     "head": "agree with §14.3's fixed requirements (fixed since the trial)",
+     "head": "agree with §14.3's fixed requirements (fixed since the run)",
      "cells": [
       {
        "v": 67,
@@ -15892,7 +16237,7 @@
   },
   {
    "id": "trial-original-triage",
-   "title": "The trial's differences, by what differed, each in one category",
+   "title": "The run's differences, by what differed, each in one category",
    "columns": [
     {
      "label": "Category"
@@ -15906,7 +16251,7 @@
      "head": "explained: The shear decomposition's exact ties (specs/3dvolreg.md §5.3, §16): AFNI decides each resampling's tie its own way, and on random testing's small phantoms with sharp edges the fits are ill-conditioned with respect to them (the spec writer: AFNI's own parameters move by a median of 25 thresholds over its tie variants).…",
      "cells": [
       {
-       "text": "AFNI: -NDfile parameters, the replica (default): -NDfile parameters …"
+       "text": "AFNI: -NDfile parameters, the replica (`fix`): -NDfile parameters …"
       }
      ]
     },
@@ -15914,7 +16259,7 @@
      "head": "explained: The parameters' summary (++ Min/Mean/Max) and the derivative images' ranges with -verbose -verbose follow the parameters and the ties (the entry above): within 3 times the ties' spread in every sampled case; the largest displacement is held to the larger of its two sub-bricks' bounds (a check corrected in relay 4); an…",
      "cells": [
       {
-       "text": "AFNI: messages, the replica (default): messages"
+       "text": "AFNI: messages, the replica (`fix`): messages"
       }
      ]
     },
@@ -15922,12 +16267,12 @@
      "head": "explained: -rotcom's 3drotate commands print the parameters: within 3 times the ties' spread where the parameters are (the first entry).",
      "cells": [
       {
-       "text": "AFNI: standard output (-rotcom), the replica (default): standard output (-rotcom)"
+       "text": "AFNI: standard output (-rotcom), the replica (`fix`): standard output (-rotcom)"
       }
      ]
     },
     {
-     "head": "a LARMORX mistake, fixed: -savedisp's and -SAVEDISP's datasets did not carry the input's slice fields (slice_code, slice_duration) as the registered output does: fixed after the night (the suite's tshift and outputs cases cover it).",
+     "head": "a LARMORX mistake, fixed: -savedisp's and -SAVEDISP's datasets did not carry the input's slice fields (slice_code, slice_duration) as the registered output does: fixed after the run (the suite's tshift and outputs cases cover it).",
      "cells": [
       {
        "text": "AFNI: -savedisp DX header, AFNI: -savedisp DY header …"
@@ -15943,7 +16288,7 @@
      ]
     },
     {
-     "head": "explained: Fixed after the night: the option scan's notices (AFNI-86, -90, -95) were not printed when a run stopped with a later error, AFNI-97 was never named, AFNI-99 was named from -maxdisp1D's three decimals when no file was written, and (relay 4) AFNI-92 was named for a run that stopped before its first pass and the notices…",
+     "head": "explained: Fixed after the run: the option scan's notices (AFNI-86, -90, -95) were not printed when a run stopped with a later error, AFNI-97 was never named, AFNI-99 was named from -maxdisp1D's three decimals when no file was written, and (relay 4) AFNI-92 was named for a run that stopped before its first pass and the notices…",
      "cells": [
       {
        "text": "defects named as the replica's default"
@@ -15951,7 +16296,7 @@
      ]
     },
     {
-     "head": "explained: AFNI-97: AFNI's runaway Fourier first passes (rotations of hundreds of degrees) met a lone row shifted beyond the row and AFNI crashed; whether a run meets the condition is the ties' choice (the spec writer: in 2 to 12 of AFNI's 16 tie variants). The original names AFNI-97 by default and stops as AFNI does with reprod…",
+     "head": "explained: AFNI-97: AFNI's runaway Fourier first passes (rotations of hundreds of degrees) met a lone row shifted beyond the row and AFNI crashed; whether a run meets the condition is the ties' choice (the spec writer: in 2 to 12 of AFNI's 16 tie variants). The clean room names AFNI-97 in `fix` and stops as AFNI does with reprod…",
      "cells": [
       {
        "text": "AFNI: exit status, AFNI: files written …"
@@ -15959,7 +16304,7 @@
      ]
     },
     {
-     "head": "a LARMORX mistake, fixed: AFNI-99 named where no printed or written value changed (the comparison used -maxdisp1D's three decimals also when no -maxdisp1D file was written): fixed after the night.",
+     "head": "a LARMORX mistake, fixed: AFNI-99 named where no printed or written value changed (the comparison used -maxdisp1D's three decimals also when no -maxdisp1D file was written): fixed after the run.",
      "cells": [
       {
        "text": "DN fix pass"
@@ -15967,10 +16312,10 @@
      ]
     },
     {
-     "head": "the comparison's own mistake, corrected: The part's Python extension was replaced in place while the night ran: a run that had it mapped ended with SIGBUS. The extension is now replaced by an atomic rename.",
+     "head": "the comparison's own mistake, corrected: The part's Python extension was replaced in place while the run went on: a run that had it mapped ended with SIGBUS. The extension is now replaced by an atomic rename.",
      "cells": [
       {
-       "text": "the replica (default): exit status, the replica (default): files written"
+       "text": "The replica (`fix`): exit status, the replica (`fix`): files written"
       }
      ]
     }
@@ -15979,7 +16324,7 @@
   },
   {
    "id": "benchmark",
-   "title": "The benchmark: wall-clock seconds of the whole program (in brackets the speed-up against AFNI)",
+   "title": "Wall-clock seconds of the whole program, both ports against the original: AFNI `3dvolreg` 26.3.05 (the benchmark report; in brackets the speed-up against AFNI)",
    "columns": [
     {
      "label": "Call"
@@ -15991,13 +16336,13 @@
      "label": "replica (1 thread)"
     },
     {
-     "label": "original (1)"
+     "label": "clean room (1 thread)"
     },
     {
-     "label": "original (4)"
+     "label": "clean room (4 threads)"
     },
     {
-     "label": "original (14)"
+     "label": "clean room (14 threads)"
     }
    ],
    "rows": [
@@ -16102,11 +16447,11 @@
      ]
     }
    ],
-   "note": "The benchmark report `docs/benchmarks/afni-volreg.md` (perf.py --afni-fresh --repeat 3, inside memory boxes). AFNI's 3dvolreg and the replica run on one thread (3dvolreg has no parallel loop on this path); the original registers the volumes one after another and divides the work inside each (the shears, the coarse search, the blurs, the derivative images)."
+   "note": "The benchmark report `docs/benchmarks/afni-volreg.md` (perf.py --afni-fresh --repeat 3, inside memory boxes). AFNI's 3dvolreg and the replica run on one thread (3dvolreg has no parallel loop on this path); the clean room registers the volumes one after another and divides the work inside each (the shears, the coarse search, the blurs, the derivative images)."
   },
   {
    "id": "benchmark-memory",
-   "title": "Peak resident memory (MiB): the rule, at most 1.1 × AFNI's peak + 8 MiB, at one thread",
+   "title": "Peak resident memory, both ports against the original: AFNI `3dvolreg` 26.3.05 (MiB; the rule: at most 1.1 × AFNI's peak + 8 MiB, at one thread)",
    "columns": [
     {
      "label": "Call"
@@ -16120,19 +16465,19 @@
      "num": true
     },
     {
-     "label": "replica (1)",
+     "label": "replica (1 thread)",
      "num": true
     },
     {
-     "label": "original (1)",
+     "label": "clean room (1 thread)",
      "num": true
     },
     {
-     "label": "original (4)",
+     "label": "clean room (4 threads)",
      "num": true
     },
     {
-     "label": "original (14)",
+     "label": "clean room (14 threads)",
      "num": true
     }
    ],
@@ -16293,7 +16638,7 @@
  ],
  "dots": {
   "speed-replica": {
-   "title": "3dvolreg: wall time of fMRIPrep's RobustAverage call (informal timings, 2026-11-06)",
+   "title": "Speed, the replica against the original: AFNI `3dvolreg` 26.3.05, fMRIPrep's RobustAverage call (informal timings of 2026-11-06)",
    "axis": [
     0.1,
     100.0
@@ -16319,18 +16664,21 @@
    "series": [
     {
      "id": "AFNI",
-     "label": "AFNI 26.3.05, 1 thread",
-     "mark": "original"
+     "label": "AFNI 3dvolreg 26.3.05, 1 thread",
+     "mark": "original",
+     "port": "original"
     },
     {
      "id": "larmorx",
      "label": "replica, larmorx afni 3dvolreg",
-     "mark": "replica"
+     "mark": "replica",
+     "port": "replica"
     },
     {
      "id": "python -m larmorx",
      "label": "replica, python -m larmorx",
-     "mark": "replica-open"
+     "mark": "replica-open",
+     "port": "replica"
     }
    ],
    "unit": "s",
@@ -16381,9 +16729,42 @@
      "ratio": 2.416982372588913
     }
    ],
-   "note": "fMRIPrep's call (-Fourier -twopass -zpad 4 with -1Dfile, -1Dmatrix_save, -maxdisp1D) on the parity suite's inputs, one thread each (3dvolreg has no parallel loop on this path), the median of three runs, reading and writing compressed NIfTI included, every output checked byte for byte; on the main machine while another agent worked: indications, not a benchmark report. The ratio is AFNI's time over the replica's program's. Tool: validation/investigations/afni-volreg/speed.py."
+   "note": "fMRIPrep's call (-Fourier -twopass -zpad 4 with -1Dfile, -1Dmatrix_save, -maxdisp1D) on the comparison suite's inputs, one thread each (3dvolreg has no parallel loop on this path), the median of three runs, reading and writing compressed NIfTI included, every output checked byte for byte; on the main machine while another agent worked: indications, not a benchmark report. The ratio is AFNI's time over the replica's program's. Tool: validation/investigations/afni-volreg/speed.py.",
+   "port": "replica"
   }
  },
+ "random_testing": {
+  "title": "Random testing, both ports against the original: AFNI `3dvolreg` 26.3.05",
+  "names": {
+   "replica": "replica",
+   "original": "clean room"
+  }
+ },
+ "category_labels": {
+  "interpolation": "interpolation methods",
+  "base": "the base volume (-base)",
+  "twopass": "two passes and the coarse search (-twopass)",
+  "weights": "weights and edging",
+  "environment": "environment variables",
+  "outputs": "outputs",
+  "tshift": "slice timing first (-tshift)",
+  "rotparent": "another dataset's motion or grid (-rotparent, -gridparent)",
+  "twodup": "-twodup",
+  "messages": "messages",
+  "datatypes": "data types",
+  "edge cases": "edge cases",
+  "errors": "errors",
+  "divergences": "expected divergences",
+  "global": "global options",
+  "defects": "defects of AFNI",
+  "fmriprep": "fMRIPrep's calls",
+  "difftest": "random testing",
+  "edge": "edge cases",
+  "settings": "the fit's settings",
+  "global options": "global options",
+  "threads": "thread counts"
+ },
+ "presentation": "writing-guide",
  "cases_credits": [
   "openneuro-ds000005",
   "openneuro-ds000256",

@@ -937,9 +937,12 @@ class Evidence:
         stats = ""
         if spec.get("stats"):
             stats = self.table_html(tool, spec["stats"], base + "/stats")
+        # on a page in the writing guide's words: its title with code spans, its lines by port
+        ported = self.doc(tool).get("presentation") == PRESENTATION
+        title = self.text(spec["title"]) if ported else esc(spec["title"])
         return (
-            f'<figure class="ev-chart ev-lines" data-ev-src="{src}" data-ev-lines="{esc(base)}" data-ev-tool="{esc(tool)}">'
-            f'<figcaption class="ev-chart-title">{esc(spec["title"])}</figcaption>'
+            f'<figure class="ev-chart ev-lines{" ev-ported" if ported else ""}" data-ev-src="{src}" data-ev-lines="{esc(base)}" data-ev-tool="{esc(tool)}">'
+            f'<figcaption class="ev-chart-title">{title}</figcaption>'
             f'<ul class="ev-series-key ev-lines-key">{key}</ul><div class="ev-lines-panels">{svgs}</div>'
             f'<p class="ev-chart-note">{self.text(spec["note"])}</p>{stats}</figure>'
         )

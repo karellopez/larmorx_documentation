@@ -483,6 +483,21 @@ th[aria-sort="descending"] .ev-sort::after { content: " ↓"; }
 .ev-ported .ev-chain-nodes .port-replica span { color: var(--port-replica); }
 .ev-ported .ev-chain-nodes .port-clean-room span { color: var(--port-clean-room); }
 .ev-chain-nodes .pmark { margin-right: 6px; }
+/* a line chart (a run's motion parameters): the original solid, the replica long dashes, the clean
+   room short dashes, `reproduce` a thinner line of its port, so that coinciding lines show through;
+   a limit's band a wash of the original's ink */
+.ev-ported .ev-lines-svg .ln-original { stroke: var(--port-original); }
+.ev-ported .ev-lines-svg .ln-replica, .ev-ported .ev-lines-svg .ln-replica-reproduce { stroke: var(--port-replica); stroke-dasharray: 8 4; }
+.ev-ported .ev-lines-svg .ln-clean-room, .ev-ported .ev-lines-svg .ln-clean-room-reproduce { stroke: var(--port-clean-room); stroke-dasharray: 3 3; }
+.ev-ported .ev-lines-svg .ln-replica-reproduce, .ev-ported .ev-lines-svg .ln-clean-room-reproduce { stroke-width: 0.9; }
+.ev-ported .ev-lines-svg .ln-band { fill: color-mix(in srgb, var(--port-original) var(--band-mix), transparent); }
+.ev-ported .ev-lines-key i.ln-original::before { background: var(--port-original); }
+.ev-ported .ev-lines-key i.ln-replica::before, .ev-ported .ev-lines-key i.ln-replica-reproduce::before {
+  background: repeating-linear-gradient(90deg, var(--port-replica) 0 8px, transparent 8px 12px); }
+.ev-ported .ev-lines-key i.ln-clean-room::before, .ev-ported .ev-lines-key i.ln-clean-room-reproduce::before {
+  background: repeating-linear-gradient(90deg, var(--port-clean-room) 0 3px, transparent 3px 6px); }
+.ev-ported .ev-lines-key i.ln-replica-reproduce::before, .ev-ported .ev-lines-key i.ln-clean-room-reproduce::before { top: 4.5px; height: 1px; }
+.ev-ported .ev-lines-key i.ln-band::before { background: color-mix(in srgb, var(--port-original) 22%, transparent); }
 /* a title that names programs (FSL bet 6.0.7.23) keeps their letter case: not in capitals */
 .ev-chart.ev-ported > .ev-chart-title, .ev-tablefig.ev-ported .ev-metrics-title { font-family: inherit; font-size: 0.98rem; letter-spacing: 0; text-transform: none;
   color: var(--ink); font-weight: 600; line-height: 1.4; }
