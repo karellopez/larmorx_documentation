@@ -1,0 +1,181 @@
+# FreeSurfer 8.2.0's roadmap: where each wave of the work stands, each part of a wave and each
+# set of reference runs. The page content/roadmap/freesurfer.md reads everything it shows about
+# progress from this file, so at each merge only this file changes, never the page:
+#
+#   - `updated`: the day of the last change (the page's "Last updated").
+#   - A status is one of "done", "in-progress", "next" or "planned", followed by the day it was
+#     set: "done 2026-11-12", "in-progress 2026-11-13"; "next" and "planned" may stand alone.
+#     "none" marks a side that has no port by decision (a clean room only, say), with a `note`.
+#   - A wave has `replica` and `clean_room` statuses (3.0, the preparation, one `status`), and
+#     optional `replica_note` and `clean_room_note`: what is done and what is under way, in
+#     plain words.
+#   - A wave's `parts` list its pieces of work as they begin: a part's `name`, what it holds
+#     (`what`), its `replica` and `clean_room` statuses and an optional `note`. Add a part when its
+#     work starts (a library module, a program or a group of programs); a part named after a
+#     program shows its status beside that program in recon-all's steps.
+#   - `runs`: the reference runs of FreeSurfer, each with its status.
+#
+# The rest of each wave (`name`, `delivers`, `size`, `programs`) is its description from the
+# plan (the main repository's docs/freesurfer-plan.md, "The waves"); change it only when the
+# plan changes. Names of programs and stages only: nothing taken from FreeSurfer's source
+# (no source files, line numbers or functions).
+
+updated: "2026-11-13"
+
+waves:
+  - id: "3.0"
+    name: Preparation
+    delivers: "The map of the work, before any port: every program the two streams and fMRIPrep run, measured on FreeSurfer's own runs; the order of the waves and the list of their pieces of work; FreeSurfer's reference runs, every step recorded; the replay tool that tests a port on those recordings; the list of FreeSurfer's data files and their licences."
+    status: "done 2026-11-12"
+
+  - id: "3.1"
+    name: Foundations
+    delivers: "FreeSurfer's shared library, on which every program stands: its file formats, its volume and surface structures, its mathematics, its random numbers and its messages; the 80-bit arithmetic of x86 processors that FreeSurfer's long-double numbers use; the routines it borrows from other projects; and a build of FreeSurfer's own library that checks these pieces function by function."
+    size: {replica: 52, clean_room: 8}
+    programs: []
+    replica: "in-progress 2026-11-13"
+    replica_note: "About three-quarters of its pieces of work done."
+    clean_room: "in-progress 2026-11-13"
+    clean_room_note: "The core, the random numbers, the C library's sort and the cubic spline done; the mathematics nearly done; the volume structure next."
+    parts:
+      - name: "FreeSurfer's library, checked function by function"
+        what: "FreeSurfer 8.2.0's library built as the official release was built (the same compiler, GCC 8.4.0, and the same options), so that each piece of the foundations is compared with FreeSurfer's own functions."
+        replica: "done 2026-11-12"
+        clean_room: "none"
+        note: "A tool for the checks, not a port."
+      - name: "Numerical routines from other projects"
+        what: "VXL's and netlib's routines FreeSurfer calls (minimisers, matrix decompositions), with the not-a-number values of x86-64 processors on every platform; the 80-bit arithmetic of x86 processors."
+        replica: "done 2026-11-13"
+        clean_room: "planned"
+        note: "Their clean rooms come with the clean rooms of the permissive ports, after FreeSurfer."
+      - name: "Random numbers and the C library's sort"
+        what: "RANLUX with GSL's distributions, VXL's generator, `drand48` and the C library's `rand` and `random`; the C library's sort, whose order of equal items FreeSurfer's results depend on."
+        replica: "done 2026-11-13"
+        clean_room: "done 2026-11-13"
+        note: "GSL's generators as a replica in `larmorx-gpl`, alone; the C library's functions as clean rooms only, written from a description of their behaviour (its code is not translated)."
+      - name: "The cubic spline"
+        what: "John Burkardt's cubic spline (2006), which `mri_normalize` uses."
+        replica: "done 2026-11-13"
+        clean_room: "done 2026-11-13"
+      - name: "File formats from other projects"
+        what: "GIFTI surfaces, MINC's .xfm transforms, DICOM's file probe (CTN's reader), JSON and zip compression (miniz)."
+        replica: "done 2026-11-13"
+        clean_room: "planned"
+        note: "Their clean rooms come with the clean rooms of the permissive ports, after FreeSurfer."
+      - name: "The core"
+        what: "Messages and diagnostics, the program's name and environment, version stamps, timers, paths, threads, the licence check's messages."
+        replica: "done 2026-11-13"
+        clean_room: "done 2026-11-13"
+      - name: "The mathematics"
+        what: "Matrices in single and extended precision, the numerical routines and optimisers, histograms, statistics, probability distributions, random fields."
+        replica: "done 2026-11-13"
+        clean_room: "in-progress 2026-11-13"
+        note: "The clean room nearly done."
+      - name: "The volume structure"
+        what: "FreeSurfer's volume in memory, its geometry, and the linear transform files (LTA)."
+        replica: "done 2026-11-13"
+        clean_room: "next 2026-11-13"
+      - name: "Volume files"
+        what: "Reading and writing volumes (MGH and MGZ, NIfTI, ANALYZE, DICOM and others), FreeSurfer's tags, the binary colour tables, the detection of a file's format."
+        replica: "in-progress 2026-11-13"
+        clean_room: "planned"
+        note: "Done: the tags, the colour tables, the format detection and the DICOM probe. Under way: the other formats."
+      - name: "Volumes"
+        what: "Voxels and frames, conforming, regions, resampling, transforms (LTA, .xfm, FSL's matrices), the Talairach helpers, warp fields."
+        replica: "in-progress 2026-11-13"
+        clean_room: "planned"
+        note: "Done: the volume geometry, the voxel arithmetic and the coordinates. Under way: the samplers."
+      - name: "Surface files"
+        what: "The surface structure and its files: surfaces, curvatures, patches and overlays, and the measures computed when a surface is read."
+        replica: "in-progress 2026-11-13"
+        clean_room: "planned"
+        note: "Done: the surface readers and writers (curvature, patches, STL, triangle and quadrangle files, file names). Under way: reading whole surfaces."
+      - name: "Labels"
+        what: "Colour tables, annotations, labels, register.dat files, control points, point sets."
+        replica: "next 2026-11-13"
+        clean_room: "planned"
+      - name: "Volume filters"
+        what: "Filters and morphology, intensity normalisation, segmentation helpers, flood fill, connected components, fast marching, clusters."
+        replica: "next 2026-11-13"
+        clean_room: "planned"
+
+  - id: "3.2"
+    name: Volumes
+    delivers: "The volume programs both streams run, from the input image to the white-matter volume, with ITK's N4 bias correction and denoising as FreeSurfer builds them; and fMRIPrep's own volume programs early (`mri_coreg`, `mri_robust_template`, `mri_robust_register`), with EPFL's B-splines and the robust-registration library as pieces of their own; the `freesurfer` family of the larmorx command and `lx.freesurfer` in Python."
+    size: {replica: 41, clean_room: 30}
+    programs: [mri_convert, mri_info, mri_add_xform_to_header, lta_convert, mri_robust_template, mri_normalize, mri_mask, mri_cc, mri_edit_wm_with_aseg, AntsDenoiseImageFs, AntsN4BiasFieldCorrectionFs, mri_segment, mri_pretess, mri_fill, mri_binarize, mri_segstats, mris_calc, mri_make_uchar, mri_vol2vol, mri_concat, mri_label2vol, mri_robust_register, mri_coreg, fs_temp_file, mri_nu_correct.mni, seg2cc, mergeseg, getfullpath]
+    replica: "planned"
+    clean_room: "planned"
+    parts: []
+
+  - id: "3.3"
+    name: Atlas
+    delivers: "The programs that register a head to FreeSurfer's probabilistic atlas and normalise its intensities with it, which both streams run."
+    size: {replica: 17, clean_room: 4}
+    programs: [mri_em_register, mri_ca_normalize, mri_ca_register]
+    replica: "planned"
+    clean_room: "planned"
+    parts: []
+
+  - id: "3.4"
+    name: First surfaces
+    delivers: "From the filled white-matter volume to the first surface of each hemisphere with a sphere's topology: tessellation, smoothing, inflation, the quick sphere, the topology fix, remeshing."
+    size: {replica: 33, clean_room: 16}
+    programs: [mri_label2label, mri_tessellate, mris_extract_main_component, mris_smooth, mris_inflate, mris_sphere, mris_fix_topology, mris_euler_number, mris_topo_fixer, mris_remesh, mris_remove_intersection, mris_defects_pointset, defect2seg]
+    replica: "planned"
+    clean_room: "planned"
+    parts: []
+
+  - id: "3.5"
+    name: Final surfaces and statistics
+    delivers: "The white and pial surfaces, the surface registration to the folding atlas, the parcellations, the segmentations made from the surfaces and every statistics file; fMRIPrep's surface programs and `bbregister`, with `tkregister2_cmdl` (its replica in `larmorx-nc`, as a program of its own)."
+    size: {replica: 37, clean_room: 29}
+    programs: [mri_relabel_hypointensities, mri_surf2volseg, mri_brainvol_stats, mri_vol2surf, mri_cor2label, mris_autodet_gwstats, mris_place_surface, mris_curvature, mris_register, mris_jacobian, mrisp_paint, mris_ca_label, mris_curvature_stats, mris_volmask, mris_anatomical_stats, mris_label2annot, mris_convert, mri_surf2surf, mris_expand, mri_segreg, tkregister2_cmdl, label-cortex, fscalc, mri_mergelabels, rca-surfreg, vertexvol, pctsurfcon, bbregister, fsr-getxopts]
+    replica: "planned"
+    clean_room: "planned"
+    parts: []
+
+  - id: "3.6"
+    name: The classic-only programs
+    delivers: "What only the classic stream runs, fMRIPrep's FreeSurfer: the watershed skull strip, the Talairach registration and its check, the atlas' subcortical labels. Washington University's Talairach tools (`talairach_avi` with `mpr2mni305` and the four 4dfp programs) get a clean room only, their atlas fetched from FreeSurfer on first use."
+    size: {replica: 21, clean_room: 7}
+    programs: [mri_watershed, mri_ca_label, talairach_afd, mri_matrix_multiply, fs_temp_dir, analyzeto4dfp, gauss_4dfp, imgreg_4dfp, compute_vox2vox, talairach_avi, mpr2mni305, avi2talxfm, extract_talairach_avi_QA.awk]
+    replica: "planned"
+    clean_room: "planned"
+    parts: []
+
+  - id: "N"
+    name: The v8 networks
+    delivers: "The neural networks of the v8 stream, run in Rust with FreeSurfer's own trained weights: the inference core, SynthStrip, SynthSeg, SynthMorph and the limbic segmentation (three models), the scripts around them and the programs only those scripts run. A track of its own, beside waves 3.2 to 3.5; its scripts wait for 3.3."
+    size: {replica: 15, clean_room: 14}
+    programs: [mri_synthstrip, mri_synthseg, mri_synthmorph, mri_sclimbic_seg, rca-talairach, fs-synthmorph-reg, mri_mcadura_seg, mri_vsinus_seg, mri_entowm_seg, csvprint, mri_concatenate_lta, mri_warp_convert, mri_diff, mri_compute_seg_overlap]
+    replica: "planned"
+    clean_room: "planned"
+    parts: []
+
+  - id: "3.7"
+    name: recon-all
+    delivers: "`recon-all` itself: its steps, flags, checks and logs, and the way it resumes a subject that sMRIPrep relies on."
+    size: {replica: 13, clean_room: 8}
+    programs: [recon-all, rca-config, rca-config2csh, UpdateNeeded, fs-check-version, fs-check-os, fsr-checkxopts, mri_seg_diff]
+    replica: "planned"
+    clean_room: "planned"
+    parts: []
+
+# Programs no default path of either stream runs, ported after the waves.
+later:
+  - {program: nu_correct, when: "MNI's N3 bias correction, which `recon-all` runs only with `-no-ants-n4`"}
+  - {program: talairach, when: "MINC's Talairach registration, which the classic stream runs only after its Talairach check has failed twice"}
+
+# FreeSurfer 8.2.0's reference runs (the plan's "3.0 Preparation"): recon-all -all, every step
+# recorded, on six heads of the data panel.
+runs:
+  - name: "Both streams at four threads"
+    what: "The six heads, each in the v8 stream and in the classic stream (12 runs), at four threads, every step recorded: the files each port is compared with."
+    status: "done 2026-11-12"
+  - name: "The classic stream at one thread"
+    what: "The six heads again at one thread (6 runs): FreeSurfer's own variation between thread counts."
+    status: "done 2026-11-13"
+  - name: "The v8 stream at one thread, and the rest of the data panel"
+    what: "On the lab's server: complementary runs (the v8 stream at one thread, the other heads of the data panel, repeated runs), which no port waits for."
+    status: "in-progress 2026-11-13"

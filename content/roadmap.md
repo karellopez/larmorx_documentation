@@ -14,7 +14,7 @@ wide: true
 | | Step | What it delivers | Status |
 |---|---|---|---|
 | | **The documentation revision** | The website and the repository's documents in one set of words, a reference page for every program | In progress: the evidence pages and the site's other pages done (2026-11-13) |
-| 1 | **FreeSurfer 8.2.0** | Every program complete, a replica (`larmorx-freesurfer`) and a clean room built for speed: first the reference runs on the [data panel](/validation/data-panel/), then FreeSurfer's shared library, then the programs fMRIPrep runs, slowest first | In progress: its preparation done on 2026-11-12 (the inventory of its code, the queue of its ports, the replay tool); its foundations, the shared library, under way |
+| 1 | **FreeSurfer 8.2.0** | Every program complete, a replica (`larmorx-freesurfer`) and a clean room built for speed: first the reference runs on the [data panel](/validation/data-panel/), then FreeSurfer's shared library, then the programs fMRIPrep runs, slowest first | In progress: its preparation done on 2026-11-12 (the inventory of its code, the queue of its ports, the replay tool); its foundations, the shared library, under way. Every step, wave and status: [FreeSurfer's roadmap](/roadmap/freesurfer/) |
 | 2 | **Surfaces** | Surface programs compatible with Connectome Workbench and MSM | Planned |
 | 3 | **larmorprepx** | The pipeline: BIDS in, fMRIPrep-compatible derivatives and HTML reports out | Planned |
 | 4 | **Clean rooms for the programs that have only a replica** | A clean room, built for speed, of every program that has only a replica: ANTs and ITK, sdcflows' field maps, fMRIPrep's resampler and Python steps, nitransforms, the confounds; after FreeSurfer, in one block, before the final validation phase | Planned |

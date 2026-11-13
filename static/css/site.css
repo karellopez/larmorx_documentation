@@ -775,3 +775,35 @@ summary.prog-head:hover .prog-chip { box-shadow: 0 0 0 2px var(--kc); }
 .prose .prog-head h2.prog-chip::before, .prose .prog-head h2.prog-chip::after { content: none; display: none; }
 @media (max-width: 640px) { .prose .prog-head h2.prog-chip { font-size: 1.2rem; } }
 .prose .prog-head h2.prog-chip + * { margin-top: 0; }
+/* FreeSurfer's roadmap (content/roadmap/freesurfer.md): a status is its name in a frame whose line
+   tells them apart without colour (done: solid ink; in progress: LARMORX's accent behind ink;
+   next: dashed; planned: dotted, faint), its date beside it. */
+.rm-status { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 1px 7px; border-radius: 3px; border: 1px solid var(--ink-3); color: var(--ink); white-space: nowrap; vertical-align: 1px; }
+.rm-status--done { border-color: var(--ink); }
+.rm-status--in-progress { background: var(--accent); border-color: var(--accent); color: var(--on-pastel); }
+.rm-status--next { border-style: dashed; }
+.rm-status--planned { border-style: dotted; color: var(--ink-2); }
+.rm-date, .rm-none { font-family: var(--mono); font-size: 0.8em; color: var(--ink-3); white-space: nowrap; }
+.prose .rm-facts { margin: 14px 0 18px; }
+/* On a phone the roadmap's tables stack: a row's name first, its longer cells below at full width,
+   its short ones (stream, wave, statuses) on one line, each named, since the header is hidden. */
+@media (max-width: 640px) {
+  .rm-stack .table-wrap thead { display: none; }
+  .rm-stack .table-wrap table, .rm-stack .table-wrap tbody { display: block; }
+  .rm-stack .table-wrap tr { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; padding: 12px 14px; border-top: 1px solid var(--line-soft); }
+  .rm-stack .table-wrap tr:first-child { border-top: 0; }
+  .rm-stack .table-wrap td { padding: 0; border: 0; flex: 1 1 100%; }
+  .rm-stack .table-wrap td:first-child { font-weight: 600; color: var(--ink); }
+  .rm-steps td:nth-child(n+4), .rm-waves td:nth-child(n+2), .rm-parts td:nth-child(n+3),
+  .rm-fmriprep td:nth-child(3), .rm-runs td:nth-child(3) { flex: 0 0 auto !important; font-size: 0.86rem; }
+  .rm-steps td:nth-child(n+4)::before, .rm-waves td:nth-child(n+2)::before, .rm-parts td:nth-child(n+3)::before,
+  .rm-fmriprep td:nth-child(3)::before, .rm-runs td:nth-child(3)::before {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); margin-right: 6px; }
+  .rm-steps td:nth-child(4)::before { content: "Stream"; }
+  .rm-steps td:nth-child(5)::before, .rm-fmriprep td:nth-child(3)::before { content: "Wave"; }
+  .rm-waves td:nth-child(2)::before { content: "Pieces of work"; }
+  .rm-waves td:nth-child(3)::before, .rm-parts td:nth-child(3)::before { content: "Replica"; }
+  .rm-waves td:nth-child(4)::before, .rm-parts td:nth-child(4)::before { content: "Clean room"; }
+  .rm-runs td:nth-child(3)::before { content: "Status"; }
+}

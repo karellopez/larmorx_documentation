@@ -23,7 +23,7 @@ From now on a port's part leaves it *experimental*, even where every case of its
 {%- if g.get('planned') %}
 <div class="prog-group prog-group--planned eco-{{ g.id }}" id="{{ g.id }}">
 <div class="prog-head"><h2 class="prog-chip">{{ g.name }}</h2><span class="prog-sum"><span class="prog-count">Planned</span><span class="prog-orig">{{ g.original }}</span></span></div>
-<p class="prog-planned">{{ g.planned | md_inline }} <a href="{{ link('/roadmap/') }}">Roadmap</a></p>
+<p class="prog-planned">{{ g.planned | md_inline }} {% if g.id == 'freesurfer' %}<a href="{{ link('/roadmap/freesurfer/') }}">FreeSurfer's roadmap</a>{% else %}<a href="{{ link('/roadmap/') }}">Roadmap</a>{% endif %}</p>
 </div>
 {%- else %}
 <details class="prog-group eco-{{ g.id }}" id="{{ g.id }}">
