@@ -22,7 +22,7 @@ wide: true
 <dl class="facts">
 <dt>Ports</dt><dd><ul class="ref-ports">
 <li class="port port--replica"><span class="port-name">replica</span> <code>larmorx-nc</code> <span class="port-licence">FSL Licence: non-commercial use only</span>: translated from FSL 6.0.7.23's source (fsl-avwutils 2209.6, with fsl-newimage 2601.0's statistics and nlohmann/json 3.12.0's number formatting); it runs as a separate program</li>
-<li class="port port--clean-room"><span class="port-name">clean room</span> <code>larmorx</code> <span class="port-licence">Apache-2.0</span>: crate <code>larmorx-fsl</code>, written from <a href="{{ repo('specs/fslstats.md') }}">specs/fslstats.md</a>, FSL's usage text and documentation and runs of FSL 6.0.7.23, without FSL's source (2026-11-03)</li>
+<li class="port port--clean-room"><span class="port-name">clean room</span> <code>larmorx</code> <span class="port-licence">Apache-2.0</span>: crate <code>larmorx-fsl</code>, written from <a href="{{ repo('specs/fslstats.md') }}">specs/fslstats.md</a>, FSL's usage text and documentation and runs of FSL 6.0.7.23, without FSL's source (2026-11-03 and 04)</li>
 </ul></dd>
 <dt>Status</dt><dd>replica <span class="status-tag status-tag--experimental">experimental</span>; clean room <span class="status-tag status-tag--experimental">experimental</span></dd>
 <dt>Records</dt><dd>the replica's: <a href="{{ repo('docs/validation/fsl-stats-replica.md') }}">standard comparison</a> (FSL 6.0.7.23) · the clean room's: <a href="{{ repo('docs/validation/fsl-stats.md') }}">standard comparison</a> (FSL 6.0.7.23) · benchmark <a href="{{ repo('docs/benchmarks/fsl-maths.md') }}">fsl-maths</a> (with fslmaths)</dd>
@@ -100,7 +100,7 @@ The clean room is written without FSL's source, so its record holds it to [specs
 
 {{ ev.agreement('fsl-stats', 'original') }}
 
-The clean room's record runs 162 cases against FSL 6.0.7.23 ([the record](repo:docs/validation/fsl-stats.md)): the replica suite's cases but FSL's own tests (they read FSL's source tree, which a clean-room implementer does not open), BET's call among them, 9 of its own (`orig/`) and 4 permanent cases of random testing.
+The clean room's record runs 162 cases against FSL 6.0.7.23 ([the record](repo:docs/validation/fsl-stats.md)): the replica suite's cases but FSL's own tests (they read FSL's source tree, which a clean-room implementer does not open) and the replica's three random-testing cases, BET's call among them, 9 of its own (`orig/`) and 4 permanent cases of random testing.
 
 - **Bit-identical, 125.** They print FSL's numbers, with its messages and exit status. fMRIPrep's four goodvoxels calls are among them.
 - **Open, 1.** BET's `-l 0.001 -C` on fMRIPrep's preprocessed T1w is within the bound: its x is 97.862248 against FSL's 97.862242, 6.1 × 10<sup>−8</sup> relative. The cause is the mapping back to millimetres of a neurological image, whose arithmetic in FSL a black box does not show.
@@ -191,4 +191,4 @@ The cross-platform checks ([how they work](repo:docs/validation/golden.md)) hold
 ## History {#history}
 
 - **2026-11-03**: the replica, translated from FSL 6.0.7.23's source, its record of 208 cases and its random-testing run, 69,077 fslstats calls beside fslmaths'. The clean room, written from [specs/fslstats.md](repo:specs/fslstats.md), FSL's usage text and documentation and runs of FSL, and its random-testing run, 150,000 option lists in 20 minutes beside fslmaths'.
-- **2026-11-04**: the clean room's `reproduce` computes the entropies' logarithms as glibc 2.35 does (GLIBC-07); no printed number of its record moved. The clean room's record, 162 cases, dates from that day.
+- **2026-11-04**: the clean room complete: every option ([the roadmap](/roadmap/)). Its `reproduce` computes the entropies' logarithms as glibc 2.35 does (GLIBC-07); no printed number of its record moved. The clean room's record, 162 cases, dates from that day.

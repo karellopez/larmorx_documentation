@@ -3,7 +3,7 @@
  "tool": "fsl-maths",
  "title": "fslmaths",
  "provenance": {
-  "exporter": "e3edf17528f9d31d524640ab7835c29dce208020",
+  "exporter": "5bf9a137f244adda4451a7156285e2e91f844661",
   "records": [
    {
     "path": "docs/validation/fsl-maths-replica.json",
@@ -25692,7 +25692,7 @@
      ]
     }
    ],
-   "note": "A random-testing run of the replica, fslmaths and fslstats at once, 24 minutes long (seed `fsl-maths-trial`, larmorx `0427fad149ac`): chains of one to four operations drawn for the current image (every family), on six kinds of images (scan-like, series, masks, z and p maps, tensors) on grids of 6 to 32 voxels per axis, with `-dt`, `-odt`, the output's name and FSLOUTPUTTYPE. Every case in a memory box of 1.5 GiB (peaks below 1.05 GiB), FSL through the cache of the original's runs (`use` mode). Its one difference (a convolution by the FFT of a 30 × 1 × 3 image: 1 of 90 voxels one unit in the last place) is GLIBC-07, the twiddle factors FSL takes from glibc's sincos: a permanent case of the record, an expected divergence until 2026-11-04 and FSL's bit for bit since (the replica's `reproduce` takes them from LARMORX's implementation of glibc's sincos, written from a behavioural specification of glibc's code). The notices without a visible change name a correction of an intermediate result that a later operation removes (a threshold, -bin, -restart, a reduction). The check made before the run found three mistakes of the replica's, fixed with permanent cases."
+   "note": "A random-testing run of the replica, fslmaths and fslstats at once, 24 minutes long (seed `fsl-maths-trial`, larmorx `0427fad149ac`): chains of one to four operations drawn for the current image (every family), on six kinds of images (scan-like, series, masks, z and p maps, tensors) on grids of 6 to 32 voxels per axis, with `-dt`, `-odt`, the output's name and FSLOUTPUTTYPE. Every case in a memory box of 1.5 GiB (peaks below 1.05 GiB), FSL through the cache of the original's runs (`use` mode). Its one difference (a convolution by the FFT of a 30 × 1 × 3 image: 1 of 90 voxels one unit in the last place) is GLIBC-07, the twiddle factors FSL takes from glibc's sincos: a permanent case of the record, an expected divergence until 2026-11-04 and FSL's bit for bit since (the replica's `reproduce` takes them from LARMORX's own version of glibc's sincos, written from a behavioural specification of glibc's code). The notices without a visible change name a correction of an intermediate result that a later operation removes (a threshold, -bin, -restart, a reduction). The check made before the run found three mistakes of the replica's, fixed with permanent cases."
   },
   {
    "id": "glibc-double",
@@ -25749,7 +25749,7 @@
        "text": "GLIBC-07"
       },
       {
-       "text": "glibc's bits in `reproduce` (LARMORX's implementation of glibc's sin and cos, since 2026-11-04), correctly rounded by default (GLIBC-07 named)"
+       "text": "glibc's bits in `reproduce` (LARMORX's own version of glibc's sin and cos, since 2026-11-04), correctly rounded by default (GLIBC-07 named)"
       }
      ],
      "verdict": "bit-identical"
@@ -25778,7 +25778,7 @@
        "text": "GLIBC-07"
       },
       {
-       "text": "glibc's bits in `reproduce` (LARMORX's implementation of glibc's sin and cos, since 2026-11-04), correctly rounded by default (GLIBC-07 named)"
+       "text": "glibc's bits in `reproduce` (LARMORX's own version of glibc's sin and cos, since 2026-11-04), correctly rounded by default (GLIBC-07 named)"
       }
      ],
      "verdict": "bit-identical"
@@ -25958,7 +25958,7 @@
      "verdict": "bit-identical"
     }
    ],
-   "note": "fslmaths with `-dt double` and `-odt double` on FSL's mean of ds005040's BOLD series in T1w space, scaled into each function's range; every finite value of the output compared bit for bit with FSL 6.0.7.23's (through the cache of the original's runs: glibc 2.35's functions as FSL's build calls them, the FMA builds this CPU selects). Where glibc's result is not correctly rounded and the replica's is, they differ by one unit in the last place: GLIBC-07, an expected divergence for tan, asin, acos and atan (IBM's code in glibc: no permissive code gives their bits, and they stay correctly rounded in `fix` and in `reproduce`, as decided on 2026-11-04), a correction by default for exp, log, sin and cos, whose glibc bits `reproduce` gives (sin and cos since 2026-11-04, from LARMORX's implementation of glibc's code written from its behavioural specification). Float results (fslmaths' default type) are the same: no float differs after rounding."
+   "note": "fslmaths with `-dt double` and `-odt double` on FSL's mean of ds005040's BOLD series in T1w space, scaled into each function's range; every finite value of the output compared bit for bit with FSL 6.0.7.23's (through the cache of the original's runs: glibc 2.35's functions as FSL's build calls them, the FMA builds this CPU selects). Where glibc's result is not correctly rounded and the replica's is, they differ by one unit in the last place: GLIBC-07, an expected divergence for tan, asin, acos and atan (IBM's code in glibc: no permissive code gives their bits, and they stay correctly rounded in `fix` and in `reproduce`, as decided on 2026-11-04), a correction by default for exp, log, sin and cos, whose glibc bits `reproduce` gives (sin and cos since 2026-11-04, from LARMORX's own version of glibc's code, written from its behavioural specification). Float results (fslmaths' default type) are the same: no float differs after rounding."
   },
   {
    "id": "glibc-double-original",

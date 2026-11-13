@@ -26,7 +26,7 @@ wide: true
 <dl class="facts">
 <dt>Ports</dt><dd><ul class="ref-ports">
 <li class="port port--replica"><span class="port-name">replica</span> <code>larmorx-nc</code> <span class="port-licence">FSL Licence: non-commercial use only</span>: translated from FSL 6.0.7.23's source (fsl-avwutils 2209.6, with fsl-newimage 2601.0's image functions, fsl-miscmaths 2412.6 and fsl-cprob 2111.0); it runs as a separate program</li>
-<li class="port port--clean-room"><span class="port-name">clean room</span> <code>larmorx</code> <span class="port-licence">Apache-2.0</span>: crate <code>larmorx-fsl</code>, written from <a href="{{ repo('specs/fslmaths.md') }}">specs/fslmaths.md</a>, FSL's usage text and documentation and runs of FSL 6.0.7.23, without FSL's source (2026-11-03)</li>
+<li class="port port--clean-room"><span class="port-name">clean room</span> <code>larmorx</code> <span class="port-licence">Apache-2.0</span>: crate <code>larmorx-fsl</code>, written from <a href="{{ repo('specs/fslmaths.md') }}">specs/fslmaths.md</a>, FSL's usage text and documentation and runs of FSL 6.0.7.23, without FSL's source (2026-11-03 and 04)</li>
 </ul></dd>
 <dt>Status</dt><dd>replica <span class="status-tag status-tag--experimental">experimental</span>; clean room <span class="status-tag status-tag--experimental">experimental</span></dd>
 <dt>Records</dt><dd>the replica's: <a href="{{ repo('docs/validation/fsl-maths-replica.md') }}">standard comparison</a> (FSL 6.0.7.23) · the clean room's: <a href="{{ repo('docs/validation/fsl-maths.md') }}">standard comparison</a> (FSL 6.0.7.23) · benchmark <a href="{{ repo('docs/benchmarks/fsl-maths.md') }}">fsl-maths</a></dd>
@@ -111,7 +111,7 @@ The cases cover:
 - the odd headers and sizes, and FSL's own failure cases;
 - the defects LARMORX corrects by default. Each case also runs the replica's default, `fix`, which names every correction where it changes the result ([below](#corrections)).
 
-Since 2026-11-04 the replica's `reproduce` computes glibc's double `sin` and `cos`, and the twiddle factors of fslmaths' FFT, exactly as glibc 2.35 does. It does so with LARMORX's implementation of glibc's `sin`, `cos` and `sincos`, written from a behavioural specification of glibc's code ([specs/glibc-dbl.md](repo:specs/glibc-dbl.md)). Its default stays correctly rounded and names GLIBC-07 wherever a voxelwise value differs. The FFT case of random testing, an expected divergence until then, is FSL's bit for bit since.
+Since 2026-11-04 the replica's `reproduce` computes glibc's double `sin` and `cos`, and the twiddle factors of fslmaths' FFT, exactly as glibc 2.35 does. It does so with LARMORX's own version of glibc's `sin`, `cos` and `sincos`, written from a behavioural specification of glibc's code ([specs/glibc-dbl.md](repo:specs/glibc-dbl.md)). Its default stays correctly rounded and names GLIBC-07 wherever a voxelwise value differs. The FFT case of random testing, an expected divergence until then, is FSL's bit for bit since.
 
 The same day two mistakes of the replica's in the sign of a NaN were fixed, each kept by the record:
 
@@ -129,7 +129,7 @@ It also shows how close the clean room comes: each case's verdict is read from w
 
 {{ ev.agreement('fsl-maths', 'original') }}
 
-The clean room's record runs 454 cases against FSL 6.0.7.23 ([the record](repo:docs/validation/fsl-maths.md), made again on 2026-11-07): the replica suite's cases, 18 of its own (`orig/`, ten of them since 2026-11-04) and 19 permanent cases of random testing. Two of those came on 2026-11-07: a series whose time step is 0 or negative, which FSL's image layer reads as its magnitude, and as 1 for a time step of 0, and which every output keeps. The record counts 386 within its thresholds, 63 rejected by both alike and 5 expected divergences. By what each case measures:
+The clean room's record runs 454 cases against FSL 6.0.7.23 ([the record](repo:docs/validation/fsl-maths.md), made again on 2026-11-07): the replica suite's cases but its five random-testing cases, 18 of its own (`orig/`, ten of them since 2026-11-04) and 19 permanent cases of random testing. Two of those came on 2026-11-07: a series whose time step is 0 or negative, which FSL's image layer reads as its magnitude, and as 1 for a time step of 0, and which every output keeps. The record counts 386 within its thresholds, 63 rejected by both alike and 5 expected divergences. By what each case measures:
 
 - **Bit-identical, 370.** FSL's values in every file, with FSL's headers, messages and exit status. fMRIPrep's four `combine_masks` calls and the goodvoxels mask's fourteen are among them, and so is the `-s 5` at 3 × 3 × 3.3 mm.
 - **Open, 15.** They are within the thresholds without being bit for bit, each with its reason in the case explorer:
@@ -178,7 +178,7 @@ FSL's build takes its mathematical functions from glibc 2.35. Its double-precisi
 The table runs each function on a real image, FSL's mean of ds005040's series, scaled into the function's range. In the replica:
 
 - for `exp` and `log`, `reproduce` gives glibc's own bits, and `fix` corrects them with a notice;
-- glibc's `sin`, `cos`, `tan`, `asin`, `acos` and `atan` are IBM's Accurate Mathematical Library (LGPL, never translated). For `sin` and `cos` the replica's `reproduce` gives glibc's bits since 2026-11-04, with LARMORX's own implementation of glibc's `sin`, `cos` and `sincos`, written from a behavioural specification of glibc's code; its `fix` corrects them with a notice;
+- glibc's `sin`, `cos`, `tan`, `asin`, `acos` and `atan` are IBM's Accurate Mathematical Library (LGPL, never translated). For `sin` and `cos` the replica's `reproduce` gives glibc's bits since 2026-11-04, with LARMORX's own version of glibc's `sin`, `cos` and `sincos`, written from a behavioural specification of glibc's code; its `fix` corrects them with a notice;
 - `tan`, `asin`, `acos` and `atan` stay correctly rounded in `fix` and in `reproduce` (as decided on 2026-11-04), and differ from FSL on those values (*expected divergence*).
 
 glibc chooses the build of each of these functions at run time: an FMA build on every x86-64 CPU since 2013, as on the machine that ran FSL. FSL's own double results therefore depend on the CPU, and "glibc's bits" here are the FMA build's.
@@ -194,7 +194,7 @@ The replica's record has one expected divergence, GLIBC-07: [`fn/double-tan`](#c
 Until 2026-11-04 there was a second, from random testing: [`difftest/fft-twiddles-glibc-sincos`](#case=difftest/fft-twiddles-glibc-sincos), a mean filter of a 30 × 1 × 3 float image that fslmaths convolves by the FFT, 1 of 90 voxels one unit in the last place.
 
 - fslmaths' FFT (Armadillo's Kiss FFT) takes each twiddle factor from glibc's `sincos`, which is not correctly rounded on 0.148 % of the angles: of the transform lengths 1 to 256, 80 hold a factor one unit in the last place from the exact one. The replica computed the factors correctly rounded.
-- Its `reproduce` now takes them from LARMORX's implementation of glibc's `sincos`: Armadillo's 65,792 factors and 197,376 transform values of the lengths 1 to 256 bit for bit, and this case FSL's output bit for bit ([the probe](repo:validation/probes/fsl-avwutils-lib/README.md)).
+- Its `reproduce` now takes them from LARMORX's own version of glibc's `sincos`: Armadillo's 65,792 factors and 197,376 transform values of the lengths 1 to 256 bit for bit, and this case FSL's output bit for bit ([the probe](repo:validation/probes/fsl-avwutils-lib/README.md)).
 - Its default keeps the correctly rounded factors and names nothing: a filter would have to run twice to know.
 
 It is rare. A float result usually rounds it away (the FFT convolution of the real series above is FSL's bit for bit in `fix` and in `reproduce`), and fMRIPrep's calls convolve by separable sums.
@@ -292,5 +292,5 @@ The cross-platform checks ([how they work](repo:docs/validation/golden.md)) hold
 ## History {#history}
 
 - **2026-11-03**: the replica, translated from FSL 6.0.7.23's source, and its random-testing run, 114,906 fslmaths calls in 24 minutes beside fslstats'. The clean room, written from [specs/fslmaths.md](repo:specs/fslmaths.md), FSL's usage text and documentation and runs of FSL, and its random-testing run, 150,000 chains in 20 minutes beside fslstats'.
-- **2026-11-04**: the replica's `reproduce` computes glibc's `sin`, `cos` and the FFT's twiddle factors as glibc 2.35 does; two of its mistakes in the sign of a NaN fixed; its record made again, 422 cases. The clean room's `reproduce` computes glibc's `sin`, `cos`, `exp`, `log`, `pow` and the filters' functions as glibc 2.35 does, with ten cases of its own; on FSL's FFT path it adds its products in double precision.
+- **2026-11-04**: the clean room complete: every operation and option ([the roadmap](/roadmap/)). The replica's `reproduce` computes glibc's `sin`, `cos` and the FFT's twiddle factors as glibc 2.35 does; two of its mistakes in the sign of a NaN fixed; its record made again, 422 cases. The clean room's `reproduce` computes glibc's `sin`, `cos`, `exp`, `log`, `pow` and the filters' functions as glibc 2.35 does, with ten cases of its own; on FSL's FFT path it adds its products in double precision.
 - **2026-11-07**: the clean room's record made again, 454 cases, with two permanent cases of random testing: series whose time step is 0 or negative.
