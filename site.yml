@@ -98,5 +98,7 @@ tools:
       summary: "sdcflows' PEPOLAR, direct and fieldmap-less (SyN) estimation, its masks and BIDS app, niworkflows' helpers and fMRIPrep's own field-map steps: a replica of sdcflows 2.17.1 and niworkflows 1.15.4 in larmorx, the app's every derivative bit for bit on the eight datasets of sdcflows' own runs." }
   - { title: One-shot BOLD resampler, url: "/evidence/resample-series/", eco: fmriprep,
       summary: "fMRIPrep's one-shot resampling (ResampleSeries) with nitransforms' chains and SciPy's interpolation: a replica in larmorx, the original's values bit for bit in 136 of its 137 compared cases (the other undefined in SciPy) and fMRIPrep's own output of a real run with its field map, PIPE-03 corrected by default, 4.1 to 5.2 times faster on one thread." }
+  - { title: Confound estimation, url: "/evidence/confounds/", eco: fmriprep,
+      summary: "fMRIPrep's confounds (CompCor, DVARS, framewise displacement, the motion parameters, the tissue signals, the table and its JSON) with nipype's and niworkflows' steps and numpy's and SciPy's linear algebra: a replica in larmorx (experimental, from the next release), every case of its records bit for bit and fMRIPrep's own confounds files of 36 runs column by column." }
   - { title: NIfTI I/O, url: "/evidence/nifti-io/", eco: larmorx,
       summary: "NIfTI-1 and NIfTI-2 reading and writing: LARMORX's own, compared with nibabel 5.4.2, every value and header field nibabel's in every compared case, the matrices too or within 4.2 × 10⁻¹³ mm of them." }
