@@ -64,11 +64,11 @@ groups:
         command: "larmorx ants ImageMath"
         also: ""
         python: "lx.ants.image_math"
-        does: "Image arithmetic, morphology, filters and the other operations of `ImageMath` that fMRIPrep, sMRIPrep and sdcflows call."
+        does: "`ImageMath` applies one operation to an image (and to a second image or numbers): arithmetic, intensity clipping and scaling, Gaussian filters, binary and grayscale morphology, hole filling, padding, connected components and distance maps."
         original: "ANTs 2.6.5 on ITK 5.4.5"
         api: "docs/api/ants-image-math.md"
         evidence: "/evidence/ants-programs/"
-        reference: ""
+        reference: "/programs/ants/ImageMath/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
       - name: "ThresholdImage"
@@ -76,11 +76,11 @@ groups:
         command: "larmorx ants ThresholdImage"
         also: ""
         python: "lx.ants.threshold_image"
-        does: "Thresholds an image; `lx.ants.otsu_threshold` finds Otsu's thresholds."
+        does: "`ThresholdImage` sets the voxels between two bounds to one value and the others to another, or labels an image's classes by Otsu's thresholds."
         original: "ANTs 2.6.5 on ITK 5.4.5"
         api: "docs/api/ants-threshold-image.md"
         evidence: "/evidence/ants-programs/"
-        reference: ""
+        reference: "/programs/ants/ThresholdImage/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
       - name: "MultiplyImages"
@@ -100,11 +100,11 @@ groups:
         command: "larmorx ants SmoothImage"
         also: ""
         python: "lx.ants.smooth_image"
-        does: "Gaussian smoothing (ITK's recursive Gaussian), or median filtering."
+        does: "`SmoothImage` smooths an image with a Gaussian of a given sigma, in voxels or in millimetres, or filters it with a median over a box of a given radius."
         original: "ANTs 2.6.5 on ITK 5.4.5"
         api: "docs/api/ants-smooth-image.md"
         evidence: "/evidence/ants-programs/"
-        reference: ""
+        reference: "/programs/ants/SmoothImage/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
       - name: "ResampleImage"
@@ -112,11 +112,11 @@ groups:
         command: "larmorx ants ResampleImage"
         also: ""
         python: "lx.ants.resample_image"
-        does: "Resamples an image onto a grid with a new spacing or size, in any of ANTs' eight pixel types, without smoothing."
+        does: "`ResampleImage` resamples an image onto a grid with a new spacing or a new size, keeping its origin and direction, by linear, nearest-neighbour, Gaussian, windowed-sinc or B-spline interpolation, and writes it in one of ANTs' eight pixel types."
         original: "ANTs 2.6.5 on ITK 5.4.5"
         api: "docs/api/ants-resample-image.md"
         evidence: "/evidence/ants-programs/"
-        reference: ""
+        reference: "/programs/ants/ResampleImage/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
       - name: "ResampleImageBySpacing"
@@ -124,11 +124,11 @@ groups:
         command: "larmorx ants ResampleImageBySpacing"
         also: ""
         python: "lx.ants.resample_image_by_spacing"
-        does: "Resamples an image onto a grid with a new spacing, after an optional Gaussian smoothing."
+        does: "`ResampleImageBySpacing` resamples an image onto a grid with a new spacing, keeping its origin and direction, after smoothing it with a Gaussian where the spacing grows, by linear or nearest-neighbour interpolation."
         original: "ANTs 2.6.5 on ITK 5.4.5"
         api: "docs/api/ants-resample-image-by-spacing.md"
         evidence: "/evidence/ants-programs/"
-        reference: ""
+        reference: "/programs/ants/ResampleImageBySpacing/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
       - name: "antsAI"
