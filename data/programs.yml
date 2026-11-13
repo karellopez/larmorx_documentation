@@ -410,11 +410,11 @@ groups:
         command: "larmorx fsl midtrans"
         also: ""
         python: "lx.fsl.midtrans"
-        does: "The transform from a template space to the middle of several transforms."
+        does: "`midtrans` finds the transform from a template space to the \"middle\" of several transforms into that space."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-flirt.md"
         evidence: "/evidence/fsl-flirt/"
-        reference: ""
+        reference: "/programs/fsl/midtrans/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
@@ -423,11 +423,11 @@ groups:
         command: "larmorx fsl pointflirt"
         also: ""
         python: "lx.fsl.pointflirt"
-        does: "The least-squares affine matrix that maps one set of points onto another."
+        does: "`pointflirt` finds the affine matrix that maps one set of points onto another, in the least-squares sense."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-flirt.md"
         evidence: "/evidence/fsl-flirt/"
-        reference: ""
+        reference: "/programs/fsl/pointflirt/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
@@ -436,11 +436,11 @@ groups:
         command: "larmorx fsl applyxfm4D"
         also: ""
         python: "lx.fsl.applyxfm4d"
-        does: "Each volume of a series resampled onto a reference's grid, through one matrix or one per volume."
+        does: "`applyxfm4D` resamples each volume of a series onto a reference's grid, through one matrix or one per volume."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-flirt.md"
         evidence: "/evidence/fsl-flirt/"
-        reference: ""
+        reference: "/programs/fsl/applyxfm4D/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
@@ -449,11 +449,11 @@ groups:
         command: "larmorx fsl pairreg"
         also: ""
         python: "lx.fsl.pairreg"
-        does: "A script: brain-to-brain registration refined with the skulls, in three FLIRT runs."
+        does: "`pairreg` is a script that registers one brain to another and refines the result with the two heads' skulls."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-flirt.md"
         evidence: "/evidence/fsl-flirt/"
-        reference: ""
+        reference: "/programs/fsl/pairreg/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
@@ -462,11 +462,11 @@ groups:
         command: "larmorx fsl extracttxt"
         also: ""
         python: "lx.fsl.extracttxt"
-        does: "A script: the lines of a text file from the first match of a word."
+        does: "`extracttxt` is a script that prints the lines of a text file from the first line that matches a word."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-flirt.md"
         evidence: "/evidence/fsl-flirt/"
-        reference: ""
+        reference: "/programs/fsl/extracttxt/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
@@ -475,11 +475,11 @@ groups:
         command: "larmorx fsl aff2rigid"
         also: ""
         python: "lx.fsl.aff2rigid"
-        does: "A script: the 6-parameter matrix that keeps the anterior commissure, the AC-PC line and the mid-sagittal plane of an input-to-standard matrix."
+        does: "`aff2rigid` is a script that turns FLIRT's 12-parameter matrix from an image to standard space into a 6-parameter (rigid) one."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-flirt.md"
         evidence: "/evidence/fsl-flirt/"
-        reference: ""
+        reference: "/programs/fsl/aff2rigid/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}

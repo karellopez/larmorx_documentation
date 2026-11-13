@@ -20,7 +20,7 @@ reference:
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
     crates/larmorx-core/src/defects.rs: "34429cb924a382b4"
     crates/larmorx-fsl/src/cli/rmsdiff.rs: "29e761efbef30f51"
-    docs/api/fsl-flirt.md: "7d546a158684c299"
+    docs/api/fsl-flirt.md: "21d456bedacfd6a2"
     python/larmorx/fsl/flirt_tools.py: "3a8443985d099472"
     validation/tools.toml: "f0750687390307f1"
 ---
@@ -150,8 +150,7 @@ How each of `rmsdiff`'s ports was measured against FSL, case by case: [its evide
 
 The API page [docs/api/fsl-flirt.md](repo:docs/api/fsl-flirt.md) holds what `rmsdiff` shares with the page's other programs:
 
-- [FLIRT's other programs and scripts (part 3)](repo:docs/api/fsl-flirt.md#flirts-other-programs-and-scripts-part-3)
-- [The clean-room original (part 1, 2026-11-02)](repo:docs/api/fsl-flirt.md#the-clean-room-original-part-1-2026-11-02)
+- [The clean room (part 1, 2026-11-02)](repo:docs/api/fsl-flirt.md#the-clean-room-part-1-2026-11-02)
 - [Upstream defects (D13)](repo:docs/api/fsl-flirt.md#upstream-defects-d13)
 - [Not yet](repo:docs/api/fsl-flirt.md#not-yet)
 - [History](repo:docs/api/fsl-flirt.md#history)

@@ -22,7 +22,7 @@ reference:
     crates/larmorx-core/src/defects.rs: "34429cb924a382b4"
     crates/larmorx-fsl/src/cli/flirt.rs: "30a6569fa6aec523"
     crates/larmorx-fsl/src/flirt/mod.rs: "97b905a9b8cc9c3a"
-    docs/api/fsl-flirt.md: "7d546a158684c299"
+    docs/api/fsl-flirt.md: "21d456bedacfd6a2"
     python/larmorx/fsl/flirt.py: "31c67a2bf18f6789"
     validation/tools.toml: "f0750687390307f1"
 ---
@@ -33,6 +33,11 @@ It finds a transform of 6, 7, 9 or 12 degrees of freedom, or
 applies a given matrix (`-applyxfm`, `-applyisoxfm`), and writes the 4 × 4 matrix from the
 input's FSL millimetres to the reference's (`-omat`) and, on request, the input resampled onto the
 reference's grid (`-out`).
+
+Its schedules may use `alignpaxes` (the rotation between the two images' principal axes, with the
+centres of gravity aligned) and `setoption paramsubset` with any finite mask (its pseudo-inverse
+by the SVD, as FSL's); `-debug` writes FLIRT's debug volumes (the pyramid, the weights and, with
+`-cost bbr`, BBR's `debug` volume).
 
 ## Command line {#command-line}
 
@@ -311,8 +316,7 @@ How each of `flirt`'s ports was measured against FSL, case by case: [its evidenc
 
 The API page [docs/api/fsl-flirt.md](repo:docs/api/fsl-flirt.md) holds what `flirt` shares with the page's other programs:
 
-- [FLIRT's other programs and scripts (part 3)](repo:docs/api/fsl-flirt.md#flirts-other-programs-and-scripts-part-3)
-- [The clean-room original (part 1, 2026-11-02)](repo:docs/api/fsl-flirt.md#the-clean-room-original-part-1-2026-11-02)
+- [The clean room (part 1, 2026-11-02)](repo:docs/api/fsl-flirt.md#the-clean-room-part-1-2026-11-02)
 - [Upstream defects (D13)](repo:docs/api/fsl-flirt.md#upstream-defects-d13)
 - [Not yet](repo:docs/api/fsl-flirt.md#not-yet)
 - [History](repo:docs/api/fsl-flirt.md#history)
