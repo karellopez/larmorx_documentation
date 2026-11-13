@@ -179,6 +179,6 @@ The clean room's random-testing run after the catch-up (2026-11-05, after its ch
 - **2026-10-29**: both ports follow FSL 6.0.7.23 (FSL-59 to FSL-63 registered); the replica follows FSL's matrix library bit for bit; the clean room's `-cost mutualinfo` and `normmi` computed exactly.
 - **2026-10-30**: the clean room handles FSL-20, FSL-21, FSL-65 and FSL-66 as its specification says; the replica's standard comparison gains the 33 failure cases of specs/mcflirt.md §14.1.
 - **2026-11-04**: the clean room's `reproduce` computes `logf` as glibc 2.35 does.
-- **2026-11-05**: the clean-room catch-up: the centres of mass as mcflirt's blocked sums, 145 of 146 compared cases within the thresholds then; its random-testing run of 30 minutes.
+- **2026-11-05**: the clean-room catch-up: the centres of mass as mcflirt's blocked sums, 145 of its 149 compared cases within the thresholds then, 3 expected divergences and one case, `real/ds003345/default`, just beyond its band; its random-testing run of 30 minutes.
 - **2026-11-07**: the weighted correlation's count per point and FLIRT's `leastsquares`: no case misses its threshold since.
 - **2026-11-11**: the clean room's record made again: `syn/motion/small/no-fsloutputtype` is rejected by both (it was an expected divergence), every other case as before.

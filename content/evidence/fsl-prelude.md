@@ -254,5 +254,5 @@ The cross-platform checks ([how they work](repo:docs/validation/golden.md)) hold
 ## History {#history}
 
 - **2026-11-06**: the replica, translated from FSL 6.0.7.23's source, with every option, message and failure case; twelve defects of FSL found (FSL-261 to FSL-272), eleven of them corrected by default or refused. Its random-testing run, 50,711 calls in 30 minutes.
-- **2026-11-07**: the clean room, written from [specs/prelude.md](repo:specs/prelude.md), Jenkinson's paper, FSL's usage text and runs of FSL, and its random-testing run, 23,780 calls in 30 minutes; the permanent case `difftest/time-step-zero-series` from its triage.
+- **2026-11-06 and 07**: the clean room, written from [specs/prelude.md](repo:specs/prelude.md), Jenkinson's paper, FSL's usage text and runs of FSL; its first record and its random-testing run (2026-11-06), 23,780 calls in 30 minutes; the permanent case `difftest/time-step-zero-series` from its triage.
 - **2026-11-11**: the clean room's record made again: every case as before but `orig-types/unset` (14 of 14 checks, FSL-11 now named), and the files of its own cases in `fix` 252 of 252 the replica's bit for bit (248 of 248 before).
