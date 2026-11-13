@@ -1102,7 +1102,7 @@ class Evidence:
     #: difftest.json and the triage keep the harness's names). "DN" marks the checks of the
     #: defects' notices; the harness calls the clean room "original".
     DIFFTEST_CHECKS = {
-        "DN defaults: replica = original": "the defaults: the replica's equals the clean room's",
+        "DN defaults: replica = original": "the replica's default equal to the clean room's",
         "DN fix pass": "the `fix` pass",
         "DN notices in both modes": "the notices in `fix` and in `reproduce`",
         "larmorx panicked": "LARMORX stopped with an internal error",
