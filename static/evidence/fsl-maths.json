@@ -3,7 +3,7 @@
  "tool": "fsl-maths",
  "title": "fslmaths",
  "provenance": {
-  "exporter": "95ea33f1a8805ade0724fcab38a6cd67ae0e7227",
+  "exporter": "e3edf17528f9d31d524640ab7835c29dce208020",
   "records": [
    {
     "path": "docs/validation/fsl-maths-replica.json",
@@ -26278,7 +26278,7 @@
      "verdict": "bit-identical"
     }
    ],
-   "note": "The same calls by LARMORX's clean room (14 threads, and at one). Since 2026-11-04 `reproduce` gives glibc 2.35's bits for sin, cos, exp, log and pow (larmorx_core::math: exp, log and pow from Arm's Optimized Routines as glibc ships them, MIT; sin and cos written from a behavioural specification of glibc's code, specs/glibc-dbl.md, and checked against the system's glibc on 11.8 billion arguments each), as specs/fslmaths.md §19 asks; tan, asin, acos and atan stay correctly rounded in `fix` and in `reproduce` (as decided on 2026-11-04). Its default computes every one correctly rounded (CORE-MATH's, the replica's default's bits) and names GLIBC-07 exactly where a value differs from glibc's. Its record holds the double functions to one unit in the last place per function of the chain (§21); every value that differs here is one unit away (GLIBC-07, an expected divergence). Float results are FSL's."
+   "note": "The same calls by LARMORX's clean room (14 threads, and at one). Since 2026-11-04 its `reproduce` gives glibc 2.35's bits for sin, cos, exp, log and pow (larmorx_core::math: exp, log and pow from Arm's Optimized Routines as glibc ships them, MIT; sin and cos written from a behavioural specification of glibc's code, specs/glibc-dbl.md, and checked against the system's glibc on 11.8 billion arguments each), as specs/fslmaths.md §19 asks; tan, asin, acos and atan stay correctly rounded in `fix` and in `reproduce` (as decided on 2026-11-04). Its default computes every one correctly rounded (CORE-MATH's, the replica's default's bits) and names GLIBC-07 exactly where a value differs from glibc's. Its record holds the double functions to one unit in the last place per function of the chain (§21); every value that differs here is one unit away (GLIBC-07, an expected divergence). Float results are FSL's."
   },
   {
    "id": "trial-original",
