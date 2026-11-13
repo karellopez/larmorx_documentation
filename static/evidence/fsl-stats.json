@@ -3,7 +3,7 @@
  "tool": "fsl-stats",
  "title": "fslstats",
  "provenance": {
-  "exporter": "0335ec600562917209e4771eff1c8f5404626469",
+  "exporter": "95ea33f1a8805ade0724fcab38a6cd67ae0e7227",
   "records": [
    {
     "path": "docs/validation/fsl-stats-replica.json",
@@ -13522,7 +13522,7 @@
    "id": "orig/P-makes-masks",
    "category": "orig",
    "description": "-P makes the masks from the thresholds and multiplies the image by them (+inf becomes NaN for the later -D)",
-   "command": "fslstats <rampinf: a synthetic input of the original's suite> -P 50 -D",
+   "command": "fslstats <rampinf: a synthetic input of the clean room's suite> -P 50 -D",
    "results": {
     "original": {
      "outcome": "pass",
@@ -13536,7 +13536,7 @@
    "id": "orig/w-makes-masks",
    "category": "orig",
    "description": "-w makes the masks likewise",
-   "command": "fslstats <rampinf: a synthetic input of the original's suite> -w -D",
+   "command": "fslstats <rampinf: a synthetic input of the clean room's suite> -w -D",
    "results": {
     "original": {
      "outcome": "pass",
@@ -13550,7 +13550,7 @@
    "id": "orig/e-makes-masks",
    "category": "orig",
    "description": "-e makes the masks likewise",
-   "command": "fslstats <rampinf: a synthetic input of the original's suite> -e -D",
+   "command": "fslstats <rampinf: a synthetic input of the clean room's suite> -e -D",
    "results": {
     "original": {
      "outcome": "pass",

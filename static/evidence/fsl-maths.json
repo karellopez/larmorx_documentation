@@ -3,7 +3,7 @@
  "tool": "fsl-maths",
  "title": "fslmaths",
  "provenance": {
-  "exporter": "0335ec600562917209e4771eff1c8f5404626469",
+  "exporter": "95ea33f1a8805ade0724fcab38a6cd67ae0e7227",
   "records": [
    {
     "path": "docs/validation/fsl-maths-replica.json",
@@ -24909,7 +24909,7 @@
    "id": "orig/fft-asym",
    "category": "orig",
    "description": "FSL-192: -kernel file (asymmetric, 13 x 11 x 9) -fmeanu of a 16 x 13 x 11 image (FSL's FFT path: a true convolution, the kernel mirrored; the default keeps the direct sum's orientation)",
-   "command": "fslmaths <ramp16: a synthetic input of the original's suite> -kernel file <asym: a synthetic input of the original's suite> -fmeanu out",
+   "command": "fslmaths <ramp16: a synthetic input of the clean room's suite> -kernel file <asym: a synthetic input of the clean room's suite> -fmeanu out",
    "results": {
     "original": {
      "outcome": "expected-divergence",
@@ -24923,7 +24923,7 @@
    "id": "orig/direct-asym",
    "category": "orig",
    "description": "the same kernel -fmeanu of a 25 x 25 x 25 image (FSL's direct sum: a correlation, the kernel as stored; FSL-192's reference orientation)",
-   "command": "fslmaths <ramp25: a synthetic input of the original's suite> -kernel file <asym: a synthetic input of the original's suite> -fmeanu out",
+   "command": "fslmaths <ramp25: a synthetic input of the clean room's suite> -kernel file <asym: a synthetic input of the clean room's suite> -fmeanu out",
    "results": {
     "original": {
      "outcome": "pass",
@@ -24937,7 +24937,7 @@
    "id": "orig/fft-nan-local",
    "category": "orig",
    "description": "FSL-191: -kernel boxv 11 -fmeanu (FSL's FFT path) of an image with one NaN voxel beyond the kernel's reach of most voxels",
-   "command": "fslmaths <rampnan: a synthetic input of the original's suite> -kernel boxv 11 -fmeanu out",
+   "command": "fslmaths <rampnan: a synthetic input of the clean room's suite> -kernel boxv 11 -fmeanu out",
    "results": {
     "original": {
      "outcome": "pass",
@@ -24951,7 +24951,7 @@
    "id": "orig/roc-ramp",
    "category": "orig",
    "description": "-roc -2 without a noise image: the rate never reaches 2 and the last true-positive rate is below 1 (the image's minimum is a true voxel: the area's last rectangle)",
-   "command": "fslmaths <rocramp: a synthetic input of the original's suite> -roc -2 roc.txt <roctruthx: a synthetic input of the original's suite> out",
+   "command": "fslmaths <rocramp: a synthetic input of the clean room's suite> -roc -2 roc.txt <roctruthx: a synthetic input of the clean room's suite> out",
    "results": {
     "original": {
      "outcome": "pass",
@@ -24965,7 +24965,7 @@
    "id": "orig/roc-ramp-noise",
    "category": "orig",
    "description": "-roc 2 with the same image as its noise: the FWE rate never reaches 2, the last true-positive rate below 1",
-   "command": "fslmaths <rocramp: a synthetic input of the original's suite> -roc 2 roc.txt <rocramp: a synthetic input of the original's suite> <roctruthx: a synthetic input of the original's suite> out",
+   "command": "fslmaths <rocramp: a synthetic input of the clean room's suite> -roc 2 roc.txt <rocramp: a synthetic input of the clean room's suite> <roctruthx: a synthetic input of the clean room's suite> out",
    "results": {
     "original": {
      "outcome": "pass",
@@ -24979,7 +24979,7 @@
    "id": "orig/roc-below-zero",
    "category": "orig",
    "description": "-roc -0.5 with truth voxels of -0.0005 (inside the mask, below 0: false-positive candidates)",
-   "command": "fslmaths <rocramp: a synthetic input of the original's suite> -roc -0.5 roc.txt <roctruthneg5: a synthetic input of the original's suite> out",
+   "command": "fslmaths <rocramp: a synthetic input of the clean room's suite> -roc -0.5 roc.txt <roctruthneg5: a synthetic input of the clean room's suite> out",
    "results": {
     "original": {
      "outcome": "pass",
@@ -25007,7 +25007,7 @@
    "id": "orig/glibc-double-sin",
    "category": "orig",
    "description": "-sin of a 32³ double image in double (-dt double -odt double): glibc's sin where it is not correctly rounded (GLIBC-07)",
-   "command": "fslmaths -dt double <dbl32: a synthetic input of the original's suite> -sin out -odt double",
+   "command": "fslmaths -dt double <dbl32: a synthetic input of the clean room's suite> -sin out -odt double",
    "results": {
     "original": {
      "outcome": "pass",
@@ -25021,7 +25021,7 @@
    "id": "orig/glibc-double-cos",
    "category": "orig",
    "description": "-cos of a 32³ double image in double (-dt double -odt double): glibc's cos where it is not correctly rounded (GLIBC-07)",
-   "command": "fslmaths -dt double <dbl32: a synthetic input of the original's suite> -cos out -odt double",
+   "command": "fslmaths -dt double <dbl32: a synthetic input of the clean room's suite> -cos out -odt double",
    "results": {
     "original": {
      "outcome": "pass",
@@ -25035,7 +25035,7 @@
    "id": "orig/glibc-double-exp",
    "category": "orig",
    "description": "-exp of a 32³ double image in double (-dt double -odt double): glibc's exp where it is not correctly rounded (GLIBC-07)",
-   "command": "fslmaths -dt double <dbl32: a synthetic input of the original's suite> -exp out -odt double",
+   "command": "fslmaths -dt double <dbl32: a synthetic input of the clean room's suite> -exp out -odt double",
    "results": {
     "original": {
      "outcome": "pass",
@@ -25049,7 +25049,7 @@
    "id": "orig/glibc-double-log",
    "category": "orig",
    "description": "-log of a 32³ double image in double (-dt double -odt double): glibc's log where it is not correctly rounded (GLIBC-07)",
-   "command": "fslmaths -dt double <dblpos32: a synthetic input of the original's suite> -log out -odt double",
+   "command": "fslmaths -dt double <dblpos32: a synthetic input of the clean room's suite> -log out -odt double",
    "results": {
     "original": {
      "outcome": "pass",
@@ -25063,7 +25063,7 @@
    "id": "orig/glibc-double-pow",
    "category": "orig",
    "description": "-pow 1.7 of a 32³ double image in double (-dt double -odt double): glibc's pow where it is not correctly rounded (GLIBC-07)",
-   "command": "fslmaths -dt double <dblpos32: a synthetic input of the original's suite> -pow 1.7 out -odt double",
+   "command": "fslmaths -dt double <dblpos32: a synthetic input of the clean room's suite> -pow 1.7 out -odt double",
    "results": {
     "original": {
      "outcome": "pass",
@@ -25077,7 +25077,7 @@
    "id": "orig/edge-double",
    "category": "orig",
    "description": "-edge of a 32³ double image in double (-dt double -odt double): FSL's squares are exact products (§10.4's pow(x, 2), as FSL is compiled: no glibc pow) and its terms are added from z to x (observed)",
-   "command": "fslmaths -dt double <dbl32: a synthetic input of the original's suite> -edge out -odt double",
+   "command": "fslmaths -dt double <dbl32: a synthetic input of the clean room's suite> -edge out -odt double",
    "results": {
     "original": {
      "outcome": "pass",
@@ -25091,7 +25091,7 @@
    "id": "orig/glibc-s",
    "category": "orig",
    "description": "-s 3.95 of a 24³ float image: a Gaussian tap whose expf differs between glibc's and the correctly rounded one (GLIBC-07; the default names nothing)",
-   "command": "fslmaths <flt24: a synthetic input of the original's suite> -s 3.95 out",
+   "command": "fslmaths <flt24: a synthetic input of the clean room's suite> -s 3.95 out",
    "results": {
     "original": {
      "outcome": "pass",
@@ -25105,7 +25105,7 @@
    "id": "orig/glibc-kernel-gauss",
    "category": "orig",
    "description": "-kernel gauss 4.8 -fmean: the same for -kernel gauss (another tap)",
-   "command": "fslmaths <flt24: a synthetic input of the original's suite> -kernel gauss 4.8 -fmean out",
+   "command": "fslmaths <flt24: a synthetic input of the clean room's suite> -kernel gauss 4.8 -fmean out",
    "results": {
     "original": {
      "outcome": "pass",
@@ -25119,7 +25119,7 @@
    "id": "orig/glibc-bptf",
    "category": "orig",
    "description": "-bptf 1.73 -1 of a double 4D image (-dt double -odt double): a high-pass weight exp(-1/(2·1.73²)) whose glibc exp differs (GLIBC-07; the default names nothing)",
-   "command": "fslmaths -dt double <dbl4d: a synthetic input of the original's suite> -bptf 1.73 -1 out -odt double",
+   "command": "fslmaths -dt double <dbl4d: a synthetic input of the clean room's suite> -bptf 1.73 -1 out -odt double",
    "results": {
     "original": {
      "outcome": "pass",
@@ -25133,7 +25133,7 @@
    "id": "orig/glibc-tfce",
    "category": "orig",
    "description": "-tfce_delta 0.01 -tfce 1.7 0.5 6: about 1,170 thresholds, among them powers (powf(h, 1.7), pow(s, 0.5)) where glibc's differ (GLIBC-07; the default names nothing)",
-   "command": "fslmaths <tstat: a synthetic input of the original's suite> -tfce_delta 0.01 -tfce 1.7 0.5 6 out",
+   "command": "fslmaths <tstat: a synthetic input of the clean room's suite> -tfce_delta 0.01 -tfce 1.7 0.5 6 out",
    "results": {
     "original": {
      "outcome": "pass",
@@ -25749,7 +25749,7 @@
        "text": "GLIBC-07"
       },
       {
-       "text": "glibc's bits with reproduce (LARMORX's implementation of glibc's sin and cos, since 2026-11-04), correctly rounded by default (GLIBC-07 named)"
+       "text": "glibc's bits in `reproduce` (LARMORX's implementation of glibc's sin and cos, since 2026-11-04), correctly rounded by default (GLIBC-07 named)"
       }
      ],
      "verdict": "bit-identical"
@@ -25778,7 +25778,7 @@
        "text": "GLIBC-07"
       },
       {
-       "text": "glibc's bits with reproduce (LARMORX's implementation of glibc's sin and cos, since 2026-11-04), correctly rounded by default (GLIBC-07 named)"
+       "text": "glibc's bits in `reproduce` (LARMORX's implementation of glibc's sin and cos, since 2026-11-04), correctly rounded by default (GLIBC-07 named)"
       }
      ],
      "verdict": "bit-identical"
@@ -25923,7 +25923,7 @@
        "text": "GLIBC-07"
       },
       {
-       "text": "glibc's bits with reproduce, correctly rounded by default (GLIBC-07 named)"
+       "text": "glibc's bits in `reproduce`, correctly rounded by default (GLIBC-07 named)"
       }
      ],
      "verdict": "bit-identical"
@@ -25952,7 +25952,7 @@
        "text": "GLIBC-07"
       },
       {
-       "text": "glibc's bits with reproduce, correctly rounded by default (GLIBC-07 named)"
+       "text": "glibc's bits in `reproduce`, correctly rounded by default (GLIBC-07 named)"
       }
      ],
      "verdict": "bit-identical"
@@ -26006,7 +26006,7 @@
        "fmt": "count"
       },
       {
-       "text": "glibc's bits with reproduce, correctly rounded by default (GLIBC-07 named)"
+       "text": "glibc's bits in `reproduce`, correctly rounded by default (GLIBC-07 named)"
       },
       {
        "v": 0,
@@ -26041,7 +26041,7 @@
        "fmt": "count"
       },
       {
-       "text": "glibc's bits with reproduce, correctly rounded by default (GLIBC-07 named)"
+       "text": "glibc's bits in `reproduce`, correctly rounded by default (GLIBC-07 named)"
       },
       {
        "v": 0,
@@ -26216,7 +26216,7 @@
        "fmt": "count"
       },
       {
-       "text": "glibc's bits with reproduce, correctly rounded by default (GLIBC-07 named)"
+       "text": "glibc's bits in `reproduce`, correctly rounded by default (GLIBC-07 named)"
       },
       {
        "v": 0,
@@ -26251,7 +26251,7 @@
        "fmt": "count"
       },
       {
-       "text": "glibc's bits with reproduce, correctly rounded by default (GLIBC-07 named)"
+       "text": "glibc's bits in `reproduce`, correctly rounded by default (GLIBC-07 named)"
       },
       {
        "v": 0,
@@ -32674,14 +32674,14 @@
       }
      },
      "overlay": {
-      "ero": {
+      "thrp": {
        "on": "mean",
        "window": [
         -2624.327392578125,
         107605.5703125
        ]
       },
-      "thrp": {
+      "ero": {
        "on": "mean",
        "window": [
         -2624.327392578125,
@@ -32821,14 +32821,14 @@
       }
      },
      "overlay": {
-      "ero": {
+      "thrp": {
        "on": "mean",
        "window": [
         -2624.327392578125,
         107605.5703125
        ]
       },
-      "thrp": {
+      "ero": {
        "on": "mean",
        "window": [
         -2624.327392578125,
@@ -32968,14 +32968,14 @@
       }
      },
      "overlay": {
-      "ero": {
+      "thrp": {
        "on": "mean",
        "window": [
         -2624.327392578125,
         107605.5703125
        ]
       },
-      "thrp": {
+      "ero": {
        "on": "mean",
        "window": [
         -2624.327392578125,
@@ -33118,14 +33118,14 @@
       }
      },
      "overlay": {
-      "ero": {
+      "thrp": {
        "on": "mean",
        "window": [
         -2624.327392578125,
         107605.5703125
        ]
       },
-      "thrp": {
+      "ero": {
        "on": "mean",
        "window": [
         -2624.327392578125,
@@ -33265,14 +33265,14 @@
       }
      },
      "overlay": {
-      "ero": {
+      "thrp": {
        "on": "mean",
        "window": [
         -2624.327392578125,
         107605.5703125
        ]
       },
-      "thrp": {
+      "ero": {
        "on": "mean",
        "window": [
         -2624.327392578125,
@@ -33412,14 +33412,14 @@
       }
      },
      "overlay": {
-      "ero": {
+      "thrp": {
        "on": "mean",
        "window": [
         -2624.327392578125,
         107605.5703125
        ]
       },
-      "thrp": {
+      "ero": {
        "on": "mean",
        "window": [
         -2624.327392578125,
