@@ -3,7 +3,7 @@
  "tool": "fsl-flirt",
  "title": "FLIRT",
  "provenance": {
-  "exporter": "978ddda34db453bf2f33b75d93e5dc400a4a7ed2",
+  "exporter": "730690ebd95ea91b50e984da3820e75cb4ff7028",
   "records": [
    {
     "path": "docs/validation/fsl-flirt-replica.json",
@@ -8969,7 +8969,7 @@
     },
     {
      "label": "Clean room",
-     "text": "the clean room's matrix 0.0113 mm from FSL's at the 95th percentile of the brain (at most 0.0136 mm); FSL's own on a perturbed input 0.00855 mm (at most 0.00997 mm); its runs at 1 thread and in `fix`, its default, differ (the comparisons below)"
+     "text": "the clean room's matrix 0.0113 mm from FSL's at the 95th percentile of the brain (at most 0.0136 mm); FSL's own on a perturbed input 0.00855 mm (at most 0.00997 mm); at 1 thread the same values as at 4; in `fix`, its default, another matrix (the comparisons below)"
     },
     {
      "label": "Grid",
@@ -10117,13 +10117,13 @@
      "note": "For every one of the 2,446,665 voxels of the reference's brain mask (its voxels above zero), the distance in millimetres between the two points of the input the matrices map onto it, computed in float64 from the matrices as the files hold them; the last column is FSL's own measure (rmsdiff's: the RMS deviation over a sphere of radius 80 mm about the origin)."
     }
    ],
-   "metrics_note": "Δ is A − B, computed in float64 over all 15,842,304 voxels of the outputs, not only those shown. The record's threshold: every file FSL writes bit-identical (images decompressed, `descrip` left out), with FSL's exit status and messages.",
+   "metrics_note": "Δ is A − B, computed in float64 over all 15,842,304 voxels of the outputs, not only those shown. The records' thresholds: every file FSL writes bit-identical (images decompressed, `descrip` left out), with FSL's exit status and messages (the replica); FSL's exit status and messages, the numbers in them read as numbers, the matrix FSL's text or within 0.1 mm of it at the 95th percentile of the reference's brain (0.5 mm for registrations other than the boundary-based and 6-dof ones), and the image from its own matrix with a correlation of at least 0.999 with FSL's inside the reference's mask, bit-identical from the same matrix (the clean room, specs/flirt.md §13).",
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: -in (sha256 db30ecbef0f5769a…); -ref (sha256 ade613b412e42a59…); -wmseg (sha256 5731cb930d625adb…); -init (sha256 a0b1a1fbd5ee6f32…)",
     "Runs: figures cache entry `fsl-flirt/fmriprep-ds005040-sub-002-noreconall`, computed 2026-11-01T16:10:32+00:00 with larmorx `301fab7dfc56`; FSL 6.0.7.23 (fsl-flirt 2111.4; ~/fsl-6.0.7.23, never on the PATH, OpenBLAS on its Haswell kernels); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Inputs: -in (sha256 db30ecbef0f5769a…); -ref (sha256 ade613b412e42a59…); -wmseg (sha256 5731cb930d625adb…); -init (sha256 a0b1a1fbd5ee6f32…)",
-    "Runs: figures cache entry `fsl-flirt/fmriprep-ds005040-sub-002-noreconall-original`, computed 2026-11-02T21:04:08+00:00 with larmorx `80cc208fa4a3`; FSL 6.0.7.23 (fsl-flirt 2111.4; ~/fsl-6.0.7.23, never on the PATH, OpenBLAS on its Haswell kernels); “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original, Apache-2.0, written from specs/flirt.md)”, as the cache entry records it; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-flirt/fmriprep-ds005040-sub-002-noreconall-original`, computed 2026-11-02T21:04:08+00:00; 3 of its 4 runs made again since, last on 2026-11-07T02:05:04+00:00, with larmorx `80cc208fa4a3`; FSL 6.0.7.23 (fsl-flirt 2111.4; ~/fsl-6.0.7.23, never on the PATH, OpenBLAS on its Haswell kernels); “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original, Apache-2.0, written from specs/flirt.md)”, as the cache entry records it; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "order": {
     "panels": [
@@ -11186,13 +11186,13 @@
      "note": "For every one of the 305,805 voxels of the reference's brain mask (its voxels above zero), the distance in millimetres between the two points of the input the matrices map onto it, computed in float64 from the matrices as the files hold them; the last column is FSL's own measure (rmsdiff's: the RMS deviation over a sphere of radius 80 mm about the origin)."
     }
    ],
-   "metrics_note": "Δ is A − B, computed in float64 over all 1,990,656 voxels of the outputs, not only those shown. The record's threshold: every file FSL writes bit-identical (images decompressed, `descrip` left out), with FSL's exit status and messages.",
+   "metrics_note": "Δ is A − B, computed in float64 over all 1,990,656 voxels of the outputs, not only those shown. The records' thresholds: every file FSL writes bit-identical (images decompressed, `descrip` left out), with FSL's exit status and messages (the replica); FSL's exit status and messages, the numbers in them read as numbers, the matrix FSL's text or within 0.1 mm of it at the 95th percentile of the reference's brain (0.5 mm for registrations other than the boundary-based and 6-dof ones), and the image from its own matrix with a correlation of at least 0.999 with FSL's inside the reference's mask, bit-identical from the same matrix (the clean room, specs/flirt.md §13).",
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: epi.nii (sha256 fefefce4f108f492…); t1.nii (sha256 5a3725fbb21ceccc…)",
     "Runs: figures cache entry `fsl-flirt/real-default`, computed 2026-11-01T16:13:50+00:00 with larmorx `301fab7dfc56`; FSL 6.0.7.23 (fsl-flirt 2111.4; ~/fsl-6.0.7.23, never on the PATH, OpenBLAS on its Haswell kernels); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Inputs: epi.nii (sha256 fefefce4f108f492…); t1.nii (sha256 5a3725fbb21ceccc…)",
-    "Runs: figures cache entry `fsl-flirt/real-default-original`, computed 2026-11-02T21:06:24+00:00 with larmorx `80cc208fa4a3`; FSL 6.0.7.23 (fsl-flirt 2111.4; ~/fsl-6.0.7.23, never on the PATH, OpenBLAS on its Haswell kernels); “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original, Apache-2.0, written from specs/flirt.md)”, as the cache entry records it; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-flirt/real-default-original`, computed 2026-11-02T21:06:24+00:00; 3 of its 4 runs made again since, last on 2026-11-07T02:06:24+00:00, with larmorx `80cc208fa4a3`; FSL 6.0.7.23 (fsl-flirt 2111.4; ~/fsl-6.0.7.23, never on the PATH, OpenBLAS on its Haswell kernels); “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original, Apache-2.0, written from specs/flirt.md)”, as the cache entry records it; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "order": {
     "panels": [
@@ -11963,13 +11963,13 @@
    },
    "chain": null,
    "tables": [],
-   "metrics_note": "Δ is A − B, computed in float64 over all 7,962,624 voxels of the outputs, not only those shown. The record's threshold: every file FSL writes bit-identical (images decompressed, `descrip` left out), with FSL's exit status and messages.",
+   "metrics_note": "Δ is A − B, computed in float64 over all 7,962,624 voxels of the outputs, not only those shown. The records' thresholds: every file FSL writes bit-identical (images decompressed, `descrip` left out), with FSL's exit status and messages (the replica); FSL's exit status and messages, the numbers in them read as numbers, the matrix FSL's text or within 0.1 mm of it at the 95th percentile of the reference's brain (0.5 mm for registrations other than the boundary-based and 6-dof ones), and the image from its own matrix with a correlation of at least 0.999 with FSL's inside the reference's mask, bit-identical from the same matrix (the clean room, specs/flirt.md §13).",
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: bold4.nii (sha256 92acf4858e24217c…); t1.nii (sha256 5a3725fbb21ceccc…); init.mat (sha256 a0b1a1fbd5ee6f32…)",
     "Runs: figures cache entry `fsl-flirt/real-applyxfm-4d`, computed 2026-11-01T16:14:02+00:00 with larmorx `301fab7dfc56`; FSL 6.0.7.23 (fsl-flirt 2111.4; ~/fsl-6.0.7.23, never on the PATH, OpenBLAS on its Haswell kernels); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Inputs: bold4.nii (sha256 92acf4858e24217c…); t1.nii (sha256 5a3725fbb21ceccc…); init.mat (sha256 a0b1a1fbd5ee6f32…)",
-    "Runs: figures cache entry `fsl-flirt/real-applyxfm-4d-original`, computed 2026-11-02T21:06:27+00:00 with larmorx `80cc208fa4a3`; FSL 6.0.7.23 (fsl-flirt 2111.4; ~/fsl-6.0.7.23, never on the PATH, OpenBLAS on its Haswell kernels); “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original, Apache-2.0, written from specs/flirt.md)”, as the cache entry records it; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-flirt/real-applyxfm-4d-original`, computed 2026-11-02T21:06:27+00:00; its runs made again since, last on 2026-11-07T02:06:27+00:00, with larmorx `80cc208fa4a3`; FSL 6.0.7.23 (fsl-flirt 2111.4; ~/fsl-6.0.7.23, never on the PATH, OpenBLAS on its Haswell kernels); “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original, Apache-2.0, written from specs/flirt.md)”, as the cache entry records it; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "order": {
     "panels": [
@@ -12067,7 +12067,7 @@
     },
     {
      "label": "Clean room",
-     "text": "the clean room's matrix 0.000212 mm from FSL's at the 95th percentile of the brain (at most 0.000267 mm); FSL's own on a perturbed input 0.00314 mm (at most 0.00328 mm); its runs at 1 thread and in `fix`, its default, differ (the comparisons below)"
+     "text": "the clean room's matrix 0.000212 mm from FSL's at the 95th percentile of the brain (at most 0.000267 mm); FSL's own on a perturbed input 0.00314 mm (at most 0.00328 mm); at 1 thread the same values as at 4; in `fix`, its default, another matrix (the comparisons below)"
     },
     {
      "label": "Grid",
@@ -13273,13 +13273,13 @@
      "note": "For every one of the 1,471,297 voxels of the reference's brain mask (its voxels above zero), the distance in millimetres between the two points of the input the matrices map onto it, computed in float64 from the matrices as the files hold them; the last column is FSL's own measure (rmsdiff's: the RMS deviation over a sphere of radius 80 mm about the origin)."
     }
    ],
-   "metrics_note": "Δ is A − B, computed in float64 over all 12,582,912 voxels of the outputs, not only those shown. The record's threshold: every file FSL writes bit-identical (images decompressed, `descrip` left out), with FSL's exit status and messages.",
+   "metrics_note": "Δ is A − B, computed in float64 over all 12,582,912 voxels of the outputs, not only those shown. The records' thresholds: every file FSL writes bit-identical (images decompressed, `descrip` left out), with FSL's exit status and messages (the replica); FSL's exit status and messages, the numbers in them read as numbers, the matrix FSL's text or within 0.1 mm of it at the 95th percentile of the reference's brain (0.5 mm for registrations other than the boundary-based and 6-dof ones), and the image from its own matrix with a correlation of at least 0.999 with FSL's inside the reference's mask, bit-identical from the same matrix (the clean room, specs/flirt.md §13).",
    "provenance": [
     "Data: OpenNeuro ds003592, sub-280, CC0-1.0",
     "Inputs: -in (sha256 e53f3282faee1ee9…); -ref (sha256 701828f56fca12a5…); -wmseg (sha256 be9a746f9714eab6…); -init (sha256 36960edc109a5abc…)",
     "Runs: figures cache entry `fsl-flirt/fmriprep-ds003592-sub-280-noreconall`, computed 2026-11-01T16:12:39+00:00 with larmorx `301fab7dfc56`; FSL 6.0.7.23 (fsl-flirt 2111.4; ~/fsl-6.0.7.23, never on the PATH, OpenBLAS on its Haswell kernels); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Inputs: -in (sha256 e53f3282faee1ee9…); -ref (sha256 701828f56fca12a5…); -wmseg (sha256 be9a746f9714eab6…); -init (sha256 36960edc109a5abc…)",
-    "Runs: figures cache entry `fsl-flirt/fmriprep-ds003592-sub-280-noreconall-original`, computed 2026-11-02T21:05:35+00:00 with larmorx `80cc208fa4a3`; FSL 6.0.7.23 (fsl-flirt 2111.4; ~/fsl-6.0.7.23, never on the PATH, OpenBLAS on its Haswell kernels); “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original, Apache-2.0, written from specs/flirt.md)”, as the cache entry records it; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-flirt/fmriprep-ds003592-sub-280-noreconall-original`, computed 2026-11-02T21:05:35+00:00; 3 of its 4 runs made again since, last on 2026-11-07T02:05:57+00:00, with larmorx `80cc208fa4a3`; FSL 6.0.7.23 (fsl-flirt 2111.4; ~/fsl-6.0.7.23, never on the PATH, OpenBLAS on its Haswell kernels); “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original, Apache-2.0, written from specs/flirt.md)”, as the cache entry records it; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "order": {
     "panels": [
@@ -13387,7 +13387,7 @@
     },
     {
      "label": "Clean room",
-     "text": "the clean room's matrix 4.87e-06 mm from FSL's at the 95th percentile of the brain (at most 5.97e-06 mm); FSL's own on a perturbed input 0.0907 mm (at most 0.113 mm); its runs at 1 thread and in `fix`, its default, differ (the comparisons below)"
+     "text": "the clean room's matrix 4.87e-06 mm from FSL's at the 95th percentile of the brain (at most 5.97e-06 mm); FSL's own on a perturbed input 0.0907 mm (at most 0.113 mm); at 1 thread the same values as at 4; in `fix`, its default, another matrix (the comparisons below)"
     },
     {
      "label": "Grid",
@@ -14593,13 +14593,13 @@
      "note": "For every one of the 1,229,002 voxels of the reference's brain mask (its voxels above zero), the distance in millimetres between the two points of the input the matrices map onto it, computed in float64 from the matrices as the files hold them; the last column is FSL's own measure (rmsdiff's: the RMS deviation over a sphere of radius 80 mm about the origin)."
     }
    ],
-   "metrics_note": "Δ is A − B, computed in float64 over all 6,488,064 voxels of the outputs, not only those shown. The record's threshold: every file FSL writes bit-identical (images decompressed, `descrip` left out), with FSL's exit status and messages.",
+   "metrics_note": "Δ is A − B, computed in float64 over all 6,488,064 voxels of the outputs, not only those shown. The records' thresholds: every file FSL writes bit-identical (images decompressed, `descrip` left out), with FSL's exit status and messages (the replica); FSL's exit status and messages, the numbers in them read as numbers, the matrix FSL's text or within 0.1 mm of it at the 95th percentile of the reference's brain (0.5 mm for registrations other than the boundary-based and 6-dof ones), and the image from its own matrix with a correlation of at least 0.999 with FSL's inside the reference's mask, bit-identical from the same matrix (the clean room, specs/flirt.md §13).",
    "provenance": [
     "Data: OpenNeuro ds000228, sub-pixar008, CC0-1.0",
     "Inputs: -in (sha256 8f6990655e926cfd…); -ref (sha256 90ec7743ccdfb7f1…); -wmseg (sha256 d6b7d92587c21922…); -init (sha256 a12603b405470263…)",
     "Runs: figures cache entry `fsl-flirt/fmriprep-ds000228-sub-pixar008-noreconall`, computed 2026-11-01T16:13:46+00:00 with larmorx `301fab7dfc56`; FSL 6.0.7.23 (fsl-flirt 2111.4; ~/fsl-6.0.7.23, never on the PATH, OpenBLAS on its Haswell kernels); larmorx-nc 0.0.1; every command, its environment, threads and exit status are in its `RUN_INFO.json`",
     "Inputs: -in (sha256 8f6990655e926cfd…); -ref (sha256 90ec7743ccdfb7f1…); -wmseg (sha256 d6b7d92587c21922…); -init (sha256 a12603b405470263…)",
-    "Runs: figures cache entry `fsl-flirt/fmriprep-ds000228-sub-pixar008-noreconall-original`, computed 2026-11-02T21:06:20+00:00 with larmorx `80cc208fa4a3`; FSL 6.0.7.23 (fsl-flirt 2111.4; ~/fsl-6.0.7.23, never on the PATH, OpenBLAS on its Haswell kernels); “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original, Apache-2.0, written from specs/flirt.md)”, as the cache entry records it; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
+    "Runs: figures cache entry `fsl-flirt/fmriprep-ds000228-sub-pixar008-noreconall-original`, computed 2026-11-02T21:06:20+00:00; 3 of its 4 runs made again since, last on 2026-11-07T02:06:22+00:00, with larmorx `80cc208fa4a3`; FSL 6.0.7.23 (fsl-flirt 2111.4; ~/fsl-6.0.7.23, never on the PATH, OpenBLAS on its Haswell kernels); “larmorx 0.0.1 (crate larmorx-fsl: the clean-room original, Apache-2.0, written from specs/flirt.md)”, as the cache entry records it; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
    "order": {
     "panels": [

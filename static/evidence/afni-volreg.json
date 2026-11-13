@@ -3,7 +3,7 @@
  "tool": "afni-volreg",
  "title": "3dvolreg",
  "provenance": {
-  "exporter": "20f01e8fb1e508ab82a9a62e2ac8f2070cb6f5eb-dirty",
+  "exporter": "730690ebd95ea91b50e984da3820e75cb4ff7028",
   "records": [
    {
     "path": "docs/validation/afni-volreg-replica.json",
@@ -726,7 +726,7 @@
     "sha256": "c0bcbe3cf8deb0c3ecb99b9d88644d7974065ab60a2e3ff19d5f8f3cd3c8d68d"
    }
   ],
-  "original_exporter": "e724561a150dc94016bbd864c00513909cd519d5"
+  "original_exporter": "e2481e6532692493f97902eb12275356b4a7085f"
  },
  "implementations": [
   {
@@ -10041,7 +10041,7 @@
     }
    },
    "chain": null,
-   "metrics_note": "Δ is A − B, computed in float64 over every value of the files (2,785,280), not only those shown; the range is B's maximum minus its minimum. The record's threshold: every output bit-identical to AFNI 26.3.05's (the registered series, -1Dfile, -1Dmatrix_save, -maxdisp1D), with its exit status and messages. The rows *the original against itself* are AFNI's own variability on this input: its previous release and fMRIPrep's build.",
+   "metrics_note": "Δ is A − B, computed in float64 over every value of the files (2,785,280), not only those shown; the range is B's maximum minus its minimum. The records' thresholds: every output bit-identical to AFNI 26.3.05's (the registered series, -1Dfile, -1Dmatrix_save, -maxdisp1D), with its exit status and messages (the replica); AFNI's exit status, files, headers and messages, the motion parameters within per-volume limits derived from each volume's own parameters, and the outputs computed from them within the bounds those limits give (the clean room, specs/3dvolreg.md §14.3). The rows *the original against itself* are AFNI's own variability on this input: its previous release and fMRIPrep's build.",
    "provenance": [
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: RobustAverage's sliced volumes (sha256 2cce88990bcfbee8…); the raw BOLD run (sha256 609ae0a21822318f…); fMRIPrep's BOLD reference (sha256 ab49738164116b9c…); the sliced volumes stored LPS (sha256 71708c457976d2d1…)",
@@ -11611,7 +11611,7 @@
     "caption": "Axial slice 16 of 34; the crosshair at the brain's centre."
    },
    "chain": null,
-   "metrics_note": "Δ is A − B, computed in float64 over every value of the files (139,264), not only those shown; the range is B's maximum minus its minimum. The record's threshold: every output bit-identical to AFNI 26.3.05's (the registered series and the text files; here their median, which the record also compares with fMRIPrep's own), with its exit status and messages. The rows *the original against itself* are AFNI's own variability on this input: its previous release and fMRIPrep's build.",
+   "metrics_note": "Δ is A − B, computed in float64 over every value of the files (139,264), not only those shown; the range is B's maximum minus its minimum. The records' thresholds: every output bit-identical to AFNI 26.3.05's (the registered series and the text files; here their median, which the record also compares with fMRIPrep's own), with its exit status and messages (the replica); AFNI's exit status, files, headers and messages, the motion parameters within per-volume limits derived from each volume's own parameters, and the outputs computed from them within the bounds those limits give (the clean room, specs/3dvolreg.md §14.3). The rows *the original against itself* are AFNI's own variability on this input: its previous release and fMRIPrep's build.",
    "provenance": [
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: RobustAverage's sliced volumes (sha256 2cce88990bcfbee8…); the raw BOLD run (sha256 609ae0a21822318f…); fMRIPrep's BOLD reference (sha256 ab49738164116b9c…); the sliced volumes stored LPS (sha256 71708c457976d2d1…)",
@@ -12742,7 +12742,7 @@
     }
    },
    "chain": null,
-   "metrics_note": "Δ is A − B, computed in float64 over every value of the files (2,785,280), not only those shown; the range is B's maximum minus its minimum. The record's threshold: every output bit-identical to AFNI 26.3.05's (the registered series, -1Dfile, -1Dmatrix_save, -maxdisp1D), with its exit status and messages. The row *the original against itself* is AFNI's own variability on this input: the same volumes stored another way.",
+   "metrics_note": "Δ is A − B, computed in float64 over every value of the files (2,785,280), not only those shown; the range is B's maximum minus its minimum. The records' thresholds: every output bit-identical to AFNI 26.3.05's (the registered series, -1Dfile, -1Dmatrix_save, -maxdisp1D), with its exit status and messages (the replica); AFNI's exit status, files, headers and messages, the motion parameters within per-volume limits derived from each volume's own parameters, and the outputs computed from them within the bounds those limits give (the clean room, specs/3dvolreg.md §14.3). The row *the original against itself* is AFNI's own variability on this input: the same volumes stored another way.",
    "provenance": [
     "Data: OpenNeuro ds000005 (Tom et al., 2007), snapshot 00001, sub-01, PDDL-1.0",
     "Inputs: RobustAverage's sliced volumes (sha256 2cce88990bcfbee8…); the raw BOLD run (sha256 609ae0a21822318f…); fMRIPrep's BOLD reference (sha256 ab49738164116b9c…); the sliced volumes stored LPS (sha256 71708c457976d2d1…)",
