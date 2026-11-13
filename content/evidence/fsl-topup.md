@@ -29,7 +29,7 @@ wide: true
 </ul></dd>
 <dt>Status</dt><dd>replica <span class="status-tag status-tag--experimental">experimental</span>; clean room <span class="status-tag status-tag--experimental">experimental</span></dd>
 <dt>Records</dt><dd>the replica's: <a href="{{ repo('docs/validation/fsl-topup-replica.md') }}">standard comparison</a> (FSL 6.0.7.23) · the clean room's: <a href="{{ repo('docs/validation/fsl-topup.md') }}">standard comparison</a> (FSL 6.0.7.23) · benchmark <a href="{{ repo('docs/benchmarks/fsl-topup.md') }}">fsl-topup</a></dd>
-<dt>Reference</dt><dd>API page <a href="{{ repo('docs/api/fsl-topup.md') }}">fsl-topup</a></dd>
+<dt>Reference</dt><dd><a href="{{ link('/programs/fsl/topup/') }}"><code>topup</code></a>, <a href="{{ link('/programs/fsl/applytopup/') }}"><code>applytopup</code></a> · API page <a href="{{ repo('docs/api/fsl-topup.md') }}">fsl-topup</a></dd>
 </dl>
 
 ## What is compared {#what-it-is}

@@ -501,11 +501,11 @@ groups:
         command: "larmorx fsl topup"
         also: ""
         python: "lx.fsl.topup"
-        does: "Estimates the off-resonance field that displaces echo-planar images along their phase encoding, from images with different phase encodings."
+        does: "`topup` estimates the off-resonance field (Hz) that displaces echo-planar images along their phase encoding, from two or more images acquired with different phase encodings (typically \"blip up\" and \"blip down\"), with each image's rigid-body movement if asked."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-topup.md"
         evidence: "/evidence/fsl-topup/"
-        reference: ""
+        reference: "/programs/fsl/topup/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
@@ -514,11 +514,11 @@ groups:
         command: "larmorx fsl applytopup"
         also: ""
         python: "lx.fsl.applytopup"
-        does: "Corrects images with `topup`'s result."
+        does: "`applytopup` corrects images with topup's result, by Jacobian modulation of each image or by the least-squares restoration of pairs with opposite phase encodings."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-topup.md"
         evidence: "/evidence/fsl-topup/"
-        reference: ""
+        reference: "/programs/fsl/applytopup/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
