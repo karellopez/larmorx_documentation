@@ -527,11 +527,11 @@ groups:
         command: "larmorx fsl fslmaths"
         also: ""
         python: "lx.fsl.fslmaths"
-        does: "An image calculator: a chain of operations applied from left to right (maths, thresholds, masks, filters, reductions, statistics, TFCE)."
+        does: "`fslmaths` reads one image, applies a chain of operations to it from left to right and writes the result."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-maths.md"
         evidence: "/evidence/fsl-maths/"
-        reference: ""
+        reference: "/programs/fsl/fslmaths/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
