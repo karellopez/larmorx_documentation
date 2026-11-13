@@ -332,11 +332,11 @@ groups:
         command: "larmorx fsl avscale"
         also: ""
         python: "lx.fsl.avscale"
-        does: "A matrix taken apart: its rotation and translation, angles, scales, skews, determinant and half transforms."
+        does: "`avscale` decomposes a FLIRT matrix."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-flirt.md"
         evidence: "/evidence/fsl-flirt/"
-        reference: ""
+        reference: "/programs/fsl/avscale/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
@@ -345,11 +345,11 @@ groups:
         command: "larmorx fsl img2imgcoord"
         also: ""
         python: "lx.fsl.img2imgcoord"
-        does: "Coordinates carried from one image to another through a matrix (voxels by default)."
+        does: "`img2imgcoord` maps coordinates from one image to another through a FLIRT matrix: voxels by default, millimetres with `-mm`."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-flirt.md"
         evidence: "/evidence/fsl-flirt/"
-        reference: ""
+        reference: "/programs/fsl/img2imgcoord/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
@@ -358,11 +358,11 @@ groups:
         command: "larmorx fsl std2imgcoord"
         also: ""
         python: "lx.fsl.std2imgcoord"
-        does: "Coordinates carried from a standard image to an image (millimetres by default), the matrix inverted."
+        does: "`std2imgcoord` maps coordinates from a standard image to an image through the inverse of a FLIRT matrix: millimetres by default, the image's voxels with `-vox`."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-flirt.md"
         evidence: "/evidence/fsl-flirt/"
-        reference: ""
+        reference: "/programs/fsl/std2imgcoord/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
@@ -371,11 +371,11 @@ groups:
         command: "larmorx fsl img2stdcoord"
         also: ""
         python: "lx.fsl.img2stdcoord"
-        does: "Coordinates carried from an image to a standard image's millimetres (input voxels by default)."
+        does: "`img2stdcoord` maps coordinates from an image to a standard image through a FLIRT matrix: input voxels by default, output in the standard image's millimetres."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-flirt.md"
         evidence: "/evidence/fsl-flirt/"
-        reference: ""
+        reference: "/programs/fsl/img2stdcoord/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
@@ -384,11 +384,11 @@ groups:
         command: "larmorx fsl rmsdiff"
         also: ""
         python: "lx.fsl.rmsdiff"
-        does: "The RMS deviation between two matrices over 80 mm about the reference's centre of gravity, or over a mask."
+        does: "`rmsdiff` measures how far apart two FLIRT matrices are: the RMS deviation in millimetres over 80 mm about the reference's centre of gravity or, with a mask, the largest and the RMS displacement over the mask's voxels."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-flirt.md"
         evidence: "/evidence/fsl-flirt/"
-        reference: ""
+        reference: "/programs/fsl/rmsdiff/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
@@ -397,11 +397,11 @@ groups:
         command: "larmorx fsl makerot"
         also: ""
         python: "lx.fsl.makerot"
-        does: "A rotation matrix: an angle in degrees about an axis through a centre."
+        does: "`makerot` writes the 4 × 4 matrix of a rotation by `theta` degrees about an axis through a centre (or through the centre of an image)."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-flirt.md"
         evidence: "/evidence/fsl-flirt/"
-        reference: ""
+        reference: "/programs/fsl/makerot/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}

@@ -30,7 +30,7 @@ wide: true
 </ul></dd>
 <dt>Status</dt><dd>replica <span class="status-tag status-tag--experimental">experimental</span>; clean room <span class="status-tag status-tag--experimental">experimental</span></dd>
 <dt>Records</dt><dd>the replica's: <a href="{{ repo('docs/validation/fsl-flirt-replica.md') }}">standard comparison</a> (FSL 6.0.7.23) · the clean room's: <a href="{{ repo('docs/validation/fsl-flirt.md') }}">standard comparison</a> (FSL 6.0.7.23) · benchmark <a href="{{ repo('docs/benchmarks/fsl-flirt.md') }}">fsl-flirt</a></dd>
-<dt>Reference</dt><dd><a href="{{ link('/programs/fsl/flirt/') }}"><code>flirt</code></a>, <a href="{{ link('/programs/fsl/convert_xfm/') }}"><code>convert_xfm</code></a> · API page <a href="{{ repo('docs/api/fsl-flirt.md') }}">fsl-flirt</a> (FLIRT's other programs)</dd>
+<dt>Reference</dt><dd><a href="{{ link('/programs/fsl/flirt/') }}"><code>flirt</code></a>, <a href="{{ link('/programs/fsl/convert_xfm/') }}"><code>convert_xfm</code></a>, <a href="{{ link('/programs/fsl/avscale/') }}"><code>avscale</code></a>, <a href="{{ link('/programs/fsl/img2imgcoord/') }}"><code>img2imgcoord</code></a>, <a href="{{ link('/programs/fsl/std2imgcoord/') }}"><code>std2imgcoord</code></a>, <a href="{{ link('/programs/fsl/img2stdcoord/') }}"><code>img2stdcoord</code></a>, <a href="{{ link('/programs/fsl/rmsdiff/') }}"><code>rmsdiff</code></a>, <a href="{{ link('/programs/fsl/makerot/') }}"><code>makerot</code></a> · API page <a href="{{ repo('docs/api/fsl-flirt.md') }}">fsl-flirt</a> (<code>midtrans</code>, <code>pointflirt</code>, <code>applyxfm4D</code> and the scripts)</dd>
 </dl>
 
 ## What is compared {#what-it-is}

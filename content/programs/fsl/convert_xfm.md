@@ -21,7 +21,7 @@ reference:
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
     crates/larmorx-core/src/defects.rs: "34429cb924a382b4"
     crates/larmorx-fsl/src/cli/convert_xfm.rs: "04725ca060b5ef97"
-    docs/api/fsl-flirt.md: "27a5fddf3223e933"
+    docs/api/fsl-flirt.md: "7d546a158684c299"
     python/larmorx/fsl/flirt.py: "31c67a2bf18f6789"
     validation/tools.toml: "f0750687390307f1"
 ---
@@ -173,7 +173,6 @@ How each of `convert_xfm`'s ports was measured against FSL, case by case: [its e
 
 The API page [docs/api/fsl-flirt.md](repo:docs/api/fsl-flirt.md) holds what `convert_xfm` shares with the page's other programs:
 
-- [FLIRT's other programs (part 2)](repo:docs/api/fsl-flirt.md#flirts-other-programs-part-2)
 - [FLIRT's other programs and scripts (part 3)](repo:docs/api/fsl-flirt.md#flirts-other-programs-and-scripts-part-3)
 - [The clean-room original (part 1, 2026-11-02)](repo:docs/api/fsl-flirt.md#the-clean-room-original-part-1-2026-11-02)
 - [Upstream defects (D13)](repo:docs/api/fsl-flirt.md#upstream-defects-d13)
