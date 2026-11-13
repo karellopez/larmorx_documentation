@@ -488,11 +488,11 @@ groups:
         command: "larmorx fsl fast"
         also: ""
         python: "lx.fsl.fast"
-        does: "Segments a skull-stripped brain into tissue classes (by default CSF, grey matter and white matter), with a bias field and each class's partial volume."
+        does: "`fast` segments a skull-stripped brain image into tissue classes (by default CSF, grey matter and white matter) with a hidden Markov random field fitted by expectation-maximisation."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-fast.md"
         evidence: "/evidence/fsl-fast/"
-        reference: ""
+        reference: "/programs/fsl/fast/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
