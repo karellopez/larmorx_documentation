@@ -19,7 +19,7 @@ reference:
     CHANGELOG.md: "546736ae45f1a3f5"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "035dcd92e164879c"
+    crates/larmorx-core/src/defects.rs: "24c23485c8957683"
     crates/larmorx-fsl/src/cli/flirt.rs: "30a6569fa6aec523"
     crates/larmorx-fsl/src/flirt/mod.rs: "97b905a9b8cc9c3a"
     docs/api/fsl-flirt.md: "abc8e4a5001ff9ef"
