@@ -206,11 +206,11 @@ groups:
         command: "larmorx afni 3dAutomask"
         also: ""
         python: "lx.afni.automask"
-        does: "A brain mask from an EPI series or a skull-stripped anatomical image."
+        does: "`3dAutomask` makes a brain mask from an EPI series or a skull-stripped anatomical image."
         original: "AFNI 26.3.05"
         api: "docs/api/afni-automask.md"
         evidence: "/evidence/afni-automask/"
-        reference: ""
+        reference: "/programs/afni/3dAutomask/"
         ports:
           - {kind: replica, name: "replica", package: larmorx, status: "validated", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "validated", next_release: false}
