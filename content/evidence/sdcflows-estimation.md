@@ -222,7 +222,7 @@ Each case of the records, with what it tests, its command line, its verdict and 
 
 - sdcflows' `init_3dQwarp_wf` (the other PEPOLAR workflow, which sdcflows never chooses and fMRIPrep's image cannot run) needs AFNI's 3dQwarp, FreeSurfer's `mri_robust_template` and niworkflows' `init_enhance_and_skullstrip_bold_wf`, not ported yet. `lx.sdcflows.qwarp_workflow` stops with an error naming them (SDC-23); its own Python steps are ported and checked.
 - sdcflows' reports (its reportlets) are larmorprepx's, with the pipeline's reports.
-- fMRIPrep's BOLD steps that use the field (`B0FieldTransform` in its resampler) are on [their own page](/tools/resample-series/); the rest of fMRIPrep's BOLD workflow comes with larmorprepx.
+- fMRIPrep's BOLD steps that use the field (`B0FieldTransform` in its resampler) are on [their own page](/evidence/resample-series/); the rest of fMRIPrep's BOLD workflow comes with larmorprepx.
 - The comparisons with fMRIPrep stage by stage come once every tool is ported.
 
 ## History {#history}

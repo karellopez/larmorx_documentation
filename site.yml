@@ -40,9 +40,9 @@ docs:
   - { title: Programs, url: "/programs/" }
   - { title: Roadmap, url: "/roadmap/" }
 
-# The evidence pages (content/tools/<page>.md, content/evidence/<page>.md),
-# listed under "Evidence" in the sidebar in the Programs page's order of the
-# software; `eco` is a page's software (its group on the Programs page), and the
+# The evidence pages (content/evidence/<page>.md; content/tools/<page>.md keeps
+# each old address as a redirect), listed under "Evidence" in the sidebar in the
+# Programs page's order of the software; `eco` is a page's software (its group on the Programs page), and the
 # sidebar lists the pages under a chip with that group's name and pastel (the
 # main repository's docs/writing-guide.md, section 5: never a dot of its deep
 # colour beside a program).
@@ -72,7 +72,7 @@ tools:
   - { title: 3dvolreg, url: "/evidence/afni-volreg/", eco: afni,
       summary: "Rigid-body registration of a series (fMRIPrep's BOLD references, sdcflows' PEPOLAR averages): a replica in larmorx, fMRIPrep's calls bit for bit, and a clean room (experimental, since 2026-11-08) within its specification's limits of AFNI's results, 2.8 to 5.2 times AFNI's speed on one thread." }
   - { title: BET, url: "/evidence/fsl-bet/", eco: fsl,
-      summary: "Brain extraction (bet, bet2) and the skull and scalp (betsurf), with bet -S, -B, -A and -A2, standard_space_roi and fslroi: a clean-room original (experimental; the variations and the two programs since 2026-11-05) and an exact replica in larmorx-nc." }
+      summary: "Brain extraction (bet, bet2) and the skull and scalp (betsurf), with bet -S, -B, -A and -A2, standard_space_roi and fslroi: a replica in larmorx-nc and a clean room in larmorx (experimental; the variations and the two programs since 2026-11-05)." }
   - { title: FLIRT, url: "/evidence/fsl-flirt/", eco: fsl,
       summary: "Affine and boundary-based registration (flirt) with convert_xfm and FLIRT's other programs: a replica in larmorx-nc and a clean room in larmorx (experimental, brought up to its specification's answers on 2026-11-05 and 2026-11-07)." }
   - { title: FAST, url: "/evidence/fsl-fast/", eco: fsl,
@@ -93,7 +93,7 @@ tools:
       summary: "sdcflows' B-spline field fit, the field evaluated and applied, and the phase-difference preparation: a replica of sdcflows 2.17.1 in larmorx, fMRIPrep's seven phase-difference estimators bit for bit, the fit 6.5 to 7.8 times faster at 14 threads." }
   - { title: "sdcflows' PEPOLAR, direct and fieldmap-less estimation", url: "/evidence/sdcflows-estimation/", eco: sdcflows,
       summary: "sdcflows' PEPOLAR, direct and fieldmap-less (SyN) estimation, its masks and BIDS app, niworkflows' helpers and fMRIPrep's own field-map steps: a replica of sdcflows 2.17.1 and niworkflows 1.15.4 in larmorx, the app's every derivative bit for bit on the eight datasets of sdcflows' own runs." }
-  - { title: One-shot BOLD resampler, url: "/tools/resample-series/", eco: fmriprep,
-      summary: "fMRIPrep's ResampleSeries, with nitransforms' chains and SciPy's interpolation. Port." }
-  - { title: NIfTI I/O, url: "/tools/nifti-io/", eco: larmorx,
-      summary: "NIfTI-1 and NIfTI-2 reading and writing, against nibabel. LARMORX's own." }
+  - { title: One-shot BOLD resampler, url: "/evidence/resample-series/", eco: fmriprep,
+      summary: "fMRIPrep's one-shot resampling (ResampleSeries) with nitransforms' chains and SciPy's interpolation: a replica in larmorx, the original's values bit for bit in every compared case and fMRIPrep's own output of a real run with its field map, PIPE-03 corrected by default, 4.1 to 5.2 times faster on one thread." }
+  - { title: NIfTI I/O, url: "/evidence/nifti-io/", eco: larmorx,
+      summary: "NIfTI-1 and NIfTI-2 reading and writing: LARMORX's own, compared with nibabel 5.4.2, every value and header field nibabel's in every compared case, the matrices too or within 4.2 × 10⁻¹³ mm of them." }

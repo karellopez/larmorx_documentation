@@ -3,7 +3,7 @@
  "tool": "resample-series",
  "title": "One-shot BOLD resampler",
  "provenance": {
-  "exporter": "8035ad782ae6aa0fcc2d7008192b781adb9f3e15",
+  "exporter": "6b9946e35730d5eccae107c8e3a05958c91940e6",
   "records": [
    {
     "path": "docs/validation/resample-series.json",
@@ -49,8 +49,8 @@
  "implementations": [
   {
    "id": "port",
-   "label": "larmorx (port)",
-   "short": "port",
+   "label": "replica against the original: fMRIPrep ResampleSeries 26.0.0.dev1 (standard comparison)",
+   "short": "replica",
    "record": "docs/validation/resample-series.md",
    "status": "validated",
    "summary": {
@@ -129,7 +129,10 @@
       "bit-identical": 3
      }
     }
-   ]
+   ],
+   "title": "Agreement, replica against the original: fMRIPrep `ResampleSeries` 26.0.0.dev1, nitransforms 25.1.0 and SciPy 1.18.1",
+   "comparison": "standard comparison",
+   "port": "replica"
   }
  ],
  "cases": [
@@ -815,7 +818,7 @@
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "14/14",
-     "reason": "For coordinates beyond the range of int64 (or whose index arithmetic overflows), SciPy's C code casts and multiplies with undefined behaviour and then reads outside its buffer or wherever the wrapped offset points; larmorx returns NaN there instead (14 of 48 …"
+     "reason": "For coordinates beyond the range of int64 (or whose index arithmetic overflows), SciPy's C code casts and multiplies with undefined behaviour and then reads outside its buffer or wherever the wrapped offset points; the replica returns NaN there instead (14 of 48 …"
     }
    }
   },
@@ -1970,7 +1973,7 @@
   {
    "id": "threads/1",
    "category": "threads",
-   "description": "larmorx with n_threads=1 (fMRIPrep with 4): the result does not change",
+   "description": "The replica with n_threads=1 (fMRIPrep with 4): the result does not change",
    "command": "",
    "results": {
     "port": {
@@ -1984,7 +1987,7 @@
   {
    "id": "threads/3",
    "category": "threads",
-   "description": "larmorx with n_threads=3 (fMRIPrep with 4): the result does not change",
+   "description": "The replica with n_threads=3 (fMRIPrep with 4): the result does not change",
    "command": "",
    "results": {
     "port": {
@@ -1998,7 +2001,7 @@
   {
    "id": "threads/12",
    "category": "threads",
-   "description": "larmorx with n_threads=12 (fMRIPrep with 4): the result does not change",
+   "description": "The replica with n_threads=12 (fMRIPrep with 4): the result does not change",
    "command": "",
    "results": {
     "port": {
@@ -2019,7 +2022,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "0/0",
-     "reason": "fMRIPrep: ValueError: HMC transforms must come last. Found sequence: ['LinearTransformsMapping', 'Affine']; larmorx: ValueError: HMC transforms must come last. Found sequence: ['AffineSeries', 'Affine']"
+     "reason": "fMRIPrep: ValueError: HMC transforms must come last. Found sequence: ['LinearTransformsMapping', 'Affine']; the replica: ValueError: HMC transforms must come last. Found sequence: ['AffineSeries', 'Affine']"
     }
    }
   },
@@ -2033,7 +2036,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "0/0",
-     "reason": "fMRIPrep: ValueError: Mismatched number of transforms and inverses; larmorx: ValueError: Mismatched number of transforms and inverses"
+     "reason": "fMRIPrep: ValueError: Mismatched number of transforms and inverses; the replica: ValueError: Mismatched number of transforms and inverses"
     }
    }
   },
@@ -2082,7 +2085,7 @@
  ],
  "cases_total": 139,
  "speed": {
-  "title": "Seconds per resampling (without the file I/O), median of repeated runs, log scale; the factor is larmorx's speed-up over fMRIPrep at one thread",
+  "title": "Speed, the replica against the original: fMRIPrep `ResampleSeries` 26.0.0.dev1",
   "axis": [
    0.1,
    1000.0
@@ -2112,23 +2115,27 @@
   "series": [
    {
     "id": "fMRIPrep|1 threads",
-    "label": "fMRIPrep, 1 thread",
-    "mark": "original"
+    "label": "fMRIPrep ResampleSeries 26.0.0.dev1, 1 thread",
+    "mark": "original",
+    "port": "original"
    },
    {
     "id": "fMRIPrep|12 threads",
-    "label": "fMRIPrep, 12 threads",
-    "mark": "original-open"
+    "label": "fMRIPrep ResampleSeries 26.0.0.dev1, 12 threads",
+    "mark": "original-open",
+    "port": "original"
    },
    {
     "id": "larmorx|1 threads",
-    "label": "larmorx, 1 thread",
-    "mark": "larmorx"
+    "label": "replica, 1 thread",
+    "mark": "replica",
+    "port": "replica"
    },
    {
     "id": "larmorx|12 threads",
-    "label": "larmorx, 12 threads",
-    "mark": "larmorx-open"
+    "label": "replica, 12 threads",
+    "mark": "replica-open",
+    "port": "replica"
    }
   ],
   "rows": [
@@ -2188,13 +2195,14 @@
     "speedup": 4.734691107890843
    }
   ],
-  "note": "From the benchmark report `docs/benchmarks/resample-series.json` (Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz, 12 logical CPUs)."
+  "note": "From the benchmark report `docs/benchmarks/resample-series.json` (Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz, 12 logical CPUs).",
+  "caption": "Seconds per resampling, without the file I/O (the median of repeated runs), on a log scale; the factor is fMRIPrep's time divided by the replica's, both on one thread."
  },
  "examples": [
   {
    "id": "fmriprep-native",
    "title": "fMRIPrep's one-shot resampling of a real BOLD run with its field map",
-   "summary": "The ResampleSeries node fMRIPrep 25.2.6 ran on OpenNeuro ds005040 sub-002 (task clip, run 1): the slice-time corrected series moved by its head-motion transforms and unwarped by its PEPOLAR field map (with the Jacobian) onto the BOLD reference in one cubic B-spline interpolation, by fMRIPrep and by larmorx. 6 of the 63 volumes are shown; the metrics cover every volume.",
+   "summary": "The ResampleSeries node fMRIPrep 25.2.6 ran on OpenNeuro ds005040 sub-002 (task clip, run 1): the slice-time corrected series moved by its head-motion transforms and unwarped by its PEPOLAR field map (with the Jacobian) onto the BOLD reference in one cubic B-spline interpolation, by fMRIPrep and by the replica. 6 of the 63 volumes are shown; the metrics cover every volume.",
    "facts": [
     {
      "label": "Data",
@@ -2210,7 +2218,7 @@
     },
     {
      "label": "Programs",
-     "text": "fMRIPrep 25.2.6's own output (its working directory); larmorx's `lx.transforms.resample_series` at commit `1dfe56c0dc60`"
+     "text": "fMRIPrep 25.2.6's own output (its working directory); the replica's `lx.transforms.resample_series` at commit `1dfe56c0dc60`"
     },
     {
      "label": "Volumes",
@@ -2218,7 +2226,7 @@
     },
     {
      "label": "Versions",
-     "text": "fMRIPrep's own output ran in its 25.2.6 image; fMRIPrep's resampler ran here too on the node's inputs, with the newest numerical releases (numpy 2.5.4 with OpenBLAS 0.3.34, SciPy 1.18.1: larmorx's reference since 2026-10-29) and with the shared environment's (numpy 2.3.5, SciPy 1.15.3), the version step a reference row"
+     "text": "fMRIPrep's own output ran in its 25.2.6 image; fMRIPrep's resampler (26.0.0.dev1, at commit 21a490fb) ran here too on the node's inputs, with the newest numerical releases (numpy 2.5.4 with OpenBLAS 0.3.34, SciPy 1.18.1: the releases the replica follows since 2026-10-29) and with the shared environment's (numpy 2.3.5, SciPy 1.15.3); the step between the two, for reference"
     }
    ],
    "grid": {
@@ -2351,13 +2359,14 @@
      "window": [
       714.8315048217773,
       110730.37856149673
-     ]
+     ],
+     "port": "input"
     },
     {
      "id": "larmorx",
      "role": "larmorx",
-     "label": "larmorx (port), 8 threads",
-     "sub": "reproduce mode",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 8 threads, reproduce · against fMRIPrep ResampleSeries 26.0.0.dev1 with numpy 2.5.4 and SciPy 1.18.1, and fMRIPrep's output",
      "arrays": {
       "series": {
        "blob": "a3ad308fd6d2a5b971a71efb.bin",
@@ -2370,13 +2379,14 @@
        524.8434448242188,
        109604.880859375
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-1",
      "role": "larmorx",
-     "label": "larmorx (port), 1 thread",
-     "sub": "reproduce mode",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 1 thread, reproduce",
      "arrays": {
       "series": {
        "same": "larmorx:series",
@@ -2388,13 +2398,14 @@
        524.8434448242188,
        109604.880859375
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "larmorx-fix",
      "role": "larmorx",
-     "label": "larmorx (port), 8 threads",
-     "sub": "default mode (PIPE-03 and the rest corrected)",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · 8 threads, fix (the default, PIPE-03 and the rest corrected)",
      "arrays": {
       "series": {
        "same": "larmorx:series",
@@ -2406,13 +2417,14 @@
        524.8434448242188,
        109604.880859375
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "fmriprep",
      "role": "fmriprep",
-     "label": "fMRIPrep 25.2.6, as it ran",
-     "sub": "ResampleSeries in its image, 8 threads",
+     "label": "fMRIPrep's output",
+     "sub": "fMRIPrep 25.2.6, as it ran: ResampleSeries in its image, 8 threads",
      "arrays": {
       "series": {
        "same": "larmorx:series",
@@ -2424,13 +2436,14 @@
        524.8434448242188,
        109604.880859375
       ]
-     }
+     },
+     "port": "fmriprep"
     },
     {
      "id": "fmriprep-newest",
      "role": "fmriprep",
-     "label": "fMRIPrep's resampler, numpy 2.5.4 / SciPy 1.18.1",
-     "sub": "ResampleSeries here, the newest releases (oracles/python-newest), larmorx's reference",
+     "label": "fMRIPrep ResampleSeries 26.0.0.dev1",
+     "sub": "numpy 2.5.4 (OpenBLAS 0.3.34), SciPy 1.18.1: the newest releases (oracles/python-newest), which the replica follows · run here on the node's inputs",
      "arrays": {
       "series": {
        "same": "larmorx:series",
@@ -2442,13 +2455,14 @@
        524.8434448242188,
        109604.880859375
       ]
-     }
+     },
+     "port": "original"
     },
     {
      "id": "fmriprep-shared",
      "role": "fmriprep",
-     "label": "fMRIPrep's resampler, numpy 2.3.5 / SciPy 1.15.3",
-     "sub": "ResampleSeries here, the shared environment's releases",
+     "label": "fMRIPrep ResampleSeries 26.0.0.dev1",
+     "sub": "numpy 2.3.5 (OpenBLAS 0.3.30), SciPy 1.15.3: the shared environment's releases · run here on the node's inputs",
      "arrays": {
       "series": {
        "same": "larmorx:series",
@@ -2460,7 +2474,8 @@
        524.8434448242188,
        109604.880859375
       ]
-     }
+     },
+     "port": "original"
     }
    ],
    "diffs": [
@@ -2469,8 +2484,8 @@
      "a": "larmorx",
      "b": "fmriprep",
      "kind": "fmriprep",
-     "label": "larmorx − fMRIPrep's own output",
-     "role_label": "larmorx against fMRIPrep",
+     "label": "replica − fMRIPrep's output",
+     "role_label": "the replica against fMRIPrep's output",
      "metrics": {
       "series": {
        "identical": true,
@@ -2508,15 +2523,16 @@
      },
      "verdict": "bit-identical",
      "reason": "Every value of the 63 volumes is fMRIPrep's: head motion, the field map's displacement and its Jacobian, the cubic B-spline interpolation.",
-     "links": []
+     "links": [],
+     "port": "replica"
     },
     {
      "id": "fix-lx",
      "a": "larmorx-fix",
      "b": "larmorx",
      "kind": "main",
-     "label": "larmorx: default − reproduce mode",
-     "role_label": "larmorx's corrections",
+     "label": "replica: fix − reproduce",
+     "role_label": "the replica against itself: fix and reproduce",
      "metrics": {
       "series": {
        "identical": true,
@@ -2553,21 +2569,22 @@
       }
      },
      "verdict": "bit-identical",
-     "reason": "On the BOLD's own grid PIPE-03's Jacobian and the corrected one agree (the target's axes are the source's): the default mode gives the same bytes.",
+     "reason": "On the BOLD's own grid PIPE-03's Jacobian and the corrected one agree (the target's axes are the source's): the default, `fix`, gives the same bytes.",
      "links": [
       {
        "label": "PIPE-03",
        "href": "docs/findings/upstream-defects.md#pipe-03-the-jacobian-is-taken-along-the-wrong-axis--c"
       }
-     ]
+     ],
+     "port": "replica"
     },
     {
      "id": "lx1-lx8",
      "a": "larmorx-1",
      "b": "larmorx",
      "kind": "check",
-     "label": "larmorx: 1 thread − 8 threads",
-     "role_label": "larmorx against itself",
+     "label": "replica: 1 thread − 8 threads",
+     "role_label": "the replica against itself: 1 and 8 threads",
      "metrics": {
       "series": {
        "identical": true,
@@ -2605,15 +2622,16 @@
      },
      "verdict": "bit-identical",
      "reason": "The same bytes on any number of threads.",
-     "links": []
+     "links": [],
+     "port": "replica"
     },
     {
      "id": "lx-newest",
      "a": "larmorx",
      "b": "fmriprep-newest",
      "kind": "main",
-     "label": "larmorx − fMRIPrep's resampler, numpy 2.5.4 / SciPy 1.18.1",
-     "role_label": "larmorx against fMRIPrep",
+     "label": "replica − fMRIPrep ResampleSeries 26.0.0.dev1",
+     "role_label": "the replica against the original",
      "metrics": {
       "series": {
        "identical": true,
@@ -2650,16 +2668,17 @@
       }
      },
      "verdict": "bit-identical",
-     "reason": "Every value is that of fMRIPrep's resampler with the newest releases, numpy 2.5.4 (OpenBLAS 0.3.34) and SciPy 1.18.1, which larmorx follows since 2026-10-29.",
-     "links": []
+     "reason": "Every value is that of fMRIPrep's resampler with the newest releases, numpy 2.5.4 (OpenBLAS 0.3.34) and SciPy 1.18.1, which the replica follows since 2026-10-29.",
+     "links": [],
+     "port": "replica"
     },
     {
      "id": "newest-shared",
      "a": "fmriprep-newest",
      "b": "fmriprep-shared",
      "kind": "variability",
-     "label": "numpy 2.5.4 / SciPy 1.18.1 − numpy 2.3.5 / SciPy 1.15.3 (fMRIPrep's resampler)",
-     "role_label": "the original against itself: the version step",
+     "label": "fMRIPrep ResampleSeries: numpy 2.5.4 / SciPy 1.18.1 − numpy 2.3.5 / SciPy 1.15.3",
+     "role_label": "the original against itself: two releases of numpy and SciPy",
      "metrics": {
       "series": {
        "identical": true,
@@ -2696,13 +2715,14 @@
       }
      },
      "verdict": null,
-     "reason": "The version step, a reference row (the original against itself): with numpy 2.5.4 and SciPy 1.18.1 fMRIPrep's resampler gives the same values as with numpy 2.3.5 and SciPy 1.15.3, every one: this call (mode `grid-constant`) meets none of the newest releases' changes (SciPy 1.18 changed only the reflect boundary's initialisation, SCI-03).",
+     "reason": "For reference, the original's own step between two releases of numpy and SciPy: with numpy 2.5.4 and SciPy 1.18.1 fMRIPrep's resampler gives the same values as with numpy 2.3.5 and SciPy 1.15.3, every one: this call (mode `grid-constant`) meets none of the newest releases' changes (SciPy 1.18 changed only the reflect boundary's initialisation, SCI-03).",
      "links": [
       {
        "label": "the record",
        "href": "docs/validation/resample-series.md"
       }
-     ]
+     ],
+     "port": "original"
     }
    ],
    "default": {
@@ -2721,9 +2741,9 @@
      "larmorx-fix"
     ],
     "diffs": [
+     "lx-newest",
      "lx-fmriprep",
-     "fix-lx",
-     "lx-newest"
+     "fix-lx"
     ],
     "compare": {
      "a": "bold",
@@ -2746,12 +2766,67 @@
     "caption": "Axial slice 19 of 40, volume 1 of 6; file volume 0; compare the input (before) with the resampled series (after) with Swipe or Blink."
    },
    "chain": null,
-   "metrics_note": "Δ is A − B over all 10,321,920 values of the 64 × 64 × 40 × 63 series (every volume), not only the volumes and brain shown.",
+   "metrics_note": "Δ is A − B over all 10,321,920 values of the 64 × 64 × 40 × 63 series (every volume), not only the volumes and brain shown. The record's threshold: the same shape and data type, every value within 10⁻⁶ times the reference's largest absolute value and the affine within 10⁻⁶ mm; bit-identity reported for every comparison.",
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0",
     "Inputs: BOLD after slice timing (sha256 fdf9b7f121be0832…); BOLD reference (sha256 db30ecbef0f5769a…); field-map coefficients (sha256 2bdeca6a3ea75270…); head motion (sha256 4d9e4f9f9ccd7561…); fMRIPrep's output (sha256 096e37ffd04f2d89…)",
     "Runs: figures cache entry `resample-series/fmriprep-ds005040-native`, computed 2026-10-21T14:51:43+00:00 with larmorx `1dfe56c0dc60`; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
+   "order": {
+    "panels": [
+     "bold",
+     "fmriprep-newest",
+     "fmriprep-shared",
+     "fmriprep",
+     "larmorx",
+     "larmorx-1",
+     "larmorx-fix"
+    ],
+    "diffs": [
+     "newest-shared",
+     "lx-newest",
+     "lx-fmriprep",
+     "lx1-lx8",
+     "fix-lx"
+    ],
+    "groups": [
+     [
+      "The original against itself: the yardstick",
+      [
+       "newest-shared"
+      ]
+     ],
+     [
+      "The replica against the original",
+      [
+       "lx-newest"
+      ]
+     ],
+     [
+      "The replica against fMRIPrep's output",
+      [
+       "lx-fmriprep"
+      ]
+     ],
+     [
+      "The replica against itself: thread counts, fix and reproduce",
+      [
+       "lx1-lx8",
+       "fix-lx"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "In `reproduce` the replica gives every value of the 63 resampled volumes as fMRIPrep's resampler gives them with numpy 2.5.4 and SciPy 1.18.1, at 1 and 8 threads alike, and as fMRIPrep 25.2.6 wrote them in its own run. On the BOLD's own grid `fix` gives the same bytes: [PIPE-03](repo:docs/findings/upstream-defects.md#summary) changes nothing there. fMRIPrep's resampler gives the same values with both releases of numpy and SciPy.",
+    "verdicts": [
+     {
+      "diff": "lx-newest",
+      "port": "replica",
+      "verdict": "bit-identical"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds005040"
    ]
@@ -2894,13 +2969,14 @@
        0.791611490547657,
        1.2400486385822296
       ]
-     }
+     },
+     "port": "input"
     },
     {
      "id": "fix",
      "role": "larmorx",
-     "label": "larmorx's Jacobian (default mode)",
-     "sub": "the derivative along the BOLD's phase-encoding axis, in its voxels",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · fix (the default), PIPE-03 corrected: the derivative along the BOLD's phase-encoding axis, in its voxels",
      "arrays": {
       "jacobian": {
        "blob": "c685512c2a0c50b74b41d032.bin",
@@ -2915,13 +2991,14 @@
        0.7607016342878342,
        1.2723096925020216
       ]
-     }
+     },
+     "port": "replica"
     },
     {
      "id": "reproduce",
      "role": "fmriprep",
-     "label": "fMRIPrep's Jacobian (larmorx, reproduce mode)",
-     "sub": "1 + np.gradient(vsm, axis=pe) on the target grid, bit-identical to fMRIPrep's in the record",
+     "label": "replica",
+     "sub": "larmorx, Apache-2.0 · reproduce, fMRIPrep's factor: 1 + np.gradient(vsm, axis=pe) on the target grid, bit-identical to fMRIPrep's in the record",
      "arrays": {
       "jacobian": {
        "blob": "2319247ad8a4fc05015e74dc.bin",
@@ -2934,7 +3011,8 @@
        0.8387069010734558,
        1.161414930820464
       ]
-     }
+     },
+     "port": "replica"
     }
    ],
    "diffs": [
@@ -2943,8 +3021,8 @@
      "a": "fix",
      "b": "reference",
      "kind": "reference",
-     "label": "larmorx's factor − the reference",
-     "role_label": "against the reference",
+     "label": "replica, fix − the factor on the BOLD's own grid",
+     "role_label": "the replica against a reference computed another way: the factor on the BOLD's own grid",
      "metrics": {
       "jacobian": {
        "identical": false,
@@ -2989,15 +3067,16 @@
       }
      ],
      "verdict": null,
-     "reason": "larmorx's factor stays at the reference: a median 0.00508 (99th percentile 0.063), the size of the interpolation carrying the reference here."
+     "reason": "The replica's factor stays at the reference: a median 0.00508 (99th percentile 0.063), the size of the interpolation carrying the reference here.",
+     "port": "replica"
     },
     {
      "id": "repro-ref",
      "a": "reproduce",
      "b": "reference",
      "kind": "reference",
-     "label": "fMRIPrep's factor − the reference",
-     "role_label": "against the reference",
+     "label": "replica, reproduce (fMRIPrep's factor) − the factor on the BOLD's own grid",
+     "role_label": "the replica against a reference computed another way: the factor on the BOLD's own grid",
      "metrics": {
       "jacobian": {
        "identical": false,
@@ -3042,15 +3121,16 @@
       }
      ],
      "verdict": null,
-     "reason": "fMRIPrep's factor departs from the reference by a median 0.0124 (99th percentile 0.101) in the brain: it is compressed towards 1 on a grid finer than the BOLD's or turned against its axes."
+     "reason": "fMRIPrep's factor departs from the reference by a median 0.0124 (99th percentile 0.101) in the brain: it is compressed towards 1 on a grid finer than the BOLD's or turned against its axes.",
+     "port": "replica"
     },
     {
      "id": "fix-repro",
      "a": "fix",
      "b": "reproduce",
      "kind": "main",
-     "label": "larmorx's factor − fMRIPrep's (PIPE-03)",
-     "role_label": "larmorx's correction",
+     "label": "replica: fix − reproduce (PIPE-03)",
+     "role_label": "the replica against itself: fix and reproduce (PIPE-03)",
      "metrics": {
       "jacobian": {
        "identical": false,
@@ -3095,7 +3175,8 @@
       }
      ],
      "verdict": "d13",
-     "reason": "PIPE-03, corrected by default with a warning: fMRIPrep differentiates the voxel-shift map along the target's axis in target voxels; larmorx along the BOLD's phase-encoding axis in BOLD voxels, as the factor is defined. upstream_defects='reproduce' gives fMRIPrep's factor."
+     "reason": "PIPE-03, corrected by default with a warning: fMRIPrep differentiates the voxel-shift map along the target's axis in target voxels; the replica along the BOLD's phase-encoding axis in BOLD voxels, as the factor is defined. upstream_defects='reproduce' gives fMRIPrep's factor.",
+     "port": "replica"
     }
    ],
    "default": {
@@ -3108,12 +3189,12 @@
     ],
     "panels": [
      "reference",
-     "reproduce",
-     "fix"
+     "fix",
+     "reproduce"
     ],
     "diffs": [
-     "repro-ref",
      "fix-ref",
+     "repro-ref",
      "fix-repro"
     ],
     "compare": {
@@ -3144,27 +3225,74 @@
     "caption": "Axial slice 38 of 80; the crosshair where the two factors differ most in it; the differences on one symmetric scale."
    },
    "chain": null,
-   "groups": [
-    [
-     "main",
-     "The correction: larmorx's factor against fMRIPrep's"
-    ],
-    [
-     "reference",
-     "Each factor against the reference"
-    ]
-   ],
    "metrics_note": "Δ is A − B over the 254,305 voxels of the run's brain mask on the 97 × 115 × 97 grid (1,082,035 voxels; outside the BOLD's field of view the factors have no meaning); the medians and percentiles in the reasons too.",
    "provenance": [
     "Data: OpenNeuro ds005040, sub-002, CC0-1.0; MNI ICBM 152 nonlinear asymmetric 2009c (Fonov et al., 2009, 2011), from TemplateFlow, the MNI ICBM 152 notice (static/hero/LICENSE-MNI.txt)",
     "Runs: figures cache entry `resample-series/ds005040-sub-002-jacobian-mni`, computed 2026-10-21T07:06:56+00:00 with larmorx `498069fae31d`; every command, its environment, threads and exit status are in its `RUN_INFO.json`"
    ],
+   "order": {
+    "panels": [
+     "reference",
+     "fix",
+     "reproduce"
+    ],
+    "diffs": [
+     "fix-ref",
+     "repro-ref",
+     "fix-repro"
+    ],
+    "groups": [
+     [
+      "The replica against a reference computed another way",
+      [
+       "fix-ref",
+       "repro-ref"
+      ]
+     ],
+     [
+      "The replica against itself: fix and reproduce",
+      [
+       "fix-repro"
+      ]
+     ]
+    ]
+   },
+   "shows": {
+    "text": "On the MNI grid, `reproduce` gives fMRIPrep's factor, which departs from the factor on the BOLD's own grid by a median 0.0124 in the brain (0.101 at the 99th percentile). In `fix`, its default, the replica corrects [PIPE-03](repo:docs/findings/upstream-defects.md#summary) and stays within a median 0.00508 of it (0.063 at the 99th percentile), the size of the interpolation that carries the reference to this grid.",
+    "verdicts": [
+     {
+      "diff": "fix-repro",
+      "port": "replica",
+      "verdict": "d13"
+     }
+    ]
+   },
    "credits": [
     "openneuro-ds005040",
     "templateflow-MNI152NLin2009cAsym"
    ]
   }
  ],
+ "random_testing": {
+  "title": "Random testing, the replica against the original: fMRIPrep `ResampleSeries` 26.0.0.dev1",
+  "names": {
+   "port": "replica"
+  }
+ },
+ "category_labels": {
+  "ndimage": "SciPy's map_coordinates and spline filters",
+  "nitransforms": "transform files (nitransforms)",
+  "native": "onto the BOLD reference",
+  "phase-encoding": "phase-encoding axes",
+  "anatomical": "onto an anatomical grid",
+  "standard": "onto a template's grid",
+  "3d": "single volumes",
+  "interpolation": "interpolation orders and modes",
+  "threads": "thread counts",
+  "errors": "errors",
+  "fmriprep-real": "a real run (ds000005)"
+ },
+ "presentation": "writing-guide",
  "cases_credits": [
   "openneuro-ds005040",
   "openneuro-ds000005",

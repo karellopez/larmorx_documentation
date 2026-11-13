@@ -493,7 +493,7 @@
      carries "presentation": "writing-guide", every panel and comparison names its port, and
      ex.order gives the order they are shown in (the lists keep the JSON's order, which the
      number check addresses). */
-  var PORTS = { input: 'Input', original: 'Original', fmriprep: "fMRIPrep's output", replica: 'Replica', 'clean-room': 'Clean room' };
+  var PORTS = { input: 'Input', original: 'Original', fmriprep: "fMRIPrep's output", replica: 'Replica', 'clean-room': 'Clean room', own: "LARMORX's own" };
   function pmark(port) { return port ? el('i', { class: 'pmark pmark--' + port, 'aria-hidden': 'true' }) : null; }
   function shownPanels(ex) { return ex.order ? ex.order.panels.map(function (id) { return ex.panelById[id]; }) : ex.panels; }
   function shownDiffs(ex) { return ex.order ? ex.order.diffs.map(function (id) { return ex.diffById[id]; }) : ex.diffs; }

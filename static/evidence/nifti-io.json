@@ -3,7 +3,7 @@
  "tool": "nifti-io",
  "title": "NIfTI I/O",
  "provenance": {
-  "exporter": "cd89a3abc46e34b9a59e0b5856fea1ebf0a48412",
+  "exporter": "6b9946e35730d5eccae107c8e3a05958c91940e6",
   "records": [
    {
     "path": "docs/validation/nifti-io.json",
@@ -32,8 +32,8 @@
  "implementations": [
   {
    "id": "port",
-   "label": "larmorx (own implementation)",
-   "short": "larmorx",
+   "label": "LARMORX's own reader and writer against nibabel 5.4.2 (standard comparison)",
+   "short": "LARMORX's own",
    "record": "docs/validation/nifti-io.md",
    "status": "validated",
    "summary": {
@@ -137,7 +137,10 @@
       "within-variability": 2
      }
     }
-   ]
+   ],
+   "title": "Agreement, LARMORX's own reader and writer against nibabel 5.4.2",
+   "comparison": "standard comparison",
+   "port": "own"
   }
  ],
  "cases": [
@@ -179,7 +182,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 3.5e-18 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 3.5e-18 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -235,7 +238,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 3.5e-18 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 3.5e-18 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -277,7 +280,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "21/21",
-     "reason": "data and every header field equal; the matrices within 8.6e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 8.6e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -305,7 +308,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "21/21",
-     "reason": "data and every header field equal; the matrices within 8.6e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 8.6e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -333,7 +336,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 4.2e-13 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 4.2e-13 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -417,7 +420,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 4.4e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 4.4e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -459,7 +462,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "nibabel: FileNotFoundError(2, 'No such file or directory'); larmorx: FileNotFoundError('<testdata-cache>/nibabel/tests/data/nifti1.img: No such file or directory (os error 2)')"
+     "reason": "nibabel: FileNotFoundError(2, 'No such file or directory'); LARMORX: FileNotFoundError('<testdata-cache>/nibabel/tests/data/nifti1.img: No such file or directory (os error 2)')"
     }
    }
   },
@@ -473,7 +476,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "nibabel: FileNotFoundError(2, 'No such file or directory'); larmorx: FileNotFoundError('<testdata-cache>/nibabel/tests/data/nifti2.img: No such file or directory (os error 2)')"
+     "reason": "nibabel: FileNotFoundError(2, 'No such file or directory'); LARMORX: FileNotFoundError('<testdata-cache>/nibabel/tests/data/nifti2.img: No such file or directory (os error 2)')"
     }
    }
   },
@@ -837,7 +840,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 4.4e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 4.4e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -879,7 +882,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 5.6e-17 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 5.6e-17 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -893,7 +896,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 5.6e-17 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 5.6e-17 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -907,7 +910,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 5.6e-17 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 5.6e-17 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -935,7 +938,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 7.7e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 7.7e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -949,7 +952,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 2.8e-17 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 2.8e-17 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -977,7 +980,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -991,7 +994,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1005,7 +1008,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "21/21",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1047,7 +1050,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "21/21",
-     "reason": "data and every header field equal; the matrices within 8.7e-19 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 8.7e-19 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1061,7 +1064,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "21/21",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1075,7 +1078,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-14 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-14 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1089,7 +1092,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-14 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-14 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1103,7 +1106,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-14 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-14 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1117,7 +1120,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-14 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-14 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1131,7 +1134,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1397,7 +1400,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1439,7 +1442,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "21/21",
-     "reason": "data and every header field equal; the matrices within 1.4e-17 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.4e-17 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1453,7 +1456,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "21/21",
-     "reason": "data and every header field equal; the matrices within 8.6e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 8.6e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1467,7 +1470,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.6e-14 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.6e-14 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1481,7 +1484,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 8.9e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 8.9e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1509,7 +1512,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 4.4e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 4.4e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1523,7 +1526,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "nibabel: OSError('Expected 236996928 bytes, got 9554 bytes from <testdata-cache>/openneuro/ds003020/sub-UTS10/ses-5/func/sub-UTS10_ses-5_task-wheretheressmoke_run-4_bold.nii\\n - could the file be damaged?'); larmorx: NiftiError('<testdata-cache>/openneuro/ds0…"
+     "reason": "nibabel: OSError('Expected 236996928 bytes, got 9554 bytes from <testdata-cache>/openneuro/ds003020/sub-UTS10/ses-5/func/sub-UTS10_ses-5_task-wheretheressmoke_run-4_bold.nii\\n - could the file be damaged?'); LARMORX: NiftiError('<testdata-cache>/openneuro/ds0…"
     }
    }
   },
@@ -1537,7 +1540,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 4.4e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 4.4e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1551,7 +1554,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 5.7e-20 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 5.7e-20 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1565,7 +1568,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "nibabel: OSError('Expected 152764416 bytes, got 164400 bytes from object\\n - could the file be damaged?'); larmorx: OSError('<testdata-cache>/openneuro/ds003763/sub-16111/func/sub-16111_task-heart_bold.nii.gz: incomplete deflate stream')"
+     "reason": "nibabel: OSError('Expected 152764416 bytes, got 164400 bytes from object\\n - could the file be damaged?'); LARMORX: OSError('<testdata-cache>/openneuro/ds003763/sub-16111/func/sub-16111_task-heart_bold.nii.gz: incomplete deflate stream')"
     }
    }
   },
@@ -1593,7 +1596,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 8.9e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 8.9e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1607,7 +1610,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "21/21",
-     "reason": "data and every header field equal; the matrices within 1e-17 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1e-17 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1691,7 +1694,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "19/19",
-     "reason": "data and every header field equal; the matrices within 4.2e-14 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 4.2e-14 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1705,7 +1708,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "21/21",
-     "reason": "data and every header field equal; the matrices within 6.9e-18 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 6.9e-18 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1719,7 +1722,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.4e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.4e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1733,7 +1736,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.4e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.4e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1747,7 +1750,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "21/21",
-     "reason": "data and every header field equal; the matrices within 1.4e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.4e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1845,7 +1848,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 2.2e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 2.2e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1859,7 +1862,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 2.2e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 2.2e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1873,7 +1876,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 8.2e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 8.2e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1901,7 +1904,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.3e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.3e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1915,7 +1918,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.3e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.3e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1929,7 +1932,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.3e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.3e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -1943,7 +1946,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "19/19",
-     "reason": "data and every header field equal; the matrices within 3.6e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 3.6e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -2188,28 +2191,28 @@
   {
    "id": "synthetic/nifti/dtypes/rgb24.nii",
    "category": "synthetic/dtypes",
-   "description": "RGB24 (datatype 128): supported by nibabel, not (yet) by larmorx.",
+   "description": "RGB24 (datatype 128): supported by nibabel, not (yet) by LARMORX.",
    "command": "",
    "results": {
     "port": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "0/0",
-     "reason": "RGB24 data are not supported by larmorx yet (larmorx: NiftiError('<larmorx-testdata>/data/synthetic/nifti/dtypes/rgb24.nii: data type code 128 is not supported'); nibabel: reads it)"
+     "reason": "RGB24 data are not supported by LARMORX yet (LARMORX: NiftiError('<larmorx-testdata>/data/synthetic/nifti/dtypes/rgb24.nii: data type code 128 is not supported'); nibabel: reads it)"
     }
    }
   },
   {
    "id": "synthetic/nifti/dtypes/rgba32.nii",
    "category": "synthetic/dtypes",
-   "description": "RGBA32 (datatype 2304): supported by nibabel, not (yet) by larmorx.",
+   "description": "RGBA32 (datatype 2304): supported by nibabel, not (yet) by LARMORX.",
    "command": "",
    "results": {
     "port": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "0/0",
-     "reason": "RGBA32 data are not supported by larmorx yet (larmorx: NiftiError('<larmorx-testdata>/data/synthetic/nifti/dtypes/rgba32.nii: data type code 2304 is not supported'); nibabel: reads it)"
+     "reason": "RGBA32 data are not supported by LARMORX yet (LARMORX: NiftiError('<larmorx-testdata>/data/synthetic/nifti/dtypes/rgba32.nii: data type code 2304 is not supported'); nibabel: reads it)"
     }
    }
   },
@@ -2391,7 +2394,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -2461,21 +2464,21 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "19/19",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
   {
    "id": "synthetic/nifti/layouts/gzip-content-named-nii.nii",
    "category": "synthetic/layouts",
-   "description": "A gzipped file named .nii: larmorx detects gzip from the content, nibabel from the name.",
+   "description": "A gzipped file named .nii: LARMORX detects gzip from the content, nibabel from the name.",
    "command": "",
    "results": {
     "port": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "0/0",
-     "reason": "larmorx detects gzip from the file content; nibabel from the file name (and fails) (larmorx: reads it; nibabel: ImageFileError('Cannot work out file type of \"<larmorx-testdata>/data/synthetic/nifti/layouts/gzip-content-named-nii.nii\"'))"
+     "reason": "LARMORX detects gzip from the file content; nibabel from the file name (and fails) (LARMORX: reads it; nibabel: ImageFileError('Cannot work out file type of \"<larmorx-testdata>/data/synthetic/nifti/layouts/gzip-content-named-nii.nii\"'))"
     }
    }
   },
@@ -2489,7 +2492,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -2503,7 +2506,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -2517,7 +2520,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -2531,7 +2534,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -2545,7 +2548,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "19/19",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -2559,7 +2562,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "19/19",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -2573,7 +2576,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "19/19",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -2587,21 +2590,21 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "19/19",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
   {
    "id": "synthetic/nifti/layouts/plain-content-named-gz.nii.gz",
    "category": "synthetic/layouts",
-   "description": "An uncompressed file named .nii.gz: larmorx reads it, nibabel does not.",
+   "description": "An uncompressed file named .nii.gz: LARMORX reads it, nibabel does not.",
    "command": "",
    "results": {
     "port": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "0/0",
-     "reason": "larmorx detects gzip from the file content; nibabel from the file name (and fails) (larmorx: reads it; nibabel: ImageFileError('File <larmorx-testdata>/data/synthetic/nifti/layouts/plain-content-named-gz.nii.gz is not a gzip file'))"
+     "reason": "LARMORX detects gzip from the file content; nibabel from the file name (and fails) (LARMORX: reads it; nibabel: ImageFileError('File <larmorx-testdata>/data/synthetic/nifti/layouts/plain-content-named-gz.nii.gz is not a gzip file'))"
     }
    }
   },
@@ -2629,7 +2632,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "nibabel: ImageFileError('Cannot work out file type of \"<larmorx-testdata>/data/synthetic/nifti/malformed/bad-magic.nii\"'); larmorx: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/bad-magic.nii: invalid magic string \"xyz\\\\0\"')"
+     "reason": "nibabel: ImageFileError('Cannot work out file type of \"<larmorx-testdata>/data/synthetic/nifti/malformed/bad-magic.nii\"'); LARMORX: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/bad-magic.nii: invalid magic string \"xyz\\\\0\"')"
     }
    }
   },
@@ -2643,7 +2646,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "0/0",
-     "reason": "nibabel: ValueError('read length must be non-negative or -1'); larmorx: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/extension-bad-size.nii: bad header extension: extension size 4 is smaller than its 8-byte header')"
+     "reason": "nibabel: ValueError('read length must be non-negative or -1'); LARMORX: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/extension-bad-size.nii: bad header extension: extension size 4 is smaller than its 8-byte header')"
     }
    }
   },
@@ -2657,7 +2660,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "nibabel: HeaderDataError('data code 1536 not supported'); larmorx: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/float128-datatype.nii: data type code 1536 is not supported')"
+     "reason": "nibabel: HeaderDataError('data code 1536 not supported'); LARMORX: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/float128-datatype.nii: data type code 1536 is not supported')"
     }
    }
   },
@@ -2671,7 +2674,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "nibabel: HeaderDataError('vox offset 0 too low for single file nifti1'); larmorx: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/ndim-8.nii: vox_offset 0.00000000000000000000000000000000000000006323079060572872 is below the minimum 352 for a si…"
+     "reason": "nibabel: HeaderDataError('vox offset 0 too low for single file nifti1'); LARMORX: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/ndim-8.nii: vox_offset 0.00000000000000000000000000000000000000006323079060572872 is below the minimum 352 for a si…"
     }
    }
   },
@@ -2685,7 +2688,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "nibabel: OverflowError('memory mapped length must be positive'); larmorx: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/negative-dim.nii: dim[2] = -6 is negative')"
+     "reason": "nibabel: OverflowError('memory mapped length must be positive'); LARMORX: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/negative-dim.nii: dim[2] = -6 is negative')"
     }
    }
   },
@@ -2699,7 +2702,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "0/0",
-     "reason": "nibabel: ImageFileError('Cannot work out file type of \"<larmorx-testdata>/data/synthetic/nifti/malformed/not-nifti.nii\"'); larmorx: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/not-nifti.nii: not a NIfTI-1 or NIfTI-2 header (sizeof_hdr is nei…"
+     "reason": "nibabel: ImageFileError('Cannot work out file type of \"<larmorx-testdata>/data/synthetic/nifti/malformed/not-nifti.nii\"'); LARMORX: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/not-nifti.nii: not a NIfTI-1 or NIfTI-2 header (sizeof_hdr is nei…"
     }
    }
   },
@@ -2713,7 +2716,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "nibabel: OSError('Expected 420 bytes, got 410 bytes from <larmorx-testdata>/data/synthetic/nifti/malformed/truncated-data.nii\\n - could the file be damaged?'); larmorx: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/truncated-data.nii: expected…"
+     "reason": "nibabel: OSError('Expected 420 bytes, got 410 bytes from <larmorx-testdata>/data/synthetic/nifti/malformed/truncated-data.nii\\n - could the file be damaged?'); LARMORX: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/truncated-data.nii: expected…"
     }
    }
   },
@@ -2727,7 +2730,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "nibabel: OSError('Expected 32000 bytes, got 15945 bytes from object\\n - could the file be damaged?'); larmorx: OSError('<larmorx-testdata>/data/synthetic/nifti/malformed/truncated-gzip.nii.gz: incomplete deflate stream')"
+     "reason": "nibabel: OSError('Expected 32000 bytes, got 15945 bytes from object\\n - could the file be damaged?'); LARMORX: OSError('<larmorx-testdata>/data/synthetic/nifti/malformed/truncated-gzip.nii.gz: incomplete deflate stream')"
     }
    }
   },
@@ -2741,7 +2744,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "0/0",
-     "reason": "nibabel: ImageFileError('Cannot work out file type of \"<larmorx-testdata>/data/synthetic/nifti/malformed/truncated-header.nii\"'); larmorx: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/truncated-header.nii: file ends inside the header')"
+     "reason": "nibabel: ImageFileError('Cannot work out file type of \"<larmorx-testdata>/data/synthetic/nifti/malformed/truncated-header.nii\"'); LARMORX: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/truncated-header.nii: file ends inside the header')"
     }
    }
   },
@@ -2755,7 +2758,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "nibabel: HeaderDataError('data code 999 not recognized'); larmorx: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/unknown-datatype.nii: data type code 999 is not supported')"
+     "reason": "nibabel: HeaderDataError('data code 999 not recognized'); LARMORX: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/unknown-datatype.nii: data type code 999 is not supported')"
     }
    }
   },
@@ -2769,21 +2772,21 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "nibabel: HeaderDataError('vox offset 300 too low for single file nifti1'); larmorx: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/vox-offset-too-small.nii: vox_offset 300 is below the minimum 352 for a single-file image')"
+     "reason": "nibabel: HeaderDataError('vox offset 300 too low for single file nifti1'); LARMORX: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/vox-offset-too-small.nii: vox_offset 300 is below the minimum 352 for a single-file image')"
     }
    }
   },
   {
    "id": "synthetic/nifti/malformed/vox-offset-zero.nii",
    "category": "synthetic/malformed",
-   "description": "Single file with vox_offset 0: nibabel reads the header bytes as data; larmorx refuses.",
+   "description": "Single file with vox_offset 0: nibabel reads the header bytes as data; LARMORX refuses.",
    "command": "",
    "results": {
     "port": {
      "outcome": "expected-divergence",
      "verdict": "divergence",
      "checks": "0/0",
-     "reason": "larmorx rejects a single file with vox_offset 0; nibabel reads the header bytes as voxel data (larmorx: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/vox-offset-zero.nii: vox_offset is 0 in a single-file image'); nibabel: reads it)"
+     "reason": "LARMORX rejects a single file with vox_offset 0; nibabel reads the header bytes as voxel data (LARMORX: NiftiError('<larmorx-testdata>/data/synthetic/nifti/malformed/vox-offset-zero.nii: vox_offset is 0 in a single-file image'); nibabel: reads it)"
     }
    }
   },
@@ -2895,7 +2898,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -2923,7 +2926,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -2937,7 +2940,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 5.6e-17 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 5.6e-17 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -2951,7 +2954,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -2965,7 +2968,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -2979,7 +2982,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "nibabel: ValueError('w2 should be positive, but is -1.400000e-01'); larmorx: NiftiError('qform quaternion is not unit: 1 - (b² + c² + d²) = -1.4000000268220925e-1')"
+     "reason": "nibabel: ValueError('w2 should be positive, but is -1.400000e-01'); LARMORX: NiftiError('qform quaternion is not unit: 1 - (b² + c² + d²) = -1.4000000268220925e-1')"
     }
    }
   },
@@ -2993,7 +2996,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 8.7e-19 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 8.7e-19 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -3007,7 +3010,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -3035,7 +3038,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -3049,7 +3052,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -3063,7 +3066,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -3077,7 +3080,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -3091,7 +3094,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -3105,7 +3108,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -3273,7 +3276,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "1/1",
-     "reason": "nibabel: HeaderDataError('Valid slope but invalid intercept nan'); larmorx: NiftiError('<larmorx-testdata>/data/synthetic/nifti/scaling/slope-one-inter-nan.nii: scl_slope is valid but scl_inter = NaN is not finite')"
+     "reason": "nibabel: HeaderDataError('Valid slope but invalid intercept nan'); LARMORX: NiftiError('<larmorx-testdata>/data/synthetic/nifti/scaling/slope-one-inter-nan.nii: scl_slope is valid but scl_inter = NaN is not finite')"
     }
    }
   },
@@ -3511,7 +3514,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 5.3e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 5.3e-16 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -3525,7 +3528,7 @@
      "outcome": "pass",
      "verdict": "within-variability",
      "checks": "22/22",
-     "reason": "data and every header field equal; the matrices within 1.1e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are larmorx's, bit for bit (NIB-04)"
+     "reason": "data and every header field equal; the matrices within 1.1e-15 mm: nibabel computes the qform in numpy's long double, 80-bit on Linux x86-64; computed in double, as nibabel does where long double is 64 bits (arm64, Windows), its matrices are LARMORX's, bit for bit (NIB-04)"
     }
    }
   },
@@ -3743,7 +3746,7 @@
  "cases_total": 257,
  "openneuro_datasets": 41,
  "speed": {
-  "title": "Seconds to read a gzipped file into memory, median of repeated runs, log scale; the factor is larmorx's speed-up over nibabel at one thread",
+  "title": "Speed, LARMORX's own reader against nibabel 5.4.2 and SimpleITK 2.5.6",
   "axis": [
    0.001,
    10.0
@@ -3773,23 +3776,27 @@
   "series": [
    {
     "id": "nibabel|read",
-    "label": "nibabel, read",
-    "mark": "original"
+    "label": "nibabel 5.4.2, read",
+    "mark": "original",
+    "port": "original"
    },
    {
     "id": "larmorx (threads=1)|read",
-    "label": "larmorx, read, 1 thread",
-    "mark": "larmorx"
+    "label": "LARMORX's own, read, 1 thread",
+    "mark": "own",
+    "port": "own"
    },
    {
     "id": "larmorx (threads=all)|read",
-    "label": "larmorx, read, all threads",
-    "mark": "larmorx-open"
+    "label": "LARMORX's own, read, all threads",
+    "mark": "own-open",
+    "port": "own"
    },
    {
     "id": "SimpleITK|read",
-    "label": "SimpleITK, read",
-    "mark": "original-open"
+    "label": "SimpleITK 2.5.6, read",
+    "mark": "original-open",
+    "port": "original"
    }
   ],
   "rows": [
@@ -3893,12 +3900,13 @@
     "speedup": 1.4013545342867912
    }
   ],
-  "note": "From the benchmark report `docs/benchmarks/nifti-io.json` (Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz, 12 logical CPUs); uncompressed files and writing are in the report."
+  "note": "From the benchmark report `docs/benchmarks/nifti-io.json` (Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz, 12 logical CPUs); uncompressed files and writing are in the report.",
+  "caption": "Seconds to read a gzipped file into memory (the median of repeated runs) on a log scale; the factor is nibabel's time divided by LARMORX's own at one thread. SimpleITK, another library that reads NIfTI, is the open square."
  },
  "tables": [
   {
    "id": "file-0",
-   "title": "ds000005 sub-01 BOLD, run 1 (raw, as published): every header field and the data, as nibabel 5.4.2 and larmorx read them",
+   "title": "Every header field and the data, LARMORX's own reader against nibabel 5.4.2: ds000005 sub-01 BOLD, run 1 (raw, as published)",
    "columns": [
     {
      "label": "Field"
@@ -3907,7 +3915,7 @@
      "label": "nibabel"
     },
     {
-     "label": "larmorx"
+     "label": "LARMORX's own"
     },
     {
      "label": "Verdict"
@@ -4564,7 +4572,7 @@
      "class": "is-summary"
     },
     {
-     "head": "larmorx writes the image; nibabel reads it",
+     "head": "LARMORX writes the image; nibabel reads it",
      "cells": [
       {
        "text": "data and affine"
@@ -4579,11 +4587,11 @@
      "class": "is-summary"
     }
    ],
-   "note": "`sub-01_task-mixedgamblestask_run-01_bold.nii.gz` (<testdata-cache>/openneuro/ds000005/sub-01/func/sub-01_task-mixedgamblestask_run-01_bold.nii.gz). The header fields as stored (nibabel's header class on the file's first bytes); the data in nibabel's default read; the affine is the matrix each library gives (nibabel computes a qform in numpy's long double, 80-bit on Linux x86-64, 64-bit on arm64 and Windows; larmorx in double everywhere)."
+   "note": "`sub-01_task-mixedgamblestask_run-01_bold.nii.gz` (<testdata-cache>/openneuro/ds000005/sub-01/func/sub-01_task-mixedgamblestask_run-01_bold.nii.gz). The header fields as stored (nibabel's header class on the file's first bytes); the data in nibabel's default read; the affine is the matrix each library gives (nibabel computes a qform in numpy's long double, 80-bit on Linux x86-64, 64-bit on arm64 and Windows; LARMORX in double everywhere)."
   },
   {
    "id": "file-1",
-   "title": "fMRIPrep's preprocessed BOLD of the same run (written by nibabel): every header field and the data, as nibabel 5.4.2 and larmorx read them",
+   "title": "Every header field and the data, LARMORX's own reader against nibabel 5.4.2: fMRIPrep's preprocessed BOLD of the same run (written by nibabel)",
    "columns": [
     {
      "label": "Field"
@@ -4592,7 +4600,7 @@
      "label": "nibabel"
     },
     {
-     "label": "larmorx"
+     "label": "LARMORX's own"
     },
     {
      "label": "Verdict"
@@ -5249,7 +5257,7 @@
      "class": "is-summary"
     },
     {
-     "head": "larmorx writes the image; nibabel reads it",
+     "head": "LARMORX writes the image; nibabel reads it",
      "cells": [
       {
        "text": "data and affine"
@@ -5264,10 +5272,32 @@
      "class": "is-summary"
     }
    ],
-   "note": "`sub-01_task-mixedgamblestask_run-1_desc-preproc_bold.nii.gz` (<testdata-cache>/openneuro-derivatives/ds000005-fmriprep/sub-01/func/sub-01_task-mixedgamblestask_run-1_desc-preproc_bold.nii.gz). The header fields as stored (nibabel's header class on the file's first bytes); the data in nibabel's default read; the affine is the matrix each library gives (nibabel computes a qform in numpy's long double, 80-bit on Linux x86-64, 64-bit on arm64 and Windows; larmorx in double everywhere)."
+   "note": "`sub-01_task-mixedgamblestask_run-1_desc-preproc_bold.nii.gz` (<testdata-cache>/openneuro-derivatives/ds000005-fmriprep/sub-01/func/sub-01_task-mixedgamblestask_run-1_desc-preproc_bold.nii.gz). The header fields as stored (nibabel's header class on the file's first bytes); the data in nibabel's default read; the affine is the matrix each library gives (nibabel computes a qform in numpy's long double, 80-bit on Linux x86-64, 64-bit on arm64 and Windows; LARMORX in double everywhere)."
   }
  ],
  "examples": [],
+ "random_testing": {
+  "title": "Random testing, LARMORX's own reader and writer against nibabel 5.4.2",
+  "names": {
+   "port": "LARMORX's own"
+  }
+ },
+ "category_labels": {
+  "ITK test data": "ITK test data",
+  "nibabel test data": "nibabel test data",
+  "fMRIPrep derivatives": "fMRIPrep derivatives",
+  "OpenNeuro datasets": "OpenNeuro datasets",
+  "synthetic/dtypes": "synthetic: data types",
+  "synthetic/header": "synthetic: header fields",
+  "synthetic/layouts": "synthetic: file layouts",
+  "synthetic/malformed": "synthetic: malformed files",
+  "synthetic/orientation": "synthetic: orientations",
+  "synthetic/scaling": "synthetic: scale factors",
+  "synthetic/shapes": "synthetic: shapes",
+  "synthetic/transforms": "synthetic: transform images",
+  "TemplateFlow templates": "TemplateFlow templates"
+ },
+ "presentation": "writing-guide",
  "cases_credits": [
   "openneuro-ds000005",
   "openneuro-ds000002",

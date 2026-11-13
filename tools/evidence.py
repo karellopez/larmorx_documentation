@@ -39,6 +39,8 @@ PORT_LABELS = {
     "fmriprep": "fMRIPrep's output",
     "replica": "Replica",
     "clean-room": "Clean room",
+    # LARMORX's own work, not a port (the NIfTI reader): the clean room's colour and mark
+    "own": "LARMORX's own",
 }
 
 
@@ -1261,13 +1263,6 @@ class Evidence:
         path = self.root / "static" / "evidence" / "summary.json"
         summary = json.loads(path.read_text(encoding="utf-8"))
         pages = {t["url"]: t for t in tools}
-        # an evidence page moved to /evidence/<page>/ keeps its old address in summary.json
-        # until the summary is made again: the row links the new one
-        moved = {
-            "/tools/" + t["url"].removeprefix("/evidence/"): t["url"]
-            for t in tools
-            if t["url"].startswith("/evidence/")
-        }
         unclassified = any(
             im["verdicts"].get("unclassified") for t in summary["tools"] for im in t["implementations"]
         )
@@ -1294,7 +1289,7 @@ class Evidence:
                 span = f' rowspan="{len(t["implementations"])}"' if len(t["implementations"]) > 1 else ""
                 cells = []
                 if first:
-                    url = moved.get(t["page"], t["page"])
+                    url = t["page"]
                     page = pages.get(url)
                     name = esc(t["title"])
                     if page:

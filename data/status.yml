@@ -15,7 +15,7 @@ as_of: the main repository's README, October 2026
 implemented:
   - eco: larmorx
     tool: "NIfTI-1/2 I/O"
-    page: /tools/nifti-io/
+    page: /evidence/nifti-io/
     use: ["lx.load", "lx.save", "lx.Image"]
     how: "LARMORX's own"
     validation: "[257 files](repo:docs/validation/nifti-io.md), data bit-identical to nibabel; [4–8× faster](repo:docs/benchmarks/nifti-io.md) on compressed writes with threads"
@@ -75,7 +75,7 @@ implemented:
     validation: "[97 cases](repo:docs/validation/ants-atropos.md): 27 of 58 compared bit-identical to ANTs, 58 of 58 with correctly rounded maths, sMRIPrep's call in five of fMRIPrep's runs included; partial-volume classes with the MRF corrected (ANTS-106); data panel: [3 of 17](repo:docs/validation/ants-atropos-panel.md) as built, 17 of 17 with correctly rounded maths, the classes identical in all"
   - eco: fmriprep
     tool: "fMRIPrep's one-shot BOLD resampler"
-    page: /tools/resample-series/
+    page: /evidence/resample-series/
     use: ["lx.transforms.resample_series"]
     how: "replica (fMRIPrep, nitransforms, SciPy)"
     validation: "[139 cases](repo:docs/validation/resample-series.md): 136 of 136 compared bit-identical"

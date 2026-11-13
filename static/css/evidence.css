@@ -450,7 +450,7 @@ th[aria-sort="descending"] .ev-sort::after { content: " ↓"; }
 .pmark { display: inline-block; width: 8px; height: 8px; margin-right: 6px; vertical-align: 0; flex: none; background: var(--port-original); }
 .pmark--input { background: var(--port-input); border-radius: 1px; }
 .pmark--replica { background: var(--port-replica); width: 9px; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
-.pmark--clean-room { background: var(--port-clean-room); border-radius: 50%; }
+.pmark--clean-room, .pmark--own { background: var(--port-clean-room); border-radius: 50%; }
 .ev-ported .ev-panel.port-input .ev-role { color: var(--port-input); }
 .ev-ported .ev-panel.port-original .ev-role, .ev-ported .ev-panel.port-fmriprep .ev-role { color: var(--port-original); }
 .ev-ported .ev-panel.port-replica .ev-role { color: var(--port-replica); }
@@ -466,8 +466,8 @@ th[aria-sort="descending"] .ev-sort::after { content: " ↓"; }
 /* speed: the ports' marks, filled at one thread, open at more */
 .ev-ported .dot.s-original { background: var(--port-original); border-radius: 1px; }
 .ev-ported .dot.s-original-open { background: var(--bg-elev); border: 2px solid var(--port-original); border-radius: 1px; }
-.ev-ported .dot.s-clean-room { background: var(--port-clean-room); }
-.ev-ported .dot.s-clean-room-open { background: var(--bg-elev); border: 2px solid var(--port-clean-room); }
+.ev-ported .dot.s-clean-room, .ev-ported .dot.s-own { background: var(--port-clean-room); }
+.ev-ported .dot.s-clean-room-open, .ev-ported .dot.s-own-open { background: var(--bg-elev); border: 2px solid var(--port-clean-room); }
 .ev-ported .dot.s-replica, .ev-ported .dot.s-replica-open { background: var(--port-replica); border: 0; border-radius: 0; box-shadow: none;
   clip-path: polygon(50% 0, 100% 100%, 0 100%); width: 12px; height: 11px; margin: -6px 0 0 -6px; }
 .ev-ported .dot.s-replica-open::after { content: ""; position: absolute; left: 3.2px; right: 3.2px; top: 4.6px; bottom: 1.8px;
