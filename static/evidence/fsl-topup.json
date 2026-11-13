@@ -3,7 +3,7 @@
  "tool": "fsl-topup",
  "title": "topup and applytopup",
  "provenance": {
-  "exporter": "36362cfcd0ba27af430ba934f65b60663dd96fe0",
+  "exporter": "6cc85caac79c9868287f0114ea0f965d3217995c",
   "records": [
    {
     "path": "docs/validation/fsl-topup-replica.json",
@@ -14977,7 +14977,7 @@
        ]
       }
      ],
-     "note": "Each metric as the record computes it (parity.fsl_topup's `measures`), over the record's brain (FSL's corrected mean above 10 % of its 99th percentile): the clean room (`reproduce`, 4 threads; its result is the same at any thread count) against FSL 6.0.7.23 at one thread, and FSL at --nthr=4 against FSL at one (its own thread band, FSL-116; the run the replica's evidence made, served by the cache of the original's runs); a correlation is better when higher, every other metric when lower."
+     "note": "Each metric as the record computes it (`measures` of the comparison suite `parity.fsl_topup`), over the record's brain (FSL's corrected mean above 10 % of its 99th percentile): the clean room (`reproduce`, 4 threads; its result is the same at any thread count) against FSL 6.0.7.23 at one thread, and FSL at --nthr=4 against FSL at one (its own thread band, FSL-116; the run the replica's evidence made, served by the cache of the original's runs); a correlation is better when higher, every other metric when lower."
     }
    ],
    "metrics_note": "Δ is A − B, computed in float64 over all 163,840 voxels of the outputs, not only those shown. The record's threshold: every file FSL writes bit-identical (images decompressed, `descrip` left out), with FSL's exit status and messages. The clean room's record (fsl-topup) holds it to specs/topup.md §12's thresholds instead: FSL's exit status, files and messages (numbers to 4 significant digits), the headers and the log identical; inside the record's brain the field within 0.5 Hz at the 99th percentile and 0.1 Hz on average (correlation at least 0.999), the corrected images within 1e-3 relative at the 99th percentile and 1e-3 of the mean intensity on average, the movements within 0.05 mm and 0.001 rad, the Jacobians and displacements within the field's bounds times the read-out time; a metric beyond its threshold passes within FSL's own band where the record measures it.",
@@ -19410,7 +19410,7 @@
        ]
       }
      ],
-     "note": "Each metric as the record computes it (parity.fsl_topup's `measures`), over the record's brain (FSL's corrected mean above 10 % of its 99th percentile): the clean room (`reproduce`, 4 threads; its result is the same at any thread count) against FSL 6.0.7.23 at one thread, and FSL at --nthr=4 against FSL at one (its own thread band, FSL-116; the run the replica's evidence made, served by the cache of the original's runs); a correlation is better when higher, every other metric when lower."
+     "note": "Each metric as the record computes it (`measures` of the comparison suite `parity.fsl_topup`), over the record's brain (FSL's corrected mean above 10 % of its 99th percentile): the clean room (`reproduce`, 4 threads; its result is the same at any thread count) against FSL 6.0.7.23 at one thread, and FSL at --nthr=4 against FSL at one (its own thread band, FSL-116; the run the replica's evidence made, served by the cache of the original's runs); a correlation is better when higher, every other metric when lower."
     }
    ],
    "metrics_note": "Δ is A − B, computed in float64 over all 384,000 voxels of the outputs, not only those shown. The record's threshold: every file FSL writes bit-identical (images decompressed, `descrip` left out), with FSL's exit status and messages. The clean room's record (fsl-topup) holds it to specs/topup.md §12's thresholds instead: FSL's exit status, files and messages (numbers to 4 significant digits), the headers and the log identical; inside the record's brain the field within 0.5 Hz at the 99th percentile and 0.1 Hz on average (correlation at least 0.999), the corrected images within 1e-3 relative at the 99th percentile and 1e-3 of the mean intensity on average, the movements within 0.05 mm and 0.001 rad, the Jacobians and displacements within the field's bounds times the read-out time; a metric beyond its threshold passes within FSL's own band where the record measures it.",
