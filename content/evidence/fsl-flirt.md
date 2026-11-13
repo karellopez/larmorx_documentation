@@ -30,7 +30,7 @@ wide: true
 </ul></dd>
 <dt>Status</dt><dd>replica <span class="status-tag status-tag--experimental">experimental</span>; clean room <span class="status-tag status-tag--experimental">experimental</span></dd>
 <dt>Records</dt><dd>the replica's: <a href="{{ repo('docs/validation/fsl-flirt-replica.md') }}">standard comparison</a> (FSL 6.0.7.23) · the clean room's: <a href="{{ repo('docs/validation/fsl-flirt.md') }}">standard comparison</a> (FSL 6.0.7.23) · benchmark <a href="{{ repo('docs/benchmarks/fsl-flirt.md') }}">fsl-flirt</a></dd>
-<dt>Reference</dt><dd>API page <a href="{{ repo('docs/api/fsl-flirt.md') }}">fsl-flirt</a></dd>
+<dt>Reference</dt><dd><a href="{{ link('/programs/fsl/flirt/') }}"><code>flirt</code></a>, <a href="{{ link('/programs/fsl/convert_xfm/') }}"><code>convert_xfm</code></a> · API page <a href="{{ repo('docs/api/fsl-flirt.md') }}">fsl-flirt</a> (FLIRT's other programs)</dd>
 </dl>
 
 ## What is compared {#what-it-is}

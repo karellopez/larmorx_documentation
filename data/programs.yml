@@ -306,11 +306,11 @@ groups:
         command: "larmorx fsl flirt"
         also: ""
         python: "lx.fsl.flirt"
-        does: "Linear (affine) registration, with every cost function and boundary-based registration (BBR)."
+        does: "`flirt` registers one image to another with an affine transform, with every cost function and boundary-based registration (BBR)."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-flirt.md"
         evidence: "/evidence/fsl-flirt/"
-        reference: ""
+        reference: "/programs/fsl/flirt/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
@@ -319,11 +319,11 @@ groups:
         command: "larmorx fsl convert_xfm"
         also: ""
         python: "lx.fsl.convert_xfm"
-        does: "FLIRT's matrix tool: inverts a 4 × 4 matrix (`-inverse`), composes two (`-concat`), and the rest of its options."
+        does: "`convert_xfm` is FLIRT's matrix tool: it inverts a 4 × 4 matrix (`-inverse`), composes two (`-concat`) and gives a matrix another's scales and skews (`-fixscaleskew`)."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-flirt.md"
         evidence: "/evidence/fsl-flirt/"
-        reference: ""
+        reference: "/programs/fsl/convert_xfm/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}
