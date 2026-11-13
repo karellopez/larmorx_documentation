@@ -3,7 +3,7 @@
  "tool": "fsl-stats",
  "title": "fslstats",
  "provenance": {
-  "exporter": "c2ef0e7819ba6a78845200b0787c9d05fb3c53f5",
+  "exporter": "0335ec600562917209e4771eff1c8f5404626469",
   "records": [
    {
     "path": "docs/validation/fsl-stats-replica.json",
@@ -9547,7 +9547,7 @@
  "implementations": [
   {
    "id": "replica",
-   "label": "larmorx-nc replica, against FSL 6.0.7.23 (standard tier)",
+   "label": "replica against the original: FSL fslstats 6.0.7.23 (standard comparison)",
    "short": "replica",
    "record": "docs/validation/fsl-stats-replica.md",
    "status": "experimental",
@@ -9622,12 +9622,15 @@
       "both-reject": 1
      }
     }
-   ]
+   ],
+   "title": "Agreement, replica against the original: FSL `fslstats` 6.0.7.23",
+   "comparison": "standard comparison",
+   "port": "replica"
   },
   {
    "id": "original",
-   "label": "LARMORX clean-room original, against FSL 6.0.7.23 (standard tier)",
-   "short": "original",
+   "label": "clean room against the original: FSL fslstats 6.0.7.23 (standard comparison)",
+   "short": "clean room",
    "record": "docs/validation/fsl-stats.md",
    "status": "experimental",
    "summary": {
@@ -9702,7 +9705,10 @@
       "bit-identical": 4
      }
     }
-   ]
+   ],
+   "title": "Agreement, clean room against the original: FSL `fslstats` 6.0.7.23",
+   "comparison": "standard comparison",
+   "port": "clean-room"
   }
  ],
  "cases": [
@@ -9822,7 +9828,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 1; the same from the original."
+     "reason": "fslstats exits 1; the same from the clean room."
     }
    }
   },
@@ -9842,7 +9848,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 1; the same from the original."
+     "reason": "fslstats exits 1; the same from the clean room."
     }
    }
   },
@@ -9862,7 +9868,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 1; the same from the original."
+     "reason": "fslstats exits 1; the same from the clean room."
     }
    }
   },
@@ -9882,7 +9888,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 1; the same from the original."
+     "reason": "fslstats exits 1; the same from the clean room."
     }
    }
   },
@@ -9902,7 +9908,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 255; the same from the original. Image Exception : #63 :: No image files match: missing Image Exception : #22 :: Failed to read volume missing.nii.gz Error : No image files match: missing Faile"
+     "reason": "fslstats exits 255; the same from the clean room. Image Exception : #63 :: No image files match: missing Image Exception : #22 :: Failed to read volume missing.nii.gz Error : No image files match: missing Faile"
     }
    }
   },
@@ -9922,7 +9928,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 3; the same from the original. Unrecognised option: -q"
+     "reason": "fslstats exits 3; the same from the clean room. Unrecognised option: -q"
     }
    }
   },
@@ -9942,7 +9948,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 2; the same from the original. Must specify an argument to -l"
+     "reason": "fslstats exits 2; the same from the clean room. Must specify an argument to -l"
     }
    }
   },
@@ -9962,7 +9968,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 2; the same from the original. Must specify an argument to -u"
+     "reason": "fslstats exits 2; the same from the clean room. Must specify an argument to -u"
     }
    }
   },
@@ -9982,7 +9988,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 2; the same from the original. Must specify an argument to -k"
+     "reason": "fslstats exits 2; the same from the clean room. Must specify an argument to -k"
     }
    }
   },
@@ -10002,7 +10008,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 2; the same from the original. Must specify an argument to -d"
+     "reason": "fslstats exits 2; the same from the clean room. Must specify an argument to -d"
     }
    }
   },
@@ -10022,7 +10028,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 2; the same from the original. Must specify an argument to -p"
+     "reason": "fslstats exits 2; the same from the clean room. Must specify an argument to -p"
     }
    }
   },
@@ -10042,7 +10048,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 2; the same from the original. Must specify an argument to -P"
+     "reason": "fslstats exits 2; the same from the clean room. Must specify an argument to -P"
     }
    }
   },
@@ -10062,7 +10068,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 2; the same from the original. Must specify the number of bins"
+     "reason": "fslstats exits 2; the same from the clean room. Must specify the number of bins"
     }
    }
   },
@@ -10082,7 +10088,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 2; the same from the original. Must specify the number of bins"
+     "reason": "fslstats exits 2; the same from the clean room. Must specify the number of bins"
     }
    }
   },
@@ -10102,7 +10108,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 2; the same from the original. Must specify the histogram minimum intensity"
+     "reason": "fslstats exits 2; the same from the clean room. Must specify the histogram minimum intensity"
     }
    }
   },
@@ -10122,7 +10128,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 2; the same from the original. Must specify the histogram maximum intensity"
+     "reason": "fslstats exits 2; the same from the clean room. Must specify the histogram maximum intensity"
     }
    }
   },
@@ -10142,7 +10148,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 1; the same from the original. Percentile must be between 0 and 100"
+     "reason": "fslstats exits 1; the same from the clean room. Percentile must be between 0 and 100"
     }
    }
   },
@@ -10162,7 +10168,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 1; the same from the original. Percentile must be between 0 and 100"
+     "reason": "fslstats exits 1; the same from the clean room. Percentile must be between 0 and 100"
     }
    }
   },
@@ -10182,7 +10188,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 1; the same from the original. Must specify at least 1 bin"
+     "reason": "fslstats exits 1; the same from the clean room. Must specify at least 1 bin"
     }
    }
   },
@@ -10202,7 +10208,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 1; the same from the original. Must specify at least 1 bin"
+     "reason": "fslstats exits 1; the same from the clean room. Must specify at least 1 bin"
     }
    }
   },
@@ -10222,7 +10228,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 1; the same from the original. Must specify at least 1 bin"
+     "reason": "fslstats exits 1; the same from the clean room. Must specify at least 1 bin"
     }
    }
   },
@@ -10242,7 +10248,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 3; the same from the original. Index mask must be 3D"
+     "reason": "fslstats exits 3; the same from the clean room. Index mask must be 3D"
     }
    }
   },
@@ -10262,7 +10268,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 255; the same from the original. Image Exception : #3 :: Attempted to multiply images of different sizes Attempted to multiply images of different sizes"
+     "reason": "fslstats exits 255; the same from the clean room. Image Exception : #3 :: Attempted to multiply images of different sizes Attempted to multiply images of different sizes"
     }
    }
   },
@@ -10302,7 +10308,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 3; the same from the original. Mask and image must be the same size"
+     "reason": "fslstats exits 3; the same from the clean room. Mask and image must be the same size"
     }
    }
   },
@@ -10322,7 +10328,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 3; the same from the original. Mask and image must be the same size"
+     "reason": "fslstats exits 3; the same from the clean room. Mask and image must be the same size"
     }
    }
   },
@@ -10342,7 +10348,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 255; the same from the original. Image Exception : #63 :: No image files match: nomask Image Exception : #22 :: Failed to read volume nomask.nii.gz Error : No image files match: nomask Failed t"
+     "reason": "fslstats exits 255; the same from the clean room. Image Exception : #63 :: No image files match: nomask Image Exception : #22 :: Failed to read volume nomask.nii.gz Error : No image files match: nomask Failed t"
     }
    }
   },
@@ -10362,7 +10368,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 3; the same from the original. Image used with -d must be the same size as the base image"
+     "reason": "fslstats exits 3; the same from the clean room. Image used with -d must be the same size as the base image"
     }
    }
   },
@@ -10382,7 +10388,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 3; the same from the original. Image must be the same size as the base image"
+     "reason": "fslstats exits 3; the same from the clean room. Image must be the same size as the base image"
     }
    }
   },
@@ -10836,13 +10842,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-182, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-182, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-182, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-182, with the same values."
     }
    }
   },
@@ -11976,13 +11982,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values."
     }
    }
   },
@@ -11996,13 +12002,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values."
     }
    }
   },
@@ -12016,13 +12022,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values."
     }
    }
   },
@@ -12036,13 +12042,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-153, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-153, with the same values."
     }
    }
   },
@@ -12056,13 +12062,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values."
     }
    }
   },
@@ -12076,13 +12082,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values."
     }
    }
   },
@@ -12136,13 +12142,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values."
     }
    }
   },
@@ -12176,13 +12182,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values."
     }
    }
   },
@@ -12196,13 +12202,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values."
     }
    }
   },
@@ -12216,13 +12222,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values."
     }
    }
   },
@@ -12236,13 +12242,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-153, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-153, with the same values."
     }
    }
   },
@@ -12276,13 +12282,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages; its default mode names FSL-181, with the same values"
+     "reason": "every file written (2/2) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values."
     }
    }
   },
@@ -12296,13 +12302,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-182, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-182, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-182, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-182, with the same values."
     }
    }
   },
@@ -12316,13 +12322,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-182, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-182, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-182, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-182, with the same values."
     }
    }
   },
@@ -12356,13 +12362,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "6/6",
-     "reason": "fslstats exits 3; the same from the replica. Mask and image must be the same size The replica's default mode finishes instead (exit status 0), naming FSL-183."
+     "reason": "fslstats exits 3; the same from the replica. Mask and image must be the same size The replica's default, `fix`, finishes instead (exit status 0), naming FSL-183."
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 3; the same from the original. Mask and image must be the same size The clean-room original's default mode finishes instead (exit status 0), naming FSL-183."
+     "reason": "fslstats exits 3; the same from the clean room. Mask and image must be the same size The clean room's default, `fix`, finishes instead (exit status 0), naming FSL-183."
     }
    }
   },
@@ -12376,13 +12382,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "6/6",
-     "reason": "fslstats exits 255; the same from the replica. Image Exception : #61 :: Invalid t index in [] operator Invalid t index in [] operator The replica's default mode finishes instead (exit status 0), naming FSL-183."
+     "reason": "fslstats exits 255; the same from the replica. Image Exception : #61 :: Invalid t index in [] operator Invalid t index in [] operator The replica's default, `fix`, finishes instead (exit status 0), naming FSL-183."
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 255; the same from the original. Image Exception : #61 :: Invalid t index in [] operator Invalid t index in [] operator The clean-room original's default mode finishes instead (exit status 0), naming FSL-183."
+     "reason": "fslstats exits 255; the same from the clean room. Image Exception : #61 :: Invalid t index in [] operator Invalid t index in [] operator The clean room's default, `fix`, finishes instead (exit status 0), naming FSL-183."
     }
    }
   },
@@ -12396,13 +12402,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "6/6",
-     "reason": "fslstats exits 3; the same from the replica. Image must be the same size as the base image The replica's default mode finishes instead (exit status 0), naming FSL-183."
+     "reason": "fslstats exits 3; the same from the replica. Image must be the same size as the base image The replica's default, `fix`, finishes instead (exit status 0), naming FSL-183."
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits 3; the same from the original. Image must be the same size as the base image The clean-room original's default mode finishes instead (exit status 0), naming FSL-183."
+     "reason": "fslstats exits 3; the same from the clean room. Image must be the same size as the base image The clean room's default, `fix`, finishes instead (exit status 0), naming FSL-183."
     }
    }
   },
@@ -12416,13 +12422,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "6/6",
-     "reason": "fslstats exits -11; the same from the replica. calculateExtrema: mask is empty The replica's default mode ends with exit status 1, naming FSL-184."
+     "reason": "fslstats exits -11; the same from the replica. calculateExtrema: mask is empty The replica's default, `fix`, ends with exit status 1, naming FSL-184."
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits -11; the same from the original. calculateExtrema: mask is empty The clean-room original's default mode ends with exit status 1, naming FSL-184."
+     "reason": "fslstats exits -11; the same from the clean room. calculateExtrema: mask is empty The clean room's default, `fix`, ends with exit status 1, naming FSL-184."
     }
    }
   },
@@ -12436,13 +12442,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "6/6",
-     "reason": "fslstats exits -11; the same from the replica. calculateExtrema: mask is empty The replica's default mode ends with exit status 1, naming FSL-184."
+     "reason": "fslstats exits -11; the same from the replica. calculateExtrema: mask is empty The replica's default, `fix`, ends with exit status 1, naming FSL-184."
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits -11; the same from the original. calculateExtrema: mask is empty The clean-room original's default mode ends with exit status 1, naming FSL-184."
+     "reason": "fslstats exits -11; the same from the clean room. calculateExtrema: mask is empty The clean room's default, `fix`, ends with exit status 1, naming FSL-184."
     }
    }
   },
@@ -12456,13 +12462,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "6/6",
-     "reason": "fslstats exits -8; the same from the replica. The replica's default mode finishes instead (exit status 0), naming FSL-185."
+     "reason": "fslstats exits -8; the same from the replica. The replica's default, `fix`, finishes instead (exit status 0), naming FSL-185."
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits -8; the same from the original. The clean-room original's default mode finishes instead (exit status 0), naming FSL-185."
+     "reason": "fslstats exits -8; the same from the clean room. The clean room's default, `fix`, finishes instead (exit status 0), naming FSL-185."
     }
    }
   },
@@ -12476,13 +12482,13 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "6/6",
-     "reason": "fslstats exits -8; the same from the replica. The replica's default mode finishes instead (exit status 0), naming FSL-185."
+     "reason": "fslstats exits -8; the same from the replica. The replica's default, `fix`, finishes instead (exit status 0), naming FSL-185."
     },
     "original": {
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits -8; the same from the original. The clean-room original's default mode finishes instead (exit status 0), naming FSL-185."
+     "reason": "fslstats exits -8; the same from the clean room. The clean room's default, `fix`, finishes instead (exit status 0), naming FSL-185."
     }
    }
   },
@@ -12516,13 +12522,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode refuses the call (exit 1), naming FSL-186"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, refuses the call (exit 1), naming FSL-186"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode refuses the call (exit 1), naming FSL-186."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, refuses the call (exit 1), naming FSL-186."
     }
    }
   },
@@ -12536,13 +12542,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode refuses the call (exit 1), naming FSL-186"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, refuses the call (exit 1), naming FSL-186"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode refuses the call (exit 1), naming FSL-186."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, refuses the call (exit 1), naming FSL-186."
     }
    }
   },
@@ -12556,13 +12562,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-187, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-187, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-187, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-187, with the same values."
     }
    }
   },
@@ -12576,13 +12582,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-187, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-187, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-187, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-187, with the same values."
     }
    }
   },
@@ -12596,13 +12602,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-188, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-188, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-188, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-188, with the same values."
     }
    }
   },
@@ -12636,13 +12642,13 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "6/6",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-189, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-189, with the same values"
     },
     "original": {
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-189, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-189, with the same values."
     }
    }
   },
@@ -13018,7 +13024,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "7/7",
-     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default mode names FSL-182, with the same values"
+     "reason": "every file written (1/1) byte for byte, with FSL's exit status and messages; its default, `fix`, names FSL-182, with the same values"
     }
    }
   },
@@ -13508,7 +13514,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "6/6",
-     "reason": "fslstats exits -8; the same from the replica. findHistogram: mask is empty The replica's default mode ends with exit status 1, naming FSL-184, FSL-185."
+     "reason": "fslstats exits -8; the same from the replica. findHistogram: mask is empty The replica's default, `fix`, ends with exit status 1, naming FSL-184, FSL-185."
     }
    }
   },
@@ -13550,7 +13556,7 @@
      "outcome": "pass",
      "verdict": "bit-identical",
      "checks": "4/4",
-     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default mode names FSL-181, with the same values."
+     "reason": "Every printed text with FSL's values (the record measures every value), with FSL's exit status and messages; its default, `fix`, names FSL-181, with the same values."
     }
    }
   },
@@ -13606,7 +13612,7 @@
      "outcome": "both-error",
      "verdict": "both-reject",
      "checks": "4/4",
-     "reason": "fslstats exits -8; the same from the original. findHistogram: mask is empty The clean-room original's default mode finishes instead (exit status 0), naming FSL-185."
+     "reason": "fslstats exits -8; the same from the clean room. findHistogram: mask is empty The clean room's default, `fix`, finishes instead (exit status 0), naming FSL-185."
     }
    }
   },
@@ -13697,7 +13703,7 @@
  ],
  "cases_total": 221,
  "speed": {
-  "title": "Seconds for the whole call (read the images, compute, write every output), one run each, log scale; the factor is the clean-room original's speed-up over FSL, both on one thread",
+  "title": "Speed, both ports against the original: FSL `fslstats` 6.0.7.23",
   "axis": [
    0.1,
    1.0
@@ -13715,23 +13721,27 @@
   "series": [
    {
     "id": "FSL 6.0.7.23|1 thread",
-    "label": "FSL 6.0.7.23 (single-threaded)",
-    "mark": "original"
+    "label": "FSL fslstats 6.0.7.23, 1 thread",
+    "mark": "original",
+    "port": "original"
    },
    {
     "id": "replica (larmorx-nc)|1 thread",
-    "label": "replica (single-threaded)",
-    "mark": "replica"
+    "label": "replica, 1 thread",
+    "mark": "replica",
+    "port": "replica"
    },
    {
     "id": "original (larmorx)|1 thread",
-    "label": "clean-room original, 1 thread",
-    "mark": "larmorx"
+    "label": "clean room, 1 thread",
+    "mark": "clean-room",
+    "port": "clean-room"
    },
    {
     "id": "original (larmorx)|14 threads",
-    "label": "clean-room original, 14 threads",
-    "mark": "larmorx-open"
+    "label": "clean room, 14 threads",
+    "mark": "clean-room-open",
+    "port": "clean-room"
    }
   ],
   "rows": [
@@ -13758,30 +13768,31 @@
     "speedup": 1.0454545454545454
    }
   ],
-  "note": "From the benchmark report `docs/benchmarks/fsl-maths.md` (the main machine: AMD, 16 cores and 32 threads, 124 GiB,\nUbuntu 22.04; informal, one run each, while another agent worked beside it). FSL and the replica are single-threaded; the original's outputs are the same bits at 1 and 14 threads."
+  "note": "From the benchmark report `docs/benchmarks/fsl-maths.md` (the main machine: AMD, 16 cores and 32 threads, 124 GiB,\nUbuntu 22.04; informal, one run each, while other work ran beside it). FSL and the replica are single-threaded; the clean room's outputs are the same bits at 1 and 14 threads.",
+  "caption": "Seconds for the whole call (reading the image, computing, printing), one run each, on a log scale. The factor is how many times faster the clean room is than FSL, both on one thread."
  },
  "tables": [
   {
    "id": "goodvoxels",
-   "title": "fMRIPrep's goodvoxels mask: fslstats' four calls",
+   "title": "fMRIPrep's goodvoxels mask, both ports against the original: FSL `fslstats` 6.0.7.23 (its four calls)",
    "columns": [
     {
      "label": "Node"
     },
     {
-     "label": "FSL 6.0.7.23 prints"
+     "label": "FSL fslstats 6.0.7.23 prints"
     },
     {
-     "label": "Replica (reproduce)"
+     "label": "replica, reproduce"
     },
     {
-     "label": "Replica (default)"
+     "label": "replica, fix"
     },
     {
-     "label": "Clean-room original (reproduce)"
+     "label": "clean room, reproduce"
     },
     {
-     "label": "Clean-room original (default)"
+     "label": "clean room, fix"
     }
    ],
    "rows": [
@@ -13874,11 +13885,11 @@
      "verdict": "bit-identical"
     }
    ],
-   "note": "fMRIPrep 25.2.6's goodvoxels workflow (`--project-goodvoxels`; not in the oracle runs) built from its code on ds005040's BOLD series in T1w space; each call on FSL's output of the fslmaths node before it (the fslmaths page shows those fourteen calls). The cortical ribbon is a stand-in, the segmentation's grey matter: the no-reconall oracle runs have no FreeSurfer ribbon. fMRIPrep reads each printed number as Python's float: the means divide the CoV images, mean + std / 2 is the threshold of -thr."
+   "note": "fMRIPrep 25.2.6's goodvoxels workflow (`--project-goodvoxels`; not in the fMRIPrep runs) built from its code on ds005040's BOLD series in T1w space; each call on FSL's output of the fslmaths node before it (fslmaths' evidence page shows those fourteen calls). The cortical ribbon is a stand-in, the segmentation's grey matter: the no-reconall fMRIPrep runs have no FreeSurfer ribbon. fMRIPrep reads each printed number as Python's float: the means divide the CoV images, mean + std / 2 is the threshold of -thr."
   },
   {
    "id": "options",
-   "title": "Every option on a real image, against FSL 6.0.7.23",
+   "title": "Every option on a real image, both ports against the original: FSL `fslstats` 6.0.7.23",
    "columns": [
     {
      "label": "Call"
@@ -13891,19 +13902,19 @@
      "num": true
     },
     {
-     "label": "Replica (reproduce)"
+     "label": "replica, reproduce"
     },
     {
-     "label": "Replica (default)"
+     "label": "replica, fix"
     },
     {
-     "label": "Clean-room original (reproduce)"
+     "label": "clean room, reproduce"
     },
     {
-     "label": "Clean-room original (default)"
+     "label": "clean room, fix"
     },
     {
-     "label": "Original, 1 thread against 14"
+     "label": "clean room, 1 thread against 14"
     }
    ],
    "rows": [
@@ -14749,11 +14760,11 @@
      "verdict": "open"
     }
    ],
-   "note": "`mean.nii.gz` and `std.nii.gz` are FSL's -Tmean and -Tstd of ds005040's BOLD series in T1w space (fMRIPrep's output, `bold.nii.gz`: 63 volumes), `mask.nii.gz` fMRIPrep's brain mask of it, `labels.nii.gz` fMRIPrep's segmentation at each BOLD voxel (1 grey matter, 2 white matter, 3 CSF), `t1w.nii.gz` fMRIPrep's preprocessed T1w. Each printed text compared byte for byte with FSL's (through the oracle cache): *identical*, every character of every line. The clean-room original (14 threads, and at one: the same text) is held to specs/fslstats.md §10: counts, extremes, coordinates, the robust range, percentiles, histograms, -w and the masked means and standard deviations identical, the other numbers (the unmasked means and standard deviations, -D, the entropies, the centres of gravity) within 1e-6 relative."
+   "note": "`mean.nii.gz` and `std.nii.gz` are FSL's -Tmean and -Tstd of ds005040's BOLD series in T1w space (fMRIPrep's output, `bold.nii.gz`: 63 volumes), `mask.nii.gz` fMRIPrep's brain mask of it, `labels.nii.gz` fMRIPrep's segmentation at each BOLD voxel (1 grey matter, 2 white matter, 3 CSF), `t1w.nii.gz` fMRIPrep's preprocessed T1w. Each printed text compared byte for byte with FSL's (through the cache of the original's runs): *identical*, every character of every line. The clean room (14 threads, and at one: the same text) is held to specs/fslstats.md §10: counts, extremes, coordinates, the robust range, percentiles, histograms, -w and the masked means and standard deviations identical, the other numbers (the unmasked means and standard deviations, -D, the entropies, the centres of gravity) within 1e-6 relative."
   },
   {
    "id": "trial",
-   "title": "Random testing: the trial of 2026-11-03",
+   "title": "Random testing, the replica against the original: FSL `fslstats` 6.0.7.23 (69,077 random calls, 2026-11-03)",
    "columns": [
     {
      "label": ""
@@ -14783,7 +14794,7 @@
      ]
     },
     {
-     "head": "of them, a notice of the default mode without a visible change",
+     "head": "of them, a notice of the default, `fix`, without a visible change",
      "cells": [
       {
        "v": 0,
@@ -14792,7 +14803,7 @@
      ]
     },
     {
-     "head": "differing at the trial (each triaged below)",
+     "head": "differing in the run (each explained in the note)",
      "cells": [
       {
        "v": 9,
@@ -14827,11 +14838,11 @@
      ]
     }
    ],
-   "note": "Differential random testing's trial of this part (seed `fsl-maths-trial`, larmorx `0427fad149ac`): one to five options (or fMRIPrep's and BET's forms) with `-t`, `-K` and `-json`, on the same kinds of images and masks. Every case in a memory box of 1.5 GiB (peaks below 1.05 GiB), FSL through the oracle cache (`use` mode). Its nine differences were mistakes of the replica's, fixed with permanent cases: the sign of NaN in -c and -C with NaN and infinities in the image (FSL's build adds each block's partial sums in its own order), and -json's notices before an error."
+   "note": "A random-testing run of the replica, fslmaths and fslstats at once, 24 minutes long (seed `fsl-maths-trial`, larmorx `0427fad149ac`): one to five options (or fMRIPrep's and BET's forms) with `-t`, `-K` and `-json`, on the same kinds of images and masks. Every case in a memory box of 1.5 GiB (peaks below 1.05 GiB), FSL through the cache of the original's runs (`use` mode). Its nine differences were mistakes of the replica's, fixed with permanent cases: the sign of NaN in -c and -C with NaN and infinities in the image (FSL's build adds each block's partial sums in its own order), and -json's notices before an error."
   },
   {
    "id": "trial-original",
-   "title": "Random testing of the clean-room original: the trial of 2026-11-03",
+   "title": "Random testing, the clean room against the original: FSL `fslstats` 6.0.7.23 (150,000 random calls, 2026-11-03)",
    "columns": [
     {
      "label": ""
@@ -14861,7 +14872,7 @@
      ]
     },
     {
-     "head": "differing only by a correction the default mode names",
+     "head": "differing only by a correction the default, `fix`, names",
      "cells": [
       {
        "v": 7,
@@ -14870,7 +14881,7 @@
      ]
     },
     {
-     "head": "differing at the trial (each one triaged below)",
+     "head": "differing in the run (each one triaged below)",
      "cells": [
       {
        "v": 779,
@@ -14905,11 +14916,11 @@
      ]
     }
    ],
-   "note": "Differential random testing's trial of the clean-room originals (seed `fsl-maths-trial`, larmorx `a09928ecb344`, both programs at once): the replica trial's streams drawn again, so the replica trial's runs of FSL were served by the oracle cache and the rest stored there; realistic cases only, each compared as the record compares. Every case in a memory box of 1.5 GiB (peaks below 0.92 GiB). The differing cases were re-run with the part's final build and each put in one category (below)."
+   "note": "A random-testing run of the clean rooms, fslmaths and fslstats at once, 20 minutes long (seed `fsl-maths-trial`, larmorx `a09928ecb344`): the streams of the replica's run drawn again, so that run's calls of FSL were served by the cache of the original's runs and the rest stored there; realistic cases only, each compared as the record compares. Every case in a memory box of 1.5 GiB (peaks below 0.92 GiB). The differing cases were re-run with the part's final build and each put in one category (below)."
   },
   {
    "id": "trial-original-triage",
-   "title": "The trial's differing cases, each in one category",
+   "title": "The clean room's differences from the original in the run of 2026-11-03, by category",
    "columns": [
     {
      "label": "Category"
@@ -14972,11 +14983,11 @@
      ]
     }
    ],
-   "note": "Every differing case of the trial re-run with the part's final build and put in one category by its recipe and its first failed check (`validation/investigations/cleanroom-maths/triage_counts.py`, its output `validation/investigations/cleanroom-maths/trial_triage.json`), each category's cause established by probes and replays (`docs/findings/fsl-maths-original.md`, findings 24 to 30); LARMORX's mistakes and the suite's are fixed, with 17 permanent cases of fslmaths and 4 of fslstats in the records; the reproducer is a finding of the trial (`difftest --replay`)."
+   "note": "Every differing case of the run re-run with the part's final build and put in one category by its recipe and its first failed check (`validation/investigations/cleanroom-maths/triage_counts.py`, its output `validation/investigations/cleanroom-maths/trial_triage.json`), each category's cause established by probes and replays (`docs/findings/fsl-maths-original.md`, findings 24 to 30); LARMORX's mistakes and the suite's are fixed, with 17 permanent cases of fslmaths and 4 of fslstats in the records; the reproducer is a finding of the run (`difftest --replay`)."
   },
   {
    "id": "benchmark",
-   "title": "The benchmark: seconds and peak memory",
+   "title": "Wall-clock seconds and peak memory, both ports against the original: FSL `fslstats` 6.0.7.23 (the benchmark report)",
    "columns": [
     {
      "label": "Call"
@@ -14985,16 +14996,16 @@
      "label": "FSL 6.0.7.23"
     },
     {
-     "label": "Replica"
+     "label": "replica (1 thread)"
     },
     {
-     "label": "Original, 1 thread"
+     "label": "clean room (1 thread)"
     },
     {
-     "label": "Original, 14 threads"
+     "label": "clean room (14 threads)"
     },
     {
-     "label": "Against FSL"
+     "label": "The clean room's checks"
     }
    ],
    "rows": [
@@ -15034,15 +15045,36 @@
        "text": "0.23 s (43 MiB)"
       },
       {
-       "text": "1 = 14 threads; identical with the final build (relay 7's check, below; at relay 5 54 of 252 numbers differed: -S's last digits, at most 3.0e-10 relative)"
+       "text": "1 = 14 threads; identical with the final build (checked again on 2026-11-04; on 2026-11-03 54 of 252 numbers differed: -S's last digits, at most 3.0e-10 relative)"
       }
      ]
     }
    ],
-   "note": "The benchmark report `docs/benchmarks/fsl-maths.md`: wall-clock seconds of the whole program and its peak resident memory (MiB), one run each on the main machine with another agent's work beside it (informal). The memory rule (at most 10 % above FSL's peak plus 8 MiB) is checked at one thread by tests/parity/test_memory_peak.py; on 14 threads a .nii.gz output adds about 3 MiB per worker (the shared parallel gzip writer)."
+   "note": "The benchmark report `docs/benchmarks/fsl-maths.md`: wall-clock seconds of the whole program and its peak resident memory (MiB), one run each on the main machine with other work beside it (informal). The memory rule (at most 10 % above FSL's peak plus 8 MiB) is checked at one thread by tests/parity/test_memory_peak.py; on 14 threads a .nii.gz output adds about 3 MiB per worker (the shared parallel gzip writer)."
   }
  ],
  "examples": [],
+ "random_testing": {
+  "title": "Random testing, both ports against the original: FSL `fslstats` 6.0.7.23",
+  "names": {
+   "replica": "replica",
+   "original": "clean room"
+  }
+ },
+ "category_labels": {
+  "fmriprep": "fMRIPrep's calls",
+  "bet": "BET's call",
+  "cli": "the command line",
+  "opt": "options",
+  "order": "the options' order",
+  "ts": "per volume (-t)",
+  "types": "data types",
+  "d13": "defects of FSL",
+  "fsltest": "FSL's own tests",
+  "difftest": "random testing",
+  "orig": "the clean room's own cases"
+ },
+ "presentation": "writing-guide",
  "cases_credits": [
   "openneuro-ds005040"
  ],
