@@ -153,7 +153,7 @@ fMRIPrep writes its field maps as 4D images of one volume. Given one of them, sd
 
 ## Corrections by default {#corrections}
 
-Every defect the replica found in sdcflows was decided by the register's rules (A: corrected by default; B: refused with a clear error; C: kept and documented; D: measured first). `upstream_defects="reproduce"` (`LARMORX_UPSTREAM_DEFECTS=reproduce`) gives sdcflows' behaviour, its errors and warnings included ([findings](repo:docs/findings/sdcflows-fieldmap.md), [register](repo:docs/findings/upstream-defects.md)). Eight are corrected by default and two refused with a reason. SDC-03, in `CheckRegister`'s branch for two magnitude images, needs FreeSurfer's `mri_robust_register` and comes with FreeSurfer's port. fMRIPrep's calls meet none of them; sdcflows' own interfaces and workflows do (SDC-02 and SDC-10 above, on real data).
+Every defect the replica found in sdcflows was decided by the register's rules (A: corrected by default; B: refused with a clear error; C: kept and documented; D: measured first). `upstream_defects="reproduce"` (on the command line `--upstream-defects reproduce` from the next release, `LARMORX_UPSTREAM_DEFECTS=reproduce` in 0.1.0rc1) gives sdcflows' behaviour, its errors and warnings included ([findings](repo:docs/findings/sdcflows-fieldmap.md), [register](repo:docs/findings/upstream-defects.md)). Eight are corrected by default and two refused with a reason. SDC-03, in `CheckRegister`'s branch for two magnitude images, needs FreeSurfer's `mri_robust_register` and comes with FreeSurfer's port. fMRIPrep's calls meet none of them; sdcflows' own interfaces and workflows do (SDC-02 and SDC-10 above, on real data).
 
 {{ ev.table('sdcflows-fieldmap', 'corrections') }}
 

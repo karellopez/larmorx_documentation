@@ -166,7 +166,7 @@ sdcflows' `epi_mask` (no workflow of sdcflows or fMRIPrep calls it) floods the E
 
 ## Corrections by default {#corrections}
 
-Every defect the replica found in the originals was decided by the register's rules (A: corrected by default; B: refused with a clear error; C: kept and documented; D: measured first). `upstream_defects="reproduce"` (`LARMORX_UPSTREAM_DEFECTS=reproduce`) gives the original's behaviour, its errors and warnings included, where LARMORX has a switch ([findings](repo:docs/findings/sdcflows-estimation.md), [register](repo:docs/findings/upstream-defects.md)).
+Every defect the replica found in the originals was decided by the register's rules (A: corrected by default; B: refused with a clear error; C: kept and documented; D: measured first). `upstream_defects="reproduce"` (on the command line `--upstream-defects reproduce` from the next release, `LARMORX_UPSTREAM_DEFECTS=reproduce` in 0.1.0rc1) gives the original's behaviour, its errors and warnings included, where LARMORX has a switch ([findings](repo:docs/findings/sdcflows-estimation.md), [register](repo:docs/findings/upstream-defects.md)).
 
 - 89 entries were registered: 35 in sdcflows, 23 in niworkflows, nipype, pybids and fMRIPrep, 27 in SciPy and 4 in scikit-image.
 - 42 are corrected by default and 15 refused with a clear error. The others are kept and documented, measured first, or concern a part LARMORX does not run (its database, its reports).
