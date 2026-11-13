@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% if page.is_home %}{{ site.title }}: {{ site.tagline }}{% else %}{{ page.title }} | {{ site.title }} documentation{% endif %}</title>
+<title>{% if page.is_home %}{{ site.title }}: {{ site.tagline }}{% else %}{{ page.plain_title }} | {{ site.title }} documentation{% endif %}</title>
 <meta name="description" content="{{ page.description }}">
 {% if page.canonical %}<link rel="canonical" href="{{ page.canonical }}">{% endif %}
 <meta name="color-scheme" content="light dark">
@@ -11,7 +11,7 @@
 <meta name="theme-color" content="#0f0e0c" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ site.title }} documentation">
-<meta property="og:title" content="{{ page.title if not page.is_home else site.title ~ ': ' ~ site.tagline }}">
+<meta property="og:title" content="{{ page.plain_title if not page.is_home else site.title ~ ': ' ~ site.tagline }}">
 <meta property="og:description" content="{{ page.description }}">
 {% if page.canonical %}<meta property="og:url" content="{{ page.canonical }}">{% endif %}
 <link rel="icon" href="{{ link('/static/brand/favicon.svg') }}" type="image/svg+xml">

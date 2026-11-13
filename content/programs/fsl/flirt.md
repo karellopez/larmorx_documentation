@@ -22,8 +22,8 @@ reference:
     crates/larmorx-core/src/defects.rs: "34429cb924a382b4"
     crates/larmorx-fsl/src/cli/flirt.rs: "30a6569fa6aec523"
     crates/larmorx-fsl/src/flirt/mod.rs: "97b905a9b8cc9c3a"
-    docs/api/fsl-flirt.md: "21d456bedacfd6a2"
-    python/larmorx/fsl/flirt.py: "31c67a2bf18f6789"
+    docs/api/fsl-flirt.md: "7fe0febecf4edaee"
+    python/larmorx/fsl/flirt.py: "e56d75c44e002475"
     validation/tools.toml: "f0750687390307f1"
 ---
 
@@ -197,13 +197,13 @@ r.matrix     # 4 x 4, input FSL mm -> reference FSL mm (as -omat writes it)
 r.image      # the BOLD reference on the T1w's grid
 ```
 
-Its result, `FlirtResult`, holds what `flirt` computed: the 4 x 4 matrix (input FSL mm to reference FSL mm), the input resampled onto the reference's grid (`None` unless `out` was asked for), and FLIRT's standard output (its verbose lines, a schedule's `print`).
+Its result, `FlirtResult`, holds what `flirt` computed.
 
 | Field | Type | What it holds |
 |---|---|---|
-| <code><span class="nw">matrix</span></code> | <code><span class="nw">np&#46;ndarray</span></code> |  |
-| <code><span class="nw">image</span></code> | <code><span class="nw">Image</span> <span class="nw">&#124;</span> <span class="nw">None</span></code> |  |
-| <code><span class="nw">stdout</span></code> | <code><span class="nw">str</span></code> |  |
+| <code><span class="nw">matrix</span></code> | <code><span class="nw">np&#46;ndarray</span></code> | The 4 x 4 matrix from the input's FSL millimetres to the reference's, as <code><span class="nw">&#45;omat</span></code> writes it. |
+| <code><span class="nw">image</span></code> | <code><span class="nw">Image</span> <span class="nw">&#124;</span> <span class="nw">None</span></code> | The input resampled onto the reference's grid; <code><span class="nw">None</span></code> unless <code><span class="nw">out</span></code>. |
+| <code><span class="nw">stdout</span></code> | <code><span class="nw">str</span></code> | FLIRT's standard output: its verbose lines and a schedule's <code><span class="nw">print</span></code>. |
 
 ## Options {#options}
 
@@ -233,7 +233,7 @@ Each row joins an option of the original's command line with the Python argument
 | <code><span class="nw">&#45;noresample</span></code>, <code><span class="nw">&#45;noclamp</span></code>, <code><span class="nw">&#45;noresampblur</span></code>, <code><span class="nw">&#45;forcescaling</span></code> | <code><span class="nw">no&#95;resample</span></code>, <code><span class="nw">no&#95;clamp</span></code>, <code><span class="nw">no&#95;resample&#95;blur</span></code>, <code><span class="nw">force&#95;scaling</span></code> | <code><span class="nw">no&#95;resample&#61;False</span></code>, <code><span class="nw">no&#95;clamp&#61;False</span></code>, <code><span class="nw">no&#95;resample&#95;blur&#61;False</span></code>, <code><span class="nw">force&#95;scaling&#61;False</span></code> | <span class="opt-help">FSL: “(do not change input sampling)”</span><span class="opt-help">FSL: “(do not use intensity clamping)”</span><span class="opt-help">FSL: “(do not use blurring on downsampling)”</span><span class="opt-help">FSL: “(force rescaling even for low-res images)”</span> |
 | <code><span class="nw">&#45;minsampling</span></code>, <code><span class="nw">&#45;basescale</span></code> | <code><span class="nw">min&#95;sampling</span></code>, <code><span class="nw">base&#95;scale</span></code> | <code><span class="nw">min&#95;sampling&#61;None</span></code>, <code><span class="nw">base&#95;scale&#61;None</span></code> | <span class="opt-help">FSL: “(set minimum voxel dimension for sampling (in mm))”</span> |
 | <code><span class="nw">&#45;2D</span></code> | <code><span class="nw">two&#95;d</span></code> | <code><span class="nw">False</span></code> | <span class="opt-help">FSL: “(use 2D rigid body mode - ignores dof)”</span> |
-| <code><span class="nw">&#45;v</span></code>, <code><span class="nw">&#45;verbose</span></code>, <code><span class="nw">&#45;printinit</span></code>, <code><span class="nw">&#45;displayinit</span></code>, <code><span class="nw">&#45;debugsave</span></code>, <code><span class="nw">&#45;debug</span></code>, <code><span class="nw">&#45;i</span></code>, <code><span class="nw">&#45;help</span></code>, <code><span class="nw">&#45;version</span></code>, <code><span class="nw">&#45;anglerep</span></code>, <code><span class="nw">&#45;applynonisoxfm</span></code>, <code><span class="nw">&#45;nosave</span></code> | command line only |  | <code><span class="nw">&#45;anglerep</span> <span class="nw">quaternion</span></code> since part 2<span class="opt-help">FSL: “(same as -verbose 1)”</span><span class="opt-help">FSL: “(0 is least and default)”</span><span class="opt-help">FSL: “(display initial matrix)”</span><span class="opt-help">FSL: “(pauses at each stage: default is off)”</span><span class="opt-help">FSL: “(prints version number)”</span><span class="opt-help">FSL: “(default is euler)”</span> |
+| <code><span class="nw">&#45;v</span></code>, <code><span class="nw">&#45;verbose</span></code>, <code><span class="nw">&#45;printinit</span></code>, <code><span class="nw">&#45;displayinit</span></code>, <code><span class="nw">&#45;debugsave</span></code>, <code><span class="nw">&#45;debug</span></code>, <code><span class="nw">&#45;i</span></code>, <code><span class="nw">&#45;help</span></code>, <code><span class="nw">&#45;version</span></code>, <code><span class="nw">&#45;anglerep</span></code>, <code><span class="nw">&#45;applynonisoxfm</span></code>, <code><span class="nw">&#45;nosave</span></code> | command line only |  | <code><span class="nw">&#45;anglerep</span> <span class="nw">quaternion</span></code> since 2026-11-02<span class="opt-help">FSL: “(same as -verbose 1)”</span><span class="opt-help">FSL: “(0 is least and default)”</span><span class="opt-help">FSL: “(display initial matrix)”</span><span class="opt-help">FSL: “(pauses at each stage: default is off)”</span><span class="opt-help">FSL: “(prints version number)”</span><span class="opt-help">FSL: “(default is euler)”</span> |
 | <code><span class="nw">OMP&#95;NUM&#95;THREADS</span></code> | <code><span class="nw">n&#95;threads</span></code> | <code><span class="nw">1</span></code> | the results do not depend on it |
 | <code><span class="nw">LARMORX&#95;UPSTREAM&#95;DEFECTS</span></code> | <code><span class="nw">upstream&#95;defects</span></code> | <code><span class="nw">&#34;fix&#34;</span></code> | <code><span class="nw">fix</span></code> (default) or <code><span class="nw">reproduce</span></code> |
 
@@ -247,7 +247,7 @@ They stand between `larmorx` and `fsl` on the command line (`larmorx --n-threads
 |---|---|
 | <code><span class="nw">&#45;&#45;n&#45;threads</span></code> <code><span class="nw">N</span></code><br><code><span class="nw">n&#95;threads&#61;1</span></code> | Threads (0 = all); the results do not depend on it. Default: every logical CPU on the command line (<code><span class="nw">0</span></code>), <code><span class="nw">1</span></code> in Python. The variable <code><span class="nw">OMP&#95;NUM&#95;THREADS</span></code> in 0.1.0rc1. |
 | <code><span class="nw">&#45;&#45;implementation</span></code> <code><span class="nw">auto&#124;replica&#124;clean&#45;room</span></code><br><code><span class="nw">implementation&#61;&#34;auto&#34;</span></code> | <code><span class="nw">&#34;auto&#34;</span></code> (default): the replica when <code><span class="nw">larmorx&#45;nc</span></code> is installed, else the clean room; <code><span class="nw">&#34;replica&#34;</span></code> or <code><span class="nw">&#34;clean&#45;room&#34;</span></code> (<code><span class="nw">&#34;original&#34;</span></code>, 0.1.0rc1's spelling, still works). The variable <code><span class="nw">LARMORX&#95;IMPLEMENTATION</span></code> in 0.1.0rc1. |
-| <code><span class="nw">&#45;&#45;upstream&#45;defects</span></code> <code><span class="nw">fix&#124;reproduce</span></code><br><code><span class="nw">upstream&#95;defects&#61;&#34;fix&#34;</span></code> | <code><span class="nw">&#34;fix&#34;</span></code> (default) or <code><span class="nw">&#34;reproduce&#34;</span></code>: FSL's defects corrected, or FSL's behaviour (<code><span class="nw">docs&#47;api&#47;fsl&#45;flirt&#46;md</span></code>, "Upstream defects"). The variable <code><span class="nw">LARMORX&#95;UPSTREAM&#95;DEFECTS</span></code> in 0.1.0rc1. |
+| <code><span class="nw">&#45;&#45;upstream&#45;defects</span></code> <code><span class="nw">fix&#124;reproduce</span></code><br><code><span class="nw">upstream&#95;defects&#61;&#34;fix&#34;</span></code> | <code><span class="nw">&#34;fix&#34;</span></code> (default) or <code><span class="nw">&#34;reproduce&#34;</span></code>: FSL's defects corrected, or FSL's behaviour (<code><span class="nw">docs&#47;api&#47;fsl&#45;flirt&#46;md</span></code>, "Defects of the original, corrected by default"). The variable <code><span class="nw">LARMORX&#95;UPSTREAM&#95;DEFECTS</span></code> in 0.1.0rc1. |
 
 ## Examples {#examples}
 
@@ -278,15 +278,16 @@ larmorx fsl flirt -in epi.nii.gz -ref T1w.nii.gz -omat epi2t1.mat -out epi2t1.ni
 | replica | <code><span class="nw">larmorx&#45;nc</span></code> | FSL Licence: non-commercial use only | experimental | [fsl-flirt-replica](repo:docs/validation/fsl-flirt-replica.md) |
 | clean room | <code><span class="nw">larmorx</span></code> | Apache-2.0 | experimental | [fsl-flirt](repo:docs/validation/fsl-flirt.md) |
 
-The replica's record, against FSL 6.0.7.23 itself on the standard tier, holds fMRIPrep's
-boundary-based calls on three oracle runs (ds005040, ds003592, ds000228), bit-identical, their
+The replica's record, against FSL 6.0.7.23 itself in its standard comparison, holds fMRIPrep's
+boundary-based calls in three of fMRIPrep's runs (ds005040, ds003592, ds000228), bit-identical, their
 matrices also identical as text to fMRIPrep's own (its container's FSL); every cost function,
 search option, schedule FSL ships, `-applyxfm` 3D and 4D with every interpolation and data type,
-the BBR variants and the command line's errors. The clean room is within the thresholds in 238 of the 240
-compared cases of its record, which holds FLIRT's fourteen programs; the 2 it misses are two
-weighted registrations whose paths part at their costs' last bits. fMRIPrep's three boundary-based
-calls are within 0.1 mm of FSL's matrices at the 95th percentile over the brain (0.053, 0.011 and
-0.030 mm), their images' correlation with FSL's 0.9993 to 0.99996.
+the BBR variants and the command line's errors. The clean room is within the thresholds in 239 of
+its 240 compared cases, out of 339 (its record of 2026-11-07), which holds FLIRT's fourteen
+programs. The one it misses is a weighted `woods` registration (`real/weights-woods`): its matrix
+passes, but its standard error holds FSL's warning `Woods is not implemented with cost function
+weighting` where FSL's has ended. fMRIPrep's three boundary-based calls are within 0.0113 mm of
+FSL's matrices at the 95th percentile of the brain.
 
 FSL's licence allows non-commercial use only, so each of FLIRT's programs has two ports, a
 replica and a clean room, in different packages ([licensing](repo:docs/licensing.md) says what each
@@ -298,8 +299,8 @@ package holds):
 - **The clean room** is written from [`specs/flirt.md`](repo:specs/flirt.md) by an implementer who
   never read FSL's source or the replica. It is part of `larmorx`, under Apache-2.0
   (`crates/larmorx-fsl`, with its [PROVENANCE](repo:crates/larmorx-fsl/PROVENANCE.md), section
-  "FLIRT"), and runs on the main package's clean-room registration engine, shared with
-  `lx.mri.hmc`.
+  "FLIRT"), and runs on LARMORX's clean-room registration engine, the head-motion correction's
+  (`lx.mri.hmc`).
 
 `implementation="auto"` runs the replica when `larmorx-nc` is installed, and the clean room
 otherwise. `"replica"` and `"clean-room"` choose one (`"original"`, 0.1.0rc1's spelling of
@@ -317,6 +318,6 @@ How each of `flirt`'s ports was measured against FSL, case by case: [its evidenc
 The API page [docs/api/fsl-flirt.md](repo:docs/api/fsl-flirt.md) holds what `flirt` shares with the page's other programs:
 
 - [The clean room (part 1, 2026-11-02)](repo:docs/api/fsl-flirt.md#the-clean-room-part-1-2026-11-02)
-- [Upstream defects (D13)](repo:docs/api/fsl-flirt.md#upstream-defects-d13)
+- [Defects of the original, corrected by default](repo:docs/api/fsl-flirt.md#defects-of-the-original-corrected-by-default)
 - [Not yet](repo:docs/api/fsl-flirt.md#not-yet)
 - [History](repo:docs/api/fsl-flirt.md#history)

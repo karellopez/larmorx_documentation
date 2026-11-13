@@ -21,8 +21,8 @@ reference:
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
     crates/larmorx-core/src/defects.rs: "34429cb924a382b4"
     crates/larmorx-fsl/src/cli/fslroi.rs: "fb06645d5bc0727a"
-    docs/api/fsl-roi.md: "728de56d6a42fda2"
-    python/larmorx/fsl/regions.py: "bd096839df703c3d"
+    docs/api/fsl-roi.md: "8b8e9c3936aaf75c"
+    python/larmorx/fsl/regions.py: "e804e010ed7afe69"
     validation/tools.toml: "f0750687390307f1"
 ---
 
@@ -117,7 +117,7 @@ They stand between `larmorx` and `fsl` on the command line (`larmorx --n-threads
 |---|---|
 | <code><span class="nw">&#45;&#45;n&#45;threads</span></code> <code><span class="nw">N</span></code><br>(no Python argument) | The command line's only: <code><span class="nw">lx&#46;fsl&#46;fslroi</span></code> takes no <code><span class="nw">n&#95;threads</span></code>. Default: every logical CPU on the command line (<code><span class="nw">0</span></code>). The variable <code><span class="nw">OMP&#95;NUM&#95;THREADS</span></code> in 0.1.0rc1. |
 | <code><span class="nw">&#45;&#45;implementation</span></code> <code><span class="nw">auto&#124;replica&#124;clean&#45;room</span></code><br><code><span class="nw">implementation&#61;&#34;auto&#34;</span></code> | <code><span class="nw">&#34;auto&#34;</span></code> (default): the replica when <code><span class="nw">larmorx&#45;nc</span></code> is installed, else the clean room; <code><span class="nw">&#34;replica&#34;</span></code> or <code><span class="nw">&#34;clean&#45;room&#34;</span></code> (<code><span class="nw">&#34;original&#34;</span></code>, 0.1.0rc1's spelling, still works). The variable <code><span class="nw">LARMORX&#95;IMPLEMENTATION</span></code> in 0.1.0rc1. |
-| <code><span class="nw">&#45;&#45;upstream&#45;defects</span></code> <code><span class="nw">fix&#124;reproduce</span></code><br><code><span class="nw">upstream&#95;defects&#61;&#34;fix&#34;</span></code> | <code><span class="nw">&#34;fix&#34;</span></code> (default) or <code><span class="nw">&#34;reproduce&#34;</span></code>: FSL's defects corrected, or FSL's behaviour (<code><span class="nw">docs&#47;api&#47;fsl&#45;roi&#46;md</span></code>, "Upstream defects"). The variable <code><span class="nw">LARMORX&#95;UPSTREAM&#95;DEFECTS</span></code> in 0.1.0rc1. |
+| <code><span class="nw">&#45;&#45;upstream&#45;defects</span></code> <code><span class="nw">fix&#124;reproduce</span></code><br><code><span class="nw">upstream&#95;defects&#61;&#34;fix&#34;</span></code> | <code><span class="nw">&#34;fix&#34;</span></code> (default) or <code><span class="nw">&#34;reproduce&#34;</span></code>: FSL's defects corrected, or FSL's behaviour (<code><span class="nw">docs&#47;api&#47;fsl&#45;roi&#46;md</span></code>, "Defects of the original, corrected by default"). The variable <code><span class="nw">LARMORX&#95;UPSTREAM&#95;DEFECTS</span></code> in 0.1.0rc1. |
 
 ## Examples {#examples}
 
@@ -180,5 +180,5 @@ How each of `fslroi`'s ports was measured against FSL, case by case: [its eviden
 The API page [docs/api/fsl-roi.md](repo:docs/api/fsl-roi.md) holds what `fslroi` shares with the page's other programs:
 
 - [FSL's standard images](repo:docs/api/fsl-roi.md#fsls-standard-images)
-- [Upstream defects (D13)](repo:docs/api/fsl-roi.md#upstream-defects-d13)
+- [Defects of the original, corrected by default](repo:docs/api/fsl-roi.md#defects-of-the-original-corrected-by-default)
 - [History](repo:docs/api/fsl-roi.md#history)

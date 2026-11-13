@@ -459,6 +459,13 @@ class PageView:
         self.url = page.url
         self.is_home = page.url == ""
         self.title = page.meta.get("title", site["title"])
+        # the title without its inline Markdown (a code span's backticks, emphasis), for the
+        # browser's title and og:title, which show it as text
+        self.plain_title = re.sub(
+            r"`([^`]*)`|\*\*([^*]+)\*\*|\*([^*]+)\*",
+            lambda m: next(g for g in m.groups() if g is not None),
+            self.title,
+        )
         self.description = page.meta.get("description") or site["description"]
         self.canonical = site["base_url"] + page.url if page.url != "404.html" else ""
         if page.redirect:

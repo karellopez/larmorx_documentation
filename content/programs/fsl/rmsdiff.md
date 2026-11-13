@@ -20,8 +20,8 @@ reference:
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
     crates/larmorx-core/src/defects.rs: "34429cb924a382b4"
     crates/larmorx-fsl/src/cli/rmsdiff.rs: "29e761efbef30f51"
-    docs/api/fsl-flirt.md: "21d456bedacfd6a2"
-    python/larmorx/fsl/flirt_tools.py: "3a8443985d099472"
+    docs/api/fsl-flirt.md: "7fe0febecf4edaee"
+    python/larmorx/fsl/flirt_tools.py: "dd92d42ca083679f"
     validation/tools.toml: "f0750687390307f1"
 ---
 
@@ -75,8 +75,6 @@ Where `ImplementationName` is one of `"auto"`, `"replica"`, `"clean-room"`, `"or
 
 FSL's `rmsdiff`: the RMS deviation (mm) between two matrices (4 x 4 arrays or files) over a sphere of radius 80 mm about `ref`'s centre of gravity; with `mask`, the largest and the RMS displacement over the mask's voxels, as `(largest, rms)`.
 
-The matrices are 4 × 4 arrays or files. The result is a float, or `(largest, rms)` with a mask.
-
 ## Options {#options}
 
 Each row joins an option of the original's command line with the Python argument that does the same. The rows are checked against the code at every test run: the options `rmsdiff` accepts (`crates/larmorx-fsl/src/cli/rmsdiff.rs`) and the arguments of `lx.fsl.rmsdiff` (`python/larmorx/fsl/flirt_tools.py`), whose defaults and descriptions are taken from it. Under each option, in grey, FSL's own help for it.
@@ -120,7 +118,12 @@ larmorx fsl rmsdiff a.mat b.mat boldref.nii.gz
 | replica | <code><span class="nw">larmorx&#45;nc</span></code> | FSL Licence: non-commercial use only | experimental | [fsl-flirt-replica](repo:docs/validation/fsl-flirt-replica.md) |
 | clean room | <code><span class="nw">larmorx</span></code> | Apache-2.0 | experimental | [fsl-flirt](repo:docs/validation/fsl-flirt.md) |
 
-Both ports are complete, as for `avscale` (above).
+Both ports are complete (`specs/flirt.md` §15.3). Where FSL aborts, they print the same lines and
+exit with status 1.
+
+The replica's record holds 7 cases of `rmsdiff`: 4 identical to FSL, 3 where both refuse or abort
+alike. The clean room's holds 7: 4 identical to FSL in every byte of text and file, 3 where both
+refuse or abort alike.
 
 FSL's licence allows non-commercial use only, so each of FLIRT's programs has two ports, a
 replica and a clean room, in different packages ([licensing](repo:docs/licensing.md) says what each
@@ -132,8 +135,8 @@ package holds):
 - **The clean room** is written from [`specs/flirt.md`](repo:specs/flirt.md) by an implementer who
   never read FSL's source or the replica. It is part of `larmorx`, under Apache-2.0
   (`crates/larmorx-fsl`, with its [PROVENANCE](repo:crates/larmorx-fsl/PROVENANCE.md), section
-  "FLIRT"), and runs on the main package's clean-room registration engine, shared with
-  `lx.mri.hmc`.
+  "FLIRT"), and runs on LARMORX's clean-room registration engine, the head-motion correction's
+  (`lx.mri.hmc`).
 
 `implementation="auto"` runs the replica when `larmorx-nc` is installed, and the clean room
 otherwise. `"replica"` and `"clean-room"` choose one (`"original"`, 0.1.0rc1's spelling of
@@ -151,6 +154,6 @@ How each of `rmsdiff`'s ports was measured against FSL, case by case: [its evide
 The API page [docs/api/fsl-flirt.md](repo:docs/api/fsl-flirt.md) holds what `rmsdiff` shares with the page's other programs:
 
 - [The clean room (part 1, 2026-11-02)](repo:docs/api/fsl-flirt.md#the-clean-room-part-1-2026-11-02)
-- [Upstream defects (D13)](repo:docs/api/fsl-flirt.md#upstream-defects-d13)
+- [Defects of the original, corrected by default](repo:docs/api/fsl-flirt.md#defects-of-the-original-corrected-by-default)
 - [Not yet](repo:docs/api/fsl-flirt.md#not-yet)
 - [History](repo:docs/api/fsl-flirt.md#history)

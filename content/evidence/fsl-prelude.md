@@ -29,7 +29,7 @@ wide: true
 </ul></dd>
 <dt>Status</dt><dd>replica <span class="status-tag status-tag--experimental">experimental</span>; clean room <span class="status-tag status-tag--experimental">experimental</span></dd>
 <dt>Records</dt><dd>the replica's: <a href="{{ repo('docs/validation/fsl-prelude-replica.md') }}">standard comparison</a> (FSL 6.0.7.23) · the clean room's: <a href="{{ repo('docs/validation/fsl-prelude.md') }}">standard comparison</a> (FSL 6.0.7.23) · benchmark <a href="{{ repo('docs/benchmarks/fsl-prelude.md') }}">fsl-prelude</a></dd>
-<dt>Reference</dt><dd>API page <a href="{{ repo('docs/api/fsl-prelude.md') }}">fsl-prelude</a></dd>
+<dt>Reference</dt><dd><a href="{{ link('/programs/fsl/prelude/') }}"><code>prelude</code></a> · API page <a href="{{ repo('docs/api/fsl-prelude.md') }}">fsl-prelude</a></dd>
 </dl>
 
 ## What is compared {#what-it-is}

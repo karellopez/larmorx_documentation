@@ -332,7 +332,7 @@ groups:
         command: "larmorx fsl avscale"
         also: ""
         python: "lx.fsl.avscale"
-        does: "`avscale` decomposes a FLIRT matrix."
+        does: "`avscale` takes a FLIRT matrix apart: its rotation and translation, angles, scales, skews, determinant and half transforms."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-flirt.md"
         evidence: "/evidence/fsl-flirt/"
@@ -579,11 +579,11 @@ groups:
         command: "larmorx fsl prelude"
         also: ""
         python: "lx.fsl.prelude"
-        does: "Unwraps a phase image inside a mask (PRELUDE)."
+        does: "`prelude` unwraps a phase image (radians) inside a mask."
         original: "FSL 6.0.7.23"
         api: "docs/api/fsl-prelude.md"
         evidence: "/evidence/fsl-prelude/"
-        reference: ""
+        reference: "/programs/fsl/prelude/"
         ports:
           - {kind: replica, name: "replica", package: larmorx-nc, status: "experimental", next_release: false}
           - {kind: clean-room, name: "clean room", package: larmorx, status: "experimental", next_release: false}

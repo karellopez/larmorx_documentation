@@ -21,8 +21,8 @@ reference:
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
     crates/larmorx-core/src/defects.rs: "34429cb924a382b4"
     crates/larmorx-fsl/src/cli/pointflirt.rs: "9bbda1e01ffd8f90"
-    docs/api/fsl-flirt.md: "21d456bedacfd6a2"
-    python/larmorx/fsl/flirt_more.py: "64de6a5439fd3ed6"
+    docs/api/fsl-flirt.md: "7fe0febecf4edaee"
+    python/larmorx/fsl/flirt_more.py: "de95486aa525ad80"
     validation/tools.toml: "f0750687390307f1"
 ---
 
@@ -94,9 +94,8 @@ Where `ImplementationName` is one of `"auto"`, `"replica"`, `"clean-room"`, `"or
 
 FSL's `pointflirt`: the affine 4 x 4 matrix that maps `in_points` onto `ref_points` (N x 3 arrays or text files, in mm; with `in_image` and `ref_image`, in voxels, scaled by their voxel sizes: `--vox`) in the least-squares sense.
 
-`in_points` and `ref_points` are N × 3 arrays or text files of rows `x y z`, as many points in
-each; `in_image` and `ref_image` are paths or `lx.Image` objects, given both or neither. The
-result is the 4 × 4 matrix.
+The two sets hold as many points; `in_image` and `ref_image` are paths or `lx.Image` objects,
+given both or neither.
 
 ## Options {#options}
 
@@ -147,8 +146,8 @@ larmorx fsl pointflirt -i in.txt -r ref.txt -o in2ref.mat
 | replica | <code><span class="nw">larmorx&#45;nc</span></code> | FSL Licence: non-commercial use only | experimental | [fsl-flirt-replica](repo:docs/validation/fsl-flirt-replica.md) |
 | clean room | <code><span class="nw">larmorx</span></code> | Apache-2.0 | experimental | [fsl-flirt](repo:docs/validation/fsl-flirt.md) |
 
-Both ports are complete: every option, usage, message, exit status and failure case of
-`specs/flirt.md` §15.6, with its transposition rule, `--vox` and the nullspace warning. Two
+Both ports are complete (`specs/flirt.md` §15.6), with its transposition rule, `--vox` and the
+nullspace warning. Two
 coordinate files both empty or missing are refused in both modes (**FSL-204**: FSL crashes after
 its `Could not open matrix file` lines): `larmorx-nc: error: pointflirt: no points in the
 coordinate files (FSL-204)`, exit status 1, the clean room after `-v`'s headings, as FSL prints
@@ -169,8 +168,8 @@ package holds):
 - **The clean room** is written from [`specs/flirt.md`](repo:specs/flirt.md) by an implementer who
   never read FSL's source or the replica. It is part of `larmorx`, under Apache-2.0
   (`crates/larmorx-fsl`, with its [PROVENANCE](repo:crates/larmorx-fsl/PROVENANCE.md), section
-  "FLIRT"), and runs on the main package's clean-room registration engine, shared with
-  `lx.mri.hmc`.
+  "FLIRT"), and runs on LARMORX's clean-room registration engine, the head-motion correction's
+  (`lx.mri.hmc`).
 
 `implementation="auto"` runs the replica when `larmorx-nc` is installed, and the clean room
 otherwise. `"replica"` and `"clean-room"` choose one (`"original"`, 0.1.0rc1's spelling of
@@ -188,6 +187,6 @@ How each of `pointflirt`'s ports was measured against FSL, case by case: [its ev
 The API page [docs/api/fsl-flirt.md](repo:docs/api/fsl-flirt.md) holds what `pointflirt` shares with the page's other programs:
 
 - [The clean room (part 1, 2026-11-02)](repo:docs/api/fsl-flirt.md#the-clean-room-part-1-2026-11-02)
-- [Upstream defects (D13)](repo:docs/api/fsl-flirt.md#upstream-defects-d13)
+- [Defects of the original, corrected by default](repo:docs/api/fsl-flirt.md#defects-of-the-original-corrected-by-default)
 - [Not yet](repo:docs/api/fsl-flirt.md#not-yet)
 - [History](repo:docs/api/fsl-flirt.md#history)

@@ -21,8 +21,8 @@ reference:
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
     crates/larmorx-core/src/defects.rs: "34429cb924a382b4"
     crates/larmorx-fsl/src/cli/convert_xfm.rs: "04725ca060b5ef97"
-    docs/api/fsl-flirt.md: "21d456bedacfd6a2"
-    python/larmorx/fsl/flirt.py: "31c67a2bf18f6789"
+    docs/api/fsl-flirt.md: "7fe0febecf4edaee"
+    python/larmorx/fsl/flirt.py: "e56d75c44e002475"
     validation/tools.toml: "f0750687390307f1"
 ---
 
@@ -88,9 +88,6 @@ Where `ImplementationName` is one of `"auto"`, `"replica"`, `"clean-room"`, `"or
 
 FSL's `convert_xfm`: `matrix` (4 x 4 array or file) with `fix_scale_skew`'s scales and skews, then `concat @ matrix`, then inverted; returned as a 4 x 4 array (as FSL writes it: 10 significant digits).
 
-`matrix`, `concat` and `fix_scale_skew` are 4 × 4 arrays or matrix files. The result is a 4 × 4
-array, as FSL writes it (10 significant digits).
-
 ## Options {#options}
 
 Each row joins an option of the original's command line with the Python argument that does the same. The rows are checked against the code at every test run: the options `convert_xfm` accepts (`crates/larmorx-fsl/src/cli/convert_xfm.rs`) and the arguments of `lx.fsl.convert_xfm` (`python/larmorx/fsl/flirt.py`), whose defaults and descriptions are taken from it. Under each option, in grey, FSL's own help for it.
@@ -141,7 +138,8 @@ larmorx fsl convert_xfm -omat t12epi.mat -inverse epi2t1.mat
 | replica | <code><span class="nw">larmorx&#45;nc</span></code> | FSL Licence: non-commercial use only | experimental | [fsl-flirt-replica](repo:docs/validation/fsl-flirt-replica.md) |
 | clean room | <code><span class="nw">larmorx</span></code> | Apache-2.0 | experimental | [fsl-flirt](repo:docs/validation/fsl-flirt.md) |
 
-Both ports are complete. The replica is translated from FSL 6.0.7.23's source, bit-exact. In the
+Both ports are complete. The replica is translated from FSL 6.0.7.23's source, giving FSL's results
+byte for byte. In the
 clean room, `convert_xfm`'s messages are FSL's, and `-fixscaleskew` aborts where its decomposition
 does not solve (a zero scale or a non-finite entry), as `avscale` does.
 
@@ -155,8 +153,8 @@ package holds):
 - **The clean room** is written from [`specs/flirt.md`](repo:specs/flirt.md) by an implementer who
   never read FSL's source or the replica. It is part of `larmorx`, under Apache-2.0
   (`crates/larmorx-fsl`, with its [PROVENANCE](repo:crates/larmorx-fsl/PROVENANCE.md), section
-  "FLIRT"), and runs on the main package's clean-room registration engine, shared with
-  `lx.mri.hmc`.
+  "FLIRT"), and runs on LARMORX's clean-room registration engine, the head-motion correction's
+  (`lx.mri.hmc`).
 
 `implementation="auto"` runs the replica when `larmorx-nc` is installed, and the clean room
 otherwise. `"replica"` and `"clean-room"` choose one (`"original"`, 0.1.0rc1's spelling of
@@ -174,6 +172,6 @@ How each of `convert_xfm`'s ports was measured against FSL, case by case: [its e
 The API page [docs/api/fsl-flirt.md](repo:docs/api/fsl-flirt.md) holds what `convert_xfm` shares with the page's other programs:
 
 - [The clean room (part 1, 2026-11-02)](repo:docs/api/fsl-flirt.md#the-clean-room-part-1-2026-11-02)
-- [Upstream defects (D13)](repo:docs/api/fsl-flirt.md#upstream-defects-d13)
+- [Defects of the original, corrected by default](repo:docs/api/fsl-flirt.md#defects-of-the-original-corrected-by-default)
 - [Not yet](repo:docs/api/fsl-flirt.md#not-yet)
 - [History](repo:docs/api/fsl-flirt.md#history)

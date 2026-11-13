@@ -21,8 +21,8 @@ reference:
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
     crates/larmorx-core/src/defects.rs: "34429cb924a382b4"
     crates/larmorx-fsl/src/cli/pairreg.rs: "c3ccbcb23f7dc04e"
-    docs/api/fsl-flirt.md: "21d456bedacfd6a2"
-    python/larmorx/fsl/flirt_more.py: "64de6a5439fd3ed6"
+    docs/api/fsl-flirt.md: "7fe0febecf4edaee"
+    python/larmorx/fsl/flirt_more.py: "de95486aa525ad80"
     validation/tools.toml: "f0750687390307f1"
 ---
 
@@ -101,7 +101,7 @@ They stand between `larmorx` and `fsl` on the command line (`larmorx --n-threads
 |---|---|
 | <code><span class="nw">&#45;&#45;n&#45;threads</span></code> <code><span class="nw">N</span></code><br>(no Python argument) | The command line's only: <code><span class="nw">lx&#46;fsl&#46;pairreg</span></code> takes no <code><span class="nw">n&#95;threads</span></code>. Default: every logical CPU on the command line (<code><span class="nw">0</span></code>). The variable <code><span class="nw">OMP&#95;NUM&#95;THREADS</span></code> in 0.1.0rc1. |
 | <code><span class="nw">&#45;&#45;implementation</span></code> <code><span class="nw">auto&#124;replica&#124;clean&#45;room</span></code><br><code><span class="nw">implementation&#61;&#34;auto&#34;</span></code> | <code><span class="nw">&#34;auto&#34;</span></code> (default): the replica when <code><span class="nw">larmorx&#45;nc</span></code> is installed, else the clean room; <code><span class="nw">&#34;replica&#34;</span></code> or <code><span class="nw">&#34;clean&#45;room&#34;</span></code> (<code><span class="nw">&#34;original&#34;</span></code>, 0.1.0rc1's spelling, still works). The variable <code><span class="nw">LARMORX&#95;IMPLEMENTATION</span></code> in 0.1.0rc1. |
-| <code><span class="nw">&#45;&#45;upstream&#45;defects</span></code> <code><span class="nw">fix&#124;reproduce</span></code><br><code><span class="nw">upstream&#95;defects&#61;&#34;fix&#34;</span></code> | <code><span class="nw">&#34;fix&#34;</span></code> (default) or <code><span class="nw">&#34;reproduce&#34;</span></code>: FSL's defects corrected, or FSL's behaviour (<code><span class="nw">docs&#47;api&#47;fsl&#45;flirt&#46;md</span></code>, "Upstream defects"). The variable <code><span class="nw">LARMORX&#95;UPSTREAM&#95;DEFECTS</span></code> in 0.1.0rc1. |
+| <code><span class="nw">&#45;&#45;upstream&#45;defects</span></code> <code><span class="nw">fix&#124;reproduce</span></code><br><code><span class="nw">upstream&#95;defects&#61;&#34;fix&#34;</span></code> | <code><span class="nw">&#34;fix&#34;</span></code> (default) or <code><span class="nw">&#34;reproduce&#34;</span></code>: FSL's defects corrected, or FSL's behaviour (<code><span class="nw">docs&#47;api&#47;fsl&#45;flirt&#46;md</span></code>, "Defects of the original, corrected by default"). The variable <code><span class="nw">LARMORX&#95;UPSTREAM&#95;DEFECTS</span></code> in 0.1.0rc1. |
 
 ## Examples {#examples}
 
@@ -127,8 +127,7 @@ larmorx fsl pairreg b1_brain.nii.gz b2_brain.nii.gz b1.nii.gz b2.nii.gz b2_to_b1
 | replica | <code><span class="nw">larmorx&#45;nc</span></code> | FSL Licence: non-commercial use only | experimental | [fsl-flirt-replica](repo:docs/validation/fsl-flirt-replica.md) |
 | clean room | <code><span class="nw">larmorx</span></code> | Apache-2.0 | experimental | [fsl-flirt](repo:docs/validation/fsl-flirt.md) |
 
-Both ports are complete: every usage, message, exit status and failure case of `specs/flirt.md`
-§15.8. The clean room runs its own `flirt` three times and one `convert_xfm -fixscaleskew`, in
+Both ports are complete (`specs/flirt.md` §15.8). The clean room runs its own `flirt` three times and one `convert_xfm -fixscaleskew`, in
 this process, and carries FSL's three schedules itself: it needs no `$FSLDIR`. `-v` echoes FSL's
 lines, and a step that aborts is followed by the shell's `Aborted` line. Arguments that the
 script's shell would split or expand are refused.
@@ -146,8 +145,8 @@ package holds):
 - **The clean room** is written from [`specs/flirt.md`](repo:specs/flirt.md) by an implementer who
   never read FSL's source or the replica. It is part of `larmorx`, under Apache-2.0
   (`crates/larmorx-fsl`, with its [PROVENANCE](repo:crates/larmorx-fsl/PROVENANCE.md), section
-  "FLIRT"), and runs on the main package's clean-room registration engine, shared with
-  `lx.mri.hmc`.
+  "FLIRT"), and runs on LARMORX's clean-room registration engine, the head-motion correction's
+  (`lx.mri.hmc`).
 
 `implementation="auto"` runs the replica when `larmorx-nc` is installed, and the clean room
 otherwise. `"replica"` and `"clean-room"` choose one (`"original"`, 0.1.0rc1's spelling of
@@ -165,6 +164,6 @@ How each of `pairreg`'s ports was measured against FSL, case by case: [its evide
 The API page [docs/api/fsl-flirt.md](repo:docs/api/fsl-flirt.md) holds what `pairreg` shares with the page's other programs:
 
 - [The clean room (part 1, 2026-11-02)](repo:docs/api/fsl-flirt.md#the-clean-room-part-1-2026-11-02)
-- [Upstream defects (D13)](repo:docs/api/fsl-flirt.md#upstream-defects-d13)
+- [Defects of the original, corrected by default](repo:docs/api/fsl-flirt.md#defects-of-the-original-corrected-by-default)
 - [Not yet](repo:docs/api/fsl-flirt.md#not-yet)
 - [History](repo:docs/api/fsl-flirt.md#history)

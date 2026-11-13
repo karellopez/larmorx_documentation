@@ -21,8 +21,8 @@ reference:
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
     crates/larmorx-core/src/defects.rs: "34429cb924a382b4"
     crates/larmorx-fsl/src/cli/extracttxt.rs: "005eb99123aac099"
-    docs/api/fsl-flirt.md: "21d456bedacfd6a2"
-    python/larmorx/fsl/flirt_more.py: "64de6a5439fd3ed6"
+    docs/api/fsl-flirt.md: "7fe0febecf4edaee"
+    python/larmorx/fsl/flirt_more.py: "de95486aa525ad80"
     validation/tools.toml: "f0750687390307f1"
 ---
 
@@ -125,8 +125,7 @@ larmorx fsl extracttxt value log.txt 3 -1
 | replica | <code><span class="nw">larmorx&#45;nc</span></code> | FSL Licence: non-commercial use only | experimental | [fsl-flirt-replica](repo:docs/validation/fsl-flirt-replica.md) |
 | clean room | <code><span class="nw">larmorx</span></code> | Apache-2.0 | experimental | [fsl-flirt](repo:docs/validation/fsl-flirt.md) |
 
-Both ports are complete: every usage, message, exit status and failure case of `specs/flirt.md`
-§15.8. The clean room has its own POSIX basic regular expressions (with GNU grep's extensions) and
+Both ports are complete (`specs/flirt.md` §15.8). The clean room has its own POSIX basic regular expressions (with GNU grep's extensions) and
 the script's dc and sed arithmetic, messages included. GNU sed's usage text, which a range read as
 sed's options prints, is not reproduced: one LARMORX line takes its place. Refused, as the spec
 says: arguments that the script's shell would split or expand, counts and starts that are not
@@ -145,8 +144,8 @@ package holds):
 - **The clean room** is written from [`specs/flirt.md`](repo:specs/flirt.md) by an implementer who
   never read FSL's source or the replica. It is part of `larmorx`, under Apache-2.0
   (`crates/larmorx-fsl`, with its [PROVENANCE](repo:crates/larmorx-fsl/PROVENANCE.md), section
-  "FLIRT"), and runs on the main package's clean-room registration engine, shared with
-  `lx.mri.hmc`.
+  "FLIRT"), and runs on LARMORX's clean-room registration engine, the head-motion correction's
+  (`lx.mri.hmc`).
 
 `implementation="auto"` runs the replica when `larmorx-nc` is installed, and the clean room
 otherwise. `"replica"` and `"clean-room"` choose one (`"original"`, 0.1.0rc1's spelling of
@@ -164,6 +163,6 @@ How each of `extracttxt`'s ports was measured against FSL, case by case: [its ev
 The API page [docs/api/fsl-flirt.md](repo:docs/api/fsl-flirt.md) holds what `extracttxt` shares with the page's other programs:
 
 - [The clean room (part 1, 2026-11-02)](repo:docs/api/fsl-flirt.md#the-clean-room-part-1-2026-11-02)
-- [Upstream defects (D13)](repo:docs/api/fsl-flirt.md#upstream-defects-d13)
+- [Defects of the original, corrected by default](repo:docs/api/fsl-flirt.md#defects-of-the-original-corrected-by-default)
 - [Not yet](repo:docs/api/fsl-flirt.md#not-yet)
 - [History](repo:docs/api/fsl-flirt.md#history)
