@@ -154,6 +154,10 @@ The records test the cases people chose. Random testing runs random valid inputs
 
 {{ ev.random_testing_summary() }}
 
+Since then, the parts that ported a program or caught a clean room up have tested it in runs of half an hour; the long runs of several hours for every program wait for the final validation phase ([now, and before the first release](#levels-plan)). The runs the evidence pages show, port by port, each run's differences triaged on the program's evidence page:
+
+{{ ev.random_testing_runs() }}
+
 ## The records {#records}
 
 Every record lives in the main repository, in [docs/validation](repo:docs/validation/): what was compared, the thresholds, the environment and every case. Benchmark reports are in [docs/benchmarks](repo:docs/benchmarks/). The stage-by-stage comparisons with fMRIPrep 25.2.6 on four of its runs are in the `fmriprep-stages` records.

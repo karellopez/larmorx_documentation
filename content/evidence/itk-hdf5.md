@@ -80,7 +80,7 @@ Where ITK, HDF5 or nitransforms has a deterministic defect that changes a result
 
 Random testing writes random transform files and reads them through ITK, as ANTs' programs do (an ANTs program writes back what it read, in double and in single precision), and through the replica, h5py and nitransforms, in long runs of several hours. The files come from seeded plain arithmetic: text and MATLAB files holding one to four transforms of every linear type ITK reads (in double and float, 2-D and 3-D) and composites, their numbers spelt in many ways, and HDF5 files from the replica's writer, with and without compression, that also hold displacement fields ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest file that still shows it, then fixed and kept as a comparison case, registered as a defect of the original, or reported. The latest long run:
 
-{{ ev.random_testing('/tools/itk-hdf5/', 'itk-hdf5') }}
+{{ ev.random_testing('/evidence/itk-hdf5/', 'itk-hdf5') }}
 
 ## Known limits {#limits}
 

@@ -125,7 +125,7 @@ The replica of antsAI takes about half of ANTs' time at one thread (17.5 s again
 
 Random testing runs random valid inputs and option combinations through the original program and the replica, in long runs of several hours: inputs from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind), with options drawn in random combinations from those the program accepts ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest input and fewest options that still show it, then fixed and kept as a comparison case, registered as a defect of the original, or reported. The latest long run:
 
-{{ ev.random_testing('/tools/ants-ai/', 'ants-ai') }}
+{{ ev.random_testing('/evidence/ants-ai/', 'ants-ai') }}
 
 ## Known limits {#limits}
 

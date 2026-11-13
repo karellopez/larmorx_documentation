@@ -23,7 +23,7 @@
  },
  "pages": [
   {
-   "page": "/tools/afni-automask/",
+   "page": "/evidence/afni-automask/",
    "tools": [
     {
      "tool": "afni-automask",
@@ -32,6 +32,10 @@
       "original",
       "replica"
      ],
+     "ports": {
+      "original": "clean room",
+      "replica": "replica"
+     },
      "cases": 1889,
      "outcomes": {
       "agree": 1835,
@@ -86,7 +90,7 @@
        "cases": 1,
        "reproducer": "afni-automask:20261025:1428",
        "status": "fixed",
-       "explanation": "the quaternion's polar decomposition: AFNI takes `1/det` in x87 extended precision (observed on 1,200 matrices through NIfTI-2 outputs); fixed in the clean-room original (2026-10-29)",
+       "explanation": "the quaternion's polar decomposition: AFNI takes `1/det` in x87 extended precision (observed on 1,200 matrices through NIfTI-2 outputs); fixed in the clean room (2026-10-29)",
        "link": "validation/difftest/cases/afni-automask/tiny-oblique-quaternion-residue.json"
       },
       {
@@ -97,7 +101,7 @@
        "cases": 4,
        "reproducer": "afni-automask:20261025:242",
        "status": "fixed",
-       "explanation": "the quaternion's polar decomposition: AFNI takes `1/det` in x87 extended precision (observed on 1,200 matrices through NIfTI-2 outputs); fixed in the clean-room original (2026-10-29)",
+       "explanation": "the quaternion's polar decomposition: AFNI takes `1/det` in x87 extended precision (observed on 1,200 matrices through NIfTI-2 outputs); fixed in the clean room (2026-10-29)",
        "link": "validation/difftest/cases/afni-automask/tiny-oblique-quaternion-residue.json"
       },
       {
@@ -149,7 +153,7 @@
    ]
   },
   {
-   "page": "/tools/afni-tshift/",
+   "page": "/evidence/afni-tshift/",
    "tools": [
     {
      "tool": "afni-tshift",
@@ -158,6 +162,10 @@
       "original",
       "replica"
      ],
+     "ports": {
+      "original": "clean room",
+      "replica": "replica"
+     },
      "cases": 2266,
      "outcomes": {
       "agree": 2117,
@@ -179,7 +187,7 @@
        "cases": 1,
        "reproducer": "afni-tshift:20261025:1690",
        "status": "fixed",
-       "explanation": "AFNI 26.3.05 fixed AFNI-03 (header slice code 2 read end..start); the clean-room original's `reproduce` still reads 25.2.09's zeros and names AFNI-03 (the trial against 26.3.05: 73 findings, 4 with AFNI-05 too); its alignment is the clean-room agent's (specs/3dTshift.md §3.2, §6.4); fixed 2026-10-29 by the clean-room alignment (next-steps 3b): both modes follow AFNI 26.3.05 and never name the defect; none in that part's trial against 26.3.05 (oracles/difftest/2026-10-29-cleanroom-align)",
+       "explanation": "AFNI 26.3.05 fixed AFNI-03 (header slice code 2 read end..start); the clean room's `reproduce` still reads 25.2.09's zeros and names AFNI-03 (the trial against 26.3.05: 73 findings, 4 with AFNI-05 too); its alignment is the clean-room agent's (specs/3dTshift.md §3.2, §6.4); fixed 2026-10-29 by the clean-room alignment (next-steps 3b): both modes follow AFNI 26.3.05 and never name the defect; none in that part's trial against 26.3.05 (oracles/difftest/2026-10-29-cleanroom-align)",
        "link": "validation/investigations/version-afni/README.md"
       },
       {
@@ -201,7 +209,7 @@
        "cases": 83,
        "reproducer": "afni-tshift:20261025:33",
        "status": "fixed",
-       "explanation": "the clean-room original's AFNI-07 default now writes the replica's steps (the file matrix's column lengths, then converted) and, for a qform, the qform matrix computed with millimetre voxel sizes and offsets, rounded once; the AFNI-07 and AFNI-16 notices in the replica's words; all 83 findings replay as agree (2026-10-29)",
+       "explanation": "the clean room's AFNI-07 default now writes the replica's steps (the file matrix's column lengths, then converted) and, for a qform, the qform matrix computed with millimetre voxel sizes and offsets, rounded once; the AFNI-07 and AFNI-16 notices in the replica's words; all 83 findings replay as agree (2026-10-29)",
        "link": "validation/difftest/cases/afni-tshift/metre-oblique-default-steps.json",
        "defect": "AFNI-07"
       },
@@ -214,7 +222,7 @@
        "cases": 1,
        "reproducer": "afni-tshift:20261025:1690",
        "status": "fixed",
-       "explanation": "the clean-room original's AFNI-07 default now writes the replica's steps (the file matrix's column lengths, then converted) and, for a qform, the qform matrix computed with millimetre voxel sizes and offsets, rounded once; the AFNI-07 and AFNI-16 notices in the replica's words; all 83 findings replay as agree (2026-10-29)",
+       "explanation": "the clean room's AFNI-07 default now writes the replica's steps (the file matrix's column lengths, then converted) and, for a qform, the qform matrix computed with millimetre voxel sizes and offsets, rounded once; the AFNI-07 and AFNI-16 notices in the replica's words; all 83 findings replay as agree (2026-10-29)",
        "link": "validation/difftest/cases/afni-tshift/metre-oblique-default-steps.json",
        "defect": "AFNI-07"
       }
@@ -246,7 +254,7 @@
    ]
   },
   {
-   "page": "/tools/afni-unifize/",
+   "page": "/evidence/afni-unifize/",
    "tools": [
     {
      "tool": "afni-unifize",
@@ -255,6 +263,10 @@
       "original",
       "replica"
      ],
+     "ports": {
+      "original": "clean room",
+      "replica": "replica"
+     },
      "cases": 568,
      "outcomes": {
       "agree": 551,
@@ -290,7 +302,7 @@
        "cases": 1,
        "reproducer": "afni-unifize:20261025:392",
        "status": "fixed",
-       "explanation": "the quaternion's polar decomposition: AFNI takes `1/det` in x87 extended precision (observed on 1,200 matrices through NIfTI-2 outputs); fixed in the clean-room original (2026-10-29)",
+       "explanation": "the quaternion's polar decomposition: AFNI takes `1/det` in x87 extended precision (observed on 1,200 matrices through NIfTI-2 outputs); fixed in the clean room (2026-10-29)",
        "link": "validation/difftest/cases/afni-unifize/tiny-oblique-header.json"
       },
       {
@@ -301,7 +313,7 @@
        "cases": 1,
        "reproducer": "afni-unifize:20261025:163",
        "status": "fixed",
-       "explanation": "the quaternion's polar decomposition: AFNI takes `1/det` in x87 extended precision (observed on 1,200 matrices through NIfTI-2 outputs); fixed in the clean-room original (2026-10-29)",
+       "explanation": "the quaternion's polar decomposition: AFNI takes `1/det` in x87 extended precision (observed on 1,200 matrices through NIfTI-2 outputs); fixed in the clean room (2026-10-29)",
        "link": "validation/difftest/cases/afni-unifize/tiny-oblique-header.json"
       }
      ],
@@ -342,7 +354,7 @@
    ]
   },
   {
-   "page": "/tools/ants-ai/",
+   "page": "/evidence/ants-ai/",
    "tools": [
     {
      "tool": "ants-affine-initializer",
@@ -350,6 +362,9 @@
      "implementations": [
       "port"
      ],
+     "ports": {
+      "port": "replica"
+     },
      "cases": 807,
      "outcomes": {
       "agree": 807
@@ -368,6 +383,9 @@
      "implementations": [
       "port"
      ],
+     "ports": {
+      "port": "replica"
+     },
      "cases": 1102,
      "outcomes": {
       "agree": 1089,
@@ -388,7 +406,7 @@
        "cases": 3,
        "reproducer": "ants-ai:20261025:244",
        "status": "fixed",
-       "explanation": "antsAI's start points that throw: each start point's scales warnings come before its multi-start warning in ITK; larmorx printed the multi-start warnings first. The problem now hands its warnings to the multi-start loop as they arise"
+       "explanation": "antsAI's start points that throw: each start point's scales warnings come before its multi-start warning in ITK; LARMORX printed the multi-start warnings first. The problem now hands its warnings to the multi-start loop as they arise"
       },
       {
        "implementation": "port",
@@ -398,7 +416,7 @@
        "cases": 2,
        "reproducer": "ants-ai:20261025:908",
        "status": "fixed",
-       "explanation": "a parameter of antsAI's output transform at an exact tie between two shortest decimals: ITK's double-conversion writes the even one, Rust's shortest formatting rounded up; larmorx's ITK number writer now takes the even one (`larmorx_io::itk_transform::itk_number`)"
+       "explanation": "a parameter of antsAI's output transform at an exact tie between two shortest decimals: ITK's double-conversion writes the even one, Rust's shortest formatting rounded up; LARMORX's ITK number writer now takes the even one (`larmorx_io::itk_transform::itk_number`)"
       }
      ],
      "notices": [],
@@ -407,7 +425,7 @@
    ]
   },
   {
-   "page": "/tools/ants-apply-transforms/",
+   "page": "/evidence/ants-apply-transforms/",
    "tools": [
     {
      "tool": "ants-apply-transforms",
@@ -415,6 +433,9 @@
      "implementations": [
       "port"
      ],
+     "ports": {
+      "port": "replica"
+     },
      "cases": 2148,
      "outcomes": {
       "agree": 2148
@@ -430,7 +451,7 @@
    ]
   },
   {
-   "page": "/tools/ants-atropos/",
+   "page": "/evidence/ants-atropos/",
    "tools": [
     {
      "tool": "ants-atropos",
@@ -438,6 +459,9 @@
      "implementations": [
       "port"
      ],
+     "ports": {
+      "port": "replica"
+     },
      "cases": 1363,
      "outcomes": {
       "agree": 1211,
@@ -459,7 +483,7 @@
        "cases": 19,
        "reproducer": "ants-atropos:20261025:23",
        "status": "fixed",
-       "explanation": "two of larmorx's messages: the one-line explanation of an empty mask or a constant channel in a Parzen histogram (ANTS-45: ANTs explains its exception only with --verbose 1) held ITK's two-line description, now one line; and the '<= 1 element' warning of a class with one sample was printed as the Gaussian model's for every model, where ANTs prints each model's own (ManifoldParzenWindows at line 55, HistogramParzenWindows at line 57: another file, class and text), now each model's. The remaining fix-pass notices name defects that changed no value"
+       "explanation": "two of LARMORX's messages: the one-line explanation of an empty mask or a constant channel in a Parzen histogram (ANTS-45: ANTs explains its exception only with --verbose 1) held ITK's two-line description, now one line; and the '<= 1 element' warning of a class with one sample was printed as the Gaussian model's for every model, where ANTs prints each model's own (ManifoldParzenWindows at line 55, HistogramParzenWindows at line 57: another file, class and text), now each model's. The remaining fix-pass notices name defects that changed no value"
       }
      ],
      "notices": [
@@ -505,7 +529,7 @@
    ]
   },
   {
-   "page": "/tools/ants-denoise/",
+   "page": "/evidence/ants-denoise/",
    "tools": [
     {
      "tool": "ants-denoise",
@@ -513,6 +537,9 @@
      "implementations": [
       "port"
      ],
+     "ports": {
+      "port": "replica"
+     },
      "cases": 1049,
      "outcomes": {
       "agree": 981,
@@ -532,7 +559,7 @@
        "cases": 1,
        "reproducer": "ants-denoise:20261025:363",
        "status": "fixed",
-       "explanation": "DenoiseImage without -d on a 4D image: ANTs takes it as 3D (ANTS-99); larmorx failed on the file's dimension. Now reproduce takes 3, the default the file's dimension, both naming ANTS-99",
+       "explanation": "DenoiseImage without -d on a 4D image: ANTs takes it as 3D (ANTS-99); LARMORX failed on the file's dimension. Now reproduce takes 3, the default the file's dimension, both naming ANTS-99",
        "defect": "ANTS-99"
       },
       {
@@ -623,7 +650,7 @@
        "cases": 3,
        "reproducer": "ants-denoise:20261025:0",
        "status": "fixed",
-       "explanation": "Rician denoising on micrometre voxels: the bias's smoothing variance of 2 mm² is 2·10⁶ voxels², whose ITK kernel is NaN (ANTS-14), so ITK leaves the bias unsmoothed; larmorx smoothed it with the corrected kernel in both modes. Now reproduce keeps ITK's kernel, and both modes name ANTS-14 (`larmorx_image::adaptive_denoising`)",
+       "explanation": "Rician denoising on micrometre voxels: the bias's smoothing variance of 2 mm² is 2·10⁶ voxels², whose ITK kernel is NaN (ANTS-14), so ITK leaves the bias unsmoothed; LARMORX smoothed it with the corrected kernel in both modes. Now reproduce keeps ITK's kernel, and both modes name ANTS-14 (`larmorx_image::adaptive_denoising`)",
        "defect": "ANTS-14"
       },
       {
@@ -635,7 +662,7 @@
        "cases": 5,
        "reproducer": "ants-denoise:20261025:188",
        "status": "fixed",
-       "explanation": "DenoiseImage without -d on a 2D image: ANTs asks a new ImageIO for the dimension before it reads the header and NIfTI's answers 3, so it denoises and writes a 3D image (ANTS-99, as Atropos); larmorx used the file's dimension in both modes. Now reproduce takes 3, the default the file's dimension, both naming ANTS-99 (N4BiasFieldCorrection likewise)",
+       "explanation": "DenoiseImage without -d on a 2D image: ANTs asks a new ImageIO for the dimension before it reads the header and NIfTI's answers 3, so it denoises and writes a 3D image (ANTS-99, as Atropos); LARMORX used the file's dimension in both modes. Now reproduce takes 3, the default the file's dimension, both naming ANTS-99 (N4BiasFieldCorrection likewise)",
        "defect": "ANTS-99"
       },
       {
@@ -668,7 +695,7 @@
    ]
   },
   {
-   "page": "/tools/ants-programs/",
+   "page": "/evidence/ants-programs/",
    "tools": [
     {
      "tool": "ants-image-math",
@@ -676,6 +703,9 @@
      "implementations": [
       "port"
      ],
+     "ports": {
+      "port": "replica"
+     },
      "cases": 2863,
      "outcomes": {
       "agree": 2810,
@@ -697,7 +727,7 @@
        "cases": 3,
        "reproducer": "ants-image-math:20261025:14",
        "status": "register",
-       "explanation": "Normalize or TruncateImageIntensity with a mask of another size (a 3D mask for a 4D image): ANTs reads the mask outside its buffer and exits 0; larmorx refuses in both modes, now naming ANTS-163 (class (a))",
+       "explanation": "Normalize or TruncateImageIntensity with a mask of another size (a 3D mask for a 4D image): ANTs reads the mask outside its buffer and exits 0; LARMORX refuses in both modes, now naming ANTS-163 (class (a))",
        "defect": "ANTS-163"
       },
       {
@@ -708,7 +738,7 @@
        "cases": 16,
        "reproducer": "ants-image-math:20261025:26",
        "status": "register",
-       "explanation": "ITK's moving-histogram morphology on an image whose first axis has one voxel: GO, GC, GD or GE with a radius of 0 leaves voxels at ±FLT_MAX, and with a larger radius (a 4D image, GD radius 3) gives values from outside the structuring element (99 where the ball's maximum is 97, `ants-image-math:20261025:1541`); larmorx gives the true result in both modes (rule A); the reproduce switch is a follow-up",
+       "explanation": "ITK's moving-histogram morphology on an image whose first axis has one voxel: GO, GC, GD or GE with a radius of 0 leaves voxels at ±FLT_MAX, and with a larger radius (a 4D image, GD radius 3) gives values from outside the structuring element (99 where the ball's maximum is 97, `ants-image-math:20261025:1541`); LARMORX gives the true result in both modes (rule A); the reproduce switch is a follow-up",
        "defect": "ITK-95"
       }
      ],
@@ -742,6 +772,9 @@
      "implementations": [
       "port"
      ],
+     "ports": {
+      "port": "replica"
+     },
      "cases": 1148,
      "outcomes": {
       "agree": 1114,
@@ -761,6 +794,9 @@
      "implementations": [
       "port"
      ],
+     "ports": {
+      "port": "replica"
+     },
      "cases": 1608,
      "outcomes": {
       "agree": 1294,
@@ -783,7 +819,7 @@
        "cases": 2,
        "reproducer": "ants-resample-image:20261025:382",
        "status": "register",
-       "explanation": "Gaussian interpolation with a sigma or alpha of 0 or less: ANTs divides by zero and writes an image of NaN (exit 0); larmorx refuses in both modes, naming ANTS-161 (rule B); reproduce's NaN image is a follow-up",
+       "explanation": "Gaussian interpolation with a sigma or alpha of 0 or less: ANTs divides by zero and writes an image of NaN (exit 0); LARMORX refuses in both modes, naming ANTS-161 (rule B); reproduce's NaN image is a follow-up",
        "defect": "ANTS-161"
       },
       {
@@ -794,7 +830,7 @@
        "cases": 10,
        "reproducer": "ants-resample-image:20261025:14",
        "status": "fixed",
-       "explanation": "a cubic (or order 4 or 5) B-spline on an axis of 2 voxels: ITK's single mirror leaves a support index of -1 and reads outside the coefficient image (ITK-98, memory it never wrote); larmorx panicked on the index. Now the mirror is repeated by default and ITK's reads outside are 0 in reproduce, named in both modes (`larmorx_interp::BSplineMirror`)",
+       "explanation": "a cubic (or order 4 or 5) B-spline on an axis of 2 voxels: ITK's single mirror leaves a support index of -1 and reads outside the coefficient image (ITK-98, memory it never wrote); LARMORX panicked on the index. Now the mirror is repeated by default and ITK's reads outside are 0 in reproduce, named in both modes (`larmorx_interp::BSplineMirror`)",
        "defect": "ITK-98"
       }
      ],
@@ -881,6 +917,9 @@
      "implementations": [
       "port"
      ],
+     "ports": {
+      "port": "replica"
+     },
      "cases": 1763,
      "outcomes": {
       "agree": 1331,
@@ -1017,6 +1056,9 @@
      "implementations": [
       "port"
      ],
+     "ports": {
+      "port": "replica"
+     },
      "cases": 1888,
      "outcomes": {
       "agree": 1758,
@@ -1038,7 +1080,7 @@
        "cases": 3,
        "reproducer": "ants-smooth-image:20261025:564",
        "status": "fixed",
-       "explanation": "a median of a box holding both -0 and +0: ITK writes the zero libstdc++'s nth_element leaves in the middle; larmorx selected with a total order. Now it selects as GCC 14.3's introselect does, on ITK's box order (`larmorx_image::libstdcxx`)"
+       "explanation": "a median of a box holding both -0 and +0: ITK writes the zero libstdc++'s nth_element leaves in the middle; LARMORX selected with a total order. Now it selects as GCC 14.3's introselect does, on ITK's box order (`larmorx_image::libstdcxx`)"
       }
      ],
      "notices": [
@@ -1055,6 +1097,9 @@
      "implementations": [
       "port"
      ],
+     "ports": {
+      "port": "replica"
+     },
      "cases": 1895,
      "outcomes": {
       "agree": 1894,
@@ -1076,7 +1121,7 @@
    ]
   },
   {
-   "page": "/tools/ants-n4/",
+   "page": "/evidence/ants-n4/",
    "tools": [
     {
      "tool": "ants-n4",
@@ -1084,6 +1129,9 @@
      "implementations": [
       "port"
      ],
+     "ports": {
+      "port": "replica"
+     },
      "cases": 1017,
      "outcomes": {
       "agree": 649,
@@ -1319,7 +1367,7 @@
    ]
   },
   {
-   "page": "/tools/ants-registration/",
+   "page": "/evidence/ants-registration/",
    "tools": [
     {
      "tool": "ants-registration",
@@ -1327,6 +1375,9 @@
      "implementations": [
       "port"
      ],
+     "ports": {
+      "port": "replica"
+     },
      "cases": 2110,
      "outcomes": {
       "agree": 1802,
@@ -1350,7 +1401,7 @@
        "cases": 1,
        "reproducer": "ants-registration:20261025:884",
        "status": "fixed",
-       "explanation": "a Mattes stage whose second level's analysis region (a sparse mask at full resolution) has one intensity: ITK keeps the joint histogram images of the first level, so SetSpacing's exception for a bin size of 0 is not reached and the metric is 0; larmorx threw the first level's exception at every level in both modes. Now reproduce uses the bin size as ITK does; the default keeps the exception (rule B), both naming ITK-100 (`larmorx_registration::metric::mattes::check_joint_pdf_spacing`)",
+       "explanation": "a Mattes stage whose second level's analysis region (a sparse mask at full resolution) has one intensity: ITK keeps the joint histogram images of the first level, so SetSpacing's exception for a bin size of 0 is not reached and the metric is 0; LARMORX threw the first level's exception at every level in both modes. Now reproduce uses the bin size as ITK does; the default keeps the exception (rule B), both naming ITK-100 (`larmorx_registration::metric::mattes::check_joint_pdf_spacing`)",
        "defect": "ITK-100"
       },
       {
@@ -1362,7 +1413,7 @@
        "cases": 5,
        "reproducer": "ants-registration:20261025:375",
        "status": "register",
-       "explanation": "the inverse composite of a list holding a displacement field without an inverse: ITK inverts it into a field transform with no parameters, whose HDF5 write fails (H5Pset_chunk) after writing part of the file; larmorx writes no inverse composite and names ITK-96 in both modes; reproduce's part-written file and HDF5's messages are a follow-up",
+       "explanation": "the inverse composite of a list holding a displacement field without an inverse: ITK inverts it into a field transform with no parameters, whose HDF5 write fails (H5Pset_chunk) after writing part of the file; LARMORX writes no inverse composite and names ITK-96 in both modes; reproduce's part-written file and HDF5's messages are a follow-up",
        "defect": "ITK-96"
       },
       {
@@ -1375,7 +1426,7 @@
        "cases": 1,
        "reproducer": "ants-registration:20261025:1995",
        "status": "register",
-       "explanation": "the inverse composite of a list holding a displacement field without an inverse: ITK inverts it into a field transform with no parameters, whose HDF5 write fails (H5Pset_chunk) after writing part of the file; larmorx writes no inverse composite and names ITK-96 in both modes; reproduce's part-written file and HDF5's messages are a follow-up",
+       "explanation": "the inverse composite of a list holding a displacement field without an inverse: ITK inverts it into a field transform with no parameters, whose HDF5 write fails (H5Pset_chunk) after writing part of the file; LARMORX writes no inverse composite and names ITK-96 in both modes; reproduce's part-written file and HDF5's messages are a follow-up",
        "defect": "ITK-96"
       },
       {
@@ -1409,7 +1460,7 @@
        "cases": 1,
        "reproducer": "ants-registration:20261025:1353",
        "status": "register",
-       "explanation": "without collapsing, an Affine stage whose Demons metric throws (ANTs goes on) adds no transform, so the next stage's time-varying B-spline velocity field is written under the Affine stage's .mat name (ANTS-51); there ANTs writes the transform object itself, TimeVaryingBSplineVelocityFieldTransform with its control-point lattice as the parameters, larmorx the integrated displacement field. The default corrects ANTS-51 (each transform under its own stage's name); reproducing the lattice under a .mat name is a follow-up",
+       "explanation": "without collapsing, an Affine stage whose Demons metric throws (ANTs goes on) adds no transform, so the next stage's time-varying B-spline velocity field is written under the Affine stage's .mat name (ANTS-51); there ANTs writes the transform object itself, TimeVaryingBSplineVelocityFieldTransform with its control-point lattice as the parameters, LARMORX the integrated displacement field. The default corrects ANTS-51 (each transform under its own stage's name); reproducing the lattice under a .mat name is a follow-up",
        "defect": "ANTS-51"
       },
       {
@@ -1421,7 +1472,7 @@
        "cases": 1,
        "reproducer": "ants-registration:20261025:165",
        "status": "fixed",
-       "explanation": "a float B-spline transform parameter of exactly 0.173828125 lies halfway between two shortest decimals: ITK's double-conversion writes the even one (0.17382812), Rust's shortest formatting rounded up (0.17382813). larmorx's ITK number writer now takes the even one at an exact tie (`larmorx_io::itk_transform::itk_number`); the remaining fix-pass notice is ITK-31's (no values changed)"
+       "explanation": "a float B-spline transform parameter of exactly 0.173828125 lies halfway between two shortest decimals: ITK's double-conversion writes the even one (0.17382812), Rust's shortest formatting rounded up (0.17382813). LARMORX's ITK number writer now takes the even one at an exact tie (`larmorx_io::itk_transform::itk_number`); the remaining fix-pass notice is ITK-31's (no values changed)"
       },
       {
        "implementation": "port",
@@ -1471,7 +1522,7 @@
        "cases": 1,
        "reproducer": "ants-registration:20261025:979",
        "status": "fixed",
-       "explanation": "without collapsing (-z 0), a Translation stage whose Demons metric throws (it needs a displacement field; ANTs catches it and goes on) adds no transform and leaves ANTs' names one short (ANTS-51), so the next stage's displacement field is written under the linear stage's .mat name; ANTs' WriteTransform writes the stage's own object there (GaussianSmoothingOnUpdateDisplacementFieldTransform), larmorx a new DisplacementFieldTransform: the same parameters, another class name. Now the field keeps its stage's class under a .mat or .txt name",
+       "explanation": "without collapsing (-z 0), a Translation stage whose Demons metric throws (it needs a displacement field; ANTs catches it and goes on) adds no transform and leaves ANTs' names one short (ANTS-51), so the next stage's displacement field is written under the linear stage's .mat name; ANTs' WriteTransform writes the stage's own object there (GaussianSmoothingOnUpdateDisplacementFieldTransform), LARMORX a new DisplacementFieldTransform: the same parameters, another class name. Now the field keeps its stage's class under a .mat or .txt name",
        "defect": "ANTS-51"
       },
       {
@@ -1496,7 +1547,7 @@
        "cases": 5,
        "reproducer": "ants-registration:20261025:393",
        "status": "fixed",
-       "explanation": "a sampled metric (Random, 50 %) with a shrink factor of 2 on a B-spline displacement-field stage: ITK adds the derivative of sample points that fall outside the shrunk virtual domain to other voxels' parameters (ITK-97); larmorx dropped them in both modes, so the metric differed from the fourth iteration in the 12th digit. Now reproduce does as ITK does and is bit-identical; the default drops them; both name ITK-97 (`larmorx_registration::metric::OutsideDerivatives`)",
+       "explanation": "a sampled metric (Random, 50 %) with a shrink factor of 2 on a B-spline displacement-field stage: ITK adds the derivative of sample points that fall outside the shrunk virtual domain to other voxels' parameters (ITK-97); LARMORX dropped them in both modes, so the metric differed from the fourth iteration in the 12th digit. Now reproduce does as ITK does and is bit-identical; the default drops them; both name ITK-97 (`larmorx_registration::metric::OutsideDerivatives`)",
        "defect": "ITK-97"
       },
       {
@@ -1507,7 +1558,7 @@
        "cases": 26,
        "reproducer": "ants-registration:20261025:100",
        "status": "fixed",
-       "explanation": "ITK's NIfTI writer warns when an image's direction cosines are not orthogonal in float (an oblique quaternion that is orthogonal in double); larmorx's writer now prints the same warning (`larmorx_io::itk_output`)"
+       "explanation": "ITK's NIfTI writer warns when an image's direction cosines are not orthogonal in float (an oblique quaternion that is orthogonal in double); LARMORX's writer now prints the same warning (`larmorx_io::itk_output`)"
       },
       {
        "implementation": "port",
@@ -1528,7 +1579,7 @@
        "cases": 3,
        "reproducer": "ants-registration:20261025:630",
        "status": "fixed",
-       "explanation": "a stage whose sampled point set is empty: ITK's exception is itkImageToImageMetricv4.hxx:263 with the metric's own class name (MattesMutualInformationImageToImageMetricv4, ...), or line 233 of the joint-histogram MI's file; larmorx printed line 268 and the base class"
+       "explanation": "a stage whose sampled point set is empty: ITK's exception is itkImageToImageMetricv4.hxx:263 with the metric's own class name (MattesMutualInformationImageToImageMetricv4, ...), or line 233 of the joint-histogram MI's file; LARMORX printed line 268 and the base class"
       },
       {
        "implementation": "port",
@@ -1539,7 +1590,7 @@
        "cases": 1,
        "reproducer": "ants-registration:20261025:1081",
        "status": "fixed",
-       "explanation": "SyN and B-spline SyN take the iteration's metric value as half the sum of the two halves' values, the sum in the metric's own type: with --float 1 two metrics with no valid point (FLT_MAX each) overflow to inf in ITK, and its convergence value follows; larmorx summed in double. Now the sum is taken in the metric's type"
+       "explanation": "SyN and B-spline SyN take the iteration's metric value as half the sum of the two halves' values, the sum in the metric's own type: with --float 1 two metrics with no valid point (FLT_MAX each) overflow to inf in ITK, and its convergence value follows; LARMORX summed in double. Now the sum is taken in the metric's type"
       },
       {
        "implementation": "port",
@@ -1598,14 +1649,17 @@
    ]
   },
   {
-   "page": "/tools/mri-hmc/",
+   "page": "/evidence/mri-hmc/",
    "tools": [
     {
      "tool": "fsl-mcflirt",
-     "label": "mcflirt replica",
+     "label": "mcflirt",
      "implementations": [
       "replica"
      ],
+     "ports": {
+      "replica": "replica"
+     },
      "cases": 1125,
      "outcomes": {
       "agree": 1017,
@@ -1654,10 +1708,13 @@
     },
     {
      "tool": "mri-hmc",
-     "label": "head-motion correction, clean-room original",
+     "label": "head-motion correction (larmorx mri hmc)",
      "implementations": [
       "original"
      ],
+     "ports": {
+      "original": "clean room"
+     },
      "cases": 1119,
      "outcomes": {
       "agree": 336,
@@ -1690,7 +1747,7 @@
        "cases": 782,
        "reproducer": "mri-hmc:20261025:3",
        "status": "explained",
-       "explanation": "measured on all 782 findings of the first long random-testing run (2026-10-25) with validation/investigations/cleanroom-fixes/hmc_alignment.py (the corrected series' temporal standard deviation, larmorx over mcflirt): every cost but -cost normmi as well aligned as mcflirt (691 findings, median ratio 1.000): large motions on small phantoms with a cost of several minima (permanent case mri-hmc/phantom-several-minima, an expected divergence); -cost normmi aligned worse (median 1.033) until 2026-10-29, when the clean-room alignment (next-steps 3b) computed normmi and mutualinfo exactly as specs/mcflirt.md appendix B (the 91 normmi findings: median 1.051 -> 1.000 against mcflirt 6.0.7.23, 55 within 1 %; the 78 mutualinfo findings: 0.983 -> 1.000); that part's 30-minute trial: 1,732 phantoms beyond the record's thresholds, as well aligned as mcflirt for every cost (median ratios 0.999 to 1.001)",
+       "explanation": "measured on all 782 findings of the first long random-testing run (2026-10-25) with validation/investigations/cleanroom-fixes/hmc_alignment.py (the corrected series' temporal standard deviation, LARMORX over mcflirt): every cost but -cost normmi as well aligned as mcflirt (691 findings, median ratio 1.000): large motions on small phantoms with a cost of several minima (permanent case mri-hmc/phantom-several-minima, an expected divergence); -cost normmi aligned worse (median 1.033) until 2026-10-29, when the clean-room alignment (next-steps 3b) computed normmi and mutualinfo exactly as specs/mcflirt.md appendix B (the 91 normmi findings: median 1.051 -> 1.000 against mcflirt 6.0.7.23, 55 within 1 %; the 78 mutualinfo findings: 0.983 -> 1.000); that part's 30-minute trial: 1,732 phantoms beyond the record's thresholds, as well aligned as mcflirt for every cost (median ratios 0.999 to 1.001)",
        "link": "docs/findings/mri-hmc-clean-room.md"
       }
      ],
@@ -1700,7 +1757,7 @@
    ]
   },
   {
-   "page": "/tools/itk-hdf5/",
+   "page": "/evidence/itk-hdf5/",
    "tools": [
     {
      "tool": "itk-transforms",
@@ -1708,6 +1765,9 @@
      "implementations": [
       "port"
      ],
+     "ports": {
+      "port": "replica"
+     },
      "cases": 2260,
      "outcomes": {
       "agree": 2244,
@@ -1727,7 +1787,7 @@
        "cases": 16,
        "reproducer": "itk-transforms:20261025:282",
        "status": "fixed",
-       "explanation": "QuaternionRigidTransform, ScaleVersor3DTransform, ScaleSkewVersor3DTransform and ScaleTransform: larmorx read them but its antsApplyTransforms could not evaluate them (exit 1, ANTs 0); now evaluated as ITK computes them (vnl's rotation matrix of the conjugate quaternion; the versor's matrix with scale - 1 and the skews added; ScaleTransform's own (p - c)·s + c) (`larmorx_transform::linear`)"
+       "explanation": "QuaternionRigidTransform, ScaleVersor3DTransform, ScaleSkewVersor3DTransform and ScaleTransform: LARMORX read them but its antsApplyTransforms could not evaluate them (exit 1, ANTs 0); now evaluated as ITK computes them (vnl's rotation matrix of the conjugate quaternion; the versor's matrix with scale - 1 and the skews added; ScaleTransform's own (p - c)·s + c) (`larmorx_transform::linear`)"
       }
      ],
      "notices": [],
@@ -1736,7 +1796,7 @@
    ]
   },
   {
-   "page": "/tools/nifti-io/",
+   "page": "/evidence/nifti-io/",
    "tools": [
     {
      "tool": "nifti-io",
@@ -1744,6 +1804,9 @@
      "implementations": [
       "port"
      ],
+     "ports": {
+      "port": "LARMORX's own"
+     },
      "cases": 3448,
      "outcomes": {
       "agree": 3448
@@ -1759,7 +1822,7 @@
    ]
   },
   {
-   "page": "/tools/resample-series/",
+   "page": "/evidence/resample-series/",
    "tools": [
     {
      "tool": "resample-series",
@@ -1767,6 +1830,9 @@
      "implementations": [
       "port"
      ],
+     "ports": {
+      "port": "replica"
+     },
      "cases": 1444,
      "outcomes": {
       "agree": 1354,
@@ -1802,8 +1868,488 @@
  ],
  "how": "docs/validation/difftest.md",
  "triage": "validation/difftest/triage.toml",
+ "runs": [
+  {
+   "page": "/evidence/fsl-maths/",
+   "section": "random",
+   "label": "fslmaths",
+   "port": "replica",
+   "run": "2026-11-03-fsl-maths-replica",
+   "note": "fslmaths and fslstats in one run",
+   "date": "2026-11-03",
+   "minutes": 24.0,
+   "seed": "fsl-maths-trial",
+   "larmorx_commit": "0427fad149ac",
+   "cases": 114906,
+   "outcomes": {
+    "agree": 114310,
+    "notice": 595,
+    "differ": 1
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/fsl-maths/",
+   "section": "random",
+   "label": "fslmaths",
+   "port": "clean room",
+   "run": "2026-11-03-fsl-maths-original",
+   "note": "fslmaths and fslstats in one run",
+   "date": "2026-11-03",
+   "minutes": 19.8,
+   "seed": "fsl-maths-trial",
+   "larmorx_commit": "a09928ecb344",
+   "cases": 150000,
+   "outcomes": {
+    "agree": 143191,
+    "notice": 804,
+    "differ": 6005
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/fsl-stats/",
+   "section": "random",
+   "label": "fslstats",
+   "port": "replica",
+   "run": "2026-11-03-fsl-maths-replica",
+   "note": "fslmaths and fslstats in one run",
+   "date": "2026-11-03",
+   "minutes": 24.0,
+   "seed": "fsl-maths-trial",
+   "larmorx_commit": "0427fad149ac",
+   "cases": 69077,
+   "outcomes": {
+    "agree": 69068,
+    "differ": 9
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/fsl-stats/",
+   "section": "random",
+   "label": "fslstats",
+   "port": "clean room",
+   "run": "2026-11-03-fsl-maths-original",
+   "note": "fslmaths and fslstats in one run",
+   "date": "2026-11-03",
+   "minutes": 19.8,
+   "seed": "fsl-maths-trial",
+   "larmorx_commit": "a09928ecb344",
+   "cases": 150000,
+   "outcomes": {
+    "agree": 149214,
+    "notice": 7,
+    "differ": 779
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/fsl-topup/",
+   "section": "random",
+   "label": "topup and applytopup",
+   "port": "replica",
+   "run": "2026-11-03-topup-replica",
+   "note": "",
+   "date": "2026-11-03",
+   "minutes": 27.0,
+   "seed": "topup-trial",
+   "larmorx_commit": "30e7838d4f0b",
+   "cases": 14460,
+   "outcomes": {
+    "agree": 14460
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/fsl-topup/",
+   "section": "random",
+   "label": "topup and applytopup",
+   "port": "clean room",
+   "run": "2026-11-03-topup-original",
+   "note": "",
+   "date": "2026-11-03",
+   "minutes": 10.9,
+   "seed": "topup-trial",
+   "larmorx_commit": "4117c2b657d6-dirty",
+   "cases": 14400,
+   "outcomes": {
+    "agree": 7401,
+    "differ": 6999
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/fsl-topup/",
+   "section": "random",
+   "label": "topup and applytopup",
+   "port": "clean room",
+   "run": "2026-11-05-catchup-topup",
+   "note": "",
+   "date": "2026-11-05",
+   "minutes": 30.2,
+   "seed": "topup-trial",
+   "larmorx_commit": "c798a295f9ca",
+   "cases": 17535,
+   "outcomes": {
+    "agree": 13300,
+    "notice": 12,
+    "differ": 4223
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/fsl-bet/",
+   "section": "trial",
+   "label": "BET",
+   "port": "clean room",
+   "run": "2026-11-05-catchup-bet",
+   "note": "",
+   "date": "2026-11-05",
+   "minutes": 30.9,
+   "seed": "bet-options-6",
+   "larmorx_commit": "5d35983b24db",
+   "cases": 909,
+   "outcomes": {
+    "agree": 792,
+    "notice": 2,
+    "undefined": 1,
+    "differ": 114
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/fsl-bet/",
+   "section": "trial",
+   "label": "BET",
+   "port": "replica",
+   "run": "2026-11-05-catchup-bet",
+   "note": "",
+   "date": "2026-11-05",
+   "minutes": 30.9,
+   "seed": "bet-options-6",
+   "larmorx_commit": "5d35983b24db",
+   "cases": 909,
+   "outcomes": {
+    "agree": 896,
+    "differ": 13
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/fsl-fast/",
+   "section": "random",
+   "label": "FAST",
+   "port": "clean room",
+   "run": "2026-11-05-catchup-fast",
+   "note": "",
+   "date": "2026-11-05",
+   "minutes": 30.0,
+   "seed": "cleanroom-fast",
+   "larmorx_commit": "c798a295f9ca",
+   "cases": 19695,
+   "outcomes": {
+    "agree": 19645,
+    "differ": 50
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/fsl-flirt/",
+   "section": "random",
+   "label": "FLIRT",
+   "port": "clean room",
+   "run": "2026-11-05-catchup-flirt",
+   "note": "",
+   "date": "2026-11-05",
+   "minutes": 31.2,
+   "seed": "20261103",
+   "larmorx_commit": "5d35983b24db",
+   "cases": 13907,
+   "outcomes": {
+    "agree": 12334,
+    "notice": 13,
+    "differ": 1560
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/mri-hmc/",
+   "section": "random-testing",
+   "label": "head-motion correction (larmorx mri hmc)",
+   "port": "clean room",
+   "run": "2026-11-05-catchup-hmc",
+   "note": "",
+   "date": "2026-11-05",
+   "minutes": 30.0,
+   "seed": "20261030",
+   "larmorx_commit": "0b11e921f431",
+   "cases": 83244,
+   "outcomes": {
+    "agree": 31552,
+    "notice": 11,
+    "differ": 51681
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/fsl-prelude/",
+   "section": "random",
+   "label": "prelude",
+   "port": "replica",
+   "run": "2026-11-06-prelude-replica",
+   "note": "",
+   "date": "2026-11-06",
+   "minutes": 30.2,
+   "seed": "prelude-trial",
+   "larmorx_commit": "2f464a937d07",
+   "cases": 50711,
+   "outcomes": {
+    "agree": 50702,
+    "differ": 9
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/fsl-prelude/",
+   "section": "random",
+   "label": "prelude",
+   "port": "clean room",
+   "run": "2026-11-06-prelude-original",
+   "note": "",
+   "date": "2026-11-06",
+   "minutes": 30.3,
+   "seed": "prelude-trial",
+   "larmorx_commit": "78101509a4bf",
+   "cases": 23780,
+   "outcomes": {
+    "agree": 22109,
+    "notice": 14,
+    "differ": 1657
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/afni-volreg/",
+   "section": "random",
+   "label": "3dvolreg",
+   "port": "clean room",
+   "run": "2026-11-08-volreg-original-trial",
+   "note": "",
+   "date": "2026-11-08",
+   "minutes": 30.0,
+   "seed": "volreg-original-trial",
+   "larmorx_commit": "6d4f2edb8992",
+   "cases": 21710,
+   "outcomes": {
+    "agree": 11385,
+    "differ": 10325
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/sdcflows-fieldmap/",
+   "section": "random-testing",
+   "label": "sdcflows' field-map estimation",
+   "port": "replica",
+   "run": "2026-11-08-sdcflows-fieldmap",
+   "note": "",
+   "date": "2026-11-08",
+   "minutes": 30.1,
+   "seed": "sdc-trial",
+   "larmorx_commit": "d47952d1c894",
+   "cases": 335471,
+   "outcomes": {
+    "agree": 335456,
+    "notice": 1,
+    "differ": 14
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/tedana-t2smap/",
+   "section": "random-testing",
+   "label": "t2smap",
+   "port": "replica",
+   "run": "2026-11-08-t2smap-replica",
+   "note": "",
+   "date": "2026-11-08",
+   "minutes": 30.1,
+   "seed": "t2smap-trial",
+   "larmorx_commit": "a519ad063154",
+   "cases": 3886,
+   "outcomes": {
+    "agree": 3816,
+    "notice": 11,
+    "differ": 59
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/tedana-t2smap/",
+   "section": "random-testing",
+   "label": "t2smap",
+   "port": "replica",
+   "run": "2026-11-08-t2smap-replica-check",
+   "note": "the check of the final build",
+   "date": "2026-11-08",
+   "minutes": 10.3,
+   "seed": "t2smap-check",
+   "larmorx_commit": "9e5e57cd6ae4",
+   "cases": 1268,
+   "outcomes": {
+    "agree": 1267,
+    "notice": 1
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/sdcflows-estimation/",
+   "section": "random-testing",
+   "label": "sdcflows' PEPOLAR, direct and fieldmap-less estimation",
+   "port": "replica",
+   "run": "2026-11-09-fieldmaps-b",
+   "note": "",
+   "date": "2026-11-09",
+   "minutes": 47.7,
+   "seed": "fmapb-trial",
+   "larmorx_commit": "e88326b608fc",
+   "cases": 13122,
+   "outcomes": {
+    "agree": 13116,
+    "timeout": 6
+   },
+   "unclear": 6
+  },
+  {
+   "page": "/evidence/sdcflows-estimation/",
+   "section": "random-testing",
+   "label": "niworkflows' helpers",
+   "port": "replica",
+   "run": "2026-11-09-fieldmaps-b",
+   "note": "",
+   "date": "2026-11-09",
+   "minutes": 47.7,
+   "seed": "fmapb-trial",
+   "larmorx_commit": "e88326b608fc",
+   "cases": 66937,
+   "outcomes": {
+    "agree": 54798,
+    "skipped": 12139
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/sdcflows-estimation/",
+   "section": "random-testing",
+   "label": "SciPy's ndimage and scikit-image",
+   "port": "replica",
+   "run": "2026-11-09-fieldmaps-b",
+   "note": "",
+   "date": "2026-11-09",
+   "minutes": 47.7,
+   "seed": "fmapb-trial",
+   "larmorx_commit": "e88326b608fc",
+   "cases": 100483,
+   "outcomes": {
+    "agree": 86195,
+    "skipped": 14288
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/sdcflows-estimation/",
+   "section": "random-testing",
+   "label": "sdcflows' PEPOLAR, direct and fieldmap-less estimation",
+   "port": "replica",
+   "run": "2026-11-09-fieldmaps-b-noavx512",
+   "note": "numpy's AVX-512 kernels off",
+   "date": "2026-11-09",
+   "minutes": 48.4,
+   "seed": "fmapb-trial-noavx512",
+   "larmorx_commit": "e88326b608fc",
+   "cases": 9584,
+   "outcomes": {
+    "agree": 9582,
+    "timeout": 2
+   },
+   "unclear": 2
+  },
+  {
+   "page": "/evidence/sdcflows-estimation/",
+   "section": "random-testing",
+   "label": "niworkflows' helpers",
+   "port": "replica",
+   "run": "2026-11-09-fieldmaps-b-noavx512",
+   "note": "numpy's AVX-512 kernels off",
+   "date": "2026-11-09",
+   "minutes": 48.4,
+   "seed": "fmapb-trial-noavx512",
+   "larmorx_commit": "e88326b608fc",
+   "cases": 48754,
+   "outcomes": {
+    "agree": 48754
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/sdcflows-estimation/",
+   "section": "random-testing",
+   "label": "SciPy's ndimage and scikit-image",
+   "port": "replica",
+   "run": "2026-11-09-fieldmaps-b-noavx512",
+   "note": "numpy's AVX-512 kernels off",
+   "date": "2026-11-09",
+   "minutes": 48.4,
+   "seed": "fmapb-trial-noavx512",
+   "larmorx_commit": "e88326b608fc",
+   "cases": 73201,
+   "outcomes": {
+    "agree": 73201
+   },
+   "unclear": 0
+  },
+  {
+   "page": "/evidence/tedana-t2smap/",
+   "section": "random-testing",
+   "label": "t2smap",
+   "port": "clean room",
+   "run": "2026-11-11-t2smap-original-2",
+   "note": "",
+   "date": "2026-11-11",
+   "minutes": 30.4,
+   "seed": "t2smap-original-trial",
+   "larmorx_commit": "v0.1.0rc1-33-g518bf3cbba6a",
+   "cases": 1742,
+   "outcomes": {
+    "agree": 1692,
+    "differ": 50
+   },
+   "unclear": 0
+  }
+ ],
  "provenance": {
   "summary": "oracles/difftest/2026-10-25/summary.json",
-  "exporter": "55c4f958b6649446eacd7761470f2f39f30a03ec"
+  "runs": [
+   "oracles/difftest/2026-11-03-fsl-maths-original/summary.json",
+   "oracles/difftest/2026-11-03-fsl-maths-replica/summary.json",
+   "oracles/difftest/2026-11-03-topup-original/summary.json",
+   "oracles/difftest/2026-11-03-topup-replica/summary.json",
+   "oracles/difftest/2026-11-05-catchup-bet/summary.json",
+   "oracles/difftest/2026-11-05-catchup-fast/summary.json",
+   "oracles/difftest/2026-11-05-catchup-flirt/summary.json",
+   "oracles/difftest/2026-11-05-catchup-hmc/summary.json",
+   "oracles/difftest/2026-11-05-catchup-topup/summary.json",
+   "oracles/difftest/2026-11-06-prelude-original/summary.json",
+   "oracles/difftest/2026-11-06-prelude-replica/summary.json",
+   "oracles/difftest/2026-11-08-sdcflows-fieldmap/summary.json",
+   "oracles/difftest/2026-11-08-t2smap-replica-check/summary.json",
+   "oracles/difftest/2026-11-08-t2smap-replica/summary.json",
+   "oracles/difftest/2026-11-08-volreg-original-trial/summary.json",
+   "oracles/difftest/2026-11-09-fieldmaps-b-noavx512/summary.json",
+   "oracles/difftest/2026-11-09-fieldmaps-b/summary.json",
+   "oracles/difftest/2026-11-11-t2smap-original-2/summary.json"
+  ],
+  "exporter": "d5716f2b0f6b252d10053a54391ca44ee006a5b8"
  }
 }

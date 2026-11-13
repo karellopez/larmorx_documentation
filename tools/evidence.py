@@ -1095,7 +1095,8 @@ class Evidence:
             if with_page:
                 page = self._difftest()["pages"][pi]["page"]
                 name = f'<a href="{self.link(page)}">{name}</a>'
-            impls = ", ".join((names or {}).get(i, i) for i in t["implementations"])
+            ports = names or t.get("ports") or {}
+            impls = ", ".join(ports.get(i, i) for i in t["implementations"])
             cells = [
                 f"<th scope=row>{name}<small>{esc(impls)}</small></th>",
                 f'<td class=n>{self.num("difftest", p + "/cases", fmt_count(t["cases"]))}</td>',
@@ -1153,7 +1154,7 @@ class Evidence:
                 checks = ", ".join(d["checks"])
                 items.append(
                     f'<li><span class="ev-dt-status ev-dt-{esc(d["status"])}">{esc(status)}</span> '
-                    f'{esc(t["label"])} ({esc((names or {}).get(d["implementation"], d["implementation"]))}), {self.num("difftest", p + "/cases", fmt_count(d["cases"]))} '
+                    f'{esc(t["label"])} ({esc((names or t.get("ports") or {}).get(d["implementation"], d["implementation"]))}), {self.num("difftest", p + "/cases", fmt_count(d["cases"]))} '
                     f'case(s): <code>{esc(checks)}</code>: {self.text(d["explanation"])}{link}</li>'
                 )
         if not items:
@@ -1233,7 +1234,7 @@ class Evidence:
         return Markup(
             f'<figure class="ev-chart ev-tablefig ev-difftest{ported}" id="random-testing-panel"><div class="ev-table">'
             f'<p class="ev-metrics-title">{title}</p>'
-            f'<div class="table-wrap"><table class="ev-ttable"><thead>{self._difftest_head("Tool")}</thead>'
+            f'<div class="table-wrap"><table class="ev-ttable"><thead>{self._difftest_head("Program")}</thead>'
             f"<tbody>{self._difftest_rows(tools, with_page=False, names=names)}</tbody></table></div>"
             f"{self._difftest_differences(tools, names)}{self._difftest_notices(tools)}{self._difftest_heavy(tools)}"
             f'<p class="ev-metrics-note">{note}</p></div></figure>'
@@ -1249,11 +1250,66 @@ class Evidence:
             f'<figure class="ev-chart ev-tablefig ev-difftest" id="random-testing-summary"><div class="ev-table">'
             f'<p class="ev-metrics-title">The long run of {esc(n["date"])}: {total} random cases '
             f'({self.num("difftest", "/night/hours", fmt_sig(n["hours"]))} h, seed <code>{esc(n["seed"])}</code>)</p>'
-            f'<div class="table-wrap"><table class="ev-ttable"><thead>{self._difftest_head("Tool")}</thead>'
+            f'<div class="table-wrap"><table class="ev-ttable"><thead>{self._difftest_head("Program")}</thead>'
             f"<tbody>{self._difftest_rows(tools, with_page=True)}</tbody></table></div>"
             f"{self._difftest_differences(tools)}{self._difftest_notices(tools)}{self._difftest_heavy(tools)}"
             f'<p class="ev-metrics-note"><a href="{self.href(d["how"])}">How random testing works</a>; '
             f'each difference\'s triage: <a href="{self.href(d["triage"])}">{esc(d["triage"])}</a>.</p></div></figure>'
+        )
+
+    #: The runs' own outcomes beyond the long run's columns: cases a run's descriptor drew and
+    #: then set aside (an input its original cannot take), in the runs' table only.
+    DIFFTEST_SKIPPED = ("skipped", "Skipped", "drawn, then set aside without a comparison (an input the original cannot take, as the run's descriptor says)")
+
+    def random_testing_runs(self) -> Markup:
+        """The Validation page's table of the runs of half an hour since the long run, one row
+        per program, port and run (``difftest.json``'s ``runs``), each linked to the program's
+        evidence page, where its differences are triaged."""
+        d = self._difftest()
+        runs = d.get("runs") or []
+        if not runs:
+            self.problems.append("random testing: difftest.json has no runs since the long run")
+            return Markup("")
+        cols = [*self.DIFFTEST_COLUMNS, self.DIFFTEST_SKIPPED]
+        cols = [c for c in cols if any(r["outcomes"].get(c[0]) for r in runs)]
+        head = (
+            "<tr><th scope=col>Program</th><th scope=col>Port</th><th scope=col>Run</th>"
+            "<th scope=col class=n>Random cases</th>"
+            + "".join(f'<th scope=col class=n title="{esc(m)}">{esc(lab)}</th>' for _, lab, m in cols)
+            + '<th scope=col class=n title="timed out or crashed: for the orchestrator">Unclear</th></tr>'
+        )
+        rows = []
+        for ri, r in enumerate(runs):
+            p = ptr("runs", ri)
+            name = f'<a href="{self.link(r["page"] + "#" + r["section"])}">{esc(r["label"])}</a>'
+            note = f'<small>{esc(r["note"])}</small>' if r.get("note") else ""
+            cells = [
+                f"<th scope=row>{name}</th>",
+                f'<td class=impl>{esc(r["port"])}</td>',
+                f'<td>{esc(r["date"])}, {self.num("difftest", p + "/minutes", fmt_sig(r["minutes"]))} min{note}</td>',
+                f'<td class=n>{self.num("difftest", p + "/cases", fmt_count(r["cases"]))}</td>',
+            ]
+            for key, _, _ in cols:
+                n = r["outcomes"].get(key, 0)
+                cells.append(
+                    f'<td class="n{" zero" if not n else ""}">'
+                    + (self.num("difftest", f"{p}/outcomes/{key}", fmt_count(n)) if n else "·")
+                    + "</td>"
+                )
+            n = r["unclear"]
+            cells.append(f'<td class="n{" zero" if not n else ""}">' + (self.num("difftest", p + "/unclear", fmt_count(n)) if n else "·") + "</td>")
+            rows.append(f"<tr>{''.join(cells)}</tr>")
+        total = sum(r["cases"] for r in runs)
+        return Markup(
+            f'<figure class="ev-chart ev-tablefig ev-difftest" id="random-testing-runs"><div class="ev-table">'
+            f'<p class="ev-metrics-title">The runs since the long run, port by port: {fmt_count(total)} random cases</p>'
+            f'<div class="table-wrap"><table class="ev-ttable"><thead>{head}</thead><tbody>{"".join(rows)}</tbody></table></div>'
+            '<p class="ev-metrics-note">Each row is one port in one run, read from the run\'s recorded summary. '
+            "<em>Differ</em> counts the cases where one of the run's checks failed: bit-identity where "
+            "the port must give it, the record's thresholds for a clean room. Each program's evidence "
+            "page sorts every difference of its runs into a category, with its verdict and a reproducer "
+            "(the program's name links that section). "
+            f'<a href="{self.href(d["how"])}">How random testing works</a>.</p></div></figure>'
         )
 
     # ------------------------------------------------------- validation page

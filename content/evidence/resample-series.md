@@ -107,7 +107,7 @@ The benchmark ([report](repo:docs/benchmarks/resample-series.md)) times the resa
 
 Random testing runs random valid inputs and option combinations through fMRIPrep's resampler and the replica, in long runs of several hours. The inputs come from seeded plain arithmetic (up to 32³ voxels; orientations, data types, scale factors and value ranges of every kind), the options in random combinations from those the resampler accepts ([how random testing works](repo:docs/validation/difftest.md)). A difference is shrunk to the smallest input and fewest options that still show it, then fixed and kept as a permanent case, registered as a defect of the original, or reported. The latest long run:
 
-{{ ev.random_testing('/tools/resample-series/', 'resample-series') }}
+{{ ev.random_testing('/evidence/resample-series/', 'resample-series') }}
 
 ## Known limits {#limits}
 
