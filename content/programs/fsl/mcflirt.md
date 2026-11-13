@@ -19,7 +19,7 @@ reference:
     CHANGELOG.md: "fa776d2ea0a17487"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "34429cb924a382b4"
+    crates/larmorx-core/src/defects.rs: "035dcd92e164879c"
     crates/larmorx-mri/src/cli/hmc.rs: "486b20a2279d91a5"
     docs/api/mri-hmc.md: "560a8f6e78e479d9"
     python/larmorx/mri/hmc.py: "29062ad607ecde1c"

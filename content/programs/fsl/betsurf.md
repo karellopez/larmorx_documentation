@@ -18,7 +18,7 @@ reference:
     CHANGELOG.md: "fa776d2ea0a17487"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "34429cb924a382b4"
+    crates/larmorx-core/src/defects.rs: "035dcd92e164879c"
     crates/larmorx-fsl/src/cli/betsurf.rs: "05d2c5fea516456d"
     docs/api/fsl-bet.md: "d31d9c8db88492e7"
     python/larmorx/fsl/bet.py: "14e2e5d5c68509eb"
