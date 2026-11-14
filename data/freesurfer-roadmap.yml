@@ -78,12 +78,12 @@ waves:
         what: "Reading and writing volumes (MGH and MGZ, NIfTI, ANALYZE, DICOM and others), FreeSurfer's tags, the binary colour tables, the detection of a file's format."
         replica: "in-progress 2026-11-13"
         clean_room: "planned"
-        note: "Done: the tags, the colour tables, the format detection, the DICOM probe, Siemens mosaics, MATLAB and Bruker files, 2-D images, reading a volume's header, GIFTI volumes, writing with MRIwrite. Under way: the MGH/MGZ and NIfTI writers."
+        note: "Done: the tags, the colour tables, the format detection, the DICOM probe, Siemens mosaics, MATLAB and Bruker files, 2-D images, reading a volume's header, GIFTI volumes, writing volumes, the MGH/MGZ writer, NIfTI files (.nii, .nii.gz and the .hdr/.img pairs) read and written, and FreeSurfer's way of reading a number cut short at the end of a file. Under way: ANALYZE and the remaining formats."
       - name: "Volumes"
         what: "Voxels and frames, conforming, regions, resampling, transforms (LTA, .xfm, FSL's matrices), the Talairach helpers, warp fields."
         replica: "in-progress 2026-11-13"
         clean_room: "planned"
-        note: "Done: the volume geometry, voxel arithmetic, coordinates, samplers, moves and rotations, the head's bounding box, reading transforms, the CMA labels, resizing and type changes, splatting, derivatives, the linear transforms, resampling to another volume, statistics and orientation, the volume fractions, PCA, the Talairach helpers. Under way: conforming (MRIconform) and the rest of the volume functions."
+        note: "Done: the volume geometry, voxel arithmetic, coordinates, samplers, moves and rotations, the head's bounding box, reading transforms, the CMA labels, resizing and type changes, splatting, derivatives, the linear transforms and their operations (inverse, concatenation, change of type), resampling to another volume, statistics and orientation, the volume fractions, PCA, the Talairach helpers and volumes, conforming, dilations and set operations, histograms, segmentations mapped onto volumes, segment statistics, crops. Under way: the rest of the volume functions."
       - name: "Surface files"
         what: "The surface structure and its files: surfaces, curvatures, patches and overlays, and the measures computed when a surface is read."
         replica: "in-progress 2026-11-13"
@@ -98,7 +98,7 @@ waves:
         what: "Filters and morphology, intensity normalisation, segmentation helpers, flood fill, connected components, fast marching, clusters."
         replica: "in-progress 2026-11-14"
         clean_room: "planned"
-        note: "Done: the distance maps (fast marching), Gaussian smoothing and convolutions, Sobel filters, the white-matter border classification, connected components. Under way: the rest of the filters, normalisation and segmentation helpers."
+        note: "Done: the distance maps (fast marching), Gaussian smoothing and convolutions, Sobel filters, the white-matter border classification, connected components, the frame functions, clusters, the non-parametric tissue classification, connected segments, the flood fill of volumes, the bias fields, and the intensity normalisation of recon-all's T1 step (identical to FreeSurfer on three recorded heads). Under way: the last normalisation pieces, its speed (about 2x slower than FreeSurfer today), the segmentation helpers."
 
   - id: "3.2"
     name: Volumes

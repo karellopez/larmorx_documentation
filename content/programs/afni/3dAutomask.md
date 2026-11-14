@@ -20,7 +20,7 @@ reference:
     crates/larmorx-afni/src/settings.rs: "8b2560253b92f512"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "be80bfe4fac23290"
+    crates/larmorx-core/src/defects.rs: "bf883da07a0caa93"
     docs/api/afni-automask.md: "5ea70d6aa84dab74"
     python/larmorx/afni/automask.py: "4bf4fd465a0d0a8b"
     validation/tools.toml: "f873f72ba8c4985c"
