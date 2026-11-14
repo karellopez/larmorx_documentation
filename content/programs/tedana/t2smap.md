@@ -18,7 +18,7 @@ reference:
     CHANGELOG.md: "546736ae45f1a3f5"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "91be42d24bb3ba2b"
+    crates/larmorx-core/src/defects.rs: "be80bfe4fac23290"
     crates/larmorx-tedana/src/cli.rs: "ce00851fe6e9bc07"
     docs/api/tedana-t2smap.md: "26fcb5dca281c1d5"
     python/larmorx/tedana/t2smap.py: "b2d6b751ac619d49"
