@@ -18,7 +18,7 @@ reference:
     crates/larmorx-ants/src/cli/resample_image.rs: "1a9452439d9e28fb"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "d3469995988d861c"
+    crates/larmorx-core/src/defects.rs: "3467f9725a5caf3c"
     docs/api/ants-resample-image.md: "61093fb0766557ea"
     python/larmorx/ants/resample.py: "52c82202b43379af"
     validation/tools.toml: "f873f72ba8c4985c"
