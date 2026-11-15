@@ -20,7 +20,7 @@
 # plan changes. Names of programs and stages only: nothing taken from FreeSurfer's source
 # (no source files, line numbers or functions).
 
-updated: "2026-11-14"
+updated: "2026-11-15"
 
 waves:
   - id: "3.0"
@@ -58,10 +58,10 @@ waves:
         replica: "done 2026-11-13"
         clean_room: "done 2026-11-13"
       - name: "File formats from other projects"
-        what: "GIFTI surfaces, MINC's .xfm transforms, DICOM's file probe (CTN's reader), JSON and zip compression (miniz)."
-        replica: "done 2026-11-13"
+        what: "GIFTI surfaces, MINC's .xfm transforms, DICOM's file probe (CTN's reader), JSON and zip compression (miniz), NRRD files (NrrdIO's reader), MINC volumes."
+        replica: "in-progress 2026-11-15"
         clean_room: "planned"
-        note: "Their clean rooms come with the clean rooms of the permissive ports, after FreeSurfer."
+        note: "Done: GIFTI surfaces, MINC's .xfm transforms, the DICOM probe, JSON and zip compression, and NRRD files (identical to NrrdIO and to FreeSurfer's copy of it on 69,500 generated files). Under way: MINC volumes, read and written. Their clean rooms come with the clean rooms of the permissive ports, after FreeSurfer."
       - name: "The core"
         what: "Messages and diagnostics, the program's name and environment, version stamps, timers, paths, threads, the licence check's messages."
         replica: "done 2026-11-13"
@@ -78,7 +78,7 @@ waves:
         what: "Reading and writing volumes (MGH and MGZ, NIfTI, ANALYZE, DICOM and others), FreeSurfer's tags, the binary colour tables, the detection of a file's format."
         replica: "in-progress 2026-11-13"
         clean_room: "planned"
-        note: "Done: the tags, the colour tables, the format detection, the DICOM probe, Siemens mosaics, MATLAB and Bruker files, 2-D images, reading a volume's header, GIFTI volumes, writing volumes, the MGH/MGZ writer, NIfTI files (.nii, .nii.gz and the .hdr/.img pairs) read and written, ANALYZE, COR, bshort and bfloat, GDF and SDT volumes, GE Genesis and LX (which FreeSurfer 8.2.0 itself cannot read: larmorx reads them, and reproduces the crash on request), GE Signa and XIMG, the old Siemens .ima series, and FreeSurfer's way of reading a number cut short at the end of a file. Under way: the remaining formats (AFNI, NRRD, MINC, DICOM and others)."
+        note: "Done: the tags, the colour tables, the format detection, the DICOM probe, Siemens mosaics, MATLAB and Bruker files, 2-D images, reading a volume's header, GIFTI volumes, writing volumes, the MGH/MGZ writer, NIfTI files (.nii, .nii.gz and the .hdr/.img pairs) read and written, ANALYZE, COR, bshort and bfloat, GDF and SDT volumes, GE Genesis and LX (which FreeSurfer 8.2.0 itself cannot read: larmorx reads them, and reproduces the crash on request), GE Signa and XIMG, the old Siemens .ima series, AFNI datasets, curvature and annotation files read as volumes, FreeSurfer's refusals to write AFNI and NRRD files, and FreeSurfer's way of reading a number cut short at the end of a file. Under way: the remaining formats (NRRD and MINC through their readers, DICOM and others)."
       - name: "Volumes"
         what: "Voxels and frames, conforming, regions, resampling, transforms (LTA, .xfm, FSL's matrices), the Talairach helpers, warp fields."
         replica: "in-progress 2026-11-13"
