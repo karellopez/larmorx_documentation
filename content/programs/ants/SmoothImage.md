@@ -18,7 +18,7 @@ reference:
     crates/larmorx-ants/src/cli/smooth_image.rs: "e6df9d79a4c32be2"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "f3ad21cd4cbb9cdc"
+    crates/larmorx-core/src/defects.rs: "a3f8cec6c7b88987"
     docs/api/ants-smooth-image.md: "8858339c095547ad"
     python/larmorx/ants/smoothing.py: "be224e100de8754e"
     validation/tools.toml: "f873f72ba8c4985c"
