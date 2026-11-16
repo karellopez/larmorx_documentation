@@ -21,7 +21,7 @@ reference:
     crates/larmorx-afni/src/settings.rs: "8b2560253b92f512"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "e521b8c3e4c6a88f"
+    crates/larmorx-core/src/defects.rs: "948eb5d897f0eccc"
     docs/api/afni-volreg.md: "2c9bfa921b2e2503"
     python/larmorx/afni/volreg.py: "2c8280722dd9d4c4"
     validation/tools.toml: "f873f72ba8c4985c"
