@@ -20,7 +20,7 @@
 # plan changes. Names of programs and stages only: nothing taken from FreeSurfer's source
 # (no source files, line numbers or functions).
 
-updated: "2026-11-15"
+updated: "2026-11-16"
 
 waves:
   - id: "3.0"
@@ -59,9 +59,9 @@ waves:
         clean_room: "done 2026-11-13"
       - name: "File formats from other projects"
         what: "GIFTI surfaces, MINC's .xfm transforms, DICOM's file probe (CTN's reader), JSON and zip compression (miniz), NRRD files (NrrdIO's reader), MINC volumes, zlib's compression, TIFF and JPEG images."
-        replica: "in-progress 2026-11-15"
+        replica: "in-progress 2026-11-16"
         clean_room: "planned"
-        note: "Done: GIFTI surfaces, MINC's .xfm transforms, the DICOM probe, JSON and zip compression, NRRD files (identical to NrrdIO and to FreeSurfer's copy of it on 69,500 generated files) and reading MINC volumes (identical to MINC 1.5.1 and to FreeSurfer's copy on about 37,500 generated files; larmorx also reads the double-precision and compressed MINC files that FreeSurfer 8.2.0 cannot). Writing MINC volumes is done too (identical to MINC 1.5.1 and to FreeSurfer's copy in 17,433 comparisons; larmorx also writes the 4-D volumes FreeSurfer's copy cannot), and zlib's compression as FreeSurfer's programs load it (byte-identical on 100,300 test streams; larmorx's MGZ, .nii.gz and GIFTI files now match FreeSurfer's byte for byte, not only in their contents). JPEG images (IJG libjpeg 6b: identical to it and to FreeSurfer's copy on 26,526 test files). Still to do: TIFF images. Their clean rooms come with the clean rooms of the permissive ports, after FreeSurfer."
+        note: "Done: GIFTI surfaces, MINC's .xfm transforms, the DICOM probe, JSON and zip compression, NRRD files (identical to NrrdIO and to FreeSurfer's copy of it on 69,500 generated files) and reading MINC volumes (identical to MINC 1.5.1 and to FreeSurfer's copy on about 37,500 generated files; larmorx also reads the double-precision and compressed MINC files that FreeSurfer 8.2.0 cannot). Writing MINC volumes is done too (identical to MINC 1.5.1 and to FreeSurfer's copy in 17,433 comparisons; larmorx also writes the 4-D volumes FreeSurfer's copy cannot), and zlib's compression as FreeSurfer's programs load it (byte-identical on 100,300 test streams; larmorx's MGZ, .nii.gz and GIFTI files now match FreeSurfer's byte for byte, not only in their contents). JPEG images (IJG libjpeg 6b: identical to it and to FreeSurfer's copy on 26,526 test files). TIFF images (libtiff 3.6.1, as FreeSurfer builds it): reading identical to it and to FreeSurfer's copy on 20,000 of 25,000 generated files; of the other 5,000, the original crashed or hung on about 2,050 and gave results that depend on memory contents on about 550 (larmorx names each case), and about 2,400 use five rarer compressions not yet ported; writing byte-identical on 5,300 files. Still to do: those five compressions (CCITT fax, PixarLog, SGILog, ThunderScan, NeXT). Their clean rooms come with the clean rooms of the permissive ports, after FreeSurfer."
       - name: "The core"
         what: "Messages and diagnostics, the program's name and environment, version stamps, timers, paths, threads, the licence check's messages."
         replica: "done 2026-11-13"
