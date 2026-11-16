@@ -19,7 +19,7 @@ reference:
     crates/larmorx-ants/src/cli/registration.rs: "e5e300a8bf806882"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "5ab13e4920cdc640"
+    crates/larmorx-core/src/defects.rs: "e521b8c3e4c6a88f"
     docs/api/ants-registration.md: "1cf0f05a0c8da9f8"
     python/larmorx/ants/registration.py: "1aad07a617402e3c"
     validation/tools.toml: "f873f72ba8c4985c"

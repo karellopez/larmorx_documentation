@@ -19,7 +19,7 @@ reference:
     crates/larmorx-ants/src/cli/denoise_image.rs: "261344b4db29b096"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "5ab13e4920cdc640"
+    crates/larmorx-core/src/defects.rs: "e521b8c3e4c6a88f"
     docs/api/ants-denoise.md: "c576e5bfacbda98c"
     python/larmorx/ants/denoise.py: "87af5cf9ba5c5aa4"
     validation/tools.toml: "f873f72ba8c4985c"
