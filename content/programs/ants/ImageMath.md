@@ -19,7 +19,7 @@ reference:
     crates/larmorx-ants/src/cli/image_math/mod.rs: "96fcaac3e2fa5fde"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "e7af9b3cf14720ad"
+    crates/larmorx-core/src/defects.rs: "9c8bfce3e1573fd0"
     docs/api/ants-image-math.md: "4df6eee49b1b5870"
     python/larmorx/ants/image_math.py: "6844b6d286b9f0a8"
     validation/tools.toml: "f873f72ba8c4985c"

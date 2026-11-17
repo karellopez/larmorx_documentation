@@ -19,7 +19,7 @@ reference:
     crates/larmorx-ants/src/cli/multiply_images.rs: "69f7fdad2ceade62"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "e7af9b3cf14720ad"
+    crates/larmorx-core/src/defects.rs: "9c8bfce3e1573fd0"
     docs/api/ants-multiply-images.md: "9ecb7b61e631166b"
     python/larmorx/ants/threshold.py: "8eb31db682525d28"
     validation/tools.toml: "f873f72ba8c4985c"
