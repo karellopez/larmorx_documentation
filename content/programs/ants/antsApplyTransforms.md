@@ -19,7 +19,7 @@ reference:
     crates/larmorx-ants/src/cli/apply_transforms.rs: "273396bbed751a07"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "cd926d1b75b67fae"
+    crates/larmorx-core/src/defects.rs: "ff5fdabf41401e9c"
     docs/api/ants-apply-transforms.md: "4b5e49727fac01af"
     python/larmorx/ants/apply_transforms.py: "73d57b88561149f0"
     validation/tools.toml: "f873f72ba8c4985c"
