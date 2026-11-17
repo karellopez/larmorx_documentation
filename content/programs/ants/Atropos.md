@@ -19,7 +19,7 @@ reference:
     crates/larmorx-ants/src/cli/atropos.rs: "d579dba919dfc29b"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "a0bd948ea8795ddc"
+    crates/larmorx-core/src/defects.rs: "caf14b614a33861a"
     docs/api/ants-atropos.md: "fed4e36f33548aa9"
     python/larmorx/ants/atropos.py: "738a7e61bdbeccb5"
     validation/tools.toml: "f873f72ba8c4985c"
