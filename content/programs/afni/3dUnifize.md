@@ -20,7 +20,7 @@ reference:
     crates/larmorx-afni/src/settings.rs: "8b2560253b92f512"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "ff5fdabf41401e9c"
+    crates/larmorx-core/src/defects.rs: "a0bd948ea8795ddc"
     docs/api/afni-unifize.md: "80ea9d66456c2ad6"
     python/larmorx/afni/unifize.py: "72dc6b79d7e2617c"
     validation/tools.toml: "f873f72ba8c4985c"
