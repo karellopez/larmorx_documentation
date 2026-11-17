@@ -20,7 +20,7 @@
 # plan changes. Names of programs and stages only: nothing taken from FreeSurfer's source
 # (no source files, line numbers or functions).
 
-updated: "2026-11-17"
+updated: "2026-11-18"
 
 waves:
   - id: "3.0"
@@ -34,7 +34,7 @@ waves:
     size: {replica: 52, clean_room: 8}
     programs: []
     replica: "in-progress 2026-11-13"
-    replica_note: "About three-quarters of its pieces of work done."
+    replica_note: "Nearly complete (2026-11-17): every module ported but about 1,250 lines that are ready now (some surface pieces and one surface-transform function) and the pieces that wait for later waves (the B-splines, DICOM series, one maths function of the C library)."
     clean_room: "in-progress 2026-11-13"
     clean_room_note: "The core, the random numbers, the C library's sort, the cubic spline, the mathematics and the volume structure done; the first four parts of the volumes (the geometry block, voxel arithmetic, coordinates and orientation, the samplers, the moves, the head's box and the transform reader) written from their specification: on the open probe's 9,489 calls, no difference from FreeSurfer that a recorded defect does not explain, in both modes, its trilinear, cubic and nearest-neighbour samplers 1.2 to 1.5 times as fast as FreeSurfer's (the windowed sinc 0.75 times, for now); the rest of the volumes, the volume files and the surface files follow as their specifications are made ready."
     parts:
