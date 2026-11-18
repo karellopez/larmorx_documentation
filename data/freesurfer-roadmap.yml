@@ -119,6 +119,11 @@ waves:
         replica: "in-progress 2026-11-18"
         clean_room: "planned"
         note: "Part 1 of 2 done: the program's own steps and every option's parsing. Checked against FreeSurfer's own code built as a library: 900 random calls with no difference in reproduce mode; on three recorded subjects, the atlas brain mask and the white-matter outlier removal give outputs identical to FreeSurfer's in both modes (12 of 12), for now in 79 s against FreeSurfer's 66 s. Part 2 assembles the program and replays its 24 recorded steps."
+      - name: "mri_convert"
+        what: "The format converter both streams start with: reading and writing every volume format, conforming to 256 cubed, changing type, resampling and reorienting, and its statistics tables."
+        replica: "in-progress 2026-11-18"
+        clean_room: "planned"
+        note: "Parts 1 and half of 2 (of 4) done: the statistics tables and every option's parsing and checks. Checked against FreeSurfer's program built with print hooks, every setting the options make compared: of 1,000 random command lines, 947 identical in reproduce mode, 0 different, 53 not comparable (FreeSurfer crashes or reads memory it does not own). The reading, conforming and writing steps follow, then the replay of its 24 recorded steps."
 
   - id: "3.3"
     name: Atlas
