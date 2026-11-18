@@ -114,6 +114,11 @@ waves:
         replica: "done 2026-11-18"
         clean_room: "planned"
         note: "Every degree from 2 to 9. Checked against FreeSurfer's own library build with the volume probe's 28,600 random calls (every volume function, the B-splines' new calls included) in reproduce mode: 26,580 identical, 0 different, the other 2,020 not comparable (calls on which FreeSurfer crashes or never returns). Computing the coefficients of a 256-voxel cube takes 0.54 s against FreeSurfer's 0.52 s with 2 to 3 % less memory; transforming a 128-voxel cube is still slower (0.49 s against 0.35 s), for a later speed step. Four new defects of FreeSurfer recorded (FS-962 to FS-965). Its specification for the clean room is written."
+      - name: "mri_normalize"
+        what: "The intensity normalisation of recon-all's T1 and brain steps: white matter scaled to 110, with control points, a brain mask from the atlas, and the white-matter outliers near the segmentation removed."
+        replica: "in-progress 2026-11-18"
+        clean_room: "planned"
+        note: "Part 1 of 2 done: the program's own steps and every option's parsing. Checked against FreeSurfer's own code built as a library: 900 random calls with no difference in reproduce mode; on three recorded subjects, the atlas brain mask and the white-matter outlier removal give outputs identical to FreeSurfer's in both modes (12 of 12), for now in 79 s against FreeSurfer's 66 s. Part 2 assembles the program and replays its 24 recorded steps."
 
   - id: "3.3"
     name: Atlas
