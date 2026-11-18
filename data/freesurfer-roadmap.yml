@@ -124,6 +124,11 @@ waves:
         replica: "in-progress 2026-11-18"
         clean_room: "planned"
         note: "Parts 1 and half of 2 (of 4) done: the statistics tables and every option's parsing and checks. Checked against FreeSurfer's program built with print hooks, every setting the options make compared: of 1,000 random command lines, 947 identical in reproduce mode, 0 different, 53 not comparable (FreeSurfer crashes or reads memory it does not own). The reading, conforming and writing steps follow, then the replay of its 24 recorded steps."
+      - name: "The robust-registration library"
+        what: "Reuter's robust registration, shared by `mri_robust_register` and `mri_robust_template` (both run by fMRIPrep): image scaling, subsampling, blurring and gradients, principal axes, matrix decompositions and transform distances, then the registration itself."
+        replica: "in-progress 2026-11-18"
+        clean_room: "planned"
+        note: "Part 1 of 2 begun: the helpers both programs reach, but the matrix square root. Checked against FreeSurfer's own files built with its flags: 16,100 random calls, 15,737 identical, 0 different, 363 not comparable (FreeSurfer crashes, hangs or reads memory it does not own). The blur and the gradients are for now about four times slower than FreeSurfer's and use more memory (a filter of the foundations keeps an extra copy; it is the next step of that filter's track). Three new defects of FreeSurfer recorded (FS-966 to FS-968)."
 
   - id: "3.3"
     name: Atlas
