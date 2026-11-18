@@ -105,9 +105,15 @@ waves:
     delivers: "The volume programs both streams run, from the input image to the white-matter volume, with ITK's N4 bias correction and denoising as FreeSurfer builds them; and fMRIPrep's own volume programs early (`mri_coreg`, `mri_robust_template`, `mri_robust_register`), with EPFL's B-splines and the robust-registration library as pieces of their own; the `freesurfer` family of the larmorx command and `lx.freesurfer` in Python."
     size: {replica: 41, clean_room: 30}
     programs: [mri_convert, mri_info, mri_add_xform_to_header, lta_convert, mri_robust_template, mri_normalize, mri_mask, mri_cc, mri_edit_wm_with_aseg, AntsDenoiseImageFs, AntsN4BiasFieldCorrectionFs, mri_segment, mri_pretess, mri_fill, mri_binarize, mri_segstats, mris_calc, mri_make_uchar, mri_vol2vol, mri_concat, mri_label2vol, mri_robust_register, mri_coreg, fs_temp_file, mri_nu_correct.mni, seg2cc, mergeseg, getfullpath]
-    replica: "planned"
+    replica: "in-progress 2026-11-18"
+    replica_note: "Started 2026-11-18, one program or library piece at a time: first EPFL's B-splines, which many of the wave's programs use; next the intensity normalisation (`mri_normalize`), the format converter (`mri_convert`) and the robust-registration library."
     clean_room: "planned"
-    parts: []
+    parts:
+      - name: "EPFL's B-splines"
+        what: "Cubic and higher-degree B-spline coefficients, sampling, transforms and the halving and doubling pyramids that FreeSurfer's resampling and robust registration use."
+        replica: "done 2026-11-18"
+        clean_room: "planned"
+        note: "Every degree from 2 to 9. Checked against FreeSurfer's own library build with the volume probe's 28,600 random calls (every volume function, the B-splines' new calls included) in reproduce mode: 26,580 identical, 0 different, the other 2,020 not comparable (calls on which FreeSurfer crashes or never returns). Computing the coefficients of a 256-voxel cube takes 0.54 s against FreeSurfer's 0.52 s with 2 to 3 % less memory; transforming a 128-voxel cube is still slower (0.49 s against 0.35 s), for a later speed step. Four new defects of FreeSurfer recorded (FS-962 to FS-965). Its specification for the clean room is written."
 
   - id: "3.3"
     name: Atlas
