@@ -106,7 +106,7 @@ waves:
     size: {replica: 41, clean_room: 30}
     programs: [mri_convert, mri_info, mri_add_xform_to_header, lta_convert, mri_robust_template, mri_normalize, mri_mask, mri_cc, mri_edit_wm_with_aseg, AntsDenoiseImageFs, AntsN4BiasFieldCorrectionFs, mri_segment, mri_pretess, mri_fill, mri_binarize, mri_segstats, mris_calc, mri_make_uchar, mri_vol2vol, mri_concat, mri_label2vol, mri_robust_register, mri_coreg, fs_temp_file, mri_nu_correct.mni, seg2cc, mergeseg, getfullpath]
     replica: "in-progress 2026-11-18"
-    replica_note: "Started 2026-11-18, one program or library piece at a time: first EPFL's B-splines, which many of the wave's programs use; next the intensity normalisation (`mri_normalize`), the format converter (`mri_convert`) and the robust-registration library."
+    replica_note: "Started 2026-11-18, one program or library piece at a time: first EPFL's B-splines, which many of the wave's programs use; next the intensity normalisation (`mri_normalize`, complete 2026-11-19), the format converter (`mri_convert`) and the robust-registration library."
     clean_room: "planned"
     parts:
       - name: "EPFL's B-splines"
@@ -116,9 +116,9 @@ waves:
         note: "Every degree from 2 to 9. Checked against FreeSurfer's own library build with the volume probe's 28,600 random calls (every volume function, the B-splines' new calls included) in reproduce mode: 26,580 identical, 0 different, the other 2,020 not comparable (calls on which FreeSurfer crashes or never returns). Computing the coefficients of a 256-voxel cube takes 0.54 s against FreeSurfer's 0.52 s with 2 to 3 % less memory; transforming a 128-voxel cube is still slower (0.49 s against 0.35 s), for a later speed step. Four new defects of FreeSurfer recorded (FS-962 to FS-965). Its specification is ready for its clean room, with 481 open probe calls to compare against."
       - name: "mri_normalize"
         what: "The intensity normalisation of recon-all's T1 and brain steps: white matter scaled to 110, with control points, a brain mask from the atlas, and the white-matter outliers near the segmentation removed."
-        replica: "in-progress 2026-11-18"
+        replica: "done 2026-11-19"
         clean_room: "planned"
-        note: "Part 1 of 2 done: the program's own steps and every option's parsing. Checked against FreeSurfer's own code built as a library: 900 random calls with no difference in reproduce mode; on three recorded subjects, the atlas brain mask and the white-matter outlier removal give outputs identical to FreeSurfer's in both modes (12 of 12), for now in 79 s against FreeSurfer's 66 s. Part 2 assembles the program and replays its 24 recorded steps."
+        note: "Complete. recon-all's 24 recorded steps in 12 runs (six subjects, the classic and v8 streams) replayed: outputs identical to the recorded ones in both modes (24 of 24). The whole program against FreeSurfer's official program on 82 command lines covering every option and failure, two seeds: 0 different in reproduce mode (58 and 59 identical; the others counted apart: not comparable, where FreeSurfer crashes or reads memory it does not own, or differing only in FreeSurfer's error text after a failed file open, a known difference not yet modelled). Its parts were checked earlier against FreeSurfer's own code built as a library (900 random calls, no difference). Peak memory 566 MiB against FreeSurfer's 570 MiB on the T1 step and 1,173 MiB on the brain step. Still slower: 79 s against FreeSurfer's 66 s on three recorded subjects' 12 steps; the time goes to per-voxel reads and writes, for a later speed step. One new defect of FreeSurfer (FS-1017: it crashes when a step gives it no volume; larmorx stops with a clear error)."
       - name: "mri_convert"
         what: "The format converter both streams start with: reading and writing every volume format, conforming to 256 cubed, changing type, resampling and reorienting, and its statistics tables."
         replica: "in-progress 2026-11-18"
@@ -128,7 +128,7 @@ waves:
         what: "Reuter's robust registration, shared by `mri_robust_register` and `mri_robust_template` (both run by fMRIPrep): image scaling, subsampling, blurring and gradients, principal axes, matrix decompositions and transform distances, then the registration itself."
         replica: "in-progress 2026-11-18"
         clean_room: "planned"
-        note: "Part 1 of 2 begun: the helpers both programs reach, but the matrix square root. Checked against FreeSurfer's own files built with its flags: 16,100 random calls, 15,737 identical, 0 different, 363 not comparable (FreeSurfer crashes, hangs or reads memory it does not own). The blur and the gradients are for now about four times slower than FreeSurfer's and use more memory (a filter of the foundations keeps an extra copy; it is the next step of that filter's track). Three new defects of FreeSurfer recorded (FS-966 to FS-968)."
+        note: "Part 1 of 2 begun: the helpers both programs reach, but the matrix square root. Checked against FreeSurfer's own files built with its flags: 16,100 random calls, 15,737 identical, 0 different, 363 not comparable (FreeSurfer crashes, hangs or reads memory it does not own). After a fix of the foundations' filter (2026-11-19) the gradients are faster than FreeSurfer's (0.58 s against 0.81 s on a 256-voxel cube) and the blur 1.7 times slower (0.66 s against 0.39 s), both with slightly less memory than FreeSurfer's; the blur's remaining time is a frame copy in the volume library, for a later speed step. Three new defects of FreeSurfer recorded (FS-966 to FS-968)."
 
   - id: "3.3"
     name: Atlas
