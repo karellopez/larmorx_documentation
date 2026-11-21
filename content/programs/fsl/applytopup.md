@@ -18,7 +18,7 @@ reference:
     CHANGELOG.md: "546736ae45f1a3f5"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "65387e807d2da887"
+    crates/larmorx-core/src/defects.rs: "aa5109f57871ef02"
     crates/larmorx-fsl/src/cli/applytopup.rs: "6c753c57a27b935e"
     docs/api/fsl-topup.md: "5177b83d500b0c2f"
     python/larmorx/fsl/topup.py: "316784a1d5ebe0d4"
