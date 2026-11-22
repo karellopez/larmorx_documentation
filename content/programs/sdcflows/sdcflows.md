@@ -18,7 +18,7 @@ reference:
     CHANGELOG.md: "546736ae45f1a3f5"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "b6dc827e0c03c9f1"
+    crates/larmorx-core/src/defects.rs: "8aa4145d1990c63f"
     docs/api/sdcflows-fieldmap.md: "f80fef53d3d8b3c6"
     python/larmorx/sdcflows/app.py: "09204dc892fed513"
     validation/tools.toml: "f873f72ba8c4985c"
