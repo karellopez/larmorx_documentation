@@ -21,7 +21,7 @@ reference:
     crates/larmorx-afni/src/settings.rs: "8b2560253b92f512"
     crates/larmorx-cli/src/replica.rs: "bdcff4968024a104"
     crates/larmorx-core/src/cli.rs: "01fa0015abc1a111"
-    crates/larmorx-core/src/defects.rs: "80ff35756fa9d08b"
+    crates/larmorx-core/src/defects.rs: "f8b944b8f004d85a"
     docs/api/afni-tshift.md: "3e7ceb5513115003"
     python/larmorx/afni/tshift.py: "109d8c664b0d6d2f"
     validation/tools.toml: "f873f72ba8c4985c"
