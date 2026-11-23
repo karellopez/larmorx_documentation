@@ -106,7 +106,7 @@ waves:
     size: {replica: 41, clean_room: 30}
     programs: [mri_convert, mri_info, mri_add_xform_to_header, lta_convert, mri_robust_template, mri_normalize, mri_mask, mri_cc, mri_edit_wm_with_aseg, AntsDenoiseImageFs, AntsN4BiasFieldCorrectionFs, mri_segment, mri_pretess, mri_fill, mri_binarize, mri_segstats, mris_calc, mri_make_uchar, mri_vol2vol, mri_concat, mri_label2vol, mri_robust_register, mri_coreg, fs_temp_file, mri_nu_correct.mni, seg2cc, mergeseg, getfullpath]
     replica: "in-progress 2026-11-18"
-    replica_note: "Started 2026-11-18, one program or library piece at a time: first EPFL's B-splines, which many of the wave's programs use; next the intensity normalisation (`mri_normalize`, complete 2026-11-19), the format converter (`mri_convert`, complete 2026-11-22), the header report (`mri_info`, complete 2026-11-22), the header's transform name (`mri_add_xform_to_header`, complete 2026-11-22), the transform converter (`lta_convert`, complete 2026-11-22), the robust-registration library and its program (`mri_robust_register`, under way), the label masks (`mri_binarize`, complete 2026-11-21), the region statistics (`mri_segstats`, complete 2026-11-22), the value arithmetic (`mris_calc`, complete 2026-11-22), the byte conversion of the bias-corrected volume (`mri_make_uchar`, complete 2026-11-22) and the masks (`mri_mask`, complete 2026-11-22)."
+    replica_note: "Started 2026-11-18, one program or library piece at a time: first EPFL's B-splines, which many of the wave's programs use; next the intensity normalisation (`mri_normalize`, complete 2026-11-19), the format converter (`mri_convert`, complete 2026-11-22), the header report (`mri_info`, complete 2026-11-22), the header's transform name (`mri_add_xform_to_header`, complete 2026-11-22), the transform converter (`lta_convert`, complete 2026-11-22), the temporary files and full paths (`fs_temp_file`, `getfullpath`, complete 2026-11-22), the robust-registration library and its program (`mri_robust_register`, under way), the label masks (`mri_binarize`, complete 2026-11-21), the region statistics (`mri_segstats`, complete 2026-11-22), the value arithmetic (`mris_calc`, complete 2026-11-22), the byte conversion of the bias-corrected volume (`mri_make_uchar`, complete 2026-11-22) and the masks (`mri_mask`, complete 2026-11-22)."
     clean_room: "in-progress 2026-11-19"
     clean_room_note: "Started 2026-11-19 with EPFL's B-splines, written from their specification alone (complete 2026-11-21); the programs follow as their specifications are made ready."
     parts:
@@ -140,6 +140,16 @@ waves:
         replica: "done 2026-11-22"
         clean_room: "planned"
         note: "Complete; it runs as the larmorx-freesurfer program `lta_convert`, with every option, input and output format, message and exit status. The 12 recorded steps of the 12 recorded runs replayed: 12 identical in both modes. fMRIPrep's, sMRIPrep's and bbregister's calls on the transforms and volumes of 3 recorded heads: 21 identical to FreeSurfer's official program. The whole program against the official one on 1,403 command lines of two seeds and extra cases: 1,247 identical in reproduce mode, 0 different, 156 not comparable (FreeSurfer crashes, aborts, never ends or reads memory it never wrote). Peak memory as FreeSurfer's (5.5 to 6 MiB). Twelve new defects of FreeSurfer recorded (FS-1159 to FS-1170)."
+      - name: "fs_temp_file"
+        what: "Makes a temporary file or folder with a unique name, as recon-all's scripts do for their working files."
+        replica: "done 2026-11-22"
+        clean_room: "planned"
+        note: "Complete, every option and path; it runs as the larmorx-freesurfer program `fs_temp_file`, its files private to their owner as FreeSurfer's are. 73 command lines identical to FreeSurfer's official program, recon-all's call included; peak memory just below FreeSurfer's (4.0 MiB against 4.5). Two new defects of FreeSurfer recorded (FS-1171, FS-1172), among them an unusable folder replaced without a word."
+      - name: "getfullpath"
+        what: "FreeSurfer's 42-line shell script that turns a file name into its full path, run by the synthmorph registration and the corpus callosum segmentation."
+        replica: "done 2026-11-22"
+        clean_room: "planned"
+        note: "Complete; it runs as the larmorx-freesurfer program `getfullpath`. By default the name is taken as given; in reproduce mode a measured model of the C shell's reading of words gives FreeSurfer's results. The 54 recorded calls of 18 runs identical in both modes; 134 fixed and 1,500 random names, 0 different; 111 rare shell forms (bracket ranges, a new line in a name) not reproduced, counted, both modes then the name as given with a notice. Four new defects of FreeSurfer recorded (FS-1173 to FS-1176)."
       - name: "mri_binarize"
         what: "Thresholds, label matches and masks: the white-matter mask, the cortex and its inverse, the counts of the white matter's edits, the ones and masks of the bias correction script, with every option, its stand-alone modes and the topology fix of a label."
         replica: "done 2026-11-21"
