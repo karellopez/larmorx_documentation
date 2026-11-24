@@ -20,7 +20,7 @@
 # plan changes. Names of programs and stages only: nothing taken from FreeSurfer's source
 # (no source files, line numbers or functions).
 
-updated: "2026-11-18"
+updated: "2026-11-24"
 
 waves:
   - id: "3.0"
@@ -106,7 +106,7 @@ waves:
     size: {replica: 41, clean_room: 30}
     programs: [mri_convert, mri_info, mri_add_xform_to_header, lta_convert, mri_robust_template, mri_normalize, mri_mask, mri_cc, mri_edit_wm_with_aseg, AntsDenoiseImageFs, AntsN4BiasFieldCorrectionFs, mri_segment, mri_pretess, mri_fill, mri_binarize, mri_segstats, mris_calc, mri_make_uchar, mri_vol2vol, mri_concat, mri_label2vol, mri_robust_register, mri_coreg, fs_temp_file, mri_nu_correct.mni, seg2cc, mergeseg, getfullpath]
     replica: "in-progress 2026-11-18"
-    replica_note: "Started 2026-11-18, one program or library piece at a time: first EPFL's B-splines, which many of the wave's programs use; next the intensity normalisation (`mri_normalize`, complete 2026-11-19), the format converter (`mri_convert`, complete 2026-11-22), the header report (`mri_info`, complete 2026-11-22), the header's transform name (`mri_add_xform_to_header`, complete 2026-11-22), the transform converter (`lta_convert`, complete 2026-11-22), the temporary files and full paths (`fs_temp_file`, `getfullpath`, complete 2026-11-22), the resampling onto another volume (`mri_vol2vol`, complete 2026-11-23), the concatenation of volumes (`mri_concat`, complete 2026-11-23), the labels into volumes (`mri_label2vol`, complete 2026-11-24), the robust-registration library and its program (`mri_robust_register`, complete 2026-11-24), the robust template of several images (`mri_robust_template`, under way: all but the affine mean space), the label masks (`mri_binarize`, complete 2026-11-21), the region statistics (`mri_segstats`, complete 2026-11-22), the value arithmetic (`mris_calc`, complete 2026-11-22), the byte conversion of the bias-corrected volume (`mri_make_uchar`, complete 2026-11-22), the masks (`mri_mask`, complete 2026-11-22), the corpus callosum (`mri_cc`, complete 2026-11-23) the white-matter segmentation (`mri_segment`, complete 2026-11-24) and its edit from the subcortical segmentation (`mri_edit_wm_with_aseg`, complete 2026-11-24)."
+    replica_note: "Started 2026-11-18, one program or library piece at a time: first EPFL's B-splines, which many of the wave's programs use; next the intensity normalisation (`mri_normalize`, complete 2026-11-19), the format converter (`mri_convert`, complete 2026-11-22), the header report (`mri_info`, complete 2026-11-22), the header's transform name (`mri_add_xform_to_header`, complete 2026-11-22), the transform converter (`lta_convert`, complete 2026-11-22), the temporary files and full paths (`fs_temp_file`, `getfullpath`, complete 2026-11-22), the resampling onto another volume (`mri_vol2vol`, complete 2026-11-23), the concatenation of volumes (`mri_concat`, complete 2026-11-23), the labels into volumes (`mri_label2vol`, complete 2026-11-24), the robust-registration library and its program (`mri_robust_register`, complete 2026-11-24), the robust template of several images (`mri_robust_template`, under way: all but the affine mean space), the label masks (`mri_binarize`, complete 2026-11-21), the region statistics (`mri_segstats`, complete 2026-11-22), the value arithmetic (`mris_calc`, complete 2026-11-22), the byte conversion of the bias-corrected volume (`mri_make_uchar`, complete 2026-11-22), the masks (`mri_mask`, complete 2026-11-22), the corpus callosum (`mri_cc`, complete 2026-11-23) the white-matter segmentation (`mri_segment`, complete 2026-11-24) its edit from the subcortical segmentation (`mri_edit_wm_with_aseg`, complete 2026-11-24) and the corpus callosum scripts (`seg2cc` and `mergeseg`, complete 2026-11-24)."
     clean_room: "in-progress 2026-11-19"
     clean_room_note: "Started 2026-11-19 with EPFL's B-splines, written from their specification alone (complete 2026-11-21); the programs follow as their specifications are made ready."
     parts:
@@ -215,6 +215,16 @@ waves:
         replica: "done 2026-11-24"
         clean_room: "planned"
         note: "Complete: every option, message and failure; it runs as the larmorx-freesurfer program `mri_edit_wm_with_aseg`. recon-all's 36 recorded steps of the 12 runs identical to FreeSurfer's with `reproduce`; by default 27 identical and 9 corrected: FreeSurfer fills one diagonal neighbour on the wrong side (FS-1237, 1 to 10 voxels on 9 of the 12 heads), which larmorx corrects, with a notice. The whole program against FreeSurfer's official program on 93 command lines of each of two seeds: 91 identical, 0 different, 2 not comparable (FreeSurfer reads or writes memory it does not own), and 7 calls with other options on two recorded heads identical too. Peak memory below FreeSurfer's (359 MiB against 456 for the classic call, 424 against 638 for FreeSurfer 8's). Faster on the classic call (10 s against 15.6 s), slower for now on FreeSurfer 8's (27 s against 20.7 s), most of it a shared volume step, a speed item. Seven new defects of FreeSurfer recorded (FS-1233, FS-1234, FS-1236 to FS-1240)."
+      - name: "seg2cc"
+        what: "The script recon-all runs in every run to label the corpus callosum: it prepares the segmentation, runs `mri_cc` and merges the labels back with `mergeseg`."
+        replica: "done 2026-11-24"
+        clean_room: "planned"
+        note: "Complete: every option, message and failure. A port of the shell script (tcsh's rules for words, folders and its log lines modelled) that runs the ported programs in its own process, as the larmorx-freesurfer program `seg2cc`. recon-all's 12 recorded steps identical to FreeSurfer's in both modes; the path for a segmentation that is not conformed identical in both modes on three real heads. The scripts against FreeSurfer's official scripts (with `mergeseg` and `fscalc`) on 149 cases: 141 identical, 0 different, 8 not reproduced (names that tcsh reads a second time as shell words, FS-1277, which neither mode reproduces; the debug trace; one path that waits for `mri_volsynth`). Peak memory below FreeSurfer's (330 MiB against 345). Eight new defects of FreeSurfer recorded with `mergeseg` and `fscalc` (FS-1274 to FS-1280, FS-1341)."
+      - name: "mergeseg"
+        what: "Merges the labels of one segmentation into another, as `seg2cc` does with the corpus callosum."
+        replica: "done 2026-11-24"
+        clean_room: "planned"
+        note: "Complete: every option, message and failure, as the larmorx-freesurfer program `mergeseg`; checked through `seg2cc`'s recorded steps and the scripts' comparison above. Peak memory below FreeSurfer's (264 MiB against 275)."
       - name: "The robust-registration library"
         what: "Reuter's robust registration, shared by `mri_robust_register` and `mri_robust_template` (both run by fMRIPrep): image scaling, subsampling, blurring and gradients, principal axes, matrix decompositions and transform distances, then the registration itself."
         replica: "in-progress 2026-11-18"
@@ -244,9 +254,15 @@ waves:
     delivers: "The white and pial surfaces, the surface registration to the folding atlas, the parcellations, the segmentations made from the surfaces and every statistics file; fMRIPrep's surface programs and `bbregister`, with `tkregister2_cmdl` (its replica in `larmorx-nc`, as a program of its own)."
     size: {replica: 37, clean_room: 29}
     programs: [mri_relabel_hypointensities, mri_surf2volseg, mri_brainvol_stats, mri_vol2surf, mri_cor2label, mris_autodet_gwstats, mris_place_surface, mris_curvature, mris_register, mris_jacobian, mrisp_paint, mris_ca_label, mris_curvature_stats, mris_volmask, mris_anatomical_stats, mris_label2annot, mris_convert, mri_surf2surf, mris_expand, mri_segreg, tkregister2_cmdl, label-cortex, fscalc, mri_mergelabels, rca-surfreg, vertexvol, pctsurfcon, bbregister, fsr-getxopts]
-    replica: "planned"
+    replica: "in-progress 2026-11-24"
+    replica_note: "Started early, 2026-11-24, with one script that wave 3.2's `mergeseg` runs: `fscalc`, complete but one path."
     clean_room: "planned"
-    parts: []
+    parts:
+      - name: "fscalc"
+        what: "Voxel arithmetic on volumes from the command line, a script that `mergeseg` runs."
+        replica: "in-progress 2026-11-24"
+        clean_room: "planned"
+        note: "Done early with `mergeseg`, as the larmorx-freesurfer program `fscalc`: every option and path but one (a number as the first input, which needs `mri_volsynth`, not yet ported); checked with the scripts' comparison of `seg2cc`."
 
   - id: "3.6"
     name: The classic-only programs
